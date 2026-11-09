@@ -1,0 +1,63 @@
+{
+  "namespace": "RENT",
+  "area": "DR",
+  "codes": [
+    {
+      "code": "RENT-DR-001",
+      "key": "BACKUP_PASSWORD_CHECK_OVERDUE",
+      "aliases": [
+        "DR-270-OVERDUE"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Пароль копий давно не проверялся",
+        "uk": "Пароль копій давно не перевірявся",
+        "en": "Backup password not checked for a while",
+        "de": "Backup-Passwort länger nicht geprüft"
+      },
+      "cause": {
+        "ru": "Срок проверки прошёл {days} дн. назад. Если пароль забыт, копии не открыть.",
+        "uk": "Строк перевірки минув {days} дн. тому. Якщо пароль забуто, копії не відкрити.",
+        "en": "The check was due {days} days ago. If the password is forgotten, backups cannot be opened.",
+        "de": "Die Prüfung war vor {days} Tagen fällig. Ist das Passwort vergessen, lassen sich Backups nicht öffnen."
+      },
+      "action": {
+        "ru": "1. Откройте «Безопасность → Копии».\n2. Нажмите «Проверить сейчас» и введите пароль копий.\n3. Не помните пароль — используйте ключ восстановления.",
+        "uk": "1. Відкрийте «Безпека → Копії».\n2. Натисніть «Перевірити зараз» і введіть пароль копій.\n3. Не пам'ятаєте пароль — скористайтеся ключем відновлення.",
+        "en": "1. Open “Security → Backups”.\n2. Click “Check now” and enter the backup password.\n3. Forgot it? Use a recovery key.",
+        "de": "1. Öffnen Sie „Sicherheit → Backups“.\n2. Klicken Sie auf „Jetzt prüfen“ und geben Sie das Backup-Passwort ein.\n3. Vergessen? Verwenden Sie einen Wiederherstellungsschlüssel."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "пароль задавал другой человек"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version"
+          ]
+        }
+      ],
+      "params": {
+        "days": "int"
+      },
+      "retryable": true,
+      "help": "errors/RENT-DR-001",
+      "since": "1.0.0",
+      "tags": [
+        "backup",
+        "password"
+      ]
+    }
+  ]
+}

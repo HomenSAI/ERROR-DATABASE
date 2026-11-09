@@ -1,0 +1,21 @@
+{
+  "namespace": "COMMON",
+  "area": "SYS",
+  "codes": [
+    {
+      "code": "COMMON-SYS-001",
+      "key": "UNKNOWN_ERROR",
+      "level": "error",
+      "audience": "user",
+      "title": {"ru": "Неизвестная ошибка программы", "uk": "Невідома помилка програми", "en": "Unknown application error", "de": "Unbekannter Programmfehler"},
+      "cause": {"ru": "Программа столкнулась с ситуацией, для которой ещё нет описания.", "uk": "Програма натрапила на ситуацію, для якої ще немає опису.", "en": "The application ran into a situation that has no description yet.", "de": "Das Programm ist auf eine Situation gestoßen, für die es noch keine Beschreibung gibt."},
+      "action": {"ru": "1. Повторите действие.\n2. Если ошибка повторяется — нажмите «Передать…» и отправьте пакет поддержки.", "uk": "1. Повторіть дію.\n2. Якщо помилка повторюється — натисніть «Передати…» і надішліть пакет підтримки.", "en": "1. Try the action again.\n2. If it happens again, click “Send…” and submit a support bundle.", "de": "1. Wiederholen Sie die Aktion.\n2. Tritt der Fehler erneut auf, klicken Sie auf „Senden…“ und übermitteln Sie ein Support-Paket."},
+      "escalation": [{"to": "self", "when": "всегда первым"}, {"to": "ai", "assistant": "any", "prompt": "analyze-error/v1", "data": ["code", "app_version", "os"]}, {"to": "developer", "channel": "support-bundle", "data": ["code", "app_version", "os", "log_excerpt_redacted"]}],
+      "retryable": true,
+      "http_status": 500,
+      "help": "errors/COMMON-SYS-001",
+      "since": "1.0.0",
+      "tags": ["system"]
+    }
+  ]
+}
