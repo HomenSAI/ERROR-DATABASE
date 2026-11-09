@@ -1,0 +1,16 @@
+name: Исправить текст или перевод / Fix text or translation
+description: Поправить текст существующего кода
+labels: [fix-text]
+body:
+  - type: input
+    id: code
+    attributes: {label: "Код", placeholder: "RENT-DR-001"}
+    validations: {required: true}
+  - type: dropdown
+    id: lang
+    attributes: {label: "Язык", options: [ru, uk, en, de, все]}
+    validations: {required: true}
+  - type: textarea
+    id: proposal
+    attributes: {label: "Как должно быть и почему"}
+    validations: {required: true}
