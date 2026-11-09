@@ -1,0 +1,8 @@
+{
+  "COMMON": {"title": "Общие для всех продуктов", "areas": {"SYS": "система и неизвестные ошибки", "NET": "сеть", "DATA": "данные и база"}},
+  "CORE": {"title": "HomenS.AI Core", "areas": {}},
+  "RENT": {"title": "HomenS.AI Rent", "areas": {"DR": "копии и восстановление", "BILL": "счета", "PAY": "оплаты", "READ": "показания"}},
+  "JP": {"title": "HomenS.AI JobPilot Pro", "areas": {}},
+  "VPN": {"title": "HomenS.AI Auto VPN", "areas": {}},
+  "SEC": {"title": "HomenS.AI SECURITY-MODULE", "areas": {"AUTH": "вход и восстановление доступа", "KEY": "ключи и шифрование", "INT": "целостность и журнал"}}
+}
