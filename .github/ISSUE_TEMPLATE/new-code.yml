@@ -1,0 +1,26 @@
+name: Новый код ошибки / New error code
+description: Предложить новый код (ARCHITECTURE.md §8)
+labels: [new-code]
+body:
+  - type: input
+    id: namespace
+    attributes: {label: "Пространство и область (например RENT-DR)", placeholder: "RENT-DR"}
+    validations: {required: true}
+  - type: textarea
+    id: title
+    attributes: {label: "Что случилось — одной строкой (RU/UK/EN/DE, можно только RU)"}
+    validations: {required: true}
+  - type: textarea
+    id: action
+    attributes: {label: "Что делать — шаги для пользователя"}
+    validations: {required: true}
+  - type: textarea
+    id: escalation
+    attributes: {label: "Кому передать, если не помогло (админ / нейросеть / разработчик)"}
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Публичность (§9)
+      options:
+        - label: В тексте нет внутренних путей, SQL, секретов, личных данных и деталей обхода защиты
+          required: true

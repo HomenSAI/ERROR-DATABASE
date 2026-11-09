@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LANGS = ("ru", "uk", "en", "de")
 REQUIRED = ("code", "key", "level", "audience", "title", "cause", "action", "escalation", "retryable", "help", "since")
-ALLOWED = set(REQUIRED) | {"aliases", "params", "http_status", "related", "deprecated", "replaced_by", "tags"}
+ALLOWED = set(REQUIRED) | {"aliases", "params", "http_status", "related", "deprecated", "replaced_by", "tags", "fixed_in", "examples"}
 LEVELS = {"info", "warn", "error", "alarm"}
 AUDIENCES = {"user", "admin", "developer"}
 STEPS = {"self", "admin", "ai", "developer"}
@@ -117,6 +117,11 @@ def _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs) -> list[
     for field in ("since", "deprecated"):
         if field in entry and not VERSION_RE.match(str(entry[field])):
             errors.append(f"{where}: {field} — версия X.Y.Z")
+    for product, version in (entry.get("fixed_in") or {}).items():
+        if not VERSION_RE.match(str(version)):
+            errors.append(f"{where}: fixed_in.{product} — версия X.Y.Z")
+    if "examples" in entry and entry.get("audience") != "developer":
+        errors.append(f"{where}: examples — только для audience developer")
     for target in [*entry.get("related", []), *([entry["replaced_by"]] if "replaced_by" in entry else [])]:
         refs.append((where, target))
     return errors

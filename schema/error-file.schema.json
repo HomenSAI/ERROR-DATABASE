@@ -3,53 +3,231 @@
   "$id": "https://github.com/HomenSAI/Error-database/schema/error-file.schema.json",
   "title": "HomenS.AI error codes of one area (ARCHITECTURE.md §4)",
   "type": "object",
-  "required": ["namespace", "area", "codes"],
+  "required": [
+    "namespace",
+    "area",
+    "codes"
+  ],
   "additionalProperties": false,
   "properties": {
-    "namespace": {"type": "string", "pattern": "^[A-Z][A-Z0-9]{1,9}$"},
-    "area": {"type": "string", "pattern": "^[A-Z0-9]{2,8}$"},
-    "codes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/entry"}}
+    "namespace": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9]{1,9}$"
+    },
+    "area": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]{2,8}$"
+    },
+    "codes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
   },
   "$defs": {
     "i18n": {
-      "type": "object", "required": ["ru", "uk", "en", "de"], "additionalProperties": false,
-      "properties": {"ru": {"type": "string", "minLength": 1}, "uk": {"type": "string", "minLength": 1}, "en": {"type": "string", "minLength": 1}, "de": {"type": "string", "minLength": 1}}
-    },
-    "step": {
-      "type": "object", "required": ["to"], "additionalProperties": false,
-      "properties": {
-        "to": {"enum": ["self", "admin", "ai", "developer"]},
-        "when": {"type": "string"},
-        "assistant": {"enum": ["any", "local"]},
-        "prompt": {"type": "string", "pattern": "^[a-z0-9-]+/v[0-9]+$"},
-        "channel": {"enum": ["support-bundle"]},
-        "data": {"type": "array", "items": {"enum": ["code", "params", "app_version", "os", "log_excerpt_redacted"]}, "uniqueItems": true}
-      }
-    },
-    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
-    "entry": {
       "type": "object",
-      "required": ["code", "key", "level", "audience", "title", "cause", "action", "escalation", "retryable", "help", "since"],
+      "required": [
+        "ru",
+        "uk",
+        "en",
+        "de"
+      ],
       "additionalProperties": false,
       "properties": {
-        "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9]{1,9}-[A-Z0-9]{2,8}-[0-9]{3}$"},
-        "key": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,80}$"},
-        "aliases": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-        "level": {"enum": ["info", "warn", "error", "alarm"]},
-        "audience": {"enum": ["user", "admin", "developer"]},
-        "title": {"$ref": "#/$defs/i18n"},
-        "cause": {"$ref": "#/$defs/i18n"},
-        "action": {"$ref": "#/$defs/i18n"},
-        "escalation": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/step"}},
-        "params": {"type": "object", "additionalProperties": {"enum": ["int", "str", "date", "money"]}},
-        "retryable": {"type": "boolean"},
-        "http_status": {"type": "integer", "minimum": 400, "maximum": 599},
-        "help": {"type": "string", "minLength": 3},
-        "related": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-        "since": {"$ref": "#/$defs/version"},
-        "deprecated": {"$ref": "#/$defs/version"},
-        "replaced_by": {"type": "string"},
-        "tags": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9-]+$"}, "uniqueItems": true}
+        "ru": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uk": {
+          "type": "string",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "de": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "required": [
+        "to"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "to": {
+          "enum": [
+            "self",
+            "admin",
+            "ai",
+            "developer"
+          ]
+        },
+        "when": {
+          "type": "string"
+        },
+        "assistant": {
+          "enum": [
+            "any",
+            "local"
+          ]
+        },
+        "prompt": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+/v[0-9]+$"
+        },
+        "channel": {
+          "enum": [
+            "support-bundle"
+          ]
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "code",
+              "params",
+              "app_version",
+              "os",
+              "log_excerpt_redacted"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "entry": {
+      "type": "object",
+      "required": [
+        "code",
+        "key",
+        "level",
+        "audience",
+        "title",
+        "cause",
+        "action",
+        "escalation",
+        "retryable",
+        "help",
+        "since"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9]{1,9}-[A-Z0-9]{2,8}-[0-9]{3}$"
+        },
+        "key": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{2,80}$"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "level": {
+          "enum": [
+            "info",
+            "warn",
+            "error",
+            "alarm"
+          ]
+        },
+        "audience": {
+          "enum": [
+            "user",
+            "admin",
+            "developer"
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/i18n"
+        },
+        "cause": {
+          "$ref": "#/$defs/i18n"
+        },
+        "action": {
+          "$ref": "#/$defs/i18n"
+        },
+        "escalation": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "int",
+              "str",
+              "date",
+              "money"
+            ]
+          }
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "http_status": {
+          "type": "integer",
+          "minimum": 400,
+          "maximum": 599
+        },
+        "help": {
+          "type": "string",
+          "minLength": 3
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "since": {
+          "$ref": "#/$defs/version"
+        },
+        "deprecated": {
+          "$ref": "#/$defs/version"
+        },
+        "replaced_by": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "uniqueItems": true
+        },
+        "fixed_in": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/version"
+          }
+        },
+        "examples": {
+          "type": "string",
+          "pattern": "^examples/[A-Z0-9-]+\\.md$"
+        }
       }
     }
   }
