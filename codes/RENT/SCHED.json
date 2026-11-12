@@ -1,0 +1,67 @@
+{
+  "namespace": "RENT",
+  "area": "SCHED",
+  "codes": [
+    {
+      "code": "RENT-SCHED-001",
+      "key": "SCHEDULER_JOB_FAILED",
+      "aliases": [
+        "scheduler_job_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Задание планировщика не выполнено",
+        "uk": "Завдання планувальника не виконано",
+        "en": "Scheduler job failed",
+        "de": "Planer-Aufgabe nicht ausgeführt"
+      },
+      "cause": {
+        "ru": "Задание не завершилось из-за временного сбоя или недоступных данных.",
+        "uk": "Завдання не завершилося через тимчасовий збій або недоступні дані.",
+        "en": "The job did not finish because of a temporary failure or unavailable data.",
+        "de": "Die Aufgabe wurde wegen einer vorübergehenden Störung oder nicht verfügbarer Daten nicht abgeschlossen."
+      },
+      "action": {
+        "ru": "1. Откройте «Важное»: там указано задание.\n2. Запустите его вручную и проверьте журнал; повтор по расписанию пройдёт сам.",
+        "uk": "1. Відкрийте «Важливе»: там указано завдання.\n2. Запустіть його вручну й перевірте журнал; повтор за розкладом пройде сам.",
+        "en": "1. Open “Important”: it shows the job.\n2. Run it manually and check the log; the scheduled retry will happen automatically.",
+        "de": "1. Öffnen Sie „Wichtig“: Dort wird die Aufgabe angezeigt.\n2. Starten Sie sie manuell und prüfen Sie das Protokoll; die geplante Wiederholung erfolgt automatisch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SCHED-001",
+      "since": "1.1.0",
+      "tags": [
+        "scheduler"
+      ]
+    }
+  ]
+}

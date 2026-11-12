@@ -1,0 +1,306 @@
+{
+  "namespace": "RENT",
+  "area": "FILE",
+  "codes": [
+    {
+      "code": "RENT-FILE-001",
+      "key": "UPLOAD_TOO_BIG",
+      "aliases": [
+        "upload_too_big"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл слишком большой (не больше 30 МБ)",
+        "uk": "Файл завеликий (не більше 30 МБ)",
+        "en": "File is too large (no more than 30 MB)",
+        "de": "Datei ist zu groß (höchstens 30 MB)"
+      },
+      "cause": {
+        "ru": "В файле много данных или тяжёлые изображения, поэтому он превышает допустимый размер.",
+        "uk": "У файлі багато даних або важкі зображення, тому він перевищує допустимий розмір.",
+        "en": "The file contains a lot of data or heavy images, so it exceeds the allowed size.",
+        "de": "Die Datei enthält viele Daten oder große Bilder und überschreitet daher die zulässige Größe."
+      },
+      "action": {
+        "ru": "1. Уменьшите файл (сожмите фото, уберите лишние листы) и загрузите снова.",
+        "uk": "1. Зменште файл (стисніть фото, приберіть зайві аркуші) й завантажте знову.",
+        "en": "1. Reduce the file size (compress photos, remove unnecessary sheets) and upload it again.",
+        "de": "1. Verkleinern Sie die Datei (Bilder komprimieren, unnötige Blätter entfernen) und laden Sie sie erneut hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FILE-001",
+      "since": "1.1.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "RENT-FILE-002",
+      "key": "OS_PERMISSION",
+      "aliases": [
+        "os_permission"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нет прав на файл или папку",
+        "uk": "Немає прав на файл або теку",
+        "en": "No permission for the file or folder",
+        "de": "Keine Berechtigung für Datei oder Ordner"
+      },
+      "cause": {
+        "ru": "Windows ограничивает доступ к этой папке для вашей учётной записи, поэтому программа не может прочитать или записать файл.",
+        "uk": "Windows обмежує доступ до цієї теки для вашого облікового запису, тому програма не може прочитати або записати файл.",
+        "en": "Windows limits access to this folder for your account, so the program cannot read or write the file.",
+        "de": "Windows beschränkt den Zugriff auf diesen Ordner für Ihr Konto, daher kann das Programm die Datei nicht lesen oder schreiben."
+      },
+      "action": {
+        "ru": "1. Дайте своей учётной записи Windows права на папку программы и папку копий либо выберите другую папку.",
+        "uk": "1. Надайте своєму обліковому запису Windows права на теку програми й теку копій або виберіть іншу теку.",
+        "en": "1. Give your Windows account rights to the program folder and the backup folder, or choose another folder.",
+        "de": "1. Geben Sie Ihrem Windows-Konto Rechte am Programmordner und am Sicherungsordner, oder wählen Sie einen anderen Ordner."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FILE-002",
+      "since": "1.1.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "RENT-FILE-003",
+      "key": "OS_NOT_FOUND",
+      "aliases": [
+        "os_not_found"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл или папка не найдены",
+        "uk": "Файл або теку не знайдено",
+        "en": "File or folder not found",
+        "de": "Datei oder Ordner nicht gefunden"
+      },
+      "cause": {
+        "ru": "Папку могли переместить, переименовать или удалить, либо диск, на котором она была, сейчас не подключён.",
+        "uk": "Теку могли перемістити, перейменувати або видалити, або диск, на якому вона була, зараз не підключено.",
+        "en": "The folder may have been moved, renamed or deleted, or the disk it was on is not connected right now.",
+        "de": "Der Ordner wurde möglicherweise verschoben, umbenannt oder gelöscht, oder das Laufwerk ist derzeit nicht verbunden."
+      },
+      "action": {
+        "ru": "1. Проверьте путь и подключён ли диск; выберите папку заново.",
+        "uk": "1. Перевірте шлях і чи підключено диск; виберіть теку заново.",
+        "en": "1. Check the path and whether the disk is connected; choose the folder again.",
+        "de": "1. Prüfen Sie den Pfad und ob das Laufwerk verbunden ist; wählen Sie den Ordner erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FILE-003",
+      "since": "1.1.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "RENT-FILE-004",
+      "key": "OS_DISK_FULL",
+      "aliases": [
+        "os_disk_full"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "На диске нет свободного места",
+        "uk": "На диску немає вільного місця",
+        "en": "Not enough free space on the disk",
+        "de": "Nicht genügend freier Speicher auf dem Datenträger"
+      },
+      "cause": {
+        "ru": "Свободное место на диске заняли другие файлы, копии и записи программы.",
+        "uk": "Вільне місце на диску зайняли інші файли, копії та записи програми.",
+        "en": "Other files, backups and program records have taken up the free space on the disk.",
+        "de": "Andere Dateien, Sicherungen und Programmaufzeichnungen belegen den freien Speicherplatz."
+      },
+      "action": {
+        "ru": "1. Освободите место и повторите действие.",
+        "uk": "1. Звільніть місце й повторіть дію.",
+        "en": "1. Free up space and repeat the action.",
+        "de": "1. Geben Sie Speicherplatz frei und wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FILE-004",
+      "since": "1.1.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "RENT-FILE-005",
+      "key": "FILE_NOT_FOUND",
+      "aliases": [
+        "file_not_found"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл архива файлов не найден",
+        "uk": "Файл архіву файлів не знайдено",
+        "en": "Archive file not found",
+        "de": "Archivdatei nicht gefunden"
+      },
+      "cause": {
+        "ru": "Файл могли перенести, переименовать или удалить, либо диск с папкой файлов сейчас недоступен.",
+        "uk": "Файл могли перенести, перейменувати або видалити, або диск із текою файлів зараз недоступний.",
+        "en": "The file may have been moved, renamed or deleted, or the drive with the files folder is currently unavailable.",
+        "de": "Die Datei wurde möglicherweise verschoben, umbenannt oder gelöscht, oder das Laufwerk mit dem Dateiordner ist derzeit nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. Проверьте папку файлов и диск; файл мог быть перенесён или удалён.",
+        "uk": "1. Перевірте теку файлів і диск; файл могли перенести або видалити.",
+        "en": "1. Check the files folder and the drive; the file may have been moved or deleted.",
+        "de": "1. Prüfen Sie den Dateiordner und das Laufwerk; die Datei wurde möglicherweise verschoben oder gelöscht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FILE-005",
+      "since": "1.1.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "RENT-FILE-006",
+      "key": "PRIVACY_FILE_PERMISSIONS",
+      "aliases": [
+        "privacy_file_permissions"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У файла базы, ключа или копии слишком широкие права",
+        "uk": "У файлу бази, ключа або копії надто широкі права",
+        "en": "The database, key or backup file has permissions that are too broad",
+        "de": "Die Datenbank-, Schlüssel- oder Sicherungsdatei hat zu weitreichende Rechte"
+      },
+      "cause": {
+        "ru": "Файлы созданы с настройками по умолчанию или скопированы из общей папки, поэтому доступ к ним шире, чем нужно.",
+        "uk": "Файли створені з типовими налаштуваннями або скопійовані зі спільної теки, тому доступ до них ширший, ніж потрібно.",
+        "en": "Files are created with default settings or copied from a shared folder, so access is wider than necessary.",
+        "de": "Dateien werden mit Standardeinstellungen erstellt oder aus einem freigegebenen Ordner kopiert, daher ist der Zugriff weiter als nötig."
+      },
+      "action": {
+        "ru": "1. Оставьте доступ только своей учётной записи Windows или Linux: уберите «Все пользователи» и общий доступ к папке.",
+        "uk": "1. Залиште доступ лише своєму обліковому запису Windows або Linux: приберіть «Усі користувачі» і спільний доступ до теки.",
+        "en": "1. Allow access only for your own Windows or Linux account: remove “All users” and disable folder sharing.",
+        "de": "1. Erlauben Sie den Zugriff nur für Ihr eigenes Windows- oder Linux-Konto: Entfernen Sie „Alle Benutzer“ und heben Sie die Ordnerfreigabe auf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FILE-006",
+      "since": "1.1.0",
+      "tags": [
+        "files"
+      ]
+    }
+  ]
+}

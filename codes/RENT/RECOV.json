@@ -1,0 +1,438 @@
+{
+  "namespace": "RENT",
+  "area": "RECOV",
+  "codes": [
+    {
+      "code": "RENT-RECOV-001",
+      "key": "RECOVERY_LIMIT",
+      "aliases": [
+        "recovery_limit"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ключей восстановления уже три",
+        "uk": "Ключів відновлення вже три",
+        "en": "There are already three recovery keys",
+        "de": "Es gibt bereits drei Wiederherstellungsschlüssel"
+      },
+      "cause": {
+        "ru": "Все доступные места для ключей восстановления уже заняты.",
+        "uk": "Усі доступні місця для ключів відновлення вже зайняті.",
+        "en": "All available slots for recovery keys are already taken.",
+        "de": "Alle verfügbaren Plätze für Wiederherstellungsschlüssel sind bereits belegt."
+      },
+      "action": {
+        "ru": "1. Отзовите ненужный ключ, чтобы добавить новый.",
+        "uk": "1. Відкличте непотрібний ключ, щоб додати новий.",
+        "en": "1. Revoke an unnecessary key to add a new one.",
+        "de": "1. Widerrufen Sie einen nicht benötigten Schlüssel, um einen neuen hinzuzufügen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-001",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "RENT-RECOV-002",
+      "key": "RECOVERY_NAME",
+      "aliases": [
+        "recovery_name"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Имя ключа восстановления — от 1 до 60 знаков",
+        "uk": "Назва ключа відновлення — від 1 до 60 знаків",
+        "en": "Recovery key name must be 1 to 60 characters",
+        "de": "Der Name des Wiederherstellungsschlüssels muss 1 bis 60 Zeichen lang sein"
+      },
+      "cause": {
+        "ru": "Название ключа оставлено пустым или получилось слишком длинным.",
+        "uk": "Назву ключа залишено порожньою або вона вийшла занадто довгою.",
+        "en": "The key name is empty or too long.",
+        "de": "Der Schlüsselname ist leer oder zu lang."
+      },
+      "action": {
+        "ru": "1. Назовите ключ коротко, например «Сейф» или «Брат».",
+        "uk": "1. Назвіть ключ коротко, наприклад «Сейф» або «Брат».",
+        "en": "1. Give the key a short name, for example “Safe” or “Brother”.",
+        "de": "1. Geben Sie dem Schlüssel einen kurzen Namen, zum Beispiel „Tresor“ oder „Bruder“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-002",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "RENT-RECOV-003",
+      "key": "RECOVERY_UNKNOWN",
+      "aliases": [
+        "recovery_unknown"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такого ключа восстановления нет",
+        "uk": "Такого ключа відновлення немає",
+        "en": "No such recovery key",
+        "de": "Diesen Wiederherstellungsschlüssel gibt es nicht"
+      },
+      "cause": {
+        "ru": "Ключ мог быть отозван, а список на странице — устареть.",
+        "uk": "Ключ могли відкликати, а список на сторінці — застаріти.",
+        "en": "The key may have been revoked and the list on the page may be out of date.",
+        "de": "Der Schlüssel wurde möglicherweise widerrufen, und die Liste auf der Seite ist eventuell veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу и выберите ключ из списка.",
+        "uk": "1. Оновіть сторінку й виберіть ключ зі списку.",
+        "en": "1. Refresh the page and choose a key from the list.",
+        "de": "1. Aktualisieren Sie die Seite und wählen Sie einen Schlüssel aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-003",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "RENT-RECOV-004",
+      "key": "RECOVERY_FORMAT",
+      "aliases": [
+        "recovery_format"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Это не похоже на ключ восстановления",
+        "uk": "Це не схоже на ключ відновлення",
+        "en": "This does not look like a recovery key",
+        "de": "Dies sieht nicht wie ein Wiederherstellungsschlüssel aus"
+      },
+      "cause": {
+        "ru": "Введённый текст не совпадает по формату с ключом восстановления — возможно, часть скопирована не полностью или перепутана с другой строкой.",
+        "uk": "Введений текст не збігається за форматом із ключем відновлення — можливо, частину скопійовано не повністю або переплутано з іншим рядком.",
+        "en": "The entered text does not match the recovery key format — perhaps part of it was copied incompletely or mixed up with another string.",
+        "de": "Der eingegebene Text entspricht nicht dem Format des Wiederherstellungsschlüssels – vielleicht wurde ein Teil unvollständig kopiert oder mit einer anderen Zeichenfolge verwechselt."
+      },
+      "action": {
+        "ru": "1. Ключ начинается с «RK1-» и состоит из 6 групп по 5 знаков.\n2. Части ключа начинаются с «RS1-».",
+        "uk": "1. Ключ починається з «RK1-» і складається з 6 груп по 5 знаків.\n2. Частини ключа починаються з «RS1-».",
+        "en": "1. The key starts with “RK1-” and consists of 6 groups of 5 characters.\n2. Key parts start with “RS1-”.",
+        "de": "1. Der Schlüssel beginnt mit „RK1-“ und besteht aus 6 Gruppen zu je 5 Zeichen.\n2. Teile des Schlüssels beginnen mit „RS1-“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-004",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "RENT-RECOV-005",
+      "key": "RECOVERY_CHECKSUM",
+      "aliases": [
+        "recovery_checksum"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В ключе восстановления опечатка: контрольная сумма не сходится",
+        "uk": "У ключі відновлення помилка: контрольна сума не збігається",
+        "en": "There is a typo in the recovery key: the checksum does not match",
+        "de": "Im Wiederherstellungsschlüssel ist ein Tippfehler: die Prüfsumme stimmt nicht"
+      },
+      "cause": {
+        "ru": "В ключе есть ошибка при вводе: одна или несколько групп не совпадают с оригиналом.",
+        "uk": "У ключі є помилка під час введення: одна або кілька груп не збігаються з оригіналом.",
+        "en": "There is an input error in the key: one or more groups do not match the original.",
+        "de": "Im Schlüssel gibt es einen Eingabefehler: Eine oder mehrere Gruppen stimmen nicht mit dem Original überein."
+      },
+      "action": {
+        "ru": "1. Сверьте каждую группу с аварийным листом.\n2. Буквы O и I можно вводить как цифры 0 и 1.",
+        "uk": "1. Звірте кожну групу з аварійним листом.\n2. Літери O та I можна вводити як цифри 0 і 1.",
+        "en": "1. Compare each group with the emergency sheet.\n2. The letters O and I can be entered as the digits 0 and 1.",
+        "de": "1. Vergleichen Sie jede Gruppe mit dem Notfallblatt.\n2. Die Buchstaben O und I können als die Ziffern 0 und 1 eingegeben werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-005",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "RENT-RECOV-006",
+      "key": "RECOVERY_WRONG",
+      "aliases": [
+        "recovery_wrong"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Этот ключ восстановления не подходит к копиям хозяйства",
+        "uk": "Цей ключ відновлення не підходить до копій господарства",
+        "en": "This recovery key does not match the household's backups",
+        "de": "Dieser Wiederherstellungsschlüssel passt nicht zu den Kopien des Haushalts"
+      },
+      "cause": {
+        "ru": "Ключ не подходит к этим копиям: возможно, он уже заменён или относится к другому хозяйству.",
+        "uk": "Ключ не підходить до цих копій: можливо, його вже замінено або він належить іншому господарству.",
+        "en": "The key does not match these backups: it may have been replaced already or belong to another household.",
+        "de": "Der Schlüssel passt nicht zu diesen Kopien: Vielleicht wurde er bereits ersetzt oder gehört zu einem anderen Haushalt."
+      },
+      "action": {
+        "ru": "1. Возможно, ключ отозван или от другого хозяйства.\n2. Попробуйте другой ключ или пароль копий.",
+        "uk": "1. Можливо, ключ відкликано або він від іншого господарства.\n2. Спробуйте інший ключ або пароль копій.",
+        "en": "1. The key may have been revoked or be from another household.\n2. Try another key or the backup password.",
+        "de": "1. Der Schlüssel wurde möglicherweise widerrufen oder gehört zu einem anderen Haushalt.\n2. Versuchen Sie einen anderen Schlüssel oder das Passwort für die Kopien."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-006",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "RENT-RECOV-007",
+      "key": "SHARES_NEEDED",
+      "aliases": [
+        "shares_needed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужны любые две части ключа из трёх",
+        "uk": "Потрібні будь-які дві частини ключа з трьох",
+        "en": "Any two of the three key parts are required",
+        "de": "Es werden beliebige zwei von drei Schlüsselteilen benötigt"
+      },
+      "cause": {
+        "ru": "Для восстановления нужны две части: одна часть сама по себе не даёт доступа.",
+        "uk": "Для відновлення потрібні дві частини: одна частина сама по собі не дає доступу.",
+        "en": "Two parts are required for recovery: one part alone does not give access.",
+        "de": "Für die Wiederherstellung sind zwei Teile erforderlich: Ein Teil allein gewährt keinen Zugriff."
+      },
+      "action": {
+        "ru": "1. Одна часть ничего не открывает.\n2. Попросите вторую часть у доверенного человека.",
+        "uk": "1. Одна частина нічого не відкриває.\n2. Попросіть другу частину в довіреної людини.",
+        "en": "1. One part opens nothing.\n2. Ask a trusted person for the second part.",
+        "de": "1. Ein Teil allein öffnet nichts.\n2. Bitten Sie eine vertrauenswürdige Person um den zweiten Teil."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-007",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "RENT-RECOV-008",
+      "key": "SHARES_MISMATCH",
+      "aliases": [
+        "shares_mismatch"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Части от разных ключей не складываются",
+        "uk": "Частини від різних ключів не складаються",
+        "en": "Parts from different keys do not combine",
+        "de": "Teile von verschiedenen Schlüsseln lassen sich nicht zusammensetzen"
+      },
+      "cause": {
+        "ru": "Части относятся к разным наборам, поэтому вместе они не образуют рабочий ключ.",
+        "uk": "Частини належать до різних наборів, тому разом вони не утворюють робочий ключ.",
+        "en": "The parts belong to different sets, so together they do not form a working key.",
+        "de": "Die Teile gehören zu verschiedenen Sätzen, daher ergeben sie zusammen keinen funktionierenden Schlüssel."
+      },
+      "action": {
+        "ru": "1. Возьмите две части одного набора: у них совпадает метка набора в начале.",
+        "uk": "1. Візьміть дві частини одного набору: у них збігається мітка набору на початку.",
+        "en": "1. Take two parts from the same set: they have the same set label at the beginning.",
+        "de": "1. Nehmen Sie zwei Teile aus demselben Satz: Sie haben dieselbe Satzkennung am Anfang."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RECOV-008",
+      "since": "1.1.0",
+      "tags": [
+        "recovery"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "namespace": "RENT",
+  "area": "FX",
+  "codes": [
+    {
+      "code": "RENT-FX-001",
+      "key": "FX_RATE_MISSING",
+      "aliases": [
+        "fx_rate_missing"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет курса на нужную дату",
+        "uk": "Немає курсу на потрібну дату",
+        "en": "No exchange rate for the required date",
+        "de": "Kein Kurs für das benötigte Datum"
+      },
+      "cause": {
+        "ru": "На выбранную дату курса ещё нет: курсы НБУ появляются не каждый день, а вручную курс не введён.",
+        "uk": "На вибрану дату курсу ще немає: курси НБУ з’являються не щодня, а вручну курс не введено.",
+        "en": "There is no rate for the chosen date yet: NBU rates don’t appear every day, and no rate was entered manually.",
+        "de": "Für das gewählte Datum gibt es noch keinen Kurs: NBU-Kurse erscheinen nicht jeden Tag, und es wurde kein Kurs manuell eingegeben."
+      },
+      "action": {
+        "ru": "1. Выберите «взять последний курс» или введите курс вручную.\n2. Курсы НБУ подгружаются в разделе «Курсы валют».",
+        "uk": "1. Виберіть «взяти останній курс» або введіть курс вручну.\n2. Курси НБУ підвантажуються в розділі «Курси валют».",
+        "en": "1. Choose “take the latest rate” or enter the rate manually.\n2. NBU rates are loaded in the “Exchange rates” section.",
+        "de": "1. Wählen Sie „letzten Kurs nehmen“ oder geben Sie den Kurs manuell ein.\n2. NBU-Kurse werden im Bereich „Wechselkurse“ geladen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FX-001",
+      "since": "1.1.0",
+      "tags": [
+        "rates"
+      ]
+    },
+    {
+      "code": "RENT-FX-002",
+      "key": "NBU_RATE_ERROR",
+      "aliases": [
+        "nbu_rate_error"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Курсы НБУ сейчас не получены",
+        "uk": "Курси НБУ зараз не отримано",
+        "en": "NBU rates can’t be fetched right now",
+        "de": "NBU-Kurse können derzeit nicht abgerufen werden"
+      },
+      "cause": {
+        "ru": "Программа не смогла связаться с сайтом Национального банка: нет интернета или сайт временно недоступен.",
+        "uk": "Програма не змогла зв’язатися із сайтом Національного банку: немає інтернету або сайт тимчасово недоступний.",
+        "en": "The program couldn’t reach the National Bank’s website: no internet or the site is temporarily unavailable.",
+        "de": "Das Programm konnte die Website der Nationalbank nicht erreichen: kein Internet oder die Seite ist vorübergehend nicht erreichbar."
+      },
+      "action": {
+        "ru": "1. Проверьте интернет и повторите позже.\n2. Работать можно с последним сохранённым курсом или ввести курс вручную.",
+        "uk": "1. Перевірте інтернет і повторіть пізніше.\n2. Працювати можна з останнім збереженим курсом або ввести курс вручну.",
+        "en": "1. Check your internet connection and try again later.\n2. You can work with the last saved rate or enter a rate manually.",
+        "de": "1. Prüfen Sie die Internetverbindung und versuchen Sie es später erneut.\n2. Sie können mit dem zuletzt gespeicherten Kurs arbeiten oder einen Kurs manuell eingeben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FX-002",
+      "since": "1.1.0",
+      "tags": [
+        "rates"
+      ]
+    }
+  ]
+}

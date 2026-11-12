@@ -1,0 +1,128 @@
+{
+  "namespace": "RENT",
+  "area": "PDF",
+  "codes": [
+    {
+      "code": "RENT-PDF-001",
+      "key": "PDF_FAILED",
+      "aliases": [
+        "pdf_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось собрать PDF-документ",
+        "uk": "Не вдалося зібрати PDF-документ",
+        "en": "Could not build the PDF document",
+        "de": "PDF-Dokument konnte nicht erstellt werden"
+      },
+      "cause": {
+        "ru": "В документе не хватает обязательных данных или возник временный сбой при сборке.",
+        "uk": "У документі бракує обов’язкових даних або стався тимчасовий збій під час збирання.",
+        "en": "The document is missing required details or a temporary failure occurred while assembling it.",
+        "de": "Im Dokument fehlen Pflichtangaben, oder beim Zusammenstellen ist eine vorübergehende Störung aufgetreten."
+      },
+      "action": {
+        "ru": "1. Повторите.\n2. Если повторяется — проверьте, что заполнены реквизиты и адрес на украинском; сообщите разработчику этот код.",
+        "uk": "1. Повторіть.\n2. Якщо повторюється — перевірте, що заповнені реквізити й адреса українською; повідомте розробнику цей код.",
+        "en": "1. Try again.\n2. If it keeps happening, check that the company details and the address in Ukrainian are filled in; report this code to the developer.",
+        "de": "1. Versuchen Sie es erneut.\n2. Wenn es weiterhin auftritt, prüfen Sie, ob die Firmendaten und die Adresse auf Ukrainisch ausgefüllt sind; melden Sie dem Entwickler diesen Code."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PDF-001",
+      "since": "1.1.0",
+      "tags": [
+        "pdf"
+      ]
+    },
+    {
+      "code": "RENT-PDF-002",
+      "key": "PDF_FONT",
+      "aliases": [
+        "pdf_font"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не найден шрифт для PDF",
+        "uk": "Не знайдено шрифт для PDF",
+        "en": "PDF font not found",
+        "de": "PDF-Schrift nicht gefunden"
+      },
+      "cause": {
+        "ru": "Файлы шрифтов с кириллицей отсутствуют или недоступны программе.",
+        "uk": "Файли шрифтів із кирилицею відсутні або недоступні програмі.",
+        "en": "The font files with Cyrillic support are missing or unavailable to the program.",
+        "de": "Die Schriftdateien mit kyrillischer Unterstützung fehlen oder sind für das Programm nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. Переустановите программу или верните папку со шрифтами IBM Plex: без них кириллица в PDF не печатается.",
+        "uk": "1. Перевстановіть програму або поверніть теку зі шрифтами IBM Plex: без них кирилиця в PDF не друкується.",
+        "en": "1. Reinstall the program or restore the folder with IBM Plex fonts: without them Cyrillic cannot be printed in PDF.",
+        "de": "1. Installieren Sie das Programm neu oder stellen Sie den Ordner mit den IBM-Plex-Schriften wieder her: Ohne sie kann Kyrillisch im PDF nicht gedruckt werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PDF-002",
+      "since": "1.1.0",
+      "tags": [
+        "pdf"
+      ]
+    }
+  ]
+}

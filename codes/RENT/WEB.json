@@ -1,0 +1,317 @@
+{
+  "namespace": "RENT",
+  "area": "WEB",
+  "codes": [
+    {
+      "code": "RENT-WEB-001",
+      "key": "APP_METHOD",
+      "aliases": [
+        "app_method"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Метод запроса не поддерживается",
+        "uk": "Метод запиту не підтримується",
+        "en": "This action can’t be opened this way",
+        "de": "Diese Aktion lässt sich so nicht öffnen"
+      },
+      "cause": {
+        "ru": "Ссылка на действие сохранилась в истории браузера или в закладках, и страница открывается не так, как она рассчитана.",
+        "uk": "Посилання на дію збереглося в історії браузера або в закладках, і сторінка відкривається не так, як вона розрахована.",
+        "en": "The link to an action was saved in the browser history or bookmarks, so the page opens in a way it isn’t meant for.",
+        "de": "Der Link zu einer Aktion wurde im Browserverlauf oder in den Lesezeichen gespeichert, deshalb öffnet sich die Seite anders, als sie gedacht ist."
+      },
+      "action": {
+        "ru": "1. Откройте страницу из меню программы, а не по сохранённой ссылке на действие.",
+        "uk": "1. Відкрийте сторінку з меню програми, а не за збереженим посиланням на дію.",
+        "en": "1. Open the page from the program menu rather than from a saved link to an action.",
+        "de": "1. Öffnen Sie die Seite über das Programmmenü und nicht über einen gespeicherten Link zu einer Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-WEB-001",
+      "since": "1.1.0",
+      "tags": [
+        "web"
+      ]
+    },
+    {
+      "code": "RENT-WEB-002",
+      "key": "FORM_TOO_MANY",
+      "aliases": [
+        "form_too_many"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком много параметров или полей в запросе",
+        "uk": "Забагато параметрів або полів у запиті",
+        "en": "Too many parameters or fields in the request",
+        "de": "Zu viele Parameter oder Felder in der Anfrage"
+      },
+      "cause": {
+        "ru": "В отправке оказалось больше данных, чем есть в самой форме, — обычно так бывает при вставке из другого документа.",
+        "uk": "У надсиланні виявилося більше даних, ніж є в самій формі, — зазвичай так буває під час вставлення з іншого документа.",
+        "en": "The request contains more data than the form itself has — usually this happens when pasting from another document.",
+        "de": "Die Anfrage enthält mehr Daten, als das Formular selbst hat — meist passiert das beim Einfügen aus einem anderen Dokument."
+      },
+      "action": {
+        "ru": "1. Откройте страницу заново и отправьте форму без лишних вставок.\n2. Обычный запрос столько полей не содержит.",
+        "uk": "1. Відкрийте сторінку заново й надішліть форму без зайвих вставок.\n2. Звичайний запит стільки полів не містить.",
+        "en": "1. Open the page again and send the form without extra pasted content.\n2. A normal request doesn’t contain that many fields.",
+        "de": "1. Öffnen Sie die Seite erneut und senden Sie das Formular ohne zusätzliche Einfügungen.\n2. Eine normale Anfrage enthält nicht so viele Felder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-WEB-002",
+      "since": "1.1.0",
+      "tags": [
+        "web"
+      ]
+    },
+    {
+      "code": "RENT-WEB-003",
+      "key": "WEB_BAD_HOST",
+      "aliases": [
+        "web_bad_host"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Недопустимый адрес страницы (защита Host)",
+        "uk": "Недопустима адреса сторінки (захист Host)",
+        "en": "Invalid page address (Host protection)",
+        "de": "Ungültige Seitenadresse (Host-Schutz)"
+      },
+      "cause": {
+        "ru": "Проверка заголовка Host защищает от подмены DNS: чужой сайт не сможет притвориться этой программой",
+        "uk": "Перевірка заголовка Host захищає від підміни DNS: чужий сайт не зможе прикинутися цією програмою",
+        "en": "The Host header check protects against DNS spoofing: a foreign site cannot pretend to be this program.",
+        "de": "Die Prüfung des Host-Headers schützt vor DNS-Spoofing: Eine fremde Website kann sich nicht als dieses Programm ausgeben."
+      },
+      "action": {
+        "ru": "1. Откройте программу по адресу http://127.0.0.1:<порт>/ на этом компьютере.",
+        "uk": "1. Відкрийте програму за адресою http://127.0.0.1:<порт>/ на цьому комп’ютері.",
+        "en": "1. Open the program at http://127.0.0.1:<port>/ on this computer.",
+        "de": "1. Öffnen Sie das Programm unter http://127.0.0.1:<Port>/ auf diesem Computer."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-WEB-003",
+      "since": "1.1.0",
+      "tags": [
+        "web"
+      ]
+    },
+    {
+      "code": "RENT-WEB-004",
+      "key": "WEB_FOREIGN_ORIGIN",
+      "aliases": [
+        "web_foreign_origin"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос с чужого сайта отклонён",
+        "uk": "Запит із чужого сайту відхилено",
+        "en": "Request from a foreign site rejected",
+        "de": "Anfrage von einer fremden Website abgelehnt"
+      },
+      "cause": {
+        "ru": "Так выглядит попытка другого сайта отправить форму от вашего имени",
+        "uk": "Так виглядає спроба іншого сайту надіслати форму від вашого імені",
+        "en": "This is what it looks like when another site tries to submit a form on your behalf.",
+        "de": "So sieht es aus, wenn eine andere Website versucht, ein Formular in Ihrem Namen zu senden."
+      },
+      "action": {
+        "ru": "1. Ничего не нужно делать: действие не выполнено.\n2. Если вы сами ничего не открывали, закройте посторонние вкладки браузера.",
+        "uk": "1. Нічого не потрібно робити: дію не виконано.\n2. Якщо ви самі нічого не відкривали, закрийте сторонні вкладки браузера.",
+        "en": "1. Nothing needs to be done: the action was not performed.\n2. If you didn’t open anything yourself, close any unrelated browser tabs.",
+        "de": "1. Sie müssen nichts tun: Die Aktion wurde nicht ausgeführt.\n2. Wenn Sie selbst nichts geöffnet haben, schließen Sie fremde Browser-Tabs."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-WEB-004",
+      "since": "1.1.0",
+      "tags": [
+        "web"
+      ]
+    },
+    {
+      "code": "RENT-WEB-005",
+      "key": "WEB_CSRF",
+      "aliases": [
+        "web_csrf"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Недействительный токен формы (CSRF)",
+        "uk": "Недійсний токен форми (CSRF)",
+        "en": "Invalid form token (CSRF)",
+        "de": "Ungültiges Formular-Token (CSRF)"
+      },
+      "cause": {
+        "ru": "Страница была открыта давно или в другой вкладке, и защитный токен формы устарел.",
+        "uk": "Сторінку відкрито давно або в іншій вкладці, і захисний токен форми застарів.",
+        "en": "The page was opened a long time ago or in another tab, and the form’s security token has expired.",
+        "de": "Die Seite wurde vor langer Zeit oder in einem anderen Tab geöffnet, und das Sicherheits-Token des Formulars ist abgelaufen."
+      },
+      "action": {
+        "ru": "1. Откройте страницу заново и повторите действие: токен выдаётся на каждую страницу и устаревает.",
+        "uk": "1. Відкрийте сторінку заново й повторіть дію: токен видається на кожну сторінку і застаріває.",
+        "en": "1. Reload the page and repeat the action: the token is issued per page and expires.",
+        "de": "1. Öffnen Sie die Seite erneut und wiederholen Sie die Aktion: Das Token wird pro Seite ausgegeben und läuft ab."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-WEB-005",
+      "since": "1.1.0",
+      "tags": [
+        "web"
+      ]
+    },
+    {
+      "code": "RENT-WEB-006",
+      "key": "WEB_FORM_REJECTED",
+      "aliases": [
+        "web_form_rejected"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Форма не принята: слишком много полей или повреждённые данные",
+        "uk": "Форму не прийнято: забагато полів або пошкоджені дані",
+        "en": "Form not accepted: too many fields or corrupted data",
+        "de": "Formular nicht angenommen: zu viele Felder oder beschädigte Daten"
+      },
+      "cause": {
+        "ru": "Форма пришла с необычно большим числом полей или с испорченными данными — так бывает при вставке содержимого из других программ или повреждении страницы.",
+        "uk": "Форма надійшла з незвично великою кількістю полів або з пошкодженими даними — так буває під час вставлення вмісту з інших програм або пошкодження сторінки.",
+        "en": "The form arrived with an unusually large number of fields or with corrupted data — this can happen when pasting content from other programs or when the page is damaged.",
+        "de": "Das Formular kam mit ungewöhnlich vielen Feldern oder mit beschädigten Daten an — das kann beim Einfügen von Inhalten aus anderen Programmen oder bei einer beschädigten Seite passieren."
+      },
+      "action": {
+        "ru": "1. Откройте форму заново и заполните её вручную, без вставки посторонних данных.",
+        "uk": "1. Відкрийте форму заново й заповніть її вручну, без вставлення сторонніх даних.",
+        "en": "1. Reopen the form and fill it in manually, without pasting outside data.",
+        "de": "1. Öffnen Sie das Formular erneut und füllen Sie es manuell aus, ohne fremde Daten einzufügen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-WEB-006",
+      "since": "1.1.0",
+      "tags": [
+        "web"
+      ]
+    }
+  ]
+}

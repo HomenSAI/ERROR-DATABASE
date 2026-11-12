@@ -1,0 +1,528 @@
+{
+  "namespace": "RENT",
+  "area": "INT",
+  "codes": [
+    {
+      "code": "RENT-INT-001",
+      "key": "INTEGRITY_REASON",
+      "aliases": [
+        "integrity_reason"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Укажите причину разбора",
+        "uk": "Вкажіть причину розбору",
+        "en": "Enter the reason for the review",
+        "de": "Geben Sie den Grund für die Prüfung an"
+      },
+      "cause": {
+        "ru": "Причина нужна, чтобы было понятно, что проверили и почему изменение допустимо.",
+        "uk": "Причина потрібна, щоб було зрозуміло, що перевірили і чому зміна допустима.",
+        "en": "A reason is needed so it is clear what was checked and why the change is acceptable.",
+        "de": "Ein Grund ist nötig, damit klar ist, was geprüft wurde und warum die Änderung zulässig ist."
+      },
+      "action": {
+        "ru": "1. Тревога снимается только с причиной: что проверили и почему изменение допустимо.",
+        "uk": "1. Тривога знімається лише з причиною: що перевірили і чому зміна допустима.",
+        "en": "1. An alert is cleared only with a reason: what was checked and why the change is acceptable.",
+        "de": "1. Eine Warnung wird nur mit Begründung aufgehoben: was geprüft wurde und warum die Änderung zulässig ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-INT-001",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-002",
+      "key": "INTEGRITY_CHANGE",
+      "aliases": [
+        "integrity_change"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Обнаружено изменение базы в обход программы",
+        "uk": "Виявлено зміну бази в обхід програми",
+        "en": "A change to the database was detected that bypassed the program",
+        "de": "Eine Änderung an der Datenbank außerhalb des Programms wurde erkannt"
+      },
+      "cause": {
+        "ru": "Запись в базе изменилась не через программу — например, при ручной правке файла базы или после сбоя.",
+        "uk": "Запис у базі змінився не через програму — наприклад, під час ручного виправлення файлу бази або після збою.",
+        "en": "A record in the database changed without going through the program — for example through manual editing of the database file or after a crash.",
+        "de": "Ein Datensatz in der Datenbank hat sich ohne das Programm geändert – zum Beispiel durch manuelles Bearbeiten der Datenbankdatei oder nach einem Absturz."
+      },
+      "action": {
+        "ru": "1. Возможно внедрение или искажение данных третьим лицом.\n2. Сверьте строки из списка с документами, проверьте ПК антивирусом, при сомнении восстановите копию; затем укажите причину в разборе.",
+        "uk": "1. Можливе втручання або спотворення даних третьою особою.\n2. Звірте рядки зі списку з документами, перевірте ПК антивірусом, у разі сумніву відновіть копію; потім вкажіть причину в розборі.",
+        "en": "1. Third-party interference or data tampering is possible.\n2. Compare the rows in the list with your documents, scan the PC with an antivirus and restore a backup if in doubt; then state the reason in the review.",
+        "de": "1. Fremdeingriffe oder Datenverfälschung sind möglich.\n2. Gleichen Sie die Zeilen aus der Liste mit Ihren Unterlagen ab, prüfen Sie den PC mit einem Antivirus und stellen Sie im Zweifel eine Sicherung wieder her; geben Sie anschließend den Grund in der Prüfung an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-002",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-003",
+      "key": "INTEGRITY_SCHEMA",
+      "aliases": [
+        "integrity_schema"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Схема базы изменена без обновления программы",
+        "uk": "Схему бази змінено без оновлення програми",
+        "en": "The database structure was changed without a program update",
+        "de": "Das Datenbankschema wurde ohne Programmaktualisierung geändert"
+      },
+      "cause": {
+        "ru": "Структуру базы меняли вручную или другой программой — например, при попытке «починить» базу.",
+        "uk": "Структуру бази змінювали вручну або іншою програмою — наприклад, під час спроби «полагодити» базу.",
+        "en": "The database structure was changed manually or by another program — for example in an attempt to “repair” the database.",
+        "de": "Die Datenbankstruktur wurde manuell oder durch ein anderes Programm geändert – zum Beispiel bei dem Versuch, die Datenbank „zu reparieren“."
+      },
+      "action": {
+        "ru": "1. Таблицы, индексы или триггеры менялись не программой.\n2. Не продолжайте работу с деньгами до проверки; восстановите копию или обратитесь к администратору.",
+        "uk": "1. Таблиці, індекси або тригери змінювалися не програмою.\n2. Не продовжуйте роботу з грошима до перевірки; відновіть копію або зверніться до адміністратора.",
+        "en": "1. Tables, indexes or triggers were changed not by the program.\n2. Do not continue working with money until this is checked; restore a backup or contact the administrator.",
+        "de": "1. Tabellen, Indizes oder Trigger wurden nicht vom Programm geändert.\n2. Arbeiten Sie mit Geldbeträgen erst weiter, wenn dies geprüft ist; stellen Sie eine Sicherung wieder her oder wenden Sie sich an den Administrator."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-003",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-004",
+      "key": "JOURNAL_GAP",
+      "aliases": [
+        "journal_gap"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "В журнале изменений пропущена запись",
+        "uk": "У журналі змін пропущено запис",
+        "en": "A record is missing from the change journal",
+        "de": "Im Änderungsjournal fehlt ein Eintrag"
+      },
+      "cause": {
+        "ru": "Строку журнала удалили или база была восстановлена из неполной копии.",
+        "uk": "Рядок журналу видалили або базу було відновлено з неповної копії.",
+        "en": "A journal row was deleted, or the database was restored from an incomplete backup.",
+        "de": "Eine Journalzeile wurde gelöscht, oder die Datenbank wurde aus einer unvollständigen Sicherung wiederhergestellt."
+      },
+      "action": {
+        "ru": "1. Запись журнала удалена в обход программы.\n2. Сравните базу с последней копией и укажите причину в разборе.",
+        "uk": "1. Запис журналу видалено в обхід програми.\n2. Порівняйте базу з останньою копією та вкажіть причину в розборі.",
+        "en": "1. A journal record was deleted bypassing the program.\n2. Compare the database with the latest backup and state the reason in the review.",
+        "de": "1. Ein Journaldatensatz wurde außerhalb des Programms gelöscht.\n2. Vergleichen Sie die Datenbank mit der letzten Sicherung und geben Sie den Grund in der Prüfung an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-004",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-005",
+      "key": "JOURNAL_LINK",
+      "aliases": [
+        "journal_link"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Цепочка журнала изменений разорвана",
+        "uk": "Ланцюжок журналу змін розірвано",
+        "en": "The chain of the change journal is broken",
+        "de": "Die Kette des Änderungsjournals ist unterbrochen"
+      },
+      "cause": {
+        "ru": "Записи журнала оказались в другом порядке — например, после ручной правки или объединения копий.",
+        "uk": "Записи журналу опинилися в іншому порядку — наприклад, після ручного виправлення або об’єднання копій.",
+        "en": "Journal records ended up in a different order — for example after manual editing or merging of backups.",
+        "de": "Journaldatensätze sind in eine andere Reihenfolge geraten – zum Beispiel nach manuellem Bearbeiten oder Zusammenführen von Sicherungen."
+      },
+      "action": {
+        "ru": "1. Запись вставлена или переставлена в обход программы.\n2. Сравните базу с последней копией.",
+        "uk": "1. Запис вставлено або переставлено в обхід програми.\n2. Порівняйте базу з останньою копією.",
+        "en": "1. A record was inserted or reordered bypassing the program.\n2. Compare the database with the latest backup.",
+        "de": "1. Ein Datensatz wurde außerhalb des Programms eingefügt oder umsortiert.\n2. Vergleichen Sie die Datenbank mit der letzten Sicherung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-005",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-006",
+      "key": "JOURNAL_HASH",
+      "aliases": [
+        "journal_hash"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запись журнала изменений переписана",
+        "uk": "Запис журналу змін переписано",
+        "en": "A change journal record was rewritten",
+        "de": "Ein Datensatz im Änderungsjournal wurde umgeschrieben"
+      },
+      "cause": {
+        "ru": "Содержимое записи журнала изменилось после её создания — например, при ручной правке файла.",
+        "uk": "Вміст запису журналу змінився після його створення — наприклад, під час ручного виправлення файлу.",
+        "en": "The content of a journal record changed after it was created — for example through manual editing of the file.",
+        "de": "Der Inhalt eines Journaldatensatzes hat sich nach seiner Erstellung geändert – zum Beispiel durch manuelles Bearbeiten der Datei."
+      },
+      "action": {
+        "ru": "1. Содержимое записи не совпадает с её отпечатком: журнал правили в обход программы.",
+        "uk": "1. Вміст запису не збігається з його відбитком: журнал правили в обхід програми.",
+        "en": "1. The content of the record does not match its fingerprint: the journal was edited bypassing the program.",
+        "de": "1. Der Inhalt des Datensatzes stimmt nicht mit seinem Fingerabdruck überein: Das Journal wurde außerhalb des Programms bearbeitet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-006",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-007",
+      "key": "ANCHOR_MISMATCH",
+      "aliases": [
+        "anchor_mismatch"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Журнал изменений не совпадает с подписанной копией",
+        "uk": "Журнал змін не збігається з підписаною копією",
+        "en": "The change journal does not match the signed backup",
+        "de": "Das Änderungsjournal stimmt nicht mit der signierten Sicherung überein"
+      },
+      "cause": {
+        "ru": "База и её копия разошлись — например, базу заменили более старой или изменённой копией.",
+        "uk": "База та її копія розійшлися — наприклад, базу замінили старішою або зміненою копією.",
+        "en": "The database and its backup have diverged — for example the database was replaced with an older or altered copy.",
+        "de": "Datenbank und Sicherung haben sich auseinanderentwickelt – zum Beispiel wurde die Datenbank durch eine ältere oder veränderte Kopie ersetzt."
+      },
+      "action": {
+        "ru": "1. Голова журнала, записанная в манифест копии, отличается от базы: журнал переписан вместе с базой.\n2. Восстановите копию.",
+        "uk": "1. Голова журналу, записана в маніфест копії, відрізняється від бази: журнал переписано разом із базою.\n2. Відновіть копію.",
+        "en": "1. The journal head recorded in the backup manifest differs from the database: the journal was rewritten together with the database.\n2. Restore the backup.",
+        "de": "1. Der im Sicherungsmanifest gespeicherte Journalkopf unterscheidet sich von der Datenbank: Das Journal wurde zusammen mit der Datenbank umgeschrieben.\n2. Stellen Sie die Sicherung wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-007",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-008",
+      "key": "AUDIT_CHANGED",
+      "aliases": [
+        "audit_changed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Журнал действий программы изменён",
+        "uk": "Журнал дій програми змінено",
+        "en": "The program action log has been changed",
+        "de": "Das Aktionsprotokoll des Programms wurde geändert"
+      },
+      "cause": {
+        "ru": "Записи журнала действий удалили или исправили вручную либо другой программой.",
+        "uk": "Записи журналу дій видалили або виправили вручну чи іншою програмою.",
+        "en": "Log entries were deleted or corrected manually or by another program.",
+        "de": "Protokolleinträge wurden manuell oder durch ein anderes Programm gelöscht oder korrigiert."
+      },
+      "action": {
+        "ru": "1. Записи «кто, когда, что менял» удалены или исправлены в обход программы.",
+        "uk": "1. Записи «хто, коли, що змінював» видалено або виправлено в обхід програми.",
+        "en": "1. The “who, when, what changed” records were deleted or altered bypassing the program.",
+        "de": "1. Die Einträge „wer, wann, was geändert hat“ wurden außerhalb des Programms gelöscht oder verändert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-008",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-009",
+      "key": "INDEX_CHANGED",
+      "aliases": [
+        "index_changed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Отпечатки проверки целостности подменены",
+        "uk": "Відбитки перевірки цілісності підмінено",
+        "en": "The integrity check fingerprints have been replaced",
+        "de": "Die Fingerabdrücke der Integritätsprüfung wurden ersetzt"
+      },
+      "cause": {
+        "ru": "Сохранённые отпечатки перестали совпадать с журналом — например, после ручной правки или частичного восстановления базы.",
+        "uk": "Збережені відбитки перестали збігатися з журналом — наприклад, після ручного виправлення або часткового відновлення бази.",
+        "en": "The stored fingerprints no longer match the journal — for example after manual editing or partial restoration of the database.",
+        "de": "Die gespeicherten Fingerabdrücke stimmen nicht mehr mit dem Journal überein – zum Beispiel nach manuellem Bearbeiten oder teilweiser Wiederherstellung der Datenbank."
+      },
+      "action": {
+        "ru": "1. Сохранённое исходное состояние не сходится с записью журнала-цепочки.\n2. Сравните базу с последней копией.",
+        "uk": "1. Збережений вихідний стан не сходиться із записом журналу-ланцюжка.\n2. Порівняйте базу з останньою копією.",
+        "en": "1. The saved initial state does not match the chain journal record.\n2. Compare the database with the latest backup.",
+        "de": "1. Der gespeicherte Ausgangszustand stimmt nicht mit dem Datensatz des Kettenjournals überein.\n2. Vergleichen Sie die Datenbank mit der letzten Sicherung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-009",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    },
+    {
+      "code": "RENT-INT-010",
+      "key": "INTEGRITY_ALARM",
+      "aliases": [
+        "integrity-alarm"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Красная тревога целостности базы",
+        "uk": "Червона тривога цілісності бази",
+        "en": "Red database integrity alarm",
+        "de": "Roter Alarm zur Datenbankintegrität"
+      },
+      "cause": {
+        "ru": "Изменение базы в обход программы может скрыть подмену сумм (решение 273)",
+        "uk": "Зміна бази в обхід програми може приховати підміну сум (рішення 273)",
+        "en": "Changing the database outside the program can hide substituted amounts (decision 273).",
+        "de": "Änderungen an der Datenbank außerhalb des Programms können ersetzte Beträge verbergen (Entscheidung 273)."
+      },
+      "action": {
+        "ru": "1. Откройте «Безопасность → Целостность»: там указано, что изменилось.\n2. Сравните базу с последней копией и укажите причину разбора.",
+        "uk": "1. Відкрийте «Безпека → Цілісність»: там указано, що змінилося.\n2. Порівняйте базу з останньою копією й укажіть причину розбору.",
+        "en": "1. Open “Security → Integrity”: it shows what changed.\n2. Compare the database with the latest copy and state the reason for the review.",
+        "de": "1. Öffnen Sie „Sicherheit → Integrität“: Dort steht, was sich geändert hat.\n2. Vergleichen Sie die Datenbank mit der letzten Kopie und geben Sie den Grund für die Prüfung an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-INT-010",
+      "since": "1.1.0",
+      "tags": [
+        "integrity"
+      ]
+    }
+  ]
+}

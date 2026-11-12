@@ -1,0 +1,256 @@
+{
+  "namespace": "RENT",
+  "area": "BILL",
+  "codes": [
+    {
+      "code": "RENT-BILL-001",
+      "key": "CALC_NUMBER_RANGE",
+      "aliases": [
+        "calc_number_range"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Число вне допустимого диапазона",
+        "uk": "Число поза допустимим діапазоном",
+        "en": "The number is outside the allowed range",
+        "de": "Die Zahl liegt außerhalb des zulässigen Bereichs"
+      },
+      "cause": {
+        "ru": "В поле попало слишком большое число или лишние знаки — например, при вставке из таблицы или случайном нажатии клавиши.",
+        "uk": "У поле потрапило завелике число або зайві знаки — наприклад, під час вставлення з таблиці або випадкового натискання клавіші.",
+        "en": "The field got a very large number or extra digits — for example when pasting from a spreadsheet or pressing a key by accident.",
+        "de": "In das Feld ist eine sehr große Zahl oder zu viele Ziffern geraten — zum Beispiel beim Einfügen aus einer Tabelle oder bei einem versehentlichen Tastendruck."
+      },
+      "action": {
+        "ru": "1. Проверьте сумму или количество: возможно, лишний нуль или слишком много знаков.\n2. Ничего не записано.",
+        "uk": "1. Перевірте суму або кількість: можливо, зайвий нуль або забагато знаків.\n2. Нічого не записано.",
+        "en": "1. Check the amount or quantity: there may be an extra zero or too many digits.\n2. Nothing was recorded.",
+        "de": "1. Prüfen Sie Betrag oder Menge: Vielleicht ist eine Null zu viel oder es sind zu viele Ziffern.\n2. Es wurde nichts gespeichert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BILL-001",
+      "since": "1.1.0",
+      "tags": [
+        "calc"
+      ]
+    },
+    {
+      "code": "RENT-BILL-002",
+      "key": "INVOICE_NOT_FOUND",
+      "aliases": [
+        "invoice_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: счёт",
+        "uk": "Не знайдено: рахунок",
+        "en": "Not found: invoice",
+        "de": "Nicht gefunden: Rechnung"
+      },
+      "cause": {
+        "ru": "Счёт могли удалить или пересоздать заново, а список на экране остался прежним.",
+        "uk": "Рахунок могли видалити або створити заново, а список на екрані залишився попереднім.",
+        "en": "The invoice may have been deleted or recreated while the list on screen stayed the same.",
+        "de": "Die Rechnung wurde möglicherweise gelöscht oder neu erstellt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-BILL-002",
+      "since": "1.1.0",
+      "tags": [
+        "calc"
+      ]
+    },
+    {
+      "code": "RENT-BILL-003",
+      "key": "READING_MISSING",
+      "aliases": [
+        "reading_missing"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет показаний для услуги по счётчику",
+        "uk": "Немає показань для послуги за лічильником",
+        "en": "No readings for a metered service",
+        "de": "Keine Zählerstände für eine verbrauchsabhängige Leistung"
+      },
+      "cause": {
+        "ru": "За выбранный период показания по этой услуге ещё не внесены.",
+        "uk": "За вибраний період показання за цією послугою ще не внесені.",
+        "en": "No readings have been entered for this service for the selected period yet.",
+        "de": "Für diesen Zeitraum wurden für diese Leistung noch keine Zählerstände eingegeben."
+      },
+      "action": {
+        "ru": "1. Внесите показания за период; без них коммуналка уходит отдельным дополнительным счётом.",
+        "uk": "1. Внесіть показання за період; без них комуналка йде окремим додатковим рахунком.",
+        "en": "1. Enter the readings for the period; without them, utilities are billed as a separate additional invoice.",
+        "de": "1. Geben Sie die Zählerstände für den Zeitraum ein; ohne sie werden die Nebenkosten als separate zusätzliche Rechnung abgerechnet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BILL-003",
+      "since": "1.1.0",
+      "tags": [
+        "calc"
+      ]
+    },
+    {
+      "code": "RENT-BILL-004",
+      "key": "RENT_NOTICE_TOO_SHORT",
+      "aliases": [
+        "rent_notice_too_short"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Срок уведомления об изменении ренты короче допустимого",
+        "uk": "Строк повідомлення про зміну оренди коротший за допустимий",
+        "en": "The notice period for a rent change is shorter than allowed",
+        "de": "Die Ankündigungsfrist für eine Mietänderung ist kürzer als zulässig"
+      },
+      "cause": {
+        "ru": "Дата вступления в силу оказалась слишком близко: по договору жильца нужно предупредить заранее.",
+        "uk": "Дата набрання чинності виявилася надто близькою: за договором мешканця потрібно попередити заздалегідь.",
+        "en": "The effective date is too close: under the contract, the tenant must be notified in advance.",
+        "de": "Das Wirksamkeitsdatum liegt zu nah: Laut Vertrag muss der Mieter im Voraus benachrichtigt werden."
+      },
+      "action": {
+        "ru": "1. Укажите дату вступления в силу позже: уведомить жильца нужно заранее, как в договоре.",
+        "uk": "1. Вкажіть дату набрання чинності пізніше: повідомити мешканця потрібно заздалегідь, як у договорі.",
+        "en": "1. Set a later effective date: the tenant must be notified in advance, as set out in the contract.",
+        "de": "1. Legen Sie ein späteres Wirksamkeitsdatum fest: Der Mieter muss im Voraus benachrichtigt werden, wie im Vertrag vorgesehen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BILL-004",
+      "since": "1.1.0",
+      "tags": [
+        "calc"
+      ]
+    },
+    {
+      "code": "RENT-BILL-005",
+      "key": "TARIFF_NOT_FOUND",
+      "aliases": [
+        "tariff_not_found"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Для услуги и даты нет действующего тарифа",
+        "uk": "Для послуги й дати немає чинного тарифу",
+        "en": "No valid tariff for the service and date",
+        "de": "Für die Leistung und das Datum ist kein gültiger Tarif vorhanden"
+      },
+      "cause": {
+        "ru": "На эту дату для услуги ещё не задан тариф.",
+        "uk": "На цю дату для послуги ще не задано тариф.",
+        "en": "No tariff has been set for this service on this date yet.",
+        "de": "Für diese Leistung ist zu diesem Datum noch kein Tarif festgelegt."
+      },
+      "action": {
+        "ru": "1. Добавьте тариф на этот период в «Коммуналка и тарифы» и повторите расчёт.",
+        "uk": "1. Додайте тариф на цей період у «Комуналка й тарифи» і повторіть розрахунок.",
+        "en": "1. Add a tariff for this period in “Utilities and tariffs” and repeat the calculation.",
+        "de": "1. Fügen Sie einen Tarif für diesen Zeitraum unter „Nebenkosten und Tarife“ hinzu und wiederholen Sie die Berechnung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BILL-005",
+      "since": "1.1.0",
+      "tags": [
+        "calc"
+      ]
+    }
+  ]
+}

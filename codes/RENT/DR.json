@@ -58,6 +58,2876 @@
         "backup",
         "password"
       ]
+    },
+    {
+      "code": "RENT-DR-002",
+      "key": "CORRUPT",
+      "aliases": [
+        "corrupt"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Архив повреждён или не в формате Rent",
+        "uk": "Архів пошкоджено або він не у форматі Rent",
+        "en": "Archive is damaged or not in Rent format",
+        "de": "Archiv ist beschädigt oder nicht im Rent-Format"
+      },
+      "cause": {
+        "ru": "Архив мог повредиться при копировании, на диске или при передаче файла.",
+        "uk": "Архів міг пошкодитися під час копіювання, на диску або під час передавання файлу.",
+        "en": "The archive may have been damaged during copying, on the disk, or while the file was being transferred.",
+        "de": "Das Archiv könnte beim Kopieren, auf dem Datenträger oder bei der Übertragung der Datei beschädigt worden sein."
+      },
+      "action": {
+        "ru": "1. Возьмите другую копию из цепочки; повреждённый файл не удаляйте — сохраните для разбора.",
+        "uk": "1. Візьміть іншу копію з ланцюжка; пошкоджений файл не видаляйте — збережіть для розбору.",
+        "en": "1. Take another copy from the chain; do not delete the damaged file — keep it for analysis.",
+        "de": "1. Nehmen Sie eine andere Kopie aus der Kette; löschen Sie die beschädigte Datei nicht — bewahren Sie sie zur Untersuchung auf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-002",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-003",
+      "key": "CHECKSUM",
+      "aliases": [
+        "checksum"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Контрольная сумма файла в архиве не совпала",
+        "uk": "Контрольна сума файлу в архіві не збіглася",
+        "en": "File checksum in the archive did not match",
+        "de": "Prüfsumme der Datei im Archiv stimmt nicht überein"
+      },
+      "cause": {
+        "ru": "Файл изменился после создания архива: например, при копировании или из-за сбоя на носителе.",
+        "uk": "Файл змінився після створення архіву: наприклад, під час копіювання або через збій на носії.",
+        "en": "The file changed after the archive was created: for example, during copying or due to a storage media failure.",
+        "de": "Die Datei hat sich nach dem Erstellen des Archivs geändert: zum Beispiel beim Kopieren oder aufgrund eines Fehlers auf dem Datenträger."
+      },
+      "action": {
+        "ru": "1. Файл изменён или повреждён при копировании: возьмите другую копию и проверьте носитель.",
+        "uk": "1. Файл змінено або пошкоджено під час копіювання: візьміть іншу копію й перевірте носій.",
+        "en": "1. The file was changed or damaged during copying: take another copy and check the storage media.",
+        "de": "1. Die Datei wurde beim Kopieren geändert oder beschädigt: Nehmen Sie eine andere Kopie und prüfen Sie den Datenträger."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-003",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-004",
+      "key": "FINGERPRINT",
+      "aliases": [
+        "fingerprint"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Содержимое восстановленной базы не совпало с контрольными итогами архива",
+        "uk": "Вміст відновленої бази не збігся з контрольними підсумками архіву",
+        "en": "Contents of the restored database did not match the archive totals",
+        "de": "Inhalt der wiederhergestellten Datenbank stimmt nicht mit den Kontrollsummen des Archivs überein"
+      },
+      "cause": {
+        "ru": "После восстановления содержимое базы не совпало с тем, что было зафиксировано в архиве. Возможно, архив или база повреждены.",
+        "uk": "Після відновлення вміст бази не збігся з тим, що було зафіксовано в архіві. Можливо, архів або база пошкоджені.",
+        "en": "After restoration, the database contents did not match what was recorded in the archive. The archive or database may be damaged.",
+        "de": "Nach der Wiederherstellung stimmte der Inhalt der Datenbank nicht mit dem im Archiv festgehaltenen überein. Möglicherweise sind Archiv oder Datenbank beschädigt."
+      },
+      "action": {
+        "ru": "1. Не используйте восстановленную базу.\n2. Возьмите другую копию; если так со всеми — сообщите разработчику.",
+        "uk": "1. Не використовуйте відновлену базу.\n2. Візьміть іншу копію; якщо так з усіма — повідомте розробнику.",
+        "en": "1. Do not use the restored database.\n2. Take another copy; if this happens with all copies, contact the developer.",
+        "de": "1. Verwenden Sie die wiederhergestellte Datenbank nicht.\n2. Nehmen Sie eine andere Kopie; wenn dies bei allen Kopien der Fall ist, wenden Sie sich an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-004",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-005",
+      "key": "DB_CORRUPT",
+      "aliases": [
+        "db_corrupt"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "База внутри архива повреждена (проверка целостности или внешние ключи)",
+        "uk": "База всередині архіву пошкоджена (перевірка цілісності або зовнішні ключі)",
+        "en": "Database inside the archive is damaged (integrity check or foreign keys)",
+        "de": "Datenbank im Archiv ist beschädigt (Integritätsprüfung oder Fremdschlüssel)"
+      },
+      "cause": {
+        "ru": "Проверка показала, что база внутри архива повреждена: её структура или связи между данными нарушены.",
+        "uk": "Перевірка показала, що база всередині архіву пошкоджена: її структура або зв’язки між даними порушені.",
+        "en": "The check showed that the database inside the archive is damaged: its structure or the links between data are broken.",
+        "de": "Die Prüfung ergab, dass die Datenbank im Archiv beschädigt ist: Ihre Struktur oder die Verknüpfungen zwischen den Daten sind gestört."
+      },
+      "action": {
+        "ru": "1. Не восстанавливайте из этого архива.\n2. Возьмите предыдущую копию цепочки.",
+        "uk": "1. Не відновлюйте з цього архіву.\n2. Візьміть попередню копію ланцюжка.",
+        "en": "1. Do not restore from this archive.\n2. Take the previous copy in the chain.",
+        "de": "1. Stellen Sie nicht aus diesem Archiv wieder her.\n2. Nehmen Sie die vorherige Kopie aus der Kette."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-005",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-006",
+      "key": "SOURCE_CORRUPT",
+      "aliases": [
+        "source_corrupt"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "База повреждена: копия не сделана, прежние копии сохранены",
+        "uk": "База пошкоджена: копію не зроблено, попередні копії збережено",
+        "en": "Database is damaged: no copy was made, previous copies are preserved",
+        "de": "Datenbank ist beschädigt: Keine Kopie erstellt, frühere Kopien sind erhalten"
+      },
+      "cause": {
+        "ru": "Основная база повреждена, поэтому программа не стала делать новую копию. Прежние копии остались целы.",
+        "uk": "Основна база пошкоджена, тому програма не стала робити нову копію. Попередні копії залишилися цілими.",
+        "en": "The main database is damaged, so the program did not make a new copy. Previous copies remain intact.",
+        "de": "Die Hauptdatenbank ist beschädigt, daher hat das Programm keine neue Kopie erstellt. Frühere Kopien bleiben unversehrt."
+      },
+      "action": {
+        "ru": "1. Остановите работу и восстановите последнюю хорошую копию.\n2. Новые данные в повреждённую базу не вносите.",
+        "uk": "1. Зупиніть роботу й відновіть останню справну копію.\n2. Нових даних у пошкоджену базу не вносьте.",
+        "en": "1. Stop working and restore the latest good copy.\n2. Do not enter new data into the damaged database.",
+        "de": "1. Beenden Sie die Arbeit und stellen Sie die letzte gute Kopie wieder her.\n2. Geben Sie keine neuen Daten in die beschädigte Datenbank ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-006",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-007",
+      "key": "DRILL_NO_COPY",
+      "aliases": [
+        "drill_no_copy"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Для учебного восстановления не найдено ни одной копии",
+        "uk": "Для навчального відновлення не знайдено жодної копії",
+        "en": "No copy was found for the training recovery",
+        "de": "Für die Übungswiederherstellung wurde keine Kopie gefunden"
+      },
+      "cause": {
+        "ru": "Программа не нашла ни одной копии в доступных ей местах.",
+        "uk": "Програма не знайшла жодної копії в доступних їй місцях.",
+        "en": "The program did not find any backups in the places it can access.",
+        "de": "Das Programm hat an den zugänglichen Orten keine Sicherungskopien gefunden."
+      },
+      "action": {
+        "ru": "1. Подключите флешку или диск с копиями, проверьте папки копий в «Архиве» и начните заново.",
+        "uk": "1. Під’єднайте флешку або диск з копіями, перевірте теки копій в «Архіві» та почніть знову.",
+        "en": "1. Connect a USB drive or disk with copies, check the copy folders in “Archive”, and start again.",
+        "de": "1. Schließen Sie einen USB-Stick oder eine Festplatte mit Kopien an, prüfen Sie die Kopienordner in „Archiv“ und beginnen Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-007",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-008",
+      "key": "DRILL_FAILED",
+      "aliases": [
+        "drill_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Учебное восстановление не удалось",
+        "uk": "Навчальне відновлення не вдалося",
+        "en": "The training recovery failed",
+        "de": "Die Übungswiederherstellung ist fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Копия может быть повреждена, пароль может не совпадать, или ключ восстановления может быть неправильным.",
+        "uk": "Копія може бути пошкоджена, пароль може не збігатися, або ключ відновлення може бути неправильним.",
+        "en": "The copy may be damaged, the password may not match, or the recovery key may be wrong.",
+        "de": "Die Kopie ist möglicherweise beschädigt, das Passwort passt nicht oder der Wiederherstellungsschlüssel ist falsch."
+      },
+      "action": {
+        "ru": "1. Проверьте пароль копий или ключ восстановления и попробуйте другую копию.\n2. Рабочая база не менялась.",
+        "uk": "1. Перевірте пароль копій або ключ відновлення та спробуйте іншу копію.\n2. Робоча база не змінювалася.",
+        "en": "1. Check the copy password or recovery key and try another copy.\n2. The working database was not changed.",
+        "de": "1. Prüfen Sie das Kopienpasswort oder den Wiederherstellungsschlüssel und versuchen Sie eine andere Kopie.\n2. Die Arbeitsdatenbank wurde nicht verändert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-008",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-009",
+      "key": "NO_PASSWORD",
+      "aliases": [
+        "no_password"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не задан пароль архива",
+        "uk": "Не задано пароль архіву",
+        "en": "Archive password is not set",
+        "de": "Archivpasswort ist nicht gesetzt"
+      },
+      "cause": {
+        "ru": "Пароль для копий не сохранён в настройках и не передан при запуске.",
+        "uk": "Пароль для копій не збережено в налаштуваннях і не передано під час запуску.",
+        "en": "The backup password is not saved in the settings and was not provided at startup.",
+        "de": "Das Sicherungspasswort ist nicht in den Einstellungen gespeichert und wurde beim Start nicht übergeben."
+      },
+      "action": {
+        "ru": "1. Задайте пароль копий в «Архив и копии → Защита копий» (или переменную BACKUP_PASSWORD при автозапуске).",
+        "uk": "1. Задайте пароль копій у «Архів і копії → Захист копій» (або змінну BACKUP_PASSWORD під час автозапуску).",
+        "en": "1. Set the backup password in “Archive and copies → Copy protection” (or the BACKUP_PASSWORD variable at autostart).",
+        "de": "1. Legen Sie das Sicherungspasswort unter „Archiv und Kopien → Kopienschutz“ fest (oder die Variable BACKUP_PASSWORD beim Autostart)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-009",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-010",
+      "key": "WEAK_PASSWORD",
+      "aliases": [
+        "weak_password"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пароль архива слабый: короткий или из шаблона",
+        "uk": "Пароль архіву слабкий: короткий або з шаблону",
+        "en": "Archive password is weak: too short or from a template",
+        "de": "Archivpasswort ist schwach: zu kurz oder aus einer Vorlage"
+      },
+      "cause": {
+        "ru": "Выбран слишком короткий пароль или простой шаблон.",
+        "uk": "Вибрано занадто короткий пароль або простий шаблон.",
+        "en": "The chosen password is too short or follows a simple template.",
+        "de": "Das gewählte Passwort ist zu kurz oder folgt einer einfachen Vorlage."
+      },
+      "action": {
+        "ru": "1. Придумайте пароль от 10 знаков, не из списка простых (change-me, password, 12345678…), либо возьмите сгенерированный.",
+        "uk": "1. Придумайте пароль від 10 знаків, не зі списку простих (change-me, password, 12345678…), або візьміть згенерований.",
+        "en": "1. Create a password of at least 10 characters, not from the simple list (change-me, password, 12345678…), or use a generated one.",
+        "de": "1. Erstellen Sie ein Passwort mit mindestens 10 Zeichen, nicht aus der einfachen Liste (change-me, password, 12345678…), oder verwenden Sie ein generiertes."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-010",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-011",
+      "key": "DB_MISSING",
+      "aliases": [
+        "db_missing"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Файл базы не найден",
+        "uk": "Файл бази не знайдено",
+        "en": "Database file not found",
+        "de": "Datenbankdatei nicht gefunden"
+      },
+      "cause": {
+        "ru": "Файл базы перемещён, удалён или диск с ним не подключён.",
+        "uk": "Файл бази переміщено, видалено або диск із ним не підключено.",
+        "en": "The database file was moved, deleted, or its disk is not connected.",
+        "de": "Die Datenbankdatei wurde verschoben, gelöscht oder der Datenträger ist nicht verbunden."
+      },
+      "action": {
+        "ru": "1. Проверьте путь --db и что диск подключён; не создавайте новую пустую базу поверх старой — восстановите копию.",
+        "uk": "1. Перевірте шлях --db і що диск підключено; не створюйте нову порожню базу поверх старої — відновіть копію.",
+        "en": "1. Check the --db path and that the disk is connected; do not create a new empty database over the old one — restore a backup.",
+        "de": "1. Prüfen Sie den Pfad --db und ob der Datenträger verbunden ist; erstellen Sie keine neue leere Datenbank über der alten — stellen Sie eine Sicherung wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-011",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-012",
+      "key": "EXCEL_FAILED",
+      "aliases": [
+        "excel_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось собрать выгрузку Excel для копии",
+        "uk": "Не вдалося зібрати вивантаження Excel для копії",
+        "en": "Could not build the Excel export for the backup",
+        "de": "Excel-Export für die Sicherung konnte nicht erstellt werden"
+      },
+      "cause": {
+        "ru": "При сборке копии не удалось сформировать файл Excel.",
+        "uk": "Під час складання копії не вдалося сформувати файл Excel.",
+        "en": "The Excel file could not be created while building the backup.",
+        "de": "Die Excel-Datei konnte beim Erstellen der Sicherung nicht erzeugt werden."
+      },
+      "action": {
+        "ru": "1. Копия базы сохранена.\n2. Повторите выгрузку Excel позже; если повторяется — сообщите разработчику код.",
+        "uk": "1. Копію бази збережено.\n2. Повторіть вивантаження Excel пізніше; якщо повторюється — повідомте розробнику код.",
+        "en": "1. The database backup was saved.\n2. Retry the Excel export later; if it repeats, report the code to the developer.",
+        "de": "1. Die Datenbanksicherung wurde gespeichert.\n2. Wiederholen Sie den Excel-Export später; wenn es erneut auftritt, melden Sie den Code dem Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-012",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-013",
+      "key": "FILES_FAILED",
+      "aliases": [
+        "files_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось прочитать файлы счетов из архива файлов",
+        "uk": "Не вдалося прочитати файли рахунків з архіву файлів",
+        "en": "Could not read invoice files from the file archive",
+        "de": "Rechnungsdateien aus dem Dateiarchiv konnten nicht gelesen werden"
+      },
+      "cause": {
+        "ru": "Папка файлов недоступна или нет прав на чтение.",
+        "uk": "Тека файлів недоступна або немає прав на читання.",
+        "en": "The files folder is unavailable or read permission is missing.",
+        "de": "Der Dateiordner ist nicht verfügbar oder die Leserechte fehlen."
+      },
+      "action": {
+        "ru": "1. Проверьте папку файлов и права на неё; копия базы сохранена.",
+        "uk": "1. Перевірте теку файлів і права на неї; копію бази збережено.",
+        "en": "1. Check the files folder and permissions on it; the database backup was saved.",
+        "de": "1. Prüfen Sie den Dateiordner und die Rechte darauf; die Datenbanksicherung wurde gespeichert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-013",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-014",
+      "key": "BUILD_FAILED",
+      "aliases": [
+        "build_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось собрать архив",
+        "uk": "Не вдалося зібрати архів",
+        "en": "Could not build the archive",
+        "de": "Archiv konnte nicht erstellt werden"
+      },
+      "cause": {
+        "ru": "Не хватило свободного места или не удалось записать архив.",
+        "uk": "Не вистачило вільного місця або не вдалося записати архів.",
+        "en": "There was not enough free space or the archive could not be written.",
+        "de": "Es war nicht genügend freier Speicherplatz vorhanden oder das Archiv konnte nicht geschrieben werden."
+      },
+      "action": {
+        "ru": "1. Проверьте свободное место и права на папку; повторите копию вручную.\n2. Прежние копии не затронуты.",
+        "uk": "1. Перевірте вільне місце й права на теку; повторіть копію вручну.\n2. Попередні копії не зачеплено.",
+        "en": "1. Check free space and folder permissions; repeat the backup manually.\n2. Previous backups are unaffected.",
+        "de": "1. Prüfen Sie freien Speicherplatz und Ordnerrechte; wiederholen Sie die Sicherung manuell.\n2. Vorherige Sicherungen sind nicht betroffen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-014",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-015",
+      "key": "FOLDER_UNAVAILABLE",
+      "aliases": [
+        "folder_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Папка копий недоступна: диск не подключён или нет прав",
+        "uk": "Тека копій недоступна: диск не підключено або немає прав",
+        "en": "Backup folder unavailable: disk not connected or no permission",
+        "de": "Sicherungsordner nicht verfügbar: Datenträger nicht verbunden oder keine Rechte"
+      },
+      "cause": {
+        "ru": "Диск с папкой копий отключён или доступ к папке закрыт.",
+        "uk": "Диск із текою копій від’єднано або доступ до теки закрито.",
+        "en": "The disk with the backup folder is disconnected or access to the folder is denied.",
+        "de": "Der Datenträger mit dem Sicherungsordner ist nicht verbunden oder der Zugriff auf den Ordner ist gesperrt."
+      },
+      "action": {
+        "ru": "1. Подключите диск или выберите другую папку копий; пока копия лежит только там, где доступно.",
+        "uk": "1. Підключіть диск або виберіть іншу теку копій; поки копія лежить лише там, де доступно.",
+        "en": "1. Connect the disk or choose another backup folder; for now the backup is only where it is available.",
+        "de": "1. Verbinden Sie den Datenträger oder wählen Sie einen anderen Sicherungsordner; vorerst liegt die Sicherung nur dort, wo sie verfügbar ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-015",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-016",
+      "key": "FOLDER_FAILED",
+      "aliases": [
+        "folder_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось записать копию в папку",
+        "uk": "Не вдалося записати копію в теку",
+        "en": "Could not write the backup to the folder",
+        "de": "Sicherung konnte nicht in den Ordner geschrieben werden"
+      },
+      "cause": {
+        "ru": "Нет места или прав на запись в папку копий.",
+        "uk": "Немає місця або прав на запис у теку копій.",
+        "en": "There is no space or write permission for the backup folder.",
+        "de": "Es fehlt Speicherplatz oder Schreibrecht für den Sicherungsordner."
+      },
+      "action": {
+        "ru": "1. Проверьте место и права на папку копий; повторите копию.",
+        "uk": "1. Перевірте місце й права на теку копій; повторіть копію.",
+        "en": "1. Check space and permissions for the backup folder; repeat the backup.",
+        "de": "1. Prüfen Sie Speicherplatz und Rechte für den Sicherungsordner; wiederholen Sie die Sicherung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-016",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-017",
+      "key": "TELEGRAM_TOKEN",
+      "aliases": [
+        "telegram_token"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не задан токен бота для отправки копии в Telegram",
+        "uk": "Не задано токен бота для надсилання копії в Telegram",
+        "en": "Bot token for sending the backup to Telegram is not set",
+        "de": "Bot-Token zum Senden der Sicherung an Telegram ist nicht gesetzt"
+      },
+      "cause": {
+        "ru": "Токен бота не указан в настройках и не передан при запуске.",
+        "uk": "Токен бота не вказано в налаштуваннях і не передано під час запуску.",
+        "en": "The bot token is not specified in the settings and was not provided at startup.",
+        "de": "Das Bot-Token ist nicht in den Einstellungen angegeben und wurde beim Start nicht übergeben."
+      },
+      "action": {
+        "ru": "1. Укажите токен в «Настройки → Боты» или переменной RENT_BOT_TOKEN.\n2. Токен — секрет.",
+        "uk": "1. Вкажіть токен у «Налаштування → Боти» або змінною RENT_BOT_TOKEN.\n2. Токен — секрет.",
+        "en": "1. Enter the token in “Settings → Bots” or the RENT_BOT_TOKEN variable.\n2. The token is a secret.",
+        "de": "1. Geben Sie das Token unter „Einstellungen → Bots“ oder in der Variable RENT_BOT_TOKEN an.\n2. Das Token ist geheim."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-017",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-018",
+      "key": "TELEGRAM_FAILED",
+      "aliases": [
+        "telegram_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Telegram не принял архив",
+        "uk": "Telegram не прийняв архів",
+        "en": "Telegram did not accept the archive",
+        "de": "Telegram hat das Archiv nicht angenommen"
+      },
+      "cause": {
+        "ru": "Telegram иногда отклоняет отправку из-за настроек доступа или временной недоступности сервиса. Копия при этом уже сохранена в папке.",
+        "uk": "Telegram іноді відхиляє надсилання через налаштування доступу або тимчасову недоступність сервісу. Копія при цьому вже збережена в теці.",
+        "en": "Telegram sometimes rejects a send because of access settings or a temporary service outage. A copy has already been saved in the folder.",
+        "de": "Telegram lehnt das Senden manchmal wegen Zugriffseinstellungen oder einer vorübergehenden Dienststörung ab. Eine Kopie wurde bereits im Ordner gespeichert."
+      },
+      "action": {
+        "ru": "1. Проверьте токен и канал; копия в папке сохранена.\n2. Повторите отправку позже.",
+        "uk": "1. Перевірте токен і канал; копію в теці збережено.\n2. Повторіть надсилання пізніше.",
+        "en": "1. Check the token and channel; a copy is saved in the folder.\n2. Try sending again later.",
+        "de": "1. Prüfen Sie Token und Kanal; eine Kopie ist im Ordner gespeichert.\n2. Senden Sie später erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-018",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-019",
+      "key": "TELEGRAM_TOO_LARGE",
+      "aliases": [
+        "telegram_too_large"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Архив больше 50 МБ: в Telegram не отправлен",
+        "uk": "Архів більший за 50 МБ: у Telegram не надіслано",
+        "en": "Archive is larger than 50 MB: not sent to Telegram",
+        "de": "Archiv größer als 50 MB: nicht an Telegram gesendet"
+      },
+      "cause": {
+        "ru": "Размер архива превышает ограничение Telegram на отправку файлов. Копия остаётся в папке и доступна для других способов хранения.",
+        "uk": "Розмір архіву перевищує обмеження Telegram на надсилання файлів. Копія залишається в теці й доступна для інших способів зберігання.",
+        "en": "The archive exceeds Telegram’s file-size limit. The copy remains in the folder and can be used for other storage methods.",
+        "de": "Das Archiv überschreitet das Dateigrößenlimit von Telegram. Die Kopie bleibt im Ordner und kann für andere Speichermethoden verwendet werden."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: копия лежит в папке.\n2. Для облака или флешки используйте папку копий.",
+        "uk": "1. Нічого робити не потрібно: копія лежить у теці.\n2. Для хмари або флешки використовуйте теку копій.",
+        "en": "1. No action is needed: the copy is in the folder.\n2. For cloud storage or a USB drive, use the copies folder.",
+        "de": "1. Es ist nichts zu tun: Die Kopie liegt im Ordner.\n2. Für Cloud oder USB-Stick verwenden Sie den Kopienordner."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-019",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-020",
+      "key": "NO_KEY_MODE",
+      "aliases": [
+        "no_key_mode"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка пароля нужна только в режиме с паролем или PIN",
+        "uk": "Перевірка пароля потрібна лише в режимі з паролем або PIN",
+        "en": "Password check is only needed in password or PIN mode",
+        "de": "Passwortprüfung ist nur im Passwort- oder PIN-Modus nötig"
+      },
+      "cause": {
+        "ru": "Проверка пароля доступна только тогда, когда для копий включена защита паролем или PIN. В обычном режиме проверять нечего.",
+        "uk": "Перевірка пароля доступна лише тоді, коли для копій увімкнено захист паролем або PIN. У звичайному режимі перевіряти нічого.",
+        "en": "Password verification is available only when password or PIN protection is enabled for copies. In normal mode there is nothing to verify.",
+        "de": "Eine Passwortprüfung ist nur möglich, wenn für Kopien ein Passwort- oder PIN-Schutz aktiviert ist. Im normalen Modus gibt es nichts zu prüfen."
+      },
+      "action": {
+        "ru": "1. Включите защиту паролем или PIN в «Защита копий», если хотите проверять пароль.",
+        "uk": "1. Увімкніть захист паролем або PIN у «Захист копій», якщо хочете перевіряти пароль.",
+        "en": "1. Enable password or PIN protection in “Copy protection” if you want to verify a password.",
+        "de": "1. Aktivieren Sie den Passwort- oder PIN-Schutz unter „Kopierschutz“, wenn Sie ein Passwort prüfen möchten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-020",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-021",
+      "key": "RESTORE_FAILED",
+      "aliases": [
+        "restore_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "База не восстановлена",
+        "uk": "Базу не відновлено",
+        "en": "Database was not restored",
+        "de": "Datenbank wurde nicht wiederhergestellt"
+      },
+      "cause": {
+        "ru": "Восстановление не завершилось: копия может быть повреждена, пароль не подошёл или на диске не хватило места. Текущие данные при этом не изменились.",
+        "uk": "Відновлення не завершилося: копія може бути пошкоджена, пароль не підійшов або на диску не вистачило місця. Поточні дані при цьому не змінилися.",
+        "en": "The restore did not finish: the copy may be damaged, the password may not match, or there may not be enough disk space. Your current data has not changed.",
+        "de": "Die Wiederherstellung wurde nicht abgeschlossen: Die Kopie ist möglicherweise beschädigt, das Passwort passt nicht oder auf dem Datenträger ist nicht genug Platz. Ihre aktuellen Daten wurden nicht geändert."
+      },
+      "action": {
+        "ru": "1. Текущая база не изменена.\n2. Проверьте пароль и место на диске; попробуйте другую копию.",
+        "uk": "1. Поточну базу не змінено.\n2. Перевірте пароль і місце на диску; спробуйте іншу копію.",
+        "en": "1. The current database has not been changed.\n2. Check the password and disk space; try another copy.",
+        "de": "1. Die aktuelle Datenbank wurde nicht geändert.\n2. Prüfen Sie Passwort und Speicherplatz; versuchen Sie eine andere Kopie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-021",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-022",
+      "key": "NO_COPIES",
+      "aliases": [
+        "no_copies"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В папках копий нет архивов для учебного восстановления",
+        "uk": "У теках копій немає архівів для навчального відновлення",
+        "en": "No archives for practice restore in the copies folders",
+        "de": "In den Kopienordnern gibt es keine Archive für die Übungswiederherstellung"
+      },
+      "cause": {
+        "ru": "Для учебного восстановления нужна хотя бы одна готовая копия. Сейчас в папках копий архивов нет.",
+        "uk": "Для навчального відновлення потрібна хоча б одна готова копія. Зараз у теках копій архівів немає.",
+        "en": "A practice restore needs at least one finished copy. There are currently no archives in the copies folders.",
+        "de": "Für eine Übungswiederherstellung ist mindestens eine fertige Kopie nötig. Derzeit gibt es keine Archive in den Kopienordnern."
+      },
+      "action": {
+        "ru": "1. Сделайте копию вручную («Архив и копии → Сделать копию») и повторите учение.",
+        "uk": "1. Зробіть копію вручну («Архів і копії → Зробити копію») і повторіть навчання.",
+        "en": "1. Make a copy manually (“Archive and copies → Make a copy”) and repeat the practice.",
+        "de": "1. Erstellen Sie manuell eine Kopie („Archiv und Kopien → Kopie erstellen“) und wiederholen Sie die Übung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-022",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-023",
+      "key": "SERVICES_RUNNING",
+      "aliases": [
+        "services_running"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Веб, бот или планировщик ещё работают",
+        "uk": "Веб, бот або планувальник ще працюють",
+        "en": "Web, bot, or scheduler are still running",
+        "de": "Web, Bot oder Planer laufen noch"
+      },
+      "cause": {
+        "ru": "Часть программы ещё выполняется и может мешать операции с базой. Обычно достаточно дождаться остановки или завершить работу.",
+        "uk": "Частина програми ще виконується й може заважати операції з базою. Зазвичай достатньо дочекатися зупинки або завершити роботу.",
+        "en": "Part of the program is still running and may interfere with a database operation. Usually it is enough to wait until it stops or to finish the work.",
+        "de": "Ein Teil des Programms läuft noch und kann einen Datenbankvorgang stören. Normalerweise reicht es, das Ende abzuwarten oder die Arbeit zu beenden."
+      },
+      "action": {
+        "ru": "1. Остановите службы (python -m app.ctl stop) или повторите с --force, если уверены.",
+        "uk": "1. Зупиніть служби (python -m app.ctl stop) або повторіть з --force, якщо впевнені.",
+        "en": "1. Stop the services (python -m app.ctl stop) or repeat with --force if you are sure.",
+        "de": "1. Stoppen Sie die Dienste (python -m app.ctl stop) oder wiederholen Sie den Vorgang mit --force, wenn Sie sicher sind."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-023",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-024",
+      "key": "PARTS_MISMATCH",
+      "aliases": [
+        "parts_mismatch"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Части архива не складываются в исходный файл",
+        "uk": "Частини архіву не складаються в початковий файл",
+        "en": "Archive parts do not form the original file",
+        "de": "Archivteile ergeben nicht die Originaldatei"
+      },
+      "cause": {
+        "ru": "Одна или несколько частей архива отсутствуют, повреждены или относятся к другому набору. Поэтому из них не получается исходный файл.",
+        "uk": "Одна або кілька частин архіву відсутні, пошкоджені або належать до іншого набору. Тому з них не виходить початковий файл.",
+        "en": "One or more archive parts are missing, damaged, or belong to a different set. That is why they do not form the original file.",
+        "de": "Ein oder mehrere Archivteile fehlen, sind beschädigt oder gehören zu einem anderen Satz. Deshalb ergeben sie nicht die Originaldatei."
+      },
+      "action": {
+        "ru": "1. Соберите все части одного набора в одну папку; не хватает части — найдите её на другом носителе.",
+        "uk": "1. Зберіть усі частини одного набору в одній теці; бракує частини — знайдіть її на іншому носії.",
+        "en": "1. Put all parts of one set into one folder; if a part is missing, find it on another storage medium.",
+        "de": "1. Legen Sie alle Teile eines Satzes in einen Ordner; wenn ein Teil fehlt, suchen Sie es auf einem anderen Datenträger."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-024",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-025",
+      "key": "NO_DESTINATION",
+      "aliases": [
+        "no_destination"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не настроено, куда класть копию",
+        "uk": "Не налаштовано, куди класти копію",
+        "en": "No destination is configured for the copy",
+        "de": "Es ist nicht eingestellt, wohin die Kopie soll"
+      },
+      "cause": {
+        "ru": "Программа не знает, где сохранять копии, потому что место хранения ещё не выбрано. Без этого создать копию нельзя.",
+        "uk": "Програма не знає, де зберігати копії, бо місце зберігання ще не вибрано. Без цього створити копію неможливо.",
+        "en": "The program does not know where to save copies because no storage location has been selected yet. Without it, a copy cannot be created.",
+        "de": "Das Programm weiß nicht, wo Kopien gespeichert werden sollen, weil noch kein Speicherort ausgewählt wurde. Ohne diesen kann keine Kopie erstellt werden."
+      },
+      "action": {
+        "ru": "1. Выберите папку копий или канал Telegram в «Архив и копии».",
+        "uk": "1. Виберіть теку копій або канал Telegram в «Архів і копії».",
+        "en": "1. Choose a copies folder or a Telegram channel in “Archive and copies”.",
+        "de": "1. Wählen Sie einen Kopienordner oder einen Telegram-Kanal unter „Archiv und Kopien“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-025",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-026",
+      "key": "INTERRUPTED",
+      "aliases": [
+        "interrupted"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запуск копии оборван: процесс остановили до конца",
+        "uk": "Запуск копії обірвано: процес зупинили до кінця",
+        "en": "Copy run was interrupted: the process stopped before finishing",
+        "de": "Kopiervorgang abgebrochen: Der Prozess wurde vor dem Ende gestoppt"
+      },
+      "cause": {
+        "ru": "Создание копии прервалось, например из-за остановки программы или выключения компьютера. Неполный файл не считается готовой копией.",
+        "uk": "Створення копії перервалося, наприклад через зупинку програми або вимкнення комп’ютера. Неповний файл не вважається готовою копією.",
+        "en": "Copy creation was interrupted, for example because the program stopped or the computer was turned off. An incomplete file is not considered a finished copy.",
+        "de": "Die Kopiererstellung wurde unterbrochen, zum Beispiel durch Beenden des Programms oder Ausschalten des Computers. Eine unvollständige Datei gilt nicht als fertige Kopie."
+      },
+      "action": {
+        "ru": "1. Запустите копию ещё раз.\n2. Незавершённый файл программа не считает копией.",
+        "uk": "1. Запустіть копію ще раз.\n2. Незавершений файл програма не вважає копією.",
+        "en": "1. Start the copy again.\n2. The program does not count an unfinished file as a copy.",
+        "de": "1. Starten Sie die Kopie erneut.\n2. Eine unvollständige Datei zählt für das Programm nicht als Kopie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-026",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-027",
+      "key": "BAD_SETTINGS",
+      "aliases": [
+        "bad_settings"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неверные настройки архива",
+        "uk": "Неправильні налаштування архіву",
+        "en": "Invalid archive settings",
+        "de": "Ungültige Archiveinstellungen"
+      },
+      "cause": {
+        "ru": "Некоторые настройки архива не подходят друг другу или введены недопустимые значения. Поэтому архив не может запуститься.",
+        "uk": "Деякі налаштування архіву не підходять одне одному або введено неприпустимі значення. Тому архів не може запуститися.",
+        "en": "Some archive settings do not fit together or contain invalid values. That is why the archive cannot start.",
+        "de": "Einige Archiveinstellungen passen nicht zusammen oder enthalten ungültige Werte. Deshalb kann das Archiv nicht starten."
+      },
+      "action": {
+        "ru": "1. Откройте «Архив и копии → Расписание» и проверьте значения.",
+        "uk": "1. Відкрийте «Архів і копії → Розклад» і перевірте значення.",
+        "en": "1. Open “Archive and copies → Schedule” and check the values.",
+        "de": "1. Öffnen Sie „Archiv und Kopien → Zeitplan“ und prüfen Sie die Werte."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-027",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-028",
+      "key": "BAD_PROTECTION",
+      "aliases": [
+        "bad_protection"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неверные настройки защиты копий",
+        "uk": "Неправильні налаштування захисту копій",
+        "en": "Invalid copy protection settings",
+        "de": "Ungültige Einstellungen für den Kopierschutz"
+      },
+      "cause": {
+        "ru": "Выбранный режим защиты не сочетается с другими настройками или не отмечены обязательные подтверждения. Поэтому защиту нельзя применить.",
+        "uk": "Вибраний режим захисту не поєднується з іншими налаштуваннями або не позначено обов’язкові підтвердження. Тому захист не можна застосувати.",
+        "en": "The selected protection mode is incompatible with other settings, or required confirmations are not checked. That is why protection cannot be applied.",
+        "de": "Der gewählte Schutzmodus passt nicht zu anderen Einstellungen, oder erforderliche Bestätigungen sind nicht markiert. Deshalb kann der Schutz nicht angewendet werden."
+      },
+      "action": {
+        "ru": "1. Выберите режим защиты из списка и отметьте обязательные подтверждения.",
+        "uk": "1. Виберіть режим захисту зі списку й позначте обов’язкові підтвердження.",
+        "en": "1. Choose a protection mode from the list and check the required confirmations.",
+        "de": "1. Wählen Sie einen Schutzmodus aus der Liste und markieren Sie die erforderlichen Bestätigungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-028",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-029",
+      "key": "ALREADY_RUNNING",
+      "aliases": [
+        "already_running"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Архив уже собирается другим запуском",
+        "uk": "Архів уже збирається іншим запуском",
+        "en": "Archive is already being built by another run",
+        "de": "Archiv wird bereits von einem anderen Lauf erstellt"
+      },
+      "cause": {
+        "ru": "Архив уже создаётся в другом запуске программы. Второй запуск может помешать и не нужен.",
+        "uk": "Архів уже створюється в іншому запуску програми. Другий запуск може завадити й не потрібен.",
+        "en": "The archive is already being created by another program run. A second run could interfere and is not needed.",
+        "de": "Das Archiv wird bereits von einem anderen Programmlauf erstellt. Ein zweiter Lauf könnte stören und ist nicht nötig."
+      },
+      "action": {
+        "ru": "1. Подождите окончания: второй запуск не нужен.",
+        "uk": "1. Зачекайте завершення: другий запуск не потрібен.",
+        "en": "1. Wait for it to finish: a second run is not needed.",
+        "de": "1. Warten Sie das Ende ab: Ein zweiter Lauf ist nicht nötig."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-029",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-030",
+      "key": "NOT_CONFIRMED",
+      "aliases": [
+        "not_confirmed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не отмечены обязательные подтверждения",
+        "uk": "Не позначено обов’язкові підтвердження",
+        "en": "Required confirmations are not marked",
+        "de": "Pflichtbestätigungen sind nicht markiert"
+      },
+      "cause": {
+        "ru": "Часть обязательных подтверждений осталась неотмеченной.",
+        "uk": "Частину обов’язкових підтверджень не позначено.",
+        "en": "Some required confirmations are still unchecked.",
+        "de": "Einige Pflichtbestätigungen sind noch nicht markiert."
+      },
+      "action": {
+        "ru": "1. Прочитайте и отметьте все подтверждения защиты копий.",
+        "uk": "1. Прочитайте й позначте всі підтвердження захисту копій.",
+        "en": "1. Read and tick all copy protection confirmations.",
+        "de": "1. Lesen Sie alle Bestätigungen zum Kopierschutz und markieren Sie sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-030",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-031",
+      "key": "CHAIN_FAILED",
+      "aliases": [
+        "chain_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Копия сохранена, но запись цепочки не создана",
+        "uk": "Копію збережено, але запис ланцюжка не створено",
+        "en": "Backup saved, but the chain entry was not created",
+        "de": "Kopie gespeichert, aber der Ketteneintrag wurde nicht erstellt"
+      },
+      "cause": {
+        "ru": "Запись цепочки не удалась: возможно, не хватило места на носителе или ключ подписи оказался недоступен.",
+        "uk": "Запис ланцюжка не вдався: можливо, не вистачило місця на носії або ключ підпису був недоступний.",
+        "en": "The chain entry could not be written: perhaps there was not enough space on the storage device or the signing key was unavailable.",
+        "de": "Der Ketteneintrag konnte nicht geschrieben werden: Vielleicht war nicht genug Platz auf dem Datenträger oder der Signaturschlüssel war nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. Проверьте ключ подписи и место на носителе; следующая копия попытается записать цепочку снова.",
+        "uk": "1. Перевірте ключ підпису й місце на носії; наступна копія спробує записати ланцюжок знову.",
+        "en": "1. Check the signing key and free space on the storage device; the next backup will try to write the chain again.",
+        "de": "1. Prüfen Sie den Signaturschlüssel und den freien Platz auf dem Datenträger; die nächste Kopie versucht erneut, die Kette zu schreiben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-031",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-032",
+      "key": "COPY_UNCHAINED",
+      "aliases": [
+        "copy_unchained"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Своя копия без записи в цепочке",
+        "uk": "Власна копія без запису в ланцюжку",
+        "en": "Own backup without a chain entry",
+        "de": "Eigene Kopie ohne Ketteneintrag"
+      },
+      "cause": {
+        "ru": "При создании копии не удалось сразу добавить запись в цепочку, поэтому копия осталась отдельной.",
+        "uk": "Під час створення копії не вдалося одразу додати запис до ланцюжка, тому копія залишилася окремою.",
+        "en": "When the backup was created, the entry could not be added to the chain right away, so the backup remained separate.",
+        "de": "Beim Erstellen der Kopie konnte der Eintrag nicht sofort zur Kette hinzugefügt werden, daher blieb die Kopie separat."
+      },
+      "action": {
+        "ru": "1. При создании цепочка не записалась.\n2. Сделайте новую копию — она продолжит цепочку.",
+        "uk": "1. Під час створення ланцюжок не записався.\n2. Зробіть нову копію — вона продовжить ланцюжок.",
+        "en": "1. The chain was not written during creation.\n2. Make a new backup — it will continue the chain.",
+        "de": "1. Die Kette wurde beim Erstellen nicht geschrieben.\n2. Erstellen Sie eine neue Kopie – sie setzt die Kette fort."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-032",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-033",
+      "key": "KEY_CHANGED",
+      "aliases": [
+        "key_changed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ подписи цепочки сменился",
+        "uk": "Ключ підпису ланцюжка змінився",
+        "en": "The chain signing key has changed",
+        "de": "Der Signaturschlüssel der Kette hat sich geändert"
+      },
+      "cause": {
+        "ru": "Программа увидела другой ключ подписи: так бывает после переустановки или на новом компьютере.",
+        "uk": "Програма побачила інший ключ підпису: так буває після перевстановлення або на новому комп’ютері.",
+        "en": "The program found a different signing key: this can happen after reinstalling or on a new computer.",
+        "de": "Das Programm hat einen anderen Signaturschlüssel gefunden: Das kann nach einer Neuinstallation oder auf einem neuen Computer vorkommen."
+      },
+      "action": {
+        "ru": "1. Это нормально на новом ПК.\n2. Если ПК прежний — найдите файл ключа подписи; подтвердите смену, только если вы её ожидали.",
+        "uk": "1. Це нормально на новому ПК.\n2. Якщо ПК колишній — знайдіть файл ключа підпису; підтвердьте зміну, лише якщо ви її очікували.",
+        "en": "1. This is normal on a new PC.\n2. If the PC is the same, find the signing key file; confirm the change only if you expected it.",
+        "de": "1. Auf einem neuen PC ist das normal.\n2. Wenn es derselbe PC ist, suchen Sie die Signaturschlüsseldatei; bestätigen Sie die Änderung nur, wenn Sie sie erwartet haben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-033",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-034",
+      "key": "MEDIUM_UNAVAILABLE",
+      "aliases": [
+        "medium_unavailable"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Носитель недоступен",
+        "uk": "Носій недоступний",
+        "en": "Storage device unavailable",
+        "de": "Datenträger nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Носитель не подключён или программа не может получить к нему доступ.",
+        "uk": "Носій не підключено або програма не може отримати до нього доступ.",
+        "en": "The storage device is not connected or the program cannot access it.",
+        "de": "Der Datenträger ist nicht angeschlossen oder das Programm kann nicht darauf zugreifen."
+      },
+      "action": {
+        "ru": "1. Подключите носитель и повторите проверку; цепочка на нём не проверена.",
+        "uk": "1. Підключіть носій і повторіть перевірку; ланцюжок на ньому не перевірено.",
+        "en": "1. Connect the storage device and repeat the check; the chain on it has not been verified.",
+        "de": "1. Schließen Sie den Datenträger an und wiederholen Sie die Prüfung; die Kette darauf wurde nicht geprüft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-034",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-035",
+      "key": "BAD_PASSWORD",
+      "aliases": [
+        "bad_password"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неверный пароль архива",
+        "uk": "Неправильний пароль архіву",
+        "en": "Wrong backup password",
+        "de": "Falsches Passwort der Sicherungen"
+      },
+      "cause": {
+        "ru": "Пароль копий не совпал с тем, которым защищён архив.",
+        "uk": "Пароль копій не збігся з тим, яким захищено архів.",
+        "en": "The backup password did not match the one the archive is protected with.",
+        "de": "Das Passwort der Sicherungen stimmte nicht mit dem überein, mit dem das Archiv geschützt ist."
+      },
+      "action": {
+        "ru": "1. Введите пароль копий ещё раз; если забыт — используйте ключ восстановления (RK1-…) или две части ключа (RS1-…).",
+        "uk": "1. Введіть пароль копій ще раз; якщо забуто — використайте ключ відновлення (RK1-…) або дві частини ключа (RS1-…).",
+        "en": "1. Enter the backup password again; if you have forgotten it, use the recovery key (RK1-…) or the two parts of the key (RS1-…).",
+        "de": "1. Geben Sie das Passwort der Sicherungen erneut ein; wenn Sie es vergessen haben, verwenden Sie den Wiederherstellungsschlüssel (RK1-…) oder die zwei Teile des Schlüssels (RS1-…)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-035",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-036",
+      "key": "DRILL_BAD_PASSWORD",
+      "aliases": [
+        "drill_bad_password"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Учебное восстановление: пароль копий не подошёл",
+        "uk": "Навчальне відновлення: пароль копій не підійшов",
+        "en": "Practice restore: backup password did not match",
+        "de": "Übungswiederherstellung: Sicherungspasswort stimmt nicht"
+      },
+      "cause": {
+        "ru": "Пароль ввели с опечаткой или он относится к другой копии. Это учебная проверка, поэтому настоящие данные не затрагиваются.",
+        "uk": "Пароль ввели з помилкою або він стосується іншої копії. Це навчальна перевірка, тому справжні дані не зачіпаються.",
+        "en": "The password was mistyped or belongs to a different backup. This is a practice check, so real data is not affected.",
+        "de": "Das Passwort wurde falsch eingegeben oder gehört zu einer anderen Sicherung. Dies ist eine Übungsprüfung, daher werden echte Daten nicht verändert."
+      },
+      "action": {
+        "ru": "1. Повторите проверку: введите пароль точно.\n2. Это учебная проверка, настоящая база не менялась.",
+        "uk": "1. Повторіть перевірку: введіть пароль точно.\n2. Це навчальна перевірка, справжню базу не змінено.",
+        "en": "1. Try again and enter the password exactly.\n2. This is a practice check; the real database has not been changed.",
+        "de": "1. Versuchen Sie es erneut und geben Sie das Passwort genau ein.\n2. Dies ist eine Übungsprüfung; die echte Datenbank wurde nicht verändert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-036",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-037",
+      "key": "CURRENT_PASSWORD",
+      "aliases": [
+        "current_password"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Для смены режима защиты нужен текущий пароль копий",
+        "uk": "Для зміни режиму захисту потрібен поточний пароль копій",
+        "en": "Current backup password required to change protection mode",
+        "de": "Zum Ändern des Schutzmodus ist das aktuelle Sicherungspasswort nötig"
+      },
+      "cause": {
+        "ru": "Режим защиты меняют только после подтверждения, что человек знает действующий пароль копий. Так случайное изменение не оставит хозяйство без доступа.",
+        "uk": "Режим захисту змінюють лише після підтвердження, що людина знає чинний пароль копій. Так випадкова зміна не залишить господарство без доступу.",
+        "en": "The protection mode can be changed only after confirming that the person knows the current backup password. This way an accidental change will not leave the household without access.",
+        "de": "Der Schutzmodus lässt sich erst ändern, nachdem bestätigt wurde, dass die Person das aktuelle Sicherungspasswort kennt. So bleibt der Haushalt bei einer versehentlichen Änderung nicht ohne Zugriff."
+      },
+      "action": {
+        "ru": "1. Введите текущий пароль или PIN копий, затем меняйте режим.",
+        "uk": "1. Введіть поточний пароль або PIN копій, потім змінюйте режим.",
+        "en": "1. Enter the current backup password or PIN, then change the mode.",
+        "de": "1. Geben Sie das aktuelle Sicherungspasswort oder die PIN ein und ändern Sie dann den Modus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-037",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-038",
+      "key": "CHECK_LOCKED",
+      "aliases": [
+        "check_locked"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "5 неверных паролей подряд: пауза 10 минут",
+        "uk": "5 неправильних паролів поспіль: пауза 10 хвилин",
+        "en": "5 wrong passwords in a row: 10-minute pause",
+        "de": "5 falsche Passwörter in Folge: 10 Minuten Pause"
+      },
+      "cause": {
+        "ru": "Несколько попыток ввести пароль копий подряд оказались неудачными. Пауза нужна, чтобы перебор не помогал открыть копию.",
+        "uk": "Кілька спроб ввести пароль копій поспіль були невдалими. Пауза потрібна, щоб перебір не допомагав відкрити копію.",
+        "en": "Several attempts to enter the backup password in a row were unsuccessful. The pause prevents guessing from helping to open the backup.",
+        "de": "Mehrere Versuche, das Sicherungspasswort einzugeben, waren in Folge erfolglos. Die Pause verhindert, dass Raten beim Öffnen der Sicherung hilft."
+      },
+      "action": {
+        "ru": "1. Подождите 10 минут и введите пароль снова.",
+        "uk": "1. Зачекайте 10 хвилин і введіть пароль знову.",
+        "en": "1. Wait 10 minutes and enter the password again.",
+        "de": "1. Warten Sie 10 Minuten und geben Sie das Passwort erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-038",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-039",
+      "key": "NO_KEY",
+      "aliases": [
+        "no_key"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Копия зашифрована на ключ хозяйства: нужен пароль или PIN копий",
+        "uk": "Копію зашифровано на ключ господарства: потрібен пароль або PIN копій",
+        "en": "Backup is encrypted with the household key: backup password or PIN required",
+        "de": "Sicherung ist mit dem Haushaltsschlüssel verschlüsselt: Sicherungspasswort oder PIN erforderlich"
+      },
+      "cause": {
+        "ru": "Копия защищена ключом вашего хозяйства, поэтому без пароля или PIN её не открыть. Ключ восстановления нужен на случай, если пароль забыт.",
+        "uk": "Копія захищена ключем вашого господарства, тому без пароля або PIN її не відкрити. Ключ відновлення потрібен на випадок, якщо пароль забуто.",
+        "en": "The backup is protected by your household key, so it cannot be opened without the password or PIN. A recovery key is needed in case the password is forgotten.",
+        "de": "Die Sicherung ist mit dem Schlüssel Ihres Haushalts geschützt und lässt sich daher nicht ohne Passwort oder PIN öffnen. Ein Wiederherstellungsschlüssel ist für den Fall nötig, dass das Passwort vergessen wird."
+      },
+      "action": {
+        "ru": "1. Введите пароль или PIN копий, либо ключ восстановления.",
+        "uk": "1. Введіть пароль або PIN копій, або ключ відновлення.",
+        "en": "1. Enter the backup password or PIN, or the recovery key.",
+        "de": "1. Geben Sie das Sicherungspasswort oder die PIN oder den Wiederherstellungsschlüssel ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-039",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-040",
+      "key": "OPEN_OUTSIDE_PC",
+      "aliases": [
+        "open_outside_pc"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Копия без пароля или с PIN кладётся только на диски этого ПК",
+        "uk": "Копія без пароля або з PIN кладеться лише на диски цього ПК",
+        "en": "A copy without a password or with a PIN can only be saved to drives on this PC",
+        "de": "Eine Kopie ohne Passwort oder mit PIN wird nur auf Laufwerke dieses PCs gelegt"
+      },
+      "cause": {
+        "ru": "Копия содержит персональные данные жильцов: на чужом носителе без шифрования её прочтёт любой",
+        "uk": "Копія містить персональні дані мешканців: на чужому носії без шифрування її прочитає будь-хто",
+        "en": "The copy contains residents’ personal data: on a foreign medium without encryption, anyone can read it.",
+        "de": "Die Kopie enthält personenbezogene Daten der Bewohner: Auf einem fremden Datenträger ohne Verschlüsselung kann sie jeder lesen."
+      },
+      "action": {
+        "ru": "1. Для флешки, облака, Telegram и NAS включите пароль копий.\n2. Без пароля такая копия — утечка, если носитель потеряют.",
+        "uk": "1. Для флешки, хмари, Telegram і NAS увімкніть пароль копій.\n2. Без пароля така копія — витік, якщо носій загублять.",
+        "en": "1. For USB drives, cloud, Telegram and NAS, enable a backup password.\n2. Without a password, such a copy is a leak if the medium is lost.",
+        "de": "1. Aktivieren Sie für USB-Sticks, Cloud, Telegram und NAS ein Backup-Passwort.\n2. Ohne Passwort ist eine solche Kopie ein Leck, wenn der Datenträger verloren geht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-040",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-041",
+      "key": "INTERNAL_SAME_DISK",
+      "aliases": [
+        "internal_same_disk"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "«Другой внутренний диск» на самом деле тот же диск, что и база",
+        "uk": "«Інший внутрішній диск» насправді той самий диск, що й база",
+        "en": "The “other internal disk” is actually the same disk as the database",
+        "de": "Die „andere interne Festplatte“ ist tatsächlich dieselbe Festplatte wie die Datenbank"
+      },
+      "cause": {
+        "ru": "Выбранная папка находится на том же физическом диске, что и база, — программа это распознала.",
+        "uk": "Вибрана тека розташована на тому самому фізичному диску, що й база, — програма це розпізнала.",
+        "en": "The selected folder is on the same physical disk as the database — the program detected this.",
+        "de": "Der ausgewählte Ordner befindet sich auf derselben physischen Festplatte wie die Datenbank — das Programm hat dies erkannt."
+      },
+      "action": {
+        "ru": "1. Выберите папку на другом физическом диске или внешнем носителе: иначе копия пропадёт вместе с базой.",
+        "uk": "1. Виберіть теку на іншому фізичному диску або зовнішньому носії: інакше копія зникне разом із базою.",
+        "en": "1. Choose a folder on another physical disk or an external medium; otherwise the copy will be lost together with the database.",
+        "de": "1. Wählen Sie einen Ordner auf einer anderen physischen Festplatte oder einem externen Datenträger; sonst geht die Kopie zusammen mit der Datenbank verloren."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-041",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-042",
+      "key": "ROTATION_HELD",
+      "aliases": [
+        "rotation_held"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Старые копии не удалены: цепочка копий нарушена",
+        "uk": "Старі копії не видалено: ланцюжок копій порушено",
+        "en": "Old copies were not deleted: the copy chain is broken",
+        "de": "Alte Kopien wurden nicht gelöscht: Die Kopienkette ist beschädigt"
+      },
+      "cause": {
+        "ru": "В цепочке копий обнаружено нарушение, поэтому удаление старых копий приостановлено.",
+        "uk": "У ланцюжку копій виявлено порушення, тому видалення старих копій призупинено.",
+        "en": "A problem was found in the copy chain, so deleting old copies has been paused.",
+        "de": "In der Kopienkette wurde ein Problem gefunden, daher wurde das Löschen alter Kopien angehalten."
+      },
+      "action": {
+        "ru": "1. Сначала проверьте носители в журнале проверок; после исправления ротация продолжится сама.",
+        "uk": "1. Спершу перевірте носії в журналі перевірок; після виправлення ротація продовжиться сама.",
+        "en": "1. First check the media in the check log; after it is fixed, rotation will continue automatically.",
+        "de": "1. Prüfen Sie zuerst die Datenträger im Prüfprotokoll; nach der Behebung läuft die Rotation automatisch weiter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-042",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-043",
+      "key": "CHAIN_GAP",
+      "aliases": [
+        "chain_gap"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Пропущен номер копии в цепочке",
+        "uk": "Пропущено номер копії в ланцюжку",
+        "en": "A copy number is missing in the chain",
+        "de": "Eine Kopiennummer fehlt in der Kette"
+      },
+      "cause": {
+        "ru": "Цепочка нумерует копии подряд: пропуск означает удаление",
+        "uk": "Ланцюжок нумерує копії підряд: пропуск означає видалення",
+        "en": "The chain numbers copies consecutively: a gap means one was deleted.",
+        "de": "Die Kette nummeriert Kopien fortlaufend: Eine Lücke bedeutet, dass eine gelöscht wurde."
+      },
+      "action": {
+        "ru": "1. Найдите пропавшую копию на другом носителе и верните на место; не удаляйте остальные.",
+        "uk": "1. Знайдіть зниклу копію на іншому носії й поверніть на місце; не видаляйте інші.",
+        "en": "1. Find the missing copy on another medium and put it back; do not delete the others.",
+        "de": "1. Suchen Sie die fehlende Kopie auf einem anderen Datenträger und legen Sie sie zurück; löschen Sie die anderen nicht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-043",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-044",
+      "key": "CHAIN_LINK",
+      "aliases": [
+        "chain_link"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Связь с предыдущей копией нарушена",
+        "uk": "Зв’язок із попередньою копією порушено",
+        "en": "The link to the previous copy is broken",
+        "de": "Die Verbindung zur vorherigen Kopie ist beschädigt"
+      },
+      "cause": {
+        "ru": "Связь между копиями не совпадает: одну из них заменили или переместили.",
+        "uk": "Зв’язок між копіями не збігається: одну з них замінили або перемістили.",
+        "en": "The link between copies does not match: one of them was replaced or moved.",
+        "de": "Die Verbindung zwischen den Kopien stimmt nicht: Eine davon wurde ersetzt oder verschoben."
+      },
+      "action": {
+        "ru": "1. Одна из копий подменена или переставлена.\n2. Сравните носители и восстановите чистую копию.",
+        "uk": "1. Одну з копій підмінено або переставлено.\n2. Порівняйте носії й відновіть чисту копію.",
+        "en": "1. One of the copies was replaced or reordered.\n2. Compare the media and restore a clean copy.",
+        "de": "1. Eine der Kopien wurde ersetzt oder umgestellt.\n2. Vergleichen Sie die Datenträger und stellen Sie eine saubere Kopie wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-044",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-045",
+      "key": "CHAIN_SIGNATURE",
+      "aliases": [
+        "chain_signature"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Подпись манифеста копии неверна",
+        "uk": "Підпис маніфесту копії неправильний",
+        "en": "The copy manifest signature is invalid",
+        "de": "Die Signatur des Kopienmanifests ist ungültig"
+      },
+      "cause": {
+        "ru": "Описание копии не совпадает с подписью: файл могли изменить или подписать другим ключом.",
+        "uk": "Опис копії не збігається з підписом: файл могли змінити або підписати іншим ключем.",
+        "en": "The copy description does not match the signature: the file may have been changed or signed with a different key.",
+        "de": "Die Kopienbeschreibung passt nicht zur Signatur: Die Datei wurde möglicherweise geändert oder mit einem anderen Schlüssel signiert."
+      },
+      "action": {
+        "ru": "1. Манифест правили вручную или ключ подписи другой.\n2. Не доверяйте этой копии, пока не разобрались.",
+        "uk": "1. Маніфест правили вручну або ключ підпису інший.\n2. Не довіряйте цій копії, поки не розібралися.",
+        "en": "1. The manifest was edited manually or the signing key is different.\n2. Do not trust this copy until you have sorted it out.",
+        "de": "1. Das Manifest wurde manuell bearbeitet oder der Signaturschlüssel ist ein anderer.\n2. Vertrauen Sie dieser Kopie erst, wenn Sie das geklärt haben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-045",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-046",
+      "key": "MANIFEST_MISSING",
+      "aliases": [
+        "manifest_missing"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Манифест копии отсутствует на носителе",
+        "uk": "Маніфест копії відсутній на носії",
+        "en": "The copy manifest is missing from the medium",
+        "de": "Das Kopienmanifest fehlt auf dem Datenträger"
+      },
+      "cause": {
+        "ru": "Файл с описанием копии не найден на носителе — возможно, его удалили или он не скопировался.",
+        "uk": "Файл з описом копії не знайдено на носії — можливо, його видалили або він не скопіювався.",
+        "en": "The copy description file was not found on the medium — it may have been deleted or not copied.",
+        "de": "Die Kopienbeschreibungsdatei wurde auf dem Datenträger nicht gefunden — möglicherweise wurde sie gelöscht oder nicht kopiert."
+      },
+      "action": {
+        "ru": "1. Верните файл манифеста с другого носителя или из журнала.",
+        "uk": "1. Поверніть файл маніфесту з іншого носія або з журналу.",
+        "en": "1. Return the manifest file from another medium or from the log.",
+        "de": "1. Stellen Sie die Manifestdatei von einem anderen Datenträger oder aus dem Protokoll wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-046",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-047",
+      "key": "MANIFEST_DIFFERS",
+      "aliases": [
+        "manifest_differs"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Манифест на носителе изменён",
+        "uk": "Маніфест на носії змінено",
+        "en": "The manifest on the medium has been changed",
+        "de": "Das Manifest auf dem Datenträger wurde geändert"
+      },
+      "cause": {
+        "ru": "Файл с описанием копии на носителе отличается от ожидаемого — его могли изменить.",
+        "uk": "Файл з описом копії на носії відрізняється від очікуваного — його могли змінити.",
+        "en": "The copy description file on the medium differs from the expected one — it may have been changed.",
+        "de": "Die Kopienbeschreibungsdatei auf dem Datenträger unterscheidet sich von der erwarteten — sie wurde möglicherweise geändert."
+      },
+      "action": {
+        "ru": "1. Сравните манифест с копией на другом носителе и верните исходный.",
+        "uk": "1. Порівняйте маніфест із копією на іншому носії й поверніть початковий.",
+        "en": "1. Compare the manifest with the copy on another medium and restore the original.",
+        "de": "1. Vergleichen Sie das Manifest mit der Kopie auf einem anderen Datenträger und stellen Sie das Original wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-047",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-048",
+      "key": "MANIFEST_FOREIGN",
+      "aliases": [
+        "manifest_foreign"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "На носителе чужой манифест",
+        "uk": "На носії чужий маніфест",
+        "en": "The medium contains someone else’s manifest",
+        "de": "Der Datenträger enthält ein fremdes Manifest"
+      },
+      "cause": {
+        "ru": "На носителе находится описание копии от другого хозяйства или другой цепочки копий.",
+        "uk": "На носії є опис копії від іншого господарства або іншого ланцюжка копій.",
+        "en": "The medium contains a copy description from another household or another copy chain.",
+        "de": "Der Datenträger enthält eine Kopienbeschreibung von einem anderen Haushalt oder einer anderen Kopienkette."
+      },
+      "action": {
+        "ru": "1. Это манифест другого хозяйства или другой цепочки.\n2. Проверьте, что носитель ваш.",
+        "uk": "1. Це маніфест іншого господарства або іншого ланцюжка.\n2. Перевірте, що носій ваш.",
+        "en": "1. This is a manifest from another household or another chain.\n2. Check that the medium is yours.",
+        "de": "1. Dies ist ein Manifest von einem anderen Haushalt oder einer anderen Kette.\n2. Prüfen Sie, ob der Datenträger Ihnen gehört."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-048",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-049",
+      "key": "MEDIUM_AHEAD",
+      "aliases": [
+        "medium_ahead"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "На носителе манифесты новее базы",
+        "uk": "На носії маніфести новіші за базу",
+        "en": "The manifests on the medium are newer than the database",
+        "de": "Die Manifeste auf dem Datenträger sind neuer als die Datenbank"
+      },
+      "cause": {
+        "ru": "На носителе найдены более свежие описания копий, чем данные в базе. Возможно, базу восстановили из старой копии.",
+        "uk": "На носії знайдено свіжіші описи копій, ніж дані в базі. Можливо, базу відновлено зі старої копії.",
+        "en": "Newer copy descriptions were found on the medium than the data in the database. The database may have been restored from an old copy.",
+        "de": "Auf dem Datenträger wurden neuere Kopienbeschreibungen gefunden als die Daten in der Datenbank. Die Datenbank wurde möglicherweise aus einer alten Kopie wiederhergestellt."
+      },
+      "action": {
+        "ru": "1. Возможно, база восстановлена из старой копии.\n2. Проверьте, что вы не потеряли свежие данные.",
+        "uk": "1. Можливо, базу відновлено зі старої копії.\n2. Перевірте, що ви не втратили свіжі дані.",
+        "en": "1. The database may have been restored from an old copy.\n2. Check that you have not lost recent data.",
+        "de": "1. Die Datenbank wurde möglicherweise aus einer alten Kopie wiederhergestellt.\n2. Prüfen Sie, ob Sie aktuelle Daten verloren haben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DR-049",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-050",
+      "key": "COPY_MISSING",
+      "aliases": [
+        "copy_missing"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Копия отсутствует",
+        "uk": "Копія відсутня",
+        "en": "The copy is missing",
+        "de": "Die Kopie fehlt"
+      },
+      "cause": {
+        "ru": "Нужная копия не найдена на носителе — возможно, её удалили или переместили.",
+        "uk": "Потрібну копію не знайдено на носії — можливо, її видалили або перемістили.",
+        "en": "The required copy was not found on the medium — it may have been deleted or moved.",
+        "de": "Die benötigte Kopie wurde auf dem Datenträger nicht gefunden — möglicherweise wurde sie gelöscht oder verschoben."
+      },
+      "action": {
+        "ru": "1. Верните копию с другого носителя или сделайте новую вручную.",
+        "uk": "1. Поверніть копію з іншого носія або зробіть нову вручну.",
+        "en": "1. Return the copy from another medium or make a new one manually.",
+        "de": "1. Holen Sie die Kopie von einem anderen Datenträger zurück oder erstellen Sie manuell eine neue."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-050",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-051",
+      "key": "COPY_DIFFERS",
+      "aliases": [
+        "copy_differs"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Копия изменена: хэш не совпадает с манифестом",
+        "uk": "Копію змінено: хеш не збігається з маніфестом",
+        "en": "The copy has been changed: the hash does not match the manifest",
+        "de": "Die Kopie wurde geändert: Der Hash stimmt nicht mit dem Manifest überein"
+      },
+      "cause": {
+        "ru": "Содержимое копии не совпадает с её описанием — файлы могли изменить после создания копии.",
+        "uk": "Вміст копії не збігається з її описом — файли могли змінити після створення копії.",
+        "en": "The contents of the copy do not match its description — the files may have been changed after the copy was made.",
+        "de": "Der Inhalt der Kopie stimmt nicht mit ihrer Beschreibung überein — die Dateien wurden möglicherweise nach dem Erstellen der Kopie geändert."
+      },
+      "action": {
+        "ru": "1. Не восстанавливайте из этой копии.\n2. Возьмите копию с другого носителя.",
+        "uk": "1. Не відновлюйте з цієї копії.\n2. Візьміть копію з іншого носія.",
+        "en": "1. Do not restore from this copy.\n2. Take a copy from another medium.",
+        "de": "1. Stellen Sie nicht aus dieser Kopie wieder her.\n2. Nehmen Sie eine Kopie von einem anderen Datenträger."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-051",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-052",
+      "key": "COPY_FOREIGN",
+      "aliases": [
+        "copy_foreign"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "На носителе изменённый или чужой файл с именем копии",
+        "uk": "На носії змінений або чужий файл з іменем копії",
+        "en": "Changed or foreign file on the media with a copy’s name",
+        "de": "Geänderte oder fremde Datei auf dem Datenträger mit dem Namen einer Kopie"
+      },
+      "cause": {
+        "ru": "Так бывает, если файл копии на носителе изменили или на его место положили другой файл с тем же именем.",
+        "uk": "Так буває, якщо файл копії на носії змінили або на його місце поклали інший файл з тим самим ім’ям.",
+        "en": "This happens if the copy file on the media was changed or another file with the same name was put in its place.",
+        "de": "Das passiert, wenn die Kopiedatei auf dem Datenträger geändert oder eine andere Datei mit demselben Namen an ihre Stelle gelegt wurde."
+      },
+      "action": {
+        "ru": "1. Программа его не перезаписывает и не удаляет.\n2. Проверьте носитель и уберите файл вручную, когда разберётесь.",
+        "uk": "1. Програма його не перезаписує й не видаляє.\n2. Перевірте носій і приберіть файл вручну, коли розберетесь.",
+        "en": "1. The program does not overwrite or delete it.\n2. Check the media and remove the file manually once you understand it.",
+        "de": "1. Das Programm überschreibt oder löscht sie nicht.\n2. Prüfen Sie den Datenträger und entfernen Sie die Datei manuell, wenn Sie Klarheit haben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-052",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-053",
+      "key": "BACKUP_PASSWORD_CHECK",
+      "aliases": [
+        "backup-password-check"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Просрочена проверка пароля копий",
+        "uk": "Прострочено перевірку пароля копій",
+        "en": "Copy password check overdue",
+        "de": "Passwortprüfung für Kopien überfällig"
+      },
+      "cause": {
+        "ru": "Копии с забытым паролем невозможно открыть: проверка раз в срок не даёт забыть пароль незаметно",
+        "uk": "Копії із забутим паролем неможливо відкрити: перевірка раз на строк не дає забути пароль непомітно",
+        "en": "Copies with a forgotten password cannot be opened: a regular check prevents the password from being forgotten unnoticed.",
+        "de": "Kopien mit vergessenem Passwort lassen sich nicht öffnen: Eine regelmäßige Prüfung verhindert, dass das Passwort unbemerkt vergessen wird."
+      },
+      "action": {
+        "ru": "1. Откройте «Архив и копии → Проверка пароля» и введите пароль: так вы убедитесь, что помните его (решение 270).",
+        "uk": "1. Відкрийте «Архів і копії → Перевірка пароля» й введіть пароль: так ви переконаєтеся, що пам’ятаєте його (рішення 270).",
+        "en": "1. Open “Archive and copies → Password check” and enter the password: this confirms you remember it (decision 270).",
+        "de": "1. Öffnen Sie „Archiv und Kopien → Passwortprüfung“ und geben Sie das Passwort ein: So stellen Sie sicher, dass Sie es kennen (Entscheidung 270)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-053",
+      "since": "1.1.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "RENT-DR-054",
+      "key": "BACKUP_CHAIN_BROKEN",
+      "aliases": [
+        "backup-chain-broken"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Цепочка копий нарушена: копия отсутствует или изменена",
+        "uk": "Ланцюжок копій порушено: копія відсутня або змінена",
+        "en": "Copy chain broken: a copy is missing or changed",
+        "de": "Kopienkette unterbrochen: Eine Kopie fehlt oder wurde geändert"
+      },
+      "cause": {
+        "ru": "Цепочка связывает копии хэшами: удаление, подмена или перестановка любой копии сразу видны (решение 276)",
+        "uk": "Ланцюжок зв’язує копії хешами: видалення, підміна або перестановка будь-якої копії одразу видно (рішення 276)",
+        "en": "The chain links copies by hashes: deleting, replacing or reordering any copy is immediately visible (decision 276).",
+        "de": "Die Kette verbindet Kopien über Hashes: Löschen, Ersetzen oder Umsortieren einer Kopie ist sofort sichtbar (Entscheidung 276)."
+      },
+      "action": {
+        "ru": "1. Откройте «Архив и копии → Проверки», посмотрите, какая копия и на каком носителе.\n2. Не удаляйте ничего; при необходимости восстановите копию с другого носителя.",
+        "uk": "1. Відкрийте «Архів і копії → Перевірки», подивіться, яка копія і на якому носії.\n2. Нічого не видаляйте; за потреби відновіть копію з іншого носія.",
+        "en": "1. Open “Archive and copies → Checks” and see which copy is affected and on which media.\n2. Do not delete anything; if needed, restore the copy from another media.",
+        "de": "1. Öffnen Sie „Archiv und Kopien → Prüfungen“ und sehen Sie nach, welche Kopie und auf welchem Datenträger betroffen ist.\n2. Löschen Sie nichts; stellen Sie die Kopie bei Bedarf von einem anderen Datenträger wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-054",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
     }
   ]
 }

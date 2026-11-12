@@ -1,0 +1,1467 @@
+{
+  "namespace": "RENT",
+  "area": "FORM",
+  "codes": [
+    {
+      "code": "RENT-FORM-001",
+      "key": "APP_INTERNAL",
+      "aliases": [
+        "app_internal"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Что-то пошло не так: сбой программы",
+        "uk": "Щось пішло не так: збій програми",
+        "en": "Something went wrong: program failure",
+        "de": "Etwas ist schiefgelaufen: Programmfehler"
+      },
+      "cause": {
+        "ru": "Программа столкнулась с непредвиденной ситуацией, которую не удалось обработать.",
+        "uk": "Програма зіткнулася з непередбаченою ситуацією, яку не вдалося обробити.",
+        "en": "The program encountered an unexpected situation that it could not handle.",
+        "de": "Das Programm ist auf eine unerwartete Situation gestoßen, die nicht verarbeitet werden konnte."
+      },
+      "action": {
+        "ru": "1. Данные не потеряны: вернитесь назад и повторите.\n2. Если повторяется — сообщите разработчику этот код.",
+        "uk": "1. Дані не втрачено: поверніться назад і повторіть.\n2. Якщо повторюється — повідомте розробнику цей код.",
+        "en": "1. Your data is not lost: go back and try again.\n2. If it repeats, report this code to the developer.",
+        "de": "1. Ihre Daten sind nicht verloren: Gehen Sie zurück und versuchen Sie es erneut.\n2. Wenn es sich wiederholt, melden Sie dem Entwickler diesen Code."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-001",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-002",
+      "key": "NOT_FOUND",
+      "aliases": [
+        "not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Страница, запись или файл не найдены",
+        "uk": "Сторінку, запис або файл не знайдено",
+        "en": "Page, record, or file not found",
+        "de": "Seite, Eintrag oder Datei nicht gefunden"
+      },
+      "cause": {
+        "ru": "Запись могли удалить, адрес набран с ошибкой, или файл архива переместили.",
+        "uk": "Запис могли видалити, адресу набрано з помилкою, або файл архіву перемістили.",
+        "en": "The record may have been deleted, the address was typed incorrectly, or the archive file was moved.",
+        "de": "Der Eintrag wurde möglicherweise gelöscht, die Adresse falsch eingegeben oder die Archivdatei verschoben."
+      },
+      "action": {
+        "ru": "1. Вернитесь на главную и откройте нужное через меню: запись могли удалить или адрес набран с ошибкой.\n2. Для файла архива проверьте путь и диск и выберите архив из списка копий.",
+        "uk": "1. Поверніться на головну і відкрийте потрібне через меню: запис могли видалити або адресу введено з помилкою.\n2. Для файлу архіву перевірте шлях і диск та виберіть архів зі списку копій.",
+        "en": "1. Go back to the “Main page” and open the item through the menu: the record may have been deleted or the address typed incorrectly.\n2. For an archive file, check the path and drive and select an archive from the “list of copies”.",
+        "de": "1. Gehen Sie zurück zur „Hauptseite“ und öffnen Sie das Gewünschte über das Menü: Der Eintrag wurde möglicherweise gelöscht oder die Adresse falsch eingegeben.\n2. Prüfen Sie für eine Archivdatei Pfad und Laufwerk und wählen Sie ein Archiv aus der „Liste der Kopien“ aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-002",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-003",
+      "key": "CONFLICT",
+      "aliases": [
+        "conflict"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Действие конфликтует с текущим состоянием данных",
+        "uk": "Дія конфліктує з поточним станом даних",
+        "en": "Action conflicts with the current data state",
+        "de": "Aktion steht im Konflikt mit dem aktuellen Datenzustand"
+      },
+      "cause": {
+        "ru": "Данные уже изменились — возможно, запись обновили в другом окне или действие уже выполняли раньше.",
+        "uk": "Дані вже змінилися — можливо, запис оновили в іншому вікні або дію вже виконували раніше.",
+        "en": "The data has already changed — the record may have been updated in another window, or the action was already performed earlier.",
+        "de": "Die Daten haben sich bereits geändert — der Eintrag wurde möglicherweise in einem anderen Fenster aktualisiert oder die Aktion wurde bereits zuvor ausgeführt."
+      },
+      "action": {
+        "ru": "1. Обновите страницу и проверьте состояние записи (статус, период, дубль).\n2. Затем повторите действие.",
+        "uk": "1. Оновіть сторінку й перевірте стан запису (статус, період, дубль).\n2. Потім повторіть дію.",
+        "en": "1. Refresh the page and check the record’s state (status, period, duplicate).\n2. Then repeat the action.",
+        "de": "1. Aktualisieren Sie die Seite und prüfen Sie den Zustand des Eintrags (Status, Zeitraum, Duplikat).\n2. Wiederholen Sie dann die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-003",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-004",
+      "key": "VALIDATION_ERROR",
+      "aliases": [
+        "validation_error"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Форма заполнена неверно",
+        "uk": "Форму заповнено неправильно",
+        "en": "The form is filled in incorrectly",
+        "de": "Das Formular ist nicht korrekt ausgefüllt"
+      },
+      "cause": {
+        "ru": "В одном из полей оказалось значение, которое программа не может принять: опечатка, пустое обязательное поле или неверный формат.",
+        "uk": "В одному з полів виявилося значення, яке програма не може прийняти: друкарська помилка, порожнє обов’язкове поле або неправильний формат.",
+        "en": "One of the fields contains a value the program can’t accept: a typo, an empty required field or a wrong format.",
+        "de": "Eines der Felder enthält einen Wert, den das Programm nicht annehmen kann: ein Tippfehler, ein leeres Pflichtfeld oder ein falsches Format."
+      },
+      "action": {
+        "ru": "1. Прочитайте сообщение над формой, исправьте поле и отправьте снова: введённые значения сохранены в форме.",
+        "uk": "1. Прочитайте повідомлення над формою, виправте поле й надішліть знову: введені значення збережено у формі.",
+        "en": "1. Read the message above the form, correct the field and send again: the values you entered are kept in the form.",
+        "de": "1. Lesen Sie die Meldung über dem Formular, korrigieren Sie das Feld und senden Sie erneut: Ihre Eingaben bleiben im Formular erhalten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-004",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-005",
+      "key": "FORM_DUPLICATE",
+      "aliases": [
+        "form_duplicate"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Эта форма уже отправлена — повторно ничего не записано",
+        "uk": "Цю форму вже надіслано — повторно нічого не записано",
+        "en": "This form has already been sent — nothing was recorded again",
+        "de": "Dieses Formular wurde bereits gesendet — es wurde nichts erneut gespeichert"
+      },
+      "cause": {
+        "ru": "Защита от двойного нажатия: одна форма — одна запись",
+        "uk": "Захист від подвійного натискання: одна форма — один запис",
+        "en": "Protection against double clicking: one form — one entry.",
+        "de": "Schutz vor Doppelklick: ein Formular — ein Eintrag."
+      },
+      "action": {
+        "ru": "1. Проверьте результат в списке.\n2. Если действие нужно повторить, откройте форму заново.",
+        "uk": "1. Перевірте результат у списку.\n2. Якщо дію потрібно повторити, відкрийте форму заново.",
+        "en": "1. Check the result in the list.\n2. If you need to repeat the action, open the form again.",
+        "de": "1. Prüfen Sie das Ergebnis in der Liste.\n2. Wenn Sie die Aktion wiederholen möchten, öffnen Sie das Formular erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-005",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-006",
+      "key": "FORM_DATE_RANGE",
+      "aliases": [
+        "form_date_range"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Дата вне допустимого диапазона",
+        "uk": "Дата поза допустимим діапазоном",
+        "en": "The date is outside the allowed range",
+        "de": "Das Datum liegt außerhalb des zulässigen Bereichs"
+      },
+      "cause": {
+        "ru": "Дата введена с опечаткой или скопирована из другого документа — например, год из двух цифр или дата в далёком будущем.",
+        "uk": "Дату введено з друкарською помилкою або скопійовано з іншого документа — наприклад, рік із двох цифр або дата в далекому майбутньому.",
+        "en": "The date was typed with a mistake or copied from another document — for example a two-digit year or a date far in the future.",
+        "de": "Das Datum wurde mit einem Fehler eingegeben oder aus einem anderen Dokument kopiert — zum Beispiel eine zweistellige Jahreszahl oder ein Datum weit in der Zukunft."
+      },
+      "action": {
+        "ru": "1. Введите дату от 2000 года до пяти лет вперёд в формате ДД.ММ.ГГГГ.",
+        "uk": "1. Введіть дату від 2000 року до п’яти років уперед у форматі ДД.ММ.РРРР.",
+        "en": "1. Enter a date from 2000 up to five years ahead in the format DD.MM.YYYY.",
+        "de": "1. Geben Sie ein Datum von 2000 bis fünf Jahre im Voraus im Format TT.MM.JJJJ ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-006",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-007",
+      "key": "FORM_AMOUNT_FORMAT",
+      "aliases": [
+        "form_amount_format"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сумма записана неверно",
+        "uk": "Суму записано неправильно",
+        "en": "The amount is written incorrectly",
+        "de": "Der Betrag ist falsch geschrieben"
+      },
+      "cause": {
+        "ru": "В сумме оказались буквы, лишний пробел или больше двух знаков после запятой — например, при копировании из таблицы.",
+        "uk": "У сумі виявилися літери, зайвий пробіл або більше двох знаків після коми — наприклад, під час копіювання з таблиці.",
+        "en": "The amount contains letters, an extra space or more than two digits after the decimal separator — for example when copying from a spreadsheet.",
+        "de": "Der Betrag enthält Buchstaben, ein zusätzliches Leerzeichen oder mehr als zwei Nachkommastellen — zum Beispiel beim Kopieren aus einer Tabelle."
+      },
+      "action": {
+        "ru": "1. Вводите только цифры, разделитель — запятая или точка; не больше двух знаков после запятой для денег.",
+        "uk": "1. Вводьте лише цифри, роздільник — кома або крапка; не більше двох знаків після коми для грошей.",
+        "en": "1. Enter digits only, use a comma or a dot as the separator; no more than two digits after the separator for money.",
+        "de": "1. Geben Sie nur Ziffern ein, als Trennzeichen Komma oder Punkt; bei Geldbeträgen höchstens zwei Nachkommastellen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-007",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-008",
+      "key": "LEASE_NOT_FOUND",
+      "aliases": [
+        "lease_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: договор",
+        "uk": "Не знайдено: договір",
+        "en": "Not found: lease",
+        "de": "Nicht gefunden: Vertrag"
+      },
+      "cause": {
+        "ru": "Договор могли удалить или заменить новым, а список на экране остался прежним.",
+        "uk": "Договір могли видалити або замінити новим, а список на екрані залишився попереднім.",
+        "en": "The lease may have been deleted or replaced by a new one while the list on screen stayed the same.",
+        "de": "Der Vertrag wurde möglicherweise gelöscht oder durch einen neuen ersetzt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-008",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-009",
+      "key": "LOCK_CODE_NOT_FOUND",
+      "aliases": [
+        "lock_code_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: код доступа",
+        "uk": "Не знайдено: код доступу",
+        "en": "Not found: access code",
+        "de": "Nicht gefunden: Zugangscode"
+      },
+      "cause": {
+        "ru": "Код доступа могли удалить или заменить новым, а список на экране остался прежним.",
+        "uk": "Код доступу могли видалити або замінити новим, а список на екрані залишився попереднім.",
+        "en": "The access code may have been deleted or replaced by a new one while the list on screen stayed the same.",
+        "de": "Der Zugangscode wurde möglicherweise gelöscht oder durch einen neuen ersetzt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-009",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-010",
+      "key": "LOCK_NOT_FOUND",
+      "aliases": [
+        "lock_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: электронный замок",
+        "uk": "Не знайдено: електронний замок",
+        "en": "Not found: smart lock",
+        "de": "Nicht gefunden: elektronisches Schloss"
+      },
+      "cause": {
+        "ru": "Замок могли удалить или отвязать от квартиры, а список на экране остался прежним.",
+        "uk": "Замок могли видалити або відв’язати від квартири, а список на екрані залишився попереднім.",
+        "en": "The lock may have been deleted or unlinked from the flat while the list on screen stayed the same.",
+        "de": "Das Schloss wurde möglicherweise gelöscht oder von der Wohnung getrennt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-010",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-011",
+      "key": "LOCK_SYSTEM_NOT_FOUND",
+      "aliases": [
+        "lock_system_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: система замков",
+        "uk": "Не знайдено: система замків",
+        "en": "Not found: lock system",
+        "de": "Nicht gefunden: Schlosssystem"
+      },
+      "cause": {
+        "ru": "Систему замков могли удалить или заменить другой, а список на экране остался прежним.",
+        "uk": "Систему замків могли видалити або замінити іншою, а список на екрані залишився попереднім.",
+        "en": "The lock system may have been deleted or replaced by another one while the list on screen stayed the same.",
+        "de": "Das Schlosssystem wurde möglicherweise gelöscht oder durch ein anderes ersetzt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-011",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-012",
+      "key": "METER_NOT_FOUND",
+      "aliases": [
+        "meter_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: счётчик",
+        "uk": "Не знайдено: лічильник",
+        "en": "Not found: meter",
+        "de": "Nicht gefunden: Zähler"
+      },
+      "cause": {
+        "ru": "Счётчик могли удалить или заменить другим, а список на экране остался прежним.",
+        "uk": "Лічильник могли видалити або замінити іншим, а список на екрані залишився попереднім.",
+        "en": "The meter may have been deleted or replaced by another one while the list on screen stayed the same.",
+        "de": "Der Zähler wurde möglicherweise gelöscht oder durch einen anderen ersetzt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-012",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-013",
+      "key": "PARKING_RENTAL_NOT_FOUND",
+      "aliases": [
+        "parking_rental_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: парковка в договоре",
+        "uk": "Не знайдено: паркування в договорі",
+        "en": "Not found: parking in the lease",
+        "de": "Nicht gefunden: Parken im Vertrag"
+      },
+      "cause": {
+        "ru": "Строку о парковке могли убрать из договора или заменить, а список на экране остался прежним.",
+        "uk": "Рядок про паркування могли прибрати з договору або замінити, а список на екрані залишився попереднім.",
+        "en": "The parking line may have been removed from the lease or replaced while the list on screen stayed the same.",
+        "de": "Die Parkzeile wurde möglicherweise aus dem Vertrag entfernt oder ersetzt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-013",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-014",
+      "key": "PARKING_SPOT_NOT_FOUND",
+      "aliases": [
+        "parking_spot_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: машиноместо",
+        "uk": "Не знайдено: машиномісце",
+        "en": "Not found: parking space",
+        "de": "Nicht gefunden: Stellplatz"
+      },
+      "cause": {
+        "ru": "Машиноместо могли удалить или переименовать, а список на экране остался прежним.",
+        "uk": "Машиномісце могли видалити або перейменувати, а список на екрані залишився попереднім.",
+        "en": "The parking space may have been deleted or renamed while the list on screen stayed the same.",
+        "de": "Der Stellplatz wurde möglicherweise gelöscht oder umbenannt, während die Liste auf dem Bildschirm unverändert blieb."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-014",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-015",
+      "key": "PERSON_NOT_FOUND",
+      "aliases": [
+        "person_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: жилец",
+        "uk": "Не знайдено: мешканець",
+        "en": "Not found: resident",
+        "de": "Nicht gefunden: Bewohner"
+      },
+      "cause": {
+        "ru": "Жильца могли удалить или перенести, либо ссылка на него устарела после изменений в списке.",
+        "uk": "Мешканця могли видалити або перенести, або посилання на нього застаріло після змін у списку.",
+        "en": "The resident may have been deleted or moved, or the link to them became out of date after the list changed.",
+        "de": "Der Bewohner wurde möglicherweise gelöscht oder verschoben, oder der Link auf ihn ist nach Änderungen in der Liste veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut aus: Er wurde möglicherweise gelöscht oder der Link ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-015",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-016",
+      "key": "READING_NOT_FOUND",
+      "aliases": [
+        "reading_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: показание",
+        "uk": "Не знайдено: показання",
+        "en": "Not found: meter reading",
+        "de": "Nicht gefunden: Zählerstand"
+      },
+      "cause": {
+        "ru": "Показание могли удалить или перенести, либо ссылка на него устарела после изменений в списке.",
+        "uk": "Показання могли видалити або перенести, або посилання на нього застаріло після змін у списку.",
+        "en": "The meter reading may have been deleted or moved, or the link to it became out of date after the list changed.",
+        "de": "Der Zählerstand wurde möglicherweise gelöscht oder verschoben, oder der Link darauf ist nach Änderungen in der Liste veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut aus: Er wurde möglicherweise gelöscht oder der Link ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-016",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-017",
+      "key": "UNIT_NOT_FOUND",
+      "aliases": [
+        "unit_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: квартира",
+        "uk": "Не знайдено: квартира",
+        "en": "Not found: apartment",
+        "de": "Nicht gefunden: Wohnung"
+      },
+      "cause": {
+        "ru": "Квартиру могли удалить или перенести, либо ссылка на неё устарела после изменений в списке.",
+        "uk": "Квартиру могли видалити або перенести, або посилання на неї застаріло після змін у списку.",
+        "en": "The apartment may have been deleted or moved, or the link to it became out of date after the list changed.",
+        "de": "Die Wohnung wurde möglicherweise gelöscht oder verschoben, oder der Link darauf ist nach Änderungen in der Liste veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut aus: Er wurde möglicherweise gelöscht oder der Link ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-017",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-018",
+      "key": "VEHICLE_NOT_FOUND",
+      "aliases": [
+        "vehicle_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: автомобиль",
+        "uk": "Не знайдено: автомобіль",
+        "en": "Not found: vehicle",
+        "de": "Nicht gefunden: Fahrzeug"
+      },
+      "cause": {
+        "ru": "Автомобиль могли удалить или перенести, либо ссылка на него устарела после изменений в списке.",
+        "uk": "Автомобіль могли видалити або перенести, або посилання на нього застаріло після змін у списку.",
+        "en": "The vehicle may have been deleted or moved, or the link to it became out of date after the list changed.",
+        "de": "Das Fahrzeug wurde möglicherweise gelöscht oder verschoben, oder der Link darauf ist nach Änderungen in der Liste veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut aus: Er wurde möglicherweise gelöscht oder der Link ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-018",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-019",
+      "key": "VISIT_NOT_FOUND",
+      "aliases": [
+        "visit_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: визит",
+        "uk": "Не знайдено: візит",
+        "en": "Not found: visit",
+        "de": "Nicht gefunden: Besuch"
+      },
+      "cause": {
+        "ru": "Визит могли удалить или перенести, либо ссылка на него устарела после изменений в списке.",
+        "uk": "Візит могли видалити або перенести, або посилання на нього застаріло після змін у списку.",
+        "en": "The visit may have been deleted or moved, or the link to it became out of date after the list changed.",
+        "de": "Der Besuch wurde möglicherweise gelöscht oder verschoben, oder der Link darauf ist nach Änderungen in der Liste veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut aus: Er wurde möglicherweise gelöscht oder der Link ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-019",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-020",
+      "key": "LOCK_CODE_STATE",
+      "aliases": [
+        "lock_code_state"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код доступа уже в другом состоянии",
+        "uk": "Код доступу вже в іншому стані",
+        "en": "The access code is already in a different state",
+        "de": "Der Zugangscode ist bereits in einem anderen Zustand"
+      },
+      "cause": {
+        "ru": "Код успели изменить в другом окне или раньше, поэтому он уже не в том состоянии.",
+        "uk": "Код встигли змінити в іншому вікні або раніше, тому він уже не в тому стані.",
+        "en": "The code was changed in another window or earlier, so it is no longer in that state.",
+        "de": "Der Code wurde in einem anderen Fenster oder früher geändert und ist daher nicht mehr in diesem Zustand."
+      },
+      "action": {
+        "ru": "1. Обновите страницу и проверьте состояние кода доступа.",
+        "uk": "1. Оновіть сторінку й перевірте стан коду доступу.",
+        "en": "1. Refresh the page “Access code” and check the state of the code.",
+        "de": "1. Aktualisieren Sie die Seite „Zugangscode“ und prüfen Sie den Zustand des Codes."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-020",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-021",
+      "key": "LOCK_PROVIDER_NOT_CONNECTED",
+      "aliases": [
+        "lock_provider_not_connected"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Интеграция с этой системой замков ещё не подключена",
+        "uk": "Інтеграцію з цією системою замків ще не підключено",
+        "en": "The integration with this lock system is not connected yet",
+        "de": "Die Integration mit diesem Schließsystem ist noch nicht verbunden"
+      },
+      "cause": {
+        "ru": "Для этой системы замков подключение ещё не настроено, поэтому управлять кодами через программу нельзя.",
+        "uk": "Для цієї системи замків підключення ще не налаштовано, тому керувати кодами через програму не можна.",
+        "en": "The connection for this lock system has not been set up yet, so codes cannot be managed through the program.",
+        "de": "Die Verbindung für dieses Schließsystem ist noch nicht eingerichtet, daher lassen sich Codes nicht über das Programm verwalten."
+      },
+      "action": {
+        "ru": "1. Используйте режим «вручную»: коды выдаёте и отзываете сами.",
+        "uk": "1. Використовуйте режим «вручну»: коди видаєте й відкликаєте самі.",
+        "en": "1. Use the “Manual” mode: you issue and revoke the codes yourself.",
+        "de": "1. Verwenden Sie den Modus „Manuell“: Sie vergeben und widerrufen die Codes selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-FORM-021",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-022",
+      "key": "PARKING_SPOT_BUSY",
+      "aliases": [
+        "parking_spot_busy"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Машиноместо уже сдано на этот период",
+        "uk": "Машиномісце вже здано на цей період",
+        "en": "Parking space is already rented for this period",
+        "de": "Der Stellplatz ist für diesen Zeitraum bereits vermietet"
+      },
+      "cause": {
+        "ru": "На выбранные даты это место уже занято другой арендой.",
+        "uk": "На вибрані дати це місце вже зайняте іншою орендою.",
+        "en": "For the selected dates, this space is already taken by another rental.",
+        "de": "Für die ausgewählten Daten ist dieser Platz bereits durch eine andere Vermietung belegt."
+      },
+      "action": {
+        "ru": "1. Выберите другое место или другой период, либо сначала завершите прежнюю аренду.",
+        "uk": "1. Виберіть інше місце або інший період, або спершу завершіть попередню оренду.",
+        "en": "1. Choose another space or another period, or end the previous rental first.",
+        "de": "1. Wählen Sie einen anderen Platz oder einen anderen Zeitraum, oder beenden Sie zuerst die frühere Vermietung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-022",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-023",
+      "key": "READING_CONFIRMATION_REQUIRED",
+      "aliases": [
+        "reading_confirmation_required"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Показание вне привычных пределов — нужно подтверждение",
+        "uk": "Показання поза звичними межами — потрібне підтвердження",
+        "en": "The reading is outside the usual range — confirmation is required",
+        "de": "Der Zählerstand liegt außerhalb des üblichen Bereichs — Bestätigung erforderlich"
+      },
+      "cause": {
+        "ru": "Неверное показание превращается в неверный счёт жильцу",
+        "uk": "Неправильне показання перетворюється на неправильний рахунок мешканцю",
+        "en": "An incorrect reading becomes an incorrect bill for the tenant.",
+        "de": "Ein falscher Zählerstand führt zu einer falschen Abrechnung für den Mieter."
+      },
+      "action": {
+        "ru": "1. Проверьте цифры на счётчике.\n2. Если показание верное, подтвердите его явно (решение 208); если нет — исправьте.",
+        "uk": "1. Перевірте цифри на лічильнику.\n2. Якщо показання правильне, підтвердьте його явно (рішення 208); якщо ні — виправте.",
+        "en": "1. Check the digits on the meter.\n2. If the reading is correct, confirm it explicitly (decision 208); if not, correct it.",
+        "de": "1. Prüfen Sie die Ziffern am Zähler.\n2. Wenn der Stand korrekt ist, bestätigen Sie ihn ausdrücklich (Entscheidung 208); wenn nicht, korrigieren Sie ihn."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-023",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-024",
+      "key": "READING_INVALID",
+      "aliases": [
+        "reading_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Показание счётчика не прошло проверку",
+        "uk": "Показання лічильника не пройшло перевірку",
+        "en": "The meter reading failed validation",
+        "de": "Der Zählerstand hat die Prüfung nicht bestanden"
+      },
+      "cause": {
+        "ru": "В показании могли оказаться лишние цифры, или оно относится к другому периоду.",
+        "uk": "У показанні могли опинитися зайві цифри, або воно стосується іншого періоду.",
+        "en": "The reading may contain extra digits, or it may belong to a different period.",
+        "de": "Der Zählerstand enthält möglicherweise zusätzliche Ziffern oder gehört zu einem anderen Zeitraum."
+      },
+      "action": {
+        "ru": "1. Показание не может быть меньше предыдущего и иметь лишние знаки.\n2. Проверьте число и дату.",
+        "uk": "1. Показання не може бути меншим за попереднє й мати зайві знаки.\n2. Перевірте число й дату.",
+        "en": "1. A reading cannot be lower than the previous one or contain extra digits.\n2. Check the number and the date.",
+        "de": "1. Ein Zählerstand darf nicht niedriger als der vorherige sein oder zusätzliche Ziffern enthalten.\n2. Prüfen Sie die Zahl und das Datum."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-024",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-025",
+      "key": "VISIT_DATE_FORMAT",
+      "aliases": [
+        "visit_date_format"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось разобрать дату и время визита",
+        "uk": "Не вдалося розібрати дату й час візиту",
+        "en": "The date and time of the visit could not be parsed",
+        "de": "Datum und Uhrzeit des Besuchs konnten nicht erkannt werden"
+      },
+      "cause": {
+        "ru": "В строке даты и времени оказался непривычный формат.",
+        "uk": "У рядку дати й часу виявився незвичний формат.",
+        "en": "The date and time were entered in an unusual format.",
+        "de": "Datum und Uhrzeit wurden in einem ungewöhnlichen Format eingegeben."
+      },
+      "action": {
+        "ru": "1. Введите дату и время как ДД.ММ.ГГГГ ЧЧ:ММ, например 25.11.2026 14:30.",
+        "uk": "1. Введіть дату й час як ДД.ММ.РРРР ГГ:ХХ, наприклад 25.11.2026 14:30.",
+        "en": "1. Enter the date and time as DD.MM.YYYY HH:MM, for example 25.11.2026 14:30.",
+        "de": "1. Geben Sie Datum und Uhrzeit als TT.MM.JJJJ HH:MM ein, zum Beispiel 25.11.2026 14:30."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-025",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-026",
+      "key": "VISIT_DATE_PAST",
+      "aliases": [
+        "visit_date_past"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Эта дата визита уже прошла",
+        "uk": "Ця дата візиту вже минула",
+        "en": "This visit date has already passed",
+        "de": "Dieses Besuchsdatum liegt bereits in der Vergangenheit"
+      },
+      "cause": {
+        "ru": "Выбранные дата и время уже прошли.",
+        "uk": "Вибрані дата й час уже минули.",
+        "en": "The selected date and time are already in the past.",
+        "de": "Das ausgewählte Datum und die Uhrzeit liegen bereits in der Vergangenheit."
+      },
+      "action": {
+        "ru": "1. Укажите будущую дату и время.",
+        "uk": "1. Вкажіть майбутню дату й час.",
+        "en": "1. Specify a future date and time.",
+        "de": "1. Geben Sie ein zukünftiges Datum und eine zukünftige Uhrzeit an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-026",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-027",
+      "key": "VISIT_SHORT_NOTICE",
+      "aliases": [
+        "visit_short_notice"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Срок предупреждения о визите короче, чем по договору",
+        "uk": "Строк попередження про візит коротший, ніж за договором",
+        "en": "The notice period for the visit is shorter than required by the contract",
+        "de": "Die Vorankündigungsfrist für den Besuch ist kürzer als im Vertrag vorgesehen"
+      },
+      "cause": {
+        "ru": "До визита осталось меньше времени, чем требует договор для предупреждения.",
+        "uk": "До візиту залишилося менше часу, ніж вимагає договір для попередження.",
+        "en": "There is less time before the visit than the contract requires for notice.",
+        "de": "Bis zum Besuch bleibt weniger Zeit, als der Vertrag für die Ankündigung vorsieht."
+      },
+      "action": {
+        "ru": "1. Назначьте визит позже или подтвердите, что нарушаете договор: решение остаётся за вами.",
+        "uk": "1. Призначте візит пізніше або підтвердьте, що порушуєте договір: рішення залишається за вами.",
+        "en": "1. Schedule the visit later or confirm that you are departing from the contract: the decision is yours.",
+        "de": "1. Planen Sie den Besuch später oder bestätigen Sie, dass Sie vom Vertrag abweichen: Die Entscheidung liegt bei Ihnen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-027",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-028",
+      "key": "WIFI_INVALID",
+      "aliases": [
+        "wifi_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Данные Wi-Fi не прошли проверку",
+        "uk": "Дані Wi-Fi не пройшли перевірку",
+        "en": "The Wi-Fi details failed validation",
+        "de": "Die Wi-Fi-Daten haben die Prüfung nicht bestanden"
+      },
+      "cause": {
+        "ru": "В данных сети оказался пропуск или опечатка — например, в названии сети, пароле или типе защиты.",
+        "uk": "У даних мережі виявився пропуск або друкарська помилка — наприклад, у назві мережі, паролі чи типі захисту.",
+        "en": "There is a gap or a typo in the network details — for example, in the network name, password, or security type.",
+        "de": "In den Netzwerkdaten fehlt etwas, oder es gibt einen Tippfehler — zum Beispiel im Netzwerknamen, Passwort oder Sicherheitstyp."
+      },
+      "action": {
+        "ru": "1. Проверьте имя сети, пароль (от 8 знаков) и тип защиты.",
+        "uk": "1. Перевірте назву мережі, пароль (від 8 знаків) і тип захисту.",
+        "en": "1. Check the network name, the password (at least 8 characters), and the security type.",
+        "de": "1. Prüfen Sie den Netzwerknamen, das Passwort (mindestens 8 Zeichen) und den Sicherheitstyp."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-028",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    },
+    {
+      "code": "RENT-FORM-029",
+      "key": "EMAIL_INVALID",
+      "aliases": [
+        "email_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес почты указан неверно",
+        "uk": "Адресу пошти вказано неправильно",
+        "en": "Email address is incorrect",
+        "de": "E-Mail-Adresse ist falsch"
+      },
+      "cause": {
+        "ru": "В адресе почты есть опечатка или не хватает части адреса.",
+        "uk": "В адресі пошти є друкарська помилка або бракує частини адреси.",
+        "en": "The email address contains a typo or is missing a part.",
+        "de": "Die E-Mail-Adresse enthält einen Tippfehler oder es fehlt ein Teil."
+      },
+      "action": {
+        "ru": "1. Пример: name@example.com.",
+        "uk": "1. Приклад: name@example.com.",
+        "en": "1. Example: name@example.com.",
+        "de": "1. Beispiel: name@example.com."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FORM-029",
+      "since": "1.1.0",
+      "tags": [
+        "forms"
+      ]
+    }
+  ]
+}

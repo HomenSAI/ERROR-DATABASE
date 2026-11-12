@@ -1,0 +1,128 @@
+{
+  "namespace": "RENT",
+  "area": "LOG",
+  "codes": [
+    {
+      "code": "RENT-LOG-001",
+      "key": "AUDIT_SENSITIVE_FIELD",
+      "aliases": [
+        "audit_sensitive_field"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "В журнал аудита нельзя писать персональные данные и пароли",
+        "uk": "У журнал аудиту не можна писати персональні дані й паролі",
+        "en": "Personal data and passwords cannot be written to the audit log",
+        "de": "Personenbezogene Daten und Passwörter dürfen nicht ins Audit-Protokoll geschrieben werden"
+      },
+      "cause": {
+        "ru": "Журнал пересылают и хранят дольше базы: персональные данные в нём — утечка",
+        "uk": "Журнал пересилають і зберігають довше за базу: персональні дані в ньому — витік",
+        "en": "The log is forwarded and kept longer than the database: personal data in it means a leak.",
+        "de": "Das Protokoll wird weitergegeben und länger als die Datenbank aufbewahrt: personenbezogene Daten darin bedeuten ein Datenleck."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: запись не сделана.\n2. Сообщите разработчику, если увидели эту ошибку без своих действий.",
+        "uk": "1. Нічого робити не потрібно: запис не зроблено.\n2. Повідомте розробнику, якщо побачили цю помилку без своїх дій.",
+        "en": "1. Nothing to do: the entry was not made.\n2. Tell the developer if you saw this error without doing anything yourself.",
+        "de": "1. Sie müssen nichts tun: Der Eintrag wurde nicht erstellt.\n2. Informieren Sie den Entwickler, wenn Sie diesen Fehler ohne eigenes Zutun sehen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-LOG-001",
+      "since": "1.1.0",
+      "tags": [
+        "log"
+      ]
+    },
+    {
+      "code": "RENT-LOG-002",
+      "key": "PRIVACY_PII_LOG",
+      "aliases": [
+        "privacy_pii_log"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Персональные данные попали в журнал или сообщение об ошибке",
+        "uk": "Персональні дані потрапили в журнал або повідомлення про помилку",
+        "en": "Personal data ended up in a log or error message",
+        "de": "Personenbezogene Daten sind in ein Protokoll oder eine Fehlermeldung gelangt"
+      },
+      "cause": {
+        "ru": "Логи пересылают людям; имя, телефон или счёт жильца в логе — утечка",
+        "uk": "Логи пересилають людям; ім’я, телефон або рахунок мешканця в лозі — витік",
+        "en": "Logs are passed on to other people; a tenant’s name, phone number or account in a log is a leak.",
+        "de": "Protokolle werden an andere Personen weitergegeben; Name, Telefonnummer oder Konto eines Mieters im Protokoll sind ein Datenleck."
+      },
+      "action": {
+        "ru": "1. Не отправляйте такой журнал никому.\n2. Очистите или удалите файл журнала и сообщите разработчику, где это увидели.",
+        "uk": "1. Не надсилайте такий журнал нікому.\n2. Очистьте або видаліть файл журналу й повідомте розробнику, де це побачили.",
+        "en": "1. Do not send such a log to anyone.\n2. Clear or delete the log file and tell the developer where you saw it.",
+        "de": "1. Senden Sie ein solches Protokoll an niemanden.\n2. Leeren oder löschen Sie die Protokolldatei und melden Sie dem Entwickler, wo Sie es gesehen haben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-LOG-002",
+      "since": "1.1.0",
+      "tags": [
+        "log"
+      ]
+    }
+  ]
+}
