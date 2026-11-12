@@ -333,10 +333,10 @@
       "level": "error",
       "audience": "user",
       "title": {
-        "ru": "Значение не прошло проверку базы (CHECK)",
-        "uk": "Значення не пройшло перевірку бази (CHECK)",
-        "en": "The value failed the database check (CHECK)",
-        "de": "Der Wert hat die Datenbankprüfung nicht bestanden (CHECK)"
+        "ru": "Значение не прошло проверку базы",
+        "uk": "Значення не пройшло перевірку бази",
+        "en": "The value failed the database check",
+        "de": "Der Wert hat die Datenbankprüfung nicht bestanden"
       },
       "cause": {
         "ru": "База сама не даёт сохранить заведомо неверные данные, например отрицательную сумму там, где она невозможна",
@@ -383,10 +383,10 @@
       "level": "error",
       "audience": "user",
       "title": {
-        "ru": "Связанная запись не найдена или ещё используется (внешний ключ)",
-        "uk": "Пов’язаний запис не знайдено або він ще використовується (зовнішній ключ)",
-        "en": "The related record was not found or is still in use (foreign key)",
-        "de": "Der zugehörige Datensatz wurde nicht gefunden oder wird noch verwendet (Fremdschlüssel)"
+        "ru": "Связанная запись не найдена или ещё используется",
+        "uk": "Пов’язаний запис не знайдено або він ще використовується",
+        "en": "The related record was not found or is still in use",
+        "de": "Der zugehörige Datensatz wurde nicht gefunden oder wird noch verwendet"
       },
       "cause": {
         "ru": "Связи между записями защищают договоры, счета и оплаты от «осиротевших» данных",

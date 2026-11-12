@@ -1956,10 +1956,10 @@
       "level": "error",
       "audience": "user",
       "title": {
-        "ru": "5 неверных паролей подряд: пауза 10 минут",
-        "uk": "5 неправильних паролів поспіль: пауза 10 хвилин",
-        "en": "5 wrong passwords in a row: 10-minute pause",
-        "de": "5 falsche Passwörter in Folge: 10 Minuten Pause"
+        "ru": "Слишком много неверных паролей подряд: пауза",
+        "uk": "Забагато неправильних паролів поспіль: пауза",
+        "en": "Too many wrong passwords in a row: pause",
+        "de": "Zu viele falsche Passwörter in Folge: Pause"
       },
       "cause": {
         "ru": "Несколько попыток ввести пароль копий подряд оказались неудачными. Пауза нужна, чтобы перебор не помогал открыть копию.",
@@ -1968,10 +1968,10 @@
         "de": "Mehrere Versuche, das Sicherungspasswort einzugeben, waren in Folge erfolglos. Die Pause verhindert, dass Raten beim Öffnen der Sicherung hilft."
       },
       "action": {
-        "ru": "1. Подождите 10 минут и введите пароль снова.",
-        "uk": "1. Зачекайте 10 хвилин і введіть пароль знову.",
-        "en": "1. Wait 10 minutes and enter the password again.",
-        "de": "1. Warten Sie 10 Minuten und geben Sie das Passwort erneut ein."
+        "ru": "1. Подождите указанное на экране время и введите пароль снова.",
+        "uk": "1. Зачекайте вказаний на екрані час і введіть пароль знову.",
+        "en": "1. Wait for the time shown on the screen and enter the password again.",
+        "de": "1. Warten Sie die auf dem Bildschirm angezeigte Zeit ab und geben Sie das Passwort erneut ein."
       },
       "escalation": [
         {
