@@ -574,10 +574,10 @@
         "de": "Der Feldschlüssel wurde beim Start nicht übergeben — ohne ihn bleiben Namen, Telefonnummern und Dokumente der Bewohner gesperrt."
       },
       "action": {
-        "ru": "1. Задайте ключ полей (см. docs/INSTALL.md, «Ключ шифрования полей») и запустите снова.\n2. Без ключа персональные данные не открываются.",
-        "uk": "1. Задайте ключ полів (див. docs/INSTALL.md, «Ключ шифрування полів») і запустіть знову.\n2. Без ключа персональні дані не відкриваються.",
-        "en": "1. Set the field key (see docs/INSTALL.md, “Field encryption key”) and start again.\n2. Without the key, personal data cannot be opened.",
-        "de": "1. Legen Sie den Feldschlüssel fest (siehe docs/INSTALL.md, „Feldverschlüsselungsschlüssel“) und starten Sie erneut.\n2. Ohne Schlüssel lassen sich personenbezogene Daten nicht öffnen."
+        "ru": "1. Задайте ключ полей (см. инструкцию по установке, «Ключ шифрования полей») и запустите снова.\n2. Без ключа персональные данные не открываются.",
+        "uk": "1. Задайте ключ полів (див. інструкцію зі встановлення, «Ключ шифрування полів») і запустіть знову.\n2. Без ключа персональні дані не відкриваються.",
+        "en": "1. Set the field key (see the installation guide, “Field encryption key”) and start again.\n2. Without the key, personal data cannot be opened.",
+        "de": "1. Legen Sie den Feldschlüssel fest (siehe Installationsanleitung, „Feldverschlüsselungsschlüssel“) und starten Sie erneut.\n2. Ohne Schlüssel lassen sich personenbezogene Daten nicht öffnen."
       },
       "escalation": [
         {

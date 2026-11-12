@@ -478,10 +478,10 @@
         "de": "Roter Alarm zur Datenbankintegrität"
       },
       "cause": {
-        "ru": "Изменение базы в обход программы может скрыть подмену сумм (решение 273)",
-        "uk": "Зміна бази в обхід програми може приховати підміну сум (рішення 273)",
-        "en": "Changing the database outside the program can hide substituted amounts (decision 273).",
-        "de": "Änderungen an der Datenbank außerhalb des Programms können ersetzte Beträge verbergen (Entscheidung 273)."
+        "ru": "Изменение базы в обход программы может скрыть подмену сумм",
+        "uk": "Зміна бази в обхід програми може приховати підміну сум",
+        "en": "Changing the database outside the program can hide substituted amounts.",
+        "de": "Änderungen an der Datenbank außerhalb des Programms können ersetzte Beträge verbergen."
       },
       "action": {
         "ru": "1. Откройте «Безопасность → Целостность»: там указано, что изменилось.\n2. Сравните базу с последней копией и укажите причину разбора.",
