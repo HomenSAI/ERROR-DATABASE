@@ -1134,10 +1134,10 @@
         "de": "Ein falscher Zählerstand führt zu einer falschen Abrechnung für den Mieter."
       },
       "action": {
-        "ru": "1. Проверьте цифры на счётчике.\n2. Если показание верное, подтвердите его явно (решение 208); если нет — исправьте.",
-        "uk": "1. Перевірте цифри на лічильнику.\n2. Якщо показання правильне, підтвердьте його явно (рішення 208); якщо ні — виправте.",
-        "en": "1. Check the digits on the meter.\n2. If the reading is correct, confirm it explicitly (decision 208); if not, correct it.",
-        "de": "1. Prüfen Sie die Ziffern am Zähler.\n2. Wenn der Stand korrekt ist, bestätigen Sie ihn ausdrücklich (Entscheidung 208); wenn nicht, korrigieren Sie ihn."
+        "ru": "1. Проверьте цифры на счётчике.\n2. Если показание верное, подтвердите его явно; если нет — исправьте.",
+        "uk": "1. Перевірте цифри на лічильнику.\n2. Якщо показання правильне, підтвердьте його явно; якщо ні — виправте.",
+        "en": "1. Check the digits on the meter.\n2. If the reading is correct, confirm it explicitly; if not, correct it.",
+        "de": "1. Prüfen Sie die Ziffern am Zähler.\n2. Wenn der Stand korrekt ist, bestätigen Sie ihn ausdrücklich; wenn nicht, korrigieren Sie ihn."
       },
       "escalation": [
         {

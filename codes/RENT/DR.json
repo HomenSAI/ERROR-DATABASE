@@ -2828,10 +2828,10 @@
         "de": "Kopien mit vergessenem Passwort lassen sich nicht öffnen: Eine regelmäßige Prüfung verhindert, dass das Passwort unbemerkt vergessen wird."
       },
       "action": {
-        "ru": "1. Откройте «Архив и копии → Проверка пароля» и введите пароль: так вы убедитесь, что помните его (решение 270).",
-        "uk": "1. Відкрийте «Архів і копії → Перевірка пароля» й введіть пароль: так ви переконаєтеся, що пам’ятаєте його (рішення 270).",
-        "en": "1. Open “Archive and copies → Password check” and enter the password: this confirms you remember it (decision 270).",
-        "de": "1. Öffnen Sie „Archiv und Kopien → Passwortprüfung“ und geben Sie das Passwort ein: So stellen Sie sicher, dass Sie es kennen (Entscheidung 270)."
+        "ru": "1. Откройте «Архив и копии → Проверка пароля» и введите пароль: так вы убедитесь, что помните его.",
+        "uk": "1. Відкрийте «Архів і копії → Перевірка пароля» й введіть пароль: так ви переконаєтеся, що пам’ятаєте його.",
+        "en": "1. Open “Archive and copies → Password check” and enter the password: this confirms you remember it.",
+        "de": "1. Öffnen Sie „Archiv und Kopien → Passwortprüfung“ und geben Sie das Passwort ein: So stellen Sie sicher, dass Sie es kennen."
       },
       "escalation": [
         {
@@ -2883,10 +2883,10 @@
         "de": "Kopienkette unterbrochen: Eine Kopie fehlt oder wurde geändert"
       },
       "cause": {
-        "ru": "Цепочка связывает копии хэшами: удаление, подмена или перестановка любой копии сразу видны (решение 276)",
-        "uk": "Ланцюжок зв’язує копії хешами: видалення, підміна або перестановка будь-якої копії одразу видно (рішення 276)",
-        "en": "The chain links copies by hashes: deleting, replacing or reordering any copy is immediately visible (decision 276).",
-        "de": "Die Kette verbindet Kopien über Hashes: Löschen, Ersetzen oder Umsortieren einer Kopie ist sofort sichtbar (Entscheidung 276)."
+        "ru": "Цепочка связывает копии хэшами: удаление, подмена или перестановка любой копии сразу видны",
+        "uk": "Ланцюжок зв’язує копії хешами: видалення, підміна або перестановка будь-якої копії одразу видно",
+        "en": "The chain links copies by hashes: deleting, replacing or reordering any copy is immediately visible.",
+        "de": "Die Kette verbindet Kopien über Hashes: Löschen, Ersetzen oder Umsortieren einer Kopie ist sofort sichtbar."
       },
       "action": {
         "ru": "1. Откройте «Архив и копии → Проверки», посмотрите, какая копия и на каком носителе.\n2. Не удаляйте ничего; при необходимости восстановите копию с другого носителя.",
