@@ -1,0 +1,317 @@
+{
+  "namespace": "RENT",
+  "area": "BOT",
+  "codes": [
+    {
+      "code": "RENT-BOT-001",
+      "key": "BOT_TOKEN_MISSING",
+      "aliases": [
+        "bot_token_missing"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не задан токен Telegram-бота",
+        "uk": "Не задано токен Telegram-бота",
+        "en": "Telegram bot token is not set",
+        "de": "Telegram-Bot-Token ist nicht festgelegt"
+      },
+      "cause": {
+        "ru": "Бот ещё не создан или его токен не вставлен в настройки.",
+        "uk": "Бота ще не створено або його токен не вставлено в налаштування.",
+        "en": "The bot has not been created yet or its token has not been entered in the settings.",
+        "de": "Der Bot wurde noch nicht erstellt oder sein Token wurde nicht in den Einstellungen eingetragen."
+      },
+      "action": {
+        "ru": "1. Создайте бота у @BotFather и вставьте токен в «Настройки → Боты».\n2. Токен — секрет: не показывайте его никому.",
+        "uk": "1. Створіть бота в @BotFather і вставте токен у «Налаштування → Боти».\n2. Токен — секрет: нікому його не показуйте.",
+        "en": "1. Create a bot via @BotFather and paste the token into “Settings → Bots”.\n2. The token is a secret: do not show it to anyone.",
+        "de": "1. Erstellen Sie einen Bot bei @BotFather und fügen Sie das Token unter „Einstellungen → Bots“ ein.\n2. Das Token ist geheim: Zeigen Sie es niemandem."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BOT-001",
+      "since": "1.1.0",
+      "tags": [
+        "bot"
+      ]
+    },
+    {
+      "code": "RENT-BOT-002",
+      "key": "BOT_API_ERROR",
+      "aliases": [
+        "bot_api_error"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Telegram отклонил запрос бота",
+        "uk": "Telegram відхилив запит бота",
+        "en": "Telegram rejected the bot's request",
+        "de": "Telegram hat die Anfrage des Bots abgelehnt"
+      },
+      "cause": {
+        "ru": "Telegram не принял данные бота или пользователь ещё не начал с ним переписку.",
+        "uk": "Telegram не прийняв дані бота або користувач ще не почав із ним переписку.",
+        "en": "Telegram did not accept the bot's details, or the user has not started a chat with it yet.",
+        "de": "Telegram hat die Daten des Bots nicht akzeptiert, oder der Benutzer hat noch keinen Chat mit ihm begonnen."
+      },
+      "action": {
+        "ru": "1. Проверьте токен и что пользователь написал боту первым.\n2. Подробность — только в журнале бота, без токена.",
+        "uk": "1. Перевірте токен і що користувач написав боту першим.\n2. Подробиця — лише в журналі бота, без токена.",
+        "en": "1. Check the token and that the user has messaged the bot first.\n2. Details are only in the bot log, without the token.",
+        "de": "1. Prüfen Sie das Token und ob der Benutzer dem Bot zuerst geschrieben hat.\n2. Einzelheiten stehen nur im Bot-Protokoll, ohne Token."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BOT-002",
+      "since": "1.1.0",
+      "tags": [
+        "bot"
+      ]
+    },
+    {
+      "code": "RENT-BOT-003",
+      "key": "BOT_RATE_LIMIT",
+      "aliases": [
+        "bot_rate_limit"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Telegram просит подождать (слишком много сообщений)",
+        "uk": "Telegram просить зачекати (забагато повідомлень)",
+        "en": "Telegram asks to wait (too many messages)",
+        "de": "Telegram bittet zu warten (zu viele Nachrichten)"
+      },
+      "cause": {
+        "ru": "Сообщений отправлено больше, чем Telegram разрешает за короткое время.",
+        "uk": "Повідомлень надіслано більше, ніж Telegram дозволяє за короткий час.",
+        "en": "More messages were sent than Telegram allows in a short period.",
+        "de": "Es wurden mehr Nachrichten gesendet, als Telegram in kurzer Zeit erlaubt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: бот повторит отправку сам через указанное время.",
+        "uk": "1. Нічого робити не потрібно: бот повторить надсилання сам через зазначений час.",
+        "en": "1. Nothing needs to be done: the bot will retry sending by itself after the specified time.",
+        "de": "1. Es ist nichts zu tun: Der Bot wiederholt das Senden nach der angegebenen Zeit selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BOT-003",
+      "since": "1.1.0",
+      "tags": [
+        "bot"
+      ]
+    },
+    {
+      "code": "RENT-BOT-004",
+      "key": "NET_TIMEOUT",
+      "aliases": [
+        "net_timeout"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет ответа от внешнего сервиса вовремя",
+        "uk": "Немає відповіді від зовнішнього сервісу вчасно",
+        "en": "No timely response from the external service",
+        "de": "Keine rechtzeitige Antwort vom externen Dienst"
+      },
+      "cause": {
+        "ru": "Внешний сервис не ответил за отведённое время — возможно, он перегружен или связь медленная.",
+        "uk": "Зовнішній сервіс не відповів за відведений час — можливо, він перевантажений або зв’язок повільний.",
+        "en": "The external service did not respond in time — it may be overloaded or the connection is slow.",
+        "de": "Der externe Dienst hat nicht rechtzeitig geantwortet – möglicherweise ist er überlastet oder die Verbindung ist langsam."
+      },
+      "action": {
+        "ru": "1. Проверьте интернет и повторите позже.",
+        "uk": "1. Перевірте інтернет і повторіть пізніше.",
+        "en": "1. Check your internet connection and try again later.",
+        "de": "1. Prüfen Sie Ihre Internetverbindung und versuchen Sie es später erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BOT-004",
+      "since": "1.1.0",
+      "tags": [
+        "bot"
+      ]
+    },
+    {
+      "code": "RENT-BOT-005",
+      "key": "NET_CONNECTION",
+      "aliases": [
+        "net_connection"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет связи с внешним сервисом",
+        "uk": "Немає зв’язку із зовнішнім сервісом",
+        "en": "No connection to the external service",
+        "de": "Keine Verbindung zum externen Dienst"
+      },
+      "cause": {
+        "ru": "Программа не смогла установить связь: интернет недоступен или соединение блокируется.",
+        "uk": "Програма не змогла встановити зв’язок: інтернет недоступний або з’єднання блокується.",
+        "en": "The program could not connect: the internet is unavailable or the connection is blocked.",
+        "de": "Das Programm konnte keine Verbindung herstellen: Das Internet ist nicht verfügbar oder die Verbindung wird blockiert."
+      },
+      "action": {
+        "ru": "1. Проверьте интернет, VPN и брандмауэр, затем повторите.",
+        "uk": "1. Перевірте інтернет, VPN і брандмауер, потім повторіть.",
+        "en": "1. Check the internet, VPN and firewall, then try again.",
+        "de": "1. Prüfen Sie Internet, VPN und Firewall und versuchen Sie es dann erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BOT-005",
+      "since": "1.1.0",
+      "tags": [
+        "bot"
+      ]
+    },
+    {
+      "code": "RENT-BOT-006",
+      "key": "PRIVACY_TOKEN_EXPOSED",
+      "aliases": [
+        "privacy_token_exposed"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Токен бота или ключ показаны постороннему",
+        "uk": "Токен бота або ключ показано стороннім",
+        "en": "The bot token or key was shown to an outsider",
+        "de": "Bot-Token oder Schlüssel wurde Außenstehenden gezeigt"
+      },
+      "cause": {
+        "ru": "Токен позволяет писать от имени бота и читать его сообщения",
+        "uk": "Токен дозволяє писати від імені бота й читати його повідомлення",
+        "en": "The token allows writing on behalf of the bot and reading its messages.",
+        "de": "Der Token erlaubt es, im Namen des Bots zu schreiben und seine Nachrichten zu lesen."
+      },
+      "action": {
+        "ru": "1. Немедленно отзовите токен у @BotFather и выпустите новый; смените пароль или ключ, который засветили.",
+        "uk": "1. Негайно відкличте токен у @BotFather і випустіть новий; змініть пароль або ключ, який засвітили.",
+        "en": "1. Immediately revoke the token in @BotFather and issue a new one; change the password or key that was exposed.",
+        "de": "1. Widerrufen Sie den Token sofort bei @BotFather und stellen Sie einen neuen aus; ändern Sie das Passwort oder den Schlüssel, der offengelegt wurde."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-BOT-006",
+      "since": "1.1.0",
+      "tags": [
+        "bot"
+      ]
+    }
+  ]
+}

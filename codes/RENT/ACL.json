@@ -1,0 +1,114 @@
+{
+  "namespace": "RENT",
+  "area": "ACL",
+  "codes": [
+    {
+      "code": "RENT-ACL-001",
+      "key": "FORBIDDEN",
+      "aliases": [
+        "forbidden"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет права на это действие",
+        "uk": "Немає права на цю дію",
+        "en": "No permission for this action",
+        "de": "Keine Berechtigung für diese Aktion"
+      },
+      "cause": {
+        "ru": "У вашей роли нет права на это действие. Права выдаёт владелец, чтобы каждый видел только разрешённое.",
+        "uk": "У вашої ролі немає права на цю дію. Права видає власник, щоб кожен бачив лише дозволене.",
+        "en": "Your role does not have permission for this action. The owner grants permissions so that each person sees only what is allowed.",
+        "de": "Ihre Rolle hat keine Berechtigung für diese Aktion. Der Eigentümer vergibt Berechtigungen, damit jede Person nur Erlaubtes sieht."
+      },
+      "action": {
+        "ru": "1. Это действие доступно владельцу или роли с нужным правом.\n2. Попросите владельца выдать право в «Настройки → Доступ».",
+        "uk": "1. Ця дія доступна власнику або ролі з потрібним правом.\n2. Попросіть власника видати право в «Налаштування → Доступ».",
+        "en": "1. This action is available to the owner or a role with the required permission.\n2. Ask the owner to grant the permission in “Settings → Access”.",
+        "de": "1. Diese Aktion ist für den Eigentümer oder eine Rolle mit der nötigen Berechtigung verfügbar.\n2. Bitten Sie den Eigentümer, die Berechtigung unter „Einstellungen → Zugriff“ zu erteilen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-ACL-001",
+      "since": "1.1.0",
+      "tags": [
+        "rights"
+      ]
+    },
+    {
+      "code": "RENT-ACL-002",
+      "key": "ACCESS_NO_HOUSEHOLD",
+      "aliases": [
+        "access_no_household"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нет доступа к хозяйству",
+        "uk": "Немає доступу до господарства",
+        "en": "No access to this household",
+        "de": "Kein Zugriff auf den Haushalt"
+      },
+      "cause": {
+        "ru": "У вашей учётной записи нет прав на это хозяйство — так бывает, если хозяйство создал другой пользователь или доступ не выдали.",
+        "uk": "У вашого облікового запису немає прав на це господарство — так буває, якщо господарство створив інший користувач або доступ не надали.",
+        "en": "Your account doesn’t have rights to this household — this happens when the household was created by another user or access wasn’t granted.",
+        "de": "Ihr Konto hat keine Rechte für diesen Haushalt — das passiert, wenn der Haushalt von einem anderen Benutzer angelegt wurde oder der Zugriff nicht erteilt wurde."
+      },
+      "action": {
+        "ru": "1. Войдите под учётной записью, у которой есть доступ к этому хозяйству; при ошибке обратитесь к администратору.",
+        "uk": "1. Увійдіть під обліковим записом, що має доступ до цього господарства; у разі помилки зверніться до адміністратора.",
+        "en": "1. Sign in with an account that has access to this household; if this is a mistake, contact the administrator.",
+        "de": "1. Melden Sie sich mit einem Konto an, das Zugriff auf diesen Haushalt hat; wenden Sie sich bei einem Fehler an den Administrator."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-ACL-002",
+      "since": "1.1.0",
+      "tags": [
+        "rights"
+      ]
+    }
+  ]
+}

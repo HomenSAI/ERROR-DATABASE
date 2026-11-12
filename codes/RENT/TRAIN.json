@@ -1,0 +1,106 @@
+{
+  "namespace": "RENT",
+  "area": "TRAIN",
+  "codes": [
+    {
+      "code": "RENT-TRAIN-001",
+      "key": "TRAINING_UNKNOWN",
+      "aliases": [
+        "training_unknown"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такой тренировки нет или она сейчас недоступна",
+        "uk": "Такого тренування немає або воно зараз недоступне",
+        "en": "No such training exists or it is currently unavailable",
+        "de": "Diese Schulung gibt es nicht oder sie ist derzeit nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Ссылка может быть устаревшей, или тренировка временно закрыта.",
+        "uk": "Посилання може бути застарілим, або тренування тимчасово закрите.",
+        "en": "The link may be outdated, or the training has been temporarily closed.",
+        "de": "Der Link ist möglicherweise veraltet oder die Schulung wurde vorübergehend geschlossen."
+      },
+      "action": {
+        "ru": "1. Откройте «Безопасность → Тренировка» и выберите пункт из списка.",
+        "uk": "1. Відкрийте «Безпека → Тренування» та оберіть пункт зі списку.",
+        "en": "1. Open “Security → Training” and choose an item from the list.",
+        "de": "1. Öffnen Sie „Sicherheit → Training“ und wählen Sie einen Eintrag aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-TRAIN-001",
+      "since": "1.1.0",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "code": "RENT-TRAIN-002",
+      "key": "REVIEW_INCOMPLETE",
+      "aliases": [
+        "review_incomplete"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отметьте каждый пункт обзора восстановления",
+        "uk": "Позначте кожен пункт огляду відновлення",
+        "en": "Tick every item in the recovery review",
+        "de": "Markieren Sie jeden Punkt der Wiederherstellungsprüfung"
+      },
+      "cause": {
+        "ru": "Огляд завершают только тогда, когда подтверждены все его пункты.",
+        "uk": "Огляд завершують лише тоді, коли підтверджено всі його пункти.",
+        "en": "The review is completed only when all its items are confirmed.",
+        "de": "Die Prüfung wird erst abgeschlossen, wenn alle ihre Punkte bestätigt sind."
+      },
+      "action": {
+        "ru": "1. Если пункт не выполнен — откройте ссылку рядом с ним, исправьте и вернитесь к обзору.",
+        "uk": "1. Якщо пункт не виконано — відкрийте посилання поруч, виправте та поверніться до огляду.",
+        "en": "1. If an item is not done, open the link next to it, fix it, and return to the review.",
+        "de": "1. Wenn ein Punkt nicht erledigt ist, öffnen Sie den Link daneben, beheben Sie das Problem und kehren Sie zur Prüfung zurück."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-TRAIN-002",
+      "since": "1.1.0",
+      "tags": [
+        "training"
+      ]
+    }
+  ]
+}

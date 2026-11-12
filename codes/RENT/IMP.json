@@ -1,0 +1,106 @@
+{
+  "namespace": "RENT",
+  "area": "IMP",
+  "codes": [
+    {
+      "code": "RENT-IMP-001",
+      "key": "IMPORT_FORMAT",
+      "aliases": [
+        "import_format"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл Excel не подходит по формату",
+        "uk": "Файл Excel не підходить за форматом",
+        "en": "Excel file has the wrong format",
+        "de": "Excel-Datei hat ein falsches Format"
+      },
+      "cause": {
+        "ru": "Файл сохранён в другом формате, повреждён или его столбцы названы иначе — программа не узнаёт структуру.",
+        "uk": "Файл збережено в іншому форматі, пошкоджено або стовпці названо інакше — програма не розпізнає структуру.",
+        "en": "The file was saved in a different format, is damaged, or its columns have different names, so the program cannot recognise the structure.",
+        "de": "Die Datei wurde in einem anderen Format gespeichert, ist beschädigt oder ihre Spalten heißen anders – das Programm erkennt die Struktur nicht."
+      },
+      "action": {
+        "ru": "1. Используйте шаблон из раздела «Excel: экспорт и импорт» и не меняйте заголовки столбцов.",
+        "uk": "1. Використовуйте шаблон із розділу «Excel: експорт та імпорт» і не змінюйте заголовки стовпців.",
+        "en": "1. Use the template from the “Excel: export and import” section and do not change the column headings.",
+        "de": "1. Verwenden Sie die Vorlage aus dem Bereich „Excel: Export und Import“ und ändern Sie die Spaltenüberschriften nicht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-IMP-001",
+      "since": "1.1.0",
+      "tags": [
+        "import"
+      ]
+    },
+    {
+      "code": "RENT-IMP-002",
+      "key": "IMPORT_ROW_INVALID",
+      "aliases": [
+        "import_row_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В строке Excel неверное значение",
+        "uk": "У рядку Excel неправильне значення",
+        "en": "Row in Excel has an invalid value",
+        "de": "Ungültiger Wert in einer Excel-Zeile"
+      },
+      "cause": {
+        "ru": "В одной из ячеек значение не того типа или пусто там, где оно обязательно.",
+        "uk": "В одній із клітинок значення не того типу або порожньо там, де воно обов’язкове.",
+        "en": "One of the cells contains a value of the wrong type or is empty where a value is required.",
+        "de": "Eine der Zellen enthält einen Wert des falschen Typs oder ist leer, obwohl ein Wert erforderlich ist."
+      },
+      "action": {
+        "ru": "1. Откройте отчёт импорта: в нём указана строка и столбец.\n2. Исправьте ячейку и загрузите файл снова — частично ничего не сохраняется.",
+        "uk": "1. Відкрийте звіт імпорту: у ньому вказано рядок і стовпець.\n2. Виправте клітинку й завантажте файл знову — частково нічого не зберігається.",
+        "en": "1. Open the “Import report”: it shows the row and column.\n2. Correct the cell and upload the file again — nothing is saved partially.",
+        "de": "1. Öffnen Sie den „Importbericht“: Er zeigt Zeile und Spalte.\n2. Korrigieren Sie die Zelle und laden Sie die Datei erneut hoch – teilweise wird nichts gespeichert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-IMP-002",
+      "since": "1.1.0",
+      "tags": [
+        "import"
+      ]
+    }
+  ]
+}

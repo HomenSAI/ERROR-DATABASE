@@ -1,0 +1,167 @@
+{
+  "namespace": "RENT",
+  "area": "EXP",
+  "codes": [
+    {
+      "code": "RENT-EXP-001",
+      "key": "EXPORT_FAILED",
+      "aliases": [
+        "export_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось собрать выгрузку",
+        "uk": "Не вдалося зібрати вивантаження",
+        "en": "Could not build the export",
+        "de": "Export konnte nicht erstellt werden"
+      },
+      "cause": {
+        "ru": "Сборке выгрузки помешали нехватка места, занятый файл или временный сбой.",
+        "uk": "Збиранню вивантаження завадили нестача місця, зайнятий файл або тимчасовий збій.",
+        "en": "The export could not be assembled because of low disk space, a file in use, or a temporary failure.",
+        "de": "Das Exportieren konnte wegen fehlendem Speicherplatz, einer verwendeten Datei oder einer vorübergehenden Störung nicht abgeschlossen werden."
+      },
+      "action": {
+        "ru": "1. Повторите.\n2. Если повторяется — проверьте свободное место и права на папку выгрузки.",
+        "uk": "1. Повторіть.\n2. Якщо повторюється — перевірте вільне місце й права на теку вивантаження.",
+        "en": "1. Try again.\n2. If it keeps happening, check free space and permissions for the export folder.",
+        "de": "1. Versuchen Sie es erneut.\n2. Wenn es weiterhin auftritt, prüfen Sie freien Speicherplatz und die Rechte für den Exportordner."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-EXP-001",
+      "since": "1.1.0",
+      "tags": [
+        "export"
+      ]
+    },
+    {
+      "code": "RENT-EXP-002",
+      "key": "OLX_API_ERROR",
+      "aliases": [
+        "olx_api_error"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "OLX отклонил запрос или не ответил",
+        "uk": "OLX відхилив запит або не відповів",
+        "en": "OLX rejected the request or did not respond",
+        "de": "OLX hat die Anfrage abgelehnt oder nicht geantwortet"
+      },
+      "cause": {
+        "ru": "Связь с OLX не удалась: сервис мог быть временно недоступен, а ключи доступа — устареть.",
+        "uk": "Зв’язок із OLX не вдався: сервіс міг бути тимчасово недоступним, а ключі доступу — застаріли.",
+        "en": "The connection to OLX failed: the service may have been temporarily unavailable, or the access keys may be out of date.",
+        "de": "Die Verbindung zu OLX ist fehlgeschlagen: Der Dienst war möglicherweise vorübergehend nicht erreichbar, oder die Zugangsschlüssel sind veraltet."
+      },
+      "action": {
+        "ru": "1. Проверьте ключи OLX в настройках и повторите позже; объявление можно выгрузить файлом.",
+        "uk": "1. Перевірте ключі OLX у налаштуваннях і повторіть пізніше; оголошення можна вивантажити файлом.",
+        "en": "1. Check the OLX keys in the settings and try again later; the listing can also be exported to a file.",
+        "de": "1. Prüfen Sie die OLX-Schlüssel in den Einstellungen und versuchen Sie es später erneut; die Anzeige kann auch als Datei exportiert werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-EXP-002",
+      "since": "1.1.0",
+      "tags": [
+        "export"
+      ]
+    },
+    {
+      "code": "RENT-EXP-003",
+      "key": "PRIVACY_PII_EXPORT",
+      "aliases": [
+        "privacy_pii_export"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В выгрузке или файле для передачи есть персональные данные",
+        "uk": "У вивантаженні або файлі для передачі є персональні дані",
+        "en": "The export or file for handover contains personal data",
+        "de": "Das Export- oder Übergabefile enthält personenbezogene Daten"
+      },
+      "cause": {
+        "ru": "Выгрузку готовят, чтобы передать данные другому человеку или в сервис, и в неё попадают сведения жильцов.",
+        "uk": "Вивантаження готують, щоб передати дані іншій людині або в сервіс, і до нього потрапляють відомості мешканців.",
+        "en": "An export is usually prepared to pass data on to someone else, and tenants’ details end up in it.",
+        "de": "Ein Export wird meist erstellt, um Daten an andere weiterzugeben, und dabei geraten Daten der Mieter hinein."
+      },
+      "action": {
+        "ru": "1. Передавайте выгрузку только тому, кому она нужна; храните на защищённом носителе и удаляйте после использования.",
+        "uk": "1. Передавайте вивантаження лише тому, кому воно потрібне; зберігайте на захищеному носії й видаляйте після використання.",
+        "en": "1. Give the export only to those who need it; keep it on a protected medium and delete it after use.",
+        "de": "1. Geben Sie den Export nur an diejenigen weiter, die ihn brauchen; bewahren Sie ihn auf einem geschützten Datenträger auf und löschen Sie ihn nach der Nutzung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-EXP-003",
+      "since": "1.1.0",
+      "tags": [
+        "export"
+      ]
+    }
+  ]
+}

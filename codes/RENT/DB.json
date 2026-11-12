@@ -1,0 +1,883 @@
+{
+  "namespace": "RENT",
+  "area": "DB",
+  "codes": [
+    {
+      "code": "RENT-DB-001",
+      "key": "SQLITE_LOCKED",
+      "aliases": [
+        "sqlite_locked"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "База занята другим действием",
+        "uk": "База зайнята іншою дією",
+        "en": "The database is busy with another action",
+        "de": "Die Datenbank ist durch eine andere Aktion belegt"
+      },
+      "cause": {
+        "ru": "Пока база занята, запись не выполняется: данные не потеряны, но действие не сохранено",
+        "uk": "Поки база зайнята, запис не виконується: дані не втрачено, але дію не збережено",
+        "en": "While the database is busy, the entry is not saved: no data is lost, but the action has not been saved.",
+        "de": "Solange die Datenbank belegt ist, wird der Eintrag nicht gespeichert: Es gehen keine Daten verloren, aber die Aktion wurde nicht gespeichert."
+      },
+      "action": {
+        "ru": "1. Подождите несколько секунд и повторите.\n2. Если не проходит — закройте второе окно программы или другие программы, которые держат файл базы.",
+        "uk": "1. Зачекайте кілька секунд і повторіть.\n2. Якщо не минає — закрийте друге вікно програми або інші програми, що тримають файл бази.",
+        "en": "1. Wait a few seconds and try again.\n2. If it persists, close the second program window or other programs that are holding the database file.",
+        "de": "1. Warten Sie einige Sekunden und versuchen Sie es erneut.\n2. Wenn es weiterhin auftritt, schließen Sie das zweite Programmfenster oder andere Programme, die die Datenbankdatei offen halten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-001",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-002",
+      "key": "SQLITE_FULL",
+      "aliases": [
+        "sqlite_full"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "На диске нет места для базы",
+        "uk": "На диску немає місця для бази",
+        "en": "There is no disk space for the database",
+        "de": "Auf dem Datenträger ist kein Platz für die Datenbank"
+      },
+      "cause": {
+        "ru": "Без места база не может записать изменения, а при нехватке места во время записи файл может быть повреждён",
+        "uk": "Без місця база не може записати зміни, а за браку місця під час запису файл може бути пошкоджено",
+        "en": "Without free space, the database cannot write changes, and if space runs out during writing, the file may be damaged.",
+        "de": "Ohne freien Speicherplatz kann die Datenbank keine Änderungen schreiben; wenn während des Schreibens der Platz ausgeht, kann die Datei beschädigt werden."
+      },
+      "action": {
+        "ru": "1. Освободите место на диске с базой (удалите ненужное или перенесите старые копии) и повторите действие.",
+        "uk": "1. Звільніть місце на диску з базою (видаліть непотрібне або перенесіть старі копії) і повторіть дію.",
+        "en": "1. Free up space on the disk with the database (delete unnecessary items or move old copies) and repeat the action.",
+        "de": "1. Geben Sie Speicherplatz auf dem Datenträger mit der Datenbank frei (löschen Sie Unnötiges oder verschieben Sie alte Kopien) und wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-002",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-003",
+      "key": "SQLITE_IO",
+      "aliases": [
+        "sqlite_io"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Ошибка чтения или записи файла базы",
+        "uk": "Помилка читання або запису файлу бази",
+        "en": "Error reading or writing the database file",
+        "de": "Fehler beim Lesen oder Schreiben der Datenbankdatei"
+      },
+      "cause": {
+        "ru": "Так проявляется сбой диска: запись может не дойти до файла",
+        "uk": "Так проявляється збій диска: запис може не дійти до файлу",
+        "en": "This is how a disk failure shows up: the write may not reach the file.",
+        "de": "So zeigt sich ein Datenträgerfehler: Der Schreibvorgang erreicht die Datei möglicherweise nicht."
+      },
+      "action": {
+        "ru": "1. Проверьте диск (подключение, кабель, состояние).\n2. Не продолжайте работу с деньгами; при повторении восстановите последнюю копию.",
+        "uk": "1. Перевірте диск (підключення, кабель, стан).\n2. Не продовжуйте роботу з грошима; у разі повторення відновіть останню копію.",
+        "en": "1. Check the disk (connection, cable, condition).\n2. Do not continue working with money; if it happens again, restore the latest copy.",
+        "de": "1. Prüfen Sie den Datenträger (Anschluss, Kabel, Zustand).\n2. Arbeiten Sie nicht weiter mit Geldbeträgen; wenn es erneut auftritt, stellen Sie die letzte Kopie wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-003",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-004",
+      "key": "SQLITE_CORRUPT",
+      "aliases": [
+        "sqlite_corrupt"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Файл базы повреждён",
+        "uk": "Файл бази пошкоджено",
+        "en": "The database file is damaged",
+        "de": "Die Datenbankdatei ist beschädigt"
+      },
+      "cause": {
+        "ru": "Повреждённая база может выдавать неверные суммы; прежние копии при этом остаются нетронутыми",
+        "uk": "Пошкоджена база може видавати неправильні суми; попередні копії при цьому залишаються недоторканими",
+        "en": "A damaged database may show incorrect amounts; earlier copies remain untouched.",
+        "de": "Eine beschädigte Datenbank kann falsche Beträge anzeigen; frühere Kopien bleiben unverändert."
+      },
+      "action": {
+        "ru": "1. Остановите работу, не сохраняйте новых данных.\n2. Восстановите последнюю хорошую копию (раздел «Архив и копии» → восстановление).",
+        "uk": "1. Зупиніть роботу, не зберігайте нових даних.\n2. Відновіть останню справну копію (розділ «Архів і копії» → відновлення).",
+        "en": "1. Stop working and do not save new data.\n2. Restore the latest good copy (“Archive and copies” → restore).",
+        "de": "1. Beenden Sie die Arbeit und speichern Sie keine neuen Daten.\n2. Stellen Sie die letzte gute Kopie wieder her („Archiv und Kopien“ → Wiederherstellung)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-004",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-005",
+      "key": "SQLITE_READONLY",
+      "aliases": [
+        "sqlite_readonly"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "База открыта только для чтения",
+        "uk": "Базу відкрито лише для читання",
+        "en": "The database is open read-only",
+        "de": "Die Datenbank ist nur zum Lesen geöffnet"
+      },
+      "cause": {
+        "ru": "Пока база только для чтения, ничего нельзя сохранить",
+        "uk": "Поки база лише для читання, нічого не можна зберегти",
+        "en": "While the database is read-only, nothing can be saved.",
+        "de": "Solange die Datenbank schreibgeschützt ist, kann nichts gespeichert werden."
+      },
+      "action": {
+        "ru": "1. Проверьте права на папку и файл базы (снимите «только чтение»), закройте программу и откройте снова.",
+        "uk": "1. Перевірте права на теку і файл бази (зніміть «лише читання»), закрийте програму й відкрийте знову.",
+        "en": "1. Check the permissions for the database folder and file (clear “read-only”), close the program, and open it again.",
+        "de": "1. Prüfen Sie die Berechtigungen für den Datenbankordner und die Datei (entfernen Sie „schreibgeschützt“), schließen Sie das Programm und öffnen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-005",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-006",
+      "key": "SQLITE_OPEN",
+      "aliases": [
+        "sqlite_open"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удаётся открыть файл базы",
+        "uk": "Не вдається відкрити файл бази",
+        "en": "Cannot open the database file",
+        "de": "Die Datenbankdatei kann nicht geöffnet werden"
+      },
+      "cause": {
+        "ru": "Файл базы могли переместить или удалить, либо он находится на отключённом диске; также может не хватать прав доступа к папке.",
+        "uk": "Файл бази могли перемістити або видалити, або він може бути на від’єднаному диску; також може бракувати прав доступу до теки.",
+        "en": "The database file may have been moved or deleted, or it may be on a disconnected disk; access permissions for the folder may also be missing.",
+        "de": "Die Datenbankdatei wurde möglicherweise verschoben oder gelöscht oder befindet sich auf einem nicht verbundenen Datenträger; außerdem fehlen möglicherweise Zugriffsrechte für den Ordner."
+      },
+      "action": {
+        "ru": "1. Проверьте, что файл базы на месте, диск подключён и у вас есть права на папку.\n2. Путь указывается при запуске параметром --db.",
+        "uk": "1. Перевірте, що файл бази на місці, диск підключено і ви маєте права на теку.\n2. Шлях указується під час запуску параметром --db.",
+        "en": "1. Check that the database file is present, the disk is connected, and you have permissions for the folder.\n2. The path is specified at startup with the --db parameter.",
+        "de": "1. Prüfen Sie, ob die Datenbankdatei vorhanden ist, der Datenträger angeschlossen ist und Sie Berechtigungen für den Ordner haben.\n2. Der Pfad wird beim Start mit dem Parameter --db angegeben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-006",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-007",
+      "key": "SQLITE_CHECK",
+      "aliases": [
+        "sqlite_check"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Значение не прошло проверку базы (CHECK)",
+        "uk": "Значення не пройшло перевірку бази (CHECK)",
+        "en": "The value failed the database check (CHECK)",
+        "de": "Der Wert hat die Datenbankprüfung nicht bestanden (CHECK)"
+      },
+      "cause": {
+        "ru": "База сама не даёт сохранить заведомо неверные данные, например отрицательную сумму там, где она невозможна",
+        "uk": "База сама не дає зберегти завідомо хибні дані, наприклад від’ємну суму там, де вона неможлива",
+        "en": "The database itself prevents saving obviously incorrect data, for example a negative amount where it is not possible.",
+        "de": "Die Datenbank selbst verhindert das Speichern offensichtlich falscher Daten, zum Beispiel eines negativen Betrags, wo dieser nicht möglich ist."
+      },
+      "action": {
+        "ru": "1. Проверьте введённое: сумма, количество, дата или статус вне допустимых пределов.\n2. Исправьте значение и повторите.",
+        "uk": "1. Перевірте введене: сума, кількість, дата або статус поза допустимими межами.\n2. Виправте значення й повторіть.",
+        "en": "1. Check the entered value: the amount, quantity, date, or status is outside the allowed limits.\n2. Correct the value and try again.",
+        "de": "1. Prüfen Sie die Eingabe: Betrag, Menge, Datum oder Status liegen außerhalb der zulässigen Grenzen.\n2. Korrigieren Sie den Wert und versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-007",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-008",
+      "key": "SQLITE_FK",
+      "aliases": [
+        "sqlite_fk"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Связанная запись не найдена или ещё используется (внешний ключ)",
+        "uk": "Пов’язаний запис не знайдено або він ще використовується (зовнішній ключ)",
+        "en": "The related record was not found or is still in use (foreign key)",
+        "de": "Der zugehörige Datensatz wurde nicht gefunden oder wird noch verwendet (Fremdschlüssel)"
+      },
+      "cause": {
+        "ru": "Связи между записями защищают договоры, счета и оплаты от «осиротевших» данных",
+        "uk": "Зв’язки між записами захищають договори, рахунки й оплати від «осиротілих» даних",
+        "en": "Links between records protect contracts, invoices, and payments from “orphaned” data.",
+        "de": "Verknüpfungen zwischen Datensätzen schützen Verträge, Rechnungen und Zahlungen vor „verwaisten“ Daten."
+      },
+      "action": {
+        "ru": "1. Откройте страницу заново: связанную запись, возможно, уже удалили.\n2. Нельзя удалить запись, на которую ссылаются другие.",
+        "uk": "1. Відкрийте сторінку заново: пов’язаний запис, можливо, уже видалили.\n2. Не можна видалити запис, на який посилаються інші.",
+        "en": "1. Reload the page: the related record may already have been deleted.\n2. You cannot delete a record that other records refer to.",
+        "de": "1. Laden Sie die Seite neu: Der zugehörige Datensatz wurde möglicherweise bereits gelöscht.\n2. Ein Datensatz, auf den andere verweisen, kann nicht gelöscht werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-008",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-009",
+      "key": "SQLITE_UNIQUE",
+      "aliases": [
+        "sqlite_unique"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такая запись уже есть (повтор)",
+        "uk": "Такий запис уже є (повтор)",
+        "en": "Such a record already exists (duplicate)",
+        "de": "Ein solcher Datensatz existiert bereits (Duplikat)"
+      },
+      "cause": {
+        "ru": "В базе уже есть запись с таким же номером, датой или названием, поэтому повторно её не сохраняют.",
+        "uk": "У базі вже є запис із таким самим номером, датою або назвою, тому повторно його не зберігають.",
+        "en": "The database already contains a record with the same number, date, or name, so it is not saved again.",
+        "de": "Die Datenbank enthält bereits einen Datensatz mit derselben Nummer, demselben Datum oder Namen, daher wird er nicht erneut gespeichert."
+      },
+      "action": {
+        "ru": "1. Не создавайте повторно: найдите существующую запись в списке.\n2. Если нужно другое — измените номер, дату или название.",
+        "uk": "1. Не створюйте повторно: знайдіть наявний запис у списку.\n2. Якщо потрібне інше — змініть номер, дату або назву.",
+        "en": "1. Do not create it again: find the existing record in the list.\n2. If you need a different one, change the number, date, or name.",
+        "de": "1. Erstellen Sie ihn nicht erneut: Suchen Sie den vorhandenen Datensatz in der Liste.\n2. Wenn Sie einen anderen benötigen, ändern Sie Nummer, Datum oder Namen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-009",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-010",
+      "key": "SQLITE_NOTNULL",
+      "aliases": [
+        "sqlite_notnull"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не заполнено обязательное поле",
+        "uk": "Не заповнено обов’язкове поле",
+        "en": "A required field is not filled in",
+        "de": "Ein Pflichtfeld ist nicht ausgefüllt"
+      },
+      "cause": {
+        "ru": "Некоторые сведения обязательны для сохранения, и без них запись не создаётся.",
+        "uk": "Деякі відомості обов’язкові для збереження, і без них запис не створюється.",
+        "en": "Some information is required for saving, and the record cannot be created without it.",
+        "de": "Einige Angaben sind zum Speichern erforderlich, und ohne sie kann der Datensatz nicht erstellt werden."
+      },
+      "action": {
+        "ru": "1. Заполните все обязательные поля формы и повторите.",
+        "uk": "1. Заповніть усі обов’язкові поля форми й повторіть.",
+        "en": "1. Fill in all required fields of the form and try again.",
+        "de": "1. Füllen Sie alle Pflichtfelder des Formulars aus und versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-010",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-011",
+      "key": "SQLITE_INTEGRITY",
+      "aliases": [
+        "sqlite_integrity"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Эти данные только что изменило другое действие",
+        "uk": "Ці дані щойно змінила інша дія",
+        "en": "This data was just changed by another action",
+        "de": "Diese Daten wurden gerade durch eine andere Aktion geändert"
+      },
+      "cause": {
+        "ru": "Два одновременных действия не могут записать одно и то же; сценарий отменён целиком",
+        "uk": "Дві одночасні дії не можуть записати одне й те саме; сценарій скасовано повністю",
+        "en": "Two simultaneous actions cannot write the same data; the scenario was canceled entirely.",
+        "de": "Zwei gleichzeitige Aktionen können nicht dieselben Daten schreiben; der Vorgang wurde vollständig abgebrochen."
+      },
+      "action": {
+        "ru": "1. Обновите страницу, проверьте результат в списке и при необходимости повторите действие.\n2. Ничего лишнего не записано.",
+        "uk": "1. Оновіть сторінку, перевірте результат у списку й за потреби повторіть дію.\n2. Нічого зайвого не записано.",
+        "en": "1. Refresh the page, check the result in the list, and repeat the action if necessary.\n2. Nothing extra was saved.",
+        "de": "1. Aktualisieren Sie die Seite, prüfen Sie das Ergebnis in der Liste und wiederholen Sie die Aktion bei Bedarf.\n2. Es wurde nichts Unnötiges gespeichert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-011",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-012",
+      "key": "SQLITE_OTHER",
+      "aliases": [
+        "sqlite_other"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Ошибка базы данных",
+        "uk": "Помилка бази даних",
+        "en": "Database error",
+        "de": "Datenbankfehler"
+      },
+      "cause": {
+        "ru": "Иногда база не может завершить действие из-за редкого сбоя; точную причину можно увидеть в журнале программы.",
+        "uk": "Іноді база не може завершити дію через рідкісний збій; точну причину можна побачити в журналі програми.",
+        "en": "Sometimes the database cannot complete the action due to a rare failure; the exact cause can be seen in the program log.",
+        "de": "Manchmal kann die Datenbank die Aktion aufgrund eines seltenen Fehlers nicht abschließen; die genaue Ursache ist im Programmprotokoll zu sehen."
+      },
+      "action": {
+        "ru": "1. Повторите действие.\n2. Если повторяется — сообщите разработчику код ошибки (техническая строка есть в журнале программы).",
+        "uk": "1. Повторіть дію.\n2. Якщо повторюється — повідомте розробнику код помилки (технічний рядок є в журналі програми).",
+        "en": "1. Repeat the action.\n2. If it keeps happening, report the error code to the developer (the technical line is in the program log).",
+        "de": "1. Wiederholen Sie die Aktion.\n2. Wenn es weiterhin auftritt, melden Sie den Fehlercode dem Entwickler (die technische Zeile steht im Programmprotokoll)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-012",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-013",
+      "key": "SQLITE_MIGRATION",
+      "aliases": [
+        "sqlite_migration"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Схема базы не соответствует программе (нет таблицы или колонки)",
+        "uk": "Схема бази не відповідає програмі (немає таблиці або колонки)",
+        "en": "Database schema does not match the program (missing table or column)",
+        "de": "Datenbankschema passt nicht zum Programm (Tabelle oder Spalte fehlt)"
+      },
+      "cause": {
+        "ru": "База создана или обновлена другой версией программы, поэтому в ней не хватает нужных таблиц или колонок.",
+        "uk": "Базу створено або оновлено іншою версією програми, тому в ній бракує потрібних таблиць або колонок.",
+        "en": "The database was created or updated by a different version of the program, so it lacks the required tables or columns.",
+        "de": "Die Datenbank wurde von einer anderen Programmversion erstellt oder aktualisiert und enthält daher nicht die erforderlichen Tabellen oder Spalten."
+      },
+      "action": {
+        "ru": "1. Обновите базу: запустите программу с миграциями (бэкап создаётся автоматически) или восстановите копию той же версии.",
+        "uk": "1. Оновіть базу: запустіть програму з міграціями (бекап створюється автоматично) або відновіть копію тієї самої версії.",
+        "en": "1. Update the database: start the program with migrations (a backup is created automatically) or restore a copy of the same version.",
+        "de": "1. Aktualisieren Sie die Datenbank: Starten Sie das Programm mit Migrationen (eine Sicherung wird automatisch erstellt) oder stellen Sie eine Kopie derselben Version wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-013",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-014",
+      "key": "SQLITE_MIGRATION_NEWER",
+      "aliases": [
+        "sqlite_migration_newer"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "База новее программы: в ней есть миграция, которой нет в коде",
+        "uk": "База новіша за програму: у ній є міграція, якої немає в коді",
+        "en": "Database is newer than the program: it contains a migration that is not in the code",
+        "de": "Datenbank ist neuer als das Programm: Sie enthält eine Migration, die im Code nicht vorhanden ist"
+      },
+      "cause": {
+        "ru": "Старая программа не знает новых таблиц и может записать данные неверно",
+        "uk": "Стара програма не знає нових таблиць і може записати дані неправильно",
+        "en": "The old program does not know the new tables and may write data incorrectly.",
+        "de": "Das alte Programm kennt die neuen Tabellen nicht und kann Daten falsch schreiben."
+      },
+      "action": {
+        "ru": "1. Установите ту же или более новую версию программы.\n2. Не открывайте базу старой версией: она может её испортить.",
+        "uk": "1. Установіть ту саму або новішу версію програми.\n2. Не відкривайте базу старою версією: вона може її зіпсувати.",
+        "en": "1. Install the same or a newer version of the program.\n2. Do not open the database with an old version: it may damage it.",
+        "de": "1. Installieren Sie dieselbe oder eine neuere Programmversion. Öffnen Sie die Datenbank nicht mit einer alten Version: Diese kann sie beschädigen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-014",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-015",
+      "key": "SQLITE_MIGRATION_CHANGED",
+      "aliases": [
+        "sqlite_migration_changed"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Применённая миграция изменена (контрольная сумма не совпадает)",
+        "uk": "Застосовану міграцію змінено (контрольна сума не збігається)",
+        "en": "Applied migration has been changed (checksum mismatch)",
+        "de": "Angewendete Migration wurde geändert (Prüfsumme stimmt nicht überein)"
+      },
+      "cause": {
+        "ru": "Файл миграции изменили после того, как он уже был применён к базе. Поэтому программа видит, что содержимое не совпадает с прежним.",
+        "uk": "Файл міграції змінили після того, як його вже було застосовано до бази. Тому програма бачить, що вміст не збігається з попереднім.",
+        "en": "A migration file was changed after it had already been applied to the database. The program therefore sees that its content no longer matches the original.",
+        "de": "Eine Migrationsdatei wurde geändert, nachdem sie bereits auf die Datenbank angewendet wurde. Das Programm erkennt daher, dass der Inhalt nicht mehr mit dem Original übereinstimmt."
+      },
+      "action": {
+        "ru": "1. Не запускайте работу с этой базой.\n2. Верните исходный файл миграции из той же версии программы; исправления — только новой миграцией.",
+        "uk": "1. Не запускайте роботу з цією базою.\n2. Поверніть вихідний файл міграції з тієї самої версії програми; виправлення — лише новою міграцією.",
+        "en": "1. Do not start working with this database.\n2. Restore the original migration file from the same program version; make fixes only with a new migration.",
+        "de": "1. Beginnen Sie nicht mit dieser Datenbank zu arbeiten.\n2. Stellen Sie die ursprüngliche Migrationsdatei aus derselben Programmversion wieder her; Korrekturen nur mit einer neuen Migration vornehmen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-015",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    },
+    {
+      "code": "RENT-DB-016",
+      "key": "SQLITE_MIGRATION_FAILED",
+      "aliases": [
+        "sqlite_migration_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Миграция не применена: база осталась как была",
+        "uk": "Міграцію не застосовано: базу залишено як була",
+        "en": "Migration was not applied: the database remains as it was",
+        "de": "Migration wurde nicht angewendet: Die Datenbank bleibt unverändert"
+      },
+      "cause": {
+        "ru": "Во время обновления базы произошла ошибка, и программа остановила изменения, чтобы не оставить базу в неполном состоянии.",
+        "uk": "Під час оновлення бази сталася помилка, і програма зупинила зміни, щоб не залишити базу в неповному стані.",
+        "en": "An error occurred while updating the database, and the program stopped the changes so as not to leave the database in an incomplete state.",
+        "de": "Beim Aktualisieren der Datenbank ist ein Fehler aufgetreten, und das Programm hat die Änderungen angehalten, damit die Datenbank nicht in einem unvollständigen Zustand bleibt."
+      },
+      "action": {
+        "ru": "1. Базу не меняйте: перед миграцией создан бэкап.\n2. Сообщите разработчику код ошибки и версию программы.",
+        "uk": "1. Базу не змінюйте: перед міграцією створено бекап.\n2. Повідомте розробнику код помилки та версію програми.",
+        "en": "1. Do not modify the database: a backup was created before the migration.\n2. Report the error code and program version to the developer.",
+        "de": "1. Ändern Sie die Datenbank nicht: Vor der Migration wurde eine Sicherung erstellt.\n2. Melden Sie dem Entwickler den Fehlercode und die Programmversion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-DB-016",
+      "since": "1.1.0",
+      "tags": [
+        "db"
+      ]
+    }
+  ]
+}

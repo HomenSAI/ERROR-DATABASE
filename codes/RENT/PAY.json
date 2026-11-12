@@ -1,0 +1,356 @@
+{
+  "namespace": "RENT",
+  "area": "PAY",
+  "codes": [
+    {
+      "code": "RENT-PAY-001",
+      "key": "MONEY_REFUSED",
+      "aliases": [
+        "money_refused"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Денежная операция отклонена правилами учёта",
+        "uk": "Грошову операцію відхилено правилами обліку",
+        "en": "The money operation was rejected by the accounting rules",
+        "de": "Der Geldvorgang wurde von den Buchungsregeln abgelehnt"
+      },
+      "cause": {
+        "ru": "Деньги считает программа по правилам решений владельца; нарушить правило через форму нельзя",
+        "uk": "Гроші рахує програма за правилами рішень власника; порушити правило через форму не можна",
+        "en": "The program calculates money according to the owner’s rules; a rule can’t be broken through a form.",
+        "de": "Das Programm berechnet Geld nach den Regeln des Eigentümers; über ein Formular lässt sich keine Regel umgehen."
+      },
+      "action": {
+        "ru": "1. Прочитайте причину в сообщении: сумма, валюта, статус счёта или период не допускают операцию.\n2. Исправьте и повторите.",
+        "uk": "1. Прочитайте причину в повідомленні: сума, валюта, статус рахунку або період не допускають операції.\n2. Виправте й повторіть.",
+        "en": "1. Read the reason in the message: the amount, currency, account status or period doesn’t allow the operation.\n2. Correct it and try again.",
+        "de": "1. Lesen Sie den Grund in der Meldung: Betrag, Währung, Kontostatus oder Zeitraum lassen den Vorgang nicht zu.\n2. Korrigieren Sie es und wiederholen Sie den Vorgang."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PAY-001",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
+    },
+    {
+      "code": "RENT-PAY-002",
+      "key": "MONEY_UAH_ONLY",
+      "aliases": [
+        "money_uah_only"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Для операции в валюте отключите режим «всё в гривнах»",
+        "uk": "Для операції у валюті вимкніть режим «усе в гривнях»",
+        "en": "To make an operation in a currency, turn off “everything in hryvnia” mode",
+        "de": "Für einen Vorgang in einer Währung schalten Sie den Modus „alles in Hrywnja“ aus"
+      },
+      "cause": {
+        "ru": "В настройках включён режим «всё в гривнах», поэтому операции в другой валюте не принимаются.",
+        "uk": "У налаштуваннях увімкнено режим «усе в гривнях», тому операції в іншій валюті не приймаються.",
+        "en": "The “everything in hryvnia” mode is on in the settings, so operations in another currency aren’t accepted.",
+        "de": "In den Einstellungen ist der Modus „alles in Hrywnja“ eingeschaltet, deshalb werden Vorgänge in einer anderen Währung nicht angenommen."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» и отключите режим, если валюта нужна.\n2. История не пересчитывается.",
+        "uk": "1. Відкрийте «Налаштування» й вимкніть режим, якщо валюта потрібна.\n2. Історія не перераховується.",
+        "en": "1. Open “Settings” and turn the mode off if you need the currency.\n2. History is not recalculated.",
+        "de": "1. Öffnen Sie „Einstellungen“ und schalten Sie den Modus aus, wenn Sie die Währung brauchen.\n2. Die Historie wird nicht neu berechnet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PAY-002",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
+    },
+    {
+      "code": "RENT-PAY-003",
+      "key": "MONEY_NEED_FX",
+      "aliases": [
+        "money_need_fx"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нужен валютный расчёт, а режим «всё в гривнах» включён",
+        "uk": "Потрібен валютний розрахунок, а режим «усе в гривнях» увімкнено",
+        "en": "A currency calculation is needed, but “everything in hryvnia” mode is on",
+        "de": "Eine Währungsberechnung ist nötig, aber der Modus „alles in Hrywnja“ ist eingeschaltet"
+      },
+      "cause": {
+        "ru": "Для этой операции нужен пересчёт по курсу, но включён режим «всё в гривнах».",
+        "uk": "Для цієї операції потрібен перерахунок за курсом, але увімкнено режим «усе в гривнях».",
+        "en": "This operation needs a conversion at an exchange rate, but the “everything in hryvnia” mode is on.",
+        "de": "Dieser Vorgang braucht eine Umrechnung zum Kurs, aber der Modus „alles in Hrywnja“ ist eingeschaltet."
+      },
+      "action": {
+        "ru": "1. Отключите режим «всё в гривнах» в настройках; сохранённые суммы не пересчитывались.",
+        "uk": "1. Вимкніть режим «усе в гривнях» у налаштуваннях; збережені суми не перераховувались.",
+        "en": "1. Turn off the “everything in hryvnia” mode in the settings; saved amounts were not recalculated.",
+        "de": "1. Schalten Sie den Modus „alles in Hrywnja“ in den Einstellungen aus; gespeicherte Beträge wurden nicht neu berechnet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PAY-003",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
+    },
+    {
+      "code": "RENT-PAY-004",
+      "key": "CLAIM_NOT_FOUND",
+      "aliases": [
+        "claim_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: отметка «я оплатил»",
+        "uk": "Не знайдено: позначку «я оплатив»",
+        "en": "Not found: the “I paid” mark",
+        "de": "Nicht gefunden: die Markierung „Ich habe bezahlt“"
+      },
+      "cause": {
+        "ru": "Отметку могли удалить в другом окне или в прошлый раз, а список на экране остался прежним — ссылка на неё больше не действует.",
+        "uk": "Позначку могли видалити в іншому вікні або минулого разу, а список на екрані залишився попереднім — посилання на неї більше не діє.",
+        "en": "The mark may have been deleted in another window or earlier, while the list on screen stayed the same, so the link to it no longer works.",
+        "de": "Die Markierung wurde möglicherweise in einem anderen Fenster oder früher gelöscht, während die Liste auf dem Bildschirm unverändert blieb; der Verweis darauf gilt nicht mehr."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PAY-004",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
+    },
+    {
+      "code": "RENT-PAY-005",
+      "key": "PAYMENT_NOT_FOUND",
+      "aliases": [
+        "payment_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: оплата",
+        "uk": "Не знайдено: оплата",
+        "en": "Not found: payment",
+        "de": "Nicht gefunden: Zahlung"
+      },
+      "cause": {
+        "ru": "Оплату могли удалить или перенести, либо ссылка на неё устарела после изменений в списке.",
+        "uk": "Оплату могли видалити або перенести, або посилання на неї застаріло після змін у списку.",
+        "en": "The payment may have been deleted or moved, or the link to it became out of date after the list changed.",
+        "de": "Die Zahlung wurde möglicherweise gelöscht oder verschoben, oder der Link darauf ist nach Änderungen in der Liste veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut aus: Er wurde möglicherweise gelöscht oder der Link ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PAY-005",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
+    },
+    {
+      "code": "RENT-PAY-006",
+      "key": "RECEIPT_NOT_FOUND",
+      "aliases": [
+        "receipt_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: поступление",
+        "uk": "Не знайдено: надходження",
+        "en": "Not found: incoming payment",
+        "de": "Nicht gefunden: Zahlungseingang"
+      },
+      "cause": {
+        "ru": "Поступление могли удалить или перенести, либо ссылка на него устарела после изменений в списке.",
+        "uk": "Надходження могли видалити або перенести, або посилання на нього застаріло після змін у списку.",
+        "en": "The incoming payment may have been deleted or moved, or the link to it became out of date after the list changed.",
+        "de": "Der Zahlungseingang wurde möglicherweise gelöscht oder verschoben, oder der Link darauf ist nach Änderungen in der Liste veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut aus: Er wurde möglicherweise gelöscht oder der Link ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PAY-006",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
+    },
+    {
+      "code": "RENT-PAY-007",
+      "key": "CURRENCY_MISMATCH",
+      "aliases": [
+        "currency_mismatch"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Суммы в разных валютах нельзя складывать без пересчёта по курсу",
+        "uk": "Суми в різних валютах не можна додавати без перерахунку за курсом",
+        "en": "Amounts in different currencies cannot be added without converting at the exchange rate",
+        "de": "Beträge in verschiedenen Währungen dürfen nicht ohne Umrechnung zum Kurs addiert werden"
+      },
+      "cause": {
+        "ru": "В списке оказались суммы в разных валютах, а курс пересчёта не задан.",
+        "uk": "У списку опинилися суми в різних валютах, а курс перерахунку не задано.",
+        "en": "The list contains amounts in different currencies, and no conversion rate has been set.",
+        "de": "Die Liste enthält Beträge in verschiedenen Währungen, und es wurde kein Umrechnungskurs festgelegt."
+      },
+      "action": {
+        "ru": "1. Выберите курс и выполните пересчёт явно; программа сама суммы разных валют не смешивает.",
+        "uk": "1. Виберіть курс і виконайте перерахунок явно; програма сама суми різних валют не змішує.",
+        "en": "1. Choose a rate and convert explicitly; the program does not mix amounts in different currencies by itself.",
+        "de": "1. Wählen Sie einen Kurs und rechnen Sie ausdrücklich um; das Programm mischt Beträge in verschiedenen Währungen nicht von selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PAY-007",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
+    }
+  ]
+}

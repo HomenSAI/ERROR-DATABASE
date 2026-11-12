@@ -1,0 +1,817 @@
+{
+  "namespace": "RENT",
+  "area": "SET",
+  "codes": [
+    {
+      "code": "RENT-SET-001",
+      "key": "SMTP_INVALID",
+      "aliases": [
+        "smtp_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Настройка SMTP неполная",
+        "uk": "Налаштування SMTP неповне",
+        "en": "SMTP settings are incomplete",
+        "de": "SMTP-Einstellungen unvollständig"
+      },
+      "cause": {
+        "ru": "Не все поля почтовой настройки заполнены или указаны в неверном формате.",
+        "uk": "Не всі поля поштового налаштування заповнені або вказані в неправильному форматі.",
+        "en": "Some email settings are missing or have an invalid format.",
+        "de": "Einige E-Mail-Einstellungen fehlen oder haben ein ungültiges Format."
+      },
+      "action": {
+        "ru": "1. Укажите адрес, сервер, порт (465 или 587), логин и пароль приложения.",
+        "uk": "1. Вкажіть адресу, сервер, порт (465 або 587), логін і пароль застосунку.",
+        "en": "1. Enter the address, server, port (465 or 587), login and app password.",
+        "de": "1. Geben Sie Adresse, Server, Port (465 oder 587), Login und App-Passwort ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-001",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-002",
+      "key": "HINT_CONTAINS_PASSWORD",
+      "aliases": [
+        "hint_contains_password"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подсказка не должна содержать пароль или его часть",
+        "uk": "Підказка не повинна містити пароль або його частину",
+        "en": "The hint must not contain the password or part of it",
+        "de": "Der Hinweis darf das Passwort oder einen Teil davon nicht enthalten"
+      },
+      "cause": {
+        "ru": "В подсказке оказались те же символы, что и в пароле.",
+        "uk": "У підказці опинилися ті самі символи, що й у паролі.",
+        "en": "The hint contains the same characters as the password.",
+        "de": "Der Hinweis enthält dieselben Zeichen wie das Passwort."
+      },
+      "action": {
+        "ru": "1. Напишите подсказку, по которой пароль вспомнит только владелец, не сам пароль.",
+        "uk": "1. Напишіть підказку, за якою пароль згадає лише власник, а не сам пароль.",
+        "en": "1. Write a hint that only the owner can use to recall the password, not the password itself.",
+        "de": "1. Schreiben Sie einen Hinweis, mit dem nur der Eigentümer das Passwort wiederfindet, nicht das Passwort selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-002",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-003",
+      "key": "HINT_LONG",
+      "aliases": [
+        "hint_long"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подсказка — до 120 знаков",
+        "uk": "Підказка — до 120 знаків",
+        "en": "The hint can be up to 120 characters",
+        "de": "Der Hinweis darf bis zu 120 Zeichen lang sein"
+      },
+      "cause": {
+        "ru": "Подсказка получилась длиннее допустимого.",
+        "uk": "Підказка вийшла довшою за дозволене.",
+        "en": "The hint is longer than allowed.",
+        "de": "Der Hinweis ist länger als zulässig."
+      },
+      "action": {
+        "ru": "1. Сократите подсказку.",
+        "uk": "1. Скоротіть підказку.",
+        "en": "1. Shorten the hint.",
+        "de": "1. Kürzen Sie den Hinweis."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-003",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-004",
+      "key": "PASSWORD_MISMATCH",
+      "aliases": [
+        "password_mismatch"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пароли не совпадают",
+        "uk": "Паролі не збігаються",
+        "en": "The passwords do not match",
+        "de": "Die Passwörter stimmen nicht überein"
+      },
+      "cause": {
+        "ru": "В двух полях введены разные значения.",
+        "uk": "У двох полях введено різні значення.",
+        "en": "The two fields contain different values.",
+        "de": "In den beiden Feldern stehen unterschiedliche Werte."
+      },
+      "action": {
+        "ru": "1. Введите пароль и повтор ещё раз.",
+        "uk": "1. Введіть пароль і повтор ще раз.",
+        "en": "1. Enter the password and its repeat again.",
+        "de": "1. Geben Sie das Passwort und die Wiederholung erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-004",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-005",
+      "key": "PASSWORD_SHORT",
+      "aliases": [
+        "password_short"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пароль короче 10 знаков",
+        "uk": "Пароль коротший за 10 знаків",
+        "en": "The password is shorter than 10 characters",
+        "de": "Das Passwort ist kürzer als 10 Zeichen"
+      },
+      "cause": {
+        "ru": "Выбранный пароль короче допустимого.",
+        "uk": "Вибраний пароль коротший за дозволений.",
+        "en": "The chosen password is shorter than allowed.",
+        "de": "Das gewählte Passwort ist kürzer als zulässig."
+      },
+      "action": {
+        "ru": "1. Задайте пароль от 10 знаков.",
+        "uk": "1. Задайте пароль від 10 знаків.",
+        "en": "1. Set a password of at least 10 characters.",
+        "de": "1. Legen Sie ein Passwort mit mindestens 10 Zeichen fest."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-005",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-006",
+      "key": "PASSWORD_LONG",
+      "aliases": [
+        "password_long"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пароль длиннее 256 знаков",
+        "uk": "Пароль довший за 256 знаків",
+        "en": "The password is longer than 256 characters",
+        "de": "Das Passwort ist länger als 256 Zeichen"
+      },
+      "cause": {
+        "ru": "Пароль получился длиннее допустимого.",
+        "uk": "Пароль вийшов довшим за дозволений.",
+        "en": "The password is longer than allowed.",
+        "de": "Das Passwort ist länger als zulässig."
+      },
+      "action": {
+        "ru": "1. Сократите пароль.",
+        "uk": "1. Скоротіть пароль.",
+        "en": "1. Shorten the password.",
+        "de": "1. Kürzen Sie das Passwort."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-006",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-007",
+      "key": "PASSWORD_WEAK",
+      "aliases": [
+        "password_weak"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пароль похож на шаблон или из повторяющихся знаков",
+        "uk": "Пароль схожий на шаблон або з повторюваних знаків",
+        "en": "The password looks like a template or repeated characters",
+        "de": "Das Passwort ähnelt einer Vorlage oder besteht aus wiederholten Zeichen"
+      },
+      "cause": {
+        "ru": "Пароль состоит из простого шаблона или повторяющихся знаков.",
+        "uk": "Пароль складається з простого шаблону або повторюваних знаків.",
+        "en": "The password follows a simple template or repeats the same characters.",
+        "de": "Das Passwort folgt einer einfachen Vorlage oder wiederholt dieselben Zeichen."
+      },
+      "action": {
+        "ru": "1. Не используйте password, 12345678, qwerty: возьмите фразу из нескольких слов или сгенерированный пароль.",
+        "uk": "1. Не використовуйте password, 12345678, qwerty: візьміть фразу з кількох слів або згенерований пароль.",
+        "en": "1. Do not use password, 12345678, qwerty: use a phrase of several words or a generated password.",
+        "de": "1. Verwenden Sie nicht password, 12345678, qwerty: Nehmen Sie eine Phrase aus mehreren Wörtern oder ein generiertes Passwort."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-007",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-008",
+      "key": "GENERATED_FORMAT",
+      "aliases": [
+        "generated_format"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сгенерированный пароль — 10–12 знаков из показанного набора",
+        "uk": "Згенерований пароль — 10–12 знаків із показаного набору",
+        "en": "The generated password is 10–12 characters from the shown set",
+        "de": "Das generierte Passwort besteht aus 10–12 Zeichen aus dem angezeigten Satz"
+      },
+      "cause": {
+        "ru": "Введённый пароль не совпадает по длине или набору знаков с показанным.",
+        "uk": "Введений пароль не збігається за довжиною або набором знаків із показаним.",
+        "en": "The entered password differs in length or character set from the shown one.",
+        "de": "Das eingegebene Passwort unterscheidet sich in Länge oder Zeichensatz vom angezeigten."
+      },
+      "action": {
+        "ru": "1. Введите пароль точно как показан.",
+        "uk": "1. Введіть пароль точно як показано.",
+        "en": "1. Enter the password exactly as shown.",
+        "de": "1. Geben Sie das Passwort genau wie angezeigt ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-008",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-009",
+      "key": "GENERATED_MISMATCH",
+      "aliases": [
+        "generated_mismatch"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Введённый пароль не совпал с показанным",
+        "uk": "Введений пароль не збігся з показаним",
+        "en": "The entered password did not match the shown one",
+        "de": "Das eingegebene Passwort stimmt nicht mit dem angezeigten überein"
+      },
+      "cause": {
+        "ru": "При вводе пароля с экрана или QR возникла ошибка.",
+        "uk": "Під час введення пароля з екрана або QR сталася помилка.",
+        "en": "An error occurred while entering the password from the screen or QR code.",
+        "de": "Beim Eingeben des Passworts vom Bildschirm oder QR-Code ist ein Fehler aufgetreten."
+      },
+      "action": {
+        "ru": "1. Перепечатайте пароль с экрана или QR без ошибок.",
+        "uk": "1. Передрукуйте пароль з екрана або QR без помилок.",
+        "en": "1. Retype the password from the screen or QR code without mistakes.",
+        "de": "1. Geben Sie das Passwort vom Bildschirm oder QR-Code fehlerfrei erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-009",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-010",
+      "key": "PRIVACY_FIELD_KEY_WRONG",
+      "aliases": [
+        "privacy_field_key_wrong"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ шифрования полей не тот, которым начата база",
+        "uk": "Ключ шифрування полів не той, яким розпочато базу",
+        "en": "The field encryption key is not the one the database was started with",
+        "de": "Der Feldverschlüsselungsschlüssel ist nicht der, mit dem die Datenbank gestartet wurde"
+      },
+      "cause": {
+        "ru": "С другим ключом имена, телефоны и документы жильцов не читаются, а новая запись смешала бы два ключа",
+        "uk": "З іншим ключем імена, телефони й документи мешканців не читаються, а новий запис змішав би два ключі",
+        "en": "With a different key, residents’ names, phone numbers and documents cannot be read, and a new entry would mix two keys.",
+        "de": "Mit einem anderen Schlüssel lassen sich Namen, Telefonnummern und Dokumente der Bewohner nicht lesen, und ein neuer Eintrag würde zwei Schlüssel vermischen."
+      },
+      "action": {
+        "ru": "1. Верните прежний ключ (из менеджера паролей или аварийного листа).\n2. Запуск остановлен, чтобы не испортить персональные данные новым ключом.",
+        "uk": "1. Поверніть попередній ключ (з менеджера паролів або аварійного аркуша).\n2. Запуск зупинено, щоб не зіпсувати персональні дані новим ключем.",
+        "en": "1. Restore the previous key (from the password manager or emergency sheet).\n2. Startup was stopped so that personal data is not damaged by the new key.",
+        "de": "1. Stellen Sie den bisherigen Schlüssel wieder her (aus dem Passwortmanager oder dem Notfallblatt).\n2. Der Start wurde gestoppt, damit personenbezogene Daten nicht durch den neuen Schlüssel beschädigt werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-SET-010",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-011",
+      "key": "PRIVACY_FIELD_KEY_MISSING",
+      "aliases": [
+        "privacy_field_key_missing"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Рабочая база запущена без ключа шифрования полей",
+        "uk": "Робочу базу запущено без ключа шифрування полів",
+        "en": "The working database was started without a field encryption key",
+        "de": "Die Arbeitsdatenbank wurde ohne Feldverschlüsselungsschlüssel gestartet"
+      },
+      "cause": {
+        "ru": "Ключ полей не передан при запуске — без него имена, телефоны и документы жильцов остаются закрытыми.",
+        "uk": "Ключ полів не передано під час запуску — без нього імена, телефони й документи мешканців залишаються закритими.",
+        "en": "The field key was not provided at startup — without it, residents’ names, phone numbers and documents stay locked.",
+        "de": "Der Feldschlüssel wurde beim Start nicht übergeben — ohne ihn bleiben Namen, Telefonnummern und Dokumente der Bewohner gesperrt."
+      },
+      "action": {
+        "ru": "1. Задайте ключ полей (см. docs/INSTALL.md, «Ключ шифрования полей») и запустите снова.\n2. Без ключа персональные данные не открываются.",
+        "uk": "1. Задайте ключ полів (див. docs/INSTALL.md, «Ключ шифрування полів») і запустіть знову.\n2. Без ключа персональні дані не відкриваються.",
+        "en": "1. Set the field key (see docs/INSTALL.md, “Field encryption key”) and start again.\n2. Without the key, personal data cannot be opened.",
+        "de": "1. Legen Sie den Feldschlüssel fest (siehe docs/INSTALL.md, „Feldverschlüsselungsschlüssel“) und starten Sie erneut.\n2. Ohne Schlüssel lassen sich personenbezogene Daten nicht öffnen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-SET-011",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-012",
+      "key": "PRIVACY_FIELD_KEY_WEAK",
+      "aliases": [
+        "privacy_field_key_weak"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ шифрования полей слишком короткий или слабый",
+        "uk": "Ключ шифрування полів закороткий або слабкий",
+        "en": "The field encryption key is too short or weak",
+        "de": "Der Feldverschlüsselungsschlüssel ist zu kurz oder zu schwach"
+      },
+      "cause": {
+        "ru": "Ключ короче рекомендуемой длины или состоит из простых, легко угадываемых символов.",
+        "uk": "Ключ коротший за рекомендовану довжину або складається з простих, легко вгадуваних символів.",
+        "en": "The key is shorter than recommended or consists of simple, easily guessable characters.",
+        "de": "Der Schlüssel ist kürzer als empfohlen oder besteht aus einfachen, leicht erratbaren Zeichen."
+      },
+      "action": {
+        "ru": "1. Сгенерируйте ключ 256 бит (openssl rand -base64 32) и смените его через раздел смены ключа; временное разрешение слабого ключа — только пока меняете.",
+        "uk": "1. Згенеруйте ключ 256 біт (openssl rand -base64 32) і змініть його через розділ зміни ключа; тимчасовий дозвіл слабкого ключа — лише поки змінюєте.",
+        "en": "1. Generate a 256-bit key (openssl rand -base64 32) and change it via the “Key change” section; a temporary allowance for a weak key is only for while you are changing it.",
+        "de": "1. Erzeugen Sie einen 256-Bit-Schlüssel (openssl rand -base64 32) und ändern Sie ihn über den Bereich „Schlüsselwechsel“; eine vorübergehende Erlaubnis für einen schwachen Schlüssel gilt nur während der Änderung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SET-012",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-013",
+      "key": "PRIVACY_RESEAL_FAILED",
+      "aliases": [
+        "privacy_reseal_failed"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Смена ключа шифрования полей не завершена",
+        "uk": "Зміну ключа шифрування полів не завершено",
+        "en": "Field encryption key change was not completed",
+        "de": "Der Wechsel des Feldverschlüsselungsschlüssels wurde nicht abgeschlossen"
+      },
+      "cause": {
+        "ru": "Во время смены ключа не хватило места на диске или запись прервалась, поэтому база осталась без изменений или возвращена из резервной копии.",
+        "uk": "Під час зміни ключа не вистачило місця на диску або запис перервався, тому база залишилася без змін або повернута з резервної копії.",
+        "en": "During the key change, there was not enough disk space or the write was interrupted, so the database was left unchanged or restored from a backup.",
+        "de": "Während des Schlüsselwechsels fehlte Speicherplatz auf dem Datenträger oder der Schreibvorgang wurde unterbrochen, daher blieb die Datenbank unverändert oder wurde aus einer Sicherung wiederhergestellt."
+      },
+      "action": {
+        "ru": "1. База не изменена или возвращена из бэкапа.\n2. Проверьте место на диске и повторите; подробности в журнале без значений полей.",
+        "uk": "1. Базу не змінено або повернуто з бекапу.\n2. Перевірте місце на диску й повторіть; подробиці в журналі без значень полів.",
+        "en": "1. The database was not changed or was restored from backup.\n2. Check the disk space and try again; details are in the log without field values.",
+        "de": "1. Die Datenbank wurde nicht geändert oder aus einem Backup wiederhergestellt.\n2. Prüfen Sie den Speicherplatz und wiederholen Sie den Vorgang; Einzelheiten stehen im Protokoll ohne Feldwerte."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-SET-013",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    },
+    {
+      "code": "RENT-SET-014",
+      "key": "PRIVACY_AEAD_MIGRATION",
+      "aliases": [
+        "privacy_aead_migration"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Перешифрование полей остановлено",
+        "uk": "Перешифрування полів зупинено",
+        "en": "Field re-encryption was stopped",
+        "de": "Die Neuverschlüsselung der Felder wurde gestoppt"
+      },
+      "cause": {
+        "ru": "Процесс перешифрования прервался — например, закончилось место на диске или запись была прервана.",
+        "uk": "Процес перешифрування перервався — наприклад, закінчилося місце на диску або запис було перервано.",
+        "en": "The re-encryption process was interrupted — for example, disk space ran out or the write was interrupted.",
+        "de": "Der Vorgang der Neuverschlüsselung wurde unterbrochen — zum Beispiel ging der Speicherplatz aus oder der Schreibvorgang wurde abgebrochen."
+      },
+      "action": {
+        "ru": "1. База не изменена или возвращена из бэкапа: повторите после проверки места на диске.",
+        "uk": "1. Базу не змінено або повернуто з бекапу: повторіть після перевірки місця на диску.",
+        "en": "1. The database was not changed or was restored from backup: try again after checking the disk space.",
+        "de": "1. Die Datenbank wurde nicht geändert oder aus einem Backup wiederhergestellt: Wiederholen Sie den Vorgang nach Prüfung des Speicherplatzes."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-SET-014",
+      "since": "1.1.0",
+      "tags": [
+        "settings"
+      ]
+    }
+  ]
+}

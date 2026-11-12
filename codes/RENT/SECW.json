@@ -1,0 +1,356 @@
+{
+  "namespace": "RENT",
+  "area": "SECW",
+  "codes": [
+    {
+      "code": "RENT-SECW-001",
+      "key": "WIZARD_STEP",
+      "aliases": [
+        "wizard_step"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такого шага мастера безопасности нет",
+        "uk": "Такого кроку майстра безпеки немає",
+        "en": "There is no such step in the security wizard",
+        "de": "Dieser Schritt im Sicherheitsassistenten existiert nicht"
+      },
+      "cause": {
+        "ru": "Мастер потерял текущий шаг: страница обновилась или мастер был открыт заново.",
+        "uk": "Майстер втратив поточний крок: сторінка оновилася або майстер було відкрито заново.",
+        "en": "The wizard lost the current step: the page was refreshed or the wizard was reopened.",
+        "de": "Der Assistent hat den aktuellen Schritt verloren: Die Seite wurde neu geladen oder der Assistent erneut geöffnet."
+      },
+      "action": {
+        "ru": "1. Откройте мастер заново кнопкой «Запустить мастер» в разделе «Безопасность».",
+        "uk": "1. Відкрийте майстер заново кнопкою «Запустити майстер» у розділі «Безпека».",
+        "en": "1. Open the wizard again with the “Start the wizard” button in the “Security” section.",
+        "de": "1. Öffnen Sie den Assistenten erneut über die Schaltfläche „Assistenten starten“ im Bereich „Sicherheit“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SECW-001",
+      "since": "1.1.0",
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "RENT-SECW-002",
+      "key": "WIZARD_CHOICE",
+      "aliases": [
+        "wizard_choice"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Выберите: «Выбрать», «Пропустить» или «Отложить»",
+        "uk": "Оберіть: «Обрати», «Пропустити» або «Відкласти»",
+        "en": "Choose: “Select”, “Skip”, or “Defer”",
+        "de": "Wählen Sie: „Auswählen“, „Überspringen“ oder „Zurückstellen“"
+      },
+      "cause": {
+        "ru": "Мастер предлагает на каждом шаге ровно три варианта.",
+        "uk": "Майстер пропонує на кожному кроці рівно три варіанти.",
+        "en": "The wizard offers exactly three options at each step.",
+        "de": "Der Assistent bietet in jedem Schritt genau drei Optionen."
+      },
+      "action": {
+        "ru": "1. На каждом шаге мастера нужно одно из трёх решений; его можно изменить в любой момент.",
+        "uk": "1. На кожному кроці майстра потрібне одне з трьох рішень; його можна змінити будь-коли.",
+        "en": "1. At each wizard step, one of three decisions is needed; it can be changed at any time.",
+        "de": "1. In jedem Schritt des Assistenten ist eine von drei Entscheidungen nötig; sie kann jederzeit geändert werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SECW-002",
+      "since": "1.1.0",
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "RENT-SECW-003",
+      "key": "WIZARD_RISK",
+      "aliases": [
+        "wizard_risk"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отметьте галочку «понимаю риск»",
+        "uk": "Позначте галочку «розумію ризик»",
+        "en": "Tick the “I understand the risk” box",
+        "de": "Aktivieren Sie das Kästchen „Ich verstehe das Risiko“"
+      },
+      "cause": {
+        "ru": "Такое подтверждение требуется для решений, которые могут повлиять на безопасность. Оно показывает, что решение принято осознанно.",
+        "uk": "Таке підтвердження потрібне для рішень, які можуть вплинути на безпеку. Воно показує, що рішення ухвалено усвідомлено.",
+        "en": "This confirmation is required for decisions that may affect security. It shows the decision was made consciously.",
+        "de": "Diese Bestätigung ist für Entscheidungen erforderlich, die die Sicherheit betreffen können. Sie zeigt, dass die Entscheidung bewusst getroffen wurde."
+      },
+      "action": {
+        "ru": "1. Отказ от меры и уровни 0–1 подтверждаются галочкой; решение пишется в журнал безопасности.",
+        "uk": "1. Відмова від заходу та рівні 0–1 підтверджуються галочкою; рішення пишеться в журнал безпеки.",
+        "en": "1. Declining a measure and levels 0–1 are confirmed with a tick; the decision is written to the security log.",
+        "de": "1. Die Ablehnung einer Maßnahme und Stufen 0–1 werden mit einem Häkchen bestätigt; die Entscheidung wird im Sicherheitsprotokoll erfasst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SECW-003",
+      "since": "1.1.0",
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "RENT-SECW-004",
+      "key": "WIZARD_LEVEL",
+      "aliases": [
+        "wizard_level"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Уровень защиты — число от 0 до 5",
+        "uk": "Рівень захисту — число від 0 до 5",
+        "en": "Protection level — a number from 0 to 5",
+        "de": "Schutzstufe — eine Zahl von 0 bis 5"
+      },
+      "cause": {
+        "ru": "Уровень выбирают ползунком; доступны только целые числа от 0 до 5.",
+        "uk": "Рівень обирають повзунком; доступні лише цілі числа від 0 до 5.",
+        "en": "The level is chosen with a slider; only whole numbers from 0 to 5 are available.",
+        "de": "Die Stufe wird mit einem Regler gewählt; verfügbar sind nur ganze Zahlen von 0 bis 5."
+      },
+      "action": {
+        "ru": "1. Передвиньте ползунок на нужный уровень.",
+        "uk": "1. Пересуньте повзунок на потрібний рівень.",
+        "en": "1. Move the slider to the desired level.",
+        "de": "1. Bewegen Sie den Regler auf die gewünschte Stufe."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SECW-004",
+      "since": "1.1.0",
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "RENT-SECW-005",
+      "key": "HELP_UNKNOWN",
+      "aliases": [
+        "help_unknown"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такой страницы помощи нет",
+        "uk": "Такої сторінки довідки немає",
+        "en": "No such help page exists",
+        "de": "Diese Hilfeseite gibt es nicht"
+      },
+      "cause": {
+        "ru": "Страницу могли переместить, переименовать, или ссылка устарела.",
+        "uk": "Сторінку могли перемістити, перейменувати, або посилання застаріло.",
+        "en": "The page may have been moved, renamed, or the link may be outdated.",
+        "de": "Die Seite wurde möglicherweise verschoben, umbenannt oder der Link ist veraltet."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь → Безопасность» и выберите страницу из списка.",
+        "uk": "1. Відкрийте «Довідка → Безпека» та оберіть сторінку зі списку.",
+        "en": "1. Open “Help → Security” and choose a page from the list.",
+        "de": "1. Öffnen Sie „Hilfe → Sicherheit“ und wählen Sie eine Seite aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-SECW-005",
+      "since": "1.1.0",
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "RENT-SECW-006",
+      "key": "RECOMMENDATION_UNKNOWN",
+      "aliases": [
+        "recommendation_unknown"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такой рекомендации нет",
+        "uk": "Такої рекомендації немає",
+        "en": "No such recommendation exists",
+        "de": "Diese Empfehlung gibt es nicht"
+      },
+      "cause": {
+        "ru": "Рекомендацию могли уже закрыть, или страница устарела.",
+        "uk": "Рекомендацію могли вже закрити, або сторінка застаріла.",
+        "en": "The recommendation may already be closed, or the page is out of date.",
+        "de": "Die Empfehlung wurde möglicherweise bereits geschlossen oder die Seite ist veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу раздела «Безопасность».",
+        "uk": "1. Оновіть сторінку розділу «Безпека».",
+        "en": "1. Refresh the “Security” section page.",
+        "de": "1. Aktualisieren Sie die Seite des Bereichs „Sicherheit“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SECW-006",
+      "since": "1.1.0",
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "RENT-SECW-007",
+      "key": "DEFER_PERIOD",
+      "aliases": [
+        "defer_period"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отложить можно на неделю, 2 недели, месяц, 3 месяца или полгода",
+        "uk": "Відкласти можна на тиждень, 2 тижні, місяць, 3 місяці або пів року",
+        "en": "You can defer for a week, 2 weeks, a month, 3 months, or six months",
+        "de": "Sie können um eine Woche, 2 Wochen, einen Monat, 3 Monate oder ein halbes Jahr aufschieben"
+      },
+      "cause": {
+        "ru": "Можно выбрать только доступные сроки из списка.",
+        "uk": "Можна вибрати лише доступні строки зі списку.",
+        "en": "Only the periods shown in the list are available.",
+        "de": "Verfügbar sind nur die in der Liste angezeigten Zeiträume."
+      },
+      "action": {
+        "ru": "1. Выберите срок из списка.",
+        "uk": "1. Оберіть строк зі списку.",
+        "en": "1. Choose a period from the list.",
+        "de": "1. Wählen Sie einen Zeitraum aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-SECW-007",
+      "since": "1.1.0",
+      "tags": [
+        "wizard"
+      ]
+    }
+  ]
+}

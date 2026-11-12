@@ -1,0 +1,467 @@
+{
+  "namespace": "RENT",
+  "area": "PIN",
+  "codes": [
+    {
+      "code": "RENT-PIN-001",
+      "key": "POLICY_INVALID",
+      "aliases": [
+        "policy_invalid"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Настройка важных действий повреждена или неверна",
+        "uk": "Налаштування важливих дій пошкоджене або неправильне",
+        "en": "The setting for important actions is damaged or invalid",
+        "de": "Die Einstellung für wichtige Aktionen ist beschädigt oder ungültig"
+      },
+      "cause": {
+        "ru": "Сохранённые настройки повреждены или не удалось прочитать их правильно.",
+        "uk": "Збережені налаштування пошкоджено або не вдалося прочитати їх правильно.",
+        "en": "The saved settings were damaged or could not be read correctly.",
+        "de": "Die gespeicherten Einstellungen wurden beschädigt oder konnten nicht korrekt gelesen werden."
+      },
+      "action": {
+        "ru": "1. Выберите режим, срок и действия заново в разделе «Безопасность → Важные действия и экран».",
+        "uk": "1. Оберіть режим, строк і дії заново в розділі «Безпека → Важливі дії та екран».",
+        "en": "1. Choose the mode, period, and actions again in “Security → Important actions and screen”.",
+        "de": "1. Wählen Sie Modus, Zeitraum und Aktionen erneut im Bereich „Sicherheit → Wichtige Aktionen und Bildschirm“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PIN-001",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-002",
+      "key": "PIN_WEAK",
+      "aliases": [
+        "pin_weak"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "PIN из одинаковых цифр или подряд не принимается",
+        "uk": "PIN із однакових цифр або підряд не приймається",
+        "en": "A PIN of identical or sequential digits is not accepted",
+        "de": "PIN aus gleichen oder aufeinanderfolgenden Ziffern wird nicht akzeptiert"
+      },
+      "cause": {
+        "ru": "Такой PIN слишком легко подобрать, поэтому программа не принимает его.",
+        "uk": "Такий PIN надто легко підібрати, тому програма не приймає його.",
+        "en": "Such a PIN is too easy to guess, so the program does not accept it.",
+        "de": "Solch eine PIN ist zu leicht zu erraten, daher akzeptiert das Programm sie nicht."
+      },
+      "action": {
+        "ru": "1. Задайте PIN, который нельзя угадать: не 1111, не 1234, не 9876.",
+        "uk": "1. Задайте PIN, який не можна вгадати: не 1111, не 1234, не 9876.",
+        "en": "1. Set a PIN that cannot be guessed: not 1111, not 1234, not 9876.",
+        "de": "1. Legen Sie eine PIN fest, die nicht erraten werden kann: nicht 1111, nicht 1234, nicht 9876."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PIN-002",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-003",
+      "key": "PIN_FORMAT",
+      "aliases": [
+        "pin_format"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "PIN — ровно 4 цифры",
+        "uk": "PIN — рівно 4 цифри",
+        "en": "PIN — exactly 4 digits",
+        "de": "PIN – genau 4 Ziffern"
+      },
+      "cause": {
+        "ru": "В поле PIN нужно ввести ровно четыре цифры; другой формат не подходит.",
+        "uk": "У полі PIN потрібно ввести рівно чотири цифри; інший формат не підходить.",
+        "en": "The PIN field must contain exactly four digits; another format is not suitable.",
+        "de": "Das PIN-Feld muss genau vier Ziffern enthalten; ein anderes Format ist nicht geeignet."
+      },
+      "action": {
+        "ru": "1. Введите четыре цифры 0–9 без пробелов.\n2. PIN важных действий отдельный от пароля входа и PIN копий.",
+        "uk": "1. Введіть чотири цифри 0–9 без пробілів.\n2. PIN важливих дій окремий від пароля входу та PIN копій.",
+        "en": "1. Enter four digits 0–9 without spaces.\n2. The important-action PIN is separate from the login password and the backup PIN.",
+        "de": "1. Geben Sie vier Ziffern 0–9 ohne Leerzeichen ein.\n2. Die PIN für wichtige Aktionen ist getrennt vom Anmeldepasswort und der PIN für Kopien."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PIN-003",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-004",
+      "key": "PIN_MISMATCH",
+      "aliases": [
+        "pin_mismatch"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "PIN и повтор не совпадают",
+        "uk": "PIN і повтор не збігаються",
+        "en": "PIN and confirmation don’t match",
+        "de": "PIN und Wiederholung stimmen nicht überein"
+      },
+      "cause": {
+        "ru": "Два поля заполнили по-разному: возможно, во втором поле опечатка или включена другая раскладка клавиатуры.",
+        "uk": "Два поля заповнили по-різному: можливо, у другому полі є друкарська помилка або ввімкнена інша розкладка клавіатури.",
+        "en": "The two fields were filled in differently — perhaps a typo in the second field, or a different keyboard layout is on.",
+        "de": "Die beiden Felder wurden unterschiedlich ausgefüllt – vielleicht ein Tippfehler im zweiten Feld oder eine andere Tastaturbelegung ist aktiv."
+      },
+      "action": {
+        "ru": "1. Введите один и тот же PIN дважды.",
+        "uk": "1. Введіть той самий PIN двічі.",
+        "en": "1. Enter the same PIN twice.",
+        "de": "1. Geben Sie denselben PIN zweimal ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PIN-004",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-005",
+      "key": "PIN_WRONG",
+      "aliases": [
+        "pin_wrong"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неверный PIN",
+        "uk": "Неправильний PIN",
+        "en": "Wrong PIN",
+        "de": "Falscher PIN"
+      },
+      "cause": {
+        "ru": "Введённый PIN не совпадает с тем, который сохранён в программе. Так бывает из-за опечатки или если PIN недавно меняли.",
+        "uk": "Введений PIN не збігається з тим, що збережений у програмі. Так буває через помилку в наборі або якщо PIN нещодавно змінювали.",
+        "en": "The PIN entered doesn’t match the one stored in the program. This happens after a typo or if the PIN was changed recently.",
+        "de": "Der eingegebene PIN stimmt nicht mit dem in der App gespeicherten überein. Das passiert nach einem Tippfehler oder wenn der PIN kürzlich geändert wurde."
+      },
+      "action": {
+        "ru": "1. Проверьте PIN.\n2. После 5 ошибок подряд ввод закрывается на 10 минут; каждая попытка пишется в журнал безопасности.",
+        "uk": "1. Перевірте PIN.\n2. Після 5 помилок поспіль введення закривається на 10 хвилин; кожна спроба пишеться в журнал безпеки.",
+        "en": "1. Check the PIN.\n2. After 5 wrong entries in a row, input is closed for 10 minutes; every attempt is written to the security log.",
+        "de": "1. Prüfen Sie den PIN.\n2. Nach 5 Fehleingaben in Folge wird die Eingabe für 10 Minuten gesperrt; jeder Versuch wird im Sicherheitsprotokoll festgehalten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PIN-005",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-006",
+      "key": "PIN_PAUSED",
+      "aliases": [
+        "pin_paused"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "5 неверных PIN подряд: пауза 10 минут",
+        "uk": "5 неправильних PIN поспіль: пауза 10 хвилин",
+        "en": "5 wrong PINs in a row: 10-minute pause",
+        "de": "5 falsche PINs in Folge: 10 Minuten Pause"
+      },
+      "cause": {
+        "ru": "Ввод PIN временно закрыт, потому что несколько попыток подряд оказались неудачными.",
+        "uk": "Введення PIN тимчасово закрито, бо кілька спроб поспіль були невдалими.",
+        "en": "PIN entry is temporarily closed because several attempts in a row were unsuccessful.",
+        "de": "Die PIN-Eingabe ist vorübergehend gesperrt, weil mehrere Versuche in Folge erfolglos waren."
+      },
+      "action": {
+        "ru": "1. Подождите 10 минут.\n2. Если PIN вводили не вы — проверьте журнал безопасности и смените PIN.",
+        "uk": "1. Зачекайте 10 хвилин.\n2. Якщо PIN вводили не ви — перевірте журнал безпеки та змініть PIN.",
+        "en": "1. Wait 10 minutes.\n2. If someone else entered the PIN, check the security log and change the PIN.",
+        "de": "1. Warten Sie 10 Minuten.\n2. Wenn jemand anderes den PIN eingegeben hat, prüfen Sie das Sicherheitsprotokoll und ändern Sie den PIN."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PIN-006",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-007",
+      "key": "PIN_NOT_SET",
+      "aliases": [
+        "pin_not_set"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сначала задайте PIN",
+        "uk": "Спочатку задайте PIN",
+        "en": "Set a PIN first",
+        "de": "Legen Sie zuerst einen PIN fest"
+      },
+      "cause": {
+        "ru": "В программе ещё не задан PIN, поэтому связанные с ним функции недоступны.",
+        "uk": "У програмі ще не задано PIN, тому пов’язані з ним функції недоступні.",
+        "en": "No PIN has been set in the program yet, so the features that depend on it are not available.",
+        "de": "In der App ist noch kein PIN festgelegt, daher sind die davon abhängigen Funktionen nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. PIN, блокировка экрана и режим «Офис» включаются только после того, как PIN задан.",
+        "uk": "1. PIN, блокування екрана та режим «Офіс» вмикаються лише після того, як PIN задано.",
+        "en": "1. The PIN, screen lock and “Office” mode can be turned on only after a PIN is set.",
+        "de": "1. PIN, Bildschirmsperre und Modus „Büro“ lassen sich erst einschalten, nachdem ein PIN festgelegt wurde."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PIN-007",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-008",
+      "key": "CONFIRM_NEEDED",
+      "aliases": [
+        "confirm_needed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Понижение защиты нужно подтвердить текущим PIN",
+        "uk": "Зниження захисту потрібно підтвердити поточним PIN",
+        "en": "Lowering protection must be confirmed with the current PIN",
+        "de": "Das Herabsetzen des Schutzes muss mit dem aktuellen PIN bestätigt werden"
+      },
+      "cause": {
+        "ru": "Чтобы выключить или ослабить защиту, программа просит подтвердить, что действие выполняет владелец.",
+        "uk": "Щоб вимкнути або послабити захист, програма просить підтвердити, що дію виконує власник.",
+        "en": "To turn off or weaken protection, the program asks you to confirm that the owner is performing the action.",
+        "de": "Zum Ausschalten oder Abschwächen des Schutzes fragt die App nach einer Bestätigung, dass der Eigentümer die Aktion ausführt."
+      },
+      "action": {
+        "ru": "1. Введите текущий PIN в поле подтверждения.\n2. Изменение запишется в журнал безопасности.",
+        "uk": "1. Введіть поточний PIN у поле підтвердження.\n2. Зміна запишеться в журнал безпеки.",
+        "en": "1. Enter the current PIN in the confirmation field.\n2. The change will be written to the security log.",
+        "de": "1. Geben Sie den aktuellen PIN im Bestätigungsfeld ein.\n2. Die Änderung wird im Sicherheitsprotokoll festgehalten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PIN-008",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-PIN-009",
+      "key": "RISK_ACK_NEEDED",
+      "aliases": [
+        "risk_ack_needed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отметьте галочку «на свой страх и риск»",
+        "uk": "Позначте галочку «на власний ризик»",
+        "en": "Tick the “at your own risk” checkbox",
+        "de": "Setzen Sie das Häkchen „auf eigenes Risiko“"
+      },
+      "cause": {
+        "ru": "В режиме «Дом» защиту отключают осознанно, поэтому программа просит явное подтверждение.",
+        "uk": "У режимі «Дім» захист вимикають усвідомлено, тому програма просить явне підтвердження.",
+        "en": "In “Home” mode protection is turned off deliberately, so the program asks for an explicit confirmation.",
+        "de": "Im Modus „Zuhause“ wird der Schutz bewusst abgeschaltet, daher verlangt die App eine ausdrückliche Bestätigung."
+      },
+      "action": {
+        "ru": "1. В режиме «Дом» PIN и блокировку можно выключить только с этой отметкой.",
+        "uk": "1. У режимі «Дім» PIN і блокування можна вимкнути лише з цією позначкою.",
+        "en": "1. In “Home” mode the PIN and screen lock can be turned off only with this checkbox ticked.",
+        "de": "1. Im Modus „Zuhause“ lassen sich PIN und Bildschirmsperre nur mit gesetztem Häkchen ausschalten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-PIN-009",
+      "since": "1.1.0",
+      "tags": [
+        "pin"
+      ]
+    }
+  ]
+}
