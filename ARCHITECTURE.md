@@ -1,7 +1,7 @@
 <!-- HomenS.AI Error-database · © 2026 Serhii Khomenko · https://homensai.com/ · https://github.com/HomenSAI -->
 # Архитектура базы ошибок HomenS.AI
 
-Версия архитектуры: **1.2** от 09.11.2026. Решение владельца: Rent, DECISIONS.md 28.10-288.
+Версия архитектуры: **1.3** от 13.11.2026 (библиотека и сборка выпуска — §6–§7, §11.2). Решение владельца: Rent, DECISIONS.md 28.10-288.
 
 ## 1. Главное правило
 **Эта база — единственный источник кодов ошибок для всех продуктов HomenSAI.** Это Rent, JobPilot Pro, HomenS.AI Core, Auto VPN, SECURITY-MODULE и все будущие продукты.
@@ -116,6 +116,9 @@ codes/<NS>/<AREA>.json          записи одной области (схем
 prompts/analyze-error/v1.md     шаблоны запросов к нейросети
 schema/                         JSON-схемы файлов и выпуска
 tools/validate.py               проверка (без внешних зависимостей)
+tools/build_dist.py             сборка выпуска dist/ (§6.2)
+tools/gen_constants.py          константы кодов для Python и TypeScript (§11.2)
+src/homensai_errors/            библиотека Python (§7.2), тесты — tests/ (pytest, без сети)
 ```
 
 ### 6.2. Выпуск (то, что берут продукты)
@@ -125,15 +128,26 @@ tools/validate.py               проверка (без внешних зави
 - `errors.<lang>.md` — справочник для людей;
 - `help/<lang>/<code>.md` — страницы помощи;
 - `search.<lang>.json` — индекс для поиска;
-- `SHA256SUMS` — контрольные суммы.
+- `llms.txt` — вся база одним текстом для нейросети (§11.7);
+- `prompts/<имя>/vN.md` — шаблоны запросов к нейросети для ступени `ai` (§4.1);
+- `SHA256SUMS` — контрольные суммы всех файлов (`sha256sum -c SHA256SUMS`).
+
+Сборка — `python tools/build_dist.py` (версия — первый заголовок `## X.Y.Z` в `CHANGELOG.md`). Она детерминирована: без дат, порядок по коду, UTF-8 и `\n`, поэтому повторная сборка даёт те же байты; это проверяют тест и задание выпуска.
+`dist/` в Git не хранится (`.gitignore`). Задание `.github/workflows/release.yml` при теге `vX.Y.Z` на self-hosted runner владельца `[self-hosted, Linux, X64, rent-docker]` проверяет базу и тесты, собирает `dist/` дважды со сверкой байтов, сверяет тег с `CHANGELOG.md` и прикладывает к GitHub Release файлы верхнего уровня `dist/` и архив всей папки `homensai-errors-X.Y.Z.tar.gz` (с `help/` и `prompts/`, воспроизводимый).
+
+Формат `errors.json` и `errors.<NS>.json`: `{"format": 1, "database", "version", "languages", "namespaces", "codes": [...]}`; записи — в порядке полей схемы. Файл `errors.<NS>.json` есть у каждого пространства из `namespaces.json`, даже пока в нём нет кодов.
 
 ### 6.3. Ответ API (RFC 9457)
 ```json
-{"type": "https://github.com/HomenSAI/Error-database/blob/v1.0.0/dist/help/en/RENT-DR-001.md",
+{"type": "https://homensai.github.io/ERROR-DATABASE/errors/RENT-DR-001",
  "title": "Backup password not checked for a while", "status": 409,
  "detail": "The check was due 3 days ago. If the password is forgotten, backups cannot be opened.",
- "instance": "/security#backups", "code": "RENT-DR-001", "key": "BACKUP_PASSWORD_CHECK_OVERDUE", "retryable": true}
+ "instance": "/security#backups", "code": "RENT-DR-001", "key": "BACKUP_PASSWORD_CHECK_OVERDUE", "retryable": true,
+ "legacy_codes": ["DR-270-OVERDUE"]}
 ```
+- `type` — адрес кода на сайте-справочнике (GitHub Pages, решение 28.10-321) без языка и версии: это устойчивый идентификатор вида ошибки (RFC 9457 §3.1.1). Страница на языке — `<сайт>/<lang>/errors/<код>`. До 1.3 здесь была ссылка на `dist/` в Git, но `dist/` в Git не хранится (§6.2).
+- `status` — переданный продуктом или `http_status` записи; если нет обоих, поле не выводится. `title` и `detail` (= `cause` с подстановками) — на языке запроса.
+
 
 ## 7. Как продукт подключает базу — API
 ### 7.1. Манифест и lock-файл в продукте
@@ -147,7 +161,7 @@ tools/validate.py               проверка (без внешних зави
 `languages` может быть подмножеством четырёх языков базы, например RU и EN в пакете роутера Auto VPN, где мало места. В базе и на сайте всегда остаются все 4 языка.
 
 **Запись в базу от продуктов.** Сессия продукта работает в ветке `<пространство>/<тема>` (например `vpn/mon`) и меняет только своё пространство `codes/<NS>/*` и его области в `namespaces.json`. Общие коды `COMMON-…` добавляются только через форму Issues. Ревью и слияние делает координатор базы.
-`errors.lock` — что закреплено: точная версия, список файлов и их SHA-256. Обновление базы — явная команда разработчика с проверкой; само по себе оно не происходит.
+`errors.lock` — что закреплено: точная версия, список файлов и их SHA-256: `{"database": "HomenSAI/Error-database", "version": "1.1.0", "files": {"errors.COMMON.json": "<sha256>", "errors.RENT.json": "<sha256>"}}`; имена — относительно `vendor/errors/`, создаётся `homensai_errors.make_lock`. Обновление базы — явная команда разработчика с проверкой; само по себе оно не происходит.
 
 **Сборка самодостаточна (указание владельца 09.11.2026 09:07).** При сборке продукта нужные файлы выпуска копируются внутрь продукта, в папку `vendor/errors/`, и входят в установщик:
 - за кодами программа никогда не ходит в сеть — ни при запуске, ни при ошибке;
@@ -169,6 +183,10 @@ raise AppError("RENT-DR-001", days=3)              # продукт бросае
 ```
 - Неизвестный код — `COMMON-SYS-001` («Неизвестная ошибка программы») и запись в журнал разработчика. В тестах продукта это падение.
 - Подстановки проверяются по `params`: лишние и недостающие — ошибка в тестах.
+- **Режимы (1.3).** `Catalog.load(..., strict=True)` — для тестов продукта: неизвестный код — `UnknownCodeError`, неверные подстановки — `ParamsError`. `strict=False` (по умолчанию) — для работы: замена на `COMMON-SYS-001` с записью в логгер `homensai_errors`, недостающие подстановки остаются `{имя}`. `homensai_errors.configure(catalog)` задаёт каталог для `AppError`; без него `AppError` сверяет код со встроенными константами и строго.
+- `AppError` принимает только строку вида `NS-AREA-NNN`: ключ, старый код или текст — сразу `ValueError`.
+- `Catalog.load` ищет `errors.manifest.json` и `errors.lock` в папке каталога и до двух уровней выше (`vendor/errors` → корень продукта). Пространство `COMMON` загружается всегда (запасной код). Язык не из манифеста — запасной (`en` или первый язык манифеста); `uk-UA` → `uk`.
+- `search` находит по коду, старому коду, `key`, началу кода (`RENT-DR` — вся область) и словам на языке (все слова запроса, простая основа слова); индекс `search.<lang>.json` строится той же функцией.
 
 ### 7.3. Встраивание в помощь
 - У каждого кода — страница `/help/errors/<code>`: что случилось, почему, что делать, кому передать, связанные коды. Страницы строятся из `help/<lang>/`.
@@ -185,6 +203,7 @@ raise AppError("RENT-DR-001", days=3)              # продукт бросае
 2. Взять следующий номер в области; новая область — сначала в `namespaces.json`.
 3. Заполнить все поля и 4 языка по §4.2.
 4. Запустить `python tools/validate.py` — проверяются схема, уникальность кодов, `key` и `aliases`, все языки, одинаковые подстановки, номера без пропусков.
+4a. Обновить константы: `python tools/gen_constants.py` (файл `src/homensai_errors/codes.py` входит в коммит), затем `python -m pytest -q`.
 5. Pull request → проверка CI → ревью → слияние → выпуск с новой minor-версией.
 
 ## 9. Что нельзя публиковать
@@ -197,7 +216,7 @@ raise AppError("RENT-DR-001", days=3)              # продукт бросае
 
 ## 11. Дополнения 1.1 (решение владельца 09.11.2026 09:08, по образцам Twilio, Rust, TypeScript, Stripe)
 1. **Сайт-справочник** на GitHub Pages, бесплатно для публичного репозитория. На каждый код своя страница, на 4 языках; поиск по коду, старому коду и словам. Как Twilio Error and Warning Dictionary и Rust error index. Собирается из `dist/` при каждом выпуске.
-2. **Константы для кода.** Из базы генерируются `homensai_errors/codes.py` и `codes.ts`: `Errors.RENT_DR_001`, `Errors.BACKUP_PASSWORD_CHECK_OVERDUE`. Опечатка в коде ловится проверкой типов до запуска — как константы, которые TypeScript генерирует из `diagnosticMessages.json`.
+2. **Константы для кода.** Из базы генерируются `homensai_errors/codes.py` и `codes.ts` (`python tools/gen_constants.py`; для продукта — `--source vendor/errors --manifest errors.manifest.json --py … --ts …`; `--check` — для CI): `Errors.RENT_DR_001`, `Errors.BACKUP_PASSWORD_CHECK_OVERDUE`. Опечатка в коде ловится проверкой типов до запуска — как константы, которые TypeScript генерирует из `diagnosticMessages.json`.
 3. **«Исправлено в версии»** — поле `fixed_in`, §4.
 4. **Примеры для разработчика** — поле `examples`. Как у Rust: каждый пример «воспроизвести → исправить» проверяется автоматически.
 5. **Кнопки «Помогло» / «Не помогло»** под текстом ошибки в продукте. Счётчики хранятся только на компьютере пользователя и попадают в пакет поддержки только вместе с ним. По ним видно, какие тексты надо переписать.
