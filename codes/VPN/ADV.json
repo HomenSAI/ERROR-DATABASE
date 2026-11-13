@@ -1,0 +1,732 @@
+{
+  "namespace": "VPN",
+  "area": "ADV",
+  "codes": [
+    {
+      "code": "VPN-ADV-001",
+      "key": "ADVISOR_FAMILY",
+      "aliases": [
+        "ADVISOR-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код автоподстройки",
+        "uk": "Код автопідстроювання",
+        "en": "Auto-adaptation code",
+        "de": "Code der automatischen Anpassung"
+      },
+      "cause": {
+        "ru": "Советник сети или главный ползунок сообщил о своём состоянии; настройки из-за этого не изменились. Это семейство: описание относится ко всем кодам с префиксом «ADVISOR-».",
+        "uk": "Порадник мережі або головний повзунок повідомив про свій стан; налаштування через це не змінилися. Це родина: опис стосується всіх кодів із префіксом «ADVISOR-».",
+        "en": "The network advisor or the master slider reported its state; the settings were not changed because of it. This is a family: the description applies to all codes starting with \"ADVISOR-\".",
+        "de": "Der Netzwerkberater oder der Hauptschieberegler hat seinen Zustand gemeldet; die Einstellungen wurden dadurch nicht geändert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „ADVISOR-“."
+      },
+      "action": {
+        "ru": "1. Обновите страницу и повторите действие.\n2. Если код остаётся, найдите его в «Помощи» — там описан точный код.",
+        "uk": "1. Оновіть сторінку й повторіть дію.\n2. Якщо код лишається, знайдіть його в «Довідці» (Help) — там описано точний код.",
+        "en": "1. Reload the page and repeat the action.\n2. If the code stays, look it up in Help: the exact code is explained there.",
+        "de": "1. Laden Sie die Seite neu und wiederholen Sie die Aktion.\n2. Bleibt der Code, suchen Sie ihn in der „Hilfe“ (Help) – dort wird der genaue Code erklärt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-ADV-001",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-002",
+      "key": "ADVISOR_BUSY_OUTAGE",
+      "aliases": [
+        "ADVISOR-BUSY-OUTAGE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не сейчас: идёт обрыв канала",
+        "uk": "Не зараз: триває обрив каналу",
+        "en": "Not now: a channel outage is in progress",
+        "de": "Nicht jetzt: Ein Kanalausfall läuft"
+      },
+      "cause": {
+        "ru": "Пока обрыв канала не закончился, настройки ползунка не меняются: текущее решение доводится до конца по прежним правилам. Ничего не изменено.",
+        "uk": "Поки обрив каналу не завершився, налаштування повзунка не змінюються: поточне рішення доводиться до кінця за попередніми правилами. Нічого не змінено.",
+        "en": "While a channel outage is still in progress, the slider settings are not changed, so the running decision finishes under the previous rules. Nothing was changed.",
+        "de": "Solange ein Kanalausfall andauert, werden die Einstellungen des Schiebereglers nicht geändert: Die laufende Entscheidung wird nach den bisherigen Regeln zu Ende geführt. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Дождитесь, когда каналы снова работают нормально.\n2. Повторите действие.",
+        "uk": "1. Дочекайтеся, поки канали знову працюватимуть нормально.\n2. Повторіть дію.",
+        "en": "1. Wait until the channels work normally again.\n2. Repeat the action.",
+        "de": "1. Warten Sie, bis die Kanäle wieder normal funktionieren.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-ADV-002",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-003",
+      "key": "ADVISOR_BUSY_SWITCH",
+      "aliases": [
+        "ADVISOR-BUSY-SWITCH"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не сейчас: идёт переключение",
+        "uk": "Не зараз: триває перемикання",
+        "en": "Not now: a switch is in progress",
+        "de": "Nicht jetzt: Ein Umschalten läuft"
+      },
+      "cause": {
+        "ru": "Пока Auto переключает или возвращает канал или маршрут временно недоступен, настройки ползунка не меняются, чтобы переключение не шло с наполовину изменёнными правилами. Ничего не изменено.",
+        "uk": "Поки Auto перемикає або повертає канал чи маршрут тимчасово недоступний, налаштування повзунка не змінюються, щоб перемикання не відбувалося з наполовину зміненими правилами. Нічого не змінено.",
+        "en": "While Auto is switching or returning a channel, or the route is temporarily unavailable, the slider settings are not changed, so a switch never runs with half-changed rules. Nothing was changed.",
+        "de": "Solange Auto einen Kanal umschaltet oder zurückschaltet oder die Route vorübergehend nicht verfügbar ist, werden die Einstellungen des Schiebereglers nicht geändert, damit kein Umschalten mit halb geänderten Regeln läuft. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Повторите действие.",
+        "uk": "1. Зачекайте хвилину.\n2. Повторіть дію.",
+        "en": "1. Wait a minute.\n2. Repeat the action.",
+        "de": "1. Warten Sie eine Minute.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-ADV-003",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-004",
+      "key": "ADVISOR_CALM_UNKNOWN",
+      "aliases": [
+        "ADVISOR-CALM-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Спокойное состояние не подтверждено",
+        "uk": "Спокійний стан не підтверджено",
+        "en": "Calm state not confirmed",
+        "de": "Ruhiger Zustand nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не получил свежего подтверждения, что сейчас нет обрыва и переключения. Без такого подтверждения настройки не меняются. Ничего не изменено.",
+        "uk": "Роутер не отримав свіжого підтвердження, що зараз немає обриву й перемикання. Без такого підтвердження налаштування не змінюються. Нічого не змінено.",
+        "en": "The router did not get fresh confirmation that no outage or switch is in progress. Without that confirmation the settings are not changed. Nothing was changed.",
+        "de": "Der Router hat keine aktuelle Bestätigung erhalten, dass gerade kein Ausfall und kein Umschalten läuft. Ohne diese Bestätigung werden die Einstellungen nicht geändert. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Откройте вкладку «Система» и проверьте, что наблюдение за связью работает.\n2. Повторите действие.",
+        "uk": "1. Відкрийте вкладку «Система» (System) і перевірте, що спостереження за зв'язком працює.\n2. Повторіть дію.",
+        "en": "1. Open the System tab and check that connection monitoring is running.\n2. Repeat the action.",
+        "de": "1. Öffnen Sie den Reiter „System“ und prüfen Sie, ob die Verbindungsüberwachung läuft.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-ADV-004",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-005",
+      "key": "ADVISOR_MODEL_CONSECUTIVE",
+      "aliases": [
+        "ADVISOR-MODEL-CONSECUTIVE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ползунок не действует на выбранный детектор",
+        "uk": "Повзунок не діє на вибраний детектор",
+        "en": "The slider does not apply to the selected detector",
+        "de": "Der Schieberegler wirkt nicht auf den gewählten Detektor"
+      },
+      "cause": {
+        "ru": "Выбран прежний детектор сбоя «ошибки подряд». Ползунок и советник настраивают только другие детекторы, поэтому ничего не изменено.",
+        "uk": "Вибрано попередній детектор збою «помилки поспіль». Повзунок і порадник налаштовують лише інші детектори, тому нічого не змінено.",
+        "en": "The previous failure detector \"failures in a row\" is selected. The slider and the advisor tune only the other detectors, so nothing was changed.",
+        "de": "Gewählt ist der bisherige Ausfalldetektor „Fehler in Folge“. Schieberegler und Berater stellen nur die anderen Detektoren ein, daher wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Откройте «Эксперт: детектор сбоя».\n2. Выберите стандартный или быстрый детектор, если нужен ползунок.",
+        "uk": "1. Відкрийте «Експерт: детектор збою» (Expert: failure detector).\n2. Виберіть стандартний або швидкий детектор, якщо потрібен повзунок.",
+        "en": "1. Open “Expert: failure detector”.\n2. Choose the standard or the fast detector if you want to use the slider.",
+        "de": "1. Öffnen Sie „Experte: Ausfalldetektor“ (Expert: failure detector).\n2. Wählen Sie den Standard- oder den schnellen Detektor, wenn Sie den Schieberegler nutzen möchten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-ADV-005",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-006",
+      "key": "ADVISOR_NO_RECOMMENDATION",
+      "aliases": [
+        "ADVISOR-NO-RECOMMENDATION"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нет рекомендации для применения",
+        "uk": "Немає рекомендації для застосування",
+        "en": "No recommendation to apply",
+        "de": "Keine Empfehlung zum Übernehmen"
+      },
+      "cause": {
+        "ru": "Свежей рекомендации сдвинуть ползунок нет: событий пока мало, текущее положение уже лучшее или расчёт ещё не выполнялся.",
+        "uk": "Свіжої рекомендації зсунути повзунок немає: подій поки замало, поточне положення вже найкраще або розрахунок ще не виконувався.",
+        "en": "There is no fresh recommendation to move the slider: there are too few events yet, the current position is already the best, or the calculation has not run yet.",
+        "de": "Es gibt keine aktuelle Empfehlung, den Schieberegler zu verschieben: Es gibt noch zu wenige Ereignisse, die aktuelle Stellung ist bereits die beste, oder die Berechnung ist noch nicht gelaufen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. При желании сдвиньте ползунок сами.",
+        "uk": "1. Нічого робити не потрібно.\n2. За бажання зсуньте повзунок самі.",
+        "en": "1. Nothing to do.\n2. If you like, move the slider yourself.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn Sie möchten, verschieben Sie den Schieberegler selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-ADV-006",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-007",
+      "key": "ADVISOR_ONCE_A_DAY",
+      "aliases": [
+        "ADVISOR-ONCE-A-DAY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Автоподстройка сегодня уже меняла настройки",
+        "uk": "Автопідстроювання сьогодні вже змінювало налаштування",
+        "en": "Auto-adaptation already changed the settings today",
+        "de": "Die automatische Anpassung hat heute bereits geändert"
+      },
+      "cause": {
+        "ru": "В режиме «Авто» ползунок сдвигается не чаще раза в сутки и только на небольшой шаг, чтобы один плохой день не раскачал настройки.",
+        "uk": "У режимі «Авто» повзунок зсувається не частіше ніж раз на добу й лише на невеликий крок, щоб один поганий день не розхитав налаштування.",
+        "en": "In Auto mode the slider moves at most once a day and only by a small step, so a single bad day cannot swing the settings.",
+        "de": "Im Modus „Auto“ bewegt sich der Schieberegler höchstens einmal am Tag und nur um einen kleinen Schritt, damit ein einzelner schlechter Tag die Einstellungen nicht durcheinanderbringt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-ADV-007",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-008",
+      "key": "ADVISOR_OUT_OF_BOUNDS",
+      "aliases": [
+        "ADVISOR-OUT-OF-BOUNDS"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Значение вне допустимого диапазона",
+        "uk": "Значення поза допустимим діапазоном",
+        "en": "Value outside the allowed range",
+        "de": "Wert außerhalb des zulässigen Bereichs"
+      },
+      "cause": {
+        "ru": "Одно из введённых значений выходит за допустимые пределы. Ничего не изменено.",
+        "uk": "Одне з введених значень виходить за допустимі межі. Нічого не змінено.",
+        "en": "One of the entered values is outside its allowed range. Nothing was changed.",
+        "de": "Einer der eingegebenen Werte liegt außerhalb des zulässigen Bereichs. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Выберите значение в пределах допустимого диапазона.\n2. Повторите действие.",
+        "uk": "1. Виберіть значення в межах допустимого діапазону.\n2. Повторіть дію.",
+        "en": "1. Choose a value within the allowed range.\n2. Repeat the action.",
+        "de": "1. Wählen Sie einen Wert innerhalb des zulässigen Bereichs.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-ADV-008",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-009",
+      "key": "ADVISOR_PG_BELOW_THETA",
+      "aliases": [
+        "ADVISOR-PG-BELOW-THETA"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Порог возврата ниже порога ухода",
+        "uk": "Поріг повернення нижчий за поріг відходу",
+        "en": "Return threshold below the leave threshold",
+        "de": "Rückkehrschwelle liegt unter der Wechselschwelle"
+      },
+      "cause": {
+        "ru": "Уверенность, нужная для возврата на основной канал, не может быть ниже уверенности, нужной для ухода с него. Иначе Auto мог бы вернуться на канал, с которого тут же снова ушёл бы. Ничего не изменено.",
+        "uk": "Впевненість, потрібна для повернення на основний канал, не може бути нижчою за впевненість, потрібну для відходу з нього. Інакше Auto міг би повернутися на канал, з якого відразу знову пішов би. Нічого не змінено.",
+        "en": "The confidence needed to return to the primary channel must not be lower than the confidence needed to leave it. Otherwise Auto could return to a channel it would leave again at once. Nothing was changed.",
+        "de": "Die Konfidenz, die für die Rückkehr zum Hauptkanal nötig ist, darf nicht niedriger sein als die Konfidenz, die zum Verlassen nötig ist. Sonst könnte Auto zu einem Kanal zurückkehren, den es sofort wieder verlassen würde. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Задайте порог возврата не ниже порога ухода.\n2. Повторите действие.",
+        "uk": "1. Задайте поріг повернення не нижчим за поріг відходу.\n2. Повторіть дію.",
+        "en": "1. Set the return threshold to at least the leave threshold.\n2. Repeat the action.",
+        "de": "1. Setzen Sie die Rückkehrschwelle mindestens auf die Wechselschwelle.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-ADV-009",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-010",
+      "key": "ADVISOR_RANGE",
+      "aliases": [
+        "ADVISOR-RANGE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Значение ползунка не принято",
+        "uk": "Значення повзунка не прийнято",
+        "en": "Slider value not accepted",
+        "de": "Wert des Schiebereglers nicht übernommen"
+      },
+      "cause": {
+        "ru": "Страница передала роутеру положение или значение, которое он не смог принять: это не число из допустимого диапазона или неизвестный режим. Ничего не изменено.",
+        "uk": "Сторінка передала роутеру положення або значення, яке він не зміг прийняти: це не число з допустимого діапазону або невідомий режим. Нічого не змінено.",
+        "en": "The page sent the router a position or value it could not accept: not a number in the allowed range, or an unknown mode. Nothing was changed.",
+        "de": "Die Seite hat dem Router eine Stellung oder einen Wert gesendet, den er nicht übernehmen konnte: keine Zahl im zulässigen Bereich oder ein unbekannter Modus. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-ADV-010",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-011",
+      "key": "ADVISOR_RESCUE_ABOVE_STABLE",
+      "aliases": [
+        "ADVISOR-RESCUE-ABOVE-STABLE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Возврат после отказа резерва дольше стабильности основного",
+        "uk": "Повернення після відмови резерву довше за стабільність основного",
+        "en": "Return after a reserve failure is longer than primary stability",
+        "de": "Rückkehr nach Reserveausfall länger als die Stabilität des Hauptkanals"
+      },
+      "cause": {
+        "ru": "Время возврата после отказа резерва не может быть больше обычного времени стабильности основного канала. Ничего не изменено.",
+        "uk": "Час повернення після відмови резерву не може бути більшим за звичайний час стабільності основного каналу. Нічого не змінено.",
+        "en": "The return time after a reserve failure must not be longer than the normal stability time of the primary channel. Nothing was changed.",
+        "de": "Die Rückkehrzeit nach einem Reserveausfall darf nicht länger sein als die normale Stabilitätszeit des Hauptkanals. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки → Как быстро переключать».\n2. Уменьшите время возврата после отказа резерва или увеличьте стабильность основного канала.",
+        "uk": "1. Відкрийте «Налаштування → Як швидко перемикати» (Settings → How fast to switch).\n2. Зменште час повернення після відмови резерву або збільште стабільність основного каналу.",
+        "en": "1. Open “Settings → How fast to switch”.\n2. Lower the return time after a reserve failure or raise the stability time of the primary channel.",
+        "de": "1. Öffnen Sie „Einstellungen → Wie schnell umschalten“ (Settings → How fast to switch).\n2. Verringern Sie die Rückkehrzeit nach einem Reserveausfall oder erhöhen Sie die Stabilitätszeit des Hauptkanals."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-ADV-011",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-012",
+      "key": "ADVISOR_RIDE_NOT_BELOW_LEAVE",
+      "aliases": [
+        "ADVISOR-RIDE-NOT-BELOW-LEAVE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "С такой настройкой можно не уйти с неработающего канала",
+        "uk": "З таким налаштуванням можна не піти з непрацюючого каналу",
+        "en": "This setting might never leave a dead channel",
+        "de": "Mit dieser Einstellung wird ein toter Kanal eventuell nie verlassen"
+      },
+      "cause": {
+        "ru": "С такими значениями детектора Auto пережидал бы обрыв дольше, чем нужно для ухода с канала, и с неработающего основного канала можно было бы не уйти никогда. Роутер такую настройку не принимает.",
+        "uk": "З такими значеннями детектора Auto перечікував би обрив довше, ніж потрібно для відходу з каналу, і з непрацюючого основного каналу можна було б не піти ніколи. Роутер таке налаштування не приймає.",
+        "en": "With these detector values Auto would wait out an outage longer than it needs to leave the channel, so a dead primary channel might never be left. The router refuses such a setting.",
+        "de": "Mit diesen Detektorwerten würde Auto einen Ausfall länger abwarten, als es zum Verlassen des Kanals braucht, sodass ein ausgefallener Hauptkanal womöglich nie verlassen würde. Der Router lehnt eine solche Einstellung ab."
+      },
+      "action": {
+        "ru": "1. Уменьшите порог ухода или длину «короткого обрыва».\n2. Повторите действие.",
+        "uk": "1. Зменште поріг відходу або тривалість «короткого обриву».\n2. Повторіть дію.",
+        "en": "1. Lower the leave threshold or the short-outage length.\n2. Repeat the action.",
+        "de": "1. Senken Sie die Wechselschwelle oder die Länge des „kurzen Ausfalls“.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-ADV-012",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-ADV-013",
+      "key": "ADVISOR_UNAVAILABLE",
+      "aliases": [
+        "ADVISOR-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Состояние автоподстройки недоступно",
+        "uk": "Стан автопідстроювання недоступний",
+        "en": "Auto-adaptation status unavailable",
+        "de": "Status der automatischen Anpassung nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Роутер не смог собрать состояние советника в этой проверке. На само переключение каналов это не влияет.",
+        "uk": "Роутер не зміг зібрати стан порадника під час цієї перевірки. На саме перемикання каналів це не впливає.",
+        "en": "The router could not build the advisor status in this check. Channel switching itself is not affected.",
+        "de": "Der Router konnte den Status des Beraters bei dieser Prüfung nicht ermitteln. Das Umschalten der Kanäle selbst ist davon nicht betroffen."
+      },
+      "action": {
+        "ru": "1. Дождитесь следующей проверки и обновите страницу.\n2. Если состояние так и не появляется, переустановите ту же проверенную версию пакета по руководству по установке.",
+        "uk": "1. Дочекайтеся наступної перевірки й оновіть сторінку.\n2. Якщо стан так і не з'являється, перевстановіть ту саму перевірену версію пакета за посібником зі встановлення.",
+        "en": "1. Wait for the next check and reload the page.\n2. If the status never appears, reinstall the same verified package version following the install guide.",
+        "de": "1. Warten Sie die nächste Prüfung ab und laden Sie die Seite neu.\n2. Erscheint der Status weiterhin nicht, installieren Sie dieselbe geprüfte Paketversion gemäß der Installationsanleitung neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-ADV-013",
+      "since": "1.1.0",
+      "tags": [
+        "auto-vpn",
+        "adv",
+        "setup",
+        "translation-draft"
+      ]
+    }
+  ]
+}
