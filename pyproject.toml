@@ -1,0 +1,28 @@
+# HomenS.AI Error-database · © 2026 Serhii Khomenko · https://homensai.com/ · https://github.com/HomenSAI
+# Библиотека homensai_errors (ARCHITECTURE.md §7.2). Версия совпадает с версией базы (CHANGELOG.md, тег vX.Y.Z).
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "homensai-errors"
+version = "1.1.0"
+description = "Каталог кодов ошибок HomenS.AI: Catalog, AppError, RFC 9457, помощь, поиск"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Serhii Khomenko" }]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+homensai_errors = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tools"]
+addopts = "-p no:cacheprovider"
