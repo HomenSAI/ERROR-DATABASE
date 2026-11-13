@@ -1,0 +1,71 @@
+# HomenS.AI Error-database · © 2026 Serhii Khomenko · https://homensai.com/ · https://github.com/HomenSAI
+# Выпуск базы (ARCHITECTURE.md §6.2): при теге vX.Y.Z проверка, тесты библиотеки, сборка dist/ дважды со сверкой байтов
+# и загрузка файлов в GitHub Release. Self-hosted runner владельца (GitHub-hosted не запускаются из-за оплаты).
+# Только по тегу: репозиторий публичный, чужие pull request не должны выполнять код на сервере владельца.
+name: release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: [self-hosted, Linux, X64, rent-docker]
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0 (git ls-remote 13.11.2026)
+
+      - name: Проверка базы и констант
+        shell: bash
+        run: |
+          py=$(command -v python3 || command -v python)
+          "$py" -c "import sys; assert sys.version_info >= (3, 10), sys.version"
+          "$py" tools/validate.py
+          "$py" tools/gen_constants.py --check
+
+      - name: Тесты библиотеки (pytest, без сети)
+        shell: bash
+        run: |
+          py=$(command -v python3 || command -v python)
+          venv="$RUNNER_TEMP/errors-venv"
+          rm -rf "$venv" && "$py" -m venv "$venv"
+          "$venv/bin/python" -m pip install -q "pytest>=8,<10"
+          "$venv/bin/python" -m pytest -q
+
+      - name: Сборка dist/ дважды и сверка байтов
+        shell: bash
+        run: |
+          py=$(command -v python3 || command -v python)
+          ver="${GITHUB_REF_NAME#v}"
+          "$py" tools/build_dist.py --out dist --check-tag "$GITHUB_REF_NAME" \
+            --archive "homensai-errors-$ver.tar.gz" --notes release-notes.md
+          "$py" tools/build_dist.py --out "$RUNNER_TEMP/dist2" --archive "$RUNNER_TEMP/again.tar.gz"
+          diff -r dist "$RUNNER_TEMP/dist2"
+          cmp "homensai-errors-$ver.tar.gz" "$RUNNER_TEMP/again.tar.gz"
+          (cd dist && sha256sum -c --quiet SHA256SUMS)
+          sha256sum "homensai-errors-$ver.tar.gz" > "homensai-errors-$ver.tar.gz.sha256"
+
+      - name: GitHub Release
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65  # v2.6.2 (git ls-remote 13.11.2026)
+        with:
+          name: ${{ github.ref_name }}
+          body_path: release-notes.md
+          fail_on_unmatched_files: true
+          files: |
+            dist/errors*.json
+            dist/errors.*.md
+            dist/search.*.json
+            dist/llms.txt
+            dist/SHA256SUMS
+            homensai-errors-*.tar.gz
+            homensai-errors-*.tar.gz.sha256
