@@ -1,0 +1,76 @@
+# HomenS.AI Error-database · © 2026 Serhii Khomenko · https://homensai.com/ · https://github.com/HomenSAI
+# Сайт-справочник на GitHub Pages (ARCHITECTURE.md §6.4, решения 28.10-288 и 28.10-321): при push в main проверка базы,
+# тесты, сборка site/ дважды со сверкой байтов и публикация через actions/deploy-pages.
+# Self-hosted runner владельца (GitHub-hosted не запускаются из-за оплаты). Только push в main и ручной запуск:
+# репозиторий публичный, чужие pull request не должны выполнять код на сервере владельца.
+# Действие владельца один раз: Settings → Pages → Source: GitHub Actions.
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: [self-hosted, Linux, X64, rent-docker]
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0 (git ls-remote 13.11.2026)
+
+      - name: Проверка базы и констант
+        shell: bash
+        run: |
+          py=$(command -v python3 || command -v python)
+          "$py" -c "import sys; assert sys.version_info >= (3, 10), sys.version"
+          "$py" tools/validate.py
+          "$py" tools/gen_constants.py --check
+
+      - name: Тесты (pytest, без сети)
+        shell: bash
+        run: |
+          py=$(command -v python3 || command -v python)
+          venv="$RUNNER_TEMP/errors-venv"
+          rm -rf "$venv" && "$py" -m venv "$venv"
+          "$venv/bin/python" -m pip install -q "pytest>=8,<10"
+          "$venv/bin/python" -m pytest -q
+
+      - name: Сборка site/ дважды и сверка байтов
+        shell: bash
+        run: |
+          py=$(command -v python3 || command -v python)
+          rm -rf site "$RUNNER_TEMP/site2"
+          "$py" tools/build_site.py --out site
+          "$py" tools/build_site.py --out "$RUNNER_TEMP/site2"
+          diff -r site "$RUNNER_TEMP/site2"
+          (cd site && sha256sum -c --quiet SHA256SUMS)
+
+      - name: Артефакт GitHub Pages
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0 (git ls-remote 13.11.2026)
+        with:
+          path: site/
+
+  deploy:
+    needs: build
+    runs-on: [self-hosted, Linux, X64, rent-docker]
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Публикация на GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346  # v5.0.1 (git ls-remote 13.11.2026)

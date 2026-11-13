@@ -17,6 +17,7 @@
 - **Переходный период** (`ARCHITECTURE.md` §12): пока `transition.show_legacy_codes: true`, везде показывать новый код, затем старый, затем полное описание.
 - **В продукте:** только `AppError("<код>", ...)` из каталога; самодельные коды запрещены и ловятся тестом (§7.4).
 - **Библиотека и выпуск:** `src/homensai_errors/` (§7.2), сборка `python tools/build_dist.py` (§6.2); `dist/` в Git не коммитить — выпуск собирает CI по тегу `vX.Y.Z`.
+- **Сайт-справочник:** `python tools/build_site.py` → `site/` (§6.4, в Git не коммитить); публикует `.github/workflows/pages.yml` при push в `main`.
 
 <!-- HSAI-AI-CONTEXT-CACHING-POLICY:BEGIN -->
 ## Mandatory AI preflight and token-cost optimization (owner instruction, 2026-11-12, updated with measurements)
