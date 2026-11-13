@@ -1,0 +1,11 @@
+# HomenS.AI Error-database · © 2026 Serhii Khomenko
+# Выпуск собирается tools/build_dist.py в CI при теге v* и прикладывается к GitHub Release (ARCHITECTURE.md §6.2).
+/dist/
+/homensai-errors-*.tar.gz
+/release-notes.md
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+.pytest_cache/
+.venv/

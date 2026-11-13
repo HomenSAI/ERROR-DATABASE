@@ -12,3 +12,5 @@ jobs:
         with:
           python-version: "3.13"
       - run: python tools/validate.py
+      - run: python tools/gen_constants.py --check
+      - run: python -m pip install -q "pytest>=8,<10" && python -m pytest -q
