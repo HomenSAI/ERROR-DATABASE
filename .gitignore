@@ -1,5 +1,6 @@
 # HomenS.AI Error-database · © 2026 Serhii Khomenko
 # Выпуск собирается tools/build_dist.py в CI при теге v* и прикладывается к GitHub Release (ARCHITECTURE.md §6.2).
+# Сайт-справочник собирается tools/build_site.py в CI при push в main и публикуется на GitHub Pages (§6.4).
 /dist/
 /homensai-errors-*.tar.gz
 /release-notes.md
@@ -9,3 +10,4 @@ __pycache__/
 /build/
 .pytest_cache/
 .venv/
+/site/
