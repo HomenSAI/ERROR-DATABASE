@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: [self-hosted, Linux, X64, rent-docker]
+    runs-on: ubuntu-latest  # репозиторий публичный: GitHub-hosted runner бесплатен (validate.yml так и работает); rent-docker сюда не подключён — задание ждало 24 ч
     timeout-minutes: 15
     env:
       PYTHONUTF8: "1"
@@ -62,7 +62,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [self-hosted, Linux, X64, rent-docker]
+    runs-on: ubuntu-latest  # репозиторий публичный: GitHub-hosted runner бесплатен (validate.yml так и работает); rent-docker сюда не подключён — задание ждало 24 ч
     timeout-minutes: 10
     permissions:
       pages: write
