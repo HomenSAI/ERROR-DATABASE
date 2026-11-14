@@ -101,6 +101,56 @@
       "tags": [
         "rates"
       ]
+    },
+    {
+      "code": "RENT-FX-003",
+      "key": "ACCOUNTING_CURRENCY_ONLY",
+      "aliases": [
+        "accounting_currency"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сумма не в валюте учёта хозяйства",
+        "uk": "Сума не у валюті обліку господарства",
+        "en": "Amount is not in the household's accounting currency",
+        "de": "Betrag ist nicht in der Buchungswährung des Haushalts"
+      },
+      "cause": {
+        "ru": "В хозяйстве одна валюта учёта (решение 263); операция в другой валюте не записывается.",
+        "uk": "У господарстві одна валюта обліку (рішення 263); операція в іншій валюті не записується.",
+        "en": "A household keeps its books in one currency (decision 263); an operation in another currency is not recorded.",
+        "de": "Ein Haushalt führt seine Bücher in einer Währung (Entscheidung 263); ein Vorgang in einer anderen Währung wird nicht gespeichert."
+      },
+      "action": {
+        "ru": "1. Внесите сумму в валюте учёта (Настройки → Валюта учёта).\n2. Вторую валюту пересчитайте калькулятором валют и внесите результат.",
+        "uk": "1. Внесіть суму у валюті обліку (Налаштування → Валюта обліку).\n2. Другу валюту перерахуйте калькулятором валют і внесіть результат.",
+        "en": "1. Enter the amount in the accounting currency (Settings → Accounting currency).\n2. Convert the other currency with the currency calculator and enter the result.",
+        "de": "1. Geben Sie den Betrag in der Buchungswährung ein (Einstellungen → Buchungswährung).\n2. Rechnen Sie die andere Währung mit dem Währungsrechner um und geben Sie das Ergebnis ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-FX-003",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
     }
   ]
 }
