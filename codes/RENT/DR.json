@@ -2928,6 +2928,228 @@
       "tags": [
         "chain"
       ]
+    },
+    {
+      "code": "RENT-DR-055",
+      "key": "BACKUP_MEDIUM_LINK",
+      "aliases": [
+        "medium_link"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Папка копий или цепочки на носителе — ссылка на другую папку",
+        "uk": "Тека копій або ланцюжка на носії — посилання на іншу теку",
+        "en": "The copies or chain folder on the media is a link to another folder",
+        "de": "Der Kopien- oder Kettenordner auf dem Datenträger ist ein Verweis auf einen anderen Ordner"
+      },
+      "cause": {
+        "ru": "Ссылка (symlink, junction) увела бы копию мимо выбранного носителя; программа такую папку не использует (решение 296).",
+        "uk": "Посилання (symlink, junction) відвело б копію повз вибраний носій; програма таку теку не використовує (рішення 296).",
+        "en": "A link (symlink, junction) would send the copy past the chosen media; the program does not use such a folder (decision 296).",
+        "de": "Ein Verweis (Symlink, Junction) würde die Kopie am gewählten Datenträger vorbeileiten; das Programm verwendet einen solchen Ordner nicht (Entscheidung 296)."
+      },
+      "action": {
+        "ru": "1. Копия не записана — это защита, данные на месте.\n2. Уберите ссылку и выберите настоящую папку на носителе в настройках копий.",
+        "uk": "1. Копію не записано — це захист, дані на місці.\n2. Приберіть посилання й виберіть справжню теку на носії в налаштуваннях копій.",
+        "en": "1. The copy was not written — this is a safeguard, your data is intact.\n2. Remove the link and choose a real folder on the media in the copy settings.",
+        "de": "1. Die Kopie wurde nicht geschrieben — das ist ein Schutz, Ihre Daten sind unverändert.\n2. Entfernen Sie den Verweis und wählen Sie in den Kopie-Einstellungen einen echten Ordner auf dem Datenträger."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-055",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-056",
+      "key": "BACKUP_MEDIUM_MOVED",
+      "aliases": [
+        "medium_moved"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Выбранная папка копий стала ссылкой или ведёт в другое место",
+        "uk": "Вибрана тека копій стала посиланням або веде в інше місце",
+        "en": "The chosen copies folder became a link or now points elsewhere",
+        "de": "Der gewählte Kopienordner wurde zu einem Verweis oder zeigt jetzt woandershin"
+      },
+      "cause": {
+        "ru": "После выбора папку заменили ссылкой или носитель подключён иначе; запись могла бы уйти не туда (решение 299).",
+        "uk": "Після вибору теку замінили посиланням або носій підключено інакше; запис міг би піти не туди (рішення 299).",
+        "en": "After it was chosen, the folder was replaced by a link or the media is mounted differently; the copy could go to the wrong place (decision 299).",
+        "de": "Nach der Auswahl wurde der Ordner durch einen Verweis ersetzt oder der Datenträger anders eingebunden; die Kopie könnte am falschen Ort landen (Entscheidung 299)."
+      },
+      "action": {
+        "ru": "1. Копия не записана.\n2. Проверьте носитель и выберите папку копий заново в настройках копий.",
+        "uk": "1. Копію не записано.\n2. Перевірте носій і виберіть теку копій знову в налаштуваннях копій.",
+        "en": "1. The copy was not written.\n2. Check the media and choose the copies folder again in the copy settings.",
+        "de": "1. Die Kopie wurde nicht geschrieben.\n2. Prüfen Sie den Datenträger und wählen Sie den Kopienordner in den Kopie-Einstellungen erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-056",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
+    },
+    {
+      "code": "RENT-DR-057",
+      "key": "BACKUP_TOO_BIG",
+      "aliases": [
+        "too_big"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Копия больше предела чтения",
+        "uk": "Копія більша за межу читання",
+        "en": "The copy is larger than the read limit",
+        "de": "Die Kopie ist größer als die Lesegrenze"
+      },
+      "cause": {
+        "ru": "Защита от подложенной копии-«бомбы»: слишком большой файл не читается автоматически (решения 298, 301).",
+        "uk": "Захист від підкладеної копії-«бомби»: надто великий файл не читається автоматично (рішення 298, 301).",
+        "en": "Protection against a planted “bomb” copy: a file that is too large is not read automatically (decisions 298, 301).",
+        "de": "Schutz vor einer untergeschobenen „Bomben“-Kopie: Eine zu große Datei wird nicht automatisch gelesen (Entscheidungen 298, 301)."
+      },
+      "action": {
+        "ru": "1. Если это ваша копия — восстановите её вручную с явным подтверждением большой копии.\n2. Если копию вы не узнаёте — не открывайте её.",
+        "uk": "1. Якщо це ваша копія — відновіть її вручну з явним підтвердженням великої копії.\n2. Якщо копію ви не впізнаєте — не відкривайте її.",
+        "en": "1. If this is your copy, restore it manually and explicitly confirm the large copy.\n2. If you do not recognise the copy, do not open it.",
+        "de": "1. Wenn es Ihre Kopie ist, stellen Sie sie manuell wieder her und bestätigen Sie die große Kopie ausdrücklich.\n2. Wenn Sie die Kopie nicht erkennen, öffnen Sie sie nicht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-057",
+      "since": "1.1.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "RENT-DR-058",
+      "key": "BACKUP_OS_FILES",
+      "aliases": [
+        "os_files"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "В папке цепочки копий служебные файлы ОС",
+        "uk": "У теці ланцюжка копій службові файли ОС",
+        "en": "OS service files in the copy chain folder",
+        "de": "Systemdateien des Betriebssystems im Kopienkettenordner"
+      },
+      "cause": {
+        "ru": "Windows и macOS сами кладут в папки desktop.ini, Thumbs.db, .DS_Store и подобные; программа их не читает (решение 294).",
+        "uk": "Windows і macOS самі кладуть у теки desktop.ini, Thumbs.db, .DS_Store та подібні; програма їх не читає (рішення 294).",
+        "en": "Windows and macOS put desktop.ini, Thumbs.db, .DS_Store and similar files into folders on their own; the program does not read them (decision 294).",
+        "de": "Windows und macOS legen desktop.ini, Thumbs.db, .DS_Store und ähnliche Dateien selbst in Ordnern ab; das Programm liest sie nicht (Entscheidung 294)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не треба.",
+        "en": "1. No action is needed.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-DR-058",
+      "since": "1.1.0",
+      "tags": [
+        "chain"
+      ]
     }
   ]
 }

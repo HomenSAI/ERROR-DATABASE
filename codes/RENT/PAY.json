@@ -351,6 +351,56 @@
       "tags": [
         "money"
       ]
+    },
+    {
+      "code": "RENT-PAY-008",
+      "key": "BANK_API_LINK_NOT_FOUND",
+      "aliases": [
+        "bank_api_link_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: подключение monobank",
+        "uk": "Не знайдено: підключення monobank",
+        "en": "Not found: the monobank connection",
+        "de": "Nicht gefunden: die monobank-Verbindung"
+      },
+      "cause": {
+        "ru": "Подключение могли удалить в другом окне или в прошлый раз, а список на экране остался прежним — ссылка на него больше не действует.",
+        "uk": "Підключення могли видалити в іншому вікні або минулого разу, а список на екрані залишився попереднім — посилання на нього більше не діє.",
+        "en": "The connection may have been deleted in another window or earlier, while the list on screen stayed the same, so the link to it no longer works.",
+        "de": "Die Verbindung wurde möglicherweise in einem anderen Fenster oder früher gelöscht, während die Liste auf dem Bildschirm unverändert blieb; der Verweis darauf gilt nicht mehr."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PAY-008",
+      "since": "1.1.0",
+      "tags": [
+        "money"
+      ]
     }
   ]
 }
