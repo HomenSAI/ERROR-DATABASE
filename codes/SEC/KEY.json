@@ -1,0 +1,457 @@
+{
+  "namespace": "SEC",
+  "area": "KEY",
+  "codes": [
+    {
+      "code": "SEC-KEY-001",
+      "number": "006-002-001",
+      "key": "SEC_KDF_PARAMS",
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Недопустимые параметры хэша пароля",
+        "uk": "Неприпустимі параметри хешу пароля",
+        "en": "Invalid password hash parameters",
+        "de": "Ungültige Parameter für den Passwort-Hash"
+      },
+      "cause": {
+        "ru": "Сохранённые настройки защиты пароля оказались недопустимыми — возможно, запись повреждена.",
+        "uk": "Збережені налаштування захисту пароля виявилися неприпустимими — можливо, запис пошкоджено.",
+        "en": "The saved password protection settings are invalid — the record may be damaged.",
+        "de": "Die gespeicherten Einstellungen für den Passwortschutz sind ungültig – möglicherweise ist der Eintrag beschädigt."
+      },
+      "action": {
+        "ru": "1. Запись пароля повреждена или подменена.\n2. Задайте пароль заново командой владельца.",
+        "uk": "1. Запис пароля пошкоджено або підмінено.\n2. Задайте пароль заново командою власника.",
+        "en": "1. The password record is damaged or has been replaced.\n2. Set the password again with the owner's command.",
+        "de": "1. Der Passworteintrag ist beschädigt oder wurde ersetzt.\n2. Legen Sie das Passwort erneut mit dem Befehl des Eigentümers fest."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/SEC-KEY-001",
+      "since": "1.3.0",
+      "related": [
+        "RENT-AUTH-002"
+      ],
+      "tags": [
+        "login"
+      ]
+    },
+    {
+      "code": "SEC-KEY-002",
+      "number": "006-002-002",
+      "key": "SEC_RECOVERY_FORMAT",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Это не похоже на ключ восстановления",
+        "uk": "Це не схоже на ключ відновлення",
+        "en": "This does not look like a recovery key",
+        "de": "Dies sieht nicht wie ein Wiederherstellungsschlüssel aus"
+      },
+      "cause": {
+        "ru": "Введённый текст не совпадает по формату с ключом восстановления — возможно, часть скопирована не полностью или перепутана с другой строкой.",
+        "uk": "Введений текст не збігається за форматом із ключем відновлення — можливо, частину скопійовано не повністю або переплутано з іншим рядком.",
+        "en": "The entered text does not match the recovery key format — perhaps part of it was copied incompletely or mixed up with another string.",
+        "de": "Der eingegebene Text entspricht nicht dem Format des Wiederherstellungsschlüssels – vielleicht wurde ein Teil unvollständig kopiert oder mit einer anderen Zeichenfolge verwechselt."
+      },
+      "action": {
+        "ru": "1. Ключ начинается с «RK1-» и состоит из 6 групп по 5 знаков.\n2. Части ключа начинаются с «RS1-».",
+        "uk": "1. Ключ починається з «RK1-» і складається з 6 груп по 5 знаків.\n2. Частини ключа починаються з «RS1-».",
+        "en": "1. The key starts with “RK1-” and consists of 6 groups of 5 characters.\n2. Key parts start with “RS1-”.",
+        "de": "1. Der Schlüssel beginnt mit „RK1-“ und besteht aus 6 Gruppen zu je 5 Zeichen.\n2. Teile des Schlüssels beginnen mit „RS1-“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-KEY-002",
+      "since": "1.3.0",
+      "related": [
+        "RENT-RECOV-004"
+      ],
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "SEC-KEY-003",
+      "number": "006-002-003",
+      "key": "SEC_RECOVERY_CHECKSUM",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В ключе восстановления опечатка: контрольная сумма не сходится",
+        "uk": "У ключі відновлення помилка: контрольна сума не збігається",
+        "en": "There is a typo in the recovery key: the checksum does not match",
+        "de": "Im Wiederherstellungsschlüssel ist ein Tippfehler: die Prüfsumme stimmt nicht"
+      },
+      "cause": {
+        "ru": "В ключе есть ошибка при вводе: одна или несколько групп не совпадают с оригиналом.",
+        "uk": "У ключі є помилка під час введення: одна або кілька груп не збігаються з оригіналом.",
+        "en": "There is an input error in the key: one or more groups do not match the original.",
+        "de": "Im Schlüssel gibt es einen Eingabefehler: Eine oder mehrere Gruppen stimmen nicht mit dem Original überein."
+      },
+      "action": {
+        "ru": "1. Сверьте каждую группу с аварийным листом.\n2. Буквы O и I можно вводить как цифры 0 и 1.",
+        "uk": "1. Звірте кожну групу з аварійним листом.\n2. Літери O та I можна вводити як цифри 0 і 1.",
+        "en": "1. Compare each group with the emergency sheet.\n2. The letters O and I can be entered as the digits 0 and 1.",
+        "de": "1. Vergleichen Sie jede Gruppe mit dem Notfallblatt.\n2. Die Buchstaben O und I können als die Ziffern 0 und 1 eingegeben werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-KEY-003",
+      "since": "1.3.0",
+      "related": [
+        "RENT-RECOV-005"
+      ],
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "SEC-KEY-004",
+      "number": "006-002-004",
+      "key": "SEC_RECOVERY_WRONG",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Этот ключ восстановления не подходит к копиям хозяйства",
+        "uk": "Цей ключ відновлення не підходить до копій господарства",
+        "en": "This recovery key does not match the household's backups",
+        "de": "Dieser Wiederherstellungsschlüssel passt nicht zu den Kopien des Haushalts"
+      },
+      "cause": {
+        "ru": "Ключ не подходит к этим копиям: возможно, он уже заменён или относится к другому хозяйству.",
+        "uk": "Ключ не підходить до цих копій: можливо, його вже замінено або він належить іншому господарству.",
+        "en": "The key does not match these backups: it may have been replaced already or belong to another household.",
+        "de": "Der Schlüssel passt nicht zu diesen Kopien: Vielleicht wurde er bereits ersetzt oder gehört zu einem anderen Haushalt."
+      },
+      "action": {
+        "ru": "1. Возможно, ключ отозван или от другого хозяйства.\n2. Попробуйте другой ключ или пароль копий.",
+        "uk": "1. Можливо, ключ відкликано або він від іншого господарства.\n2. Спробуйте інший ключ або пароль копій.",
+        "en": "1. The key may have been revoked or be from another household.\n2. Try another key or the backup password.",
+        "de": "1. Der Schlüssel wurde möglicherweise widerrufen oder gehört zu einem anderen Haushalt.\n2. Versuchen Sie einen anderen Schlüssel oder das Passwort für die Kopien."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-KEY-004",
+      "since": "1.3.0",
+      "related": [
+        "RENT-RECOV-006"
+      ],
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "SEC-KEY-005",
+      "number": "006-002-005",
+      "key": "SEC_SHARES_NEEDED",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужны любые две части ключа из трёх",
+        "uk": "Потрібні будь-які дві частини ключа з трьох",
+        "en": "Any two of the three key parts are required",
+        "de": "Es werden beliebige zwei von drei Schlüsselteilen benötigt"
+      },
+      "cause": {
+        "ru": "Для восстановления нужны две части: одна часть сама по себе не даёт доступа.",
+        "uk": "Для відновлення потрібні дві частини: одна частина сама по собі не дає доступу.",
+        "en": "Two parts are required for recovery: one part alone does not give access.",
+        "de": "Für die Wiederherstellung sind zwei Teile erforderlich: Ein Teil allein gewährt keinen Zugriff."
+      },
+      "action": {
+        "ru": "1. Одна часть ничего не открывает.\n2. Попросите вторую часть у доверенного человека.",
+        "uk": "1. Одна частина нічого не відкриває.\n2. Попросіть другу частину в довіреної людини.",
+        "en": "1. One part opens nothing.\n2. Ask a trusted person for the second part.",
+        "de": "1. Ein Teil allein öffnet nichts.\n2. Bitten Sie eine vertrauenswürdige Person um den zweiten Teil."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-KEY-005",
+      "since": "1.3.0",
+      "related": [
+        "RENT-RECOV-007"
+      ],
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "SEC-KEY-006",
+      "number": "006-002-006",
+      "key": "SEC_SHARES_MISMATCH",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Части от разных ключей не складываются",
+        "uk": "Частини від різних ключів не складаються",
+        "en": "Parts from different keys do not combine",
+        "de": "Teile von verschiedenen Schlüsseln lassen sich nicht zusammensetzen"
+      },
+      "cause": {
+        "ru": "Части относятся к разным наборам, поэтому вместе они не образуют рабочий ключ.",
+        "uk": "Частини належать до різних наборів, тому разом вони не утворюють робочий ключ.",
+        "en": "The parts belong to different sets, so together they do not form a working key.",
+        "de": "Die Teile gehören zu verschiedenen Sätzen, daher ergeben sie zusammen keinen funktionierenden Schlüssel."
+      },
+      "action": {
+        "ru": "1. Возьмите две части одного набора: у них совпадает метка набора в начале.",
+        "uk": "1. Візьміть дві частини одного набору: у них збігається мітка набору на початку.",
+        "en": "1. Take two parts from the same set: they have the same set label at the beginning.",
+        "de": "1. Nehmen Sie zwei Teile aus demselben Satz: Sie haben dieselbe Satzkennung am Anfang."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-KEY-006",
+      "since": "1.3.0",
+      "related": [
+        "RENT-RECOV-008"
+      ],
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "SEC-KEY-007",
+      "number": "006-002-007",
+      "key": "TRUSTEE_INVALID",
+      "aliases": [
+        "trustee_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Доверенное лицо назначено неверно",
+        "uk": "Довірену особу призначено неправильно",
+        "en": "The trusted person is set up incorrectly",
+        "de": "Die Vertrauensperson ist falsch eingerichtet"
+      },
+      "cause": {
+        "ru": "Не указано доверенное лицо, уровень доступа или срок ожидания либо выбрано значение вне списка.",
+        "uk": "Не вказано довірену особу, рівень доступу або строк очікування, або обрано значення поза списком.",
+        "en": "The trusted person, access level or waiting period is missing, or a value outside the list was chosen.",
+        "de": "Vertrauensperson, Zugriffsstufe oder Wartezeit fehlen, oder es wurde ein Wert außerhalb der Liste gewählt."
+      },
+      "action": {
+        "ru": "1. Укажите доверенное лицо.\n2. Выберите уровень доступа: просмотр или восстановление.\n3. Выберите срок ожидания из списка.",
+        "uk": "1. Вкажіть довірену особу.\n2. Оберіть рівень доступу: перегляд або відновлення.\n3. Оберіть строк очікування зі списку.",
+        "en": "1. Enter the trusted person.\n2. Choose the access level: view or recovery.\n3. Choose the waiting period from the list.",
+        "de": "1. Geben Sie die Vertrauensperson an.\n2. Wählen Sie die Zugriffsstufe: Ansehen oder Wiederherstellung.\n3. Wählen Sie die Wartezeit aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-KEY-007",
+      "since": "1.3.0",
+      "tags": [
+        "recovery"
+      ]
+    },
+    {
+      "code": "SEC-KEY-008",
+      "number": "006-002-008",
+      "key": "TRUSTEE_NO_REQUEST",
+      "aliases": [
+        "trustee_no_request"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Запроса доступа от доверенного лица нет",
+        "uk": "Запиту доступу від довіреної особи немає",
+        "en": "There is no access request from the trusted person",
+        "de": "Es liegt keine Zugriffsanfrage der Vertrauensperson vor"
+      },
+      "cause": {
+        "ru": "Доверенное лицо доступ не запрашивало, поэтому отказывать нечему.",
+        "uk": "Довірена особа доступ не запитувала, тому відмовляти немає чого.",
+        "en": "The trusted person has not requested access, so there is nothing to decline.",
+        "de": "Die Vertrauensperson hat keinen Zugriff angefragt, es gibt also nichts abzulehnen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: отказывать не требуется.",
+        "uk": "1. Нічого робити не потрібно: відмовляти не треба.",
+        "en": "1. Nothing to do: no refusal is needed.",
+        "de": "1. Sie müssen nichts tun: eine Ablehnung ist nicht nötig."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/SEC-KEY-008",
+      "since": "1.3.0",
+      "tags": [
+        "recovery"
+      ]
+    }
+  ]
+}
