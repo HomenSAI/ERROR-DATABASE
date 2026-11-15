@@ -1,0 +1,2641 @@
+{
+  "namespace": "VPN",
+  "area": "CLI",
+  "codes": [
+    {
+      "code": "VPN-CLI-001",
+      "number": "005-013-001",
+      "key": "CLIENT_CABLE_ADDRESS_AMBIGUOUS",
+      "aliases": [
+        "CLIENT-CABLE-ADDRESS-AMBIGUOUS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У кабельного подключения компьютера несколько адресов",
+        "uk": "Кабельне підключення комп'ютера має кілька адрес",
+        "en": "The computer's cable connection has more than one address",
+        "de": "Die Kabelverbindung des Computers hat mehrere Adressen"
+      },
+      "cause": {
+        "ru": "Помощник проверки не смог выбрать один адрес на выбранном кабельном адаптере компьютера и не начал проверку. Ничего не изменено.",
+        "uk": "Помічник перевірки не зміг вибрати одну адресу на вибраному кабельному адаптері комп'ютера й не почав перевірку. Нічого не змінено.",
+        "en": "The test helper could not pick one address on the chosen cable adapter of the computer, so it did not start the check. Nothing was changed.",
+        "de": "Der Testhelfer konnte am gewählten Kabeladapter des Computers keine eindeutige Adresse wählen und hat die Prüfung nicht gestartet. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Откройте сетевые настройки компьютера и посмотрите адреса кабельного адаптера.\n2. Оставьте один адрес, полученный автоматически от роутера.\n3. Запустите помощник проверки снова.",
+        "uk": "1. Відкрийте мережеві налаштування комп'ютера й перегляньте адреси кабельного адаптера.\n2. Залиште одну адресу, отриману автоматично від роутера.\n3. Запустіть помічник перевірки знову.",
+        "en": "1. Open the network settings of the computer and look at the addresses of the cable adapter.\n2. Leave one address received automatically from the router.\n3. Run the test helper again.",
+        "de": "1. Öffnen Sie die Netzwerkeinstellungen des Computers und sehen Sie sich die Adressen des Kabeladapters an.\n2. Lassen Sie nur eine Adresse, die automatisch vom Router bezogen wird.\n3. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-002",
+      "number": "005-013-002",
+      "key": "CLIENT_CABLE_HTTPS_FAILED",
+      "aliases": [
+        "CLIENT-CABLE-HTTPS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка HTTPS через кабель не прошла",
+        "uk": "Перевірка HTTPS через кабель не пройшла",
+        "en": "HTTPS check over the cable failed",
+        "de": "HTTPS-Prüfung über das Kabel fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Проверочные HTTPS-запросы компьютера через выбранный кабель не дошли. Роутер может быть занят, или на компьютере работает другая программа, которая меняет путь трафика.",
+        "uk": "Перевірочні HTTPS-запити комп'ютера через вибраний кабель не дійшли. Роутер може бути зайнятий, або на комп'ютері працює інша програма, що змінює шлях трафіку.",
+        "en": "The test HTTPS requests from the computer over the chosen cable did not get through. The router may be busy, or another program on the computer changes where traffic goes.",
+        "de": "Die HTTPS-Testanfragen des Computers über das gewählte Kabel kamen nicht durch. Der Router ist vielleicht ausgelastet, oder ein anderes Programm auf dem Computer leitet den Verkehr um."
+      },
+      "action": {
+        "ru": "1. Проверьте на вкладке «Главная», что интернет через роутер работает.\n2. Временно закройте другие VPN-программы на компьютере.\n3. Запустите помощник проверки снова.",
+        "uk": "1. Перевірте на вкладці «Головна» (Home), що інтернет через роутер працює.\n2. Тимчасово закрийте інші VPN-програми на комп'ютері.\n3. Запустіть помічник перевірки знову.",
+        "en": "1. Check on the Home tab that the internet works through the router.\n2. Close other VPN programs on the computer for a while.\n3. Run the test helper again.",
+        "de": "1. Prüfen Sie auf der Registerkarte „Startseite“ (Home), ob das Internet über den Router funktioniert.\n2. Schließen Sie andere VPN-Programme auf dem Computer vorübergehend.\n3. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-003",
+      "number": "005-013-003",
+      "key": "CLIENT_CABLE_LINK_DOWN",
+      "aliases": [
+        "CLIENT-CABLE-LINK-DOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Кабельный адаптер компьютера не подключён",
+        "uk": "Кабельний адаптер комп'ютера не підключений",
+        "en": "The computer's cable adapter is not connected",
+        "de": "Der Kabeladapter des Computers ist nicht verbunden"
+      },
+      "cause": {
+        "ru": "Выбранный кабельный адаптер компьютера сейчас не активен: кабель не вставлен или выбран не тот адаптер.",
+        "uk": "Вибраний кабельний адаптер комп'ютера зараз неактивний: кабель не вставлено або вибрано не той адаптер.",
+        "en": "The chosen cable adapter of the computer is not active: the cable is not plugged in or the wrong adapter is chosen.",
+        "de": "Der gewählte Kabeladapter des Computers ist nicht aktiv: Das Kabel steckt nicht oder es wurde der falsche Adapter gewählt."
+      },
+      "action": {
+        "ru": "1. Вставьте кабель в LAN-порт роутера.\n2. Запустите помощник снова и выберите правильный адаптер.",
+        "uk": "1. Вставте кабель у LAN-порт роутера.\n2. Запустіть помічник знову й виберіть правильний адаптер.",
+        "en": "1. Plug the cable into a LAN port of the router.\n2. Run the helper again and choose the right adapter.",
+        "de": "1. Stecken Sie das Kabel in einen LAN-Anschluss des Routers.\n2. Starten Sie den Helfer erneut und wählen Sie den richtigen Adapter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-004",
+      "number": "005-013-004",
+      "key": "CLIENT_CABLE_NOT_LOCAL",
+      "aliases": [
+        "CLIENT-CABLE-NOT-LOCAL"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Выбранный кабель не ведёт напрямую к этому роутеру",
+        "uk": "Вибраний кабель не веде напряму до цього роутера",
+        "en": "The chosen cable does not lead directly to this router",
+        "de": "Das gewählte Kabel führt nicht direkt zu diesem Router"
+      },
+      "cause": {
+        "ru": "Через выбранный кабель роутер доступен не напрямую, а через другое устройство или другую сеть. Помощник не меняет настройки сети компьютера сам.",
+        "uk": "Через вибраний кабель роутер доступний не напряму, а через інший пристрій чи іншу мережу. Помічник не змінює налаштування мережі комп'ютера сам.",
+        "en": "Over the chosen cable the router is reached not directly but through another device or network. The helper does not change the computer's network settings by itself.",
+        "de": "Über das gewählte Kabel ist der Router nicht direkt erreichbar, sondern über ein anderes Gerät oder Netz. Der Helfer ändert die Netzwerkeinstellungen des Computers nicht selbst."
+      },
+      "action": {
+        "ru": "1. Проверьте, что кабель идёт прямо в LAN-порт нужного роутера.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Перевірте, що кабель іде прямо в LAN-порт потрібного роутера.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Check that the cable goes straight into a LAN port of the right router.\n2. Run the test helper again.",
+        "de": "1. Prüfen Sie, ob das Kabel direkt in einem LAN-Anschluss des richtigen Routers steckt.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-005",
+      "number": "005-013-005",
+      "key": "CLIENT_CABLE_PROBE_ROUTE_MISMATCH",
+      "aliases": [
+        "CLIENT-CABLE-PROBE-ROUTE-MISMATCH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверки через кабель идут мимо этого роутера",
+        "uk": "Перевірки через кабель ідуть повз цей роутер",
+        "en": "Checks over the cable do not go through this router",
+        "de": "Prüfungen über das Kabel laufen nicht über diesen Router"
+      },
+      "cause": {
+        "ru": "Через выбранный адаптер проверочные запросы ушли бы не через этот роутер. Помощник не добавляет и не удаляет маршруты на компьютере, поэтому отказался от проверки.",
+        "uk": "Через вибраний адаптер перевірочні запити пішли б не через цей роутер. Помічник не додає й не видаляє маршрути на комп'ютері, тому відмовився від перевірки.",
+        "en": "Through the chosen adapter the test requests would not go through this router. The helper does not add or delete routes on the computer, so it refused the check.",
+        "de": "Über den gewählten Adapter würden die Testanfragen nicht über diesen Router laufen. Der Helfer fügt am Computer keine Routen hinzu und löscht keine, daher hat er die Prüfung abgelehnt."
+      },
+      "action": {
+        "ru": "1. Отключите другие сети и VPN-программы на компьютере на время проверки.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Вимкніть інші мережі та VPN-програми на комп'ютері на час перевірки.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Turn off other networks and VPN programs on the computer during the check.\n2. Run the test helper again.",
+        "de": "1. Schalten Sie andere Netze und VPN-Programme auf dem Computer während der Prüfung aus.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-006",
+      "number": "005-013-006",
+      "key": "CLIENT_CANCELLED",
+      "aliases": [
+        "CLIENT-CANCELLED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка отменена",
+        "uk": "Перевірку скасовано",
+        "en": "Check cancelled",
+        "de": "Prüfung abgebrochen"
+      },
+      "cause": {
+        "ru": "Вы не ввели слово TEST, поэтому пробное переключение не началось. Ничего не изменено.",
+        "uk": "Ви не ввели слово TEST, тому пробне перемикання не почалося. Нічого не змінено.",
+        "en": "You did not type TEST, so the trial switch did not start. Nothing was changed.",
+        "de": "Sie haben TEST nicht eingegeben, daher wurde die Probeumschaltung nicht gestartet. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Запустите помощник снова, когда будете готовы к короткому перерыву интернета.\n2. Введите TEST, чтобы начать.",
+        "uk": "1. Запустіть помічник знову, коли будете готові до короткої перерви інтернету.\n2. Введіть TEST, щоб почати.",
+        "en": "1. Run the helper again when you are ready for a short internet break.\n2. Type TEST to start.",
+        "de": "1. Starten Sie den Helfer erneut, wenn Sie für eine kurze Internetunterbrechung bereit sind.\n2. Geben Sie TEST ein, um zu beginnen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-007",
+      "number": "005-013-007",
+      "key": "CLIENT_CONFIRMATION_TIMEOUT",
+      "aliases": [
+        "CLIENT-CONFIRMATION-TIMEOUT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Компьютер не подтвердил переключение вовремя",
+        "uk": "Комп'ютер не підтвердив перемикання вчасно",
+        "en": "The computer did not confirm the switch in time",
+        "de": "Der Computer hat die Umschaltung nicht rechtzeitig bestätigt"
+      },
+      "cause": {
+        "ru": "Подтверждение от помощника на компьютере не пришло вовремя. Роутер начал возврат к прежнему каналу.",
+        "uk": "Підтвердження від помічника на комп'ютері не надійшло вчасно. Роутер почав повернення до попереднього каналу.",
+        "en": "The confirmation from the helper on the computer did not arrive in time. The router started returning to the previous channel.",
+        "de": "Die Bestätigung des Helfers auf dem Computer kam nicht rechtzeitig. Der Router hat die Rückkehr zum vorherigen Kanal eingeleitet."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и посмотрите, какой канал сейчас работает.\n2. Проверьте кабель и запустите помощник снова.\n3. Если неясно, откройте «Помощь».",
+        "uk": "1. Відкрийте «Головну» (Home) і перегляньте, який канал зараз працює.\n2. Перевірте кабель і запустіть помічник знову.\n3. Якщо незрозуміло, відкрийте «Довідку» (Help).",
+        "en": "1. Open Home and see which channel is working now.\n2. Check the cable and run the helper again.\n3. If it is unclear, open Help.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und sehen Sie nach, welcher Kanal gerade arbeitet.\n2. Prüfen Sie das Kabel und starten Sie den Helfer erneut.\n3. Wenn es unklar bleibt, öffnen Sie die „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-008",
+      "number": "005-013-008",
+      "key": "CLIENT_CONFIRMED",
+      "aliases": [
+        "CLIENT-CONFIRMED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Переключение подтверждено",
+        "uk": "Перемикання підтверджено",
+        "en": "Switch confirmed",
+        "de": "Umschaltung bestätigt"
+      },
+      "cause": {
+        "ru": "Проверка после переключения прошла: DNS, HTTPS и адрес выхода в норме. Проверку выполнил сам роутер или помощник на компьютере.",
+        "uk": "Перевірка після перемикання пройшла: DNS, HTTPS та адреса виходу в нормі. Перевірку виконав сам роутер або помічник на комп'ютері.",
+        "en": "The check after the switch passed: DNS, HTTPS and the exit address are fine. The router itself or the helper on the computer made the check.",
+        "de": "Die Prüfung nach der Umschaltung war erfolgreich: DNS, HTTPS und die Ausgangsadresse sind in Ordnung. Geprüft hat der Router selbst oder der Helfer auf dem Computer."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-CLI-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-009",
+      "number": "005-013-009",
+      "key": "CLIENT_CONTROL_PATH_MISMATCH",
+      "aliases": [
+        "CLIENT-CONTROL-PATH-MISMATCH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Компьютер связывается с роутером через другой адаптер",
+        "uk": "Комп'ютер зв'язується з роутером через інший адаптер",
+        "en": "The computer reaches the router through another adapter",
+        "de": "Der Computer erreicht den Router über einen anderen Adapter"
+      },
+      "cause": {
+        "ru": "Компьютер обращается к роутеру не через выбранное подключение. Так бывает, например, когда два роутера используют одинаковые адреса. Помощник остановился до входа в роутер.",
+        "uk": "Комп'ютер звертається до роутера не через вибране підключення. Так буває, наприклад, коли два роутери використовують однакові адреси. Помічник зупинився до входу в роутер.",
+        "en": "The computer talks to the router not through the chosen connection. This happens, for example, when two routers use the same addresses. The helper stopped before signing in to the router.",
+        "de": "Der Computer spricht den Router nicht über die gewählte Verbindung an. Das passiert zum Beispiel, wenn zwei Router dieselben Adressen verwenden. Der Helfer hat vor der Anmeldung am Router angehalten."
+      },
+      "action": {
+        "ru": "1. Оставьте на компьютере только одно подключение к нужному роутеру.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Залиште на комп'ютері лише одне підключення до потрібного роутера.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Keep only one connection to the right router on the computer.\n2. Run the test helper again.",
+        "de": "1. Lassen Sie am Computer nur eine Verbindung zum richtigen Router bestehen.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-010",
+      "number": "005-013-010",
+      "key": "CLIENT_DNS_CONFIG_UNVERIFIED",
+      "aliases": [
+        "CLIENT-DNS-CONFIG-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "DNS компьютера работает не через роутер",
+        "uk": "DNS комп'ютера працює не через роутер",
+        "en": "The computer's DNS does not go through the router",
+        "de": "Das DNS des Computers läuft nicht über den Router"
+      },
+      "cause": {
+        "ru": "Компьютер использует другой DNS-сервер, а не роутер, поэтому проверка DNS не показывает работу роутера.",
+        "uk": "Комп'ютер використовує інший DNS-сервер, а не роутер, тому перевірка DNS не показує роботу роутера.",
+        "en": "The computer uses a DNS server other than the router, so the DNS check does not show how the router works.",
+        "de": "Der Computer nutzt einen anderen DNS-Server als den Router, daher zeigt die DNS-Prüfung nicht, wie der Router arbeitet."
+      },
+      "action": {
+        "ru": "1. Поставьте в настройках сети компьютера получение DNS автоматически.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Встановіть у налаштуваннях мережі комп'ютера отримання DNS автоматично.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Set DNS to automatic in the computer's network settings.\n2. Run the test helper again.",
+        "de": "1. Stellen Sie DNS in den Netzwerkeinstellungen des Computers auf automatisch.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-011",
+      "number": "005-013-011",
+      "key": "CLIENT_GATEWAY_MISMATCH",
+      "aliases": [
+        "CLIENT-GATEWAY-MISMATCH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Компьютер выходит в интернет не через этот роутер",
+        "uk": "Комп'ютер виходить в інтернет не через цей роутер",
+        "en": "The computer reaches the internet not through this router",
+        "de": "Der Computer geht nicht über diesen Router ins Internet"
+      },
+      "cause": {
+        "ru": "Основной путь компьютера в интернет идёт через другой роутер или другую программу, например другой VPN. Помощник ничего не отключает сам.",
+        "uk": "Основний шлях комп'ютера в інтернет іде через інший роутер або іншу програму, наприклад інший VPN. Помічник нічого не вимикає сам.",
+        "en": "The computer's main path to the internet goes through another router or another program, such as another VPN. The helper does not turn anything off by itself.",
+        "de": "Der Hauptweg des Computers ins Internet läuft über einen anderen Router oder ein anderes Programm, etwa ein anderes VPN. Der Helfer schaltet nichts selbst ab."
+      },
+      "action": {
+        "ru": "1. Подключите компьютер к этому роутеру кабелем.\n2. Временно закройте другие VPN-программы.\n3. Запустите помощник проверки снова.",
+        "uk": "1. Підключіть комп'ютер до цього роутера кабелем.\n2. Тимчасово закрийте інші VPN-програми.\n3. Запустіть помічник перевірки знову.",
+        "en": "1. Connect the computer to this router with a cable.\n2. Close other VPN programs for a while.\n3. Run the test helper again.",
+        "de": "1. Verbinden Sie den Computer per Kabel mit diesem Router.\n2. Schließen Sie andere VPN-Programme vorübergehend.\n3. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-012",
+      "number": "005-013-012",
+      "key": "CLIENT_IPV6_DEFAULT_UNVERIFIED",
+      "aliases": [
+        "CLIENT-IPV6-DEFAULT-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Путь IPv6 компьютера не проверен",
+        "uk": "Шлях IPv6 комп'ютера не перевірено",
+        "en": "The computer's IPv6 path is not verified",
+        "de": "Der IPv6-Weg des Computers ist nicht geprüft"
+      },
+      "cause": {
+        "ru": "У компьютера есть свой путь в интернет по IPv6, который помощник не может проверить. Часть трафика может идти мимо роутера. Помощник не отключает IPv6 сам.",
+        "uk": "Комп'ютер має свій шлях в інтернет по IPv6, який помічник не може перевірити. Частина трафіку може йти повз роутер. Помічник не вимикає IPv6 сам.",
+        "en": "The computer has its own IPv6 path to the internet that the helper cannot verify. Some traffic may bypass the router. The helper does not turn IPv6 off by itself.",
+        "de": "Der Computer hat einen eigenen IPv6-Weg ins Internet, den der Helfer nicht prüfen kann. Ein Teil des Verkehrs kann am Router vorbeigehen. Der Helfer schaltet IPv6 nicht selbst ab."
+      },
+      "action": {
+        "ru": "1. Подключите компьютер к роутеру кабелем и запустите проверку по кабелю.\n2. Если не помогло, оставьте результат как есть: настройки компьютера менять не обязательно.",
+        "uk": "1. Підключіть комп'ютер до роутера кабелем і запустіть перевірку через кабель.\n2. Якщо не допомогло, залиште результат як є: налаштування комп'ютера змінювати не обов'язково.",
+        "en": "1. Connect the computer to the router by cable and run the check over the cable.\n2. If that does not help, accept the result: you do not have to change the computer's settings.",
+        "de": "1. Verbinden Sie den Computer per Kabel mit dem Router und starten Sie die Prüfung über das Kabel.\n2. Hilft das nicht, belassen Sie das Ergebnis so: Sie müssen die Einstellungen des Computers nicht ändern."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-013",
+      "number": "005-013-013",
+      "key": "CLIENT_PROBE_ROUTE_CONFLICT",
+      "aliases": [
+        "CLIENT-PROBE-ROUTE-CONFLICT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Старый проверочный маршрут на компьютере",
+        "uk": "Старий перевірочний маршрут на комп'ютері",
+        "en": "Old test route on the computer",
+        "de": "Alte Testroute auf dem Computer"
+      },
+      "cause": {
+        "ru": "Этот код относится к старой версии помощника, которая добавляла свои маршруты на компьютер. Текущий помощник маршрутов не добавляет.",
+        "uk": "Цей код стосується старої версії помічника, яка додавала свої маршрути на комп'ютер. Поточний помічник маршрутів не додає.",
+        "en": "This code belongs to an old version of the helper that added its own routes on the computer. The current helper adds no routes.",
+        "de": "Dieser Code gehört zu einer alten Version des Helfers, die eigene Routen auf dem Computer angelegt hat. Der aktuelle Helfer legt keine Routen an."
+      },
+      "action": {
+        "ru": "1. Используйте текущую версию помощника со страницы роутера.\n2. Перезагрузите компьютер, чтобы старые временные маршруты исчезли.",
+        "uk": "1. Використовуйте поточну версію помічника зі сторінки роутера.\n2. Перезавантажте комп'ютер, щоб старі тимчасові маршрути зникли.",
+        "en": "1. Use the current version of the helper from the router page.\n2. Restart the computer so that old temporary routes disappear.",
+        "de": "1. Verwenden Sie die aktuelle Version des Helfers von der Router-Seite.\n2. Starten Sie den Computer neu, damit alte temporäre Routen verschwinden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-014",
+      "number": "005-013-014",
+      "key": "CLIENT_RESERVE_NOT_VERIFIED",
+      "aliases": [
+        "CLIENT-RESERVE-NOT-VERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Резервный канал не подтверждён",
+        "uk": "Резервний канал не підтверджено",
+        "en": "Reserve channel not confirmed",
+        "de": "Reservekanal nicht bestätigt"
+      },
+      "cause": {
+        "ru": "После переключения компьютер не увидел выход в интернет через резервный VPN.",
+        "uk": "Після перемикання комп'ютер не побачив вихід в інтернет через резервний VPN.",
+        "en": "After the switch the computer did not see the internet exit through the reserve VPN.",
+        "de": "Nach der Umschaltung hat der Computer den Internetausgang über das Reserve-VPN nicht gesehen."
+      },
+      "action": {
+        "ru": "1. Проверьте карточку резервного канала на «Главной».\n2. Убедитесь на вкладке «Каналы», что резервный VPN работает.\n3. Запустите помощник проверки снова.",
+        "uk": "1. Перевірте картку резервного каналу на «Головній» (Home).\n2. Переконайтеся на вкладці «Канали» (Channels), що резервний VPN працює.\n3. Запустіть помічник перевірки знову.",
+        "en": "1. Check the reserve channel card on Home.\n2. Make sure on the Channels tab that the reserve VPN works.\n3. Run the test helper again.",
+        "de": "1. Prüfen Sie die Karte des Reservekanals auf der „Startseite“ (Home).\n2. Vergewissern Sie sich auf der Registerkarte „Kanäle“ (Channels), dass das Reserve-VPN funktioniert.\n3. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-015",
+      "number": "005-013-015",
+      "key": "CLIENT_STOP",
+      "aliases": [
+        "CLIENT-STOP"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Переключение остановлено",
+        "uk": "Перемикання зупинено",
+        "en": "Switch stopped",
+        "de": "Umschaltung gestoppt"
+      },
+      "cause": {
+        "ru": "Во время этого переключения пришла команда Стоп, поэтому роутер вернулся к основному каналу. В старых версиях так иногда бывало сразу после перезагрузки, пока часы роутера не обновились.",
+        "uk": "Під час цього перемикання надійшла команда Стоп (Stop), тому роутер повернувся до основного каналу. У старих версіях так іноді бувало одразу після перезавантаження, доки годинник роутера не оновився.",
+        "en": "A Stop came during this switch, so the router went back to the primary channel. In older versions this sometimes happened right after a reboot, until the router clock was updated.",
+        "de": "Während dieser Umschaltung kam ein Stopp (Stop), daher ist der Router zum Hauptkanal zurückgekehrt. In älteren Versionen geschah das manchmal direkt nach einem Neustart, bis die Uhr des Routers aktualisiert war."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно, если Стоп нажали вы.\n2. Если код появился после перезагрузки, подождите несколько минут и нажмите Старт.",
+        "uk": "1. Нічого робити не потрібно, якщо Стоп (Stop) натиснули ви.\n2. Якщо код з'явився після перезавантаження, зачекайте кілька хвилин і натисніть Старт (Start).",
+        "en": "1. Nothing to do if you pressed Stop yourself.\n2. If the code appeared after a reboot, wait a few minutes and press Start.",
+        "de": "1. Es ist nichts zu tun, wenn Sie selbst Stopp (Stop) gedrückt haben.\n2. Erschien der Code nach einem Neustart, warten Sie einige Minuten und drücken Sie Start (Start)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-CLI-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-016",
+      "number": "005-013-016",
+      "key": "CLIENT_TRIAL_UNCONFIRMED",
+      "aliases": [
+        "CLIENT-TRIAL-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пробное переключение не подтверждено",
+        "uk": "Пробне перемикання не підтверджено",
+        "en": "Trial switch not confirmed",
+        "de": "Probeumschaltung nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не получил вовремя правильное подтверждение от компьютера и вернулся к прежнему каналу.",
+        "uk": "Роутер не отримав вчасно правильного підтвердження від комп'ютера й повернувся до попереднього каналу.",
+        "en": "The router did not get a valid confirmation from the computer in time and returned to the previous channel.",
+        "de": "Der Router hat nicht rechtzeitig eine gültige Bestätigung vom Computer erhalten und ist zum vorherigen Kanal zurückgekehrt."
+      },
+      "action": {
+        "ru": "1. Проверьте кабель между компьютером и роутером.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Перевірте кабель між комп'ютером і роутером.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Check the cable between the computer and the router.\n2. Run the test helper again.",
+        "de": "1. Prüfen Sie das Kabel zwischen Computer und Router.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-017",
+      "number": "005-013-017",
+      "key": "PC_BACKUP_ENCRYPTED",
+      "aliases": [
+        "PC-BACKUP-ENCRYPTED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Зашифрованная копия сохранена на компьютере",
+        "uk": "Зашифровану копію збережено на комп'ютері",
+        "en": "Encrypted backup saved on the computer",
+        "de": "Verschlüsselte Sicherung auf dem Computer gespeichert"
+      },
+      "cause": {
+        "ru": "Копия настроек роутера сразу зашифрована вашим паролем и успешно открылась при пробной расшифровке. Без шифрования она не сохранялась. Копия лежит в папке резервных копий рядом с набором установки.",
+        "uk": "Копію налаштувань роутера одразу зашифровано вашим паролем, і вона успішно відкрилася під час пробного розшифрування. Без шифрування її не зберігали. Копія лежить у теці резервних копій поруч із набором встановлення.",
+        "en": "The router settings backup was encrypted with your password right away and opened fine in a test decryption. It was never saved unencrypted. It is in the backup folder next to the install kit.",
+        "de": "Die Sicherung der Router-Einstellungen wurde sofort mit Ihrem Passwort verschlüsselt und ließ sich bei einer Probeentschlüsselung öffnen. Unverschlüsselt wurde sie nie gespeichert. Sie liegt im Sicherungsordner neben dem Installationspaket."
+      },
+      "action": {
+        "ru": "1. Сохраните копию в надёжном месте.\n2. Запомните пароль: без него копию нельзя восстановить.",
+        "uk": "1. Збережіть копію в надійному місці.\n2. Запам'ятайте пароль: без нього копію не можна відновити.",
+        "en": "1. Keep the backup in a safe place.\n2. Remember the password: without it the backup cannot be restored.",
+        "de": "1. Bewahren Sie die Sicherung an einem sicheren Ort auf.\n2. Merken Sie sich das Passwort: Ohne es lässt sich die Sicherung nicht wiederherstellen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-CLI-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-018",
+      "number": "005-013-018",
+      "key": "PC_BACKUP_FOUND",
+      "aliases": [
+        "PC-BACKUP-FOUND"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Свежая зашифрованная копия уже есть",
+        "uk": "Свіжа зашифрована копія вже є",
+        "en": "A fresh encrypted backup already exists",
+        "de": "Eine aktuelle verschlüsselte Sicherung ist bereits vorhanden"
+      },
+      "cause": {
+        "ru": "Недавняя зашифрованная копия этого же роутера уже лежит в папке резервных копий, поэтому установка не делала новую.",
+        "uk": "Нещодавня зашифрована копія цього ж роутера вже лежить у теці резервних копій, тому встановлення не робило нову.",
+        "en": "A recent encrypted backup of this same router is already in the backup folder, so the installation did not make a new one.",
+        "de": "Eine aktuelle verschlüsselte Sicherung genau dieses Routers liegt bereits im Sicherungsordner, daher hat die Installation keine neue erstellt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Для новой копии переместите старую из папки и запустите установку снова.",
+        "uk": "1. Нічого робити не потрібно.\n2. Для нової копії перемістіть стару з теки й запустіть встановлення знову.",
+        "en": "1. Nothing to do.\n2. For a new backup, move the old one out of the folder and run the installation again.",
+        "de": "1. Es ist nichts zu tun.\n2. Für eine neue Sicherung verschieben Sie die alte aus dem Ordner und starten Sie die Installation erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-CLI-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-019",
+      "number": "005-013-019",
+      "key": "PC_PREREQUISITES_NOT_READY",
+      "aliases": [
+        "PC-PREREQUISITES-NOT-READY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Компьютер не готов к установке",
+        "uk": "Комп'ютер не готовий до встановлення",
+        "en": "The computer is not ready for the installation",
+        "de": "Der Computer ist für die Installation nicht bereit"
+      },
+      "cause": {
+        "ru": "Проверка компьютера из набора установки нашла, что нужной программы нет или она слишком старая, даже после автоматической установки. На роутере ничего не изменено.",
+        "uk": "Перевірка комп'ютера з набору встановлення виявила, що потрібної програми немає або вона застаріла навіть після автоматичного встановлення. На роутері нічого не змінено.",
+        "en": "The computer check of the install kit found that a needed program is missing or too old, even after the automatic installation. Nothing was changed on the router.",
+        "de": "Die Computerprüfung des Installationspakets hat festgestellt, dass ein benötigtes Programm fehlt oder zu alt ist, auch nach der automatischen Installation. Am Router wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Выполните подсказки проверки: установите или обновите названные программы.\n2. Запустите проверку снова.\n3. Переходите к шагам на роутере только после результата «готов».",
+        "uk": "1. Виконайте підказки перевірки: встановіть або оновіть названі програми.\n2. Запустіть перевірку знову.\n3. Переходьте до кроків на роутері лише після результату «готово».",
+        "en": "1. Follow the hints of the check: install or update the programs it names.\n2. Run the check again.\n3. Go on to the router steps only after the result says ready.",
+        "de": "1. Folgen Sie den Hinweisen der Prüfung: Installieren oder aktualisieren Sie die genannten Programme.\n2. Starten Sie die Prüfung erneut.\n3. Fahren Sie mit den Router-Schritten erst fort, wenn das Ergebnis „bereit“ lautet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-020",
+      "number": "005-013-020",
+      "key": "POWERSHELL_7_REQUIRED",
+      "aliases": [
+        "POWERSHELL-7-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужен PowerShell 7",
+        "uk": "Потрібен PowerShell 7",
+        "en": "PowerShell 7 is needed",
+        "de": "PowerShell 7 wird benötigt"
+      },
+      "cause": {
+        "ru": "Помощник проверки работает только в PowerShell 7, а он не найден или запущена старая версия.",
+        "uk": "Помічник перевірки працює лише в PowerShell 7, а його не знайдено або запущено стару версію.",
+        "en": "The test helper works only in PowerShell 7, which was not found or an older version was started.",
+        "de": "Der Testhelfer funktioniert nur mit PowerShell 7; es wurde nicht gefunden oder eine ältere Version gestartet."
+      },
+      "action": {
+        "ru": "1. Установите PowerShell 7, скачав его с официального сайта или из магазина приложений.\n2. Запустите помощник в PowerShell 7.",
+        "uk": "1. Встановіть PowerShell 7 з офіційного сайту або з магазину застосунків.\n2. Запустіть помічник у PowerShell 7.",
+        "en": "1. Install PowerShell 7 from the official site or the app store.\n2. Start the helper in PowerShell 7.",
+        "de": "1. Installieren Sie PowerShell 7 von der offiziellen Website oder aus dem App-Store.\n2. Starten Sie den Helfer in PowerShell 7."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-021",
+      "number": "005-013-021",
+      "key": "PRIVATE_LAN_ROUTER_REQUIRED",
+      "aliases": [
+        "PRIVATE-LAN-ROUTER-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес роутера не из локальной сети",
+        "uk": "Адреса роутера не з локальної мережі",
+        "en": "The router address is not a local network address",
+        "de": "Die Router-Adresse ist keine lokale Netzadresse"
+      },
+      "cause": {
+        "ru": "Помощник работает только с частным адресом роутера в вашей локальной сети. Указанный адрес похож на адрес в интернете, поэтому проверка не началась.",
+        "uk": "Помічник працює лише з приватною адресою роутера у вашій локальній мережі. Вказана адреса схожа на адресу в інтернеті, тому перевірка не почалася.",
+        "en": "The helper works only with a private address of the router in your local network. The given address looks like an internet address, so the check did not start.",
+        "de": "Der Helfer arbeitet nur mit einer privaten Adresse des Routers in Ihrem lokalen Netz. Die angegebene Adresse sieht wie eine Internetadresse aus, daher wurde die Prüfung nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Укажите локальный адрес роутера, по которому открывается его страница в вашей сети.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Вкажіть локальну адресу роутера, за якою відкривається його сторінка у вашій мережі.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Enter the local address of the router that opens its page in your network.\n2. Run the test helper again.",
+        "de": "1. Geben Sie die lokale Adresse des Routers ein, unter der sich seine Seite in Ihrem Netz öffnet.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "helper",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-022",
+      "number": "005-013-022",
+      "key": "CLIENT_ACCEPT_SESSION_LOSS",
+      "aliases": [
+        "ACCEPT-SESSION-LOSS-IN-LUCI"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет согласия на короткий обрыв соединений",
+        "uk": "Немає згоди на короткий обрив з'єднань",
+        "en": "No consent to a short connection break",
+        "de": "Keine Zustimmung zu einer kurzen Verbindungsunterbrechung"
+      },
+      "cause": {
+        "ru": "При пробном переключении открытые соединения на короткое время обрываются. На странице роутера не отмечено согласие на это, поэтому проверка не началась.",
+        "uk": "Під час пробного перемикання відкриті з'єднання ненадовго обриваються. На сторінці роутера не позначено згоду на це, тому перевірка не почалася.",
+        "en": "During a trial switch open connections drop for a short time. The consent to this is not ticked on the router page, so the check did not start.",
+        "de": "Bei einer Probeumschaltung brechen offene Verbindungen kurz ab. Die Zustimmung dazu ist auf der Router-Seite nicht angekreuzt, daher wurde die Prüfung nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Отметьте на странице роутера согласие на короткий обрыв соединений.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Позначте на сторінці роутера згоду на короткий обрив з'єднань.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Tick the consent to a short connection break on the router page.\n2. Run the test helper again.",
+        "de": "1. Kreuzen Sie auf der Router-Seite die Zustimmung zu einer kurzen Verbindungsunterbrechung an.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-023",
+      "number": "005-013-023",
+      "key": "CLIENT_CABLE_EXIT_INCONSISTENT",
+      "aliases": [
+        "CLIENT-CABLE-EXIT-INCONSISTENT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес выхода по кабелю менялся во время проверки",
+        "uk": "Адреса виходу через кабель змінювалася під час перевірки",
+        "en": "The exit address over the cable changed during the check",
+        "de": "Die Ausgangsadresse über das Kabel hat sich während der Prüfung geändert"
+      },
+      "cause": {
+        "ru": "Две проверки адреса выхода в интернет через кабель подряд дали разные адреса. Так бывает, если канал переподключился или на компьютере работает другой VPN.",
+        "uk": "Дві перевірки адреси виходу в інтернет через кабель поспіль дали різні адреси. Так буває, якщо канал перепідключився або на комп'ютері працює інший VPN.",
+        "en": "Two checks of the internet exit address over the cable in a row gave different addresses. This happens when the channel reconnected or another VPN runs on the computer.",
+        "de": "Zwei aufeinanderfolgende Prüfungen der Internet-Ausgangsadresse über das Kabel ergaben verschiedene Adressen. Das passiert, wenn sich der Kanal neu verbunden hat oder ein anderes VPN auf dem Computer läuft."
+      },
+      "action": {
+        "ru": "1. Временно закройте другие VPN-программы на компьютере.\n2. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Тимчасово закрийте інші VPN-програми на комп'ютері.\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Close other VPN programs on the computer for a while.\n2. Wait a few minutes and run the helper again.",
+        "de": "1. Schließen Sie andere VPN-Programme auf dem Computer vorübergehend.\n2. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-024",
+      "number": "005-013-024",
+      "key": "CLIENT_CHECK_FAILED",
+      "aliases": [
+        "CLIENT-CHECK-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка помощника не удалась",
+        "uk": "Перевірка помічника не вдалася",
+        "en": "The helper check failed",
+        "de": "Die Prüfung des Helfers ist fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Проверка с компьютера не прошла по причине, для которой нет отдельного кода. Ничего не изменено.",
+        "uk": "Перевірка з комп'ютера не пройшла з причини, для якої немає окремого коду. Нічого не змінено.",
+        "en": "The check from the computer failed for a reason that has no separate code. Nothing was changed.",
+        "de": "Die Prüfung vom Computer aus ist aus einem Grund fehlgeschlagen, für den es keinen eigenen Code gibt. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Посмотрите другие коды рядом с этим в выводе помощника.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Перегляньте інші коди поруч із цим у виводі помічника.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Look at the other codes next to this one in the helper output.\n2. Run the test helper again.",
+        "de": "1. Sehen Sie sich die anderen Codes neben diesem in der Ausgabe des Helfers an.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-025",
+      "number": "005-013-025",
+      "key": "CLIENT_CONFIRM_NOT_ACCEPTED",
+      "aliases": [
+        "CLIENT-CONFIRM-NOT-ACCEPTED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер не принял подтверждение проверки",
+        "uk": "Роутер не прийняв підтвердження перевірки",
+        "en": "The router did not accept the check confirmation",
+        "de": "Der Router hat die Prüfbestätigung nicht angenommen"
+      },
+      "cause": {
+        "ru": "Помощник отправил подтверждение проверки, но роутер его не принял: оно пришло поздно, относится к другой проверке или его прислала старая версия помощника.",
+        "uk": "Помічник надіслав підтвердження перевірки, але роутер його не прийняв: воно надійшло пізно, стосується іншої перевірки або його надіслала стара версія помічника.",
+        "en": "The helper sent the check confirmation, but the router did not accept it: it came late, belongs to another check, or was sent by an old version of the helper.",
+        "de": "Der Helfer hat die Prüfbestätigung gesendet, aber der Router hat sie nicht angenommen: Sie kam zu spät, gehört zu einer anderen Prüfung oder stammt von einer alten Version des Helfers."
+      },
+      "action": {
+        "ru": "1. Скачайте помощник заново со страницы роутера.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Завантажте помічник заново зі сторінки роутера.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Download the helper again from the router page.\n2. Run the test helper again.",
+        "de": "1. Laden Sie den Helfer erneut von der Router-Seite herunter.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-026",
+      "number": "005-013-026",
+      "key": "CLIENT_CONTROLLER_STOPPED_OR_BLOCKED",
+      "aliases": [
+        "CONTROLLER-STOPPED-OR-BLOCKED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Управление на роутере остановлено или занято",
+        "uk": "Керування на роутері зупинено або зайнято",
+        "en": "Control on the router is stopped or busy",
+        "de": "Die Steuerung auf dem Router ist gestoppt oder belegt"
+      },
+      "cause": {
+        "ru": "Во время проверки управление каналами на роутере было остановлено или занято другой операцией, поэтому проверка прервана.",
+        "uk": "Під час перевірки керування каналами на роутері було зупинено або зайнято іншою операцією, тому перевірку перервано.",
+        "en": "During the check the channel control on the router was stopped or busy with another operation, so the check was cut short.",
+        "de": "Während der Prüfung war die Kanalsteuerung auf dem Router gestoppt oder mit einem anderen Vorgang belegt, daher wurde die Prüfung abgebrochen."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и посмотрите состояние Auto.\n2. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Відкрийте «Головну» (Home) і перегляньте стан Auto.\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Open Home and look at the state of Auto.\n2. Wait a few minutes and run the helper again.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und sehen Sie sich den Zustand von Auto an.\n2. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-027",
+      "number": "005-013-027",
+      "key": "CLIENT_DNS_FAILED",
+      "aliases": [
+        "CLIENT-DNS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "DNS через роутер не ответил",
+        "uk": "DNS через роутер не відповів",
+        "en": "DNS through the router did not answer",
+        "de": "DNS über den Router hat nicht geantwortet"
+      },
+      "cause": {
+        "ru": "Компьютер не получил ответа на проверочный DNS-запрос через роутер.",
+        "uk": "Комп'ютер не отримав відповіді на перевірочний DNS-запит через роутер.",
+        "en": "The computer got no answer to the test DNS request through the router.",
+        "de": "Der Computer hat auf die DNS-Testanfrage über den Router keine Antwort erhalten."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и проверьте, что интернет через роутер работает.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Відкрийте «Головну» (Home) і перевірте, що інтернет через роутер працює.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Open Home and check that the internet works through the router.\n2. Run the test helper again.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und prüfen Sie, ob das Internet über den Router funktioniert.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-028",
+      "number": "005-013-028",
+      "key": "CLIENT_DNS_REPLY_INVALID",
+      "aliases": [
+        "CLIENT-DNS-ID",
+        "CLIENT-DNS-NAME",
+        "CLIENT-DNS-POINTER",
+        "CLIENT-DNS-NAME-LIMIT",
+        "CLIENT-DNS-REPLY",
+        "CLIENT-DNS-FLAGS",
+        "CLIENT-DNS-QUESTION",
+        "CLIENT-DNS-ANSWER-COUNT",
+        "CLIENT-DNS-ANSWER",
+        "CLIENT-DNS-RDATA",
+        "CLIENT-DNS-NO-A",
+        "CLIENT-DNS-SENDER"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ответ DNS от роутера неполный или неверный",
+        "uk": "Відповідь DNS від роутера неповна або неправильна",
+        "en": "The DNS answer from the router is incomplete or wrong",
+        "de": "Die DNS-Antwort des Routers ist unvollständig oder falsch"
+      },
+      "cause": {
+        "ru": "Компьютер получил ответ DNS через роутер, но он неполный, повреждён или не относится к заданному вопросу. Такой ответ не считается успешной проверкой.",
+        "uk": "Комп'ютер отримав відповідь DNS через роутер, але вона неповна, пошкоджена або не стосується заданого запиту. Така відповідь не вважається успішною перевіркою.",
+        "en": "The computer got a DNS answer through the router, but it is incomplete, damaged or does not match the question. Such an answer does not count as a passed check.",
+        "de": "Der Computer hat über den Router eine DNS-Antwort erhalten, die aber unvollständig, beschädigt oder unpassend zur Anfrage ist. Eine solche Antwort gilt nicht als bestandene Prüfung."
+      },
+      "action": {
+        "ru": "1. Поставьте в настройках сети компьютера получение DNS автоматически.\n2. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Встановіть у налаштуваннях мережі комп'ютера отримання DNS автоматично.\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Set DNS to automatic in the computer's network settings.\n2. Wait a few minutes and run the helper again.",
+        "de": "1. Stellen Sie DNS in den Netzwerkeinstellungen des Computers auf automatisch.\n2. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-029",
+      "number": "005-013-029",
+      "key": "CLIENT_EXIT_ADDRESS_UNREADABLE",
+      "aliases": [
+        "CLIENT-EXIT-IPV4",
+        "TRACE-FORMAT",
+        "TRACE-IPV4-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес выхода в интернет не удалось прочитать",
+        "uk": "Адресу виходу в інтернет не вдалося прочитати",
+        "en": "The internet exit address could not be read",
+        "de": "Die Internet-Ausgangsadresse konnte nicht gelesen werden"
+      },
+      "cause": {
+        "ru": "Ответ с адресом выхода в интернет пришёл в непонятном виде или без адреса IPv4. Проверочная служба в интернете могла временно ответить иначе.",
+        "uk": "Відповідь з адресою виходу в інтернет надійшла в незрозумілому вигляді або без адреси IPv4. Перевірочна служба в інтернеті могла тимчасово відповісти інакше.",
+        "en": "The answer with the internet exit address came in an unreadable form or without an IPv4 address. The test service on the internet may have answered differently for a while.",
+        "de": "Die Antwort mit der Internet-Ausgangsadresse war unlesbar oder enthielt keine IPv4-Adresse. Der Prüfdienst im Internet hat vielleicht vorübergehend anders geantwortet."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Wait a few minutes and run the helper again.",
+        "de": "1. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-030",
+      "number": "005-013-030",
+      "key": "CLIENT_EXIT_MISMATCH",
+      "aliases": [
+        "CLIENT-EXIT-MISMATCH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Компьютер выходит в интернет не через ожидаемый канал",
+        "uk": "Комп'ютер виходить в інтернет не через очікуваний канал",
+        "en": "The computer goes online not through the expected channel",
+        "de": "Der Computer geht nicht über den erwarteten Kanal ins Internet"
+      },
+      "cause": {
+        "ru": "Адрес выхода в интернет, который видит компьютер, не совпал с ожидаемым VPN-каналом роутера. Возможно, трафик идёт через другой VPN или другое подключение.",
+        "uk": "Адреса виходу в інтернет, яку бачить комп'ютер, не збіглася з очікуваним VPN-каналом роутера. Можливо, трафік іде через інший VPN або інше підключення.",
+        "en": "The internet exit address the computer sees did not match the expected VPN channel of the router. Traffic may go through another VPN or another connection.",
+        "de": "Die Internet-Ausgangsadresse, die der Computer sieht, passt nicht zum erwarteten VPN-Kanal des Routers. Der Verkehr läuft vielleicht über ein anderes VPN oder eine andere Verbindung."
+      },
+      "action": {
+        "ru": "1. Временно закройте другие VPN-программы на компьютере.\n2. Подключите компьютер к роутеру кабелем.\n3. Запустите помощник проверки снова.",
+        "uk": "1. Тимчасово закрийте інші VPN-програми на комп'ютері.\n2. Підключіть комп'ютер до роутера кабелем.\n3. Запустіть помічник перевірки знову.",
+        "en": "1. Close other VPN programs on the computer for a while.\n2. Connect the computer to the router by cable.\n3. Run the test helper again.",
+        "de": "1. Schließen Sie andere VPN-Programme auf dem Computer vorübergehend.\n2. Verbinden Sie den Computer per Kabel mit dem Router.\n3. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-031",
+      "number": "005-013-031",
+      "key": "CLIENT_HTTPS_FAILED",
+      "aliases": [
+        "CLIENT-HTTPS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверочный HTTPS-запрос не прошёл",
+        "uk": "Перевірочний HTTPS-запит не пройшов",
+        "en": "The test HTTPS request failed",
+        "de": "Die HTTPS-Testanfrage ist fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Проверочный HTTPS-запрос с компьютера через роутер не дошёл или не получил правильного ответа.",
+        "uk": "Перевірочний HTTPS-запит з комп'ютера через роутер не дійшов або не отримав правильної відповіді.",
+        "en": "The test HTTPS request from the computer through the router did not get through or got no proper answer.",
+        "de": "Die HTTPS-Testanfrage vom Computer über den Router kam nicht durch oder erhielt keine gültige Antwort."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и проверьте, что интернет через роутер работает.\n2. Временно закройте другие VPN-программы на компьютере.\n3. Запустите помощник проверки снова.",
+        "uk": "1. Відкрийте «Головну» (Home) і перевірте, що інтернет через роутер працює.\n2. Тимчасово закрийте інші VPN-програми на комп'ютері.\n3. Запустіть помічник перевірки знову.",
+        "en": "1. Open Home and check that the internet works through the router.\n2. Close other VPN programs on the computer for a while.\n3. Run the test helper again.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und prüfen Sie, ob das Internet über den Router funktioniert.\n2. Schließen Sie andere VPN-Programme auf dem Computer vorübergehend.\n3. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-032",
+      "number": "005-013-032",
+      "key": "CLIENT_LOCAL_ROUTER_URL_REQUIRED",
+      "aliases": [
+        "LOCAL-ROUTER-URL-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужен локальный адрес роутера",
+        "uk": "Потрібна локальна адреса роутера",
+        "en": "A local router address is needed",
+        "de": "Eine lokale Router-Adresse wird benötigt"
+      },
+      "cause": {
+        "ru": "Помощник принимает только локальный числовой адрес IPv4 роутера. Указанный адрес ему не подходит, поэтому проверка не началась.",
+        "uk": "Помічник приймає лише локальну числову адресу IPv4 роутера. Вказана адреса йому не підходить, тому перевірка не почалася.",
+        "en": "The helper accepts only a local numeric IPv4 address of the router. The given address does not fit, so the check did not start.",
+        "de": "Der Helfer akzeptiert nur eine lokale numerische IPv4-Adresse des Routers. Die angegebene Adresse passt nicht, daher wurde die Prüfung nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Укажите локальный адрес роутера, по которому открывается его страница в вашей сети.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Вкажіть локальну адресу роутера, за якою відкривається його сторінка у вашій мережі.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Enter the local address of the router that opens its page in your network.\n2. Run the test helper again.",
+        "de": "1. Geben Sie die lokale Adresse des Routers ein, unter der sich seine Seite in Ihrem Netz öffnet.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-033",
+      "number": "005-013-033",
+      "key": "CLIENT_NATIVE_PREFLIGHT_BLOCKED",
+      "aliases": [
+        "NATIVE-PREFLIGHT-BLOCKED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер не готов к пробному переключению",
+        "uk": "Роутер не готовий до пробного перемикання",
+        "en": "The router is not ready for a trial switch",
+        "de": "Der Router ist für eine Probeumschaltung nicht bereit"
+      },
+      "cause": {
+        "ru": "Перед пробным переключением роутер проверил свою готовность, и проверка не прошла: например, канал не работает или идёт другая операция. Ничего не изменено.",
+        "uk": "Перед пробним перемиканням роутер перевірив свою готовність, і перевірка не пройшла: наприклад, канал не працює або триває інша операція. Нічого не змінено.",
+        "en": "Before the trial switch the router checked that it was ready, and this check failed: for example, a channel does not work or another operation is running. Nothing was changed.",
+        "de": "Vor der Probeumschaltung hat der Router seine Bereitschaft geprüft, und diese Prüfung ist fehlgeschlagen: zum Beispiel arbeitet ein Kanal nicht oder ein anderer Vorgang läuft. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и проверьте, что оба канала работают.\n2. Посмотрите причину в «Журнале».\n3. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Відкрийте «Головну» (Home) і перевірте, що обидва канали працюють.\n2. Перегляньте причину в «Журналі» (Journal).\n3. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Open Home and check that both channels work.\n2. Look up the reason in the Journal.\n3. Wait a few minutes and run the helper again.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und prüfen Sie, ob beide Kanäle funktionieren.\n2. Sehen Sie den Grund im „Protokoll“ (Journal) nach.\n3. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-034",
+      "number": "005-013-034",
+      "key": "CLIENT_NETWORK_CHANGED",
+      "aliases": [
+        "CLIENT-BOUND-ADDRESS-AMBIGUOUS",
+        "CLIENT-BOUND-ADDRESS-CHANGED",
+        "CLIENT-BOUND-INTERFACE-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сеть компьютера изменилась во время проверки",
+        "uk": "Мережа комп'ютера змінилася під час перевірки",
+        "en": "The computer's network changed during the check",
+        "de": "Das Netzwerk des Computers hat sich während der Prüfung geändert"
+      },
+      "cause": {
+        "ru": "Во время проверки у компьютера сменился адрес или подключение, или их нельзя однозначно определить. Результат такой проверки ненадёжен.",
+        "uk": "Під час перевірки в комп'ютера змінилася адреса чи підключення, або їх не можна однозначно визначити. Результат такої перевірки ненадійний.",
+        "en": "During the check the computer's address or connection changed, or it cannot be determined clearly. The result of such a check is not reliable.",
+        "de": "Während der Prüfung haben sich Adresse oder Verbindung des Computers geändert oder sind nicht eindeutig. Das Ergebnis einer solchen Prüfung ist nicht zuverlässig."
+      },
+      "action": {
+        "ru": "1. Не переключайте сети на компьютере во время проверки.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Не перемикайте мережі на комп'ютері під час перевірки.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Do not switch networks on the computer during the check.\n2. Run the test helper again.",
+        "de": "1. Wechseln Sie während der Prüfung nicht das Netzwerk am Computer.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-035",
+      "number": "005-013-035",
+      "key": "CLIENT_PROFILES_NOT_ELIGIBLE",
+      "aliases": [
+        "PROFILES-NOT-ELIGIBLE-GENERIC-RULES"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Выбранные каналы не подходят для проверки",
+        "uk": "Вибрані канали не підходять для перевірки",
+        "en": "The chosen channels are not suitable for the check",
+        "de": "Die gewählten Kanäle eignen sich nicht für die Prüfung"
+      },
+      "cause": {
+        "ru": "У выбранных каналов есть особые правила маршрутизации, при которых пробное переключение нельзя надёжно проверить. Ничего не изменено.",
+        "uk": "Вибрані канали мають особливі правила маршрутизації, за яких пробне перемикання не можна надійно перевірити. Нічого не змінено.",
+        "en": "The chosen channels have special routing rules that make it impossible to check a trial switch reliably. Nothing was changed.",
+        "de": "Die gewählten Kanäle haben besondere Routing-Regeln, bei denen sich eine Probeumschaltung nicht zuverlässig prüfen lässt. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Откройте вкладку «Каналы» и выберите каналы без особых правил маршрутизации.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Відкрийте вкладку «Канали» (Channels) і виберіть канали без особливих правил маршрутизації.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Open the Channels tab and choose channels without special routing rules.\n2. Run the test helper again.",
+        "de": "1. Öffnen Sie die Registerkarte „Kanäle“ (Channels) und wählen Sie Kanäle ohne besondere Routing-Regeln.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-036",
+      "number": "005-013-036",
+      "key": "CLIENT_RESTORE_MISMATCH",
+      "aliases": [
+        "CLIENT-RESTORE-MISMATCH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "После возврата выход в интернет не совпал с исходным",
+        "uk": "Після повернення вихід в інтернет не збігся з початковим",
+        "en": "After the return the internet exit differs from the original",
+        "de": "Nach der Rückkehr weicht der Internetausgang vom ursprünglichen ab"
+      },
+      "cause": {
+        "ru": "После пробного переключения роутер вернулся назад, но компьютер видит не тот адрес выхода в интернет, что был до проверки.",
+        "uk": "Після пробного перемикання роутер повернувся назад, але комп'ютер бачить не ту адресу виходу в інтернет, що була до перевірки.",
+        "en": "After the trial switch the router went back, but the computer sees a different internet exit address than before the check.",
+        "de": "Nach der Probeumschaltung ist der Router zurückgekehrt, aber der Computer sieht eine andere Internet-Ausgangsadresse als vor der Prüfung."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и посмотрите, какой канал сейчас работает.\n2. Если основной канал не вернулся через несколько минут, откройте «Помощь».",
+        "uk": "1. Відкрийте «Головну» (Home) і перегляньте, який канал зараз працює.\n2. Якщо основний канал не повернувся за кілька хвилин, відкрийте «Довідку» (Help).",
+        "en": "1. Open Home and see which channel is working now.\n2. If the primary channel has not come back after a few minutes, open Help.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und sehen Sie nach, welcher Kanal gerade arbeitet.\n2. Ist der Hauptkanal nach einigen Minuten nicht zurück, öffnen Sie die „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-037",
+      "number": "005-013-037",
+      "key": "CLIENT_ROUTER_LOGIN_FAILED",
+      "aliases": [
+        "ROUTER-LOGIN-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Помощник не смог войти в роутер",
+        "uk": "Помічник не зміг увійти в роутер",
+        "en": "The helper could not sign in to the router",
+        "de": "Der Helfer konnte sich nicht am Router anmelden"
+      },
+      "cause": {
+        "ru": "Роутер не принял вход помощника: пароль неверный, роутер недоступен или занят.",
+        "uk": "Роутер не прийняв вхід помічника: пароль неправильний, роутер недоступний або зайнятий.",
+        "en": "The router did not accept the helper's sign-in: the password is wrong, or the router is unreachable or busy.",
+        "de": "Der Router hat die Anmeldung des Helfers nicht angenommen: Das Passwort ist falsch, oder der Router ist nicht erreichbar oder ausgelastet."
+      },
+      "action": {
+        "ru": "1. Проверьте пароль роутера, войдя на его страницу в браузере.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Перевірте пароль роутера, увійшовши на його сторінку в браузері.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Check the router password by signing in to its page in a browser.\n2. Run the test helper again.",
+        "de": "1. Prüfen Sie das Router-Passwort, indem Sie sich im Browser auf seiner Seite anmelden.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-038",
+      "number": "005-013-038",
+      "key": "CLIENT_ROUTER_PROOF_REJECTED",
+      "aliases": [
+        "CLIENT-PROOF-UNVERIFIED",
+        "CLIENT-PROOF-STALE",
+        "CLIENT-PROOF-TRANSACTION",
+        "CLIENT-PROOF-DEADLINE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждение от роутера не принято",
+        "uk": "Підтвердження від роутера не прийнято",
+        "en": "The router's confirmation was not accepted",
+        "de": "Die Bestätigung des Routers wurde nicht angenommen"
+      },
+      "cause": {
+        "ru": "Помощник получил от роутера подтверждение проверки, но не принял его: оно неполное, устарело, относится к другой операции или пришло слишком поздно.",
+        "uk": "Помічник отримав від роутера підтвердження перевірки, але не прийняв його: воно неповне, застаріле, стосується іншої операції або надійшло надто пізно.",
+        "en": "The helper got a check confirmation from the router but did not accept it: it is incomplete, outdated, belongs to another operation or came too late.",
+        "de": "Der Helfer hat vom Router eine Prüfbestätigung erhalten, sie aber nicht angenommen: Sie ist unvollständig, veraltet, gehört zu einem anderen Vorgang oder kam zu spät."
+      },
+      "action": {
+        "ru": "1. Закройте другие окна помощника, чтобы работал только один.\n2. Запустите помощник проверки снова.",
+        "uk": "1. Закрийте інші вікна помічника, щоб працював лише один.\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Close other helper windows so that only one runs.\n2. Run the test helper again.",
+        "de": "1. Schließen Sie andere Fenster des Helfers, sodass nur einer läuft.\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-039",
+      "number": "005-013-039",
+      "key": "CLIENT_ROUTER_RPC_FAILED",
+      "aliases": [
+        "ROUTER-RPC-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер не выполнил запрос помощника",
+        "uk": "Роутер не виконав запит помічника",
+        "en": "The router did not carry out the helper's request",
+        "de": "Der Router hat die Anfrage des Helfers nicht ausgeführt"
+      },
+      "cause": {
+        "ru": "Помощник отправил запрос роутеру, но тот не ответил или ответил отказом.",
+        "uk": "Помічник надіслав запит роутеру, але той не відповів або відповів відмовою.",
+        "en": "The helper sent a request to the router, but it did not answer or refused.",
+        "de": "Der Helfer hat eine Anfrage an den Router gesendet, aber dieser hat nicht geantwortet oder abgelehnt."
+      },
+      "action": {
+        "ru": "1. Откройте страницу роутера в браузере и проверьте, что она отвечает.\n2. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Відкрийте сторінку роутера в браузері й перевірте, що вона відповідає.\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Open the router page in a browser and check that it responds.\n2. Wait a few minutes and run the helper again.",
+        "de": "1. Öffnen Sie die Router-Seite im Browser und prüfen Sie, ob sie reagiert.\n2. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-040",
+      "number": "005-013-040",
+      "key": "CLIENT_SELECT_SOURCE_RESERVE",
+      "aliases": [
+        "SELECT-SOURCE-RESERVE-IN-LUCI"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не выбраны основной и резервный каналы",
+        "uk": "Не вибрано основний і резервний канали",
+        "en": "Primary and reserve channels are not chosen",
+        "de": "Haupt- und Reservekanal sind nicht gewählt"
+      },
+      "cause": {
+        "ru": "Для пробного переключения на странице роутера нужно выбрать основной и резервный каналы. Ничего не изменено.",
+        "uk": "Для пробного перемикання на сторінці роутера треба вибрати основний і резервний канали. Нічого не змінено.",
+        "en": "For a trial switch the primary and reserve channels must be chosen on the router page. Nothing was changed.",
+        "de": "Für eine Probeumschaltung müssen auf der Router-Seite Haupt- und Reservekanal gewählt sein. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» и выберите основной и резервный каналы.\n2. Сохраните настройки.\n3. Запустите помощник проверки снова.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) і виберіть основний і резервний канали.\n2. Збережіть налаштування.\n3. Запустіть помічник перевірки знову.",
+        "en": "1. Open Settings and choose the primary and reserve channels.\n2. Save the settings.\n3. Run the test helper again.",
+        "de": "1. Öffnen Sie die „Einstellungen“ (Settings) und wählen Sie Haupt- und Reservekanal.\n2. Speichern Sie die Einstellungen.\n3. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-041",
+      "number": "005-013-041",
+      "key": "CLIENT_SELFTEST_FAILED",
+      "aliases": [
+        "SELFTEST-BOUND-HTTPS-SCOPE",
+        "SELFTEST-CONTROL-ROUTE-REJECT",
+        "SELFTEST-DNS",
+        "SELFTEST-DNS-REJECT",
+        "SELFTEST-PROOF",
+        "SELFTEST-PROOF-REJECT",
+        "SELFTEST-PROOF-REPLAY",
+        "SELFTEST-TRACE",
+        "SELFTEST-TRACE-REJECT",
+        "SELFTEST-URL"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Самопроверка помощника не прошла",
+        "uk": "Самоперевірка помічника не пройшла",
+        "en": "The helper's self-check failed",
+        "de": "Der Selbsttest des Helfers ist fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Перед проверкой помощник проверяет сам себя. Эта самопроверка не прошла, поэтому проверка не началась. Ничего не изменено.",
+        "uk": "Перед перевіркою помічник перевіряє сам себе. Ця самоперевірка не пройшла, тому перевірка не почалася. Нічого не змінено.",
+        "en": "Before the check the helper tests itself. This self-check failed, so the check did not start. Nothing was changed.",
+        "de": "Vor der Prüfung testet sich der Helfer selbst. Dieser Selbsttest ist fehlgeschlagen, daher wurde die Prüfung nicht gestartet. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Скачайте помощник заново со страницы роутера.\n2. Запустите его в PowerShell 7.",
+        "uk": "1. Завантажте помічник заново зі сторінки роутера.\n2. Запустіть його в PowerShell 7.",
+        "en": "1. Download the helper again from the router page.\n2. Start it in PowerShell 7.",
+        "de": "1. Laden Sie den Helfer erneut von der Router-Seite herunter.\n2. Starten Sie ihn in PowerShell 7."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-042",
+      "number": "005-013-042",
+      "key": "CLIENT_STOP_CONFIRMATION_TIMEOUT",
+      "aliases": [
+        "STOP-CONFIRMATION-TIMEOUT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Остановка не подтверждена вовремя",
+        "uk": "Зупинку не підтверджено вчасно",
+        "en": "The stop was not confirmed in time",
+        "de": "Der Stopp wurde nicht rechtzeitig bestätigt"
+      },
+      "cause": {
+        "ru": "Помощник попросил роутер остановить проверку, но подтверждение остановки не пришло вовремя.",
+        "uk": "Помічник попросив роутер зупинити перевірку, але підтвердження зупинки не надійшло вчасно.",
+        "en": "The helper asked the router to stop the check, but the confirmation of the stop did not arrive in time.",
+        "de": "Der Helfer hat den Router gebeten, die Prüfung zu stoppen, aber die Bestätigung des Stopps kam nicht rechtzeitig."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и посмотрите, какой канал сейчас работает.\n2. Если Auto ещё работает, а вы хотели остановить, нажмите Стоп.",
+        "uk": "1. Відкрийте «Головну» (Home) і перегляньте, який канал зараз працює.\n2. Якщо Auto ще працює, а ви хотіли зупинити, натисніть Стоп (Stop).",
+        "en": "1. Open Home and see which channel is working now.\n2. If Auto is still running and you wanted to stop it, press Stop.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und sehen Sie nach, welcher Kanal gerade arbeitet.\n2. Läuft Auto noch und wollten Sie es stoppen, drücken Sie Stopp (Stop)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-043",
+      "number": "005-013-043",
+      "key": "CLIENT_STOP_RESTORE_UNVERIFIED",
+      "aliases": [
+        "STOP-RESTORE-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Возврат после остановки не подтверждён",
+        "uk": "Повернення після зупинки не підтверджено",
+        "en": "The return after the stop is not confirmed",
+        "de": "Die Rückkehr nach dem Stopp ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "После остановки роутер должен вернуться к прежнему каналу, но помощник не смог это подтвердить.",
+        "uk": "Після зупинки роутер має повернутися до попереднього каналу, але помічник не зміг це підтвердити.",
+        "en": "After the stop the router should return to the previous channel, but the helper could not confirm this.",
+        "de": "Nach dem Stopp sollte der Router zum vorherigen Kanal zurückkehren, aber der Helfer konnte das nicht bestätigen."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и посмотрите, какой канал сейчас работает.\n2. Если основной канал не вернулся через несколько минут, откройте «Помощь».",
+        "uk": "1. Відкрийте «Головну» (Home) і перегляньте, який канал зараз працює.\n2. Якщо основний канал не повернувся за кілька хвилин, відкрийте «Довідку» (Help).",
+        "en": "1. Open Home and see which channel is working now.\n2. If the primary channel has not come back after a few minutes, open Help.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und sehen Sie nach, welcher Kanal gerade arbeitet.\n2. Ist der Hauptkanal nach einigen Minuten nicht zurück, öffnen Sie die „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-044",
+      "number": "005-013-044",
+      "key": "CLIENT_TRACE_FAILED",
+      "aliases": [
+        "CLIENT-TRACE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Компьютер не узнал адрес выхода в интернет",
+        "uk": "Комп'ютер не дізнався адресу виходу в інтернет",
+        "en": "The computer could not learn its internet exit address",
+        "de": "Der Computer konnte seine Internet-Ausgangsadresse nicht ermitteln"
+      },
+      "cause": {
+        "ru": "Проверочный запрос, который показывает внешний адрес выхода, не получил ответа. Без этого адреса нельзя подтвердить, через какой канал идёт трафик.",
+        "uk": "Перевірочний запит, який показує зовнішню адресу виходу, не отримав відповіді. Без цієї адреси не можна підтвердити, через який канал іде трафік.",
+        "en": "The test request that shows the external exit address got no answer. Without this address it cannot be confirmed which channel carries the traffic.",
+        "de": "Die Testanfrage, die die externe Ausgangsadresse zeigt, hat keine Antwort erhalten. Ohne diese Adresse lässt sich nicht bestätigen, über welchen Kanal der Verkehr läuft."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и проверьте, что интернет через роутер работает.\n2. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Відкрийте «Головну» (Home) і перевірте, що інтернет через роутер працює.\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Open Home and check that the internet works through the router.\n2. Wait a few minutes and run the helper again.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und prüfen Sie, ob das Internet über den Router funktioniert.\n2. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-044",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-045",
+      "number": "005-013-045",
+      "key": "CLIENT_TRANSACTION_CHANGED",
+      "aliases": [
+        "CLIENT-TRANSACTION-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "На роутере началась другая операция",
+        "uk": "На роутері почалася інша операція",
+        "en": "Another operation started on the router",
+        "de": "Auf dem Router hat ein anderer Vorgang begonnen"
+      },
+      "cause": {
+        "ru": "Во время проверки роутер начал другую операцию с каналами, поэтому результат этой проверки уже не относится к текущему состоянию.",
+        "uk": "Під час перевірки роутер почав іншу операцію з каналами, тому результат цієї перевірки вже не стосується поточного стану.",
+        "en": "During the check the router started another channel operation, so the result of this check no longer matches the current state.",
+        "de": "Während der Prüfung hat der Router einen anderen Kanalvorgang begonnen, daher passt das Ergebnis dieser Prüfung nicht mehr zum aktuellen Zustand."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания операции: её видно в «Журнале».\n2. Запустите помощник проверки снова.",
+        "uk": "1. Дочекайтеся завершення операції: її видно в «Журналі» (Journal).\n2. Запустіть помічник перевірки знову.",
+        "en": "1. Wait until the operation ends: you can see it in the Journal.\n2. Run the test helper again.",
+        "de": "1. Warten Sie, bis der Vorgang endet: Sie sehen ihn im „Protokoll“ (Journal).\n2. Starten Sie den Testhelfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-045",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-CLI-046",
+      "number": "005-013-046",
+      "key": "CLIENT_TRIAL_START_REFUSED",
+      "aliases": [
+        "CLIENT-TRIAL-START-REFUSED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер отказался начать пробное переключение",
+        "uk": "Роутер відмовився почати пробне перемикання",
+        "en": "The router refused to start the trial switch",
+        "de": "Der Router hat die Probeumschaltung abgelehnt"
+      },
+      "cause": {
+        "ru": "Роутер не начал пробное переключение: он не готов или сейчас занят. Ничего не изменено.",
+        "uk": "Роутер не почав пробне перемикання: він не готовий або зараз зайнятий. Нічого не змінено.",
+        "en": "The router did not start the trial switch: it is not ready or busy right now. Nothing was changed.",
+        "de": "Der Router hat die Probeumschaltung nicht gestartet: Er ist nicht bereit oder gerade beschäftigt. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Посмотрите причину в «Журнале».\n2. Подождите несколько минут и запустите помощник снова.",
+        "uk": "1. Перегляньте причину в «Журналі» (Journal).\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "en": "1. Look up the reason in the Journal.\n2. Wait a few minutes and run the helper again.",
+        "de": "1. Sehen Sie den Grund im „Protokoll“ (Journal) nach.\n2. Warten Sie einige Minuten und starten Sie den Helfer erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-CLI-046",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "cli",
+        "runtime",
+        "translation-draft"
+      ]
+    }
+  ]
+}
