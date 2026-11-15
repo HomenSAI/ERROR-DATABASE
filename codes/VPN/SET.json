@@ -5608,6 +5608,120 @@
         "switch",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-SET-102",
+      "number": "005-005-102",
+      "key": "WG_SEED_KEPT_STOP",
+      "aliases": [
+        "WG-SEED-KEPT-STOP"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Быстрый старт при остановке: адрес из памяти предложен",
+        "uk": "Швидкий старт під час зупинки: адресу з пам'яті запропоновано",
+        "en": "Fast start while stopped: address offered from memory",
+        "de": "Schnellstart im gestoppten Zustand: Adresse aus dem Speicher angeboten"
+      },
+      "cause": {
+        "ru": "Auto остановлен, но после включения питания роутер временно подсказал туннелю WireGuard проверенный адрес его сервера из памяти, чтобы туннель не ждал поиска адреса по имени. Ничего не запускается и не переключается: туннелем по-прежнему управляет роутер GL. Подсказка снимается, как только туннель поднялся, или вскоре после появления подключения роутера. Вторая запись того же вида сообщает, что подсказка снята; если туннель подключился по этому адресу, адрес снова считается свежим.",
+        "uk": "Auto зупинено, але після ввімкнення живлення роутер тимчасово підказав тунелю WireGuard перевірену адресу його сервера з пам'яті, щоб тунель не чекав пошуку адреси за іменем. Нічого не запускається і не перемикається: тунелем і далі керує роутер GL. Підказку знімають, щойно тунель піднявся, або невдовзі після появи підключення роутера. Другий запис того самого виду повідомляє, що підказку знято; якщо тунель підключився за цією адресою, адреса знову вважається свіжою.",
+        "en": "Auto is stopped, but after power-on the router briefly offered the WireGuard tunnel the checked address of its server from memory, so the tunnel does not wait for the name lookup. Nothing is started or switched: the GL router still runs the tunnel. The hint is removed as soon as the tunnel is up, or soon after the router's own connection appears. A second entry of the same kind reports that the hint was removed; if the tunnel connected on this address, the address counts as fresh again.",
+        "de": "Auto ist gestoppt, aber nach dem Einschalten hat der Router dem WireGuard-Tunnel kurz die geprüfte Adresse seines Servers aus dem Speicher angeboten, damit der Tunnel nicht auf die Namensauflösung wartet. Nichts wird gestartet oder umgeschaltet: Den Tunnel steuert weiterhin der GL-Router. Der Hinweis wird entfernt, sobald der Tunnel aktiv ist, oder kurz nachdem die eigene Verbindung des Routers besteht. Ein zweiter Eintrag derselben Art meldet, dass der Hinweis entfernt wurde; hat sich der Tunnel über diese Adresse verbunden, gilt die Adresse wieder als frisch."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если туннель после включения подключается заметно дольше обычного, отправьте в поддержку записи «Журнала» о быстром старте.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо тунель після ввімкнення підключається помітно довше, ніж зазвичай, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
+        "en": "1. Nothing to do.\n2. If the tunnel takes clearly longer than usual to connect after power-on, send the Journal entries about the fast start to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-102",
+      "related": [
+        "VPN-SET-097",
+        "VPN-SET-101"
+      ],
+      "since": "1.4.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-103",
+      "number": "005-005-103",
+      "key": "WG_SEED_EARLY",
+      "aliases": [
+        "WG-SEED-EARLY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Быстрый старт: адрес из памяти подсказан до запуска сети",
+        "uk": "Швидкий старт: адресу з пам'яті підказано до запуску мережі",
+        "en": "Fast start: address from memory offered before the network starts",
+        "de": "Schnellstart: Adresse aus dem Speicher vor dem Netzwerkstart angeboten"
+      },
+      "cause": {
+        "ru": "Роутер GL сам поднимает этот туннель WireGuard при включении (так бывает после «Стоп»), и делает это раньше, чем запускается HomenS.AI Auto VPN. Поэтому проверенный адрес сервера из памяти подсказан ещё до запуска сети роутера: туннелю не нужно ждать поиска адреса по имени. Ничего не запускается и не переключается; подсказка снимается, как только туннель поднялся, или вскоре после появления подключения роутера. Если включён Auto, он принимает эту подсказку как свою (в записи сказано «adopted»).",
+        "uk": "Роутер GL сам піднімає цей тунель WireGuard під час увімкнення (так буває після «Стоп»), і робить це раніше, ніж запускається HomenS.AI Auto VPN. Тому перевірену адресу сервера з пам'яті підказано ще до запуску мережі роутера: тунелю не потрібно чекати пошуку адреси за іменем. Нічого не запускається і не перемикається; підказку знімають, щойно тунель піднявся, або невдовзі після появи підключення роутера. Якщо ввімкнено Auto, він приймає цю підказку як свою (у записі сказано «adopted»).",
+        "en": "The GL router brings this WireGuard tunnel up by itself at power-on (this happens after Stop), earlier than HomenS.AI Auto VPN starts. So the checked server address from memory is offered even before the router's network starts: the tunnel does not need to wait for the name lookup. Nothing is started or switched; the hint is removed as soon as the tunnel is up, or soon after the router's own connection appears. When Auto is on, it takes the hint over as its own (the entry says \"adopted\").",
+        "de": "Der GL-Router startet diesen WireGuard-Tunnel beim Einschalten selbst (so ist es nach „Stopp“), und zwar früher, als HomenS.AI Auto VPN startet. Deshalb wird die geprüfte Serveradresse aus dem Speicher schon vor dem Netzwerkstart des Routers angeboten: Der Tunnel muss nicht auf die Namensauflösung warten. Nichts wird gestartet oder umgeschaltet; der Hinweis wird entfernt, sobald der Tunnel aktiv ist, oder kurz nachdem die eigene Verbindung des Routers besteht. Ist Auto eingeschaltet, übernimmt es den Hinweis als eigenen (im Eintrag steht „adopted“)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если туннель после включения подключается заметно дольше обычного, отправьте в поддержку записи «Журнала» о быстром старте.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо тунель після ввімкнення підключається помітно довше, ніж зазвичай, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
+        "en": "1. Nothing to do.\n2. If the tunnel takes clearly longer than usual to connect after power-on, send the Journal entries about the fast start to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-103",
+      "related": [
+        "VPN-SET-097",
+        "VPN-SET-102"
+      ],
+      "since": "1.4.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
     }
   ]
 }
