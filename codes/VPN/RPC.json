@@ -1,0 +1,2198 @@
+{
+  "namespace": "VPN",
+  "area": "RPC",
+  "codes": [
+    {
+      "code": "VPN-RPC-001",
+      "number": "005-006-001",
+      "key": "BRIDGE_REQUEST_INVALID",
+      "aliases": [
+        "BRIDGE-REQUEST-INVALID"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Живая проверка канала не запущена",
+        "uk": "Жива перевірка каналу не запущена",
+        "en": "The live channel check was not started",
+        "de": "Die Live-Prüfung des Kanals wurde nicht gestartet"
+      },
+      "cause": {
+        "ru": "Служебный помощник, который запускает живую проверку канала перед переключением или возвратом, получил запрос в неверном виде. Проверка не выполнялась, ничего не изменено: переключение подождёт следующего круга.",
+        "uk": "Службовий помічник, який запускає живу перевірку каналу перед перемиканням або поверненням, отримав запит у неправильному вигляді. Перевірка не виконувалася, нічого не змінено: перемикання зачекає наступного кола.",
+        "en": "The helper that runs a live channel check before a switch or return received a request in the wrong form. No check ran and nothing was changed; the switch waits for the next round.",
+        "de": "Der Hilfsdienst, der vor einem Wechsel oder einer Rückkehr eine Live-Prüfung des Kanals startet, hat eine Anfrage in falscher Form erhalten. Es lief keine Prüfung und nichts wurde geändert; der Wechsel wartet auf die nächste Runde."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: следующий круг пройдёт сам.\n2. Если это повторяется, откройте «Помощь» и отправьте код разработчику.",
+        "uk": "1. Нічого робити не потрібно: наступне коло пройде саме.\n2. Якщо це повторюється, відкрийте «Довідку» (Help) і надішліть код розробнику.",
+        "en": "1. Nothing to do: the next round runs by itself.\n2. If it repeats, open Help and send the code to the developer.",
+        "de": "1. Es ist nichts zu tun: Die nächste Runde läuft von selbst.\n2. Wiederholt sich das, öffnen Sie die „Hilfe“ (Help) und senden Sie den Code an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-002",
+      "number": "005-006-002",
+      "key": "LUCI_CACHE_ROOT",
+      "aliases": [
+        "LUCI-CACHE-ROOT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось очистить кэш страниц роутера",
+        "uk": "Не вдалося очистити кеш сторінок роутера",
+        "en": "The router's page cache could not be cleared",
+        "de": "Der Seitencache des Routers konnte nicht geleert werden"
+      },
+      "cause": {
+        "ru": "Во время обновления программа не смогла безопасно очистить сохранённые страницы веб-интерфейса роутера. Страница может показывать старый вид.",
+        "uk": "Під час оновлення програма не змогла безпечно очистити збережені сторінки вебінтерфейсу роутера. Сторінка може показувати старий вигляд.",
+        "en": "During the update the program could not safely clear the stored pages of the router's web interface. The page may show an old look.",
+        "de": "Während des Updates konnte das Programm die gespeicherten Seiten der Weboberfläche des Routers nicht sicher leeren. Die Seite kann ein altes Aussehen zeigen."
+      },
+      "action": {
+        "ru": "1. Выйдите из веб-интерфейса роутера и войдите снова.\n2. Обновите страницу без кэша.",
+        "uk": "1. Вийдіть із вебінтерфейсу роутера й увійдіть знову.\n2. Оновіть сторінку без кешу.",
+        "en": "1. Sign out of the router's web interface and sign in again.\n2. Reload the page without the cache.",
+        "de": "1. Melden Sie sich von der Weboberfläche des Routers ab und wieder an.\n2. Laden Sie die Seite ohne Cache neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-003",
+      "number": "005-006-003",
+      "key": "RPC_FAMILY",
+      "aliases": [
+        "RPC-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код запроса к роутеру",
+        "uk": "Код запиту до роутера",
+        "en": "Router request code",
+        "de": "Code einer Anfrage an den Router"
+      },
+      "cause": {
+        "ru": "Код группы запросов страницы к роутеру. Обычно он значит, что роутер отклонил запрос из-за его вида или размера и ничего не изменил. Это семейство: описание относится ко всем кодам с префиксом «RPC-».",
+        "uk": "Код групи запитів сторінки до роутера. Зазвичай він означає, що роутер відхилив запит через його вигляд або розмір і нічого не змінив. Це родина: опис стосується всіх кодів із префіксом «RPC-».",
+        "en": "A code of the group of page requests to the router. Usually it means the router refused a request because of its form or size and changed nothing. This is a family: the description applies to all codes starting with \"RPC-\".",
+        "de": "Ein Code der Gruppe von Seitenanfragen an den Router. Meist bedeutet er, dass der Router eine Anfrage wegen ihrer Form oder Größe abgelehnt und nichts geändert hat. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „RPC-“."
+      },
+      "action": {
+        "ru": "1. Обновите страницу и повторите действие.\n2. Если код остаётся, найдите его в «Помощи».",
+        "uk": "1. Оновіть сторінку й повторіть дію.\n2. Якщо код лишається, знайдіть його в «Довідці» (Help).",
+        "en": "1. Reload the page and repeat the action.\n2. If the code stays, look it up in Help.",
+        "de": "1. Laden Sie die Seite neu und wiederholen Sie die Aktion.\n2. Bleibt der Code, suchen Sie ihn in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-RPC-004",
+      "number": "005-006-004",
+      "key": "RPC_BRIDGE_STALE",
+      "aliases": [
+        "RPC-BRIDGE-STALE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запоздавший запрос отброшен",
+        "uk": "Запізнілий запит відкинуто",
+        "en": "A late request was dropped",
+        "de": "Eine verspätete Anfrage wurde verworfen"
+      },
+      "cause": {
+        "ru": "Роутер дошёл до запроса страницы так поздно, что страница уже перестала ждать. Запрос отброшен без выполнения.",
+        "uk": "Роутер дійшов до запиту сторінки так пізно, що сторінка вже перестала чекати. Запит відкинуто без виконання.",
+        "en": "The router got to the page request so late that the page had already stopped waiting. The request was dropped without being carried out.",
+        "de": "Der Router kam so spät zur Anfrage der Seite, dass die Seite nicht mehr wartete. Die Anfrage wurde verworfen, ohne ausgeführt zu werden."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если кнопка не сработала, нажмите её ещё раз.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо кнопка не спрацювала, натисніть її ще раз.",
+        "en": "1. Nothing to do.\n2. If the button did not work, press it again.",
+        "de": "1. Es ist nichts zu tun.\n2. Hat die Schaltfläche nicht reagiert, drücken Sie sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-005",
+      "number": "005-006-005",
+      "key": "RPC_BRIDGE_UNCONFIRMED",
+      "aliases": [
+        "RPC-BRIDGE-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ответ на нажатие кнопки потерян",
+        "uk": "Відповідь на натискання кнопки втрачено",
+        "en": "The answer to a button press was lost",
+        "de": "Die Antwort auf einen Tastendruck ging verloren"
+      },
+      "cause": {
+        "ru": "Роутер не ответил на нажатие кнопки вовремя или не смог записать ответ. Нажатие не повторялось, поэтому дважды не выполнится, но могло и не сработать.",
+        "uk": "Роутер не відповів на натискання кнопки вчасно або не зміг записати відповідь. Натискання не повторювалося, тому двічі не виконається, але могло й не спрацювати.",
+        "en": "The router did not answer the button press in time or could not write its answer. The press was not repeated, so it cannot run twice, but it may not have taken effect.",
+        "de": "Der Router hat nicht rechtzeitig auf den Tastendruck geantwortet oder seine Antwort nicht schreiben können. Der Druck wurde nicht wiederholt, wird also nicht doppelt ausgeführt, hat aber vielleicht nicht gewirkt."
+      },
+      "action": {
+        "ru": "1. Подождите несколько секунд: страница сама перечитает состояние.\n2. Нажмите кнопку ещё раз, только если ничего не изменилось.",
+        "uk": "1. Зачекайте кілька секунд: сторінка сама перечитає стан.\n2. Натисніть кнопку ще раз, лише якщо нічого не змінилося.",
+        "en": "1. Wait a few seconds: the page reads the state again by itself.\n2. Press the button again only if nothing changed.",
+        "de": "1. Warten Sie einige Sekunden: Die Seite liest den Zustand selbst neu ein.\n2. Drücken Sie die Schaltfläche nur dann erneut, wenn sich nichts geändert hat."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-006",
+      "number": "005-006-006",
+      "key": "RPC_CONFIRM_ADDRESS",
+      "aliases": [
+        "RPC-CONFIRM-ADDRESS"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждение пришло не с того компьютера",
+        "uk": "Підтвердження надійшло не з того комп'ютера",
+        "en": "The confirmation came from another computer",
+        "de": "Die Bestätigung kam von einem anderen Computer"
+      },
+      "cause": {
+        "ru": "Подтверждение пришло не с того компьютера, с которого его ждали, поэтому не принято.",
+        "uk": "Підтвердження надійшло не з того комп'ютера, з якого його чекали, тому не прийняте.",
+        "en": "The confirmation did not come from the computer it was expected from, so it was not accepted.",
+        "de": "Die Bestätigung kam nicht von dem erwarteten Computer und wurde daher nicht angenommen."
+      },
+      "action": {
+        "ru": "1. Подтвердите с выбранного компьютера.",
+        "uk": "1. Підтвердіть із вибраного комп'ютера.",
+        "en": "1. Confirm from the chosen computer.",
+        "de": "1. Bestätigen Sie vom gewählten Computer aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-007",
+      "number": "005-006-007",
+      "key": "RPC_CONFIRM_EXPIRED",
+      "aliases": [
+        "RPC-CONFIRM-EXPIRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждение опоздало",
+        "uk": "Підтвердження запізнилося",
+        "en": "The confirmation came too late",
+        "de": "Die Bestätigung kam zu spät"
+      },
+      "cause": {
+        "ru": "Время на подтверждение переключения истекло, поэтому подтверждение не принято. Auto сам вернётся на безопасный маршрут.",
+        "uk": "Час на підтвердження перемикання минув, тому підтвердження не прийнято. Auto сам повернеться на безпечний маршрут.",
+        "en": "The time to confirm the switch is over, so the confirmation was not accepted. Auto returns to a safe route by itself.",
+        "de": "Die Zeit zum Bestätigen des Wechsels ist abgelaufen, daher wurde die Bestätigung nicht angenommen. Auto kehrt selbst zu einer sicheren Route zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-008",
+      "number": "005-006-008",
+      "key": "RPC_CONFIRM_FIELDS",
+      "aliases": [
+        "RPC-CONFIRM-FIELDS"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждение пришло в неверном виде",
+        "uk": "Підтвердження надійшло в неправильному вигляді",
+        "en": "The confirmation was malformed",
+        "de": "Die Bestätigung hatte eine falsche Form"
+      },
+      "cause": {
+        "ru": "В подтверждении не хватало данных или были лишние, поэтому оно отклонено.",
+        "uk": "У підтвердженні бракувало даних або були зайві, тому його відхилено.",
+        "en": "The confirmation had missing or extra data, so it was refused.",
+        "de": "Der Bestätigung fehlten Daten oder sie enthielt zusätzliche, daher wurde sie abgelehnt."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Подтвердите ещё раз.",
+        "uk": "1. Оновіть сторінку.\n2. Підтвердіть ще раз.",
+        "en": "1. Reload the page.\n2. Confirm again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Bestätigen Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-009",
+      "number": "005-006-009",
+      "key": "RPC_CONFIRM_NO_PENDING",
+      "aliases": [
+        "RPC-CONFIRM-NO-PENDING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждать нечего",
+        "uk": "Підтверджувати нічого",
+        "en": "Nothing is waiting for confirmation",
+        "de": "Nichts wartet auf eine Bestätigung"
+      },
+      "cause": {
+        "ru": "Подтверждение пришло, но ни одно переключение его не ждёт: возможно, время уже вышло.",
+        "uk": "Підтвердження надійшло, але жодне перемикання його не чекає: можливо, час уже минув.",
+        "en": "The confirmation arrived, but no switch is waiting for it; the time may already be over.",
+        "de": "Die Bestätigung ist eingetroffen, aber kein Wechsel wartet darauf; die Zeit ist vielleicht schon abgelaufen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-RPC-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-010",
+      "number": "005-006-010",
+      "key": "RPC_CONFIRM_TRANSACTION",
+      "aliases": [
+        "RPC-CONFIRM-TRANSACTION"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждение относится к другому переключению",
+        "uk": "Підтвердження стосується іншого перемикання",
+        "en": "The confirmation is for another switch",
+        "de": "Die Bestätigung gehört zu einem anderen Wechsel"
+      },
+      "cause": {
+        "ru": "Подтверждение не относится к переключению, которое сейчас ждёт подтверждения, поэтому не принято.",
+        "uk": "Підтвердження не стосується перемикання, яке зараз чекає підтвердження, тому не прийняте.",
+        "en": "The confirmation does not belong to the switch that is waiting now, so it was not accepted.",
+        "de": "Die Bestätigung gehört nicht zu dem Wechsel, der gerade wartet, und wurde daher nicht angenommen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Дождитесь текущего переключения.",
+        "uk": "1. Нічого робити не потрібно.\n2. Дочекайтеся поточного перемикання.",
+        "en": "1. Nothing to do.\n2. Wait for the current switch.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie den aktuellen Wechsel ab."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-011",
+      "number": "005-006-011",
+      "key": "RPC_CONFIRM_TRIAL",
+      "aliases": [
+        "RPC-CONFIRM-TRIAL"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждение относится к другой проверке",
+        "uk": "Підтвердження стосується іншої перевірки",
+        "en": "The confirmation is for another test",
+        "de": "Die Bestätigung gehört zu einem anderen Test"
+      },
+      "cause": {
+        "ru": "Подтверждение не относится к текущей пробе переключения, поэтому не принято.",
+        "uk": "Підтвердження не стосується поточної проби перемикання, тому не прийняте.",
+        "en": "The confirmation does not belong to the current switch test, so it was not accepted.",
+        "de": "Die Bestätigung gehört nicht zum aktuellen Wechseltest und wurde daher nicht angenommen."
+      },
+      "action": {
+        "ru": "1. Подтвердите ещё раз для текущей проверки.",
+        "uk": "1. Підтвердіть ще раз для поточної перевірки.",
+        "en": "1. Confirm again for the current test.",
+        "de": "1. Bestätigen Sie erneut für den aktuellen Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-012",
+      "number": "005-006-012",
+      "key": "RPC_CONFIRM_UNVERIFIED",
+      "aliases": [
+        "RPC-CONFIRM-UNVERIFIED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Подтверждение не проверено",
+        "uk": "Підтвердження не перевірено",
+        "en": "The confirmation could not be verified",
+        "de": "Die Bestätigung konnte nicht überprüft werden"
+      },
+      "cause": {
+        "ru": "Роутер не смог проверить подтверждение, поэтому не принял его.",
+        "uk": "Роутер не зміг перевірити підтвердження, тому не прийняв його.",
+        "en": "The router could not verify the confirmation, so it did not accept it.",
+        "de": "Der Router konnte die Bestätigung nicht überprüfen und hat sie daher nicht angenommen."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Подтвердите ещё раз.",
+        "uk": "1. Зачекайте хвилину.\n2. Підтвердіть ще раз.",
+        "en": "1. Wait a minute.\n2. Confirm again.",
+        "de": "1. Warten Sie eine Minute.\n2. Bestätigen Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-013",
+      "number": "005-006-013",
+      "key": "RPC_DUPLICATE_FIELD",
+      "aliases": [
+        "RPC-DUPLICATE-FIELD"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Поле в запросе повторяется",
+        "uk": "Поле в запиті повторюється",
+        "en": "A field is repeated in the request",
+        "de": "Ein Feld kommt in der Anfrage doppelt vor"
+      },
+      "cause": {
+        "ru": "В запросе к роутеру одно и то же поле указано дважды. Запрос отклонён, ничего не изменено.",
+        "uk": "У запиті до роутера одне й те саме поле вказано двічі. Запит відхилено, нічого не змінено.",
+        "en": "A request to the router named the same field twice. The request was refused; nothing was changed.",
+        "de": "Eine Anfrage an den Router enthielt dasselbe Feld zweimal. Die Anfrage wurde abgelehnt; es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-014",
+      "number": "005-006-014",
+      "key": "RPC_INPUT_COMPLEXITY",
+      "aliases": [
+        "RPC-INPUT-COMPLEXITY"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос слишком сложный",
+        "uk": "Запит надто складний",
+        "en": "The request is too complex",
+        "de": "Die Anfrage ist zu komplex"
+      },
+      "cause": {
+        "ru": "Запрос к роутеру оказался слишком большим или слишком сложным по строению. Запрос отклонён, ничего не изменено.",
+        "uk": "Запит до роутера виявився надто великим або надто складним за будовою. Запит відхилено, нічого не змінено.",
+        "en": "The request to the router was too big or too complex in structure. The request was refused; nothing was changed.",
+        "de": "Die Anfrage an den Router war zu groß oder zu verschachtelt aufgebaut. Die Anfrage wurde abgelehnt; es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-015",
+      "number": "005-006-015",
+      "key": "RPC_INPUT_DEPTH",
+      "aliases": [
+        "RPC-INPUT-DEPTH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос слишком глубоко вложен",
+        "uk": "Запит надто глибоко вкладений",
+        "en": "The request is nested too deeply",
+        "de": "Die Anfrage ist zu tief verschachtelt"
+      },
+      "cause": {
+        "ru": "Данные в запросе к роутеру вложены друг в друга слишком глубоко. Запрос отклонён, ничего не изменено.",
+        "uk": "Дані в запиті до роутера вкладені одне в одне надто глибоко. Запит відхилено, нічого не змінено.",
+        "en": "The data in the request to the router is nested too deeply. The request was refused; nothing was changed.",
+        "de": "Die Daten in der Anfrage an den Router sind zu tief verschachtelt. Die Anfrage wurde abgelehnt; es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-016",
+      "number": "005-006-016",
+      "key": "RPC_INPUT_INVALID",
+      "aliases": [
+        "RPC-INPUT-INVALID"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "В запросе неверное значение",
+        "uk": "У запиті неправильне значення",
+        "en": "The request has a wrong value",
+        "de": "Die Anfrage enthält einen falschen Wert"
+      },
+      "cause": {
+        "ru": "Значение в запросе к роутеру не подошло по виду или размеру. Запрос отклонён, ничего не изменено.",
+        "uk": "Значення в запиті до роутера не підійшло за виглядом або розміром. Запит відхилено, нічого не змінено.",
+        "en": "A value in the request to the router did not fit the allowed form or size. The request was refused; nothing was changed.",
+        "de": "Ein Wert in der Anfrage an den Router passte nicht zur erlaubten Form oder Größe. Die Anfrage wurde abgelehnt; es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Проверьте введённое значение и повторите.\n2. Если ошибка остаётся, обновите страницу.",
+        "uk": "1. Перевірте введене значення й повторіть.\n2. Якщо помилка лишається, оновіть сторінку.",
+        "en": "1. Check what you entered and repeat.\n2. If it stays, reload the page.",
+        "de": "1. Prüfen Sie Ihre Eingabe und wiederholen Sie den Vorgang.\n2. Bleibt der Fehler, laden Sie die Seite neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-017",
+      "number": "005-006-017",
+      "key": "RPC_INPUT_OBJECT",
+      "aliases": [
+        "RPC-INPUT-OBJECT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос в неверном виде",
+        "uk": "Запит у неправильному вигляді",
+        "en": "The request has a wrong form",
+        "de": "Die Anfrage hat eine falsche Form"
+      },
+      "cause": {
+        "ru": "Запрос к роутеру пришёл не в том виде, который роутер ожидает. Запрос отклонён, ничего не изменено.",
+        "uk": "Запит до роутера надійшов не в тому вигляді, якого роутер очікує. Запит відхилено, нічого не змінено.",
+        "en": "The request to the router was not in the form the router expects. The request was refused; nothing was changed.",
+        "de": "Die Anfrage an den Router hatte nicht die erwartete Form. Die Anfrage wurde abgelehnt; es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-018",
+      "number": "005-006-018",
+      "key": "RPC_INPUT_SIZE",
+      "aliases": [
+        "RPC-INPUT-SIZE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос слишком большой",
+        "uk": "Запит надто великий",
+        "en": "The request is too large",
+        "de": "Die Anfrage ist zu groß"
+      },
+      "cause": {
+        "ru": "Запрос к роутеру оказался слишком большим. Со стандартной страницей так обычно не бывает. Запрос отклонён, ничего не изменено.",
+        "uk": "Запит до роутера виявився надто великим. Зі стандартною сторінкою так зазвичай не буває. Запит відхилено, нічого не змінено.",
+        "en": "The request to the router was too large. This normally does not happen with the standard page. The request was refused; nothing was changed.",
+        "de": "Die Anfrage an den Router war zu groß. Mit der Standardseite passiert das normalerweise nicht. Die Anfrage wurde abgelehnt; es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-019",
+      "number": "005-006-019",
+      "key": "RPC_INVENTORY_INVALID",
+      "aliases": [
+        "RPC-INVENTORY-INVALID"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Список VPN-профилей не прочитан",
+        "uk": "Список VPN-профілів не прочитано",
+        "en": "The VPN profile list could not be read",
+        "de": "Die Liste der VPN-Profile konnte nicht gelesen werden"
+      },
+      "cause": {
+        "ru": "Список VPN-профилей, полученный от роутера, имел неожиданный вид.",
+        "uk": "Список VPN-профілів, отриманий від роутера, мав неочікуваний вигляд.",
+        "en": "The list of VPN profiles received from the router had an unexpected form.",
+        "de": "Die vom Router erhaltene Liste der VPN-Profile hatte eine unerwartete Form."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Если ошибка остаётся, выйдите из веб-интерфейса роутера и войдите снова.",
+        "uk": "1. Оновіть сторінку.\n2. Якщо помилка лишається, вийдіть із вебінтерфейсу роутера й увійдіть знову.",
+        "en": "1. Reload the page.\n2. If it stays, sign out of the router's web interface and sign in again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Bleibt der Fehler, melden Sie sich von der Weboberfläche des Routers ab und wieder an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-020",
+      "number": "005-006-020",
+      "key": "RPC_INVENTORY_UNAVAILABLE",
+      "aliases": [
+        "RPC-INVENTORY-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Список VPN-профилей недоступен",
+        "uk": "Список VPN-профілів недоступний",
+        "en": "The VPN profile list is unavailable",
+        "de": "Die Liste der VPN-Profile ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Страница не смогла получить от роутера список VPN-профилей, поэтому настройки не показаны и ничего не сохраняется. Сразу после установки или перезагрузки роутеру нужно время, чтобы начать отвечать.",
+        "uk": "Сторінка не змогла отримати від роутера список VPN-профілів, тому налаштування не показано й нічого не зберігається. Одразу після встановлення або перезавантаження роутеру потрібен час, щоб почати відповідати.",
+        "en": "The page could not get the list of VPN profiles from the router, so settings are not shown and nothing is saved. Right after an installation or restart the router needs some time before it answers.",
+        "de": "Die Seite konnte die Liste der VPN-Profile nicht vom Router abrufen, daher werden keine Einstellungen angezeigt und nichts gespeichert. Direkt nach einer Installation oder einem Neustart braucht der Router etwas Zeit, bis er antwortet."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут и обновите страницу.\n2. Проверьте, что вы вошли в веб-интерфейс роутера.\n3. Если не помогло, выполните шаги из «Помощи».",
+        "uk": "1. Зачекайте кілька хвилин і оновіть сторінку.\n2. Перевірте, що ви увійшли у вебінтерфейс роутера.\n3. Якщо не допомогло, виконайте кроки з «Довідки» (Help).",
+        "en": "1. Wait a few minutes and reload the page.\n2. Check that you are signed in to the router's web interface.\n3. If that does not help, follow the steps in Help.",
+        "de": "1. Warten Sie einige Minuten und laden Sie die Seite neu.\n2. Prüfen Sie, ob Sie in der Weboberfläche des Routers angemeldet sind.\n3. Hilft das nicht, folgen Sie den Schritten in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-021",
+      "number": "005-006-021",
+      "key": "RPC_NONFINITE_NUMBER",
+      "aliases": [
+        "RPC-NONFINITE-NUMBER"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Неверное число в запросе",
+        "uk": "Неправильне число в запиті",
+        "en": "An invalid number in the request",
+        "de": "Eine ungültige Zahl in der Anfrage"
+      },
+      "cause": {
+        "ru": "В запросе к роутеру было недопустимое число. Запрос отклонён, ничего не изменено.",
+        "uk": "У запиті до роутера було неприпустиме число. Запит відхилено, нічого не змінено.",
+        "en": "The request to the router contained an invalid number. The request was refused; nothing was changed.",
+        "de": "Die Anfrage an den Router enthielt eine ungültige Zahl. Die Anfrage wurde abgelehnt; es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-022",
+      "number": "005-006-022",
+      "key": "RPC_PLUGIN",
+      "aliases": [
+        "RPC-PLUGIN"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нет связующего модуля страницы",
+        "uk": "Немає сполучного модуля сторінки",
+        "en": "The page connector is missing",
+        "de": "Das Verbindungsmodul der Seite fehlt"
+      },
+      "cause": {
+        "ru": "На роутере нет модуля, который связывает страницу с программой, поэтому страница не может с ней работать.",
+        "uk": "На роутері немає модуля, який з'єднує сторінку з програмою, тому сторінка не може з нею працювати.",
+        "en": "The module that connects the page to the program is missing on the router, so the page cannot work with it.",
+        "de": "Auf dem Router fehlt das Modul, das die Seite mit dem Programm verbindet, daher kann die Seite nicht damit arbeiten."
+      },
+      "action": {
+        "ru": "1. Установите программу заново.\n2. Выйдите из веб-интерфейса роутера и войдите снова.\n3. Если не помогло, выполните шаги из «Помощи».",
+        "uk": "1. Встановіть програму заново.\n2. Вийдіть із вебінтерфейсу роутера й увійдіть знову.\n3. Якщо не допомогло, виконайте кроки з «Довідки» (Help).",
+        "en": "1. Install the program again.\n2. Sign out of the router's web interface and sign in again.\n3. If that does not help, follow the steps in Help.",
+        "de": "1. Installieren Sie das Programm erneut.\n2. Melden Sie sich von der Weboberfläche des Routers ab und wieder an.\n3. Hilft das nicht, folgen Sie den Schritten in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-023",
+      "number": "005-006-023",
+      "key": "RPC_RATE_LIMIT",
+      "aliases": [
+        "RPC-RATE-LIMIT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком много запросов, подождите",
+        "uk": "Забагато запитів, зачекайте",
+        "en": "Too many requests, wait a moment",
+        "de": "Zu viele Anfragen, bitte kurz warten"
+      },
+      "cause": {
+        "ru": "Страница обращалась к роутеру слишком часто, поэтому этот запрос отклонён, чтобы не перегружать роутер. Ничего не изменено.",
+        "uk": "Сторінка зверталася до роутера надто часто, тому цей запит відхилено, щоб не перевантажувати роутер. Нічого не змінено.",
+        "en": "The page asked the router too often, so this request was refused to protect the router. Nothing was changed.",
+        "de": "Die Seite hat den Router zu oft angefragt, daher wurde diese Anfrage zum Schutz des Routers abgelehnt. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Подождите несколько секунд.\n2. Повторите действие.",
+        "uk": "1. Зачекайте кілька секунд.\n2. Повторіть дію.",
+        "en": "1. Wait a few seconds.\n2. Repeat the action.",
+        "de": "1. Warten Sie einige Sekunden.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-024",
+      "number": "005-006-024",
+      "key": "RPC_UNAVAILABLE",
+      "aliases": [
+        "RPC-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер не отвечает странице",
+        "uk": "Роутер не відповідає сторінці",
+        "en": "The router does not answer the page",
+        "de": "Der Router antwortet der Seite nicht"
+      },
+      "cause": {
+        "ru": "Страница не может получить состояние от роутера, поэтому показывает старые значения.",
+        "uk": "Сторінка не може отримати стан від роутера, тому показує старі значення.",
+        "en": "The page cannot get the status from the router, so it shows old values.",
+        "de": "Die Seite kann den Zustand nicht vom Router abrufen und zeigt daher alte Werte."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Выйдите из веб-интерфейса роутера и войдите снова.\n3. Если не помогло, откройте «Помощь» и найдите раздел о пустой или устаревшей странице.",
+        "uk": "1. Оновіть сторінку.\n2. Вийдіть із вебінтерфейсу роутера й увійдіть знову.\n3. Якщо не допомогло, відкрийте «Довідку» (Help) і знайдіть розділ про порожню або застарілу сторінку.",
+        "en": "1. Reload the page.\n2. Sign out of the router's web interface and sign in again.\n3. If that does not help, open Help and find the section about an empty or old page.",
+        "de": "1. Laden Sie die Seite neu.\n2. Melden Sie sich von der Weboberfläche des Routers ab und wieder an.\n3. Hilft das nicht, öffnen Sie die „Hilfe“ (Help) und suchen Sie den Abschnitt zu einer leeren oder veralteten Seite."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-025",
+      "number": "005-006-025",
+      "key": "RPC_UNCONFIRMED",
+      "aliases": [
+        "RPC-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Результат нажатия не подтверждён",
+        "uk": "Результат натискання не підтверджено",
+        "en": "The button result is not confirmed",
+        "de": "Das Ergebnis des Tastendrucks ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер принял нажатие кнопки, но не смог подтвердить результат. Нажатие не повторялось, поэтому дважды ничего не выполнилось.",
+        "uk": "Роутер прийняв натискання кнопки, але не зміг підтвердити результат. Натискання не повторювалося, тому двічі нічого не виконалося.",
+        "en": "The router accepted the button press but could not confirm its result. It was not repeated, so nothing happened twice.",
+        "de": "Der Router hat den Tastendruck angenommen, konnte das Ergebnis aber nicht bestätigen. Er wurde nicht wiederholt, es ist also nichts doppelt passiert."
+      },
+      "action": {
+        "ru": "1. Посмотрите на состояние на странице.\n2. Нажмите кнопку ещё раз, только если ничего не изменилось.",
+        "uk": "1. Подивіться на стан на сторінці.\n2. Натисніть кнопку ще раз, лише якщо нічого не змінилося.",
+        "en": "1. Look at the state on the page.\n2. Press the button again only if nothing changed.",
+        "de": "1. Sehen Sie sich den Zustand auf der Seite an.\n2. Drücken Sie die Schaltfläche nur dann erneut, wenn sich nichts geändert hat."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-026",
+      "number": "005-006-026",
+      "key": "RPC_UNEXPECTED_ARGS",
+      "aliases": [
+        "RPC-UNEXPECTED-ARGS"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "В запросе лишние данные",
+        "uk": "У запиті зайві дані",
+        "en": "The request has extra data",
+        "de": "Die Anfrage enthält zusätzliche Daten"
+      },
+      "cause": {
+        "ru": "Роутер отклонил запрос с неожиданными полями. Ничего не изменено.",
+        "uk": "Роутер відхилив запит із неочікуваними полями. Нічого не змінено.",
+        "en": "The router refused a request with unexpected fields. Nothing was changed.",
+        "de": "Der Router hat eine Anfrage mit unerwarteten Feldern abgelehnt. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-027",
+      "number": "005-006-027",
+      "key": "RPC_UNKNOWN_METHOD",
+      "aliases": [
+        "RPC-UNKNOWN-METHOD"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер не знает такого запроса",
+        "uk": "Роутер не знає такого запиту",
+        "en": "The router does not know this request",
+        "de": "Der Router kennt diese Anfrage nicht"
+      },
+      "cause": {
+        "ru": "Страница и программа на роутере разных версий, поэтому роутер не понял запрос. Ничего не изменено.",
+        "uk": "Сторінка і програма на роутері різних версій, тому роутер не зрозумів запит. Нічого не змінено.",
+        "en": "The page and the program on the router are of different versions, so the router did not understand the request. Nothing was changed.",
+        "de": "Seite und Programm auf dem Router haben verschiedene Versionen, daher hat der Router die Anfrage nicht verstanden. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Если ошибка остаётся, установите программу заново.",
+        "uk": "1. Оновіть сторінку.\n2. Якщо помилка лишається, встановіть програму заново.",
+        "en": "1. Reload the page.\n2. If it stays, install the program again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Bleibt der Fehler, installieren Sie das Programm erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-028",
+      "number": "005-006-028",
+      "key": "SESSION_LOSS_NOT_ACCEPTED",
+      "aliases": [
+        "SESSION-LOSS-NOT-ACCEPTED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не подтверждено согласие на короткий обрыв",
+        "uk": "Не підтверджено згоду на короткий обрив",
+        "en": "Short reconnection not accepted yet",
+        "de": "Kurze Neuverbindung noch nicht akzeptiert"
+      },
+      "cause": {
+        "ru": "Auto не запущен: в настройках не подтверждено, что короткое переподключение звонков и сеансов при переключении допустимо.",
+        "uk": "Auto не запущено: у налаштуваннях не підтверджено, що коротке перепідключення дзвінків і сеансів під час перемикання допустиме.",
+        "en": "Auto was not started: Settings do not yet confirm that a short reconnection of calls and sessions during a switch is acceptable.",
+        "de": "Auto wurde nicht gestartet: In den Einstellungen ist noch nicht bestätigt, dass eine kurze Neuverbindung von Anrufen und Sitzungen beim Wechsel akzeptabel ist."
+      },
+      "action": {
+        "ru": "1. Подтвердите в «Настройках», что короткое переподключение допустимо.\n2. Нажмите «Старт» ещё раз.\n3. Если неясно, откройте в «Помощи» раздел «Кнопка Auto не запускается».",
+        "uk": "1. Підтвердьте в «Налаштуваннях» (Settings), що коротке перепідключення допустиме.\n2. Натисніть «Старт» (Start) ще раз.\n3. Якщо неясно, відкрийте в «Довідці» (Help) розділ «Кнопка Auto не запускається».",
+        "en": "1. Confirm in Settings that a short reconnection is acceptable.\n2. Press Start again.\n3. If it is unclear, open the Help section \"The Auto button refuses to start\".",
+        "de": "1. Bestätigen Sie in den „Einstellungen“ (Settings), dass eine kurze Neuverbindung akzeptabel ist.\n2. Drücken Sie erneut „Start“ (Start).\n3. Ist etwas unklar, öffnen Sie in der „Hilfe“ (Help) den Abschnitt „Die Auto-Schaltfläche startet nicht“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-029",
+      "number": "005-006-029",
+      "key": "SESSION_ORDER",
+      "aliases": [
+        "SESSION-ORDER"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сохранённый порядок каналов не совпал",
+        "uk": "Збережений порядок каналів не збігся",
+        "en": "The saved channel order does not match",
+        "de": "Die gespeicherte Kanalreihenfolge stimmt nicht überein"
+      },
+      "cause": {
+        "ru": "После перезапуска сохранённый порядок каналов не совпал с текущим, поэтому Auto восстанавливается обычным способом.",
+        "uk": "Після перезапуску збережений порядок каналів не збігся з поточним, тому Auto відновлюється звичайним способом.",
+        "en": "After a restart the saved channel order did not match the current one, so Auto recovers in the usual way.",
+        "de": "Nach einem Neustart stimmte die gespeicherte Kanalreihenfolge nicht mit der aktuellen überein, daher stellt sich Auto auf dem üblichen Weg wieder her."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto продолжает работу по обычным правилам.",
+        "uk": "1. Нічого робити не потрібно: Auto продовжує роботу за звичайними правилами.",
+        "en": "1. Nothing to do: Auto carries on by its usual rules.",
+        "de": "1. Es ist nichts zu tun: Auto arbeitet nach seinen üblichen Regeln weiter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-030",
+      "number": "005-006-030",
+      "key": "UI_ACTION_FAILED",
+      "aliases": [
+        "UI-ACTION-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Страница не смогла завершить действие",
+        "uk": "Сторінка не змогла завершити дію",
+        "en": "The page could not finish the action",
+        "de": "Die Seite konnte die Aktion nicht abschließen"
+      },
+      "cause": {
+        "ru": "Страница отправила запрос, но связь прервалась или произошёл сбой страницы до ответа роутера. Неизвестно, выполнил ли роутер запрос.",
+        "uk": "Сторінка надіслала запит, але зв'язок обірвався або стався збій сторінки до відповіді роутера. Невідомо, чи виконав роутер запит.",
+        "en": "The page sent a request, but the connection was lost or the page failed before the router answered. It is unknown whether the router carried it out.",
+        "de": "Die Seite hat eine Anfrage gesendet, aber die Verbindung brach ab oder die Seite hatte einen Fehler, bevor der Router antwortete. Ob der Router sie ausgeführt hat, ist unbekannt."
+      },
+      "action": {
+        "ru": "1. Обновите страницу и проверьте текущее состояние.\n2. Повторите действие, только если оно не выполнилось.",
+        "uk": "1. Оновіть сторінку й перевірте поточний стан.\n2. Повторіть дію, лише якщо вона не виконалася.",
+        "en": "1. Reload the page and check the current state.\n2. Repeat the action only if it did not take effect.",
+        "de": "1. Laden Sie die Seite neu und prüfen Sie den aktuellen Zustand.\n2. Wiederholen Sie die Aktion nur, wenn sie nicht gewirkt hat."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-031",
+      "number": "005-006-031",
+      "key": "UI_HELP_LOAD_FAILED",
+      "aliases": [
+        "UI-HELP-LOAD-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось загрузить «Помощь»",
+        "uk": "Не вдалося завантажити «Довідку» (Help)",
+        "en": "Help could not be loaded",
+        "de": "Die „Hilfe“ (Help) konnte nicht geladen werden"
+      },
+      "cause": {
+        "ru": "Не загрузился дополнительный модуль «Помощи», обучения и каталога. Остальные страницы работают.",
+        "uk": "Не завантажився додатковий модуль «Довідки», навчання та каталогу. Інші сторінки працюють.",
+        "en": "The optional module with Help, training and the catalogue could not be loaded. The other pages keep working.",
+        "de": "Das optionale Modul mit Hilfe, Schulung und Katalog konnte nicht geladen werden. Die übrigen Seiten funktionieren weiter."
+      },
+      "action": {
+        "ru": "1. Нажмите «Повторить».\n2. Если не помогло, обновите страницу и проверьте связь с роутером.",
+        "uk": "1. Натисніть «Повторити» (Retry).\n2. Якщо не допомогло, оновіть сторінку й перевірте зв'язок із роутером.",
+        "en": "1. Press Retry.\n2. If that does not help, reload the page and check the connection to the router.",
+        "de": "1. Drücken Sie „Wiederholen“ (Retry).\n2. Hilft das nicht, laden Sie die Seite neu und prüfen Sie die Verbindung zum Router."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-032",
+      "number": "005-006-032",
+      "key": "UI_RENDER_FAILED",
+      "aliases": [
+        "UI-RENDER-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Часть страницы не отобразилась",
+        "uk": "Частина сторінки не відобразилася",
+        "en": "Part of the page could not be drawn",
+        "de": "Ein Teil der Seite konnte nicht angezeigt werden"
+      },
+      "cause": {
+        "ru": "Роутер ответил, но одна часть страницы не смогла отрисоваться. Остальная страница работает.",
+        "uk": "Роутер відповів, але одна частина сторінки не змогла відобразитися. Решта сторінки працює.",
+        "en": "The router answered, but one part of the page failed to draw. The rest of the page keeps working.",
+        "de": "Der Router hat geantwortet, aber ein Teil der Seite konnte nicht dargestellt werden. Der Rest der Seite funktioniert weiter."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Если это повторяется, отправьте код и снимок экрана разработчику.",
+        "uk": "1. Оновіть сторінку.\n2. Якщо це повторюється, надішліть код і знімок екрана розробнику.",
+        "en": "1. Reload the page.\n2. If it repeats, send the code and a screenshot to the developer.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholt sich das, senden Sie den Code und einen Screenshot an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-033",
+      "number": "005-006-033",
+      "key": "SESSION_BOUND",
+      "aliases": [
+        "SESSION-BOUND"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Временный путь запуска передан Auto",
+        "uk": "Тимчасовий шлях запуску передано Auto",
+        "en": "The start-up path was handed over to Auto",
+        "de": "Der Startweg wurde an Auto übergeben"
+      },
+      "cause": {
+        "ru": "Временный путь, которым роутер пользовался при запуске, освобождён: сеть теперь ведёт Auto. Это нормальный шаг запуска.",
+        "uk": "Тимчасовий шлях, яким роутер користувався під час запуску, звільнено: мережу тепер веде Auto. Це звичайний крок запуску.",
+        "en": "The temporary path the router used during start-up was released: Auto now runs the network. This is a normal start-up step.",
+        "de": "Der vorübergehende Weg, den der Router beim Start genutzt hat, wurde freigegeben: Jetzt steuert Auto das Netzwerk. Das ist ein normaler Startschritt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-RPC-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-034",
+      "number": "005-006-034",
+      "key": "SESSION_GL",
+      "aliases": [
+        "SESSION-GL"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Сеть передана маршрутизации Auto",
+        "uk": "Мережу передано маршрутизації Auto",
+        "en": "The network was handed over to Auto's routing",
+        "de": "Das Netzwerk wurde an das Routing von Auto übergeben"
+      },
+      "cause": {
+        "ru": "Временный путь, которым роутер пользовался при запуске, освобождён: сеть теперь ведёт маршрутизация Auto. Это нормальный шаг запуска.",
+        "uk": "Тимчасовий шлях, яким роутер користувався під час запуску, звільнено: мережу тепер веде маршрутизація Auto. Це звичайний крок запуску.",
+        "en": "The temporary path the router used during start-up was released: Auto's routing now runs the network. This is a normal start-up step.",
+        "de": "Der vorübergehende Weg, den der Router beim Start genutzt hat, wurde freigegeben: Jetzt steuert das Routing von Auto das Netzwerk. Das ist ein normaler Startschritt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-RPC-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-035",
+      "number": "005-006-035",
+      "key": "PAGE_CONTROLS_UNAVAILABLE",
+      "aliases": [
+        "PAGE-CONTROLS-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Кнопки страницы работают через запасной путь",
+        "uk": "Кнопки сторінки працюють через запасний шлях",
+        "en": "The page buttons work through a backup path",
+        "de": "Die Schaltflächen der Seite laufen über einen Ersatzweg"
+      },
+      "cause": {
+        "ru": "Основной путь, по которому кнопки страницы передают команды роутеру, сейчас недоступен. Кнопки обслуживает запасной путь, поэтому ответ может приходить медленнее.",
+        "uk": "Основний шлях, яким кнопки сторінки передають команди роутеру, зараз недоступний. Кнопки обслуговує запасний шлях, тому відповідь може надходити повільніше.",
+        "en": "The main path the page buttons use to send commands to the router is unavailable right now. A backup path serves the buttons, so answers may come more slowly.",
+        "de": "Der Hauptweg, über den die Schaltflächen der Seite Befehle an den Router senden, ist gerade nicht verfügbar. Ein Ersatzweg bedient die Schaltflächen, daher können Antworten langsamer kommen."
+      },
+      "action": {
+        "ru": "1. Пользуйтесь кнопками как обычно.\n2. Если это не проходит, обновите страницу или перезагрузите роутер.",
+        "uk": "1. Користуйтеся кнопками як зазвичай.\n2. Якщо це не минає, оновіть сторінку або перезавантажте роутер.",
+        "en": "1. Use the buttons as usual.\n2. If it does not go away, reload the page or restart the router.",
+        "de": "1. Verwenden Sie die Schaltflächen wie gewohnt.\n2. Verschwindet die Meldung nicht, laden Sie die Seite neu oder starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-036",
+      "number": "005-006-036",
+      "key": "UI_HELP_TOPIC_FAILED",
+      "aliases": [
+        "UI-HELP-TOPIC-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Раздел «Помощи» не отобразился",
+        "uk": "Розділ «Довідки» (Help) не відобразився",
+        "en": "A Help section could not be shown",
+        "de": "Ein Abschnitt der „Hilfe“ (Help) konnte nicht angezeigt werden"
+      },
+      "cause": {
+        "ru": "Один раздел «Помощи» не смог отрисоваться. Остальные разделы и страницы работают.",
+        "uk": "Один розділ «Довідки» не зміг відобразитися. Інші розділи та сторінки працюють.",
+        "en": "One Help section failed to draw. The other sections and pages keep working.",
+        "de": "Ein Abschnitt der Hilfe konnte nicht dargestellt werden. Die übrigen Abschnitte und Seiten funktionieren weiter."
+      },
+      "action": {
+        "ru": "1. Откройте раздел ещё раз.\n2. Если не помогло, обновите страницу.",
+        "uk": "1. Відкрийте розділ ще раз.\n2. Якщо не допомогло, оновіть сторінку.",
+        "en": "1. Open the section again.\n2. If that does not help, reload the page.",
+        "de": "1. Öffnen Sie den Abschnitt erneut.\n2. Hilft das nicht, laden Sie die Seite neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-RPC-037",
+      "number": "005-006-037",
+      "key": "UI_LANES_LOAD_FAILED",
+      "aliases": [
+        "UI-LANES-LOAD-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось загрузить окно «Полосы»",
+        "uk": "Не вдалося завантажити вікно «Смуги» (Lanes)",
+        "en": "The Lanes window could not be loaded",
+        "de": "Das Fenster „Spuren“ (Lanes) konnte nicht geladen werden"
+      },
+      "cause": {
+        "ru": "Окно «Полосы» не загрузилось. Остальные страницы работают.",
+        "uk": "Вікно «Смуги» не завантажилося. Інші сторінки працюють.",
+        "en": "The Lanes window did not load. The other pages keep working.",
+        "de": "Das Fenster „Spuren“ wurde nicht geladen. Die übrigen Seiten funktionieren weiter."
+      },
+      "action": {
+        "ru": "1. Нажмите «Полосы» ещё раз.\n2. Если не помогло, обновите страницу и проверьте связь с роутером.",
+        "uk": "1. Натисніть «Смуги» (Lanes) ще раз.\n2. Якщо не допомогло, оновіть сторінку й перевірте зв'язок із роутером.",
+        "en": "1. Press Lanes again.\n2. If that does not help, reload the page and check the connection to the router.",
+        "de": "1. Drücken Sie erneut „Spuren“ (Lanes).\n2. Hilft das nicht, laden Sie die Seite neu und prüfen Sie die Verbindung zum Router."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-RPC-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "rpc",
+        "runtime",
+        "translation-draft"
+      ]
+    }
+  ]
+}
