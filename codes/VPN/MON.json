@@ -1,0 +1,3854 @@
+{
+  "namespace": "VPN",
+  "area": "MON",
+  "codes": [
+    {
+      "code": "VPN-MON-001",
+      "number": "005-002-001",
+      "key": "CHANNEL_CONGESTED",
+      "aliases": [
+        "CHANNEL-CONGESTED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Задержка канала растёт",
+        "uk": "Затримка каналу зростає",
+        "en": "The channel's delay is climbing",
+        "de": "Die Verzögerung des Kanals steigt"
+      },
+      "cause": {
+        "ru": "Ответы через этот канал уже некоторое время приходят заметно медленнее обычного. Это мягкий сигнал: Auto из-за него не переключает канал и сбой не записывает.",
+        "uk": "Відповіді через цей канал уже деякий час надходять помітно повільніше, ніж зазвичай. Це м'який сигнал: Auto через нього не перемикає канал і збій не записує.",
+        "en": "Answers through this channel have been noticeably slower than usual for a while. This is a soft signal: Auto does not switch because of it and records no failure.",
+        "de": "Antworten über diesen Kanal kommen seit einiger Zeit deutlich langsamer als üblich. Das ist ein weiches Signal: Auto wechselt deswegen nicht und speichert keinen Ausfall."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: сигнал снимется сам, когда задержка вернётся.\n2. Если страницы открываются медленно, проверьте, не идёт ли через канал большая загрузка.",
+        "uk": "1. Нічого робити не потрібно: сигнал зникне сам, коли затримка повернеться.\n2. Якщо сторінки відкриваються повільно, перевірте, чи не йде через канал велике завантаження.",
+        "en": "1. Nothing to do: the signal clears by itself when the delay returns to normal.\n2. If pages open slowly, check whether a large download is running through the channel.",
+        "de": "1. Es ist nichts zu tun: Das Signal verschwindet von selbst, wenn sich die Verzögerung normalisiert.\n2. Wenn Seiten langsam laden, prüfen Sie, ob gerade ein großer Download über den Kanal läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-002",
+      "number": "005-002-002",
+      "key": "CHANNEL_UNRELIABLE",
+      "aliases": [
+        "CHANNEL-UNRELIABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Канал работает ненадёжно",
+        "uk": "Канал працює ненадійно",
+        "en": "The channel is unreliable",
+        "de": "Der Kanal arbeitet unzuverlässig"
+      },
+      "cause": {
+        "ru": "За короткое время заметная часть проверок роутера через этот канал не прошла, хотя туннель может показываться подключённым. Настройки из-за этого не меняются.",
+        "uk": "За короткий час помітна частина перевірок роутера через цей канал не пройшла, хоча тунель може показуватися підключеним. Налаштування через це не змінюються.",
+        "en": "Within a short time a noticeable share of the router's checks through this channel failed, although the tunnel may still show as connected. No settings are changed because of it.",
+        "de": "In kurzer Zeit ist ein spürbarer Teil der Prüfungen des Routers über diesen Kanal fehlgeschlagen, obwohl der Tunnel noch als verbunden angezeigt werden kann. Einstellungen werden dadurch nicht geändert."
+      },
+      "action": {
+        "ru": "1. Если ненадёжен только этот канал, выберите для него другой сервер у вашего VPN-провайдера.\n2. Если ненадёжны оба канала, сначала проверьте интернет самого роутера.",
+        "uk": "1. Якщо ненадійний лише цей канал, виберіть для нього інший сервер у вашого VPN-провайдера.\n2. Якщо ненадійні обидва канали, спершу перевірте інтернет самого роутера.",
+        "en": "1. If only this channel is unreliable, choose another server of your VPN provider for it.\n2. If both channels are unreliable, check the router's own Internet first.",
+        "de": "1. Ist nur dieser Kanal unzuverlässig, wählen Sie dafür einen anderen Server Ihres VPN-Anbieters.\n2. Sind beide Kanäle unzuverlässig, prüfen Sie zuerst die Internetverbindung des Routers selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-003",
+      "number": "005-002-003",
+      "key": "CHECK_NOT_CONFIRMED",
+      "aliases": [
+        "CHECK-001"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка ещё не подтверждена",
+        "uk": "Перевірку ще не підтверджено",
+        "en": "The check is not confirmed yet",
+        "de": "Die Prüfung ist noch nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Данных пока недостаточно, поэтому состояние канала остаётся «неизвестно». Так бывает, пока VPN ещё проверяется.",
+        "uk": "Даних поки недостатньо, тому стан каналу лишається «невідомо». Так буває, поки VPN ще перевіряється.",
+        "en": "There is not enough data yet, so the channel state stays \"unknown\". This is normal while the VPN is still being checked.",
+        "de": "Es gibt noch nicht genug Daten, daher bleibt der Kanalzustand „unbekannt“. Das ist normal, solange das VPN noch geprüft wird."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут.\n2. Если состояние не меняется, запустите проверку ещё раз на главной странице.",
+        "uk": "1. Зачекайте кілька хвилин.\n2. Якщо стан не змінюється, запустіть перевірку ще раз на головній сторінці (Home).",
+        "en": "1. Wait a few minutes.\n2. If the state does not change, run the check again on the Home page.",
+        "de": "1. Warten Sie einige Minuten.\n2. Ändert sich der Zustand nicht, starten Sie die Prüfung erneut auf der Startseite (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-004",
+      "number": "005-002-004",
+      "key": "CHECK_LIMIT",
+      "aliases": [
+        "CHECK-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN ждёт своей очереди на проверку",
+        "uk": "VPN чекає своєї черги на перевірку",
+        "en": "The VPN is waiting for its turn to be checked",
+        "de": "Das VPN wartet darauf, geprüft zu werden"
+      },
+      "cause": {
+        "ru": "Чтобы не нагружать роутер, за один круг проверяется только несколько VPN. Этот VPN проверится в следующий раз.",
+        "uk": "Щоб не навантажувати роутер, за одне коло перевіряється лише кілька VPN. Цей VPN перевіриться наступного разу.",
+        "en": "To keep the load on the router low, only a few VPNs are checked per round. This VPN will be checked next time.",
+        "de": "Um den Router nicht zu belasten, werden pro Runde nur wenige VPNs geprüft. Dieses VPN wird beim nächsten Mal geprüft."
+      },
+      "action": {
+        "ru": "1. Подождите следующего круга проверок.\n2. Если нужно проверять больше VPN сразу, увеличьте лимит в «Настройках».",
+        "uk": "1. Зачекайте наступного кола перевірок.\n2. Якщо потрібно перевіряти більше VPN одночасно, збільште ліміт у «Налаштуваннях» (Settings).",
+        "en": "1. Wait for the next round of checks.\n2. If more VPNs should be checked at once, raise the limit in Settings.",
+        "de": "1. Warten Sie die nächste Prüfrunde ab.\n2. Sollen mehr VPNs gleichzeitig geprüft werden, erhöhen Sie das Limit in den „Einstellungen“ (Settings)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-005",
+      "number": "005-002-005",
+      "key": "DIAG_DNS_FAILED",
+      "aliases": [
+        "DIAG-DNS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Поиск адресов не работает в обоих каналах",
+        "uk": "Пошук адрес не працює в обох каналах",
+        "en": "Name lookup fails on both channels",
+        "de": "Die Namensauflösung funktioniert in beiden Kanälen nicht"
+      },
+      "cause": {
+        "ru": "Защищённые соединения через оба канала проходят, но поиск адресов сайтов (DNS) не работает ни в одном. Это проблема с DNS, а не с туннелями.",
+        "uk": "Захищені з'єднання через обидва канали проходять, але пошук адрес сайтів (DNS) не працює в жодному. Це проблема з DNS, а не з тунелями.",
+        "en": "Secure connections pass through both channels, but looking up site names (DNS) fails on both. This is a DNS problem, not a tunnel failure.",
+        "de": "Sichere Verbindungen gehen über beide Kanäle, aber die Namensauflösung (DNS) schlägt in beiden fehl. Das ist ein DNS-Problem, kein Tunnelausfall."
+      },
+      "action": {
+        "ru": "1. Проверьте настройки DNS в профилях VPN.\n2. Проверьте настройки DNS самого роутера.",
+        "uk": "1. Перевірте налаштування DNS у профілях VPN.\n2. Перевірте налаштування DNS самого роутера.",
+        "en": "1. Check the DNS settings of the VPN profiles.\n2. Check the DNS settings of the router itself.",
+        "de": "1. Prüfen Sie die DNS-Einstellungen der VPN-Profile.\n2. Prüfen Sie die DNS-Einstellungen des Routers selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-006",
+      "number": "005-002-006",
+      "key": "DIAG_TUNNEL_DOWN",
+      "aliases": [
+        "DIAG-TUNNEL-DOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Диагноз: основной туннель не работает",
+        "uk": "Діагноз: основний тунель не працює",
+        "en": "Diagnosis: the main tunnel is down",
+        "de": "Diagnose: Der Haupttunnel funktioniert nicht"
+      },
+      "cause": {
+        "ru": "Роутер видит, что интернет и резервный канал работают, а основной туннель или его сервер — нет. Это только диагноз: Auto переключает каналы по своим обычным правилам.",
+        "uk": "Роутер бачить, що інтернет і резервний канал працюють, а основний тунель або його сервер — ні. Це лише діагноз: Auto перемикає канали за своїми звичайними правилами.",
+        "en": "The router sees that the Internet and the reserve channel work, but the main tunnel or its server does not. This is only a diagnosis: Auto switches channels by its usual rules.",
+        "de": "Der Router sieht, dass Internet und Reservekanal funktionieren, der Haupttunnel oder sein Server aber nicht. Das ist nur eine Diagnose: Auto wechselt die Kanäle nach seinen üblichen Regeln."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если это повторяется, выберите для основного канала другой сервер.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо це повторюється, виберіть для основного каналу інший сервер.",
+        "en": "1. Nothing to do.\n2. If it repeats, choose another server for the main channel.",
+        "de": "1. Es ist nichts zu tun.\n2. Wiederholt sich das, wählen Sie einen anderen Server für den Hauptkanal."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-007",
+      "number": "005-002-007",
+      "key": "DIAG_UNSURE",
+      "aliases": [
+        "DIAG-UNSURE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Диагноз: причина пока неясна",
+        "uk": "Діагноз: причина поки неясна",
+        "en": "Diagnosis: the cause is not clear yet",
+        "de": "Diagnose: Die Ursache ist noch unklar"
+      },
+      "cause": {
+        "ru": "Собранные данные пока не указывают на одну причину, например была только одна неудачная проверка. Auto работает как обычно.",
+        "uk": "Зібрані дані поки не вказують на одну причину, наприклад була лише одна невдала перевірка. Auto працює як зазвичай.",
+        "en": "The collected data does not point to one cause yet, for example there was only one failed check. Auto works as usual.",
+        "de": "Die gesammelten Daten weisen noch nicht auf eine Ursache hin, zum Beispiel gab es nur eine fehlgeschlagene Prüfung. Auto arbeitet wie gewohnt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-008",
+      "number": "005-002-008",
+      "key": "DIAG_VPN_BOTH_DOWN",
+      "aliases": [
+        "DIAG-VPN-BOTH-DOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Оба VPN-канала не работают, интернет есть",
+        "uk": "Обидва VPN-канали не працюють, інтернет є",
+        "en": "Both VPN channels are down, the Internet works",
+        "de": "Beide VPN-Kanäle sind ausgefallen, das Internet funktioniert"
+      },
+      "cause": {
+        "ru": "Интернет самого роутера работает, но оба VPN-канала не проходят проверки. Скорее всего, недоступен VPN-провайдер или оба сервера. Переключаться Auto некуда.",
+        "uk": "Інтернет самого роутера працює, але обидва VPN-канали не проходять перевірки. Найімовірніше, недоступний VPN-провайдер або обидва сервери. Перемикатися Auto нікуди.",
+        "en": "The router's own Internet works, but both VPN channels fail their checks. Most likely the VPN provider or both servers are unavailable. Auto has nowhere to switch to.",
+        "de": "Das Internet des Routers selbst funktioniert, aber beide VPN-Kanäle bestehen ihre Prüfungen nicht. Wahrscheinlich ist der VPN-Anbieter oder sind beide Server nicht erreichbar. Auto kann auf keinen anderen Kanal wechseln."
+      },
+      "action": {
+        "ru": "1. Проверьте, работает ли сервис вашего VPN-провайдера.\n2. Выберите для каналов другие серверы.",
+        "uk": "1. Перевірте, чи працює сервіс вашого VPN-провайдера.\n2. Виберіть для каналів інші сервери.",
+        "en": "1. Check whether your VPN provider's service is working.\n2. Choose other servers for the channels.",
+        "de": "1. Prüfen Sie, ob der Dienst Ihres VPN-Anbieters funktioniert.\n2. Wählen Sie andere Server für die Kanäle."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-009",
+      "number": "005-002-009",
+      "key": "DIAG_VPN_SERVER",
+      "aliases": [
+        "DIAG-VPN-SERVER"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN-сервер ничего не пропускает",
+        "uk": "VPN-сервер нічого не пропускає",
+        "en": "The VPN server passes nothing",
+        "de": "Der VPN-Server lässt nichts durch"
+      },
+      "cause": {
+        "ru": "Основной туннель отвечает и только что обновил защищённое соединение, но ни одна проверка через него не проходит. Вероятно, у самого VPN-сервера нет интернета.",
+        "uk": "Основний тунель відповідає і щойно оновив захищене з'єднання, але жодна перевірка через нього не проходить. Імовірно, у самого VPN-сервера немає інтернету.",
+        "en": "The main tunnel answers and has just renewed its secure connection, but no check passes through it. The VPN server itself probably has no Internet.",
+        "de": "Der Haupttunnel antwortet und hat gerade seine sichere Verbindung erneuert, aber keine Prüfung kommt durch. Wahrscheinlich hat der VPN-Server selbst kein Internet."
+      },
+      "action": {
+        "ru": "1. В Auto ничего делать не нужно.\n2. Если это длится долго, выберите другой сервер провайдера.",
+        "uk": "1. В Auto нічого робити не потрібно.\n2. Якщо це триває довго, виберіть інший сервер провайдера.",
+        "en": "1. Nothing to do in Auto.\n2. If it lasts long, choose another server of the provider.",
+        "de": "1. In Auto ist nichts zu tun.\n2. Dauert es länger, wählen Sie einen anderen Server des Anbieters."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-010",
+      "number": "005-002-010",
+      "key": "DIAG_WAN_SUSPECT",
+      "aliases": [
+        "DIAG-WAN-SUSPECT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Вероятно, у роутера нет интернета",
+        "uk": "Імовірно, у роутера немає інтернету",
+        "en": "The router's Internet is probably down",
+        "de": "Das Internet des Routers ist wahrscheinlich ausgefallen"
+      },
+      "cause": {
+        "ru": "Похоже, у самого роутера пропал интернет, но подтвердить это пока не удалось. Auto работает как обычно.",
+        "uk": "Схоже, у самого роутера зник інтернет, але підтвердити це поки не вдалося. Auto працює як зазвичай.",
+        "en": "It looks like the router's own Internet is down, but this could not be confirmed yet. Auto works as usual.",
+        "de": "Es sieht so aus, als sei das Internet des Routers ausgefallen, aber das konnte noch nicht bestätigt werden. Auto arbeitet wie gewohnt."
+      },
+      "action": {
+        "ru": "1. Проверьте кабель, Wi-Fi или модем, через которые роутер выходит в интернет.\n2. Нажимать в Auto ничего не нужно.",
+        "uk": "1. Перевірте кабель, Wi-Fi або модем, через які роутер виходить в інтернет.\n2. Натискати в Auto нічого не потрібно.",
+        "en": "1. Check the cable, Wi-Fi or modem the router uses to reach the Internet.\n2. Nothing needs to be pressed in Auto.",
+        "de": "1. Prüfen Sie Kabel, Wi-Fi oder Modem, über die der Router ins Internet geht.\n2. In Auto muss nichts gedrückt werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-011",
+      "number": "005-002-011",
+      "key": "DNS_CHECK_FAILED",
+      "aliases": [
+        "DNS-001"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка DNS не прошла",
+        "uk": "Перевірка DNS не пройшла",
+        "en": "The DNS check did not pass",
+        "de": "Die DNS-Prüfung ist fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Контрольный поиск адреса через этот VPN не дал правильного ответа. Сайты при этом могут открываться, а одна проверка не говорит о точной причине.",
+        "uk": "Контрольний пошук адреси через цей VPN не дав правильної відповіді. Сайти при цьому можуть відкриватися, а одна перевірка не вказує на точну причину.",
+        "en": "A test name lookup through this VPN did not return a valid answer. Sites may still open, and one check alone does not show the exact cause.",
+        "de": "Eine Test-Namensauflösung über dieses VPN hat keine gültige Antwort geliefert. Seiten können trotzdem laden, und eine einzelne Prüfung zeigt die genaue Ursache nicht."
+      },
+      "action": {
+        "ru": "1. Повторите проверку.\n2. Если ошибка остаётся, проверьте настройки DNS в профиле VPN.\n3. Не перезапускайте профиль, пока работает Auto: сначала нажмите «Стоп».",
+        "uk": "1. Повторіть перевірку.\n2. Якщо помилка лишається, перевірте налаштування DNS у профілі VPN.\n3. Не перезапускайте профіль, поки працює Auto: спершу натисніть «Стоп» (Stop).",
+        "en": "1. Repeat the check.\n2. If it stays, check the DNS settings in the VPN profile.\n3. Do not restart the profile while Auto is running: press Stop first.",
+        "de": "1. Wiederholen Sie die Prüfung.\n2. Bleibt der Fehler, prüfen Sie die DNS-Einstellungen im VPN-Profil.\n3. Starten Sie das Profil nicht neu, solange Auto läuft: Drücken Sie zuerst „Stopp“ (Stop)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-012",
+      "number": "005-002-012",
+      "key": "DNS_FAILED",
+      "aliases": [
+        "DNS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Поиск адресов через VPN не работает",
+        "uk": "Пошук адрес через VPN не працює",
+        "en": "Name lookup through the VPN fails",
+        "de": "Die Namensauflösung über das VPN funktioniert nicht"
+      },
+      "cause": {
+        "ru": "VPN подключён, но найти адрес сайта по имени через него не удаётся.",
+        "uk": "VPN підключено, але знайти адресу сайту за назвою через нього не вдається.",
+        "en": "The VPN is connected, but looking up a site name through it fails.",
+        "de": "Das VPN ist verbunden, aber die Namensauflösung von Seiten darüber schlägt fehl."
+      },
+      "action": {
+        "ru": "1. Проверьте настройки DNS в профиле VPN.\n2. Подробнее см. VPN-MON-011.",
+        "uk": "1. Перевірте налаштування DNS у профілі VPN.\n2. Докладніше див. VPN-MON-011.",
+        "en": "1. Check the DNS settings in the VPN profile.\n2. For details see VPN-MON-011.",
+        "de": "1. Prüfen Sie die DNS-Einstellungen im VPN-Profil.\n2. Details siehe VPN-MON-011."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-013",
+      "number": "005-002-013",
+      "key": "HTTPS_FAILED",
+      "aliases": [
+        "HTTPS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Защищённые соединения через VPN проходят плохо",
+        "uk": "Захищені з'єднання через VPN проходять погано",
+        "en": "Too few secure connections pass through the VPN",
+        "de": "Zu wenige sichere Verbindungen gehen über das VPN"
+      },
+      "cause": {
+        "ru": "Через этот VPN прошло слишком мало проверочных защищённых соединений. Возможно, VPN работает только частично.",
+        "uk": "Через цей VPN пройшло надто мало перевірних захищених з'єднань. Можливо, VPN працює лише частково.",
+        "en": "Too few test secure connections passed through this VPN. The VPN may work only partly.",
+        "de": "Über dieses VPN sind zu wenige sichere Testverbindungen durchgegangen. Das VPN funktioniert möglicherweise nur teilweise."
+      },
+      "action": {
+        "ru": "1. Посмотрите результат проверки DNS для этого канала.\n2. Выполните шаги из раздела «Помощи» о проверке канала.",
+        "uk": "1. Перегляньте результат перевірки DNS для цього каналу.\n2. Виконайте кроки з розділу «Довідки» (Help) про перевірку каналу.",
+        "en": "1. Look at the DNS check result for this channel.\n2. Follow the steps in the Help section about checking a channel.",
+        "de": "1. Sehen Sie sich das Ergebnis der DNS-Prüfung für diesen Kanal an.\n2. Folgen Sie den Schritten im Abschnitt der „Hilfe“ (Help) zur Kanalprüfung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-014",
+      "number": "005-002-014",
+      "key": "KEYPAIR_CREATED",
+      "aliases": [
+        "KEYPAIR-CREATED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Защищённое соединение установлено",
+        "uk": "Захищене з'єднання встановлено",
+        "en": "Secure connection established",
+        "de": "Sichere Verbindung hergestellt"
+      },
+      "cause": {
+        "ru": "Туннель ответил на запрос установить защищённое соединение. Роутер считает это признаком того, что туннель и интернет работают.",
+        "uk": "Тунель відповів на запит установити захищене з'єднання. Роутер вважає це ознакою того, що тунель та інтернет працюють.",
+        "en": "The tunnel answered a request to set up a secure connection. The router takes this as a sign that the tunnel and the Internet work.",
+        "de": "Der Tunnel hat auf eine Anfrage zum Aufbau einer sicheren Verbindung geantwortet. Der Router wertet das als Zeichen, dass Tunnel und Internet funktionieren."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-015",
+      "number": "005-002-015",
+      "key": "LARGE_PACKETS_FAILED",
+      "aliases": [
+        "LARGE-PACKETS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Большие пакеты теряются",
+        "uk": "Великі пакети губляться",
+        "en": "Large packets are lost",
+        "de": "Große Pakete gehen verloren"
+      },
+      "cause": {
+        "ru": "VPN подключён и проходит обычные проверки, но крупные пакеты данных через него теряются.",
+        "uk": "VPN підключено, і він проходить звичайні перевірки, але великі пакети даних через нього губляться.",
+        "en": "The VPN is connected and passes the normal checks, but large data packets are lost on it.",
+        "de": "Das VPN ist verbunden und besteht die normalen Prüfungen, aber große Datenpakete gehen darüber verloren."
+      },
+      "action": {
+        "ru": "1. Выполните шаги из VPN-MON-049.",
+        "uk": "1. Виконайте кроки з VPN-MON-049.",
+        "en": "1. Follow the steps of VPN-MON-049.",
+        "de": "1. Folgen Sie den Schritten von VPN-MON-049."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-016",
+      "number": "005-002-016",
+      "key": "LINK_UP",
+      "aliases": [
+        "LINK-UP"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Линия подключена",
+        "uk": "Лінію підключено",
+        "en": "The line is connected",
+        "de": "Die Leitung ist verbunden"
+      },
+      "cause": {
+        "ru": "Кабель или линия, через которые роутер выходит в интернет, подключены. Само по себе это ещё не значит, что интернет есть.",
+        "uk": "Кабель або лінія, через які роутер виходить в інтернет, підключені. Саме по собі це ще не означає, що інтернет є.",
+        "en": "The cable or line the router uses for the Internet is connected. This alone does not prove that the Internet works.",
+        "de": "Das Kabel oder die Leitung, über die der Router ins Internet geht, ist verbunden. Das allein beweist noch nicht, dass das Internet funktioniert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-017",
+      "number": "005-002-017",
+      "key": "MONITOR_DATA_STALE",
+      "aliases": [
+        "MONITOR-DATA-STALE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Данные роутера устарели",
+        "uk": "Дані роутера застаріли",
+        "en": "The router's data is old",
+        "de": "Die Daten des Routers sind veraltet"
+      },
+      "cause": {
+        "ru": "Программа на роутере отвечает, но её последнее измерение слишком старое, чтобы описать каналы сейчас. Так бывает и во время теста скорости: на это время измерения приостанавливаются.",
+        "uk": "Програма на роутері відповідає, але її останнє вимірювання надто старе, щоб описати канали зараз. Так буває і під час тесту швидкості: на цей час вимірювання призупиняються.",
+        "en": "The program on the router answers, but its last measurement is too old to describe the channels now. This also happens during a speed test, which pauses measurements for its duration.",
+        "de": "Das Programm auf dem Router antwortet, aber seine letzte Messung ist zu alt, um die Kanäle jetzt zu beschreiben. Das passiert auch während eines Geschwindigkeitstests, der die Messungen so lange pausiert."
+      },
+      "action": {
+        "ru": "1. Если идёт тест скорости, дождитесь его окончания.\n2. Иначе проверьте в «Системе», что наблюдение за каналами работает.",
+        "uk": "1. Якщо триває тест швидкості, дочекайтеся його завершення.\n2. Інакше перевірте в розділі «Система» (System), що спостереження за каналами працює.",
+        "en": "1. If a speed test is running, wait until it ends.\n2. Otherwise check in System that channel monitoring is running.",
+        "de": "1. Läuft ein Geschwindigkeitstest, warten Sie, bis er beendet ist.\n2. Andernfalls prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-018",
+      "number": "005-002-018",
+      "key": "OBSERVATION_STALE",
+      "aliases": [
+        "OBSERVATION-STALE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Измерения устарели",
+        "uk": "Вимірювання застаріли",
+        "en": "The measurements are old",
+        "de": "Die Messungen sind veraltet"
+      },
+      "cause": {
+        "ru": "Последнее измерение слишком старое, чтобы по нему что-то решать.",
+        "uk": "Останнє вимірювання надто старе, щоб за ним щось вирішувати.",
+        "en": "The latest measurement is too old to decide anything from it.",
+        "de": "Die letzte Messung ist zu alt, um daraus etwas zu entscheiden."
+      },
+      "action": {
+        "ru": "1. Проверьте в «Системе», что наблюдение за каналами работает.",
+        "uk": "1. Перевірте в розділі «Система» (System), що спостереження за каналами працює.",
+        "en": "1. Check in System that channel monitoring is running.",
+        "de": "1. Prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-019",
+      "number": "005-002-019",
+      "key": "OBSERVATION_UNKNOWN",
+      "aliases": [
+        "OBSERVATION-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пока мало измерений",
+        "uk": "Поки замало вимірювань",
+        "en": "Not enough measurements yet",
+        "de": "Noch nicht genug Messungen"
+      },
+      "cause": {
+        "ru": "Роутер ещё не собрал достаточно измерений, чтобы оценить канал.",
+        "uk": "Роутер ще не зібрав достатньо вимірювань, щоб оцінити канал.",
+        "en": "The router has not yet collected enough measurements to judge the channel.",
+        "de": "Der Router hat noch nicht genug Messungen gesammelt, um den Kanal zu beurteilen."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут.",
+        "uk": "1. Зачекайте кілька хвилин.",
+        "en": "1. Wait a few minutes.",
+        "de": "1. Warten Sie einige Minuten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-020",
+      "number": "005-002-020",
+      "key": "PATH_UNVERIFIED",
+      "aliases": [
+        "PATH-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Путь проверки не подтверждён",
+        "uk": "Шлях перевірки не підтверджено",
+        "en": "The check path is not confirmed",
+        "de": "Der Prüfweg ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер ещё не подтвердил, каким путём прошла его проверка, поэтому пока на неё не опирается.",
+        "uk": "Роутер ще не підтвердив, яким шляхом пройшла його перевірка, тому поки на неї не спирається.",
+        "en": "The router has not yet confirmed which way its check went, so it does not rely on it yet.",
+        "de": "Der Router hat noch nicht bestätigt, welchen Weg seine Prüfung genommen hat, und stützt sich daher noch nicht darauf."
+      },
+      "action": {
+        "ru": "1. Подождите следующей проверки.",
+        "uk": "1. Зачекайте наступної перевірки.",
+        "en": "1. Wait for the next check.",
+        "de": "1. Warten Sie die nächste Prüfung ab."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-021",
+      "number": "005-002-021",
+      "key": "PING_CHECK_PENDING",
+      "aliases": [
+        "PING-CHECK-PENDING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидается измерение пинга",
+        "uk": "Очікується вимірювання пінгу",
+        "en": "Waiting for a ping measurement",
+        "de": "Warten auf eine Ping-Messung"
+      },
+      "cause": {
+        "ru": "Свежее измерение пинга для этого VPN ещё собирается. Роутер не подставляет вместо него значения из других проверок.",
+        "uk": "Свіже вимірювання пінгу для цього VPN ще збирається. Роутер не підставляє замість нього значення з інших перевірок.",
+        "en": "A fresh ping measurement for this VPN is still being collected. The router does not fill in values from other checks instead.",
+        "de": "Eine frische Ping-Messung für dieses VPN wird noch erhoben. Der Router setzt keine Werte aus anderen Prüfungen dafür ein."
+      },
+      "action": {
+        "ru": "1. Подождите фоновой проверки: открытие страницы не запускает лишних измерений.",
+        "uk": "1. Зачекайте фонової перевірки: відкриття сторінки не запускає зайвих вимірювань.",
+        "en": "1. Wait for the background check: opening the page starts no extra measurement.",
+        "de": "1. Warten Sie die Hintergrundprüfung ab: Das Öffnen der Seite startet keine zusätzliche Messung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-022",
+      "number": "005-002-022",
+      "key": "PING_DATA_STALE",
+      "aliases": [
+        "PING-DATA-STALE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Результат пинга устарел",
+        "uk": "Результат пінгу застарів",
+        "en": "The ping result is old",
+        "de": "Das Ping-Ergebnis ist veraltet"
+      },
+      "cause": {
+        "ru": "Сохранённый результат пинга слишком старый, поэтому его не показывают как текущее измерение.",
+        "uk": "Збережений результат пінгу надто старий, тому його не показують як поточне вимірювання.",
+        "en": "The saved ping result is too old, so it is not shown as a current measurement.",
+        "de": "Das gespeicherte Ping-Ergebnis ist zu alt und wird daher nicht als aktuelle Messung angezeigt."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Если результаты остаются старыми, проверьте в «Системе», что наблюдение за каналами работает.",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Якщо результати лишаються старими, перевірте в розділі «Система» (System), що спостереження за каналами працює.",
+        "en": "1. Wait for the next background check.\n2. If results stay old, check in System that channel monitoring is running.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Bleiben die Ergebnisse veraltet, prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-023",
+      "number": "005-002-023",
+      "key": "PING_FAILED",
+      "aliases": [
+        "PING-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нет ответа на пинг",
+        "uk": "Немає відповіді на пінг",
+        "en": "No ping reply",
+        "de": "Keine Ping-Antwort"
+      },
+      "cause": {
+        "ru": "Отдельная проверка пингом через этот VPN не получила ответа. На оценку канала, выбор маршрута и решения Auto это не влияет.",
+        "uk": "Окрема перевірка пінгом через цей VPN не отримала відповіді. На оцінку каналу, вибір маршруту та рішення Auto це не впливає.",
+        "en": "The separate ping check through this VPN got no reply. This does not affect the channel rating, the chosen route or Auto's decisions.",
+        "de": "Die separate Ping-Prüfung über dieses VPN hat keine Antwort erhalten. Das beeinflusst weder die Kanalbewertung noch die gewählte Route oder die Entscheidungen von Auto."
+      },
+      "action": {
+        "ru": "1. Подождите следующей проверки пинга.\n2. Сравните с результатами проверок DNS и защищённых соединений: некоторые сети блокируют пинг, хотя всё работает.",
+        "uk": "1. Зачекайте наступної перевірки пінгу.\n2. Порівняйте з результатами перевірок DNS і захищених з'єднань: деякі мережі блокують пінг, хоча все працює.",
+        "en": "1. Wait for the next ping check.\n2. Compare with the DNS and secure connection results: some networks block ping even when everything works.",
+        "de": "1. Warten Sie die nächste Ping-Prüfung ab.\n2. Vergleichen Sie mit den Ergebnissen der DNS- und Verbindungsprüfungen: Manche Netze blockieren Ping, obwohl alles funktioniert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-024",
+      "number": "005-002-024",
+      "key": "PING_HISTORY_PAIR_LIMIT",
+      "aliases": [
+        "PING-HISTORY-PAIR-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "История пинга заполнена",
+        "uk": "Історію пінгу заповнено",
+        "en": "The ping history is full",
+        "de": "Der Ping-Verlauf ist voll"
+      },
+      "cause": {
+        "ru": "Архив пинга ограничен по размеру и не может принять ещё одну пару каналов. Старые значения не переписываются под другой профиль.",
+        "uk": "Архів пінгу обмежений за розміром і не може прийняти ще одну пару каналів. Старі значення не переписуються під інший профіль.",
+        "en": "The ping archive has a limited size and cannot take another channel pair. Old values are not relabelled for another profile.",
+        "de": "Das Ping-Archiv ist in der Größe begrenzt und kann kein weiteres Kanalpaar aufnehmen. Alte Werte werden keinem anderen Profil zugeordnet."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории пинга см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію пінгу див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how ping is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie der Ping gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-025",
+      "number": "005-002-025",
+      "key": "PING_HISTORY_UNAVAILABLE",
+      "aliases": [
+        "PING-HISTORY-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "История пинга недоступна",
+        "uk": "Історія пінгу недоступна",
+        "en": "The ping history is unavailable",
+        "de": "Der Ping-Verlauf ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Архив пинга не удалось проверить, поэтому он не показывается. Другие данные вместо него не подставляются.",
+        "uk": "Архів пінгу не вдалося перевірити, тому він не показується. Інші дані замість нього не підставляються.",
+        "en": "The ping archive could not be verified, so it is not shown. No other data is shown in its place.",
+        "de": "Das Ping-Archiv konnte nicht überprüft werden und wird daher nicht angezeigt. Andere Daten werden nicht ersatzweise gezeigt."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории пинга см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію пінгу див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how ping is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie der Ping gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-026",
+      "number": "005-002-026",
+      "key": "PING_HISTORY_WRITE_FAILED",
+      "aliases": [
+        "PING-HISTORY-WRITE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "История пинга не сохранена",
+        "uk": "Історію пінгу не збережено",
+        "en": "The ping history was not saved",
+        "de": "Der Ping-Verlauf wurde nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Архив пинга не удалось безопасно записать. Текущие проверки продолжаются, пропущенная история остаётся пустой.",
+        "uk": "Архів пінгу не вдалося безпечно записати. Поточні перевірки тривають, пропущена історія лишається порожньою.",
+        "en": "The ping archive could not be written safely. Current checks continue; the missing history stays empty.",
+        "de": "Das Ping-Archiv konnte nicht sicher geschrieben werden. Die laufenden Prüfungen gehen weiter; der fehlende Verlauf bleibt leer."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории пинга см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію пінгу див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how ping is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie der Ping gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-027",
+      "number": "005-002-027",
+      "key": "PING_IDENTITY_CHANGED",
+      "aliases": [
+        "PING-IDENTITY-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Результат пинга относится к прошлому подключению",
+        "uk": "Результат пінгу стосується попереднього підключення",
+        "en": "The ping result belongs to an earlier connection",
+        "de": "Das Ping-Ergebnis gehört zu einer früheren Verbindung"
+      },
+      "cause": {
+        "ru": "VPN-подключение изменилось, поэтому прежний результат пинга отброшен и не приписывается новому подключению.",
+        "uk": "VPN-підключення змінилося, тому попередній результат пінгу відкинуто і не приписано новому підключенню.",
+        "en": "The VPN connection has changed, so the previous ping result was dropped and is not credited to the new connection.",
+        "de": "Die VPN-Verbindung hat sich geändert, daher wurde das frühere Ping-Ergebnis verworfen und nicht der neuen Verbindung zugeordnet."
+      },
+      "action": {
+        "ru": "1. Подождите, пока роутер увидит новое подключение и проверит его пингом.",
+        "uk": "1. Зачекайте, поки роутер побачить нове підключення і перевірить його пінгом.",
+        "en": "1. Wait until the router sees the new connection and checks it with ping.",
+        "de": "1. Warten Sie, bis der Router die neue Verbindung erkennt und per Ping prüft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-028",
+      "number": "005-002-028",
+      "key": "PING_INACTIVE",
+      "aliases": [
+        "PING-INACTIVE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пинг не измеряется",
+        "uk": "Пінг не вимірюється",
+        "en": "Ping is not being measured",
+        "de": "Ping wird nicht gemessen"
+      },
+      "cause": {
+        "ru": "Этот VPN выключен или не подключён, поэтому пинг через него не измеряется.",
+        "uk": "Цей VPN вимкнено або не підключено, тому пінг через нього не вимірюється.",
+        "en": "This VPN is turned off or not connected, so ping is not measured through it.",
+        "de": "Dieses VPN ist ausgeschaltet oder nicht verbunden, daher wird kein Ping darüber gemessen."
+      },
+      "action": {
+        "ru": "1. Проверьте, включено ли это VPN-подключение на роутере.\n2. Учтите: показ пинга сам не подключает туннель и не меняет работу Auto.",
+        "uk": "1. Перевірте, чи ввімкнено це VPN-підключення на роутері.\n2. Зважте: показ пінгу сам не підключає тунель і не змінює роботу Auto.",
+        "en": "1. Check whether this VPN connection is turned on on the router.\n2. Note: the ping display itself does not connect a tunnel or change Auto.",
+        "de": "1. Prüfen Sie, ob diese VPN-Verbindung auf dem Router eingeschaltet ist.\n2. Hinweis: Die Ping-Anzeige verbindet keinen Tunnel und ändert Auto nicht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-029",
+      "number": "005-002-029",
+      "key": "PING_NOT_SELECTED",
+      "aliases": [
+        "PING-NOT-SELECTED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN не входит в измеряемую пару",
+        "uk": "VPN не входить до вимірюваної пари",
+        "en": "The VPN is not in the measured pair",
+        "de": "Das VPN gehört nicht zum gemessenen Paar"
+      },
+      "cause": {
+        "ru": "Пинг в фоне измеряется только для выбранных основного и резервного VPN. Этот профиль в пару не входит.",
+        "uk": "Пінг у фоні вимірюється лише для вибраних основного та резервного VPN. Цей профіль до пари не входить.",
+        "en": "Ping is measured in the background only for the chosen main and reserve VPNs. This profile is not in that pair.",
+        "de": "Ping wird im Hintergrund nur für das gewählte Haupt- und Reserve-VPN gemessen. Dieses Profil gehört nicht zu diesem Paar."
+      },
+      "action": {
+        "ru": "1. Если хотите следить за этим VPN, выберите его в паре каналов.",
+        "uk": "1. Якщо хочете стежити за цим VPN, виберіть його в парі каналів.",
+        "en": "1. If you want to watch this VPN, choose it in the channel pair.",
+        "de": "1. Wenn Sie dieses VPN beobachten möchten, wählen Sie es im Kanalpaar aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-030",
+      "number": "005-002-030",
+      "key": "PING_UNAVAILABLE",
+      "aliases": [
+        "PING-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Измерение пинга недоступно",
+        "uk": "Вимірювання пінгу недоступне",
+        "en": "The ping measurement is unavailable",
+        "de": "Die Ping-Messung ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Для этого канала нет проверенного измерения пинга. Отсутствие пинга само по себе не означает, что канал не работает.",
+        "uk": "Для цього каналу немає перевіреного вимірювання пінгу. Відсутність пінгу сама по собі не означає, що канал не працює.",
+        "en": "There is no verified ping measurement for this channel. Missing ping alone does not mean the channel is down.",
+        "de": "Für diesen Kanal gibt es keine überprüfte Ping-Messung. Ein fehlender Ping allein bedeutet nicht, dass der Kanal ausgefallen ist."
+      },
+      "action": {
+        "ru": "1. Проверьте в «Системе», что наблюдение за каналами работает.\n2. Проверьте, что выбрана нужная пара каналов.",
+        "uk": "1. Перевірте в розділі «Система» (System), що спостереження за каналами працює.\n2. Перевірте, що вибрано потрібну пару каналів.",
+        "en": "1. Check in System that channel monitoring is running.\n2. Check that the right channel pair is chosen.",
+        "de": "1. Prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft.\n2. Prüfen Sie, ob das richtige Kanalpaar gewählt ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-031",
+      "number": "005-002-031",
+      "key": "PLAIN_OVPN_NO_INTERFACE",
+      "aliases": [
+        "PLAIN-OVPN-NO-INTERFACE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подключение OpenVPN не видно программе",
+        "uk": "Підключення OpenVPN не видно програмі",
+        "en": "The OpenVPN connection is not visible to the program",
+        "de": "Die OpenVPN-Verbindung ist für das Programm nicht sichtbar"
+      },
+      "cause": {
+        "ru": "Это подключение OpenVPN настроено вручную и не привязано к отдельному сетевому интерфейсу роутера. Поэтому программа не может узнать его состояние и проверять его.",
+        "uk": "Це підключення OpenVPN налаштовано вручну і не прив'язано до окремого мережевого інтерфейсу роутера. Тому програма не може дізнатися його стан і перевіряти його.",
+        "en": "This OpenVPN connection was set up by hand and is not tied to its own network interface on the router. So the program cannot read its state or check it.",
+        "de": "Diese OpenVPN-Verbindung wurde von Hand eingerichtet und ist an keine eigene Netzwerkschnittstelle des Routers gebunden. Daher kann das Programm ihren Zustand nicht lesen und sie nicht prüfen."
+      },
+      "action": {
+        "ru": "1. Добавьте это подключение заново через «Добавить VPN-канал»: программа сама настроит всё нужное.\n2. Если не получается, выполните шаги из «Помощи».",
+        "uk": "1. Додайте це підключення заново через «Додати VPN-канал» (Add a VPN channel): програма сама налаштує все потрібне.\n2. Якщо не виходить, виконайте кроки з «Довідки» (Help).",
+        "en": "1. Add this connection again with \"Add a VPN channel\": the program sets up everything needed by itself.\n2. If that does not work, follow the steps in Help.",
+        "de": "1. Fügen Sie diese Verbindung über „VPN-Kanal hinzufügen“ (Add a VPN channel) erneut hinzu: Das Programm richtet alles Nötige selbst ein.\n2. Klappt das nicht, folgen Sie den Schritten in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-032",
+      "number": "005-002-032",
+      "key": "PLAIN_WG_NO_PEER",
+      "aliases": [
+        "PLAIN-WG-NO-PEER"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У подключения WireGuard нет сервера",
+        "uk": "У підключення WireGuard немає сервера",
+        "en": "The WireGuard connection has no server",
+        "de": "Die WireGuard-Verbindung hat keinen Server"
+      },
+      "cause": {
+        "ru": "В этом вручную настроенном подключении WireGuard не указан включённый сервер, поэтому оно не может передавать данные.",
+        "uk": "У цьому вручну налаштованому підключенні WireGuard не вказано ввімкненого сервера, тому воно не може передавати дані.",
+        "en": "This hand-made WireGuard connection has no enabled server entry, so it cannot carry traffic.",
+        "de": "In dieser von Hand eingerichteten WireGuard-Verbindung ist kein aktiver Server eingetragen, daher kann sie keine Daten übertragen."
+      },
+      "action": {
+        "ru": "1. Импортируйте файл настроек от VPN-провайдера ещё раз.\n2. Либо добавьте сервер в настройках этого подключения на роутере.",
+        "uk": "1. Імпортуйте файл налаштувань від VPN-провайдера ще раз.\n2. Або додайте сервер у налаштуваннях цього підключення на роутері.",
+        "en": "1. Import the settings file from your VPN provider again.\n2. Or add the server in the settings of this connection on the router.",
+        "de": "1. Importieren Sie die Einstellungsdatei Ihres VPN-Anbieters erneut.\n2. Oder fügen Sie den Server in den Einstellungen dieser Verbindung auf dem Router hinzu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-033",
+      "number": "005-002-033",
+      "key": "REKEY_GIVEUP",
+      "aliases": [
+        "REKEY-GIVEUP"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Туннель перестал обновлять защищённое соединение",
+        "uk": "Тунель перестав оновлювати захищене з'єднання",
+        "en": "The tunnel stopped renewing its secure connection",
+        "de": "Der Tunnel erneuert seine sichere Verbindung nicht mehr"
+      },
+      "cause": {
+        "ru": "Сервер несколько раз не ответил на обновление защищённого соединения, и туннель прекратил попытки. Роутер теперь проверяет этот канал чаще, а Auto решает только по своим проверкам.",
+        "uk": "Сервер кілька разів не відповів на оновлення захищеного з'єднання, і тунель припинив спроби. Роутер тепер перевіряє цей канал частіше, а Auto вирішує лише за своїми перевірками.",
+        "en": "The server did not answer the secure connection renewal several times, and the tunnel stopped trying. The router now checks this channel more often; Auto decides only by its own checks.",
+        "de": "Der Server hat mehrmals nicht auf die Erneuerung der sicheren Verbindung geantwortet, und der Tunnel hat aufgegeben. Der Router prüft diesen Kanal jetzt häufiger; Auto entscheidet nur nach seinen eigenen Prüfungen."
+      },
+      "action": {
+        "ru": "1. Если это повторяется, проверьте сервер VPN.\n2. Проверьте интернет самого роутера.",
+        "uk": "1. Якщо це повторюється, перевірте сервер VPN.\n2. Перевірте інтернет самого роутера.",
+        "en": "1. If it repeats, check the VPN server.\n2. Check the router's own Internet.",
+        "de": "1. Wiederholt sich das, prüfen Sie den VPN-Server.\n2. Prüfen Sie die Internetverbindung des Routers selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-034",
+      "number": "005-002-034",
+      "key": "REKEY_TIMEOUT",
+      "aliases": [
+        "REKEY-TIMEOUT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сервер не ответил на обновление соединения",
+        "uk": "Сервер не відповів на оновлення з'єднання",
+        "en": "The server did not answer a connection renewal",
+        "de": "Der Server hat auf eine Verbindungserneuerung nicht geantwortet"
+      },
+      "cause": {
+        "ru": "Сервер вовремя не ответил на обновление защищённого соединения. Это бывает и из-за одного потерянного пакета, поэтому роутер лишь чаще проверяет канал и сам из-за этого не переключает.",
+        "uk": "Сервер вчасно не відповів на оновлення захищеного з'єднання. Це буває і через один втрачений пакет, тому роутер лише частіше перевіряє канал і сам через це не перемикає.",
+        "en": "The server did not answer a secure connection renewal in time. A single lost packet can cause this, so the router only checks the channel more often and never switches because of it.",
+        "de": "Der Server hat nicht rechtzeitig auf eine Erneuerung der sicheren Verbindung geantwortet. Schon ein verlorenes Paket kann das auslösen, daher prüft der Router den Kanal nur häufiger und wechselt deswegen nicht."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно, если проверки канала проходят.",
+        "uk": "1. Нічого робити не потрібно, якщо перевірки каналу проходять.",
+        "en": "1. Nothing to do as long as the channel checks pass.",
+        "de": "1. Es ist nichts zu tun, solange die Kanalprüfungen bestanden werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-035",
+      "number": "005-002-035",
+      "key": "ROUTE_TRAFFIC_OTHER_WAY",
+      "aliases": [
+        "ROUTE-001"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Трафик идёт другим путём",
+        "uk": "Трафік іде іншим шляхом",
+        "en": "Traffic goes another way",
+        "de": "Der Datenverkehr nimmt einen anderen Weg"
+      },
+      "cause": {
+        "ru": "Настоящий маршрут трафика отличается от выбранного.",
+        "uk": "Справжній маршрут трафіку відрізняється від вибраного.",
+        "en": "The real route of the traffic differs from the chosen one.",
+        "de": "Der tatsächliche Weg des Datenverkehrs weicht vom gewählten ab."
+      },
+      "action": {
+        "ru": "1. Проверьте порядок правил VPN в панели GL.iNet.\n2. Не меняйте правила, пока работает Auto: сначала нажмите «Стоп».",
+        "uk": "1. Перевірте порядок правил VPN у панелі GL.iNet.\n2. Не змінюйте правила, поки працює Auto: спершу натисніть «Стоп» (Stop).",
+        "en": "1. Check the order of the VPN rules in the GL.iNet panel.\n2. Do not change the rules while Auto is running: press Stop first.",
+        "de": "1. Prüfen Sie die Reihenfolge der VPN-Regeln im GL.iNet-Panel.\n2. Ändern Sie die Regeln nicht, solange Auto läuft: Drücken Sie zuerst „Stopp“ (Stop)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-036",
+      "number": "005-002-036",
+      "key": "ROUTE_MISMATCH",
+      "aliases": [
+        "ROUTE-MISMATCH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка прошла не через VPN",
+        "uk": "Перевірка пройшла не через VPN",
+        "en": "The check did not go through the VPN",
+        "de": "Die Prüfung lief nicht über das VPN"
+      },
+      "cause": {
+        "ru": "Проверка роутера прошла мимо этого VPN, поэтому ничего о нём не доказывает.",
+        "uk": "Перевірка роутера пройшла повз цей VPN, тому нічого про нього не доводить.",
+        "en": "The router's check did not travel through this VPN, so it proves nothing about it.",
+        "de": "Die Prüfung des Routers lief nicht über dieses VPN und beweist daher nichts darüber."
+      },
+      "action": {
+        "ru": "1. Выполните шаги из VPN-MON-035.",
+        "uk": "1. Виконайте кроки з VPN-MON-035.",
+        "en": "1. Follow the steps of VPN-MON-035.",
+        "de": "1. Folgen Sie den Schritten von VPN-MON-035."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-037",
+      "number": "005-002-037",
+      "key": "STATS_RESET_ARCHIVE_PATH",
+      "aliases": [
+        "STATS-RESET-ARCHIVE-PATH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сброс отклонён: место архива ненадёжно",
+        "uk": "Скидання відхилено: місце архіву ненадійне",
+        "en": "Reset refused: the archive location is not safe",
+        "de": "Zurücksetzen abgelehnt: Der Archivort ist nicht sicher"
+      },
+      "cause": {
+        "ru": "Место, куда роутер сохраняет архив старой статистики, оказалось не обычной папкой, а ссылкой. Поэтому сброс отклонён, данные не тронуты.",
+        "uk": "Місце, куди роутер зберігає архів старої статистики, виявилося не звичайною текою, а посиланням. Тому скидання відхилено, дані не зачеплено.",
+        "en": "The place where the router stores the archive of old statistics turned out to be a link, not a normal folder. So the reset was refused and the data was left untouched.",
+        "de": "Der Ort, an dem der Router das Archiv alter Statistiken ablegt, ist kein normaler Ordner, sondern ein Verweis. Daher wurde das Zurücksetzen abgelehnt; die Daten bleiben unberührt."
+      },
+      "action": {
+        "ru": "1. Не повторяйте сброс и ничего не удаляйте вручную.\n2. Откройте «Помощь» и отправьте код разработчику.",
+        "uk": "1. Не повторюйте скидання й нічого не видаляйте вручну.\n2. Відкрийте «Довідку» (Help) і надішліть код розробнику.",
+        "en": "1. Do not repeat the reset and do not delete anything by hand.\n2. Open Help and send the code to the developer.",
+        "de": "1. Wiederholen Sie das Zurücksetzen nicht und löschen Sie nichts von Hand.\n2. Öffnen Sie die „Hilfe“ (Help) und senden Sie den Code an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-038",
+      "number": "005-002-038",
+      "key": "STATS_RESET_ARCHIVE_UNVERIFIED",
+      "aliases": [
+        "STATS-RESET-ARCHIVE-UNVERIFIED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сброс отменён: архив не прошёл проверку",
+        "uk": "Скидання скасовано: архів не пройшов перевірку",
+        "en": "Reset cancelled: the archive failed its check",
+        "de": "Zurücksetzen abgebrochen: Das Archiv hat die Prüfung nicht bestanden"
+      },
+      "cause": {
+        "ru": "Роутер записал архив старых данных, но при повторном чтении он не совпал. Поэтому ничего не сброшено.",
+        "uk": "Роутер записав архів старих даних, але під час повторного читання він не збігся. Тому нічого не скинуто.",
+        "en": "The router wrote the archive of the old data, but it did not match when read back. So nothing was reset.",
+        "de": "Der Router hat das Archiv der alten Daten geschrieben, aber beim erneuten Lesen stimmte es nicht überein. Daher wurde nichts zurückgesetzt."
+      },
+      "action": {
+        "ru": "1. Проверьте, есть ли свободное место на роутере.\n2. Нажмите сброс статистики в «Настройках» ещё раз.",
+        "uk": "1. Перевірте, чи є вільне місце на роутері.\n2. Натисніть скидання статистики в «Налаштуваннях» (Settings) ще раз.",
+        "en": "1. Check that the router has free space.\n2. Press the statistics reset in Settings again.",
+        "de": "1. Prüfen Sie, ob auf dem Router Speicherplatz frei ist.\n2. Drücken Sie das Zurücksetzen der Statistik in den „Einstellungen“ (Settings) erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-039",
+      "number": "005-002-039",
+      "key": "STATS_RESET_FAILED",
+      "aliases": [
+        "STATS-RESET-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сброс статистики не выполнен",
+        "uk": "Скидання статистики не виконано",
+        "en": "The statistics reset was not done",
+        "de": "Die Statistik wurde nicht zurückgesetzt"
+      },
+      "cause": {
+        "ru": "Роутер не смог сохранить архив старых данных, поэтому оставил их без изменений.",
+        "uk": "Роутер не зміг зберегти архів старих даних, тому залишив їх без змін.",
+        "en": "The router could not save the archive of the old data, so it kept the data unchanged.",
+        "de": "Der Router konnte das Archiv der alten Daten nicht speichern und hat die Daten daher unverändert gelassen."
+      },
+      "action": {
+        "ru": "1. Проверьте, есть ли свободное место на роутере.\n2. Повторите сброс.",
+        "uk": "1. Перевірте, чи є вільне місце на роутері.\n2. Повторіть скидання.",
+        "en": "1. Check that the router has free space.\n2. Repeat the reset.",
+        "de": "1. Prüfen Sie, ob auf dem Router Speicherplatz frei ist.\n2. Wiederholen Sie das Zurücksetzen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-040",
+      "number": "005-002-040",
+      "key": "STATS_RESET_FIELDS",
+      "aliases": [
+        "STATS-RESET-FIELDS"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос сброса не принят",
+        "uk": "Запит скидання не прийнято",
+        "en": "The reset request was not accepted",
+        "de": "Die Anfrage zum Zurücksetzen wurde nicht angenommen"
+      },
+      "cause": {
+        "ru": "Страница попросила сбросить график, которого роутер не знает. Ничего не сброшено.",
+        "uk": "Сторінка попросила скинути графік, якого роутер не знає. Нічого не скинуто.",
+        "en": "The page asked to reset a chart the router does not know. Nothing was reset.",
+        "de": "Die Seite wollte ein Diagramm zurücksetzen, das der Router nicht kennt. Es wurde nichts zurückgesetzt."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Нажмите сброс статистики в «Настройках» ещё раз.",
+        "uk": "1. Оновіть сторінку.\n2. Натисніть скидання статистики в «Налаштуваннях» (Settings) ще раз.",
+        "en": "1. Reload the page.\n2. Press the statistics reset in Settings again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Drücken Sie das Zurücksetzen der Statistik in den „Einstellungen“ (Settings) erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-041",
+      "number": "005-002-041",
+      "key": "STATS_RESET_UNCONFIRMED",
+      "aliases": [
+        "STATS-RESET-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Результат сброса не подтверждён вовремя",
+        "uk": "Результат скидання не підтверджено вчасно",
+        "en": "The reset result was not confirmed in time",
+        "de": "Das Ergebnis des Zurücksetzens wurde nicht rechtzeitig bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер принял запрос на сброс, но наблюдение за каналами не сообщило результат вовремя: возможно, оно остановлено или занято проверкой. Неизвестно, выполнен сброс или нет.",
+        "uk": "Роутер прийняв запит на скидання, але спостереження за каналами не повідомило результат вчасно: можливо, воно зупинене або зайняте перевіркою. Невідомо, чи виконано скидання.",
+        "en": "The router accepted the reset request, but channel monitoring did not report the result in time: it may be stopped or busy with a check. It is unknown whether the reset was done.",
+        "de": "Der Router hat die Anfrage angenommen, aber die Kanalüberwachung hat das Ergebnis nicht rechtzeitig gemeldet: Sie ist vielleicht angehalten oder mit einer Prüfung beschäftigt. Ob zurückgesetzt wurde, ist unbekannt."
+      },
+      "action": {
+        "ru": "1. Не отправляйте новый сброс, пока результат неизвестен.\n2. Проверьте в «Системе», что наблюдение за каналами работает.\n3. Обновите страницу и посмотрите, сброшена ли статистика.",
+        "uk": "1. Не надсилайте нове скидання, поки результат невідомий.\n2. Перевірте в розділі «Система» (System), що спостереження за каналами працює.\n3. Оновіть сторінку й подивіться, чи скинуто статистику.",
+        "en": "1. Do not send another reset while the result is unknown.\n2. Check in System that channel monitoring is running.\n3. Reload the page and see whether the statistics were reset.",
+        "de": "1. Senden Sie kein neues Zurücksetzen, solange das Ergebnis unbekannt ist.\n2. Prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft.\n3. Laden Sie die Seite neu und sehen Sie nach, ob die Statistik zurückgesetzt wurde."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-042",
+      "number": "005-002-042",
+      "key": "STATUS_REQUEST_FAILED",
+      "aliases": [
+        "STATUS-REQUEST-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Программа на роутере не ответила",
+        "uk": "Програма на роутері не відповіла",
+        "en": "The program on the router did not answer",
+        "de": "Das Programm auf dem Router hat nicht geantwortet"
+      },
+      "cause": {
+        "ru": "Страница запросила у роутера текущее состояние и не получила ответа: роутер занят, ответ опоздал или произошёл сбой страницы. Пока ответа нет, ничего не показывается как работающее.",
+        "uk": "Сторінка запросила в роутера поточний стан і не отримала відповіді: роутер зайнятий, відповідь запізнилася або стався збій сторінки. Поки відповіді немає, нічого не показується як робоче.",
+        "en": "The page asked the router for the current state and got no answer: the router is busy, the answer came too late or the page failed. Until it answers, nothing is shown as working.",
+        "de": "Die Seite hat den Router nach dem aktuellen Zustand gefragt und keine Antwort erhalten: Der Router ist ausgelastet, die Antwort kam zu spät oder die Seite hatte einen Fehler. Bis zur Antwort wird nichts als funktionierend angezeigt."
+      },
+      "action": {
+        "ru": "1. Подождите несколько секунд и обновите страницу.\n2. Если это повторяется, проверьте в «Системе», что наблюдение за каналами работает.",
+        "uk": "1. Зачекайте кілька секунд і оновіть сторінку.\n2. Якщо це повторюється, перевірте в розділі «Система» (System), що спостереження за каналами працює.",
+        "en": "1. Wait a few seconds and reload the page.\n2. If it repeats, check in System that channel monitoring is running.",
+        "de": "1. Warten Sie einige Sekunden und laden Sie die Seite neu.\n2. Wiederholt sich das, prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-043",
+      "number": "005-002-043",
+      "key": "TLS_CERT_CHECK_FAILED",
+      "aliases": [
+        "TLS-001"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сертификат сайта не принят",
+        "uk": "Сертифікат сайту не прийнято",
+        "en": "A site certificate was not accepted",
+        "de": "Ein Website-Zertifikat wurde nicht akzeptiert"
+      },
+      "cause": {
+        "ru": "Сертификат защищённого соединения не прошёл проверку. Программа никогда не отключает эту проверку сама.",
+        "uk": "Сертифікат захищеного з'єднання не пройшов перевірку. Програма ніколи не вимикає цю перевірку сама.",
+        "en": "The certificate of a secure connection did not pass the check. The program never turns this check off by itself.",
+        "de": "Das Zertifikat einer sicheren Verbindung hat die Prüfung nicht bestanden. Das Programm schaltet diese Prüfung nie selbst ab."
+      },
+      "action": {
+        "ru": "1. Проверьте дату и время на роутере: неверные часы ломают проверку сертификатов.\n2. Если время верное, откройте «Помощь» и выполните шаги для этого кода.",
+        "uk": "1. Перевірте дату й час на роутері: неправильний годинник ламає перевірку сертифікатів.\n2. Якщо час правильний, відкрийте «Довідку» (Help) і виконайте кроки для цього коду.",
+        "en": "1. Check the date and time on the router: a wrong clock breaks certificate checks.\n2. If the time is right, open Help and follow the steps for this code.",
+        "de": "1. Prüfen Sie Datum und Uhrzeit des Routers: Eine falsche Uhr verhindert die Zertifikatsprüfung.\n2. Stimmt die Zeit, öffnen Sie die „Hilfe“ (Help) und folgen Sie den Schritten für diesen Code."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-044",
+      "number": "005-002-044",
+      "key": "TUNNEL_DISCONNECTED",
+      "aliases": [
+        "TUNNEL-DISCONNECTED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Туннель не подключён",
+        "uk": "Тунель не підключено",
+        "en": "The tunnel is not connected",
+        "de": "Der Tunnel ist nicht verbunden"
+      },
+      "cause": {
+        "ru": "VPN-туннель сейчас не поднят. Если Auto выключен и ни один туннель пары не работает, защита от утечек оставляет устройства без интернета.",
+        "uk": "VPN-тунель зараз не піднято. Якщо Auto вимкнено і жоден тунель пари не працює, захист від витоків залишає пристрої без інтернету.",
+        "en": "The VPN tunnel is not up now. If Auto is off and no tunnel of the pair works, the leak protection leaves your devices without Internet.",
+        "de": "Der VPN-Tunnel ist gerade nicht aufgebaut. Ist Auto aus und funktioniert kein Tunnel des Paares, lässt der Leckschutz Ihre Geräte ohne Internet."
+      },
+      "action": {
+        "ru": "1. Нажмите «Старт» или включите один из туннелей в панели GL.iNet.\n2. Перед изменением или переподключением профиля нажмите «Стоп» и дождитесь завершения.",
+        "uk": "1. Натисніть «Старт» (Start) або ввімкніть один із тунелів у панелі GL.iNet.\n2. Перед зміною або перепідключенням профілю натисніть «Стоп» (Stop) і дочекайтеся завершення.",
+        "en": "1. Press Start or turn on one of the tunnels in the GL.iNet panel.\n2. Before changing or reconnecting the profile, press Stop and wait until it finishes.",
+        "de": "1. Drücken Sie „Start“ (Start) oder schalten Sie einen der Tunnel im GL.iNet-Panel ein.\n2. Drücken Sie vor dem Ändern oder Neuverbinden des Profils „Stopp“ (Stop) und warten Sie, bis der Vorgang abgeschlossen ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-044",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-045",
+      "number": "005-002-045",
+      "key": "VPN_TUNNEL_DOWN",
+      "aliases": [
+        "VPN-001"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN не подключился",
+        "uk": "VPN не підключився",
+        "en": "The VPN did not connect",
+        "de": "Das VPN hat sich nicht verbunden"
+      },
+      "cause": {
+        "ru": "VPN-подключение не удалось установить. Точная причина может остаться неизвестной.",
+        "uk": "VPN-підключення не вдалося встановити. Точна причина може залишитися невідомою.",
+        "en": "The VPN connection could not be established. The exact cause may stay unknown.",
+        "de": "Die VPN-Verbindung konnte nicht hergestellt werden. Die genaue Ursache kann unbekannt bleiben."
+      },
+      "action": {
+        "ru": "1. Проверьте в панели GL.iNet данные входа и сервер этого профиля.\n2. Перед изменением или переподключением профиля нажмите «Стоп» и дождитесь завершения.\n3. Не перезапускайте работающее подключение только ради смены статуса.",
+        "uk": "1. Перевірте в панелі GL.iNet дані входу та сервер цього профілю.\n2. Перед зміною або перепідключенням профілю натисніть «Стоп» (Stop) і дочекайтеся завершення.\n3. Не перезапускайте робоче підключення лише заради зміни статусу.",
+        "en": "1. Check the login data and the server of this profile in the GL.iNet panel.\n2. Before changing or reconnecting the profile, press Stop and wait until it finishes.\n3. Do not restart a working connection just to change its status.",
+        "de": "1. Prüfen Sie Anmeldedaten und Server dieses Profils im GL.iNet-Panel.\n2. Drücken Sie vor dem Ändern oder Neuverbinden des Profils „Stopp“ (Stop) und warten Sie, bis der Vorgang abgeschlossen ist.\n3. Starten Sie eine funktionierende Verbindung nicht nur wegen der Statusanzeige neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-045",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-046",
+      "number": "005-002-046",
+      "key": "VPN_LOGIN_REJECTED",
+      "aliases": [
+        "VPN-002"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN-сервер отклонил вход",
+        "uk": "VPN-сервер відхилив вхід",
+        "en": "The VPN server rejected the login",
+        "de": "Der VPN-Server hat die Anmeldung abgelehnt"
+      },
+      "cause": {
+        "ru": "Сервер VPN не принял логин, пароль или ключ этого профиля.",
+        "uk": "Сервер VPN не прийняв логін, пароль або ключ цього профілю.",
+        "en": "The VPN server did not accept the login, password or key of this profile.",
+        "de": "Der VPN-Server hat Benutzername, Passwort oder Schlüssel dieses Profils nicht akzeptiert."
+      },
+      "action": {
+        "ru": "1. Проверьте, что подписка у VPN-провайдера активна.\n2. Откройте профиль в панели GL.iNet и введите данные входа заново или импортируйте настройки ещё раз.",
+        "uk": "1. Перевірте, що підписка у VPN-провайдера активна.\n2. Відкрийте профіль у панелі GL.iNet і введіть дані входу заново або імпортуйте налаштування ще раз.",
+        "en": "1. Check that your subscription with the VPN provider is active.\n2. Open the profile in the GL.iNet panel and enter the login data again or import the settings again.",
+        "de": "1. Prüfen Sie, ob Ihr Abonnement beim VPN-Anbieter aktiv ist.\n2. Öffnen Sie das Profil im GL.iNet-Panel und geben Sie die Anmeldedaten neu ein oder importieren Sie die Einstellungen erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-046",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-047",
+      "number": "005-002-047",
+      "key": "VPN_HTTPS_BELOW_THRESHOLD",
+      "aliases": [
+        "VPN-003"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Часть защищённых соединений не проходит",
+        "uk": "Частина захищених з'єднань не проходить",
+        "en": "Some secure connections do not pass",
+        "de": "Ein Teil der sicheren Verbindungen geht nicht durch"
+      },
+      "cause": {
+        "ru": "Через подключённый VPN прошла только часть проверочных защищённых соединений. Часть трафика может идти, и одно это сообщение не значит, что интернета нет совсем.",
+        "uk": "Через підключений VPN пройшла лише частина перевірних захищених з'єднань. Частина трафіку може йти, і саме це повідомлення не означає, що інтернету немає зовсім.",
+        "en": "Only some test secure connections passed through the connected VPN. Some traffic may still pass, and this message alone does not mean the Internet is gone.",
+        "de": "Nur ein Teil der sicheren Testverbindungen ist über das verbundene VPN durchgegangen. Ein Teil des Verkehrs kann noch fließen, und diese Meldung allein bedeutet nicht, dass das Internet ganz fehlt."
+      },
+      "action": {
+        "ru": "1. Повторите проверку.\n2. Если ошибка повторяется, выполните шаги из «Помощи», прежде чем переподключать работающий VPN.",
+        "uk": "1. Повторіть перевірку.\n2. Якщо помилка повторюється, виконайте кроки з «Довідки» (Help), перш ніж перепідключати робочий VPN.",
+        "en": "1. Repeat the check.\n2. If it repeats, follow the steps in Help before reconnecting a working VPN.",
+        "de": "1. Wiederholen Sie die Prüfung.\n2. Wiederholt sich der Fehler, folgen Sie den Schritten in der „Hilfe“ (Help), bevor Sie ein funktionierendes VPN neu verbinden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-047",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-048",
+      "number": "005-002-048",
+      "key": "VPN_SERVER_NAME_UNRESOLVED",
+      "aliases": [
+        "VPN-004"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не найден адрес VPN-сервера",
+        "uk": "Не знайдено адресу VPN-сервера",
+        "en": "The VPN server name cannot be found",
+        "de": "Der Name des VPN-Servers lässt sich nicht auflösen"
+      },
+      "cause": {
+        "ru": "Имя VPN-сервера не удаётся превратить в адрес, поэтому подключиться к нему нельзя.",
+        "uk": "Ім'я VPN-сервера не вдається перетворити на адресу, тому підключитися до нього не можна.",
+        "en": "The name of the VPN server cannot be turned into an address, so the router cannot connect to it.",
+        "de": "Der Name des VPN-Servers lässt sich nicht in eine Adresse umwandeln, daher kann der Router keine Verbindung aufbauen."
+      },
+      "action": {
+        "ru": "1. Проверьте имя сервера в профиле VPN.\n2. Проверьте настройки DNS на роутере.\n3. Если провайдер даёт числовой адрес сервера, укажите его.",
+        "uk": "1. Перевірте ім'я сервера в профілі VPN.\n2. Перевірте налаштування DNS на роутері.\n3. Якщо провайдер дає числову адресу сервера, вкажіть її.",
+        "en": "1. Check the server name in the VPN profile.\n2. Check the DNS settings on the router.\n3. If the provider gives a numeric server address, use it.",
+        "de": "1. Prüfen Sie den Servernamen im VPN-Profil.\n2. Prüfen Sie die DNS-Einstellungen des Routers.\n3. Gibt der Anbieter eine numerische Serveradresse an, verwenden Sie diese."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-048",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-049",
+      "number": "005-002-049",
+      "key": "VPN_MTU",
+      "aliases": [
+        "VPN-MTU"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Большие пакеты не проходят через VPN",
+        "uk": "Великі пакети не проходять через VPN",
+        "en": "Large packets do not pass through the VPN",
+        "de": "Große Pakete gehen nicht durch das VPN"
+      },
+      "cause": {
+        "ru": "Небольшие проверки через этот VPN проходят, а крупные пакеты пропадают. Страницы могут открываться, но загрузки и видеозвонки зависают. Auto считает это сбоем и предпочитает другой туннель, если у него такой проблемы нет.",
+        "uk": "Невеликі перевірки через цей VPN проходять, а великі пакети зникають. Сторінки можуть відкриватися, але завантаження й відеодзвінки зависають. Auto вважає це збоєм і віддає перевагу іншому тунелю, якщо в нього такої проблеми немає.",
+        "en": "Small checks pass through this VPN, but large packets get lost. Pages may open while uploads and video calls hang. Auto counts this as a failure and prefers the other tunnel if it does not have this problem.",
+        "de": "Kleine Prüfungen gehen über dieses VPN, aber große Pakete gehen verloren. Seiten können laden, während Uploads und Videoanrufe hängen. Auto wertet das als Ausfall und bevorzugt den anderen Tunnel, wenn dieser das Problem nicht hat."
+      },
+      "action": {
+        "ru": "1. Уменьшите размер пакета (MTU) в профиле этого VPN в панели GL.iNet или выберите другой сервер.\n2. Если проблема в обоих туннелях, проверьте подключение роутера к интернету, например модем.\n3. Если не помогло, выполните шаги из «Помощи».",
+        "uk": "1. Зменшіть розмір пакета (MTU) у профілі цього VPN у панелі GL.iNet або виберіть інший сервер.\n2. Якщо проблема в обох тунелях, перевірте підключення роутера до інтернету, наприклад модем.\n3. Якщо не допомогло, виконайте кроки з «Довідки» (Help).",
+        "en": "1. Lower the packet size (MTU) in this VPN profile in the GL.iNet panel or choose another server.\n2. If both tunnels show it, check the router's Internet connection, for example the modem.\n3. If that does not help, follow the steps in Help.",
+        "de": "1. Verringern Sie die Paketgröße (MTU) im Profil dieses VPN im GL.iNet-Panel oder wählen Sie einen anderen Server.\n2. Zeigen beide Tunnel das Problem, prüfen Sie die Internetverbindung des Routers, zum Beispiel das Modem.\n3. Hilft das nicht, folgen Sie den Schritten in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-049",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-050",
+      "number": "005-002-050",
+      "key": "VPN_PROBE_HEALTHY",
+      "aliases": [
+        "VPN-PROBE-HEALTHY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "VPN работает",
+        "uk": "VPN працює",
+        "en": "The VPN works",
+        "de": "Das VPN funktioniert"
+      },
+      "cause": {
+        "ru": "Проверки DNS и защищённых соединений через этот VPN прошли.",
+        "uk": "Перевірки DNS і захищених з'єднань через цей VPN пройшли.",
+        "en": "The DNS and secure connection checks through this VPN passed.",
+        "de": "Die DNS- und Verbindungsprüfungen über dieses VPN wurden bestanden."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-050",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-051",
+      "number": "005-002-051",
+      "key": "WAN_ROUTER_NO_INTERNET",
+      "aliases": [
+        "WAN-001"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У роутера нет интернета",
+        "uk": "У роутера немає інтернету",
+        "en": "The router has no Internet",
+        "de": "Der Router hat kein Internet"
+      },
+      "cause": {
+        "ru": "Сам роутер не может выйти в интернет, проблема не только в VPN.",
+        "uk": "Сам роутер не може вийти в інтернет, проблема не лише у VPN.",
+        "en": "The router itself cannot reach the Internet; the problem is not only the VPN.",
+        "de": "Der Router selbst erreicht das Internet nicht; das Problem liegt nicht nur am VPN."
+      },
+      "action": {
+        "ru": "1. Проверьте кабель, Wi-Fi или модем, через которые роутер выходит в интернет.\n2. Если нужно, перезапустите модем сами: программа этого не делает.",
+        "uk": "1. Перевірте кабель, Wi-Fi або модем, через які роутер виходить в інтернет.\n2. За потреби перезапустіть модем самі: програма цього не робить.",
+        "en": "1. Check the cable, Wi-Fi or modem the router uses to reach the Internet.\n2. If needed, restart the modem yourself: the program does not do this.",
+        "de": "1. Prüfen Sie Kabel, Wi-Fi oder Modem, über die der Router ins Internet geht.\n2. Starten Sie das Modem bei Bedarf selbst neu: Das Programm tut das nicht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-051",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-052",
+      "number": "005-002-052",
+      "key": "WAN_DOWN",
+      "aliases": [
+        "WAN-DOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У роутера нет интернета, Auto ждёт",
+        "uk": "У роутера немає інтернету, Auto чекає",
+        "en": "The router has no Internet, Auto is waiting",
+        "de": "Der Router hat kein Internet, Auto wartet"
+      },
+      "cause": {
+        "ru": "Оба VPN-канала не работают, и подтверждено, что у самого роутера пропал интернет. Переключение на другой VPN не поможет, поэтому Auto ждёт и не тратит попытки. Как только интернет вернётся, оба канала сразу проверятся.",
+        "uk": "Обидва VPN-канали не працюють, і підтверджено, що в самого роутера зник інтернет. Перемикання на інший VPN не допоможе, тому Auto чекає і не витрачає спроби. Щойно інтернет повернеться, обидва канали одразу перевіряться.",
+        "en": "Both VPN channels are down, and it is confirmed that the router itself has lost the Internet. Switching to the other VPN cannot help, so Auto waits and uses no attempts. As soon as the Internet is back, both channels are checked at once.",
+        "de": "Beide VPN-Kanäle sind ausgefallen, und es ist bestätigt, dass der Router selbst kein Internet mehr hat. Ein Wechsel zum anderen VPN hilft nicht, daher wartet Auto und verbraucht keine Versuche. Sobald das Internet zurück ist, werden beide Kanäle sofort geprüft."
+      },
+      "action": {
+        "ru": "1. Проверьте кабель, Wi-Fi, модем и провайдера интернета.\n2. Нажимать в Auto ничего не нужно.",
+        "uk": "1. Перевірте кабель, Wi-Fi, модем і провайдера інтернету.\n2. Натискати в Auto нічого не потрібно.",
+        "en": "1. Check the cable, Wi-Fi, modem and Internet provider.\n2. Nothing needs to be pressed in Auto.",
+        "de": "1. Prüfen Sie Kabel, Wi-Fi, Modem und Internetanbieter.\n2. In Auto muss nichts gedrückt werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-052",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-053",
+      "number": "005-002-053",
+      "key": "WAN_RECOVERING",
+      "aliases": [
+        "WAN-RECOVERING"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Интернет вернулся, проверяется VPN",
+        "uk": "Інтернет повернувся, перевіряється VPN",
+        "en": "The Internet is back, the VPN is being checked",
+        "de": "Das Internet ist zurück, das VPN wird geprüft"
+      },
+      "cause": {
+        "ru": "Интернет роутера вернулся после пропадания. Пока основной канал не пройдёт проверку, Auto не переключает: резерв, поднявшийся чуть раньше, не повод менять канал.",
+        "uk": "Інтернет роутера повернувся після зникнення. Поки основний канал не пройде перевірку, Auto не перемикає: резерв, що піднявся трохи раніше, не привід змінювати канал.",
+        "en": "The router's Internet is back after an outage. Until the main channel passes a check, Auto does not switch: a reserve that came up a little earlier is no reason to change the channel.",
+        "de": "Das Internet des Routers ist nach einem Ausfall zurück. Bis der Hauptkanal eine Prüfung besteht, wechselt Auto nicht: Eine Reserve, die etwas früher bereit ist, ist kein Grund für einen Wechsel."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Время ожидания при желании можно изменить в «Настройках».",
+        "uk": "1. Нічого робити не потрібно.\n2. Час очікування за бажанням можна змінити в «Налаштуваннях» (Settings).",
+        "en": "1. Nothing to do.\n2. You can change the waiting time in Settings if you wish.",
+        "de": "1. Es ist nichts zu tun.\n2. Die Wartezeit können Sie bei Bedarf in den „Einstellungen“ (Settings) ändern."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-053",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-054",
+      "number": "005-002-054",
+      "key": "WEBSITE_FAMILY",
+      "aliases": [
+        "WEBSITE-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код измерения отклика сайтов",
+        "uk": "Код вимірювання відгуку сайтів",
+        "en": "Site response measurement code",
+        "de": "Code der Website-Antwortmessung"
+      },
+      "cause": {
+        "ru": "Код группы измерения отклика обычных сайтов через VPN. Такой код сам по себе не означает сбой VPN, а старые значения вместо свежих не подставляются. Это семейство: описание относится ко всем кодам с префиксом «WEBSITE-».",
+        "uk": "Код групи вимірювання відгуку звичайних сайтів через VPN. Такий код сам по собі не означає збою VPN, а старі значення замість свіжих не підставляються. Це родина: опис стосується всіх кодів із префіксом «WEBSITE-».",
+        "en": "A code of the group that measures how ordinary sites respond through the VPN. Such a code alone does not mean the VPN failed, and old values are never shown in place of fresh ones. This is a family: the description applies to all codes starting with \"WEBSITE-\".",
+        "de": "Ein Code der Gruppe, die misst, wie gewöhnliche Websites über das VPN antworten. Ein solcher Code allein bedeutet keinen VPN-Ausfall, und alte Werte ersetzen nie frische. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „WEBSITE-“."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-054",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-MON-055",
+      "number": "005-002-055",
+      "key": "WEBSITE_CHECK_PENDING",
+      "aliases": [
+        "WEBSITE-CHECK-PENDING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидается проверка сайтов",
+        "uk": "Очікується перевірка сайтів",
+        "en": "Waiting for the site check",
+        "de": "Warten auf die Website-Prüfung"
+      },
+      "cause": {
+        "ru": "Фоновое измерение отклика трёх сайтов ещё собирается. Открытие страницы не запускает лишних запросов.",
+        "uk": "Фонове вимірювання відгуку трьох сайтів ще збирається. Відкриття сторінки не запускає зайвих запитів.",
+        "en": "The background measurement of how three sites respond is still being collected. Opening the page starts no extra requests.",
+        "de": "Die Hintergrundmessung der Antwortzeit von drei Websites wird noch erhoben. Das Öffnen der Seite startet keine zusätzlichen Anfragen."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-055",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-056",
+      "number": "005-002-056",
+      "key": "WEBSITE_DATA_STALE",
+      "aliases": [
+        "WEBSITE-DATA-STALE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Результат проверки сайтов устарел",
+        "uk": "Результат перевірки сайтів застарів",
+        "en": "The site check result is old",
+        "de": "Das Ergebnis der Website-Prüfung ist veraltet"
+      },
+      "cause": {
+        "ru": "Последнее измерение отклика сайтов было слишком давно. Повторный показ сохранённых данных не делает их свежими.",
+        "uk": "Останнє вимірювання відгуку сайтів було надто давно. Повторний показ збережених даних не робить їх свіжими.",
+        "en": "The last site response measurement was too long ago. Showing saved data again does not make it fresh.",
+        "de": "Die letzte Messung der Website-Antwortzeit liegt zu lange zurück. Gespeicherte Daten werden durch erneutes Anzeigen nicht aktuell."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-056",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-057",
+      "number": "005-002-057",
+      "key": "WEBSITE_DNS_FAILED",
+      "aliases": [
+        "WEBSITE-DNS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес сайта не найден через VPN",
+        "uk": "Адресу сайту не знайдено через VPN",
+        "en": "A site name could not be looked up through the VPN",
+        "de": "Ein Website-Name ließ sich über das VPN nicht auflösen"
+      },
+      "cause": {
+        "ru": "Адрес одного из выбранных обычных сайтов не удалось найти через этот VPN. Это отдельно от технических проверок канала.",
+        "uk": "Адресу одного з вибраних звичайних сайтів не вдалося знайти через цей VPN. Це окремо від технічних перевірок каналу.",
+        "en": "The name of one of the chosen ordinary sites could not be looked up through this VPN. This is separate from the technical channel checks.",
+        "de": "Der Name einer der gewählten gewöhnlichen Websites ließ sich über dieses VPN nicht auflösen. Das ist unabhängig von den technischen Kanalprüfungen."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-057",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-058",
+      "number": "005-002-058",
+      "key": "WEBSITE_HISTORY_PAIR_LIMIT",
+      "aliases": [
+        "WEBSITE-HISTORY-PAIR-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "История отклика сайтов заполнена",
+        "uk": "Історію відгуку сайтів заповнено",
+        "en": "The site response history is full",
+        "de": "Der Verlauf der Website-Antwortzeit ist voll"
+      },
+      "cause": {
+        "ru": "Архив отклика сайтов ограничен по размеру и не может принять ещё одну пару каналов. Старые значения не переписываются под другой профиль.",
+        "uk": "Архів відгуку сайтів обмежений за розміром і не може прийняти ще одну пару каналів. Старі значення не переписуються під інший профіль.",
+        "en": "The site response archive has a limited size and cannot take another channel pair. Old values are not relabelled for another profile.",
+        "de": "Das Archiv der Website-Antwortzeit ist in der Größe begrenzt und kann kein weiteres Kanalpaar aufnehmen. Alte Werte werden keinem anderen Profil zugeordnet."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-058",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-059",
+      "number": "005-002-059",
+      "key": "WEBSITE_HISTORY_UNAVAILABLE",
+      "aliases": [
+        "WEBSITE-HISTORY-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "История отклика сайтов недоступна",
+        "uk": "Історія відгуку сайтів недоступна",
+        "en": "The site response history is unavailable",
+        "de": "Der Verlauf der Website-Antwortzeit ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Архив отклика сайтов не удалось проверить, поэтому он не показывается. Старые технические данные вместо него не подставляются.",
+        "uk": "Архів відгуку сайтів не вдалося перевірити, тому він не показується. Старі технічні дані замість нього не підставляються.",
+        "en": "The site response archive could not be verified, so it is not shown. Old technical data is not shown in its place.",
+        "de": "Das Archiv der Website-Antwortzeit konnte nicht überprüft werden und wird daher nicht angezeigt. Alte technische Daten werden nicht ersatzweise gezeigt."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-059",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-060",
+      "number": "005-002-060",
+      "key": "WEBSITE_HISTORY_WRITE_FAILED",
+      "aliases": [
+        "WEBSITE-HISTORY-WRITE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "История отклика сайтов не сохранена",
+        "uk": "Історію відгуку сайтів не збережено",
+        "en": "The site response history was not saved",
+        "de": "Der Verlauf der Website-Antwortzeit wurde nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Архив отклика сайтов не удалось безопасно записать. Текущие проверки продолжаются, пропущенная история остаётся пустой.",
+        "uk": "Архів відгуку сайтів не вдалося безпечно записати. Поточні перевірки тривають, пропущена історія лишається порожньою.",
+        "en": "The site response archive could not be written safely. Current checks continue; the missing history stays empty.",
+        "de": "Das Archiv der Website-Antwortzeit konnte nicht sicher geschrieben werden. Die laufenden Prüfungen gehen weiter; der fehlende Verlauf bleibt leer."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-060",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-061",
+      "number": "005-002-061",
+      "key": "WEBSITE_HTTP_FAILED",
+      "aliases": [
+        "WEBSITE-HTTP-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сайт ответил неправильно",
+        "uk": "Сайт відповів неправильно",
+        "en": "A site gave an unexpected answer",
+        "de": "Eine Website hat unerwartet geantwortet"
+      },
+      "cause": {
+        "ru": "Один из проверочных сайтов не вернул ожидаемый ответ целиком. Поэтому среднего времени отклика по трём сайтам нет.",
+        "uk": "Один із перевірних сайтів не повернув очікувану відповідь повністю. Тому середнього часу відгуку за трьома сайтами немає.",
+        "en": "One of the test sites did not return the expected complete answer. So there is no average response time over the three sites.",
+        "de": "Eine der Test-Websites hat die erwartete Antwort nicht vollständig geliefert. Daher gibt es keine durchschnittliche Antwortzeit über die drei Websites."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-061",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-062",
+      "number": "005-002-062",
+      "key": "WEBSITE_IDENTITY_CHANGED",
+      "aliases": [
+        "WEBSITE-IDENTITY-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подключение VPN сменилось",
+        "uk": "Підключення VPN змінилося",
+        "en": "The VPN connection has changed",
+        "de": "Die VPN-Verbindung hat sich geändert"
+      },
+      "cause": {
+        "ru": "Измеренное подключение VPN больше не совпадает с показанным каналом. Старое значение вместо нового не подставляется.",
+        "uk": "Виміряне підключення VPN більше не збігається з показаним каналом. Старе значення замість нового не підставляється.",
+        "en": "The measured VPN connection no longer matches the channel shown. The old value is not shown in place of a new one.",
+        "de": "Die gemessene VPN-Verbindung passt nicht mehr zum angezeigten Kanal. Der alte Wert wird nicht anstelle eines neuen angezeigt."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-062",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-063",
+      "number": "005-002-063",
+      "key": "WEBSITE_NOT_SELECTED",
+      "aliases": [
+        "WEBSITE-NOT-SELECTED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN не входит в измеряемую пару",
+        "uk": "VPN не входить до вимірюваної пари",
+        "en": "The VPN is not in the measured pair",
+        "de": "Das VPN gehört nicht zum gemessenen Paar"
+      },
+      "cause": {
+        "ru": "Отклик сайтов измеряется только для двух выбранных VPN-каналов. Эта страница не подключает другие профили.",
+        "uk": "Відгук сайтів вимірюється лише для двох вибраних VPN-каналів. Ця сторінка не підключає інші профілі.",
+        "en": "Site response is measured only for the two chosen VPN channels. This page does not connect other profiles.",
+        "de": "Die Website-Antwortzeit wird nur für die zwei gewählten VPN-Kanäle gemessen. Diese Seite verbindet keine anderen Profile."
+      },
+      "action": {
+        "ru": "1. Если хотите следить за этим VPN, выберите его в паре каналов.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Якщо хочете стежити за цим VPN, виберіть його в парі каналів.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. If you want to watch this VPN, choose it in the channel pair.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Wenn Sie dieses VPN beobachten möchten, wählen Sie es im Kanalpaar aus.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-063",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-064",
+      "number": "005-002-064",
+      "key": "WEBSITE_PARTIAL",
+      "aliases": [
+        "WEBSITE-PARTIAL"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ответили не все сайты",
+        "uk": "Відповіли не всі сайти",
+        "en": "Not all sites answered",
+        "de": "Nicht alle Websites haben geantwortet"
+      },
+      "cause": {
+        "ru": "Успешно ответили не все три проверочных сайта. Показывается, сколько ответило, а среднее считается только по всем трём.",
+        "uk": "Успішно відповіли не всі три перевірні сайти. Показується, скільки відповіло, а середнє рахується лише за всіма трьома.",
+        "en": "Not all three test sites answered successfully. The page shows how many answered; an average needs all three.",
+        "de": "Nicht alle drei Test-Websites haben erfolgreich geantwortet. Angezeigt wird, wie viele geantwortet haben; ein Durchschnitt braucht alle drei."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-064",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-065",
+      "number": "005-002-065",
+      "key": "WEBSITE_RESPONSE_FAILED",
+      "aliases": [
+        "WEBSITE-RESPONSE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка сайтов не удалась",
+        "uk": "Перевірка сайтів не вдалася",
+        "en": "The site check failed",
+        "de": "Die Website-Prüfung ist fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Отдельная проверка отклика трёх сайтов не удалась. Она не даёт значения задержки и не влияет на оценку каналов и маршрут.",
+        "uk": "Окрема перевірка відгуку трьох сайтів не вдалася. Вона не дає значення затримки і не впливає на оцінку каналів та маршрут.",
+        "en": "The separate check of how three sites respond failed. It gives no delay value and does not affect the channel rating or the route.",
+        "de": "Die separate Prüfung der Antwortzeit von drei Websites ist fehlgeschlagen. Sie liefert keinen Verzögerungswert und beeinflusst weder Kanalbewertung noch Route."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-065",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-066",
+      "number": "005-002-066",
+      "key": "WEBSITE_TIMEOUT",
+      "aliases": [
+        "WEBSITE-TIMEOUT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сайт не ответил вовремя",
+        "uk": "Сайт не відповів вчасно",
+        "en": "A site did not answer in time",
+        "de": "Eine Website hat nicht rechtzeitig geantwortet"
+      },
+      "cause": {
+        "ru": "Свежая проверка сайта не уложилась в отведённое время. Отсутствие ответа не считается мгновенным ответом.",
+        "uk": "Свіжа перевірка сайту не вклалася у відведений час. Відсутність відповіді не вважається миттєвою відповіддю.",
+        "en": "A fresh site check did not finish in the allowed time. A missing answer is not counted as an instant answer.",
+        "de": "Eine frische Website-Prüfung wurde nicht in der vorgesehenen Zeit fertig. Eine fehlende Antwort zählt nicht als sofortige Antwort."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-066",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-067",
+      "number": "005-002-067",
+      "key": "WEBSITE_TLS_FAILED",
+      "aliases": [
+        "WEBSITE-TLS-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Защищённое соединение с сайтом не установлено",
+        "uk": "Захищене з'єднання з сайтом не встановлено",
+        "en": "No secure connection to a site",
+        "de": "Keine sichere Verbindung zu einer Website"
+      },
+      "cause": {
+        "ru": "Свежее защищённое соединение с выбранным сайтом не удалось установить и проверить.",
+        "uk": "Свіже захищене з'єднання з вибраним сайтом не вдалося встановити й перевірити.",
+        "en": "A fresh secure connection to the chosen site could not be set up and verified.",
+        "de": "Eine frische sichere Verbindung zur gewählten Website konnte nicht aufgebaut und überprüft werden."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-067",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-068",
+      "number": "005-002-068",
+      "key": "WEBSITE_UNAVAILABLE",
+      "aliases": [
+        "WEBSITE-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Измерение отклика сайтов недоступно",
+        "uk": "Вимірювання відгуку сайтів недоступне",
+        "en": "The site response measurement is unavailable",
+        "de": "Die Messung der Website-Antwortzeit ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Свежего полного результата проверки трёх сайтов для этого подключения нет. Пинг и технические проверки его не заменяют.",
+        "uk": "Свіжого повного результату перевірки трьох сайтів для цього підключення немає. Пінг і технічні перевірки його не замінюють.",
+        "en": "There is no fresh complete result of the three-site check for this connection. Ping and technical checks do not replace it.",
+        "de": "Für diese Verbindung gibt es kein frisches vollständiges Ergebnis der Drei-Website-Prüfung. Ping und technische Prüfungen ersetzen es nicht."
+      },
+      "action": {
+        "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
+        "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-068",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-069",
+      "number": "005-002-069",
+      "key": "SYSTEM_CHECK_INTERNAL_FAILURE",
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка не выполнена из-за сбоя роутера",
+        "uk": "Перевірку не виконано через збій роутера",
+        "en": "The check was not done because of a router failure",
+        "de": "Die Prüfung wurde wegen eines Routerfehlers nicht durchgeführt"
+      },
+      "cause": {
+        "ru": "Проверку канала или запрос не удалось выполнить из-за внутреннего сбоя системы роутера. Прошивка при этом поддерживается.",
+        "uk": "Перевірку каналу або запит не вдалося виконати через внутрішній збій системи роутера. Прошивка при цьому підтримується.",
+        "en": "A channel check or request could not be done because of an internal failure of the router system. The firmware itself is supported.",
+        "de": "Eine Kanalprüfung oder Anfrage konnte wegen eines internen Fehlers des Routersystems nicht ausgeführt werden. Die Firmware selbst wird unterstützt."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут и повторите действие.\n2. Если сбой повторяется, перезагрузите роутер.\n3. Если не помогло, откройте «Помощь» и отправьте код разработчику.",
+        "uk": "1. Зачекайте кілька хвилин і повторіть дію.\n2. Якщо збій повторюється, перезавантажте роутер.\n3. Якщо не допомогло, відкрийте «Довідку» (Help) і надішліть код розробнику.",
+        "en": "1. Wait a few minutes and repeat the action.\n2. If the failure repeats, restart the router.\n3. If that does not help, open Help and send the code to the developer.",
+        "de": "1. Warten Sie einige Minuten und wiederholen Sie die Aktion.\n2. Wiederholt sich der Fehler, starten Sie den Router neu.\n3. Hilft das nicht, öffnen Sie die „Hilfe“ (Help) und senden Sie den Code an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-MON-069",
+      "related": [
+        "VPN-INST-163"
+      ],
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "service",
+        "translation-draft"
+      ]
+    }
+  ]
+}
