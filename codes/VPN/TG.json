@@ -1,0 +1,1488 @@
+{
+  "namespace": "VPN",
+  "area": "TG",
+  "codes": [
+    {
+      "code": "VPN-TG-001",
+      "number": "005-008-001",
+      "key": "TELEGRAM_FAMILY",
+      "aliases": [
+        "TELEGRAM-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код уведомлений Telegram",
+        "uk": "Код сповіщень Telegram",
+        "en": "Telegram notification code",
+        "de": "Code der Telegram-Benachrichtigungen"
+      },
+      "cause": {
+        "ru": "Один из шагов отправки уведомлений в Telegram сообщил о своём состоянии. Работа VPN от этого не меняется. Это семейство: описание относится ко всем кодам с префиксом «TELEGRAM-».",
+        "uk": "Один із кроків надсилання сповіщень у Telegram повідомив про свій стан. Робота VPN від цього не змінюється. Це родина: опис стосується всіх кодів із префіксом «TELEGRAM-».",
+        "en": "One step of sending Telegram notifications reported its state. The VPN keeps working as before. This is a family: the description applies to all codes starting with \"TELEGRAM-\".",
+        "de": "Ein Schritt beim Senden der Telegram-Benachrichtigungen hat seinen Zustand gemeldet. Das VPN arbeitet unverändert weiter. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „TELEGRAM-“."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Проверьте настройки Telegram.\n3. Если не помогло, откройте «Помощь» → «Не приходят отчёты в Telegram».",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).\n2. Перевірте налаштування Telegram.\n3. Якщо не допомогло, відкрийте «Довідку» (Help) → «Не надходять звіти в Telegram» (Telegram reports do not arrive).",
+        "en": "1. Open Settings → “Telegram notifications”.\n2. Check the Telegram settings.\n3. If that does not help, open Help → “Telegram reports do not arrive”.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications).\n2. Prüfen Sie die Telegram-Einstellungen.\n3. Hilft das nicht, öffnen Sie „Hilfe“ (Help) → „Telegram-Berichte kommen nicht an“ (Telegram reports do not arrive)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-TG-002",
+      "number": "005-008-002",
+      "key": "TELEGRAM_CLOCK_BACKWARD",
+      "aliases": [
+        "TELEGRAM-CLOCK-BACKWARD"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Часы роутера сдвинулись назад",
+        "uk": "Годинник роутера зсунувся назад",
+        "en": "The router clock went back",
+        "de": "Die Uhr des Routers ist zurückgesprungen"
+      },
+      "cause": {
+        "ru": "Часы роутера перескочили назад, поэтому отчёты в Telegram временно приостановлены, чтобы не отправлять их не вовремя.",
+        "uk": "Годинник роутера перескочив назад, тому звіти в Telegram тимчасово призупинено, щоб не надсилати їх не вчасно.",
+        "en": "The router clock jumped back, so Telegram reports are paused for now to avoid sending them at the wrong time.",
+        "de": "Die Uhr des Routers ist zurückgesprungen, daher sind Telegram-Berichte vorerst pausiert, damit sie nicht zur falschen Zeit gesendet werden."
+      },
+      "action": {
+        "ru": "1. Проверьте дату и время роутера и включите автоматическую синхронизацию времени.",
+        "uk": "1. Перевірте дату й час роутера та ввімкніть автоматичну синхронізацію часу.",
+        "en": "1. Check the router date and time and turn on automatic time sync.",
+        "de": "1. Prüfen Sie Datum und Uhrzeit des Routers und schalten Sie die automatische Zeitsynchronisierung ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-003",
+      "number": "005-008-003",
+      "key": "TELEGRAM_CONFIG",
+      "aliases": [
+        "TELEGRAM-CONFIG"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Настройка Telegram не завершена",
+        "uk": "Налаштування Telegram не завершено",
+        "en": "Telegram setup is incomplete",
+        "de": "Telegram-Einrichtung unvollständig"
+      },
+      "cause": {
+        "ru": "Настройки Telegram заполнены не полностью или содержат неверные значения, поэтому отчёты не отправляются.",
+        "uk": "Налаштування Telegram заповнено не повністю або вони містять неправильні значення, тому звіти не надсилаються.",
+        "en": "The Telegram settings are incomplete or contain wrong values, so reports are not sent.",
+        "de": "Die Telegram-Einstellungen sind unvollständig oder enthalten falsche Werte, daher werden keine Berichte gesendet."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Заново введите токен бота и ID чата.\n3. Сохраните.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).\n2. Заново введіть токен бота та ID чату.\n3. Збережіть.",
+        "en": "1. Open Settings → “Telegram notifications”.\n2. Enter the bot token and the chat ID again.\n3. Save.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications).\n2. Geben Sie das Bot-Token und die Chat-ID erneut ein.\n3. Speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-004",
+      "number": "005-008-004",
+      "key": "TELEGRAM_DELIVERED",
+      "aliases": [
+        "TELEGRAM-DELIVERED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Отчёт доставлен",
+        "uk": "Звіт доставлено",
+        "en": "Report delivered",
+        "de": "Bericht zugestellt"
+      },
+      "cause": {
+        "ru": "Отчёт успешно доставлен в Telegram.",
+        "uk": "Звіт успішно доставлено в Telegram.",
+        "en": "The report was delivered to Telegram.",
+        "de": "Der Bericht wurde an Telegram zugestellt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-005",
+      "number": "005-008-005",
+      "key": "TELEGRAM_DELIVERY_UNKNOWN",
+      "aliases": [
+        "TELEGRAM-DELIVERY-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Доставка не подтверждена",
+        "uk": "Доставку не підтверджено",
+        "en": "Delivery not confirmed",
+        "de": "Zustellung nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Отчёт был отправлен, но Telegram не подтвердил доставку. Повторно он не отправляется, чтобы не было дублей.",
+        "uk": "Звіт надіслано, але Telegram не підтвердив доставку. Повторно його не надсилають, щоб не було дублів.",
+        "en": "The report was sent, but Telegram did not confirm delivery. It is not sent again automatically, to avoid duplicates.",
+        "de": "Der Bericht wurde gesendet, aber Telegram hat die Zustellung nicht bestätigt. Er wird nicht automatisch erneut gesendet, um Doppelungen zu vermeiden."
+      },
+      "action": {
+        "ru": "1. Проверьте, пришёл ли отчёт в чат.",
+        "uk": "1. Перевірте, чи надійшов звіт у чат.",
+        "en": "1. Check whether the report arrived in the chat.",
+        "de": "1. Prüfen Sie, ob der Bericht im Chat angekommen ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-006",
+      "number": "005-008-006",
+      "key": "TELEGRAM_DESTINATION_FORMAT",
+      "aliases": [
+        "TELEGRAM-DESTINATION-FORMAT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "ID чата выглядит неверно",
+        "uk": "ID чату виглядає неправильно",
+        "en": "The chat ID looks wrong",
+        "de": "Die Chat-ID sieht falsch aus"
+      },
+      "cause": {
+        "ru": "ID чата имеет неверный вид, поэтому он не принят.",
+        "uk": "ID чату має неправильний вигляд, тому його не прийнято.",
+        "en": "The chat ID has a wrong form, so it was not accepted.",
+        "de": "Die Chat-ID hat eine falsche Form und wurde daher nicht übernommen."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Введите ID чата цифрами (для группы — с минусом в начале) или имя канала.\n3. Сохраните.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).\n2. Введіть ID чату цифрами (для групи — з мінусом на початку) або ім'я каналу.\n3. Збережіть.",
+        "en": "1. Open Settings → “Telegram notifications”.\n2. Enter the chat ID as digits (for a group, with a minus sign at the start) or the channel name.\n3. Save.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications).\n2. Geben Sie die Chat-ID als Ziffern ein (für eine Gruppe mit einem Minuszeichen am Anfang) oder den Kanalnamen.\n3. Speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-007",
+      "number": "005-008-007",
+      "key": "TELEGRAM_DNS",
+      "aliases": [
+        "TELEGRAM-DNS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес Telegram не найден",
+        "uk": "Адресу Telegram не знайдено",
+        "en": "Telegram address not found",
+        "de": "Telegram-Adresse nicht gefunden"
+      },
+      "cause": {
+        "ru": "Роутер не смог узнать адрес сервера Telegram по его имени.",
+        "uk": "Роутер не зміг дізнатися адресу сервера Telegram за його ім'ям.",
+        "en": "The router could not find the address of the Telegram server by its name.",
+        "de": "Der Router konnte die Adresse des Telegram-Servers anhand seines Namens nicht ermitteln."
+      },
+      "action": {
+        "ru": "1. Проверьте, что на роутере есть интернет.\n2. Проверьте настройки DNS роутера.",
+        "uk": "1. Перевірте, що на роутері є інтернет.\n2. Перевірте налаштування DNS роутера.",
+        "en": "1. Check that the router has internet.\n2. Check the DNS settings of the router.",
+        "de": "1. Prüfen Sie, ob der Router Internet hat.\n2. Prüfen Sie die DNS-Einstellungen des Routers."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-008",
+      "number": "005-008-008",
+      "key": "TELEGRAM_FORGET_UNCONFIRMED",
+      "aliases": [
+        "TELEGRAM-FORGET-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Удаление токена не подтверждено",
+        "uk": "Видалення токена не підтверджено",
+        "en": "Token removal not confirmed",
+        "de": "Löschen des Tokens nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не подтвердил, что сохранённый токен бота удалён.",
+        "uk": "Роутер не підтвердив, що збережений токен бота видалено.",
+        "en": "The router did not confirm that the stored bot token was deleted.",
+        "de": "Der Router hat nicht bestätigt, dass das gespeicherte Bot-Token gelöscht wurde."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте состояние в «Настройки» → «Уведомления Telegram».",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте стан у «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).",
+        "en": "1. Reload the page.\n2. Check the status in Settings → “Telegram notifications”.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie den Status unter „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-009",
+      "number": "005-008-009",
+      "key": "TELEGRAM_FORMAT_FAILED",
+      "aliases": [
+        "TELEGRAM-FORMAT-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось составить отчёт",
+        "uk": "Не вдалося скласти звіт",
+        "en": "The report could not be built",
+        "de": "Der Bericht konnte nicht erstellt werden"
+      },
+      "cause": {
+        "ru": "Роутер не смог составить текст отчёта для Telegram.",
+        "uk": "Роутер не зміг скласти текст звіту для Telegram.",
+        "en": "The router could not build the text of the Telegram report.",
+        "de": "Der Router konnte den Text des Telegram-Berichts nicht erstellen."
+      },
+      "action": {
+        "ru": "1. Подождите следующего отчёта.\n2. Если ошибка повторяется, сообщите разработчику этот код.",
+        "uk": "1. Зачекайте на наступний звіт.\n2. Якщо помилка повторюється, повідомте розробнику цей код.",
+        "en": "1. Wait for the next report.\n2. If it repeats, send this code to the developer.",
+        "de": "1. Warten Sie auf den nächsten Bericht.\n2. Wiederholt es sich, senden Sie diesen Code an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-010",
+      "number": "005-008-010",
+      "key": "TELEGRAM_ITEMS",
+      "aliases": [
+        "TELEGRAM-ITEMS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неверный выбор пунктов отчёта",
+        "uk": "Неправильний вибір пунктів звіту",
+        "en": "The report items are not valid",
+        "de": "Die Berichtspunkte sind ungültig"
+      },
+      "cause": {
+        "ru": "Список пунктов, выбранных для отчёта в Telegram, неверен, поэтому он не принят.",
+        "uk": "Список пунктів, вибраних для звіту в Telegram, неправильний, тому його не прийнято.",
+        "en": "The list of items chosen for the Telegram report is not valid, so it was not accepted.",
+        "de": "Die Liste der für den Telegram-Bericht gewählten Punkte ist ungültig und wurde daher nicht übernommen."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Выберите пункты отчёта заново.\n3. Сохраните.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).\n2. Виберіть пункти звіту заново.\n3. Збережіть.",
+        "en": "1. Open Settings → “Telegram notifications”.\n2. Choose the report items again.\n3. Save.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications).\n2. Wählen Sie die Berichtspunkte erneut aus.\n3. Speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-011",
+      "number": "005-008-011",
+      "key": "TELEGRAM_PERMISSION",
+      "aliases": [
+        "TELEGRAM-PERMISSION"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Бот не может писать в этот чат",
+        "uk": "Бот не може писати в цей чат",
+        "en": "The bot cannot write to this chat",
+        "de": "Der Bot kann nicht in diesen Chat schreiben"
+      },
+      "cause": {
+        "ru": "У бота нет права отправлять сообщения в этот чат.",
+        "uk": "Бот не має права надсилати повідомлення в цей чат.",
+        "en": "The bot has no right to send messages to this chat.",
+        "de": "Der Bot hat kein Recht, Nachrichten in diesen Chat zu senden."
+      },
+      "action": {
+        "ru": "1. Откройте чат с ботом в Telegram и нажмите Start, либо сделайте бота администратором группы или канала.",
+        "uk": "1. Відкрийте чат із ботом у Telegram і натисніть Start або зробіть бота адміністратором групи чи каналу.",
+        "en": "1. Open the chat with the bot in Telegram and press Start, or make the bot an administrator of the group or channel.",
+        "de": "1. Öffnen Sie den Chat mit dem Bot in Telegram und drücken Sie Start, oder machen Sie den Bot zum Administrator der Gruppe oder des Kanals."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-012",
+      "number": "005-008-012",
+      "key": "TELEGRAM_RATE_LIMIT",
+      "aliases": [
+        "TELEGRAM-RATE-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком много сообщений",
+        "uk": "Забагато повідомлень",
+        "en": "Too many messages",
+        "de": "Zu viele Nachrichten"
+      },
+      "cause": {
+        "ru": "Telegram попросил подождать перед следующим сообщением. Роутер сам повторит отправку позже.",
+        "uk": "Telegram попросив зачекати перед наступним повідомленням. Роутер сам повторить надсилання пізніше.",
+        "en": "Telegram asked to wait before the next message. The router sends it again later by itself.",
+        "de": "Telegram hat gebeten, vor der nächsten Nachricht zu warten. Der Router sendet sie später selbst erneut."
+      },
+      "action": {
+        "ru": "1. Подождите.\n2. Если повторяется часто, выберите более редкий интервал отчётов в «Настройки» → «Уведомления Telegram».",
+        "uk": "1. Зачекайте.\n2. Якщо часто повторюється, виберіть рідший інтервал звітів у «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).",
+        "en": "1. Wait.\n2. If it happens often, choose a longer report interval in Settings → “Telegram notifications”.",
+        "de": "1. Warten Sie.\n2. Kommt es oft vor, wählen Sie unter „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications) ein längeres Berichtsintervall."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-013",
+      "number": "005-008-013",
+      "key": "TELEGRAM_REPORT_UNAVAILABLE",
+      "aliases": [
+        "TELEGRAM-REPORT-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Данных для отчёта пока нет",
+        "uk": "Даних для звіту поки немає",
+        "en": "No data for the report yet",
+        "de": "Noch keine Daten für den Bericht"
+      },
+      "cause": {
+        "ru": "Мониторинг ещё не собрал данные для отчёта, например сразу после запуска.",
+        "uk": "Моніторинг ще не зібрав даних для звіту, наприклад одразу після запуску.",
+        "en": "Monitoring has not collected data for the report yet, for example right after it starts.",
+        "de": "Die Überwachung hat noch keine Daten für den Bericht gesammelt, etwa direkt nach dem Start."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут после запуска мониторинга.",
+        "uk": "1. Зачекайте кілька хвилин після запуску моніторингу.",
+        "en": "1. Wait a few minutes after monitoring starts.",
+        "de": "1. Warten Sie nach dem Start der Überwachung einige Minuten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-014",
+      "number": "005-008-014",
+      "key": "TELEGRAM_REQUEST_REJECTED",
+      "aliases": [
+        "TELEGRAM-REQUEST-REJECTED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Telegram отклонил сообщение",
+        "uk": "Telegram відхилив повідомлення",
+        "en": "Telegram rejected the message",
+        "de": "Telegram hat die Nachricht abgelehnt"
+      },
+      "cause": {
+        "ru": "Telegram ответил, что не примет сообщение: неверный токен, неверный чат или бот заблокирован.",
+        "uk": "Telegram відповів, що не прийме повідомлення: неправильний токен, неправильний чат або бота заблоковано.",
+        "en": "Telegram answered that it will not take the message: wrong token, wrong chat, or the bot is blocked.",
+        "de": "Telegram hat geantwortet, dass es die Nachricht nicht annimmt: falsches Token, falscher Chat oder der Bot ist blockiert."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Проверьте токен бота и ID чата.\n3. Откройте чат с ботом в Telegram и нажмите Start.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).\n2. Перевірте токен бота та ID чату.\n3. Відкрийте чат із ботом у Telegram і натисніть Start.",
+        "en": "1. Open Settings → “Telegram notifications”.\n2. Check the bot token and the chat ID.\n3. Open the chat with the bot in Telegram and press Start.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications).\n2. Prüfen Sie das Bot-Token und die Chat-ID.\n3. Öffnen Sie den Chat mit dem Bot in Telegram und drücken Sie Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-015",
+      "number": "005-008-015",
+      "key": "TELEGRAM_RETRY",
+      "aliases": [
+        "TELEGRAM-RETRY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отправка будет повторена",
+        "uk": "Надсилання буде повторено",
+        "en": "Sending will be retried",
+        "de": "Das Senden wird wiederholt"
+      },
+      "cause": {
+        "ru": "Сообщение не удалось отправить сейчас; роутер попробует ещё раз позже.",
+        "uk": "Повідомлення не вдалося надіслати зараз; роутер спробує ще раз пізніше.",
+        "en": "The message could not be sent now; the router tries again later.",
+        "de": "Die Nachricht konnte jetzt nicht gesendet werden; der Router versucht es später erneut."
+      },
+      "action": {
+        "ru": "1. Проверьте, что на роутере есть интернет.",
+        "uk": "1. Перевірте, що на роутері є інтернет.",
+        "en": "1. Check that the router has internet.",
+        "de": "1. Prüfen Sie, ob der Router Internet hat."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-016",
+      "number": "005-008-016",
+      "key": "TELEGRAM_SCHEDULE",
+      "aliases": [
+        "TELEGRAM-SCHEDULE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неверное расписание отчётов",
+        "uk": "Неправильний розклад звітів",
+        "en": "The report schedule is not valid",
+        "de": "Der Berichtszeitplan ist ungültig"
+      },
+      "cause": {
+        "ru": "В расписании отчётов недопустимое значение, поэтому оно не принято.",
+        "uk": "У розкладі звітів неприпустиме значення, тому його не прийнято.",
+        "en": "The report schedule has a value that is not allowed, so it was not accepted.",
+        "de": "Der Berichtszeitplan enthält einen unzulässigen Wert und wurde daher nicht übernommen."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Выберите расписание заново.\n3. Сохраните.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).\n2. Виберіть розклад заново.\n3. Збережіть.",
+        "en": "1. Open Settings → “Telegram notifications”.\n2. Choose the schedule again.\n3. Save.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications).\n2. Wählen Sie den Zeitplan erneut aus.\n3. Speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-017",
+      "number": "005-008-017",
+      "key": "TELEGRAM_SETUP_FIELDS",
+      "aliases": [
+        "TELEGRAM-SETUP-FIELDS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Форма Telegram пришла в неверном виде",
+        "uk": "Форма Telegram надійшла в неправильному вигляді",
+        "en": "The Telegram form arrived in a wrong form",
+        "de": "Das Telegram-Formular kam in falscher Form an"
+      },
+      "cause": {
+        "ru": "В форме настройки Telegram были неожиданные поля. Чаще всего страница устарела после обновления. Ничего не изменено.",
+        "uk": "У формі налаштування Telegram були неочікувані поля. Найчастіше сторінка застаріла після оновлення. Нічого не змінено.",
+        "en": "The Telegram setup form had unexpected fields. Most often the page is outdated after an update. Nothing was changed.",
+        "de": "Das Telegram-Einrichtungsformular enthielt unerwartete Felder. Meist ist die Seite nach einem Update veraltet. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Пройдите мастер настройки Telegram заново.",
+        "uk": "1. Оновіть сторінку.\n2. Пройдіть майстер налаштування Telegram заново.",
+        "en": "1. Reload the page.\n2. Go through the Telegram setup wizard again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Durchlaufen Sie den Telegram-Einrichtungsassistenten erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-018",
+      "number": "005-008-018",
+      "key": "TELEGRAM_STATE_CORRUPT",
+      "aliases": [
+        "TELEGRAM-STATE-CORRUPT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сохранённое состояние отчётов повреждено",
+        "uk": "Збережений стан звітів пошкоджено",
+        "en": "The saved report state is damaged",
+        "de": "Der gespeicherte Berichtszustand ist beschädigt"
+      },
+      "cause": {
+        "ru": "Роутер не смог прочитать сохранённое состояние отчётов Telegram. Обычно он восстанавливает его сам.",
+        "uk": "Роутер не зміг прочитати збережений стан звітів Telegram. Зазвичай він відновлює його сам.",
+        "en": "The router could not read the saved state of the Telegram reports. Usually it rebuilds it by itself.",
+        "de": "Der Router konnte den gespeicherten Zustand der Telegram-Berichte nicht lesen. Meist stellt er ihn selbst wieder her."
+      },
+      "action": {
+        "ru": "1. Подождите следующего отчёта.\n2. Если код остаётся, сохраните настройки ещё раз в «Настройки» → «Уведомления Telegram».",
+        "uk": "1. Зачекайте на наступний звіт.\n2. Якщо код лишається, збережіть налаштування ще раз у «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).",
+        "en": "1. Wait for the next report.\n2. If the code stays, save the settings again in Settings → “Telegram notifications”.",
+        "de": "1. Warten Sie auf den nächsten Bericht.\n2. Bleibt der Code, speichern Sie die Einstellungen unter „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications) erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-019",
+      "number": "005-008-019",
+      "key": "TELEGRAM_STATE_RECOVERED",
+      "aliases": [
+        "TELEGRAM-STATE-RECOVERED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Состояние отчётов восстановлено",
+        "uk": "Стан звітів відновлено",
+        "en": "The report state was rebuilt",
+        "de": "Der Berichtszustand wurde wiederhergestellt"
+      },
+      "cause": {
+        "ru": "Сохранённое состояние отчётов было повреждено и создано заново. Один отчёт может прийти дважды или пропуститься.",
+        "uk": "Збережений стан звітів було пошкоджено, і його створено заново. Один звіт може прийти двічі або пропуститися.",
+        "en": "The saved report state was damaged and was rebuilt. One report may come twice or be skipped.",
+        "de": "Der gespeicherte Berichtszustand war beschädigt und wurde neu angelegt. Ein Bericht kann doppelt kommen oder ausfallen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-020",
+      "number": "005-008-020",
+      "key": "TELEGRAM_STATE_WRITE_FAILED",
+      "aliases": [
+        "TELEGRAM-STATE-WRITE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Состояние отчётов не сохранено",
+        "uk": "Стан звітів не збережено",
+        "en": "The report state was not saved",
+        "de": "Der Berichtszustand wurde nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Роутер не смог записать время последнего отчёта, поэтому отчёты могут повторяться. Чаще всего в памяти роутера мало места.",
+        "uk": "Роутер не зміг записати час останнього звіту, тому звіти можуть повторюватися. Найчастіше в пам'яті роутера мало місця.",
+        "en": "The router could not save the time of the last report, so reports may repeat. Most often the router is low on free space.",
+        "de": "Der Router konnte die Zeit des letzten Berichts nicht speichern, daher können sich Berichte wiederholen. Meist hat der Router zu wenig freien Speicher."
+      },
+      "action": {
+        "ru": "1. Проверьте свободное место на роутере (см. «Помощь» → «Размер журнала и хранимая история»).",
+        "uk": "1. Перевірте вільне місце на роутері (див. «Довідку» (Help) → «Розмір журналу та збережена історія» (Journal size and retained history)).",
+        "en": "1. Check the free space on the router (see Help → “Journal size and retained history”).",
+        "de": "1. Prüfen Sie den freien Speicher des Routers (siehe „Hilfe“ (Help) → „Journalgröße und gespeicherter Verlauf“ (Journal size and retained history))."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-021",
+      "number": "005-008-021",
+      "key": "TELEGRAM_TEST_DELIVERED",
+      "aliases": [
+        "TELEGRAM-TEST-DELIVERED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тестовое сообщение доставлено",
+        "uk": "Тестове повідомлення доставлено",
+        "en": "Test message delivered",
+        "de": "Testnachricht zugestellt"
+      },
+      "cause": {
+        "ru": "Тестовое сообщение пришло в Telegram: настройка работает.",
+        "uk": "Тестове повідомлення надійшло в Telegram: налаштування працює.",
+        "en": "The test message arrived in Telegram: the setup works.",
+        "de": "Die Testnachricht ist in Telegram angekommen: Die Einrichtung funktioniert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-022",
+      "number": "005-008-022",
+      "key": "TELEGRAM_TEST_RATE_LIMIT",
+      "aliases": [
+        "TELEGRAM-TEST-RATE-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Тестовое сообщение отправляется слишком часто",
+        "uk": "Тестове повідомлення надсилається надто часто",
+        "en": "Test message sent too often",
+        "de": "Testnachricht zu oft gesendet"
+      },
+      "cause": {
+        "ru": "Тестовое сообщение можно отправлять не чаще одного раза за короткое время.",
+        "uk": "Тестове повідомлення можна надсилати не частіше одного разу за короткий час.",
+        "en": "A test message can be sent only once in a short time.",
+        "de": "Eine Testnachricht kann nur einmal in kurzer Zeit gesendet werden."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Отправьте тестовое сообщение ещё раз.",
+        "uk": "1. Зачекайте хвилину.\n2. Надішліть тестове повідомлення ще раз.",
+        "en": "1. Wait a minute.\n2. Send the test message again.",
+        "de": "1. Warten Sie eine Minute.\n2. Senden Sie die Testnachricht erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-023",
+      "number": "005-008-023",
+      "key": "TELEGRAM_TLS",
+      "aliases": [
+        "TELEGRAM-TLS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось установить защищённое соединение",
+        "uk": "Не вдалося встановити захищене з'єднання",
+        "en": "Secure connection failed",
+        "de": "Sichere Verbindung fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Защищённое соединение с Telegram не установилось. Чаще всего неверны дата и время роутера или на нём нет набора сертификатов.",
+        "uk": "Захищене з'єднання з Telegram не встановилося. Найчастіше неправильні дата й час роутера або на ньому немає набору сертифікатів.",
+        "en": "The secure connection to Telegram failed. Most often the router date and time are wrong, or the router lacks its set of certificates.",
+        "de": "Die sichere Verbindung zu Telegram ist fehlgeschlagen. Meist sind Datum und Uhrzeit des Routers falsch oder dem Router fehlt sein Zertifikatssatz."
+      },
+      "action": {
+        "ru": "1. Проверьте дату и время роутера.\n2. Если не помогло, установите набор сертификатов, как описано в «Помощи».",
+        "uk": "1. Перевірте дату й час роутера.\n2. Якщо не допомогло, встановіть набір сертифікатів, як описано в «Довідці» (Help).",
+        "en": "1. Check the router date and time.\n2. If that does not help, install the certificate set as described in Help.",
+        "de": "1. Prüfen Sie Datum und Uhrzeit des Routers.\n2. Hilft das nicht, installieren Sie den Zertifikatssatz wie in der „Hilfe“ (Help) beschrieben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-024",
+      "number": "005-008-024",
+      "key": "TELEGRAM_TOKEN_FORMAT",
+      "aliases": [
+        "TELEGRAM-TOKEN-FORMAT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Токен выглядит неверно",
+        "uk": "Токен виглядає неправильно",
+        "en": "The token looks wrong",
+        "de": "Das Token sieht falsch aus"
+      },
+      "cause": {
+        "ru": "Токен не похож на токен бота: цифры, двоеточие, затем длинный набор букв и цифр. Часто часть токена теряется при копировании.",
+        "uk": "Токен не схожий на токен бота: цифри, двокрапка, далі довгий набір літер і цифр. Часто частина токена губиться під час копіювання.",
+        "en": "The token does not look like a bot token: digits, a colon, then a long string of letters and digits. Often part of it is lost when copying.",
+        "de": "Das Token sieht nicht wie ein Bot-Token aus: Ziffern, ein Doppelpunkt, dann eine lange Folge aus Buchstaben und Ziffern. Oft geht beim Kopieren ein Teil verloren."
+      },
+      "action": {
+        "ru": "1. Скопируйте токен целиком заново из бота BotFather в Telegram, без пробелов.\n2. Вставьте его в «Настройки» → «Уведомления Telegram» и сохраните.",
+        "uk": "1. Скопіюйте токен повністю заново з бота BotFather у Telegram, без пробілів.\n2. Вставте його в «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications) і збережіть.",
+        "en": "1. Copy the whole token again from the BotFather bot in Telegram, without spaces.\n2. Paste it in Settings → “Telegram notifications” and save.",
+        "de": "1. Kopieren Sie das ganze Token erneut aus dem Bot BotFather in Telegram, ohne Leerzeichen.\n2. Fügen Sie es unter „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications) ein und speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-025",
+      "number": "005-008-025",
+      "key": "TELEGRAM_TOKEN_REJECTED",
+      "aliases": [
+        "TELEGRAM-TOKEN-REJECTED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Telegram не принял токен",
+        "uk": "Telegram не прийняв токен",
+        "en": "Telegram rejected the token",
+        "de": "Telegram hat das Token abgelehnt"
+      },
+      "cause": {
+        "ru": "Telegram сообщил, что токен бота недействителен: например, его отозвали или заменили.",
+        "uk": "Telegram повідомив, що токен бота недійсний: наприклад, його відкликали або замінили.",
+        "en": "Telegram says the bot token is not valid, for example because it was revoked or replaced.",
+        "de": "Telegram meldet, dass das Bot-Token ungültig ist, etwa weil es widerrufen oder ersetzt wurde."
+      },
+      "action": {
+        "ru": "1. Получите новый токен в боте BotFather в Telegram.\n2. Введите его в «Настройки» → «Уведомления Telegram» и сохраните.",
+        "uk": "1. Отримайте новий токен у боті BotFather у Telegram.\n2. Введіть його в «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications) і збережіть.",
+        "en": "1. Get a new token from the BotFather bot in Telegram.\n2. Enter it in Settings → “Telegram notifications” and save.",
+        "de": "1. Holen Sie sich ein neues Token vom Bot BotFather in Telegram.\n2. Geben Sie es unter „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications) ein und speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-026",
+      "number": "005-008-026",
+      "key": "TELEGRAM_TOKEN_REQUIRED",
+      "aliases": [
+        "TELEGRAM-TOKEN-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Токен бота не задан",
+        "uk": "Токен бота не задано",
+        "en": "Bot token missing",
+        "de": "Bot-Token fehlt"
+      },
+      "cause": {
+        "ru": "На роутере не сохранён токен бота, поэтому отчёты в Telegram не отправляются.",
+        "uk": "На роутері не збережено токен бота, тому звіти в Telegram не надсилаються.",
+        "en": "No bot token is stored on the router, so Telegram reports are not sent.",
+        "de": "Auf dem Router ist kein Bot-Token gespeichert, daher werden keine Telegram-Berichte gesendet."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Введите токен бота и сохраните.\n3. Если не помогло, откройте «Помощь» → «Не приходят отчёты в Telegram».",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Сповіщення Telegram» (Telegram notifications).\n2. Введіть токен бота і збережіть.\n3. Якщо не допомогло, відкрийте «Довідку» (Help) → «Не надходять звіти в Telegram» (Telegram reports do not arrive).",
+        "en": "1. Open Settings → “Telegram notifications”.\n2. Enter the bot token and save.\n3. If that does not help, open Help → “Telegram reports do not arrive”.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Telegram-Benachrichtigungen“ (Telegram notifications).\n2. Geben Sie das Bot-Token ein und speichern Sie.\n3. Hilft das nicht, öffnen Sie „Hilfe“ (Help) → „Telegram-Berichte kommen nicht an“ (Telegram reports do not arrive)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-027",
+      "number": "005-008-027",
+      "key": "TELEGRAM_VPN_WAIT",
+      "aliases": [
+        "TELEGRAM-VPN-WAIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сообщение ждёт рабочий VPN-канал",
+        "uk": "Повідомлення чекає на робочий VPN-канал",
+        "en": "The message waits for a working VPN channel",
+        "de": "Die Nachricht wartet auf einen funktionierenden VPN-Kanal"
+      },
+      "cause": {
+        "ru": "Сообщения в Telegram уходят только через VPN-туннель, а рабочего канала сейчас нет. Мимо туннеля ничего не отправлено: сообщение ждёт в очереди и уйдёт само, как только канал заработает. Пока ни один канал не работает, сообщения не приходят — это цена приватности.",
+        "uk": "Повідомлення в Telegram ідуть лише через VPN-тунель, а робочого каналу зараз немає. Повз тунель нічого не надіслано: повідомлення чекає в черзі й піде саме, щойно канал запрацює. Поки жоден канал не працює, повідомлення не надходять — це ціна приватності.",
+        "en": "Telegram messages go out only through a VPN tunnel, and no channel works right now. Nothing was sent around the tunnel: the message waits in the queue and goes out by itself once a channel works. While no channel works, no messages arrive; this is the price of privacy.",
+        "de": "Telegram-Nachrichten werden nur über einen VPN-Tunnel gesendet, und gerade funktioniert kein Kanal. Am Tunnel vorbei wurde nichts gesendet: Die Nachricht wartet in der Warteschlange und geht von selbst raus, sobald ein Kanal funktioniert. Solange kein Kanal funktioniert, kommen keine Nachrichten an – das ist der Preis der Privatsphäre."
+      },
+      "action": {
+        "ru": "1. Убедитесь, что работает хотя бы один VPN-канал (страница Auto или состояние каналов).\n2. Ничего больше делать не нужно: сообщение уйдёт само.",
+        "uk": "1. Переконайтеся, що працює принаймні один VPN-канал (сторінка Auto або стан каналів).\n2. Більше нічого робити не потрібно: повідомлення піде саме.",
+        "en": "1. Make sure at least one VPN channel works (Auto page or channel status).\n2. Nothing else is needed: the message goes out by itself.",
+        "de": "1. Stellen Sie sicher, dass mindestens ein VPN-Kanal funktioniert (Auto-Seite oder Kanalstatus).\n2. Sonst ist nichts nötig: Die Nachricht geht von selbst raus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-TG-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "translation-draft"
+      ]
+    }
+  ]
+}
