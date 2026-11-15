@@ -29,14 +29,15 @@ PROBLEM_CONTENT_TYPE = "application/problem+json"
 FORMAT = 1
 ALWAYS_NAMESPACES = ("COMMON",)
 
-ENTRY_FIELDS = ("code", "key", "aliases", "level", "audience", "title", "cause", "action", "escalation", "params",
-                "retryable", "http_status", "help", "related", "since", "deprecated", "replaced_by", "tags", "fixed_in",
-                "examples")
+ENTRY_FIELDS = ("code", "number", "key", "aliases", "level", "audience", "title", "cause", "action", "escalation",
+                "params", "retryable", "http_status", "help", "related", "since", "deprecated", "replaced_by", "tags",
+                "fixed_in", "examples")
 STEP_FIELDS = ("to", "when", "assistant", "prompt", "channel", "data")
 _PLACEHOLDER_RE = re.compile(r"\{([a-z_][a-z0-9_]*)\}")
 _VERSION_RE = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
 _CHANGELOG_RE = re.compile(r"^## (\d+\.\d+\.\d+)\b", re.M)
 _CODE_RE = re.compile(r"^([A-Z][A-Z0-9]{1,9})-([A-Z0-9]{2,8})-[0-9]{3}$")
+_NUMBER_RE = re.compile(r"^[0-9]{3}-[0-9]{3}-[0-9]{3}$")
 
 
 def _freeze(value: Any) -> Any:
@@ -57,7 +58,10 @@ def _thaw(value: Any) -> Any:
 
 @dataclass(frozen=True)
 class Entry:
-    """Запись об ошибке (§4). Поля только для чтения; тексты — отображения язык → строка."""
+    """Запись об ошибке (§4). Поля только для чтения; тексты — отображения язык → строка.
+
+    `number` — цифровой код `PPP-AAA-NNN` для поиска; в выпусках до 1.2.0 его нет (пустая строка).
+    """
 
     code: str
     key: str
@@ -70,6 +74,7 @@ class Entry:
     retryable: bool
     help: str
     since: str
+    number: str = ""
     aliases: tuple[str, ...] = ()
     params: Mapping[str, str] = field(default_factory=lambda: MappingProxyType({}))
     http_status: int | None = None
@@ -108,7 +113,9 @@ class Entry:
         out: dict[str, Any] = {}
         for name in ENTRY_FIELDS:
             value = getattr(self, name)
-            if value is None or (name in ("aliases", "params", "related", "tags", "fixed_in") and not value):
+            if value is None or value == "":
+                continue
+            if name in ("aliases", "params", "related", "tags", "fixed_in") and not value:
                 continue
             if name in ("title", "cause", "action"):
                 value = {lang: value[lang] for lang in LANGS if lang in value}
@@ -123,6 +130,7 @@ class Rendered:
     """Тексты ошибки на одном языке с подстановками (§7.2, §12). `str()` — блок «новый код, старый код, описание»."""
 
     code: str
+    number: str
     key: str
     lang: str
     level: str
@@ -231,6 +239,8 @@ class Catalog:
         for entry in sorted(entries, key=lambda e: e.code):
             if not _CODE_RE.match(entry.code):
                 raise CatalogError(f"{entry.code}: код должен иметь вид NS-AREA-NNN")
+            if entry.number and not _NUMBER_RE.match(entry.number):
+                raise CatalogError(f"{entry.code}: цифровой код должен иметь вид PPP-AAA-NNN, получено {entry.number!r}")
             if entry.code in self._entries:
                 raise CatalogError(f"{entry.code}: код встречается дважды")
             for field_name in ("title", "cause", "action"):
@@ -238,7 +248,7 @@ class Catalog:
                 if missing:
                     raise CatalogError(f"{entry.code}: {field_name} без языков {missing}")
             self._entries[entry.code] = entry
-            for name in (entry.code, entry.key, *entry.aliases):
+            for name in (entry.code, entry.key, *entry.aliases, *([entry.number] if entry.number else [])):
                 owner = self._names.setdefault(name, entry.code)
                 if owner != entry.code:
                     raise CatalogError(f"{entry.code}: имя {name} уже занято кодом {owner}")
@@ -383,14 +393,20 @@ class Catalog:
         return list(self._entries)
 
     def find(self, name: str) -> Entry | None:
-        """Запись по коду, `key` или старому коду (`aliases`); `None`, если нет."""
+        """Запись по коду, `key`, старому коду (`aliases`) или цифровому коду; `None`, если нет.
+
+        Цифровой код принимается с дефисами (`003-012-003`), без них (`003012003`) и с пробелами (`003 012 003`).
+        """
         code = self._names.get(name) if isinstance(name, str) else None
         if code is None and isinstance(name, str):
             code = self._names.get(name.strip().upper())
+        if code is None and isinstance(name, str):
+            number = _texts.canonical_number(name)
+            code = self._names.get(number) if number else None
         return self._entries.get(code) if code else None
 
     def get(self, name: str) -> Entry:
-        """Запись по коду, `key` или старому коду; нет — `UnknownCodeError`."""
+        """Запись по коду, `key`, старому коду или цифровому коду; нет — `UnknownCodeError`."""
         entry = self.find(name)
         if entry is None:
             raise UnknownCodeError(name)
@@ -447,9 +463,14 @@ class Catalog:
     def legacy_line(self, entry: Entry, lang: str) -> str:
         """Строка «КОД (прежний код: …)» по правилу переходного периода §12."""
         if not (self.show_legacy_codes and entry.aliases):
-            return entry.code
+            return self.code_line(entry)
         label = LABELS[lang]["legacy_one" if len(entry.aliases) == 1 else "legacy_many"]
-        return f"{entry.code} ({label}: {', '.join(entry.aliases)})"
+        return f"{self.code_line(entry)} ({label}: {', '.join(entry.aliases)})"
+
+    @staticmethod
+    def code_line(entry: Entry) -> str:
+        """Буквенный код, рядом цифровой: `RENT-FX-003 · 003-012-003` (нет цифрового — только буквенный)."""
+        return f"{entry.code} · {entry.number}" if entry.number else entry.code
 
     def render(self, name: str, lang: str = "en", params: Mapping[str, Any] | None = None) -> Rendered:
         """Тексты на языке с подстановками: что случилось, почему, что делать, кому передать (§7.2, §12)."""
@@ -465,8 +486,8 @@ class Catalog:
             f"{labels['why']}: {cause} · {labels['todo']}: {' '.join(action.splitlines())} · "
             f"{labels['escalate']}: {' → '.join(steps)}",
         ])
-        return Rendered(code=entry.code, key=entry.key, lang=lang, level=entry.level, title=title, cause=cause,
-                        action=action, escalation=steps,
+        return Rendered(code=entry.code, number=entry.number, key=entry.key, lang=lang, level=entry.level,
+                        title=title, cause=cause, action=action, escalation=steps,
                         legacy_codes=entry.aliases if self.show_legacy_codes else (), retryable=entry.retryable,
                         help_url=self.help_url(entry.code, lang), text=text)
 
@@ -492,7 +513,10 @@ class Catalog:
         problem["detail"] = _substitute(entry.cause[lang], values)
         if instance is not None:
             problem["instance"] = instance
-        problem.update(code=entry.code, key=entry.key, retryable=entry.retryable)
+        problem["code"] = entry.code
+        if entry.number:
+            problem["number"] = entry.number
+        problem.update(key=entry.key, retryable=entry.retryable)
         if self.show_legacy_codes and entry.aliases:
             problem["legacy_codes"] = list(entry.aliases)
         return problem
@@ -510,6 +534,8 @@ class Catalog:
         labels, h = LABELS[lang], "#" * heading
         yes_no = labels["yes" if entry.retryable else "no"]
         lines = [f"{h} {entry.code} — {_substitute(entry.title[lang], values)}", ""]
+        if entry.number:
+            lines += [f"{labels['number']}: `{entry.number}`", ""]
         if self.show_legacy_codes and entry.aliases:
             label = labels["legacy_one" if len(entry.aliases) == 1 else "legacy_many"]
             lines += [f"{label[0].upper()}{label[1:]}: {', '.join(f'`{a}`' for a in entry.aliases)}", ""]
@@ -547,6 +573,7 @@ class Catalog:
         lang = self.lang(lang)
         return {
             "code": entry.code,
+            "number": entry.number,
             "key": entry.key,
             "aliases": list(entry.aliases),
             "level": entry.level,
@@ -557,9 +584,10 @@ class Catalog:
         }
 
     def search(self, query: str, lang: str = "en", limit: int = 20) -> list[Hit]:
-        """Поиск по коду, старому коду, `key` и словам текста на языке.
+        """Поиск по коду, цифровому коду, старому коду, `key` и словам текста на языке.
 
-        Точное имя — первым; начало кода (`RENT-DR`) — все коды области; слова — все слова запроса должны найтись
+        Точное имя (в том числе цифровой код `003-012-003`, `003012003`, `003 012 003`) — первым; начало кода
+        (`RENT-DR`) или цифрового кода (`003-012`, `003 012`, `003012`) — все коды области; слова — все слова запроса должны найтись
         (сравнение по простой основе слова), слово в заголовке весит больше.
         """
         lang = self.lang(lang)
@@ -575,6 +603,11 @@ class Catalog:
             for code in self._entries:
                 if code.startswith(prefix) and code not in scores:
                     scores[code] = 500
+        digits = _texts.number_digits(raw)
+        if digits:
+            for entry in self:
+                if entry.number.replace("-", "").startswith(digits) and entry.code not in scores:
+                    scores[entry.code] = 500
         tokens = _texts.normalize(raw).split()
         if tokens:
             for entry in self:

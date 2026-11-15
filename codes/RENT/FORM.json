@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-FORM-001",
+      "number": "003-006-001",
       "key": "APP_INTERNAL",
       "aliases": [
         "app_internal"
@@ -65,6 +66,7 @@
     },
     {
       "code": "RENT-FORM-002",
+      "number": "003-006-002",
       "key": "NOT_FOUND",
       "aliases": [
         "not_found"
@@ -115,6 +117,7 @@
     },
     {
       "code": "RENT-FORM-003",
+      "number": "003-006-003",
       "key": "CONFLICT",
       "aliases": [
         "conflict"
@@ -165,6 +168,7 @@
     },
     {
       "code": "RENT-FORM-004",
+      "number": "003-006-004",
       "key": "VALIDATION_ERROR",
       "aliases": [
         "validation_error"
@@ -215,6 +219,7 @@
     },
     {
       "code": "RENT-FORM-005",
+      "number": "003-006-005",
       "key": "FORM_DUPLICATE",
       "aliases": [
         "form_duplicate"
@@ -265,6 +270,7 @@
     },
     {
       "code": "RENT-FORM-006",
+      "number": "003-006-006",
       "key": "FORM_DATE_RANGE",
       "aliases": [
         "form_date_range"
@@ -315,6 +321,7 @@
     },
     {
       "code": "RENT-FORM-007",
+      "number": "003-006-007",
       "key": "FORM_AMOUNT_FORMAT",
       "aliases": [
         "form_amount_format"
@@ -365,6 +372,7 @@
     },
     {
       "code": "RENT-FORM-008",
+      "number": "003-006-008",
       "key": "LEASE_NOT_FOUND",
       "aliases": [
         "lease_not_found"
@@ -415,6 +423,7 @@
     },
     {
       "code": "RENT-FORM-009",
+      "number": "003-006-009",
       "key": "LOCK_CODE_NOT_FOUND",
       "aliases": [
         "lock_code_not_found"
@@ -465,6 +474,7 @@
     },
     {
       "code": "RENT-FORM-010",
+      "number": "003-006-010",
       "key": "LOCK_NOT_FOUND",
       "aliases": [
         "lock_not_found"
@@ -515,6 +525,7 @@
     },
     {
       "code": "RENT-FORM-011",
+      "number": "003-006-011",
       "key": "LOCK_SYSTEM_NOT_FOUND",
       "aliases": [
         "lock_system_not_found"
@@ -565,6 +576,7 @@
     },
     {
       "code": "RENT-FORM-012",
+      "number": "003-006-012",
       "key": "METER_NOT_FOUND",
       "aliases": [
         "meter_not_found"
@@ -615,6 +627,7 @@
     },
     {
       "code": "RENT-FORM-013",
+      "number": "003-006-013",
       "key": "PARKING_RENTAL_NOT_FOUND",
       "aliases": [
         "parking_rental_not_found"
@@ -665,6 +678,7 @@
     },
     {
       "code": "RENT-FORM-014",
+      "number": "003-006-014",
       "key": "PARKING_SPOT_NOT_FOUND",
       "aliases": [
         "parking_spot_not_found"
@@ -715,6 +729,7 @@
     },
     {
       "code": "RENT-FORM-015",
+      "number": "003-006-015",
       "key": "PERSON_NOT_FOUND",
       "aliases": [
         "person_not_found"
@@ -765,6 +780,7 @@
     },
     {
       "code": "RENT-FORM-016",
+      "number": "003-006-016",
       "key": "READING_NOT_FOUND",
       "aliases": [
         "reading_not_found"
@@ -815,6 +831,7 @@
     },
     {
       "code": "RENT-FORM-017",
+      "number": "003-006-017",
       "key": "UNIT_NOT_FOUND",
       "aliases": [
         "unit_not_found"
@@ -865,6 +882,7 @@
     },
     {
       "code": "RENT-FORM-018",
+      "number": "003-006-018",
       "key": "VEHICLE_NOT_FOUND",
       "aliases": [
         "vehicle_not_found"
@@ -915,6 +933,7 @@
     },
     {
       "code": "RENT-FORM-019",
+      "number": "003-006-019",
       "key": "VISIT_NOT_FOUND",
       "aliases": [
         "visit_not_found"
@@ -965,6 +984,7 @@
     },
     {
       "code": "RENT-FORM-020",
+      "number": "003-006-020",
       "key": "LOCK_CODE_STATE",
       "aliases": [
         "lock_code_state"
@@ -1015,6 +1035,7 @@
     },
     {
       "code": "RENT-FORM-021",
+      "number": "003-006-021",
       "key": "LOCK_PROVIDER_NOT_CONNECTED",
       "aliases": [
         "lock_provider_not_connected"
@@ -1065,6 +1086,7 @@
     },
     {
       "code": "RENT-FORM-022",
+      "number": "003-006-022",
       "key": "PARKING_SPOT_BUSY",
       "aliases": [
         "parking_spot_busy"
@@ -1115,6 +1137,7 @@
     },
     {
       "code": "RENT-FORM-023",
+      "number": "003-006-023",
       "key": "READING_CONFIRMATION_REQUIRED",
       "aliases": [
         "reading_confirmation_required"
@@ -1165,6 +1188,7 @@
     },
     {
       "code": "RENT-FORM-024",
+      "number": "003-006-024",
       "key": "READING_INVALID",
       "aliases": [
         "reading_invalid"
@@ -1215,6 +1239,7 @@
     },
     {
       "code": "RENT-FORM-025",
+      "number": "003-006-025",
       "key": "VISIT_DATE_FORMAT",
       "aliases": [
         "visit_date_format"
@@ -1265,6 +1290,7 @@
     },
     {
       "code": "RENT-FORM-026",
+      "number": "003-006-026",
       "key": "VISIT_DATE_PAST",
       "aliases": [
         "visit_date_past"
@@ -1315,6 +1341,7 @@
     },
     {
       "code": "RENT-FORM-027",
+      "number": "003-006-027",
       "key": "VISIT_SHORT_NOTICE",
       "aliases": [
         "visit_short_notice"
@@ -1365,6 +1392,7 @@
     },
     {
       "code": "RENT-FORM-028",
+      "number": "003-006-028",
       "key": "WIFI_INVALID",
       "aliases": [
         "wifi_invalid"
@@ -1415,6 +1443,7 @@
     },
     {
       "code": "RENT-FORM-029",
+      "number": "003-006-029",
       "key": "EMAIL_INVALID",
       "aliases": [
         "email_invalid"

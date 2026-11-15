@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-PIN-001",
+      "number": "003-014-001",
       "key": "POLICY_INVALID",
       "aliases": [
         "policy_invalid"
@@ -65,6 +66,7 @@
     },
     {
       "code": "RENT-PIN-002",
+      "number": "003-014-002",
       "key": "PIN_WEAK",
       "aliases": [
         "pin_weak"
@@ -115,6 +117,7 @@
     },
     {
       "code": "RENT-PIN-003",
+      "number": "003-014-003",
       "key": "PIN_FORMAT",
       "aliases": [
         "pin_format"
@@ -165,6 +168,7 @@
     },
     {
       "code": "RENT-PIN-004",
+      "number": "003-014-004",
       "key": "PIN_MISMATCH",
       "aliases": [
         "pin_mismatch"
@@ -215,6 +219,7 @@
     },
     {
       "code": "RENT-PIN-005",
+      "number": "003-014-005",
       "key": "PIN_WRONG",
       "aliases": [
         "pin_wrong"
@@ -265,6 +270,7 @@
     },
     {
       "code": "RENT-PIN-006",
+      "number": "003-014-006",
       "key": "PIN_PAUSED",
       "aliases": [
         "pin_paused"
@@ -315,6 +321,7 @@
     },
     {
       "code": "RENT-PIN-007",
+      "number": "003-014-007",
       "key": "PIN_NOT_SET",
       "aliases": [
         "pin_not_set"
@@ -365,6 +372,7 @@
     },
     {
       "code": "RENT-PIN-008",
+      "number": "003-014-008",
       "key": "CONFIRM_NEEDED",
       "aliases": [
         "confirm_needed"
@@ -415,6 +423,7 @@
     },
     {
       "code": "RENT-PIN-009",
+      "number": "003-014-009",
       "key": "RISK_ACK_NEEDED",
       "aliases": [
         "risk_ack_needed"

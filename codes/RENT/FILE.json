@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-FILE-001",
+      "number": "003-022-001",
       "key": "UPLOAD_TOO_BIG",
       "aliases": [
         "upload_too_big"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-FILE-002",
+      "number": "003-022-002",
       "key": "OS_PERMISSION",
       "aliases": [
         "os_permission"
@@ -104,6 +106,7 @@
     },
     {
       "code": "RENT-FILE-003",
+      "number": "003-022-003",
       "key": "OS_NOT_FOUND",
       "aliases": [
         "os_not_found"
@@ -154,6 +157,7 @@
     },
     {
       "code": "RENT-FILE-004",
+      "number": "003-022-004",
       "key": "OS_DISK_FULL",
       "aliases": [
         "os_disk_full"
@@ -204,6 +208,7 @@
     },
     {
       "code": "RENT-FILE-005",
+      "number": "003-022-005",
       "key": "FILE_NOT_FOUND",
       "aliases": [
         "file_not_found"
@@ -254,6 +259,7 @@
     },
     {
       "code": "RENT-FILE-006",
+      "number": "003-022-006",
       "key": "PRIVACY_FILE_PERMISSIONS",
       "aliases": [
         "privacy_file_permissions"

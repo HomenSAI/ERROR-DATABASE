@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-WEB-001",
+      "number": "003-016-001",
       "key": "APP_METHOD",
       "aliases": [
         "app_method"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-WEB-002",
+      "number": "003-016-002",
       "key": "FORM_TOO_MANY",
       "aliases": [
         "form_too_many"
@@ -104,6 +106,7 @@
     },
     {
       "code": "RENT-WEB-003",
+      "number": "003-016-003",
       "key": "WEB_BAD_HOST",
       "aliases": [
         "web_bad_host"
@@ -154,6 +157,7 @@
     },
     {
       "code": "RENT-WEB-004",
+      "number": "003-016-004",
       "key": "WEB_FOREIGN_ORIGIN",
       "aliases": [
         "web_foreign_origin"
@@ -215,6 +219,7 @@
     },
     {
       "code": "RENT-WEB-005",
+      "number": "003-016-005",
       "key": "WEB_CSRF",
       "aliases": [
         "web_csrf"
@@ -265,6 +270,7 @@
     },
     {
       "code": "RENT-WEB-006",
+      "number": "003-016-006",
       "key": "WEB_FORM_REJECTED",
       "aliases": [
         "web_form_rejected"

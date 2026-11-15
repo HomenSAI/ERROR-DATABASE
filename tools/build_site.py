@@ -49,9 +49,9 @@ SITE: dict[str, dict[str, str]] = {
     "ru": {
         "site": "Коды ошибок HomenS.AI", "home": "Главная", "skip": "Перейти к содержимому", "language": "Язык",
         "intro": "Справочник кодов ошибок продуктов HomenSAI: что случилось, почему и что делать — на русском, "
-                 "украинском, английском и немецком. Ищите по коду, прежнему коду или словам.",
-        "search": "Поиск по коду, прежнему коду или словам", "find": "Найти",
-        "placeholder": "например, RENT-DR-001 или пароль копий",
+                 "украинском, английском и немецком. Ищите по коду, прежнему коду, словам или цифровому коду.",
+        "search": "Поиск по коду, прежнему коду, словам или цифровому коду", "find": "Найти",
+        "placeholder": "например, RENT-DR-001, 003-001-001 или пароль копий",
         "found": "Найдено: {n}", "first": "показаны первые {n}", "none": "Ничего не найдено.",
         "failed": "Не удалось загрузить индекс поиска.",
         "noscript": "Поиск работает с включённым JavaScript. Ниже — все коды по пространствам.",
@@ -65,9 +65,9 @@ SITE: dict[str, dict[str, str]] = {
     "uk": {
         "site": "Коди помилок HomenS.AI", "home": "Головна", "skip": "Перейти до вмісту", "language": "Мова",
         "intro": "Довідник кодів помилок продуктів HomenSAI: що сталося, чому і що робити — російською, "
-                 "українською, англійською та німецькою. Шукайте за кодом, попереднім кодом або словами.",
-        "search": "Пошук за кодом, попереднім кодом або словами", "find": "Знайти",
-        "placeholder": "наприклад, RENT-DR-001 або пароль копій",
+                 "українською, англійською та німецькою. Шукайте за кодом, попереднім кодом, словами або цифровим кодом.",
+        "search": "Пошук за кодом, попереднім кодом, словами або цифровим кодом", "find": "Знайти",
+        "placeholder": "наприклад, RENT-DR-001, 003-001-001 або пароль копій",
         "found": "Знайдено: {n}", "first": "показано перші {n}", "none": "Нічого не знайдено.",
         "failed": "Не вдалося завантажити індекс пошуку.",
         "noscript": "Пошук працює з увімкненим JavaScript. Нижче — усі коди за просторами.",
@@ -81,9 +81,9 @@ SITE: dict[str, dict[str, str]] = {
     "en": {
         "site": "HomenS.AI error codes", "home": "Home", "skip": "Skip to content", "language": "Language",
         "intro": "Reference of HomenSAI product error codes: what happened, why, and what to do — in Russian, "
-                 "Ukrainian, English and German. Search by code, former code or words.",
-        "search": "Search by code, former code or words", "find": "Search",
-        "placeholder": "e.g. RENT-DR-001 or backup password",
+                 "Ukrainian, English and German. Search by code, former code, words or numeric code.",
+        "search": "Search by code, former code, words or numeric code", "find": "Search",
+        "placeholder": "e.g. RENT-DR-001, 003-001-001 or backup password",
         "found": "Found: {n}", "first": "showing the first {n}", "none": "Nothing found.",
         "failed": "Could not load the search index.",
         "noscript": "Search needs JavaScript. All codes are listed by namespace below.",
@@ -97,9 +97,9 @@ SITE: dict[str, dict[str, str]] = {
     "de": {
         "site": "HomenS.AI-Fehlercodes", "home": "Start", "skip": "Zum Inhalt springen", "language": "Sprache",
         "intro": "Verzeichnis der Fehlercodes der HomenSAI-Produkte: was passiert ist, warum und was zu tun ist — "
-                 "auf Russisch, Ukrainisch, Englisch und Deutsch. Suche nach Code, früherem Code oder Wörtern.",
-        "search": "Suche nach Code, früherem Code oder Wörtern", "find": "Suchen",
-        "placeholder": "z. B. RENT-DR-001 oder Backup-Passwort",
+                 "auf Russisch, Ukrainisch, Englisch und Deutsch. Suche nach Code, früherem Code, Wörtern oder numerischem Code.",
+        "search": "Suche nach Code, früherem Code, Wörtern oder numerischem Code", "find": "Suchen",
+        "placeholder": "z. B. RENT-DR-001, 003-001-001 oder Backup-Passwort",
         "found": "Gefunden: {n}", "first": "die ersten {n} werden angezeigt", "none": "Nichts gefunden.",
         "failed": "Der Suchindex konnte nicht geladen werden.",
         "noscript": "Die Suche benötigt JavaScript. Unten sind alle Codes nach Namensraum aufgelistet.",
@@ -285,7 +285,8 @@ class Site:
 
     def code_item(self, entry: Entry, lang: str, href: str) -> str:
         level = LEVELS[lang][entry.level]
-        return (f'<li><a href="{href}"><code>{entry.code}</code> — {esc(entry.title[lang])}</a> '
+        number = f' <code class="num">{entry.number}</code>' if entry.number else ""
+        return (f'<li><a href="{href}"><code>{entry.code}</code>{number} — {esc(entry.title[lang])}</a> '
                 f'<span class="badge level-{entry.level}">{esc(level)}</span>{self.legacy(entry, lang)}</li>')
 
     # --- виды страниц --------------------------------------------------------------------------------------------
@@ -363,6 +364,7 @@ class Site:
             f'<h2 id="dev">{esc(site["developers"])}</h2>',
             "<dl>",
             f'<dt>{esc(site["type"])}</dt><dd><code>{esc(self.catalog.help_url(entry.code))}</code></dd>',
+            f'<dt>{esc(LABELS[lang]["number"])}</dt><dd><code>{esc(entry.number)}</code></dd>' if entry.number else "",
             f'<dt>{esc(site["key"])}</dt><dd><code>{esc(entry.key)}</code></dd>',
             f'<dt>JSON</dt><dd><a href="{up}errors.{entry.namespace}.json">errors.{entry.namespace}.json'
             f'</a> · <a href="{up}help/{lang}/{entry.code}.md">help/{lang}/{entry.code}.md</a></dd>',

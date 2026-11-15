@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-LOG-001",
+      "number": "003-023-001",
       "key": "AUDIT_SENSITIVE_FIELD",
       "aliases": [
         "audit_sensitive_field"
@@ -65,6 +66,7 @@
     },
     {
       "code": "RENT-LOG-002",
+      "number": "003-023-002",
       "key": "PRIVACY_PII_LOG",
       "aliases": [
         "privacy_pii_log"

@@ -17,28 +17,28 @@ LABELS: dict[str, dict[str, str]] = {
         "escalate": "Кому передать", "related": "Связанные коды", "level": "Уровень", "audience": "Для кого",
         "retryable": "Можно повторить позже", "yes": "да", "no": "нет", "since": "с версии",
         "deprecated": "устарел с версии", "replaced_by": "заменён кодом", "fixed_in": "исправлено в версии",
-        "reference": "Справочник кодов ошибок HomenS.AI", "version": "версия",
+        "reference": "Справочник кодов ошибок HomenS.AI", "version": "версия", "number": "Цифровой код",
     },
     "uk": {
         "legacy_one": "попередній код", "legacy_many": "попередні коди", "why": "Чому", "todo": "Що робити",
         "escalate": "Кому передати", "related": "Пов'язані коди", "level": "Рівень", "audience": "Для кого",
         "retryable": "Можна повторити пізніше", "yes": "так", "no": "ні", "since": "з версії",
         "deprecated": "застарів з версії", "replaced_by": "замінено кодом", "fixed_in": "виправлено у версії",
-        "reference": "Довідник кодів помилок HomenS.AI", "version": "версія",
+        "reference": "Довідник кодів помилок HomenS.AI", "version": "версія", "number": "Цифровий код",
     },
     "en": {
         "legacy_one": "former code", "legacy_many": "former codes", "why": "Why", "todo": "What to do",
         "escalate": "Who to contact", "related": "Related codes", "level": "Level", "audience": "For",
         "retryable": "Can be retried later", "yes": "yes", "no": "no", "since": "since version",
         "deprecated": "deprecated since version", "replaced_by": "replaced by", "fixed_in": "fixed in version",
-        "reference": "HomenS.AI error code reference", "version": "version",
+        "reference": "HomenS.AI error code reference", "version": "version", "number": "Numeric code",
     },
     "de": {
         "legacy_one": "früherer Code", "legacy_many": "frühere Codes", "why": "Warum", "todo": "Was tun",
         "escalate": "An wen wenden", "related": "Verwandte Codes", "level": "Stufe", "audience": "Für",
         "retryable": "Später wiederholbar", "yes": "ja", "no": "nein", "since": "seit Version",
         "deprecated": "veraltet seit Version", "replaced_by": "ersetzt durch", "fixed_in": "behoben in Version",
-        "reference": "HomenS.AI Fehlercode-Referenz", "version": "Version",
+        "reference": "HomenS.AI Fehlercode-Referenz", "version": "Version", "number": "Numerischer Code",
     },
 }
 
@@ -73,6 +73,8 @@ WHEN_LANG = "ru"
 _PLACEHOLDER_RE = re.compile(r"\{[a-z_][a-z0-9_]*\}")
 _APOSTROPHES_RE = re.compile(r"['’ʼ`]")
 _SPLIT_RE = re.compile(r"[\W_]+")
+_NUMBER_RE = re.compile(r"^([0-9]{3})[\s-]*([0-9]{3})[\s-]*([0-9]{3})$")
+_NUMBER_QUERY_RE = re.compile(r"^[0-9][0-9\s-]*$")
 
 
 def normalize(text: str) -> str:
@@ -80,6 +82,21 @@ def normalize(text: str) -> str:
     text = _PLACEHOLDER_RE.sub(" ", text).casefold().replace("ё", "е")
     text = _APOSTROPHES_RE.sub("", text)
     return " ".join(part for part in _SPLIT_RE.split(text) if part)
+
+
+def canonical_number(text: str) -> str | None:
+    """Цифровой код `PPP-AAA-NNN` из ввода: `003-012-003`, `003012003`, `003 012 003` → `003-012-003`; иначе `None`."""
+    match = _NUMBER_RE.match(str(text).strip())
+    return "-".join(match.groups()) if match else None
+
+
+def number_digits(query: str) -> str | None:
+    """Цифры начала цифрового кода из запроса вида `003-012`, `003 012`, `003012` (не меньше 3 цифр); иначе `None`."""
+    raw = str(query).strip()
+    if not _NUMBER_QUERY_RE.match(raw):
+        return None
+    digits = re.sub(r"[^0-9]", "", raw)
+    return digits if 3 <= len(digits) <= 9 else None
 
 
 def stem(token: str) -> str:

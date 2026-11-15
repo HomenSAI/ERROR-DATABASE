@@ -1,6 +1,17 @@
 <!-- HomenS.AI Error-database · © 2026 Serhii Khomenko · https://homensai.com/ · https://github.com/HomenSAI -->
 # CHANGELOG
 
+## 1.2.0 — не выпущено
+Минорная версия, обратно совместимая: буквенные коды, `key` и `aliases` не менялись; в записях и в `namespaces.json` добавлены новые поля.
+- **Цифровой код `PPP-AAA-NNN`** у каждой ошибки (253 кода) для удобного поиска: `RENT-FX-003` → `003-012-003` (`ARCHITECTURE.md` §3.1). PPP — номер пространства (`COMMON` 001, `CORE` 002, `RENT` 003, `JP` 004, `VPN` 005, `SEC` 006), AAA — номер области (в порядке перечисления в `namespaces.json`; у `RENT`: `DR` 001 … `FX` 012 … `LOG` 023), NNN — номер из буквенного кода. Номера не меняются и не переиспользуются.
+- `namespaces.json`: у пространств поле `number`, рядом с `areas` — `area_numbers` (`areas` не менялось). У записей в `codes/*/*.json` — поле `number` после `code`; схема `schema/error-file.schema.json`: `number` обязательно, шаблон `^[0-9]{3}-[0-9]{3}-[0-9]{3}$`.
+- `tools/validate.py`: `number` совпадает с вычисленным из `namespaces.json` и уникален; у каждого пространства и области есть номер из трёх цифр, номера уникальны на своём уровне.
+- Библиотека: `Entry.number` (в выпусках до 1.2.0 пуст); `Catalog.get`/`find`/`in` находят запись по цифровому коду — `003-012-003`, `003012003`, `003 012 003`; `search` — по цифровому коду и его началу (`003-012`); `search_doc`, `Rendered.number`, `to_problem` (расширение `number`), `help_page` («Цифровой код: …») и первая строка `render` (`RENT-FX-003 · 003-012-003`) показывают цифровой код рядом с буквенным. Подписи — на 4 языках.
+- Выпуск: `number` в `errors*.json`, `search.<lang>.json`, `llms.txt` (и описание формата), справочниках и страницах помощи; в `namespaces` выпуска — `number` и `area_numbers`.
+- Сайт: цифровой код на странице ошибки («Цифровой код», «Цифровий код», «Numeric code», «Numerischer Code»), в списках и результатах поиска; строка поиска дополнена «… или цифровому коду»; `tools/site/site.js` ищет по цифровому коду с дефисами, пробелами и без (совпадение с `Catalog.search` проверяет `tests/test_site.py`).
+- Архитектура 1.5: §3.1 «Цифровой код», §6.2, §8.
+- Тесты `tests/test_numbers.py`; в `tests/test_texts.py` ожидаемые первая строка `render` и ответ `to_problem` дополнены цифровым кодом.
+
 ## 1.1.0 — не выпущено
 - **RENT: перенесён справочник кодов HomenS.AI Rent** (решение 288, пункт реестра ERR.import-rent): 232 кода, прежний код Rent — в `aliases` (переходный период §12).
   Области: ACL 2, AUTH 40, BILL 5, BOT 6, DB 16, DR 54, EXP 3, FILE 6, FORM 29, FX 2, IMP 2, INT 10, LOG 2, PAY 7, PDF 2, PIN 9, RECOV 8, SCHED 1, SECW 7, SET 14, TRAIN 2, WEB 6. Новые области записаны в `namespaces.json`.

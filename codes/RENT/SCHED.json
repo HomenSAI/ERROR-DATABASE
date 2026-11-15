@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-SCHED-001",
+      "number": "003-011-001",
       "key": "SCHEDULER_JOB_FAILED",
       "aliases": [
         "scheduler_job_failed"

@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "COMMON-SYS-001",
+      "number": "001-001-001",
       "key": "UNKNOWN_ERROR",
       "level": "error",
       "audience": "user",

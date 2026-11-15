@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-SECW-001",
+      "number": "003-018-001",
       "key": "WIZARD_STEP",
       "aliases": [
         "wizard_step"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-SECW-002",
+      "number": "003-018-002",
       "key": "WIZARD_CHOICE",
       "aliases": [
         "wizard_choice"
@@ -104,6 +106,7 @@
     },
     {
       "code": "RENT-SECW-003",
+      "number": "003-018-003",
       "key": "WIZARD_RISK",
       "aliases": [
         "wizard_risk"
@@ -154,6 +157,7 @@
     },
     {
       "code": "RENT-SECW-004",
+      "number": "003-018-004",
       "key": "WIZARD_LEVEL",
       "aliases": [
         "wizard_level"
@@ -204,6 +208,7 @@
     },
     {
       "code": "RENT-SECW-005",
+      "number": "003-018-005",
       "key": "HELP_UNKNOWN",
       "aliases": [
         "help_unknown"
@@ -254,6 +259,7 @@
     },
     {
       "code": "RENT-SECW-006",
+      "number": "003-018-006",
       "key": "RECOMMENDATION_UNKNOWN",
       "aliases": [
         "recommendation_unknown"
@@ -304,6 +310,7 @@
     },
     {
       "code": "RENT-SECW-007",
+      "number": "003-018-007",
       "key": "DEFER_PERIOD",
       "aliases": [
         "defer_period"

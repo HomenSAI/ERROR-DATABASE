@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-RECOV-001",
+      "number": "003-020-001",
       "key": "RECOVERY_LIMIT",
       "aliases": [
         "recovery_limit"
@@ -58,6 +59,7 @@
     },
     {
       "code": "RENT-RECOV-002",
+      "number": "003-020-002",
       "key": "RECOVERY_NAME",
       "aliases": [
         "recovery_name"
@@ -112,6 +114,7 @@
     },
     {
       "code": "RENT-RECOV-003",
+      "number": "003-020-003",
       "key": "RECOVERY_UNKNOWN",
       "aliases": [
         "recovery_unknown"
@@ -166,6 +169,7 @@
     },
     {
       "code": "RENT-RECOV-004",
+      "number": "003-020-004",
       "key": "RECOVERY_FORMAT",
       "aliases": [
         "recovery_format"
@@ -220,6 +224,7 @@
     },
     {
       "code": "RENT-RECOV-005",
+      "number": "003-020-005",
       "key": "RECOVERY_CHECKSUM",
       "aliases": [
         "recovery_checksum"
@@ -274,6 +279,7 @@
     },
     {
       "code": "RENT-RECOV-006",
+      "number": "003-020-006",
       "key": "RECOVERY_WRONG",
       "aliases": [
         "recovery_wrong"
@@ -328,6 +334,7 @@
     },
     {
       "code": "RENT-RECOV-007",
+      "number": "003-020-007",
       "key": "SHARES_NEEDED",
       "aliases": [
         "shares_needed"
@@ -382,6 +389,7 @@
     },
     {
       "code": "RENT-RECOV-008",
+      "number": "003-020-008",
       "key": "SHARES_MISMATCH",
       "aliases": [
         "shares_mismatch"

@@ -16,7 +16,7 @@ def test_render_with_legacy_code_first(catalog):
     assert text.title == "Пароль копій давно не перевірявся"
     assert "3 дн." in text.cause and "{days}" not in text.cause
     lines = str(text).splitlines()
-    assert lines[0] == "RENT-DR-001 (попередній код: DR-270-OVERDUE)"
+    assert lines[0] == "RENT-DR-001 · 003-001-001 (попередній код: DR-270-OVERDUE)"
     assert lines[1] == text.title
     assert lines[2].startswith("Чому: ") and " · Що робити: 1. " in lines[2] and "Кому передати: " in lines[2]
     assert text.legacy_codes == ("DR-270-OVERDUE",)
@@ -60,6 +60,7 @@ def test_problem_rfc9457(catalog):
         "detail": "The check was due 3 days ago. If the password is forgotten, backups cannot be opened.",
         "instance": "/security#backups",
         "code": "RENT-DR-001",
+        "number": "003-001-001",
         "key": "BACKUP_PASSWORD_CHECK_OVERDUE",
         "retryable": True,
         "legacy_codes": ["DR-270-OVERDUE"],

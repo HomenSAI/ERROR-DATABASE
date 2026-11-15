@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-ACL-001",
+      "number": "003-015-001",
       "key": "FORBIDDEN",
       "aliases": [
         "forbidden"
@@ -58,6 +59,7 @@
     },
     {
       "code": "RENT-ACL-002",
+      "number": "003-015-002",
       "key": "ACCESS_NO_HOUSEHOLD",
       "aliases": [
         "access_no_household"

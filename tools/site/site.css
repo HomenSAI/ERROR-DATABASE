@@ -229,6 +229,7 @@ p, ol, ul, dl, pre { margin: 0 0 1rem; }
   border-bottom: 1px solid var(--border);
 }
 .codes a code { font-weight: 700; }
+.codes a code.num { font-weight: 400; color: var(--muted); }
 .legacy { color: var(--muted); font-size: 0.92rem; }
 
 .badge {
