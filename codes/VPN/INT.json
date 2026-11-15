@@ -1,0 +1,2623 @@
+{
+  "namespace": "VPN",
+  "area": "INT",
+  "codes": [
+    {
+      "code": "VPN-INT-001",
+      "number": "005-004-001",
+      "key": "EVIDENCE_FAMILY",
+      "aliases": [
+        "EVIDENCE-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подписанные отчёты о тестах выпуска",
+        "uk": "Підписані звіти про тести випуску",
+        "en": "Signed test reports of the release",
+        "de": "Signierte Testberichte des Releases"
+      },
+      "cause": {
+        "ru": "Код группы проверки отчётов о тестах, которые выпуск может приложить к пакету. Установщик проверяет, что эти отчёты действительно относятся к этому выпуску. Если отчётов нет в наборе, установка продолжается; если они не подходят, ничего не устанавливается. Это семейство: описание относится ко всем кодам с префиксом «EVIDENCE-».",
+        "uk": "Код групи перевірки звітів про тести, які випуск може додати до пакета. Інсталятор перевіряє, що ці звіти справді належать до цього випуску. Якщо звітів немає в наборі, встановлення триває; якщо вони не підходять, нічого не встановлюється. Це родина: опис стосується всіх кодів із префіксом «EVIDENCE-».",
+        "en": "A code of the group that checks the test reports a release may ship with the package. The installer makes sure these reports really belong to this release. If the reports are not in the kit, the install continues; if they do not match, nothing is installed. This is a family: the description applies to all codes starting with \"EVIDENCE-\".",
+        "de": "Ein Code der Gruppe, die die Testberichte prüft, die ein Release dem Paket beilegen kann. Der Installer stellt sicher, dass diese Berichte wirklich zu diesem Release gehören. Fehlen die Berichte im Kit, wird die Installation fortgesetzt; passen sie nicht, wird nichts installiert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „EVIDENCE-“."
+      },
+      "action": {
+        "ru": "1. Если установка отказала, заново скачайте отчёты со страницы выпуска именно этой версии или уберите их из набора — для роутера они необязательны.\n2. Повторите установку.",
+        "uk": "1. Якщо встановлення відмовило, заново завантажте звіти зі сторінки випуску саме цієї версії або приберіть їх із набору — для роутера вони необов'язкові.\n2. Повторіть встановлення.",
+        "en": "1. If the install was refused, download the reports again from the release page of this exact version, or remove them from the kit: the router does not need them.\n2. Run the install again.",
+        "de": "1. Wurde die Installation abgelehnt, laden Sie die Berichte erneut von der Release-Seite genau dieser Version herunter oder entfernen Sie sie aus dem Kit: Der Router benötigt sie nicht.\n2. Führen Sie die Installation erneut aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-INT-002",
+      "number": "005-004-002",
+      "key": "FINGERPRINT_NEEDED",
+      "aliases": [
+        "FINGERPRINT-NEEDED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нужен идентификатор ключа выпуска",
+        "uk": "Потрібен ідентифікатор ключа випуску",
+        "en": "Release key identifier needed",
+        "de": "Kennung des Release-Schlüssels erforderlich"
+      },
+      "cause": {
+        "ru": "Установщик доверяет только тому ключу выпуска, который вы сами подтвердили из другого источника, а не из скачанного архива. Без этого не на что опереться, поэтому ничего не проверено и не изменено.",
+        "uk": "Інсталятор довіряє лише тому ключу випуску, який ви самі підтвердили з іншого джерела, а не зі завантаженого архіву. Без цього немає на що спертися, тому нічого не перевірено й не змінено.",
+        "en": "The installer trusts only the release key you confirm yourself from a source other than the downloaded archive. Without it there is nothing independent to rely on, so nothing was checked or changed.",
+        "de": "Der Installer vertraut nur dem Release-Schlüssel, den Sie selbst aus einer anderen Quelle als dem heruntergeladenen Archiv bestätigen. Ohne ihn gibt es keine unabhängige Grundlage, daher wurde nichts geprüft oder geändert."
+      },
+      "action": {
+        "ru": "1. Откройте страницу выпуска в браузере и прочитайте там идентификатор ключа выпуска.\n2. Запустите установщик снова и укажите этот идентификатор, как описано в инструкции по установке.",
+        "uk": "1. Відкрийте сторінку випуску в браузері та прочитайте там ідентифікатор ключа випуску.\n2. Запустіть інсталятор знову й укажіть цей ідентифікатор, як описано в інструкції зі встановлення.",
+        "en": "1. Open the release page in your browser and read the release key identifier there.\n2. Start the installer again and enter this identifier as described in the installation guide.",
+        "de": "1. Öffnen Sie die Release-Seite im Browser und lesen Sie dort die Kennung des Release-Schlüssels ab.\n2. Starten Sie den Installer erneut und geben Sie diese Kennung an, wie in der Installationsanleitung beschrieben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-003",
+      "number": "005-004-003",
+      "key": "HOSTKEY_MISMATCH",
+      "aliases": [
+        "HOSTKEY-MISMATCH"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ роутера не совпадает",
+        "uk": "Ключ роутера не збігається",
+        "en": "Router identity key does not match",
+        "de": "Schlüssel des Routers stimmt nicht überein"
+      },
+      "cause": {
+        "ru": "Роутер показал другой ключ, чем тот, что вы указали, или тот, что этот компьютер сохранил раньше для этого адреса. Возможно, между ними другое устройство или это другой роутер. Ничего не изменено.",
+        "uk": "Роутер показав інший ключ, ніж той, що ви вказали, або той, що цей комп'ютер зберіг раніше для цієї адреси. Можливо, між ними інший пристрій або це інший роутер. Нічого не змінено.",
+        "en": "The router presented another identity key than the one you gave or the one this computer saved earlier for this address. Another device may be in between, or this is a different router. Nothing was changed.",
+        "de": "Der Router hat einen anderen Schlüssel gezeigt als den, den Sie angegeben haben, oder den, den dieser Computer früher für diese Adresse gespeichert hat. Möglicherweise steht ein anderes Gerät dazwischen, oder es ist ein anderer Router. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Не продолжайте установку.\n2. Проверьте адрес роутера и кабель.\n3. Заново прочитайте ключ роутера надёжным путём и никогда не пропускайте эту проверку.",
+        "uk": "1. Не продовжуйте встановлення.\n2. Перевірте адресу роутера й кабель.\n3. Заново прочитайте ключ роутера надійним шляхом і ніколи не пропускайте цю перевірку.",
+        "en": "1. Do not continue the installation.\n2. Check the router address and the cable.\n3. Read the router key again through a trusted path and never skip this check.",
+        "de": "1. Setzen Sie die Installation nicht fort.\n2. Prüfen Sie die Adresse des Routers und das Kabel.\n3. Lesen Sie den Schlüssel des Routers erneut über einen vertrauenswürdigen Weg ab und überspringen Sie diese Prüfung nie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-004",
+      "number": "005-004-004",
+      "key": "HOSTKEY_UNVERIFIED",
+      "aliases": [
+        "HOSTKEY-UNVERIFIED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ роутера не подтверждён",
+        "uk": "Ключ роутера не підтверджено",
+        "en": "Router identity key not confirmed",
+        "de": "Schlüssel des Routers nicht bestätigt"
+      },
+      "cause": {
+        "ru": "На этом компьютере нет сохранённого ключа этого роутера, и никто не подтвердил ключ, который роутер показывает. Без этой проверки другое устройство могло бы выдать себя за роутер. Ничего не изменено.",
+        "uk": "На цьому комп'ютері немає збереженого ключа цього роутера, і ніхто не підтвердив ключ, який роутер показує. Без цієї перевірки інший пристрій міг би видати себе за роутер. Нічого не змінено.",
+        "en": "This computer has no saved key for this router, and nobody confirmed the key the router presents. Without this check another device could pretend to be the router. Nothing was changed.",
+        "de": "Dieser Computer hat keinen gespeicherten Schlüssel für diesen Router, und niemand hat den Schlüssel bestätigt, den der Router zeigt. Ohne diese Prüfung könnte sich ein anderes Gerät als Router ausgeben. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Прочитайте собственный ключ роутера надёжным путём, как описано в инструкции по установке.\n2. Сравните его с ключом, который показал установщик.\n3. Если они совпадают, подтвердите ключ в своём терминале и продолжите.",
+        "uk": "1. Прочитайте власний ключ роутера надійним шляхом, як описано в інструкції зі встановлення.\n2. Порівняйте його з ключем, який показав інсталятор.\n3. Якщо вони збігаються, підтвердьте ключ у своєму терміналі й продовжте.",
+        "en": "1. Read the router's own key through a trusted path, as the installation guide describes.\n2. Compare it with the key shown by the installer.\n3. If they match, confirm the key in your own terminal and continue.",
+        "de": "1. Lesen Sie den eigenen Schlüssel des Routers über einen vertrauenswürdigen Weg ab, wie in der Installationsanleitung beschrieben.\n2. Vergleichen Sie ihn mit dem Schlüssel, den der Installer anzeigt.\n3. Stimmen beide überein, bestätigen Sie den Schlüssel in Ihrem eigenen Terminal und fahren Sie fort."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-005",
+      "number": "005-004-005",
+      "key": "INTEGRITY_AUTO_BLOCKED",
+      "aliases": [
+        "INTEGRITY-AUTO-BLOCKED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запуск отклонён: файлы программы не проверены",
+        "uk": "Запуск відхилено: файли програми не перевірено",
+        "en": "Start refused: program files not verified",
+        "de": "Start abgelehnt: Programmdateien nicht geprüft"
+      },
+      "cause": {
+        "ru": "При запуске службы самопроверка нашла установку непроверенной или повреждённой, поэтому Auto работать не может. Запуск отклонён, а не отложен на потом.",
+        "uk": "Під час запуску служби самоперевірка виявила, що встановлення не перевірене або пошкоджене, тому Auto не може працювати. Запуск відхилено, а не відкладено на потім.",
+        "en": "When the service started, its self-check found the installation unverified or damaged, so Auto cannot run. Start is refused instead of being postponed.",
+        "de": "Beim Start des Dienstes hat die Selbstprüfung die Installation als ungeprüft oder beschädigt erkannt, daher kann Auto nicht laufen. Der Start wird abgelehnt statt verschoben."
+      },
+      "action": {
+        "ru": "1. Переустановите пакет (подойдёт та же версия).\n2. Снова нажмите Start.",
+        "uk": "1. Перевстановіть пакет (підійде та сама версія).\n2. Знову натисніть «Старт» (Start).",
+        "en": "1. Reinstall the package (the same version is enough).\n2. Press Start again.",
+        "de": "1. Installieren Sie das Paket erneut (dieselbe Version genügt).\n2. Drücken Sie erneut „Start“ (Start)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-006",
+      "number": "005-004-006",
+      "key": "INTEGRITY_C_MODULE_DAMAGED",
+      "aliases": [
+        "INTEGRITY-C-MODULE-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ускоренная часть программы повреждена, работает медленная",
+        "uk": "Прискорену частину програми пошкоджено, працює повільніша",
+        "en": "Fast program part damaged, slower part runs",
+        "de": "Schneller Programmteil beschädigt, langsamerer läuft"
+      },
+      "cause": {
+        "ru": "Ускоренная часть программы повреждена и не восстановилась. Роутер использует более медленную встроенную замену: всё работает, только немного медленнее.",
+        "uk": "Прискорена частина програми пошкоджена й не відновилася. Роутер використовує повільнішу вбудовану заміну: усе працює, лише трохи повільніше.",
+        "en": "The accelerated part of the program is damaged and could not be restored. The router uses the slower built-in replacement; everything works, only a little slower.",
+        "de": "Der beschleunigte Teil des Programms ist beschädigt und konnte nicht wiederhergestellt werden. Der Router nutzt den langsameren eingebauten Ersatz; alles funktioniert, nur etwas langsamer."
+      },
+      "action": {
+        "ru": "1. Переустановите ту же версию пакета.",
+        "uk": "1. Перевстановіть ту саму версію пакета.",
+        "en": "1. Reinstall the same package version.",
+        "de": "1. Installieren Sie dieselbe Paketversion erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-007",
+      "number": "005-004-007",
+      "key": "INTEGRITY_DEFERRED",
+      "aliases": [
+        "INTEGRITY-DEFERRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка файлов отложена на время установки",
+        "uk": "Перевірку файлів відкладено на час встановлення",
+        "en": "File check postponed during installation",
+        "de": "Dateiprüfung während der Installation verschoben"
+      },
+      "cause": {
+        "ru": "Шла установка пакета, поэтому файлы программы ещё не проверены. Проверка запустится сама, как только установка закончится.",
+        "uk": "Тривало встановлення пакета, тому файли програми ще не перевірено. Перевірка запуститься сама, щойно встановлення завершиться.",
+        "en": "A package installation was running, so the program files were not checked yet. The check runs by itself as soon as the installation ends.",
+        "de": "Es lief eine Paketinstallation, daher wurden die Programmdateien noch nicht geprüft. Die Prüfung startet von selbst, sobald die Installation endet."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Подождите несколько минут: результат заменит это сообщение.",
+        "uk": "1. Нічого робити не потрібно.\n2. Зачекайте кілька хвилин: результат замінить це повідомлення.",
+        "en": "1. Nothing to do.\n2. Wait a few minutes: the result replaces this message.",
+        "de": "1. Sie müssen nichts tun.\n2. Warten Sie einige Minuten: Das Ergebnis ersetzt diese Meldung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-008",
+      "number": "005-004-008",
+      "key": "INTEGRITY_FILE_DAMAGED",
+      "aliases": [
+        "INTEGRITY-FILE-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл программы повреждён",
+        "uk": "Файл програми пошкоджено",
+        "en": "A program file is damaged",
+        "de": "Eine Programmdatei ist beschädigt"
+      },
+      "cause": {
+        "ru": "Установленный файл программы отличается от версии из пакета. Роутер сам восстанавливает его из сохранённой чистой копии, если может.",
+        "uk": "Встановлений файл програми відрізняється від версії з пакета. Роутер сам відновлює його зі збереженої чистої копії, якщо може.",
+        "en": "An installed program file differs from the version shipped in the package. The router restores it by itself from its saved clean copy when it can.",
+        "de": "Eine installierte Programmdatei weicht von der Version im Paket ab. Der Router stellt sie nach Möglichkeit selbst aus seiner gespeicherten sauberen Kopie wieder her."
+      },
+      "action": {
+        "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.\n2. Если файл снова повреждён, сохраните диагностический отчёт и отправьте его в поддержку.",
+        "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.\n2. Якщо файл знову пошкоджено, збережіть діагностичний звіт і надішліть його до підтримки.",
+        "en": "1. If the message stays, reinstall the same package version.\n2. If the file is damaged again, save the diagnostic report and send it to support.",
+        "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut.\n2. Ist die Datei erneut beschädigt, speichern Sie den Diagnosebericht und senden Sie ihn an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-009",
+      "number": "005-004-009",
+      "key": "INTEGRITY_FILE_MISSING",
+      "aliases": [
+        "INTEGRITY-FILE-MISSING"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Файл программы отсутствует",
+        "uk": "Файл програми відсутній",
+        "en": "A program file is missing",
+        "de": "Eine Programmdatei fehlt"
+      },
+      "cause": {
+        "ru": "Файла программы, который входит в пакет, нет на роутере. Роутер сам возвращает его из сохранённой чистой копии, если может.",
+        "uk": "Файлу програми, що входить до пакета, немає на роутері. Роутер сам повертає його зі збереженої чистої копії, якщо може.",
+        "en": "A program file that belongs to the package is missing on the router. The router puts it back by itself from its saved clean copy when it can.",
+        "de": "Eine Programmdatei, die zum Paket gehört, fehlt auf dem Router. Der Router stellt sie nach Möglichkeit selbst aus seiner gespeicherten sauberen Kopie wieder her."
+      },
+      "action": {
+        "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.\n2. Если файл снова пропадёт, сохраните диагностический отчёт и отправьте его в поддержку.",
+        "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.\n2. Якщо файл знову зникне, збережіть діагностичний звіт і надішліть його до підтримки.",
+        "en": "1. If the message stays, reinstall the same package version.\n2. If the file disappears again, save the diagnostic report and send it to support.",
+        "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut.\n2. Fehlt die Datei erneut, speichern Sie den Diagnosebericht und senden Sie ihn an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-010",
+      "number": "005-004-010",
+      "key": "INTEGRITY_FILE_MODE",
+      "aliases": [
+        "INTEGRITY-FILE-MODE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У файла программы неверные права доступа",
+        "uk": "Файл програми має неправильні права доступу",
+        "en": "A program file has wrong permissions",
+        "de": "Eine Programmdatei hat falsche Berechtigungen"
+      },
+      "cause": {
+        "ru": "У установленного файла программы другие права доступа, чем в пакете: например, файл запуска больше нельзя выполнить. Роутер сам исправляет это, если может.",
+        "uk": "Встановлений файл програми має інші права доступу, ніж у пакеті: наприклад, файл запуску більше не можна виконати. Роутер сам виправляє це, якщо може.",
+        "en": "An installed program file has other permissions than in the package, for example a start file can no longer be run. The router fixes this by itself when it can.",
+        "de": "Eine installierte Programmdatei hat andere Berechtigungen als im Paket, zum Beispiel lässt sich eine Startdatei nicht mehr ausführen. Der Router behebt das nach Möglichkeit selbst."
+      },
+      "action": {
+        "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.",
+        "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.",
+        "en": "1. If the message stays, reinstall the same package version.",
+        "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-011",
+      "number": "005-004-011",
+      "key": "INTEGRITY_FILE_RESTORED",
+      "aliases": [
+        "INTEGRITY-FILE-RESTORED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл программы восстановлен",
+        "uk": "Файл програми відновлено",
+        "en": "A program file was restored",
+        "de": "Eine Programmdatei wurde wiederhergestellt"
+      },
+      "cause": {
+        "ru": "Повреждённый, отсутствующий или неправильно настроенный файл программы возвращён из сохранённой чистой копии на роутере.",
+        "uk": "Пошкоджений, відсутній або неправильно налаштований файл програми повернуто зі збереженої чистої копії на роутері.",
+        "en": "A damaged, missing or wrongly set program file was put back from the saved clean copy on the router.",
+        "de": "Eine beschädigte, fehlende oder falsch eingestellte Programmdatei wurde aus der gespeicherten sauberen Kopie auf dem Router zurückgeholt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-012",
+      "number": "005-004-012",
+      "key": "INTEGRITY_HELPER_FAILED",
+      "aliases": [
+        "INTEGRITY-HELPER-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка файлов при установке не удалась, служба не запущена",
+        "uk": "Перевірка файлів під час встановлення не вдалася, службу не запущено",
+        "en": "File check failed during installation, service not started",
+        "de": "Dateiprüfung bei der Installation fehlgeschlagen, Dienst nicht gestartet"
+      },
+      "cause": {
+        "ru": "Во время установки сама проверка файлов не завершилась как надо, поэтому установка не проверена. Если предыдущая рабочая версия сохранилась, она возвращается и запускается автоматически; иначе служба остаётся выключенной.",
+        "uk": "Під час встановлення сама перевірка файлів не завершилася як слід, тому встановлення не перевірене. Якщо попередня робоча версія збереглася, її повертають і запускають автоматично; інакше служба лишається вимкненою.",
+        "en": "During the installation the file check itself did not finish properly, so the installation is not verified. If the previous working version was kept, it is put back and started automatically; otherwise the service stays off.",
+        "de": "Während der Installation ist die Dateiprüfung selbst nicht richtig abgeschlossen worden, daher ist die Installation nicht geprüft. Wurde die vorherige funktionierende Version behalten, wird sie automatisch zurückgeholt und gestartet; sonst bleibt der Dienst aus."
+      },
+      "action": {
+        "ru": "1. Установите тот же пакет ещё раз.\n2. Если это повторится, сохраните вывод установки и обратитесь в поддержку.",
+        "uk": "1. Встановіть той самий пакет ще раз.\n2. Якщо це повториться, збережіть вивід встановлення й зверніться до підтримки.",
+        "en": "1. Install the same package again.\n2. If it happens again, keep the installation output and contact support.",
+        "de": "1. Installieren Sie dasselbe Paket erneut.\n2. Tritt es erneut auf, bewahren Sie die Ausgabe der Installation auf und wenden Sie sich an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-013",
+      "number": "005-004-013",
+      "key": "INTEGRITY_LUA_DAMAGED",
+      "aliases": [
+        "INTEGRITY-LUA-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Основные файлы программы повреждены, работает запасная версия",
+        "uk": "Основні файли програми пошкоджено, працює запасна версія",
+        "en": "Main program files damaged, backup version runs",
+        "de": "Hauptprogrammdateien beschädigt, Ersatzversion läuft"
+      },
+      "cause": {
+        "ru": "Повреждённые файлы основной программы не удалось восстановить, поэтому наблюдение за каналами и Auto работают на проверенной запасной версии программы. Auto сохраняет все свои проверки.",
+        "uk": "Пошкоджені файли основної програми не вдалося відновити, тому спостереження за каналами й Auto працюють на перевіреній запасній версії програми. Auto зберігає всі свої перевірки.",
+        "en": "Damaged files of the main program could not be restored, so channel monitoring and Auto run on the proven backup version of the program. Auto keeps all its own checks.",
+        "de": "Beschädigte Dateien des Hauptprogramms konnten nicht wiederhergestellt werden, daher laufen die Kanalüberwachung und Auto mit der bewährten Ersatzversion des Programms. Auto behält alle eigenen Prüfungen."
+      },
+      "action": {
+        "ru": "1. Переустановите ту же версию пакета, чтобы вернуться к основной программе.",
+        "uk": "1. Перевстановіть ту саму версію пакета, щоб повернутися до основної програми.",
+        "en": "1. Reinstall the same package version to return to the main program.",
+        "de": "1. Installieren Sie dieselbe Paketversion erneut, um zum Hauptprogramm zurückzukehren."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-014",
+      "number": "005-004-014",
+      "key": "INTEGRITY_MANIFEST_UNREADABLE",
+      "aliases": [
+        "INTEGRITY-MANIFEST-UNREADABLE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Список файлов пакета повреждён",
+        "uk": "Список файлів пакета пошкоджено",
+        "en": "List of package files damaged",
+        "de": "Liste der Paketdateien beschädigt"
+      },
+      "cause": {
+        "ru": "Эталонный список файлов программы из пакета отсутствует или повреждён, поэтому файлы не с чем сравнить. Роутер берёт список из сохранённой чистой копии, если может.",
+        "uk": "Еталонний список файлів програми з пакета відсутній або пошкоджений, тому файли немає з чим порівняти. Роутер бере список зі збереженої чистої копії, якщо може.",
+        "en": "The reference list of program files shipped in the package is missing or damaged, so the files cannot be compared with it. The router takes the list from its saved clean copy when it can.",
+        "de": "Die Referenzliste der Programmdateien aus dem Paket fehlt oder ist beschädigt, daher können die Dateien nicht damit verglichen werden. Der Router übernimmt die Liste nach Möglichkeit aus seiner gespeicherten sauberen Kopie."
+      },
+      "action": {
+        "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.",
+        "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.",
+        "en": "1. If the message stays, reinstall the same package version.",
+        "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-015",
+      "number": "005-004-015",
+      "key": "INTEGRITY_MODE_DIFFERS",
+      "aliases": [
+        "INTEGRITY-MODE-DIFFERS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Права доступа файлов отличаются",
+        "uk": "Права доступу файлів відрізняються",
+        "en": "File permissions differ",
+        "de": "Dateiberechtigungen weichen ab"
+      },
+      "cause": {
+        "ru": "Содержимое всех файлов программы верное, но у некоторых права доступа отличаются от пакета. Служба запускается как обычно.",
+        "uk": "Вміст усіх файлів програми правильний, але в деяких права доступу відрізняються від пакета. Служба запускається як зазвичай.",
+        "en": "All program files have the right content, but some permissions differ from the package. The service starts as usual.",
+        "de": "Alle Programmdateien haben den richtigen Inhalt, aber einige Berechtigungen weichen vom Paket ab. Der Dienst startet wie gewohnt."
+      },
+      "action": {
+        "ru": "1. Ничего срочного.\n2. Когда будет удобно, переустановите пакет, чтобы права доступа снова стали верными.",
+        "uk": "1. Нічого термінового.\n2. Коли буде зручно, перевстановіть пакет, щоб права доступу знову стали правильними.",
+        "en": "1. Nothing urgent.\n2. Reinstall the package when convenient to set the permissions again.",
+        "de": "1. Nichts Dringendes.\n2. Installieren Sie das Paket bei Gelegenheit erneut, um die Berechtigungen wiederherzustellen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-016",
+      "number": "005-004-016",
+      "key": "INTEGRITY_NEVER_RESTORED",
+      "aliases": [
+        "INTEGRITY-NEVER-RESTORED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Восстановление никогда не трогает ваши данные",
+        "uk": "Відновлення ніколи не чіпає ваших даних",
+        "en": "A restore never touches your data",
+        "de": "Eine Wiederherstellung berührt nie Ihre Daten"
+      },
+      "cause": {
+        "ru": "Восстановление файлов программы никогда не записывает ваши настройки, принятые условия, журнал, историю и сертификаты.",
+        "uk": "Відновлення файлів програми ніколи не записує ваших налаштувань, прийнятих умов, журналу, історії та сертифікатів.",
+        "en": "Restoring program files never writes your settings, accepted terms, journal, history or certificates.",
+        "de": "Die Wiederherstellung von Programmdateien schreibt nie Ihre Einstellungen, akzeptierten Bedingungen, das Journal, den Verlauf oder Zertifikate."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INT-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-017",
+      "number": "005-004-017",
+      "key": "INTEGRITY_NO_AUTO",
+      "aliases": [
+        "INTEGRITY-NO-AUTO"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Установка не проверена, Auto не запущен",
+        "uk": "Встановлення не перевірене, Auto не запущено",
+        "en": "Installation not verified, Auto not started",
+        "de": "Installation nicht geprüft, Auto nicht gestartet"
+      },
+      "cause": {
+        "ru": "Самопроверка отсутствует, повреждена или не ответила, поэтому установку нельзя проверить. Страница и наблюдение за каналами работают, но Auto не запускается.",
+        "uk": "Самоперевірка відсутня, пошкоджена або не відповіла, тому встановлення неможливо перевірити. Сторінка й спостереження за каналами працюють, але Auto не запускається.",
+        "en": "The self-check is missing, damaged or gave no answer, so the installation cannot be verified. The page and channel monitoring keep working, but Auto is not started.",
+        "de": "Die Selbstprüfung fehlt, ist beschädigt oder hat nicht geantwortet, daher kann die Installation nicht geprüft werden. Die Seite und die Kanalüberwachung laufen weiter, aber Auto wird nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Переустановите пакет.\n2. Снова запустите Auto.",
+        "uk": "1. Перевстановіть пакет.\n2. Знову запустіть Auto.",
+        "en": "1. Reinstall the package.\n2. Start Auto again.",
+        "de": "1. Installieren Sie das Paket erneut.\n2. Starten Sie Auto erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-018",
+      "number": "005-004-018",
+      "key": "INTEGRITY_OK",
+      "aliases": [
+        "INTEGRITY-OK"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Файлы программы проверены",
+        "uk": "Файли програми перевірено",
+        "en": "Program files verified",
+        "de": "Programmdateien geprüft"
+      },
+      "cause": {
+        "ru": "При запуске службы все установленные файлы программы совпали с пакетом.",
+        "uk": "Під час запуску служби всі встановлені файли програми збіглися з пакетом.",
+        "en": "When the service started, every installed program file matched the package.",
+        "de": "Beim Start des Dienstes stimmten alle installierten Programmdateien mit dem Paket überein."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INT-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-019",
+      "number": "005-004-019",
+      "key": "INTEGRITY_PAYLOAD_DAMAGED",
+      "aliases": [
+        "INTEGRITY-PAYLOAD-DAMAGED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Установленные файлы повреждены, служба не запущена",
+        "uk": "Встановлені файли пошкоджено, службу не запущено",
+        "en": "Installed files damaged, service not started",
+        "de": "Installierte Dateien beschädigt, Dienst nicht gestartet"
+      },
+      "cause": {
+        "ru": "Во время установки только что распакованные файлы программы не совпали с пакетом: файл повреждён или отсутствует либо повреждён сам список файлов. Если предыдущая рабочая версия сохранилась, она возвращается и запускается автоматически; иначе служба остаётся выключенной.",
+        "uk": "Під час встановлення щойно розпаковані файли програми не збіглися з пакетом: файл пошкоджений або відсутній чи пошкоджений сам список файлів. Якщо попередня робоча версія збереглася, її повертають і запускають автоматично; інакше служба лишається вимкненою.",
+        "en": "During the installation the freshly unpacked program files did not match the package: a file is damaged or missing, or the file list itself is damaged. If the previous working version was kept, it is put back and started automatically; otherwise the service stays off.",
+        "de": "Während der Installation stimmten die frisch entpackten Programmdateien nicht mit dem Paket überein: Eine Datei ist beschädigt oder fehlt, oder die Dateiliste selbst ist beschädigt. Wurde die vorherige funktionierende Version behalten, wird sie automatisch zurückgeholt und gestartet; sonst bleibt der Dienst aus."
+      },
+      "action": {
+        "ru": "1. Проверьте, что на роутере достаточно свободной памяти.\n2. Заново скачайте пакет со страницы выпуска.\n3. Установите его ещё раз.",
+        "uk": "1. Перевірте, що на роутері достатньо вільної пам'яті.\n2. Заново завантажте пакет зі сторінки випуску.\n3. Встановіть його ще раз.",
+        "en": "1. Check that the router has enough free memory.\n2. Download the package again from the release page.\n3. Install it again.",
+        "de": "1. Prüfen Sie, ob der Router genug freien Speicher hat.\n2. Laden Sie das Paket erneut von der Release-Seite herunter.\n3. Installieren Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-020",
+      "number": "005-004-020",
+      "key": "INTEGRITY_RECHECK_DAMAGED",
+      "aliases": [
+        "INTEGRITY-RECHECK-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "После установки найдены повреждённые файлы",
+        "uk": "Після встановлення знайдено пошкоджені файли",
+        "en": "Damaged files found after installation",
+        "de": "Nach der Installation beschädigte Dateien gefunden"
+      },
+      "cause": {
+        "ru": "Отложенная проверка после установки нашла повреждённые или отсутствующие файлы программы. Работающая служба один раз перезапускается, чтобы восстановить их из сохранённой чистой копии; Auto от этого не запускается. Остановленная служба восстановит их при следующем запуске.",
+        "uk": "Відкладена перевірка після встановлення знайшла пошкоджені або відсутні файли програми. Працююча служба один раз перезапускається, щоб відновити їх зі збереженої чистої копії; Auto від цього не запускається. Зупинена служба відновить їх під час наступного запуску.",
+        "en": "The postponed file check found damaged or missing program files after the installation. A running service is restarted once to restore them from the saved clean copy; this does not start Auto. A stopped service restores them at its next start.",
+        "de": "Die verschobene Prüfung hat nach der Installation beschädigte oder fehlende Programmdateien gefunden. Ein laufender Dienst wird einmal neu gestartet, um sie aus der gespeicherten sauberen Kopie wiederherzustellen; Auto wird dadurch nicht gestartet. Ein gestoppter Dienst stellt sie beim nächsten Start wieder her."
+      },
+      "action": {
+        "ru": "1. Посмотрите следующее сообщение в «Журнале» после перезапуска.\n2. Если файлы остаются повреждёнными, переустановите ту же версию пакета.",
+        "uk": "1. Перегляньте наступне повідомлення в «Журналі» (Journal) після перезапуску.\n2. Якщо файли лишаються пошкодженими, перевстановіть ту саму версію пакета.",
+        "en": "1. Look at the next message in the Journal after the restart.\n2. If files stay damaged, reinstall the same package version.",
+        "de": "1. Sehen Sie sich nach dem Neustart die nächste Meldung im „Journal“ (Journal) an.\n2. Bleiben Dateien beschädigt, installieren Sie dieselbe Paketversion erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-021",
+      "number": "005-004-021",
+      "key": "INTEGRITY_RECHECK_TIMEOUT",
+      "aliases": [
+        "INTEGRITY-RECHECK-TIMEOUT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отложенная проверка файлов не выполнилась",
+        "uk": "Відкладена перевірка файлів не виконалася",
+        "en": "Postponed file check did not run",
+        "de": "Verschobene Dateiprüfung wurde nicht ausgeführt"
+      },
+      "cause": {
+        "ru": "Работа с пакетами ещё долго шла после запуска службы, поэтому отложенная проверка файлов не дождалась её конца. Служба работает как раньше.",
+        "uk": "Робота з пакетами ще довго тривала після запуску служби, тому відкладена перевірка файлів не дочекалася її завершення. Служба працює як раніше.",
+        "en": "A package operation was still busy long after the service started, so the postponed file check gave up. The service keeps running as before.",
+        "de": "Ein Paketvorgang lief noch lange nach dem Start des Dienstes, daher hat die verschobene Dateiprüfung aufgegeben. Der Dienst läuft wie bisher weiter."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока не останется идущих установок пакетов.\n2. Перезагрузите роутер.",
+        "uk": "1. Дочекайтеся, поки не залишиться жодного встановлення пакетів, що триває.\n2. Перезавантажте роутер.",
+        "en": "1. Wait until no package installation is running.\n2. Restart the router.",
+        "de": "1. Warten Sie, bis keine Paketinstallation mehr läuft.\n2. Starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-022",
+      "number": "005-004-022",
+      "key": "INTEGRITY_RECHECKED",
+      "aliases": [
+        "INTEGRITY-RECHECKED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Отложенная проверка файлов выполнена",
+        "uk": "Відкладену перевірку файлів виконано",
+        "en": "Postponed file check done",
+        "de": "Verschobene Dateiprüfung erledigt"
+      },
+      "cause": {
+        "ru": "Проверка файлов, отложенная на время установки, выполнена после её окончания. Следующее сообщение показывает результат.",
+        "uk": "Перевірку файлів, відкладену на час встановлення, виконано після його завершення. Наступне повідомлення показує результат.",
+        "en": "The file check postponed during the installation ran after the installation ended. The next message shows its result.",
+        "de": "Die während der Installation verschobene Dateiprüfung wurde nach dem Ende der Installation ausgeführt. Die nächste Meldung zeigt das Ergebnis."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно, если следующее сообщение не показывает проблему.",
+        "uk": "1. Нічого робити не потрібно, якщо наступне повідомлення не показує проблеми.",
+        "en": "1. Nothing to do unless the next message shows a problem.",
+        "de": "1. Sie müssen nichts tun, solange die nächste Meldung kein Problem zeigt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INT-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-023",
+      "number": "005-004-023",
+      "key": "INTEGRITY_RESTORE_FAILED",
+      "aliases": [
+        "INTEGRITY-RESTORE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Восстановить файлы программы не удалось",
+        "uk": "Відновити файли програми не вдалося",
+        "en": "Restoring program files did not succeed",
+        "de": "Wiederherstellung der Programmdateien fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Файлы скопированы из сохранённой чистой копии, но всё равно не прошли проверку — например, память роутера заполнена или защищена от записи.",
+        "uk": "Файли скопійовано зі збереженої чистої копії, але вони все одно не пройшли перевірку — наприклад, пам'ять роутера заповнена або захищена від запису.",
+        "en": "Files were copied from the saved clean copy but still did not pass the check, for example because the router memory is full or write-protected.",
+        "de": "Die Dateien wurden aus der gespeicherten sauberen Kopie kopiert, haben die Prüfung aber trotzdem nicht bestanden, zum Beispiel weil der Speicher des Routers voll oder schreibgeschützt ist."
+      },
+      "action": {
+        "ru": "1. Проверьте свободную память роутера.\n2. Переустановите пакет.",
+        "uk": "1. Перевірте вільну пам'ять роутера.\n2. Перевстановіть пакет.",
+        "en": "1. Check the free memory of the router.\n2. Reinstall the package.",
+        "de": "1. Prüfen Sie den freien Speicher des Routers.\n2. Installieren Sie das Paket erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-024",
+      "number": "005-004-024",
+      "key": "INTEGRITY_RESTORE_LIMIT",
+      "aliases": [
+        "INTEGRITY-RESTORE-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Восстановление приостановлено: повреждение повторяется",
+        "uk": "Відновлення призупинено: пошкодження повторюється",
+        "en": "Restore paused: damage keeps coming back",
+        "de": "Wiederherstellung pausiert: Schaden tritt immer wieder auf"
+      },
+      "cause": {
+        "ru": "Программа восстанавливает свои файлы лишь несколько раз подряд, чтобы повторяющееся повреждение не вызвало бесконечный цикл. Сейчас этот предел достигнут.",
+        "uk": "Програма відновлює свої файли лише кілька разів поспіль, щоб повторюване пошкодження не спричинило нескінченний цикл. Зараз цю межу досягнуто.",
+        "en": "The program restores its files only a few times in a row, so damage that keeps coming back cannot cause an endless loop. This limit has now been reached.",
+        "de": "Das Programm stellt seine Dateien nur wenige Male hintereinander wieder her, damit ein immer wiederkehrender Schaden keine Endlosschleife auslöst. Diese Grenze ist jetzt erreicht."
+      },
+      "action": {
+        "ru": "1. Проверьте свободную память роутера.\n2. Сохраните резервную копию настроек.\n3. Переустановите пакет.",
+        "uk": "1. Перевірте вільну пам'ять роутера.\n2. Збережіть резервну копію налаштувань.\n3. Перевстановіть пакет.",
+        "en": "1. Check the free memory of the router.\n2. Save a backup of your settings.\n3. Reinstall the package.",
+        "de": "1. Prüfen Sie den freien Speicher des Routers.\n2. Sichern Sie Ihre Einstellungen.\n3. Installieren Sie das Paket erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-025",
+      "number": "005-004-025",
+      "key": "INTEGRITY_RESTORED",
+      "aliases": [
+        "INTEGRITY-RESTORED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Повреждённые файлы программы восстановлены",
+        "uk": "Пошкоджені файли програми відновлено",
+        "en": "Damaged program files restored",
+        "de": "Beschädigte Programmdateien wiederhergestellt"
+      },
+      "cause": {
+        "ru": "При запуске службы часть файлов программы не совпала с пакетом. Они заменены из сохранённой чистой копии на роутере, проверены ещё раз, и служба запустилась как обычно. Ваши настройки, условия, журнал и история не затронуты.",
+        "uk": "Під час запуску служби частина файлів програми не збіглася з пакетом. Їх замінено зі збереженої чистої копії на роутері, перевірено ще раз, і служба запустилася як зазвичай. Ваших налаштувань, умов, журналу та історії не зачеплено.",
+        "en": "When the service started, some program files did not match the package. They were replaced from the saved clean copy on the router, checked again, and the service started normally. Your settings, terms, journal and history were not touched.",
+        "de": "Beim Start des Dienstes stimmten einige Programmdateien nicht mit dem Paket überein. Sie wurden aus der gespeicherten sauberen Kopie auf dem Router ersetzt, erneut geprüft, und der Dienst startete normal. Ihre Einstellungen, Bedingungen, das Journal und der Verlauf blieben unberührt."
+      },
+      "action": {
+        "ru": "1. Ничего срочного.\n2. Если это повторяется, сохраните резервную копию настроек: память роутера может изнашиваться.\n3. Затем переустановите пакет.",
+        "uk": "1. Нічого термінового.\n2. Якщо це повторюється, збережіть резервну копію налаштувань: пам'ять роутера може зношуватися.\n3. Потім перевстановіть пакет.",
+        "en": "1. Nothing urgent.\n2. If it repeats, save a backup of your settings: the router memory may be wearing out.\n3. Then reinstall the package.",
+        "de": "1. Nichts Dringendes.\n2. Wiederholt es sich, sichern Sie Ihre Einstellungen: Der Speicher des Routers könnte verschleißen.\n3. Installieren Sie danach das Paket erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-026",
+      "number": "005-004-026",
+      "key": "INTEGRITY_SERVICE_STOPPED",
+      "aliases": [
+        "INTEGRITY-SERVICE-STOPPED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Программа повреждена, служба выключена",
+        "uk": "Програму пошкоджено, служба вимкнена",
+        "en": "Program damaged, service stays off",
+        "de": "Programm beschädigt, Dienst bleibt aus"
+      },
+      "cause": {
+        "ru": "И основная, и запасная версии программы повреждены и не восстановились. Служба остаётся выключенной; уже включённая защита «только через VPN» остаётся на месте, трафик домашней сети не меняется.",
+        "uk": "І основна, і запасна версії програми пошкоджені й не відновилися. Служба лишається вимкненою; уже ввімкнений захист «лише через VPN» лишається на місці, трафік домашньої мережі не змінюється.",
+        "en": "Both the main and the backup version of the program are damaged and could not be restored. The service stays off; an existing VPN-only protection stays in place and the home network traffic is not changed.",
+        "de": "Sowohl die Haupt- als auch die Ersatzversion des Programms sind beschädigt und konnten nicht wiederhergestellt werden. Der Dienst bleibt aus; ein bestehender Schutz „nur über VPN“ bleibt erhalten, und der Verkehr im Heimnetz wird nicht verändert."
+      },
+      "action": {
+        "ru": "1. Переустановите ту же версию пакета.\n2. Если у домашних устройств нет интернета, воспользуйтесь аварийным восстановлением из «Помощи».",
+        "uk": "1. Перевстановіть ту саму версію пакета.\n2. Якщо домашні пристрої не мають інтернету, скористайтеся аварійним відновленням із «Довідки» (Help).",
+        "en": "1. Reinstall the same package version.\n2. If devices at home have no internet, use the emergency recovery described in Help.",
+        "de": "1. Installieren Sie dieselbe Paketversion erneut.\n2. Haben Geräte im Heimnetz kein Internet, nutzen Sie die Notfallwiederherstellung aus der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-027",
+      "number": "005-004-027",
+      "key": "INTEGRITY_SNAPSHOT_MADE",
+      "aliases": [
+        "INTEGRITY-SNAPSHOT-MADE"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Чистая копия программы сохранена",
+        "uk": "Чисту копію програми збережено",
+        "en": "Clean copy of the program saved",
+        "de": "Saubere Kopie des Programms gespeichert"
+      },
+      "cause": {
+        "ru": "Установка проверила распакованные файлы и сохранила их как чистую копию, чтобы роутер позже мог сам исправить файлы программы.",
+        "uk": "Встановлення перевірило розпаковані файли й зберегло їх як чисту копію, щоб роутер згодом міг сам виправити файли програми.",
+        "en": "The installation checked the unpacked files and saved them as a clean copy, so the router can repair its program files by itself later.",
+        "de": "Die Installation hat die entpackten Dateien geprüft und als saubere Kopie gespeichert, damit der Router seine Programmdateien später selbst reparieren kann."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INT-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-028",
+      "number": "005-004-028",
+      "key": "INTEGRITY_SNAPSHOT_NO_SPACE",
+      "aliases": [
+        "INTEGRITY-SNAPSHOT-NO-SPACE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет места для чистой копии",
+        "uk": "Немає місця для чистої копії",
+        "en": "No space for the clean copy",
+        "de": "Kein Platz für die saubere Kopie"
+      },
+      "cause": {
+        "ru": "В памяти роутера было слишком мало свободного места, поэтому чистая копия программы не сохранена. Самовосстановление файлов программы недоступно.",
+        "uk": "У пам'яті роутера було замало вільного місця, тому чисту копію програми не збережено. Самовідновлення файлів програми недоступне.",
+        "en": "The router memory had too little free space, so the clean copy of the program was not saved. Self-repair of program files is not available.",
+        "de": "Im Speicher des Routers war zu wenig Platz frei, daher wurde die saubere Kopie des Programms nicht gespeichert. Die Selbstreparatur der Programmdateien ist nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. Освободите место в памяти роутера.\n2. Переустановите пакет.",
+        "uk": "1. Звільніть місце в пам'яті роутера.\n2. Перевстановіть пакет.",
+        "en": "1. Free some memory on the router.\n2. Reinstall the package.",
+        "de": "1. Geben Sie Speicher auf dem Router frei.\n2. Installieren Sie das Paket erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-029",
+      "number": "005-004-029",
+      "key": "INTEGRITY_SNAPSHOT_REFUSED",
+      "aliases": [
+        "INTEGRITY-SNAPSHOT-REFUSED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Чистая копия не сохранена",
+        "uk": "Чисту копію не збережено",
+        "en": "Clean copy not saved",
+        "de": "Saubere Kopie nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Установка не сохранила чистую копию, потому что распакованные файлы не совпали с пакетом или копию не удалось записать.",
+        "uk": "Встановлення не зберегло чистої копії, бо розпаковані файли не збіглися з пакетом або копію не вдалося записати.",
+        "en": "The installation did not save the clean copy because the unpacked files did not match the package or the copy could not be written.",
+        "de": "Die Installation hat die saubere Kopie nicht gespeichert, weil die entpackten Dateien nicht mit dem Paket übereinstimmten oder die Kopie nicht geschrieben werden konnte."
+      },
+      "action": {
+        "ru": "1. Проверьте свободную память роутера.\n2. Переустановите пакет.",
+        "uk": "1. Перевірте вільну пам'ять роутера.\n2. Перевстановіть пакет.",
+        "en": "1. Check the free memory of the router.\n2. Reinstall the package.",
+        "de": "1. Prüfen Sie den freien Speicher des Routers.\n2. Installieren Sie das Paket erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-030",
+      "number": "005-004-030",
+      "key": "INTEGRITY_SOURCE_DAMAGED",
+      "aliases": [
+        "INTEGRITY-SOURCE-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Чистая копия повреждена",
+        "uk": "Чисту копію пошкоджено",
+        "en": "Clean copy damaged",
+        "de": "Saubere Kopie beschädigt"
+      },
+      "cause": {
+        "ru": "Сохранённая чистая копия сама не прошла проверку, поэтому из неё ничего не восстановлено.",
+        "uk": "Збережена чиста копія сама не пройшла перевірку, тому з неї нічого не відновлено.",
+        "en": "The saved clean copy itself failed its check, so nothing was restored from it.",
+        "de": "Die gespeicherte saubere Kopie hat ihre eigene Prüfung nicht bestanden, daher wurde nichts daraus wiederhergestellt."
+      },
+      "action": {
+        "ru": "1. Переустановите ту же версию пакета: установка заменит копию.",
+        "uk": "1. Перевстановіть ту саму версію пакета: встановлення замінить копію.",
+        "en": "1. Reinstall the same package version: the installation replaces the copy.",
+        "de": "1. Installieren Sie dieselbe Paketversion erneut: Die Installation ersetzt die Kopie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-031",
+      "number": "005-004-031",
+      "key": "INTEGRITY_SOURCE_MISSING",
+      "aliases": [
+        "INTEGRITY-SOURCE-MISSING"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нет чистой копии для восстановления",
+        "uk": "Немає чистої копії для відновлення",
+        "en": "No clean copy to restore from",
+        "de": "Keine saubere Kopie zum Wiederherstellen"
+      },
+      "cause": {
+        "ru": "Найдены повреждённые файлы программы, но чистой копии на роутере нет — например, установка закончилась раньше, чем копия была сделана.",
+        "uk": "Знайдено пошкоджені файли програми, але чистої копії на роутері немає — наприклад, встановлення завершилося раніше, ніж копію було зроблено.",
+        "en": "Damaged program files were found, but the clean copy is not on the router, for example because the installation ended before the copy was made.",
+        "de": "Es wurden beschädigte Programmdateien gefunden, aber die saubere Kopie ist nicht auf dem Router, zum Beispiel weil die Installation endete, bevor die Kopie angelegt wurde."
+      },
+      "action": {
+        "ru": "1. Переустановите ту же версию пакета: установка снова сделает копию.",
+        "uk": "1. Перевстановіть ту саму версію пакета: встановлення знову зробить копію.",
+        "en": "1. Reinstall the same package version: the installation makes the copy again.",
+        "de": "1. Installieren Sie dieselbe Paketversion erneut: Die Installation legt die Kopie neu an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-032",
+      "number": "005-004-032",
+      "key": "INTEGRITY_SOURCE_VERSION",
+      "aliases": [
+        "INTEGRITY-SOURCE-VERSION"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Чистая копия от другой версии",
+        "uk": "Чиста копія від іншої версії",
+        "en": "Clean copy belongs to another version",
+        "de": "Saubere Kopie gehört zu einer anderen Version"
+      },
+      "cause": {
+        "ru": "Сохранённая чистая копия относится к другой версии пакета, чем установленные файлы, — например, после прерванного обновления, поэтому из неё ничего не восстановлено.",
+        "uk": "Збережена чиста копія належить до іншої версії пакета, ніж встановлені файли, — наприклад, після перерваного оновлення, тому з неї нічого не відновлено.",
+        "en": "The saved clean copy belongs to another package version than the installed files, for example after an interrupted update, so nothing was restored from it.",
+        "de": "Die gespeicherte saubere Kopie gehört zu einer anderen Paketversion als die installierten Dateien, zum Beispiel nach einem abgebrochenen Update, daher wurde nichts daraus wiederhergestellt."
+      },
+      "action": {
+        "ru": "1. Установите нужную версию пакета ещё раз.\n2. Дайте установке полностью завершиться.",
+        "uk": "1. Встановіть потрібну версію пакета ще раз.\n2. Дайте встановленню повністю завершитися.",
+        "en": "1. Install the package version you want again.\n2. Let the installation finish completely.",
+        "de": "1. Installieren Sie die gewünschte Paketversion erneut.\n2. Lassen Sie die Installation vollständig abschließen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-033",
+      "number": "005-004-033",
+      "key": "INTEGRITY_TOOL_DAMAGED",
+      "aliases": [
+        "INTEGRITY-TOOL-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Самопроверка повреждена",
+        "uk": "Самоперевірку пошкоджено",
+        "en": "Self-check damaged",
+        "de": "Selbstprüfung beschädigt"
+      },
+      "cause": {
+        "ru": "Сама часть программы для самопроверки повреждена. Она возвращается из чистой копии, если та цела; иначе файлы нельзя проверить, поэтому страница и наблюдение за каналами работают, но Auto не запускается.",
+        "uk": "Сама частина програми для самоперевірки пошкоджена. Її повертають із чистої копії, якщо та ціла; інакше файли неможливо перевірити, тому сторінка й спостереження за каналами працюють, але Auto не запускається.",
+        "en": "The self-check part of the program is itself damaged. It is put back from the clean copy when that copy is intact; otherwise the files cannot be verified, so the page and channel monitoring keep working but Auto is not started.",
+        "de": "Der Teil des Programms für die Selbstprüfung ist selbst beschädigt. Er wird aus der sauberen Kopie zurückgeholt, wenn diese intakt ist; sonst können die Dateien nicht geprüft werden, daher laufen die Seite und die Kanalüberwachung weiter, aber Auto wird nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Переустановите пакет.\n2. Снова запустите Auto.",
+        "uk": "1. Перевстановіть пакет.\n2. Знову запустіть Auto.",
+        "en": "1. Reinstall the package.\n2. Start Auto again.",
+        "de": "1. Installieren Sie das Paket erneut.\n2. Starten Sie Auto erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-034",
+      "number": "005-004-034",
+      "key": "INTEGRITY_TOOL_FAILED",
+      "aliases": [
+        "INTEGRITY-TOOL-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Самопроверка не ответила, Auto не запущен",
+        "uk": "Самоперевірка не відповіла, Auto не запущено",
+        "en": "Self-check gave no answer, Auto not started",
+        "de": "Selbstprüfung ohne Antwort, Auto nicht gestartet"
+      },
+      "cause": {
+        "ru": "Самопроверка неожиданно прервалась или не дала понятного ответа при запуске службы, поэтому файлы программы не проверены. Страница и наблюдение за каналами работают, но Auto не запускается.",
+        "uk": "Самоперевірка несподівано перервалася або не дала зрозумілої відповіді під час запуску служби, тому файли програми не перевірено. Сторінка й спостереження за каналами працюють, але Auto не запускається.",
+        "en": "The self-check stopped unexpectedly or gave no usable answer when the service started, so the program files are not verified. The page and channel monitoring keep working, but Auto is not started.",
+        "de": "Die Selbstprüfung ist beim Start des Dienstes unerwartet abgebrochen oder hat keine verwertbare Antwort gegeben, daher sind die Programmdateien nicht geprüft. Die Seite und die Kanalüberwachung laufen weiter, aber Auto wird nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Переустановите пакет.\n2. Если это повторится, сохраните диагностический отчёт и обратитесь в поддержку.",
+        "uk": "1. Перевстановіть пакет.\n2. Якщо це повториться, збережіть діагностичний звіт і зверніться до підтримки.",
+        "en": "1. Reinstall the package.\n2. If it repeats, save the diagnostic report and contact support.",
+        "de": "1. Installieren Sie das Paket erneut.\n2. Wiederholt es sich, speichern Sie den Diagnosebericht und wenden Sie sich an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-035",
+      "number": "005-004-035",
+      "key": "INTEGRITY_TOOL_MISSING",
+      "aliases": [
+        "INTEGRITY-TOOL-MISSING"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Самопроверка отсутствует, Auto не запущен",
+        "uk": "Самоперевірка відсутня, Auto не запущено",
+        "en": "Self-check missing, Auto not started",
+        "de": "Selbstprüfung fehlt, Auto nicht gestartet"
+      },
+      "cause": {
+        "ru": "Часть программы для самопроверки не установлена, поэтому файлы программы нельзя проверить. Страница и наблюдение за каналами работают, но Auto не запускается, пока установка снова не будет проверена.",
+        "uk": "Частину програми для самоперевірки не встановлено, тому файли програми неможливо перевірити. Сторінка й спостереження за каналами працюють, але Auto не запускається, доки встановлення знову не буде перевірене.",
+        "en": "The self-check part of the program is not installed, so the program files cannot be verified. The page and channel monitoring keep working, but Auto is not started until the installation is verified again.",
+        "de": "Der Teil des Programms für die Selbstprüfung ist nicht installiert, daher können die Programmdateien nicht geprüft werden. Die Seite und die Kanalüberwachung laufen weiter, aber Auto startet erst, wenn die Installation wieder geprüft ist."
+      },
+      "action": {
+        "ru": "1. Переустановите пакет (подойдёт та же версия).\n2. Больше ничего не нужно: если вы запускали Auto, он вернётся сам.",
+        "uk": "1. Перевстановіть пакет (підійде та сама версія).\n2. Більше нічого не потрібно: якщо ви запускали Auto, він повернеться сам.",
+        "en": "1. Reinstall the package (the same version is enough).\n2. Nothing more: if you had started Auto, it comes back by itself.",
+        "de": "1. Installieren Sie das Paket erneut (dieselbe Version genügt).\n2. Mehr ist nicht nötig: Hatten Sie Auto gestartet, kommt es von selbst zurück."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-036",
+      "number": "005-004-036",
+      "key": "INTEGRITY_UNVERIFIED",
+      "aliases": [
+        "INTEGRITY-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файлы программы не проверены",
+        "uk": "Файли програми не перевірено",
+        "en": "Program files not verified",
+        "de": "Programmdateien nicht geprüft"
+      },
+      "cause": {
+        "ru": "Нет ни эталонного списка файлов, ни чистой копии — например, после ручного копирования или старой установки, поэтому файлы не проверены. Служба запускается как раньше.",
+        "uk": "Немає ні еталонного списку файлів, ні чистої копії — наприклад, після ручного копіювання або старого встановлення, тому файли не перевірено. Служба запускається як раніше.",
+        "en": "There is neither a reference file list nor a clean copy, for example after a manual copy or an older installation, so the files were not checked. The service starts as before.",
+        "de": "Es gibt weder eine Referenzliste der Dateien noch eine saubere Kopie, zum Beispiel nach einer manuellen Kopie oder einer älteren Installation, daher wurden die Dateien nicht geprüft. Der Dienst startet wie bisher."
+      },
+      "action": {
+        "ru": "1. Установите пакет обычным установщиком, чтобы включить самопроверку.",
+        "uk": "1. Встановіть пакет звичайним інсталятором, щоб увімкнути самоперевірку.",
+        "en": "1. Install the package with the regular installer to turn on the self-check.",
+        "de": "1. Installieren Sie das Paket mit dem regulären Installer, um die Selbstprüfung einzuschalten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-037",
+      "number": "005-004-037",
+      "key": "SIGNATURE_FAMILY",
+      "aliases": [
+        "SIGNATURE-*"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка подписи пакета",
+        "uk": "Перевірка підпису пакета",
+        "en": "Package signature check",
+        "de": "Prüfung der Paketsignatur"
+      },
+      "cause": {
+        "ru": "Код группы проверки подписи пакета. Установщик проверяет подпись до любых изменений. Если пакет не подписан доверенным ключом выпуска или проверить подпись нечем, ничего не устанавливается. Это семейство: описание относится ко всем кодам с префиксом «SIGNATURE-».",
+        "uk": "Код групи перевірки підпису пакета. Інсталятор перевіряє підпис до будь-яких змін. Якщо пакет не підписано довіреним ключем випуску або перевірити підпис нічим, нічого не встановлюється. Це родина: опис стосується всіх кодів із префіксом «SIGNATURE-».",
+        "en": "A code of the group that checks the package signature. The installer checks the signature before it changes anything. If the package is not signed by a trusted release key, or the signature cannot be checked, nothing is installed. This is a family: the description applies to all codes starting with \"SIGNATURE-\".",
+        "de": "Ein Code der Gruppe, die die Paketsignatur prüft. Der Installer prüft die Signatur, bevor er etwas ändert. Ist das Paket nicht mit einem vertrauenswürdigen Release-Schlüssel signiert oder lässt sich die Signatur nicht prüfen, wird nichts installiert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „SIGNATURE-“."
+      },
+      "action": {
+        "ru": "1. Не устанавливайте этот пакет.\n2. Заново скачайте все файлы с официальной страницы выпусков.\n3. Не ставьте другие программы, чтобы обойти проверку.\n4. Сообщите о случае в поддержку.",
+        "uk": "1. Не встановлюйте цей пакет.\n2. Заново завантажте всі файли з офіційної сторінки випусків.\n3. Не встановлюйте інших програм, щоб обійти перевірку.\n4. Повідомте про випадок до підтримки.",
+        "en": "1. Do not install this package.\n2. Download all files again from the official release page.\n3. Do not install other tools to get around the check.\n4. Report the case to support.",
+        "de": "1. Installieren Sie dieses Paket nicht.\n2. Laden Sie alle Dateien erneut von der offiziellen Release-Seite herunter.\n3. Installieren Sie keine anderen Programme, um die Prüfung zu umgehen.\n4. Melden Sie den Fall dem Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-INT-038",
+      "number": "005-004-038",
+      "key": "SIGNATURE_MISSING",
+      "aliases": [
+        "SIGNATURE-MISSING"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нет файлов подписи",
+        "uk": "Немає файлів підпису",
+        "en": "Signature files missing",
+        "de": "Signaturdateien fehlen"
+      },
+      "cause": {
+        "ru": "Установщик не нашёл рядом с пакетом файлы подписи выпуска, поэтому пакет нельзя проверить по ключам выпуска. Ничего не установлено.",
+        "uk": "Інсталятор не знайшов поруч із пакетом файлів підпису випуску, тому пакет неможливо перевірити за ключами випуску. Нічого не встановлено.",
+        "en": "The installer did not find the signature files of the release next to the package, so the package cannot be checked against the release keys. Nothing was installed.",
+        "de": "Der Installer hat die Signaturdateien des Releases neben dem Paket nicht gefunden, daher kann das Paket nicht mit den Release-Schlüsseln geprüft werden. Es wurde nichts installiert."
+      },
+      "action": {
+        "ru": "1. Возьмите файлы подписи того же выпуска с его страницы.\n2. Положите их рядом с пакетом, как описано в инструкции по установке.\n3. Повторите установку.",
+        "uk": "1. Візьміть файли підпису того самого випуску з його сторінки.\n2. Покладіть їх поруч із пакетом, як описано в інструкції зі встановлення.\n3. Повторіть встановлення.",
+        "en": "1. Take the signature files of the same release from its release page.\n2. Put them next to the package as the installation guide describes.\n3. Run the install again.",
+        "de": "1. Holen Sie die Signaturdateien desselben Releases von dessen Release-Seite.\n2. Legen Sie sie neben das Paket, wie in der Installationsanleitung beschrieben.\n3. Führen Sie die Installation erneut aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-039",
+      "number": "005-004-039",
+      "key": "VERIFY_FAILED",
+      "aliases": [
+        "VERIFY-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка после установки не пройдена",
+        "uk": "Перевірку після встановлення не пройдено",
+        "en": "Check after the installation failed",
+        "de": "Prüfung nach der Installation fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Проверка после установки и после нескольких попыток всё ещё находит проблемы. Auto остаётся выключенным.",
+        "uk": "Перевірка після встановлення й після кількох спроб усе ще знаходить проблеми. Auto лишається вимкненим.",
+        "en": "The check after the installation still found problems after several tries. Auto stays off.",
+        "de": "Die Prüfung nach der Installation findet auch nach mehreren Versuchen noch Probleme. Auto bleibt aus."
+      },
+      "action": {
+        "ru": "1. Прочитайте строки с ошибками в выводе проверки.\n2. Выполните указания из соответствующего раздела инструкции по установке.",
+        "uk": "1. Прочитайте рядки з помилками у виводі перевірки.\n2. Виконайте вказівки з відповідного розділу інструкції зі встановлення.",
+        "en": "1. Read the failed lines in the check output.\n2. Follow the matching section of the installation guide.",
+        "de": "1. Lesen Sie die fehlgeschlagenen Zeilen in der Ausgabe der Prüfung.\n2. Folgen Sie dem passenden Abschnitt der Installationsanleitung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-040",
+      "number": "005-004-040",
+      "key": "TRUST_CANCELLED",
+      "aliases": [
+        "TRUST-CANCELLED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Доверие ключу отменено",
+        "uk": "Довіру ключу скасовано",
+        "en": "Key trust cancelled",
+        "de": "Vertrauen in den Schlüssel abgebrochen"
+      },
+      "cause": {
+        "ru": "Вы отменили команду, которая добавляет ключ подписи в доверенные ключи роутера. Ничего не изменено.",
+        "uk": "Ви скасували команду, яка додає ключ підпису до довірених ключів роутера. Нічого не змінено.",
+        "en": "You cancelled the command that adds a signing key to the trusted keys of the router. Nothing was changed.",
+        "de": "Sie haben den Befehl abgebrochen, der einen Signaturschlüssel zu den vertrauenswürdigen Schlüsseln des Routers hinzufügt. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если ключу всё же нужно доверять, запустите команду снова и подтвердите.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо ключу все ж треба довіряти, запустіть команду знову й підтвердьте.",
+        "en": "1. Nothing to do.\n2. If you do want to trust the key, run the command again and confirm.",
+        "de": "1. Sie müssen nichts tun.\n2. Wollen Sie dem Schlüssel doch vertrauen, führen Sie den Befehl erneut aus und bestätigen Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-041",
+      "number": "005-004-041",
+      "key": "TRUST_KEY_FORMAT",
+      "aliases": [
+        "TRUST-KEY-FORMAT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Файл не является ключом подписи",
+        "uk": "Файл не є ключем підпису",
+        "en": "File is not a signing key",
+        "de": "Datei ist kein Signaturschlüssel"
+      },
+      "cause": {
+        "ru": "Файл, переданный команде доверия ключу, не является открытым ключом подписи. Ничего не изменено.",
+        "uk": "Файл, переданий команді довіри ключу, не є відкритим ключем підпису. Нічого не змінено.",
+        "en": "The file given to the key trust command is not a public signing key. Nothing was changed.",
+        "de": "Die Datei, die dem Befehl zum Vertrauen eines Schlüssels übergeben wurde, ist kein öffentlicher Signaturschlüssel. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Возьмите файл открытого ключа с официальной страницы выпуска.\n2. Запустите команду снова с этим файлом.",
+        "uk": "1. Візьміть файл відкритого ключа з офіційної сторінки випуску.\n2. Запустіть команду знову з цим файлом.",
+        "en": "1. Take the public key file from the official release page.\n2. Run the command again with this file.",
+        "de": "1. Holen Sie die Datei des öffentlichen Schlüssels von der offiziellen Release-Seite.\n2. Führen Sie den Befehl mit dieser Datei erneut aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INT-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-042",
+      "number": "005-004-042",
+      "key": "TRUST_KEY_REVOKED",
+      "aliases": [
+        "TRUST-KEY-REVOKED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ отозван на этом роутере",
+        "uk": "Ключ відкликано на цьому роутері",
+        "en": "Key is revoked on this router",
+        "de": "Schlüssel ist auf diesem Router widerrufen"
+      },
+      "cause": {
+        "ru": "Этот ключ подписи отозван на этом роутере, поэтому снова доверять ему нельзя. Ничего не изменено.",
+        "uk": "Цей ключ підпису відкликано на цьому роутері, тому знову довіряти йому не можна. Нічого не змінено.",
+        "en": "This signing key was revoked on this router, so it cannot be trusted again. Nothing was changed.",
+        "de": "Dieser Signaturschlüssel wurde auf diesem Router widerrufen und kann daher nicht erneut als vertrauenswürdig gelten. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Не используйте этот ключ.\n2. Возьмите действующий ключ выпуска с официальной страницы выпуска.",
+        "uk": "1. Не використовуйте цей ключ.\n2. Візьміть чинний ключ випуску з офіційної сторінки випуску.",
+        "en": "1. Do not use this key.\n2. Take the current release key from the official release page.",
+        "de": "1. Verwenden Sie diesen Schlüssel nicht.\n2. Holen Sie den aktuellen Release-Schlüssel von der offiziellen Release-Seite."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INT-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-043",
+      "number": "005-004-043",
+      "key": "TRUST_NOT_ROOT",
+      "aliases": [
+        "TRUST-NOT-ROOT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Команде ключей нужны права администратора",
+        "uk": "Команді ключів потрібні права адміністратора",
+        "en": "Key command needs administrator rights",
+        "de": "Schlüsselbefehl braucht Administratorrechte"
+      },
+      "cause": {
+        "ru": "Команда доверия ключу запущена без прав администратора роутера, поэтому она не может изменить список доверенных ключей. Ничего не изменено.",
+        "uk": "Команду довіри ключу запущено без прав адміністратора роутера, тому вона не може змінити список довірених ключів. Нічого не змінено.",
+        "en": "The key trust command was started without administrator rights on the router, so it cannot change the list of trusted keys. Nothing was changed.",
+        "de": "Der Befehl zum Vertrauen eines Schlüssels wurde ohne Administratorrechte auf dem Router gestartet und kann daher die Liste der vertrauenswürdigen Schlüssel nicht ändern. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Войдите на роутер как администратор.\n2. Запустите команду снова.",
+        "uk": "1. Увійдіть на роутер як адміністратор.\n2. Запустіть команду знову.",
+        "en": "1. Sign in to the router as administrator.\n2. Run the command again.",
+        "de": "1. Melden Sie sich als Administrator am Router an.\n2. Führen Sie den Befehl erneut aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-044",
+      "number": "005-004-044",
+      "key": "TRUST_USAGE",
+      "aliases": [
+        "TRUST-USAGE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Команда ключей вызвана неправильно",
+        "uk": "Команду ключів викликано неправильно",
+        "en": "Key command called incorrectly",
+        "de": "Schlüsselbefehl falsch aufgerufen"
+      },
+      "cause": {
+        "ru": "Команду доверия ключу вызвали без нужных или с неизвестными параметрами. Ничего не изменено.",
+        "uk": "Команду довіри ключу викликали без потрібних або з невідомими параметрами. Нічого не змінено.",
+        "en": "The key trust command was called with missing or unknown arguments. Nothing was changed.",
+        "de": "Der Befehl zum Vertrauen eines Schlüssels wurde mit fehlenden oder unbekannten Angaben aufgerufen. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Сверьте команду с инструкцией по установке.\n2. Запустите её снова точно так, как там показано.",
+        "uk": "1. Звірте команду з інструкцією зі встановлення.\n2. Запустіть її знову точно так, як там показано.",
+        "en": "1. Check the command in the installation guide.\n2. Run it again exactly as shown there.",
+        "de": "1. Prüfen Sie den Befehl in der Installationsanleitung.\n2. Führen Sie ihn erneut genau so aus, wie dort gezeigt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INT-044",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-INT-045",
+      "number": "005-004-045",
+      "key": "TRUST_WRITE",
+      "aliases": [
+        "TRUST-WRITE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Список доверенных ключей не сохранён",
+        "uk": "Список довірених ключів не збережено",
+        "en": "List of trusted keys not saved",
+        "de": "Liste der vertrauenswürdigen Schlüssel nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Роутер не смог записать список доверенных или отозванных ключей — например, потому что память заполнена. Изменение ключа не сохранено.",
+        "uk": "Роутер не зміг записати список довірених або відкликаних ключів — наприклад, тому що пам'ять заповнена. Зміну ключа не збережено.",
+        "en": "The router could not write the list of trusted or revoked keys, for example because its memory is full. The key change was not saved.",
+        "de": "Der Router konnte die Liste der vertrauenswürdigen oder widerrufenen Schlüssel nicht schreiben, zum Beispiel weil sein Speicher voll ist. Die Schlüsseländerung wurde nicht gespeichert."
+      },
+      "action": {
+        "ru": "1. Проверьте свободную память роутера.\n2. Запустите команду снова.",
+        "uk": "1. Перевірте вільну пам'ять роутера.\n2. Запустіть команду знову.",
+        "en": "1. Check the free memory of the router.\n2. Run the command again.",
+        "de": "1. Prüfen Sie den freien Speicher des Routers.\n2. Führen Sie den Befehl erneut aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-INT-045",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "int",
+        "runtime",
+        "translation-draft"
+      ]
+    }
+  ]
+}
