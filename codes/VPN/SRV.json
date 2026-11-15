@@ -1,0 +1,2336 @@
+{
+  "namespace": "VPN",
+  "area": "SRV",
+  "codes": [
+    {
+      "code": "VPN-SRV-001",
+      "number": "005-010-001",
+      "key": "ENDPOINT_FAMILY",
+      "aliases": [
+        "ENDPOINT-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Текущий адрес сервера неизвестен",
+        "uk": "Поточна адреса сервера невідома",
+        "en": "Current server address not known",
+        "de": "Aktuelle Serveradresse unbekannt"
+      },
+      "cause": {
+        "ru": "Код группы о чтении адреса VPN-сервера, к которому канал подключён прямо сейчас. Роутер не смог надёжно его прочитать, или адрес изменился во время чтения. Одно имя сервера в настройках не показывает, какой сервер используется на самом деле. Это семейство: описание относится ко всем кодам с префиксом «ENDPOINT-».",
+        "uk": "Код групи про читання адреси VPN-сервера, до якого канал підключений саме зараз. Роутер не зміг надійно її прочитати, або адреса змінилася під час читання. Сама лише назва сервера в налаштуваннях не показує, який сервер використовується насправді. Це родина: опис стосується всіх кодів із префіксом «ENDPOINT-».",
+        "en": "A code of the group about reading the address of the VPN server a channel is connected to right now. The router could not read it reliably, or it changed while being read. The server name in the settings alone does not show which server is really in use. This is a family: the description applies to all codes starting with \"ENDPOINT-\".",
+        "de": "Ein Code der Gruppe zum Auslesen der Adresse des VPN-Servers, mit dem ein Kanal gerade verbunden ist. Der Router konnte sie nicht zuverlässig lesen, oder sie hat sich beim Lesen geändert. Der Servername in den Einstellungen allein zeigt nicht, welcher Server wirklich genutzt wird. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „ENDPOINT-“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: адрес будет прочитан снова сам.\n2. Не перезапускайте рабочий канал только ради того, чтобы увидеть его адрес.",
+        "uk": "1. Нічого робити не потрібно: адресу буде прочитано знову автоматично.\n2. Не перезапускайте робочий канал лише для того, щоб побачити його адресу.",
+        "en": "1. Nothing to do: the address is read again by itself.\n2. Do not restart a working channel only to see its address.",
+        "de": "1. Sie müssen nichts tun: Die Adresse wird von selbst erneut gelesen.\n2. Starten Sie einen funktionierenden Kanal nicht neu, nur um seine Adresse zu sehen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SRV-002",
+      "number": "005-010-002",
+      "key": "ENDPOINT_ADDRESS",
+      "aliases": [
+        "ENDPOINT-ADDRESS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес сервера непригоден",
+        "uk": "Адреса сервера непридатна",
+        "en": "Server address not usable",
+        "de": "Serveradresse nicht verwendbar"
+      },
+      "cause": {
+        "ru": "Адрес или порт сервера, которые сообщил роутер, пустые, слишком длинные или непригодные, поэтому они не показываются. На сам канал это не влияет.",
+        "uk": "Адреса чи порт сервера, які повідомив роутер, порожні, задовгі або непридатні, тому вони не показуються. На сам канал це не впливає.",
+        "en": "The server address or port the router reported is empty, too long or not usable, so it is not shown. The channel itself is not affected.",
+        "de": "Die vom Router gemeldete Serveradresse oder der Port ist leer, zu lang oder nicht verwendbar und wird daher nicht angezeigt. Der Kanal selbst ist davon nicht betroffen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-003",
+      "number": "005-010-003",
+      "key": "ENDPOINT_PROC",
+      "aliases": [
+        "ENDPOINT-PROC"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес сервера не удалось прочитать",
+        "uk": "Адресу сервера не вдалося прочитати",
+        "en": "Server address could not be read",
+        "de": "Serveradresse konnte nicht gelesen werden"
+      },
+      "cause": {
+        "ru": "Внутреннюю таблицу роутера с текущим адресом сервера в этот раз прочитать не удалось.",
+        "uk": "Внутрішню таблицю роутера з поточною адресою сервера цього разу прочитати не вдалося.",
+        "en": "The router's internal table with the current server address could not be read this time.",
+        "de": "Die interne Tabelle des Routers mit der aktuellen Serveradresse konnte diesmal nicht gelesen werden."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: роутер попробует снова сам.",
+        "uk": "1. Нічого робити не потрібно: роутер спробує знову сам.",
+        "en": "1. Nothing to do: the router tries again by itself.",
+        "de": "1. Sie müssen nichts tun: Der Router versucht es von selbst erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-004",
+      "number": "005-010-004",
+      "key": "ENDPOINT_PROCESS_EPOCH",
+      "aliases": [
+        "ENDPOINT-PROCESS-EPOCH"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес сервера изменился во время чтения",
+        "uk": "Адреса сервера змінилася під час читання",
+        "en": "Server address changed while reading",
+        "de": "Serveradresse hat sich beim Lesen geändert"
+      },
+      "cause": {
+        "ru": "Канал перезапустился, пока читался адрес его сервера, поэтому значение отброшено.",
+        "uk": "Канал перезапустився, поки читалася адреса його сервера, тому значення відкинуто.",
+        "en": "The channel restarted while its server address was being read, so the value was dropped.",
+        "de": "Der Kanal wurde neu gestartet, während seine Serveradresse gelesen wurde, daher wurde der Wert verworfen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-005",
+      "number": "005-010-005",
+      "key": "ENDPOINT_READ_LIMIT",
+      "aliases": [
+        "ENDPOINT-READ-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Таблица адресов серверов слишком большая",
+        "uk": "Таблиця адрес серверів завелика",
+        "en": "Server address table too large",
+        "de": "Tabelle der Serveradressen zu groß"
+      },
+      "cause": {
+        "ru": "Внутренняя таблица роутера с адресами серверов оказалась больше допустимого, поэтому её не читали. Сам канал работает как раньше.",
+        "uk": "Внутрішня таблиця роутера з адресами серверів виявилася більшою за допустиму, тому її не читали. Сам канал працює як раніше.",
+        "en": "The router's internal table with server addresses was larger than allowed, so it was not read. The channel itself works as before.",
+        "de": "Die interne Tabelle des Routers mit Serveradressen war größer als erlaubt und wurde daher nicht gelesen. Der Kanal selbst arbeitet wie bisher."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-006",
+      "number": "005-010-006",
+      "key": "SERVER_CHANGING",
+      "aliases": [
+        "SERVER-CHANGING"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Auto меняет сервер незанятого канала",
+        "uk": "Auto змінює сервер незайнятого каналу",
+        "en": "Auto is changing the server of an idle channel",
+        "de": "Auto wechselt den Server eines unbenutzten Kanals"
+      },
+      "cause": {
+        "ru": "Auto поставил новый сервер в канал, по которому сейчас не идёт трафик, и недолго ждёт, пока тот подключится и пройдёт проверку канала. В это время Auto не принимает решений о переключении; рабочий канал передаёт трафик как раньше.",
+        "uk": "Auto поставив новий сервер у канал, яким зараз не йде трафік, і недовго чекає, поки той підключиться й пройде перевірку каналу. У цей час Auto не ухвалює рішень про перемикання; робочий канал передає трафік як раніше.",
+        "en": "Auto put a new server into a channel that carries no traffic and is waiting a short while for it to connect and pass the channel check. Meanwhile it makes no switch decision; the working channel carries the traffic as before.",
+        "de": "Auto hat einen neuen Server in einen Kanal ohne Verkehr eingesetzt und wartet kurz, bis er sich verbindet und die Kanalprüfung besteht. Währenddessen trifft Auto keine Wechselentscheidung; der funktionierende Kanal trägt den Verkehr wie bisher."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-007",
+      "number": "005-010-007",
+      "key": "SERVER_KEY_ACCEPTED",
+      "aliases": [
+        "SERVER-KEY-ACCEPTED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Новый ключ сервера принят",
+        "uk": "Новий ключ сервера прийнято",
+        "en": "New server key accepted",
+        "de": "Neuer Serverschlüssel akzeptiert"
+      },
+      "cause": {
+        "ru": "Новый ключ сервера, у которого ключ менялся, принят. Теперь он запомнен, и Auto снова может использовать этот канал.",
+        "uk": "Новий ключ сервера, у якого ключ змінювався, прийнято. Тепер його запам'ятовано, і Auto знову може використовувати цей канал.",
+        "en": "The new key of a server whose key had changed was accepted. From now on it is the remembered key, and Auto can use this channel again.",
+        "de": "Der neue Schlüssel eines Servers, dessen Schlüssel sich geändert hatte, wurde akzeptiert. Ab jetzt ist er der gemerkte Schlüssel, und Auto kann diesen Kanal wieder nutzen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-008",
+      "number": "005-010-008",
+      "key": "SERVER_KEY_CHANGED",
+      "aliases": [
+        "SERVER-KEY-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ сервера изменился",
+        "uk": "Ключ сервера змінився",
+        "en": "Server key changed",
+        "de": "Serverschlüssel hat sich geändert"
+      },
+      "cause": {
+        "ru": "Тот же сервер теперь показывает другой ключ, чем запомненный при первом подключении. Провайдер может менять ключи, но так же выглядит и подменённый или перехваченный сервер. В зависимости от настроек Auto либо только предупреждает, либо не переводит трафик на этот канал, пока вы не примете ключ.",
+        "uk": "Той самий сервер тепер показує інший ключ, ніж запам'ятований під час першого підключення. Провайдер може змінювати ключі, але так само виглядає й підмінений чи перехоплений сервер. Залежно від налаштувань Auto або лише попереджає, або не переводить трафік на цей канал, доки ви не приймете ключ.",
+        "en": "The same server now presents another key than the one remembered at first use. A provider can change keys, but a changed key is also what a substituted or intercepted server looks like. Depending on your settings, Auto either only warns or does not move traffic onto this channel until you accept the key.",
+        "de": "Derselbe Server zeigt jetzt einen anderen Schlüssel als den, der bei der ersten Verbindung gemerkt wurde. Ein Anbieter kann Schlüssel wechseln, aber genauso sieht auch ein untergeschobener oder abgefangener Server aus. Je nach Einstellung warnt Auto nur oder verlegt den Verkehr erst auf diesen Kanal, wenn Sie den Schlüssel akzeptieren."
+      },
+      "action": {
+        "ru": "1. Сверьте новый ключ с данными VPN-провайдера, например в заново скачанной конфигурации.\n2. Если ключ верный, примите его на странице роутера.\n3. Если нет, выключите этот профиль и обратитесь к провайдеру.",
+        "uk": "1. Звірте новий ключ із даними VPN-провайдера, наприклад у заново завантаженій конфігурації.\n2. Якщо ключ правильний, прийміть його на сторінці роутера.\n3. Якщо ні, вимкніть цей профіль і зверніться до провайдера.",
+        "en": "1. Compare the new key with your VPN provider, for example in a freshly downloaded configuration.\n2. If it is correct, accept the new key on the router page.\n3. If it is not, turn this profile off and contact the provider.",
+        "de": "1. Vergleichen Sie den neuen Schlüssel mit den Angaben Ihres VPN-Anbieters, zum Beispiel in einer frisch heruntergeladenen Konfiguration.\n2. Ist er korrekt, akzeptieren Sie den neuen Schlüssel auf der Seite des Routers.\n3. Wenn nicht, schalten Sie dieses Profil aus und wenden Sie sich an den Anbieter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-009",
+      "number": "005-010-009",
+      "key": "SERVER_KEY_FORGOTTEN",
+      "aliases": [
+        "SERVER-KEY-FORGOTTEN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запомненный ключ сервера удалён",
+        "uk": "Запам'ятований ключ сервера видалено",
+        "en": "Remembered server key removed",
+        "de": "Gemerkter Serverschlüssel entfernt"
+      },
+      "cause": {
+        "ru": "Администратор удалил запомненные ключи профиля. При следующей успешной проверке ключ снова запоминается как в первый раз, без сравнения со старым.",
+        "uk": "Адміністратор видалив запам'ятовані ключі профілю. Під час наступної успішної перевірки ключ знову запам'ятовується як уперше, без порівняння зі старим.",
+        "en": "The remembered keys of a profile were removed by the administrator. At its next healthy check the key is remembered again as if for the first time, without comparing it with the old one.",
+        "de": "Der Administrator hat die gemerkten Schlüssel eines Profils entfernt. Bei der nächsten erfolgreichen Prüfung wird der Schlüssel wie beim ersten Mal neu gemerkt, ohne Vergleich mit dem alten."
+      },
+      "action": {
+        "ru": "1. Удаляйте запомненные ключи только после намеренной замены профиля, например при новом провайдере или новой конфигурации.",
+        "uk": "1. Видаляйте запам'ятовані ключі лише після навмисної заміни профілю, наприклад за нового провайдера чи нової конфігурації.",
+        "en": "1. Remove remembered keys only after you replaced the profile on purpose, for example with a new provider or configuration.",
+        "de": "1. Entfernen Sie gemerkte Schlüssel nur, nachdem Sie das Profil bewusst ersetzt haben, zum Beispiel bei neuem Anbieter oder neuer Konfiguration."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-010",
+      "number": "005-010-010",
+      "key": "SERVER_KEY_NOT_CHANGED",
+      "aliases": [
+        "SERVER-KEY-NOT-CHANGED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Нет такой смены ключа для принятия",
+        "uk": "Немає такої зміни ключа для прийняття",
+        "en": "No such key change to accept",
+        "de": "Keine solche Schlüsseländerung zum Akzeptieren"
+      },
+      "cause": {
+        "ru": "Страница попросила принять ключ сервера, но у роутера больше нет такой непринятой смены именно с этим ключом: её уже приняли, профиль сбросили или сервер показывает уже другой ключ. Ничего не принято.",
+        "uk": "Сторінка попросила прийняти ключ сервера, але в роутера більше немає такої неприйнятої зміни саме з цим ключем: її вже прийняли, профіль скинули або сервер показує вже інший ключ. Нічого не прийнято.",
+        "en": "The page asked to accept a server key, but the router no longer has this open change with exactly this key: it was already accepted, the profile was reset, or the server now shows yet another key. Nothing was accepted.",
+        "de": "Die Seite wollte einen Serverschlüssel akzeptieren, aber der Router hat keine offene Änderung mit genau diesem Schlüssel mehr: Sie wurde bereits akzeptiert, das Profil wurde zurückgesetzt, oder der Server zeigt jetzt wieder einen anderen Schlüssel. Es wurde nichts akzeptiert."
+      },
+      "action": {
+        "ru": "1. Дождитесь следующего обновления состояния.\n2. Сверьте показанный сейчас ключ с данными провайдера.\n3. Если ключ верный, примите его снова.",
+        "uk": "1. Дочекайтеся наступного оновлення стану.\n2. Звірте показаний зараз ключ із даними провайдера.\n3. Якщо ключ правильний, прийміть його знову.",
+        "en": "1. Wait for the next status update.\n2. Check the key now shown with your provider.\n3. If it is correct, accept it again.",
+        "de": "1. Warten Sie auf die nächste Statusaktualisierung.\n2. Prüfen Sie den jetzt angezeigten Schlüssel mit Ihrem Anbieter.\n3. Ist er korrekt, akzeptieren Sie ihn erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-011",
+      "number": "005-010-011",
+      "key": "SERVER_KEY_PINNED",
+      "aliases": [
+        "SERVER-KEY-PINNED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ сервера запомнен",
+        "uk": "Ключ сервера запам'ятовано",
+        "en": "Server key remembered",
+        "de": "Serverschlüssel gemerkt"
+      },
+      "cause": {
+        "ru": "При первой успешной проверке этого сервера роутер запомнил его ключ. Теперь он время от времени и при каждой смене адреса сервера сравнивает ключ. Если провайдер выдаёт профилю другой сервер, тот тоже просто запоминается.",
+        "uk": "Під час першої успішної перевірки цього сервера роутер запам'ятав його ключ. Тепер він час від часу й під час кожної зміни адреси сервера порівнює ключ. Якщо провайдер видає профілю інший сервер, той теж просто запам'ятовується.",
+        "en": "At the first successful check of this server the router remembered its key. From now on it compares the key from time to time and whenever the server address changes. If the provider gives the profile another server, that server is simply remembered too.",
+        "de": "Bei der ersten erfolgreichen Prüfung dieses Servers hat sich der Router seinen Schlüssel gemerkt. Ab jetzt vergleicht er den Schlüssel von Zeit zu Zeit und bei jeder Änderung der Serveradresse. Gibt der Anbieter dem Profil einen anderen Server, wird auch dieser einfach gemerkt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-012",
+      "number": "005-010-012",
+      "key": "SERVER_KEY_PROFILE_INVALID",
+      "aliases": [
+        "SERVER-KEY-PROFILE-INVALID"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос о ключе сервера не распознан",
+        "uk": "Запит щодо ключа сервера не розпізнано",
+        "en": "Server key request not understood",
+        "de": "Anfrage zum Serverschlüssel nicht verstanden"
+      },
+      "cause": {
+        "ru": "Запрос на принятие ключа сервера не содержал правильного профиля или ключа. Ничего не изменено.",
+        "uk": "Запит на прийняття ключа сервера не містив правильного профілю або ключа. Нічого не змінено.",
+        "en": "The request to accept a server key did not name a valid profile or key. Nothing was changed.",
+        "de": "Die Anfrage zum Akzeptieren eines Serverschlüssels enthielt kein gültiges Profil oder keinen Schlüssel. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Нажмите кнопку ещё раз.",
+        "uk": "1. Оновіть сторінку.\n2. Натисніть кнопку ще раз.",
+        "en": "1. Reload the page.\n2. Press the button again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Drücken Sie die Schaltfläche erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-013",
+      "number": "005-010-013",
+      "key": "SERVER_KEY_STATE_CORRUPT",
+      "aliases": [
+        "SERVER-KEY-STATE-CORRUPT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запомненные ключи серверов не читаются",
+        "uk": "Запам'ятовані ключі серверів не читаються",
+        "en": "Remembered server keys unreadable",
+        "de": "Gemerkte Serverschlüssel nicht lesbar"
+      },
+      "cause": {
+        "ru": "Запись запомненных ключей серверов была повреждена. Её копия сохранена для разбора, а запоминание начинается заново: каждый сервер снова считается новым, поэтому смену ключа, случившуюся за это время, для этих серверов заметить нельзя.",
+        "uk": "Запис запам'ятованих ключів серверів був пошкоджений. Його копію збережено для аналізу, а запам'ятовування починається заново: кожен сервер знову вважається новим, тому зміну ключа, що сталася за цей час, для цих серверів помітити неможливо.",
+        "en": "The record of remembered server keys was damaged. A copy was kept for analysis, and remembering starts afresh: every server counts as new again, so a key change made in the meantime cannot be noticed for those servers.",
+        "de": "Die Aufzeichnung der gemerkten Serverschlüssel war beschädigt. Eine Kopie wurde zur Analyse aufbewahrt, und das Merken beginnt neu: Jeder Server gilt wieder als neu, daher kann eine zwischenzeitliche Schlüsseländerung für diese Server nicht erkannt werden."
+      },
+      "action": {
+        "ru": "1. Если это повторяется, проверьте память роутера в диагностике.\n2. Отправьте диагностический отчёт в поддержку.",
+        "uk": "1. Якщо це повторюється, перевірте пам'ять роутера в діагностиці.\n2. Надішліть діагностичний звіт до підтримки.",
+        "en": "1. If it repeats, check the router memory in the diagnostics.\n2. Send the diagnostic report to support.",
+        "de": "1. Wiederholt es sich, prüfen Sie den Speicher des Routers in der Diagnose.\n2. Senden Sie den Diagnosebericht an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-014",
+      "number": "005-010-014",
+      "key": "SERVER_KEY_UNACCEPTED",
+      "aliases": [
+        "SERVER-KEY-UNACCEPTED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Изменённый ключ сервера ещё не принят",
+        "uk": "Змінений ключ сервера ще не прийнято",
+        "en": "Changed server key not accepted yet",
+        "de": "Geänderter Serverschlüssel noch nicht akzeptiert"
+      },
+      "cause": {
+        "ru": "Включена строгая проверка ключей, и в одном из каналов пары Auto есть сервер, ключ которого изменился и ещё не принят. Если это канал, который должен передавать трафик, Auto не запускается; иначе Auto запускается, но не переводит трафик на этот канал. Уйти с этого канала, Stop и откат возможны всегда.",
+        "uk": "Увімкнено сувору перевірку ключів, і в одному з каналів пари Auto є сервер, ключ якого змінився й ще не прийнятий. Якщо це канал, який має передавати трафік, Auto не запускається; інакше Auto запускається, але не переводить трафік на цей канал. Піти з цього каналу, «Стоп» (Stop) і відкат можливі завжди.",
+        "en": "Strict key checking is on, and a channel of the Auto pair has a server whose key changed and was not accepted yet. If this is the channel that would carry the traffic, Auto does not start; otherwise Auto starts but does not move traffic onto that channel. Leaving the channel, Stop and rollback always stay possible.",
+        "de": "Die strenge Schlüsselprüfung ist eingeschaltet, und ein Kanal des Auto-Paares hat einen Server, dessen Schlüssel sich geändert hat und noch nicht akzeptiert wurde. Ist es der Kanal, der den Verkehr tragen soll, startet Auto nicht; sonst startet Auto, verlegt den Verkehr aber nicht auf diesen Kanal. Das Verlassen des Kanals, „Stop“ (Stop) und das Zurücksetzen bleiben immer möglich."
+      },
+      "action": {
+        "ru": "1. Сверьте этот ключ сервера с провайдером через надёжный источник.\n2. Примите его, только если смена ожидаемая.\n3. Если проверить ключ нельзя, не используйте этот канал и не ослабляйте проверку ключей.",
+        "uk": "1. Звірте цей ключ сервера з провайдером через надійне джерело.\n2. Прийміть його, лише якщо зміна очікувана.\n3. Якщо перевірити ключ неможливо, не використовуйте цей канал і не послаблюйте перевірку ключів.",
+        "en": "1. Compare this server key with your provider through a source you trust.\n2. Accept it only if the change is expected.\n3. If you cannot verify the key, leave this channel unused and do not weaken the key checking.",
+        "de": "1. Vergleichen Sie diesen Serverschlüssel über eine vertrauenswürdige Quelle mit Ihrem Anbieter.\n2. Akzeptieren Sie ihn nur, wenn die Änderung erwartet ist.\n3. Können Sie den Schlüssel nicht prüfen, lassen Sie diesen Kanal ungenutzt und schwächen Sie die Schlüsselprüfung nicht ab."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-015",
+      "number": "005-010-015",
+      "key": "SERVER_PICK_CARRYING",
+      "aliases": [
+        "SERVER-PICK-CARRYING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Канал передаёт трафик: сервер не меняется",
+        "uk": "Канал передає трафік: сервер не змінюється",
+        "en": "Channel carries traffic: server kept",
+        "de": "Kanal trägt Verkehr: Server bleibt"
+      },
+      "cause": {
+        "ru": "Программа никогда не меняет сервер канала, который передаёт трафик прямо сейчас, а также когда не может уверенно определить, какой канал это делает.",
+        "uk": "Програма ніколи не змінює сервер каналу, який передає трафік саме зараз, а також коли не може впевнено визначити, який канал це робить.",
+        "en": "The program never changes the server of the channel that carries the traffic right now, or when it cannot confirm which channel does.",
+        "de": "Das Programm ändert nie den Server des Kanals, der gerade den Verkehr trägt, und auch nicht, wenn es nicht sicher feststellen kann, welcher Kanal das ist."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-016",
+      "number": "005-010-016",
+      "key": "SERVER_PICK_DEFERRED",
+      "aliases": [
+        "SERVER-PICK-DEFERRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Смена сервера ждёт Auto",
+        "uk": "Зміна сервера чекає на Auto",
+        "en": "Server change waits for Auto",
+        "de": "Serverwechsel wartet auf Auto"
+      },
+      "cause": {
+        "ru": "Auto сейчас не может сменить этот сервер: идёт переключение или возврат, резерв удерживается, задано ручное переключение, ждёт другое изменение или канал выбран по серверу, а не по туннелю. Запрос остаётся в силе ещё некоторое время.",
+        "uk": "Auto зараз не може змінити цей сервер: триває перемикання чи повернення, резерв утримується, задано ручне перемикання, чекає інша зміна або канал вибрано за сервером, а не за тунелем. Запит лишається чинним ще деякий час.",
+        "en": "Auto cannot change this server right now: a switch or a return is running, the reserve is held, a manual switch is set, another change is pending, or the channel is chosen by its server instead of its tunnel. The request stays valid for a while.",
+        "de": "Auto kann diesen Server gerade nicht wechseln: Ein Wechsel oder eine Rückkehr läuft, die Reserve wird gehalten, ein manueller Wechsel ist gesetzt, eine andere Änderung steht aus, oder der Kanal ist nach seinem Server statt nach seinem Tunnel gewählt. Die Anfrage bleibt eine Weile gültig."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если это повторяется, выберите оба канала по их туннелям в «Настройках».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо це повторюється, виберіть обидва канали за їхніми тунелями в «Налаштуваннях» (Settings).",
+        "en": "1. Nothing to do.\n2. If it repeats, choose both channels by their tunnels in Settings.",
+        "de": "1. Sie müssen nichts tun.\n2. Wiederholt es sich, wählen Sie beide Kanäle in den „Einstellungen“ (Settings) nach ihren Tunneln aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-017",
+      "number": "005-010-017",
+      "key": "SERVER_PICK_FAILED",
+      "aliases": [
+        "SERVER-PICK-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сервер канала не сменён",
+        "uk": "Сервер каналу не змінено",
+        "en": "Channel server not changed",
+        "de": "Server des Kanals nicht gewechselt"
+      },
+      "cause": {
+        "ru": "Смена сервера не удалась, или новый сервер не прошёл проверку канала вовремя. Auto вернул прежний сервер; в «Журнале» видно, получилось ли это.",
+        "uk": "Зміна сервера не вдалася, або новий сервер не пройшов перевірку каналу вчасно. Auto повернув попередній сервер; у «Журналі» (Journal) видно, чи це вдалося.",
+        "en": "Changing the server did not succeed, or the new server did not pass the channel check in time. Auto put the previous server back; the Journal shows whether that worked.",
+        "de": "Der Serverwechsel ist nicht gelungen, oder der neue Server hat die Kanalprüfung nicht rechtzeitig bestanden. Auto hat den vorherigen Server zurückgesetzt; im „Journal“ (Journal) steht, ob das geklappt hat."
+      },
+      "action": {
+        "ru": "1. Проверьте этот канал в настройках VPN-клиента в панели GL.iNet.\n2. Если это повторяется, сохраните диагностический отчёт.",
+        "uk": "1. Перевірте цей канал у налаштуваннях VPN-клієнта в панелі GL.iNet.\n2. Якщо це повторюється, збережіть діагностичний звіт.",
+        "en": "1. Check this channel in the VPN client settings of the GL.iNet panel.\n2. If it repeats, save the diagnostic report.",
+        "de": "1. Prüfen Sie diesen Kanal in den VPN-Client-Einstellungen der GL.iNet-Oberfläche.\n2. Wiederholt es sich, speichern Sie den Diagnosebericht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-018",
+      "number": "005-010-018",
+      "key": "SERVER_PICK_LIMIT",
+      "aliases": [
+        "SERVER-PICK-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Достигнут предел смен сервера",
+        "uk": "Досягнуто межі змін сервера",
+        "en": "Server change limit reached",
+        "de": "Grenze für Serverwechsel erreicht"
+      },
+      "cause": {
+        "ru": "Сервер этого канала уже несколько раз менялся за последнее время. Дальнейшие смены ждут, чтобы канал, у которого проблемы на всех серверах, не перебирался по кругу.",
+        "uk": "Сервер цього каналу вже кілька разів змінювався останнім часом. Подальші зміни чекають, щоб канал, який має проблеми на всіх серверах, не перебирався по колу.",
+        "en": "The server of this channel was already changed several times recently. Further changes wait, so a channel with a problem on every server is not switched around in a loop.",
+        "de": "Der Server dieses Kanals wurde in letzter Zeit bereits mehrmals gewechselt. Weitere Wechsel warten, damit ein Kanal mit Problemen auf jedem Server nicht im Kreis gewechselt wird."
+      },
+      "action": {
+        "ru": "1. Проверьте канал в панели GL.iNet.\n2. Если не работает ни один сервер, проверьте свою учётную запись у VPN-провайдера.",
+        "uk": "1. Перевірте канал у панелі GL.iNet.\n2. Якщо не працює жоден сервер, перевірте свій обліковий запис у VPN-провайдера.",
+        "en": "1. Check the channel in the GL.iNet panel.\n2. If every server fails, check your VPN account with the provider.",
+        "de": "1. Prüfen Sie den Kanal in der GL.iNet-Oberfläche.\n2. Fällt jeder Server aus, prüfen Sie Ihr Konto beim VPN-Anbieter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-019",
+      "number": "005-010-019",
+      "key": "SERVER_PICK_OFF",
+      "aliases": [
+        "SERVER-PICK-OFF"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Выбор сервера выключен",
+        "uk": "Вибір сервера вимкнено",
+        "en": "Server pick is off",
+        "de": "Serverauswahl ist aus"
+      },
+      "cause": {
+        "ru": "Переключатель «Выбирать лучший сервер» выключен или выключен Auto, поэтому серверы не меняются. Список серверов по-прежнему показывается.",
+        "uk": "Перемикач «Вибирати найкращий сервер» (Pick the best server) вимкнено або вимкнено Auto, тому сервери не змінюються. Список серверів і далі показується.",
+        "en": "The switch “Pick the best server” is off, or Auto is off, so no server is changed. The server list is still shown.",
+        "de": "Der Schalter „Besten Server wählen“ (Pick the best server) ist aus, oder Auto ist aus, daher wird kein Server gewechselt. Die Serverliste wird weiterhin angezeigt."
+      },
+      "action": {
+        "ru": "1. Если нужно, включите «Выбирать лучший сервер» в «Настройках», в разделе каналов.",
+        "uk": "1. Якщо потрібно, увімкніть «Вибирати найкращий сервер» у «Налаштуваннях» (Settings), у розділі каналів.",
+        "en": "1. If you want it, turn on “Pick the best server” in Settings, in the channel section.",
+        "de": "1. Wenn gewünscht, schalten Sie „Besten Server wählen“ in den „Einstellungen“ (Settings) im Abschnitt der Kanäle ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-020",
+      "number": "005-010-020",
+      "key": "SERVER_PICK_REQUESTED",
+      "aliases": [
+        "SERVER-PICK-REQUESTED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Смена сервера передана Auto",
+        "uk": "Зміну сервера передано Auto",
+        "en": "Server change handed to Auto",
+        "de": "Serverwechsel an Auto übergeben"
+      },
+      "cause": {
+        "ru": "Проверка серверов нашла более быстрый рабочий сервер для канала, который не работает и не передаёт трафик. Серверы меняет только Auto и только в канале без трафика.",
+        "uk": "Перевірка серверів знайшла швидший робочий сервер для каналу, який не працює й не передає трафік. Сервери змінює лише Auto й лише в каналі без трафіку.",
+        "en": "The server check found a faster working server for a channel that is down and carries no traffic. Only Auto changes servers, and only in a channel without traffic.",
+        "de": "Die Serverprüfung hat einen schnelleren funktionierenden Server für einen Kanal gefunden, der ausgefallen ist und keinen Verkehr trägt. Nur Auto wechselt Server, und nur in einem Kanal ohne Verkehr."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-021",
+      "number": "005-010-021",
+      "key": "SERVER_PICK_WAITING_VENDOR",
+      "aliases": [
+        "SERVER-PICK-WAITING-VENDOR"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Прошивка роутера сама меняет сервер",
+        "uk": "Прошивка роутера сама змінює сервер",
+        "en": "The router firmware is switching the server itself",
+        "de": "Die Router-Firmware wechselt den Server selbst"
+      },
+      "cause": {
+        "ru": "Прошивка GL.iNet прямо сейчас сама меняет сервер этого канала. Программа не вмешивается и проверит позже.",
+        "uk": "Прошивка GL.iNet саме зараз сама змінює сервер цього каналу. Програма не втручається й перевірить пізніше.",
+        "en": "The GL.iNet firmware is switching the server of this channel by itself right now. The program does not interfere and looks again later.",
+        "de": "Die GL.iNet-Firmware wechselt gerade selbst den Server dieses Kanals. Das Programm greift nicht ein und sieht später erneut nach."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-022",
+      "number": "005-010-022",
+      "key": "SERVER_PICKED",
+      "aliases": [
+        "SERVER-PICKED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сервер канала сменён",
+        "uk": "Сервер каналу змінено",
+        "en": "Channel server changed",
+        "de": "Server des Kanals gewechselt"
+      },
+      "cause": {
+        "ru": "Резервный канал не работал и не передавал трафик, поэтому Auto поставил в него самый быстрый рабочий сервер из своего списка. Рабочий канал не затронут, а новый сервер прошёл обычную проверку канала. В «Журнале» указаны оба сервера.",
+        "uk": "Резервний канал не працював і не передавав трафіку, тому Auto поставив у нього найшвидший робочий сервер зі свого списку. Робочого каналу не зачеплено, а новий сервер пройшов звичайну перевірку каналу. У «Журналі» (Journal) вказано обидва сервери.",
+        "en": "The reserve channel was down and carried no traffic, so Auto put the fastest working server from its server list into it. The working channel was not touched, and the new server passed the usual channel check. The Journal names both servers.",
+        "de": "Der Reservekanal war ausgefallen und trug keinen Verkehr, daher hat Auto den schnellsten funktionierenden Server aus seiner Serverliste eingesetzt. Der funktionierende Kanal wurde nicht berührt, und der neue Server hat die übliche Kanalprüfung bestanden. Das „Journal“ (Journal) nennt beide Server."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Чтобы это прекратить, выключите «Выбирать лучший сервер» в «Настройках».",
+        "uk": "1. Нічого робити не потрібно.\n2. Щоб це припинити, вимкніть «Вибирати найкращий сервер» у «Налаштуваннях» (Settings).",
+        "en": "1. Nothing to do.\n2. To stop this, turn off “Pick the best server” in Settings.",
+        "de": "1. Sie müssen nichts tun.\n2. Um das zu beenden, schalten Sie „Besten Server wählen“ in den „Einstellungen“ (Settings) aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-023",
+      "number": "005-010-023",
+      "key": "VENDOR_APPLY_FAILED",
+      "aliases": [
+        "VENDOR-APPLY-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер не применил изменение",
+        "uk": "Роутер не застосував зміну",
+        "en": "The router did not apply the change",
+        "de": "Der Router hat die Änderung nicht übernommen"
+      },
+      "cause": {
+        "ru": "Прошивке GL.iNet не удалось применить изменение, поэтому оно откачено. Ничего восстанавливать не нужно.",
+        "uk": "Прошивці GL.iNet не вдалося застосувати зміну, тому її відкочено. Нічого відновлювати не потрібно.",
+        "en": "The GL.iNet firmware failed to apply the change, so it was rolled back. Nothing needs restoring.",
+        "de": "Die GL.iNet-Firmware konnte die Änderung nicht übernehmen, daher wurde sie zurückgenommen. Es muss nichts wiederhergestellt werden."
+      },
+      "action": {
+        "ru": "1. Проверьте канал в настройках VPN-клиента в панели GL.iNet.\n2. Обновите проверку готовности на странице роутера.\n3. Если это повторяется, сохраните диагностический отчёт.\n4. Если всё ещё непонятно, найдите этот код в «Помощи».",
+        "uk": "1. Перевірте канал у налаштуваннях VPN-клієнта в панелі GL.iNet.\n2. Оновіть перевірку готовності на сторінці роутера.\n3. Якщо це повторюється, збережіть діагностичний звіт.\n4. Якщо все ще незрозуміло, знайдіть цей код у «Довідці» (Help).",
+        "en": "1. Check the channel in the VPN client settings of the GL.iNet panel.\n2. Refresh the readiness check on the router page.\n3. If it repeats, save the diagnostic report.\n4. If it is still unclear, look up this code in Help.",
+        "de": "1. Prüfen Sie den Kanal in den VPN-Client-Einstellungen der GL.iNet-Oberfläche.\n2. Aktualisieren Sie die Bereitschaftsprüfung auf der Seite des Routers.\n3. Wiederholt es sich, speichern Sie den Diagnosebericht.\n4. Ist es weiter unklar, suchen Sie diesen Code in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-024",
+      "number": "005-010-024",
+      "key": "VENDOR_BINDING_CHANGED",
+      "aliases": [
+        "VENDOR-BINDING-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Настройки VPN изменились",
+        "uk": "Налаштування VPN змінилися",
+        "en": "VPN settings changed",
+        "de": "VPN-Einstellungen geändert"
+      },
+      "cause": {
+        "ru": "Роутер заметил новые настройки VPN для этого канала. Прежние хорошие результаты к новым настройкам не относятся, поэтому канал проверяется заново.",
+        "uk": "Роутер помітив нові налаштування VPN для цього каналу. Попередні добрі результати до нових налаштувань не належать, тому канал перевіряється заново.",
+        "en": "The router noticed new VPN settings for this channel. Earlier good results do not count for the new settings, so the channel is checked again.",
+        "de": "Der Router hat neue VPN-Einstellungen für diesen Kanal bemerkt. Frühere gute Ergebnisse gelten für die neuen Einstellungen nicht, daher wird der Kanal neu geprüft."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут, пока пройдут проверки с новыми настройками.",
+        "uk": "1. Зачекайте кілька хвилин, поки пройдуть перевірки з новими налаштуваннями.",
+        "en": "1. Wait a few minutes for checks with the new settings.",
+        "de": "1. Warten Sie einige Minuten auf die Prüfungen mit den neuen Einstellungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-025",
+      "number": "005-010-025",
+      "key": "VENDOR_BINDING_UNKNOWN",
+      "aliases": [
+        "VENDOR-BINDING-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Профиль VPN на роутере изменён или удалён",
+        "uk": "Профіль VPN на роутері змінено або видалено",
+        "en": "VPN profile changed or removed on the router",
+        "de": "VPN-Profil auf dem Router geändert oder entfernt"
+      },
+      "cause": {
+        "ru": "Профиль VPN, который раньше использовался для этого канала, больше нельзя однозначно найти в настройках роутера.",
+        "uk": "Профіль VPN, що раніше використовувався для цього каналу, більше не вдається однозначно знайти в налаштуваннях роутера.",
+        "en": "The VPN profile used before for this channel can no longer be found clearly in the router settings.",
+        "de": "Das VPN-Profil, das bisher für diesen Kanal genutzt wurde, lässt sich in den Router-Einstellungen nicht mehr eindeutig finden."
+      },
+      "action": {
+        "ru": "1. Проверьте профили VPN в панели GL.iNet.\n2. Снова выберите каналы в «Настройках» и сохраните.",
+        "uk": "1. Перевірте профілі VPN у панелі GL.iNet.\n2. Знову виберіть канали в «Налаштуваннях» (Settings) і збережіть.",
+        "en": "1. Check the VPN profiles in the GL.iNet panel.\n2. Choose the channels again in Settings and save.",
+        "de": "1. Prüfen Sie die VPN-Profile in der GL.iNet-Oberfläche.\n2. Wählen Sie die Kanäle in den „Einstellungen“ (Settings) erneut aus und speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-026",
+      "number": "005-010-026",
+      "key": "VENDOR_BUSY_RTP_LOCK_DEAD",
+      "aliases": [
+        "VENDOR-BUSY-RTP-LOCK-DEAD"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Прошивка роутера, похоже, зависла на смене VPN",
+        "uk": "Прошивка роутера, схоже, зависла на зміні VPN",
+        "en": "Router firmware seems stuck on a VPN change",
+        "de": "Router-Firmware scheint bei einer VPN-Änderung zu hängen"
+      },
+      "cause": {
+        "ru": "Прошивка GL.iNet уже некоторое время занята, а программа, которая отметила себя занятой, больше не работает. Это не доказывает, что прошивка закончила: её части ещё могут работать. Auto остаётся заблокированным и не пытается переключаться.",
+        "uk": "Прошивка GL.iNet уже деякий час зайнята, а програма, яка позначила себе зайнятою, більше не працює. Це не доводить, що прошивка завершила роботу: її частини ще можуть працювати. Auto лишається заблокованим і не намагається перемикатися.",
+        "en": "The GL.iNet firmware has been busy for a while, and the program that marked itself as busy no longer runs. This does not prove the firmware has finished: parts of it may still be running. Auto stays blocked and makes no switch attempt.",
+        "de": "Die GL.iNet-Firmware ist schon eine Weile beschäftigt, und das Programm, das sich als beschäftigt markiert hat, läuft nicht mehr. Das beweist nicht, dass die Firmware fertig ist: Teile davon können noch laufen. Auto bleibt blockiert und versucht keinen Wechsel."
+      },
+      "action": {
+        "ru": "1. Подождите ещё несколько минут.\n2. Убедитесь на странице VPN в панели GL.iNet, что никакое изменение не применяется.\n3. Если блокировка остаётся, осознанно перезагрузите роутер и затем проверьте каналы.",
+        "uk": "1. Зачекайте ще кілька хвилин.\n2. Переконайтеся на сторінці VPN у панелі GL.iNet, що жодна зміна не застосовується.\n3. Якщо блокування лишається, свідомо перезавантажте роутер і потім перевірте канали.",
+        "en": "1. Wait a few more minutes.\n2. Check on the VPN page of the GL.iNet panel that no change is being applied.\n3. If the block stays, restart the router on purpose and check the channels afterwards.",
+        "de": "1. Warten Sie noch einige Minuten.\n2. Prüfen Sie auf der VPN-Seite der GL.iNet-Oberfläche, dass keine Änderung übernommen wird.\n3. Bleibt die Blockade, starten Sie den Router bewusst neu und prüfen Sie danach die Kanäle."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-027",
+      "number": "005-010-027",
+      "key": "VENDOR_BUSY_RTP_LOCK_LIVE",
+      "aliases": [
+        "VENDOR-BUSY-RTP-LOCK-LIVE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Прошивка роутера всё ещё применяет изменение VPN",
+        "uk": "Прошивка роутера досі застосовує зміну VPN",
+        "en": "Router firmware keeps applying a VPN change",
+        "de": "Router-Firmware übernimmt weiterhin eine VPN-Änderung"
+      },
+      "cause": {
+        "ru": "Прошивка GL.iNet уже некоторое время занята, и её программа применения изменений VPN всё ещё работает. Auto остаётся заблокированным и не пытается переключаться.",
+        "uk": "Прошивка GL.iNet уже деякий час зайнята, і її програма застосування змін VPN досі працює. Auto лишається заблокованим і не намагається перемикатися.",
+        "en": "The GL.iNet firmware has been busy for a while, and its program that applies VPN changes is still running. Auto stays blocked and makes no switch attempt.",
+        "de": "Die GL.iNet-Firmware ist schon eine Weile beschäftigt, und ihr Programm zum Übernehmen von VPN-Änderungen läuft noch. Auto bleibt blockiert und versucht keinen Wechsel."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока прошивка роутера закончит.\n2. Если это затянулось, проверьте настройки VPN в панели GL.iNet.\n3. Если ничего не помогает, перезагрузите роутер.",
+        "uk": "1. Дочекайтеся, поки прошивка роутера завершить роботу.\n2. Якщо це затягнулося, перевірте налаштування VPN у панелі GL.iNet.\n3. Якщо нічого не допомагає, перезавантажте роутер.",
+        "en": "1. Wait for the router firmware to finish.\n2. If it lasts, check the VPN settings in the GL.iNet panel.\n3. If nothing helps, restart the router.",
+        "de": "1. Warten Sie, bis die Router-Firmware fertig ist.\n2. Dauert es an, prüfen Sie die VPN-Einstellungen in der GL.iNet-Oberfläche.\n3. Hilft nichts, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-028",
+      "number": "005-010-028",
+      "key": "VENDOR_BUSY_TUNNEL_SWITCH",
+      "aliases": [
+        "VENDOR-BUSY-TUNNEL-SWITCH"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Прошивка роутера всё ещё переключает туннель",
+        "uk": "Прошивка роутера досі перемикає тунель",
+        "en": "Router firmware keeps switching a tunnel",
+        "de": "Router-Firmware wechselt weiterhin einen Tunnel"
+      },
+      "cause": {
+        "ru": "Прошивка GL.iNet уже некоторое время занята и всё ещё отмечает, что идёт переключение туннеля. Auto остаётся заблокированным и не пытается переключаться.",
+        "uk": "Прошивка GL.iNet уже деякий час зайнята й досі позначає, що триває перемикання тунелю. Auto лишається заблокованим і не намагається перемикатися.",
+        "en": "The GL.iNet firmware has been busy for a while and still marks a tunnel switch as running. Auto stays blocked and makes no switch attempt.",
+        "de": "Die GL.iNet-Firmware ist schon eine Weile beschäftigt und markiert weiterhin einen laufenden Tunnelwechsel. Auto bleibt blockiert und versucht keinen Wechsel."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока прошивка роутера закончит.\n2. Если это затянулось, перезагрузите роутер.",
+        "uk": "1. Дочекайтеся, поки прошивка роутера завершить роботу.\n2. Якщо це затягнулося, перезавантажте роутер.",
+        "en": "1. Wait for the router firmware to finish.\n2. If it lasts, restart the router.",
+        "de": "1. Warten Sie, bis die Router-Firmware fertig ist.\n2. Dauert es an, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-029",
+      "number": "005-010-029",
+      "key": "VENDOR_BUSY_UNIDENTIFIED",
+      "aliases": [
+        "VENDOR-BUSY-UNIDENTIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Прошивка роутера занята, причина не видна",
+        "uk": "Прошивка роутера зайнята, причина не видна",
+        "en": "Router firmware busy, cause not visible",
+        "de": "Router-Firmware beschäftigt, Ursache nicht sichtbar"
+      },
+      "cause": {
+        "ru": "Прошивка GL.iNet уже некоторое время занята, и причину увидеть не удалось. Отсутствие отметки не доказывает, что прошивка свободна. Auto остаётся заблокированным и не пытается переключаться.",
+        "uk": "Прошивка GL.iNet уже деякий час зайнята, і причину побачити не вдалося. Відсутність позначки не доводить, що прошивка вільна. Auto лишається заблокованим і не намагається перемикатися.",
+        "en": "The GL.iNet firmware has been busy for a while, and no cause could be seen. A missing mark does not prove the firmware is idle. Auto stays blocked and makes no switch attempt.",
+        "de": "Die GL.iNet-Firmware ist schon eine Weile beschäftigt, und es ist keine Ursache erkennbar. Eine fehlende Markierung beweist nicht, dass die Firmware frei ist. Auto bleibt blockiert und versucht keinen Wechsel."
+      },
+      "action": {
+        "ru": "1. Если это затянулось, по возможности сохраните диагностический отчёт.\n2. Перезагрузите роутер.",
+        "uk": "1. Якщо це затягнулося, за можливості збережіть діагностичний звіт.\n2. Перезавантажте роутер.",
+        "en": "1. If it lasts, save the diagnostic report if you can.\n2. Restart the router.",
+        "de": "1. Dauert es an, speichern Sie nach Möglichkeit den Diagnosebericht.\n2. Starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-030",
+      "number": "005-010-030",
+      "key": "VENDOR_BUSY_WORKERS",
+      "aliases": [
+        "VENDOR-BUSY-WORKERS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Задачи прошивки роутера всё ещё выполняются",
+        "uk": "Завдання прошивки роутера досі виконуються",
+        "en": "Router firmware tasks keep running",
+        "de": "Aufgaben der Router-Firmware laufen weiter"
+      },
+      "cause": {
+        "ru": "Прошивка GL.iNet уже некоторое время занята: отметки занятости не видно, но её фоновые задачи всё ещё выполняются. Auto остаётся заблокированным и не пытается переключаться.",
+        "uk": "Прошивка GL.iNet уже деякий час зайнята: позначки зайнятості не видно, але її фонові завдання досі виконуються. Auto лишається заблокованим і не намагається перемикатися.",
+        "en": "The GL.iNet firmware has been busy for a while: no busy mark is visible, but its background tasks are still running. Auto stays blocked and makes no switch attempt.",
+        "de": "Die GL.iNet-Firmware ist schon eine Weile beschäftigt: Es ist keine Belegt-Markierung sichtbar, aber ihre Hintergrundaufgaben laufen noch. Auto bleibt blockiert und versucht keinen Wechsel."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока прошивка роутера закончит.\n2. Если это затянулось, перезагрузите роутер.",
+        "uk": "1. Дочекайтеся, поки прошивка роутера завершить роботу.\n2. Якщо це затягнулося, перезавантажте роутер.",
+        "en": "1. Wait for the router firmware to finish.\n2. If it lasts, restart the router.",
+        "de": "1. Warten Sie, bis die Router-Firmware fertig ist.\n2. Dauert es an, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-031",
+      "number": "005-010-031",
+      "key": "VENDOR_CODE_CHANGED",
+      "aliases": [
+        "VENDOR-CODE-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Скрипты прошивки отличаются от проверенных",
+        "uk": "Скрипти прошивки відрізняються від перевірених",
+        "en": "Router firmware scripts differ from the tested ones",
+        "de": "Firmware-Skripte weichen von den geprüften ab"
+      },
+      "cause": {
+        "ru": "Некоторые системные скрипты GL.iNet в этой прошивке отличаются от версии, с которой программу проверяли. Пакет устанавливается и наблюдение работает, но Auto отклоняется, пока скрипты прошивки не совпадут с проверенной версией.",
+        "uk": "Деякі системні скрипти GL.iNet у цій прошивці відрізняються від версії, з якою програму перевіряли. Пакет встановлюється й спостереження працює, але Auto відхиляється, доки скрипти прошивки не збіжаться з перевіреною версією.",
+        "en": "Some GL.iNet system scripts of this firmware differ from the version the program was checked with. The package installs and monitoring works, but Auto is refused until the firmware scripts match the checked version.",
+        "de": "Einige GL.iNet-Systemskripte dieser Firmware weichen von der Version ab, mit der das Programm geprüft wurde. Das Paket wird installiert und die Überwachung funktioniert, aber Auto wird abgelehnt, bis die Firmware-Skripte der geprüften Version entsprechen."
+      },
+      "action": {
+        "ru": "1. Если вам нужен Auto, установите версию прошивки, указанную в инструкции по установке.\n2. Иначе пользуйтесь только наблюдением.\n3. Никогда не правьте скрипты прошивки и не обходите эту проверку.",
+        "uk": "1. Якщо вам потрібен Auto, встановіть версію прошивки, указану в інструкції зі встановлення.\n2. Інакше користуйтеся лише спостереженням.\n3. Ніколи не редагуйте скрипти прошивки й не обходьте цю перевірку.",
+        "en": "1. If you need Auto, install the firmware version named in the installation guide.\n2. Otherwise use monitoring only.\n3. Never edit the firmware scripts and never bypass this check.",
+        "de": "1. Brauchen Sie Auto, installieren Sie die in der Installationsanleitung genannte Firmware-Version.\n2. Andernfalls nutzen Sie nur die Überwachung.\n3. Bearbeiten Sie nie die Firmware-Skripte und umgehen Sie diese Prüfung nie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-032",
+      "number": "005-010-032",
+      "key": "VENDOR_CODE_UNVERIFIED",
+      "aliases": [
+        "VENDOR-CODE-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Скрипты прошивки не удалось проверить",
+        "uk": "Скрипти прошивки не вдалося перевірити",
+        "en": "Router firmware scripts could not be checked",
+        "de": "Firmware-Skripte konnten nicht geprüft werden"
+      },
+      "cause": {
+        "ru": "Системные скрипты GL.iNet в этой прошивке не удалось проверить, поэтому роутер не может подтвердить, что Auto сможет безопасно переключать каналы. Auto может быть отклонён.",
+        "uk": "Системні скрипти GL.iNet у цій прошивці не вдалося перевірити, тому роутер не може підтвердити, що Auto зможе безпечно перемикати канали. Auto може бути відхилено.",
+        "en": "The GL.iNet system scripts of this firmware could not be checked, so the router cannot confirm that Auto can switch channels safely. Auto may be refused.",
+        "de": "Die GL.iNet-Systemskripte dieser Firmware konnten nicht geprüft werden, daher kann der Router nicht bestätigen, dass Auto Kanäle sicher wechseln kann. Auto kann abgelehnt werden."
+      },
+      "action": {
+        "ru": "1. Перезагрузите роутер.\n2. Обновите проверку готовности на странице роутера.\n3. Если код остаётся, найдите его в «Помощи».",
+        "uk": "1. Перезавантажте роутер.\n2. Оновіть перевірку готовності на сторінці роутера.\n3. Якщо код лишається, знайдіть його в «Довідці» (Help).",
+        "en": "1. Restart the router.\n2. Refresh the readiness check on the router page.\n3. If the code stays, look it up in Help.",
+        "de": "1. Starten Sie den Router neu.\n2. Aktualisieren Sie die Bereitschaftsprüfung auf der Seite des Routers.\n3. Bleibt der Code, suchen Sie ihn in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-033",
+      "number": "005-010-033",
+      "key": "VENDOR_FIRST_OBSERVATION",
+      "aliases": [
+        "VENDOR-FIRST-OBSERVATION"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "VPN замечен впервые",
+        "uk": "VPN помічено вперше",
+        "en": "VPN seen for the first time",
+        "de": "VPN zum ersten Mal gesehen"
+      },
+      "cause": {
+        "ru": "Роутер впервые увидел этот профиль VPN. Само по себе это ничего не говорит о переключении.",
+        "uk": "Роутер уперше побачив цей профіль VPN. Саме по собі це нічого не каже про перемикання.",
+        "en": "The router saw this VPN profile for the first time. This alone says nothing about a switch.",
+        "de": "Der Router hat dieses VPN-Profil zum ersten Mal gesehen. Das allein sagt nichts über einen Wechsel aus."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Дождитесь следующих проверок.",
+        "uk": "1. Нічого робити не потрібно.\n2. Дочекайтеся наступних перевірок.",
+        "en": "1. Nothing to do.\n2. Wait for the next checks.",
+        "de": "1. Sie müssen nichts tun.\n2. Warten Sie auf die nächsten Prüfungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-034",
+      "number": "005-010-034",
+      "key": "VENDOR_IDENTITY_CHANGED",
+      "aliases": [
+        "VENDOR-IDENTITY-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN изменился во время проверки",
+        "uk": "VPN змінився під час перевірки",
+        "en": "VPN changed during a check",
+        "de": "VPN hat sich während einer Prüfung geändert"
+      },
+      "cause": {
+        "ru": "Настройка VPN этого канала изменилась во время измерений, поэтому их результаты отброшены.",
+        "uk": "Налаштування VPN цього каналу змінилося під час вимірювань, тому їхні результати відкинуто.",
+        "en": "The VPN setup of this channel changed while measurements were running, so their results were discarded.",
+        "de": "Die VPN-Einrichtung dieses Kanals hat sich während der Messungen geändert, daher wurden ihre Ergebnisse verworfen."
+      },
+      "action": {
+        "ru": "1. Дождитесь новых проверок этого VPN.",
+        "uk": "1. Дочекайтеся нових перевірок цього VPN.",
+        "en": "1. Wait for new checks of this VPN.",
+        "de": "1. Warten Sie auf neue Prüfungen dieses VPN."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-035",
+      "number": "005-010-035",
+      "key": "VENDOR_IDENTITY_UNKNOWN",
+      "aliases": [
+        "VENDOR-IDENTITY-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Этот VPN не найден на роутере",
+        "uk": "Цей VPN не знайдено на роутері",
+        "en": "This VPN cannot be found on the router",
+        "de": "Dieses VPN wird auf dem Router nicht gefunden"
+      },
+      "cause": {
+        "ru": "Выбранный профиль VPN не удаётся однозначно сопоставить с текущим туннелем роутера.",
+        "uk": "Вибраний профіль VPN не вдається однозначно зіставити з поточним тунелем роутера.",
+        "en": "The chosen VPN profile cannot be matched clearly to a current tunnel of the router.",
+        "de": "Das gewählte VPN-Profil lässt sich keinem aktuellen Tunnel des Routers eindeutig zuordnen."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут новых проверок.\n2. Если пара каналов не привязана, выберите активные профили в «Настройках» и сохраните пару.",
+        "uk": "1. Зачекайте кілька хвилин на нові перевірки.\n2. Якщо пару каналів не прив'язано, виберіть активні профілі в «Налаштуваннях» (Settings) і збережіть пару.",
+        "en": "1. Wait a few minutes for new checks.\n2. If the channel pair is not linked, choose active profiles in Settings and save the pair.",
+        "de": "1. Warten Sie einige Minuten auf neue Prüfungen.\n2. Ist das Kanalpaar nicht verknüpft, wählen Sie aktive Profile in den „Einstellungen“ (Settings) und speichern Sie das Paar."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-036",
+      "number": "005-010-036",
+      "key": "VENDOR_OBSERVATION_PENDING",
+      "aliases": [
+        "VENDOR-OBSERVATION-PENDING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Канал ещё не проверен",
+        "uk": "Канал ще не перевірено",
+        "en": "Channel not checked yet",
+        "de": "Kanal noch nicht geprüft"
+      },
+      "cause": {
+        "ru": "Наблюдение собирает первые результаты по этому каналу после запуска или изменения настроек.",
+        "uk": "Спостереження збирає перші результати для цього каналу після запуску або зміни налаштувань.",
+        "en": "Monitoring is collecting the first results for this channel after a start or a settings change.",
+        "de": "Die Überwachung sammelt nach einem Start oder einer Einstellungsänderung die ersten Ergebnisse für diesen Kanal."
+      },
+      "action": {
+        "ru": "1. Подождите около минуты: результат появится сам.",
+        "uk": "1. Зачекайте близько хвилини: результат з'явиться сам.",
+        "en": "1. Wait about a minute: the result appears by itself.",
+        "de": "1. Warten Sie etwa eine Minute: Das Ergebnis erscheint von selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-037",
+      "number": "005-010-037",
+      "key": "VENDOR_OBSERVATION_TIME",
+      "aliases": [
+        "VENDOR-OBSERVATION-TIME"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Часы роутера непригодны для проверок",
+        "uk": "Годинник роутера непридатний для перевірок",
+        "en": "Router clock not valid for checks",
+        "de": "Router-Uhr für Prüfungen ungültig"
+      },
+      "cause": {
+        "ru": "Время проверки неверное, поэтому роутер не может определить, какой VPN используется.",
+        "uk": "Час перевірки неправильний, тому роутер не може визначити, який VPN використовується.",
+        "en": "The time of the check is not valid, so the router cannot tell which VPN is in use.",
+        "de": "Die Zeit der Prüfung ist ungültig, daher kann der Router nicht feststellen, welches VPN genutzt wird."
+      },
+      "action": {
+        "ru": "1. Проверьте дату и время роутера в панели GL.iNet.\n2. Дождитесь следующей проверки.",
+        "uk": "1. Перевірте дату й час роутера в панелі GL.iNet.\n2. Дочекайтеся наступної перевірки.",
+        "en": "1. Check the date and time of the router in the GL.iNet panel.\n2. Wait for the next check.",
+        "de": "1. Prüfen Sie Datum und Uhrzeit des Routers in der GL.iNet-Oberfläche.\n2. Warten Sie auf die nächste Prüfung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-038",
+      "number": "005-010-038",
+      "key": "VENDOR_PROFILE_CHANGED",
+      "aliases": [
+        "VENDOR-PROFILE-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Другой профиль VPN на том же туннеле",
+        "uk": "Інший профіль VPN на тому самому тунелі",
+        "en": "Another VPN profile on the same tunnel",
+        "de": "Anderes VPN-Profil im selben Tunnel"
+      },
+      "cause": {
+        "ru": "Роутер увидел другой профиль VPN на том же туннеле. Почему он сменился и как это влияет на домашнюю сеть, пока неизвестно.",
+        "uk": "Роутер побачив інший профіль VPN на тому самому тунелі. Чому він змінився і як це впливає на домашню мережу, поки невідомо.",
+        "en": "The router saw a different VPN profile on the same tunnel. Why it changed and how it affects your home network is not known yet.",
+        "de": "Der Router hat im selben Tunnel ein anderes VPN-Profil gesehen. Warum es sich geändert hat und wie sich das auf Ihr Heimnetz auswirkt, ist noch nicht bekannt."
+      },
+      "action": {
+        "ru": "1. Проверьте, какой профиль VPN активен в панели GL.iNet.\n2. Дождитесь следующих проверок этого канала.",
+        "uk": "1. Перевірте, який профіль VPN активний у панелі GL.iNet.\n2. Дочекайтеся наступних перевірок цього каналу.",
+        "en": "1. Check which VPN profile is active in the GL.iNet panel.\n2. Wait for the next checks of this channel.",
+        "de": "1. Prüfen Sie in der GL.iNet-Oberfläche, welches VPN-Profil aktiv ist.\n2. Warten Sie auf die nächsten Prüfungen dieses Kanals."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-039",
+      "number": "005-010-039",
+      "key": "VENDOR_REASON_UNOBSERVED",
+      "aliases": [
+        "VENDOR-REASON-UNOBSERVED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Выбор сервера прошивкой не виден",
+        "uk": "Вибір сервера прошивкою не видно",
+        "en": "Firmware server choice is not visible",
+        "de": "Serverauswahl der Firmware ist nicht sichtbar"
+      },
+      "cause": {
+        "ru": "Прошивка роутера сама выбирает сервер внутри канала и не сообщает, почему и сколько раз пробовала. Программа проверяет только, работает ли канал сейчас.",
+        "uk": "Прошивка роутера сама вибирає сервер усередині каналу й не повідомляє, чому і скільки разів пробувала. Програма перевіряє лише, чи працює канал зараз.",
+        "en": "The router firmware chooses the server inside a channel by itself and does not report why or how often it tried. The program only checks whether the channel works now.",
+        "de": "Die Router-Firmware wählt den Server innerhalb eines Kanals selbst und meldet nicht, warum oder wie oft sie es versucht hat. Das Programm prüft nur, ob der Kanal jetzt funktioniert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Чтобы выбрать другой сервер, воспользуйтесь списком серверов на странице роутера.",
+        "uk": "1. Нічого робити не потрібно.\n2. Щоб вибрати інший сервер, скористайтеся списком серверів на сторінці роутера.",
+        "en": "1. Nothing to do.\n2. To pick another server, use the server list on the router page.",
+        "de": "1. Sie müssen nichts tun.\n2. Um einen anderen Server zu wählen, nutzen Sie die Serverliste auf der Seite des Routers."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "monitor",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-040",
+      "number": "005-010-040",
+      "key": "VENDOR_SAME_TUNNEL",
+      "aliases": [
+        "VENDOR-SAME-TUNNEL"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Оба канала используют один туннель",
+        "uk": "Обидва канали використовують один тунель",
+        "en": "Both channels use the same tunnel",
+        "de": "Beide Kanäle nutzen denselben Tunnel"
+      },
+      "cause": {
+        "ru": "Оба выбранных канала ведут к одному и тому же туннелю, поэтому выбор сервера в нём остаётся за прошивкой роутера. Программа не запускает конкурирующее переключение.",
+        "uk": "Обидва вибрані канали ведуть до одного й того самого тунелю, тому вибір сервера в ньому лишається за прошивкою роутера. Програма не запускає конкурентного перемикання.",
+        "en": "Both chosen channels lead to one and the same tunnel, so server choice there belongs to the router firmware. The program does not run a competing switch.",
+        "de": "Beide gewählten Kanäle führen zu ein und demselben Tunnel, daher bleibt die Serverauswahl dort der Router-Firmware überlassen. Das Programm startet keinen konkurrierenden Wechsel."
+      },
+      "action": {
+        "ru": "1. Выберите в «Настройках» другой туннель для резервного канала.",
+        "uk": "1. Виберіть у «Налаштуваннях» (Settings) інший тунель для резервного каналу.",
+        "en": "1. Choose a different tunnel for the reserve channel in Settings.",
+        "de": "1. Wählen Sie in den „Einstellungen“ (Settings) einen anderen Tunnel für den Reservekanal."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-041",
+      "number": "005-010-041",
+      "key": "VENDOR_SETTLING",
+      "aliases": [
+        "VENDOR-SETTLING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер ещё проверяет настройки VPN",
+        "uk": "Роутер ще перевіряє налаштування VPN",
+        "en": "The router is still checking VPN settings",
+        "de": "Der Router prüft noch die VPN-Einstellungen"
+      },
+      "cause": {
+        "ru": "Роутер ещё не закончил наблюдение за тем, какой VPN используется. Это не показывает, перебрала ли прошивка все серверы.",
+        "uk": "Роутер ще не завершив спостереження за тим, який VPN використовується. Це не показує, чи перебрала прошивка всі сервери.",
+        "en": "The router has not finished observing which VPN is in use. This does not show whether the firmware has run out of servers to try.",
+        "de": "Der Router hat noch nicht fertig beobachtet, welches VPN genutzt wird. Das zeigt nicht, ob die Firmware bereits alle Server durchprobiert hat."
+      },
+      "action": {
+        "ru": "1. Немного подождите: проверки повторяются сами.",
+        "uk": "1. Трохи зачекайте: перевірки повторюються самі.",
+        "en": "1. Wait a little: the checks repeat by themselves.",
+        "de": "1. Warten Sie etwas: Die Prüfungen wiederholen sich von selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-042",
+      "number": "005-010-042",
+      "key": "VENDOR_WORKER_BUSY",
+      "aliases": [
+        "VENDOR-WORKER-BUSY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Прошивка роутера занята",
+        "uk": "Прошивка роутера зайнята",
+        "en": "Router firmware is busy",
+        "de": "Router-Firmware ist beschäftigt"
+      },
+      "cause": {
+        "ru": "Роутер прямо сейчас применяет собственное изменение VPN, поэтому Auto ждёт и не переключает.",
+        "uk": "Роутер саме зараз застосовує власну зміну VPN, тому Auto чекає й не перемикає.",
+        "en": "The router is applying its own VPN change right now, so Auto waits and makes no switch.",
+        "de": "Der Router übernimmt gerade eine eigene VPN-Änderung, daher wartet Auto und wechselt nicht."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Попробуйте ещё раз.\n3. Если всё ещё непонятно, найдите этот код в «Помощи».",
+        "uk": "1. Зачекайте хвилину.\n2. Спробуйте ще раз.\n3. Якщо все ще незрозуміло, знайдіть цей код у «Довідці» (Help).",
+        "en": "1. Wait a minute.\n2. Try again.\n3. If it is still unclear, look up this code in Help.",
+        "de": "1. Warten Sie eine Minute.\n2. Versuchen Sie es erneut.\n3. Ist es weiter unklar, suchen Sie diesen Code in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-043",
+      "number": "005-010-043",
+      "key": "VENDOR_WORKER_QUIET_UNVERIFIED",
+      "aliases": [
+        "VENDOR-WORKER-QUIET-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Изменения VPN в роутере, возможно, ещё идут",
+        "uk": "Зміни VPN у роутері, можливо, ще тривають",
+        "en": "Router VPN changes may still be running",
+        "de": "VPN-Änderungen im Router laufen möglicherweise noch"
+      },
+      "cause": {
+        "ru": "Повторные проверки не подтвердили, что прошивка роутера закончила работу с VPN — например, туннель, который провайдер всё время отклоняет, снова и снова перезапускается. Канал, передающий трафик, продолжает работать.",
+        "uk": "Повторні перевірки не підтвердили, що прошивка роутера завершила роботу з VPN — наприклад, тунель, який провайдер увесь час відхиляє, знову й знову перезапускається. Канал, що передає трафік, продовжує працювати.",
+        "en": "Repeated checks could not confirm that the router firmware has finished its VPN work, for example because a tunnel the provider keeps refusing restarts again and again. The channel carrying the traffic stays up.",
+        "de": "Wiederholte Prüfungen konnten nicht bestätigen, dass die Router-Firmware ihre VPN-Arbeit beendet hat, zum Beispiel weil ein Tunnel, den der Anbieter ständig ablehnt, immer wieder neu startet. Der Kanal, der den Verkehr trägt, bleibt aktiv."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока роутер закончит работу с VPN.\n2. Больше ничего не нужно: после отключения питания Auto сам продолжает попытки.",
+        "uk": "1. Дочекайтеся, поки роутер завершить роботу з VPN.\n2. Більше нічого не потрібно: після вимкнення живлення Auto сам продовжує спроби.",
+        "en": "1. Wait for the router VPN work to finish.\n2. Nothing more: after a power cut Auto keeps trying by itself.",
+        "de": "1. Warten Sie, bis der Router seine VPN-Arbeit beendet hat.\n2. Mehr ist nicht nötig: Nach einem Stromausfall versucht Auto es von selbst weiter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SRV-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "srv",
+        "platform",
+        "translation-draft"
+      ]
+    }
+  ]
+}
