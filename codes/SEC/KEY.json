@@ -6,6 +6,9 @@
       "code": "SEC-KEY-001",
       "number": "006-002-001",
       "key": "SEC_KDF_PARAMS",
+      "aliases": [
+        "kdf_params"
+      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -60,10 +63,10 @@
       ],
       "retryable": false,
       "help": "errors/SEC-KEY-001",
-      "since": "1.3.0",
       "related": [
         "RENT-AUTH-002"
       ],
+      "since": "1.3.0",
       "tags": [
         "login"
       ]
@@ -72,6 +75,9 @@
       "code": "SEC-KEY-002",
       "number": "006-002-002",
       "key": "SEC_RECOVERY_FORMAT",
+      "aliases": [
+        "recovery_format"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -115,10 +121,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-KEY-002",
-      "since": "1.3.0",
       "related": [
         "RENT-RECOV-004"
       ],
+      "since": "1.3.0",
       "tags": [
         "recovery"
       ]
@@ -127,6 +133,9 @@
       "code": "SEC-KEY-003",
       "number": "006-002-003",
       "key": "SEC_RECOVERY_CHECKSUM",
+      "aliases": [
+        "recovery_checksum"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -170,10 +179,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-KEY-003",
-      "since": "1.3.0",
       "related": [
         "RENT-RECOV-005"
       ],
+      "since": "1.3.0",
       "tags": [
         "recovery"
       ]
@@ -182,6 +191,9 @@
       "code": "SEC-KEY-004",
       "number": "006-002-004",
       "key": "SEC_RECOVERY_WRONG",
+      "aliases": [
+        "recovery_wrong"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -225,10 +237,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-KEY-004",
-      "since": "1.3.0",
       "related": [
         "RENT-RECOV-006"
       ],
+      "since": "1.3.0",
       "tags": [
         "recovery"
       ]
@@ -237,6 +249,9 @@
       "code": "SEC-KEY-005",
       "number": "006-002-005",
       "key": "SEC_SHARES_NEEDED",
+      "aliases": [
+        "shares_needed"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -280,10 +295,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-KEY-005",
-      "since": "1.3.0",
       "related": [
         "RENT-RECOV-007"
       ],
+      "since": "1.3.0",
       "tags": [
         "recovery"
       ]
@@ -292,6 +307,9 @@
       "code": "SEC-KEY-006",
       "number": "006-002-006",
       "key": "SEC_SHARES_MISMATCH",
+      "aliases": [
+        "shares_mismatch"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -335,10 +353,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-KEY-006",
-      "since": "1.3.0",
       "related": [
         "RENT-RECOV-008"
       ],
+      "since": "1.3.0",
       "tags": [
         "recovery"
       ]

@@ -6,9 +6,6 @@
       "code": "RENT-PIN-001",
       "number": "003-014-001",
       "key": "POLICY_INVALID",
-      "aliases": [
-        "policy_invalid"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -60,6 +57,8 @@
       "retryable": false,
       "help": "errors/RENT-PIN-001",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-040",
       "tags": [
         "pin"
       ]
@@ -119,9 +118,6 @@
       "code": "RENT-PIN-003",
       "number": "003-014-003",
       "key": "PIN_FORMAT",
-      "aliases": [
-        "pin_format"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -162,6 +158,8 @@
       "retryable": true,
       "help": "errors/RENT-PIN-003",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-035",
       "tags": [
         "pin"
       ]
@@ -170,9 +168,6 @@
       "code": "RENT-PIN-004",
       "number": "003-014-004",
       "key": "PIN_MISMATCH",
-      "aliases": [
-        "pin_mismatch"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -213,6 +208,8 @@
       "retryable": true,
       "help": "errors/RENT-PIN-004",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-036",
       "tags": [
         "pin"
       ]
@@ -221,9 +218,6 @@
       "code": "RENT-PIN-005",
       "number": "003-014-005",
       "key": "PIN_WRONG",
-      "aliases": [
-        "pin_wrong"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -264,6 +258,8 @@
       "retryable": true,
       "help": "errors/RENT-PIN-005",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-037",
       "tags": [
         "pin"
       ]
@@ -272,9 +268,6 @@
       "code": "RENT-PIN-006",
       "number": "003-014-006",
       "key": "PIN_PAUSED",
-      "aliases": [
-        "pin_paused"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -315,6 +308,8 @@
       "retryable": false,
       "help": "errors/RENT-PIN-006",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-038",
       "tags": [
         "pin"
       ]
@@ -323,9 +318,6 @@
       "code": "RENT-PIN-007",
       "number": "003-014-007",
       "key": "PIN_NOT_SET",
-      "aliases": [
-        "pin_not_set"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -366,6 +358,8 @@
       "retryable": true,
       "help": "errors/RENT-PIN-007",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-039",
       "tags": [
         "pin"
       ]
@@ -374,9 +368,6 @@
       "code": "RENT-PIN-008",
       "number": "003-014-008",
       "key": "CONFIRM_NEEDED",
-      "aliases": [
-        "confirm_needed"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -417,6 +408,8 @@
       "retryable": true,
       "help": "errors/RENT-PIN-008",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-041",
       "tags": [
         "pin"
       ]
@@ -425,9 +418,6 @@
       "code": "RENT-PIN-009",
       "number": "003-014-009",
       "key": "RISK_ACK_NEEDED",
-      "aliases": [
-        "risk_ack_needed"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -468,6 +458,8 @@
       "retryable": true,
       "help": "errors/RENT-PIN-009",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-042",
       "tags": [
         "pin"
       ]

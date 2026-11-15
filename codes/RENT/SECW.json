@@ -6,9 +6,6 @@
       "code": "RENT-SECW-001",
       "number": "003-018-001",
       "key": "WIZARD_STEP",
-      "aliases": [
-        "wizard_step"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -49,6 +46,8 @@
       "retryable": true,
       "help": "errors/RENT-SECW-001",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-001",
       "tags": [
         "wizard"
       ]
@@ -57,9 +56,6 @@
       "code": "RENT-SECW-002",
       "number": "003-018-002",
       "key": "WIZARD_CHOICE",
-      "aliases": [
-        "wizard_choice"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -100,6 +96,8 @@
       "retryable": true,
       "help": "errors/RENT-SECW-002",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-002",
       "tags": [
         "wizard"
       ]
@@ -108,9 +106,6 @@
       "code": "RENT-SECW-003",
       "number": "003-018-003",
       "key": "WIZARD_RISK",
-      "aliases": [
-        "wizard_risk"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -151,6 +146,8 @@
       "retryable": true,
       "help": "errors/RENT-SECW-003",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-003",
       "tags": [
         "wizard"
       ]
@@ -159,9 +156,6 @@
       "code": "RENT-SECW-004",
       "number": "003-018-004",
       "key": "WIZARD_LEVEL",
-      "aliases": [
-        "wizard_level"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -202,6 +196,8 @@
       "retryable": true,
       "help": "errors/RENT-SECW-004",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-004",
       "tags": [
         "wizard"
       ]
@@ -210,9 +206,6 @@
       "code": "RENT-SECW-005",
       "number": "003-018-005",
       "key": "HELP_UNKNOWN",
-      "aliases": [
-        "help_unknown"
-      ],
       "level": "info",
       "audience": "user",
       "title": {
@@ -253,6 +246,8 @@
       "retryable": false,
       "help": "errors/RENT-SECW-005",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-007",
       "tags": [
         "wizard"
       ]
@@ -261,9 +256,6 @@
       "code": "RENT-SECW-006",
       "number": "003-018-006",
       "key": "RECOMMENDATION_UNKNOWN",
-      "aliases": [
-        "recommendation_unknown"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -304,6 +296,8 @@
       "retryable": true,
       "help": "errors/RENT-SECW-006",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-005",
       "tags": [
         "wizard"
       ]
@@ -312,9 +306,6 @@
       "code": "RENT-SECW-007",
       "number": "003-018-007",
       "key": "DEFER_PERIOD",
-      "aliases": [
-        "defer_period"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -355,6 +346,8 @@
       "retryable": true,
       "help": "errors/RENT-SECW-007",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-006",
       "tags": [
         "wizard"
       ]

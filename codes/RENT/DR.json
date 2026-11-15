@@ -363,9 +363,6 @@
       "code": "RENT-DR-007",
       "number": "003-001-007",
       "key": "DRILL_NO_COPY",
-      "aliases": [
-        "drill_no_copy"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -406,6 +403,8 @@
       "retryable": true,
       "help": "errors/RENT-DR-007",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-010",
       "tags": [
         "backup"
       ]
@@ -414,9 +413,6 @@
       "code": "RENT-DR-008",
       "number": "003-001-008",
       "key": "DRILL_FAILED",
-      "aliases": [
-        "drill_failed"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -468,6 +464,8 @@
       "retryable": false,
       "help": "errors/RENT-DR-008",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-011",
       "tags": [
         "backup"
       ]
