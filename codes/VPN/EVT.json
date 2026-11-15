@@ -1,0 +1,2474 @@
+{
+  "namespace": "VPN",
+  "area": "EVT",
+  "codes": [
+    {
+      "code": "VPN-EVT-001",
+      "number": "005-012-001",
+      "key": "EVENT_AUTO_RUNNING",
+      "aliases": [
+        "EVENT-AUTO-RUNNING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Auto работает",
+        "uk": "Auto працює",
+        "en": "Auto is running",
+        "de": "Auto läuft"
+      },
+      "cause": {
+        "ru": "Auto включён и следит за каналами. Это запись о работе, а не о переключении: каждый канал по-прежнему регулярно проверяется.",
+        "uk": "Auto увімкнено, і він стежить за каналами. Це запис про роботу, а не про перемикання: кожен канал і далі регулярно перевіряється.",
+        "en": "Auto is on and watching the channels. This records that it is working, not a switch: each channel is still checked regularly.",
+        "de": "Auto ist eingeschaltet und überwacht die Kanäle. Dieser Eintrag zeigt nur, dass es arbeitet, keinen Wechsel: Jeder Kanal wird weiterhin regelmäßig geprüft."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-002",
+      "number": "005-012-002",
+      "key": "EVENT_AUTO_START_REQUESTED",
+      "aliases": [
+        "EVENT-AUTO-START-REQUESTED",
+        "AUTO-START-REQUESTED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Запрошен запуск Auto",
+        "uk": "Запитано запуск Auto",
+        "en": "Auto start requested",
+        "de": "Start von Auto angefordert"
+      },
+      "cause": {
+        "ru": "Записана команда на запуск Auto и то, кто её дал. Сам запуск подтверждается позже отдельной записью.",
+        "uk": "Записано команду на запуск Auto і те, хто її дав. Сам запуск підтверджується пізніше окремим записом.",
+        "en": "The command to start Auto and who gave it were recorded. The start itself is confirmed later by a separate record.",
+        "de": "Der Befehl zum Starten von Auto und sein Auslöser wurden erfasst. Der Start selbst wird später durch einen eigenen Eintrag bestätigt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Убедитесь в «Журнале», что следом появилась запись о работе Auto.",
+        "uk": "1. Нічого робити не потрібно.\n2. Перевірте в «Журналі» (Journal), що слідом з'явився запис про роботу Auto.",
+        "en": "1. Nothing to do.\n2. Check in Journal that a record about Auto running follows.",
+        "de": "1. Es ist nichts zu tun.\n2. Prüfen Sie im „Protokoll“ (Journal), ob danach ein Eintrag über das laufende Auto folgt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-003",
+      "number": "005-012-003",
+      "key": "EVENT_AUTO_STOP_REQUESTED",
+      "aliases": [
+        "EVENT-AUTO-STOP-REQUESTED",
+        "AUTO-STOP-REQUESTED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Запрошена остановка Auto",
+        "uk": "Запитано зупинку Auto",
+        "en": "Auto stop requested",
+        "de": "Stopp von Auto angefordert"
+      },
+      "cause": {
+        "ru": "Записана команда на остановку Auto. Это ещё не значит, что Auto уже остановился и обычный маршрут восстановлен.",
+        "uk": "Записано команду на зупинку Auto. Це ще не означає, що Auto вже зупинився і звичайний маршрут відновлено.",
+        "en": "The command to stop Auto was recorded. This does not yet mean that Auto has stopped and the usual route is back.",
+        "de": "Der Befehl zum Stoppen von Auto wurde erfasst. Das heißt noch nicht, dass Auto bereits angehalten hat und die übliche Route wiederhergestellt ist."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Убедитесь в «Журнале», что следом появилась запись о завершённой остановке.",
+        "uk": "1. Нічого робити не потрібно.\n2. Перевірте в «Журналі» (Journal), що слідом з'явився запис про завершену зупинку.",
+        "en": "1. Nothing to do.\n2. Check in Journal that a record about the finished stop follows.",
+        "de": "1. Es ist nichts zu tun.\n2. Prüfen Sie im „Protokoll“ (Journal), ob danach ein Eintrag über den abgeschlossenen Stopp folgt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-004",
+      "number": "005-012-004",
+      "key": "EVENT_CHANNEL_PREPARATION",
+      "aliases": [
+        "EVENT-CHANNEL-PREPARATION"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Подготовка каналов",
+        "uk": "Підготовка каналів",
+        "en": "Preparing channels",
+        "de": "Kanäle werden vorbereitet"
+      },
+      "cause": {
+        "ru": "Auto готовит каналы и проверяет связь и маршруты. Переключение на этом этапе ещё не выполнено.",
+        "uk": "Auto готує канали й перевіряє зв'язок і маршрути. Перемикання на цьому етапі ще не виконано.",
+        "en": "Auto is preparing the channels and checking connectivity and routes. No switch has been made at this stage.",
+        "de": "Auto bereitet die Kanäle vor und prüft Verbindung und Routen. In dieser Phase wurde noch kein Wechsel ausgeführt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Подождите несколько минут.",
+        "uk": "1. Нічого робити не потрібно.\n2. Зачекайте кілька хвилин.",
+        "en": "1. Nothing to do.\n2. Wait a few minutes.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie einige Minuten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-005",
+      "number": "005-012-005",
+      "key": "EVENT_CHANNEL_SELECTION",
+      "aliases": [
+        "EVENT-CHANNEL-SELECTION"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Записан выбор канала",
+        "uk": "Записано вибір каналу",
+        "en": "Channel selection recorded",
+        "de": "Kanalauswahl erfasst"
+      },
+      "cause": {
+        "ru": "Роутер записал операцию выбора канала: откуда и куда и чем она закончилась. Сам этап работы Auto ещё не доказывает, что выбранный маршрут работает для всех устройств.",
+        "uk": "Роутер записав операцію вибору каналу: звідки й куди та чим вона завершилася. Сам етап роботи Auto ще не доводить, що вибраний маршрут працює для всіх пристроїв.",
+        "en": "The router recorded a channel selection: from which channel to which, and how it ended. The Auto stage alone does not prove that the chosen route works for every device.",
+        "de": "Der Router hat eine Kanalauswahl erfasst: von welchem Kanal zu welchem und wie sie endete. Die Auto-Phase allein beweist nicht, dass die gewählte Route für alle Geräte funktioniert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если на устройстве нет интернета, откройте «Помощь» → «У меня пропал интернет».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо на пристрої немає інтернету, відкрийте «Довідка» (Help) → «У мене зник інтернет».",
+        "en": "1. Nothing to do.\n2. If a device has no internet, open Help → “I have no internet”.",
+        "de": "1. Es ist nichts zu tun.\n2. Hat ein Gerät kein Internet, öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-006",
+      "number": "005-012-006",
+      "key": "EVENT_CHECK_FAILED",
+      "aliases": [
+        "EVENT-CHECK-FAILED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка канала не прошла",
+        "uk": "Перевірка каналу не пройшла",
+        "en": "Channel check failed",
+        "de": "Kanalprüfung fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Очередная проверка связи через канал не удалась. Причина записана рядом отдельным кодом; сама по себе запись не означает, что трафик переключён.",
+        "uk": "Чергова перевірка зв'язку через канал не вдалася. Причину записано поруч окремим кодом; сам по собі запис не означає, що трафік перемкнено.",
+        "en": "A regular connectivity check through the channel failed. The reason is saved next to it as a separate code; this record alone does not mean that traffic was switched.",
+        "de": "Eine regelmäßige Verbindungsprüfung über den Kanal ist fehlgeschlagen. Der Grund ist daneben als eigener Code gespeichert; dieser Eintrag allein bedeutet nicht, dass der Datenverkehr umgeschaltet wurde."
+      },
+      "action": {
+        "ru": "1. Откройте код причины рядом с этой записью в «Журнале».\n2. Если проверки не проходят снова и снова, посмотрите карточку канала на «Главной».",
+        "uk": "1. Відкрийте код причини поруч із цим записом у «Журналі» (Journal).\n2. Якщо перевірки не проходять знову й знову, перегляньте картку каналу на «Головній» (Home).",
+        "en": "1. Open the reason code next to this record in Journal.\n2. If checks keep failing, look at the channel card on Home.",
+        "de": "1. Öffnen Sie den Ursachencode neben diesem Eintrag im „Protokoll“ (Journal).\n2. Schlagen die Prüfungen immer wieder fehl, sehen Sie sich die Kanalkarte auf der „Startseite“ (Home) an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-007",
+      "number": "005-012-007",
+      "key": "EVENT_CHECK_OK",
+      "aliases": [
+        "EVENT-CHECK-OK"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка прошла",
+        "uk": "Перевірку пройдено",
+        "en": "Check passed",
+        "de": "Prüfung bestanden"
+      },
+      "cause": {
+        "ru": "Проверка связи через канал прошла без ошибок. Это наблюдение в тот момент; оно не значит, что трафик переключён или Auto включён.",
+        "uk": "Перевірка зв'язку через канал пройшла без помилок. Це спостереження в той момент; воно не означає, що трафік перемкнено або Auto увімкнено.",
+        "en": "A connectivity check through the channel passed without errors. This is an observation at that moment; it does not mean that traffic was switched or that Auto was turned on.",
+        "de": "Eine Verbindungsprüfung über den Kanal verlief ohne Fehler. Das ist eine Beobachtung zu diesem Zeitpunkt; sie bedeutet nicht, dass der Datenverkehr umgeschaltet oder Auto eingeschaltet wurde."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-008",
+      "number": "005-012-008",
+      "key": "EVENT_COMMAND_ACCEPTED",
+      "aliases": [
+        "EVENT-COMMAND-ACCEPTED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Команда принята",
+        "uk": "Команду прийнято",
+        "en": "Command accepted",
+        "de": "Befehl angenommen"
+      },
+      "cause": {
+        "ru": "Auto принял команду в работу. Выполнена ли она, покажет следующая запись.",
+        "uk": "Auto прийняв команду в роботу. Чи виконано її, покаже наступний запис.",
+        "en": "Auto accepted the command for processing. The next record will show whether it was carried out.",
+        "de": "Auto hat den Befehl zur Bearbeitung angenommen. Ob er ausgeführt wurde, zeigt der nächste Eintrag."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Дождитесь следующей записи в «Журнале».",
+        "uk": "1. Нічого робити не потрібно.\n2. Дочекайтеся наступного запису в «Журналі» (Journal).",
+        "en": "1. Nothing to do.\n2. Wait for the next record in Journal.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie auf den nächsten Eintrag im „Protokoll“ (Journal)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-009",
+      "number": "005-012-009",
+      "key": "EVENT_COMMAND_CANCELLED",
+      "aliases": [
+        "EVENT-COMMAND-CANCELLED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Команда отменена",
+        "uk": "Команду скасовано",
+        "en": "Command cancelled",
+        "de": "Befehl abgebrochen"
+      },
+      "cause": {
+        "ru": "Запрошенная операция была отменена. Каким стал маршрут после отмены, подтверждает отдельная запись.",
+        "uk": "Запитану операцію скасовано. Яким став маршрут після скасування, підтверджує окремий запис.",
+        "en": "The requested operation was cancelled. The route after the cancellation is confirmed by a separate record.",
+        "de": "Der angeforderte Vorgang wurde abgebrochen. Die Route nach dem Abbruch wird durch einen eigenen Eintrag bestätigt."
+      },
+      "action": {
+        "ru": "1. Посмотрите в «Журнале» следующую запись о маршруте.\n2. Повторите действие, если оно ещё нужно.",
+        "uk": "1. Перегляньте в «Журналі» (Journal) наступний запис про маршрут.\n2. Повторіть дію, якщо вона ще потрібна.",
+        "en": "1. Check the next record about the route in Journal.\n2. Repeat the action if it is still needed.",
+        "de": "1. Sehen Sie sich im „Protokoll“ (Journal) den nächsten Eintrag zur Route an.\n2. Wiederholen Sie die Aktion, falls sie noch nötig ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-010",
+      "number": "005-012-010",
+      "key": "EVENT_COMMAND_QUEUED",
+      "aliases": [
+        "EVENT-COMMAND-QUEUED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Команда в очереди",
+        "uk": "Команда в черзі",
+        "en": "Command queued",
+        "de": "Befehl in der Warteschlange"
+      },
+      "cause": {
+        "ru": "Команда ждёт своей очереди. Выполнение и его результат — отдельные следующие шаги.",
+        "uk": "Команда чекає своєї черги. Виконання та його результат — окремі наступні кроки.",
+        "en": "The command is waiting its turn. Running it and its result are separate later steps.",
+        "de": "Der Befehl wartet, bis er an der Reihe ist. Ausführung und Ergebnis sind eigene spätere Schritte."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Дождитесь следующей записи в «Журнале».",
+        "uk": "1. Нічого робити не потрібно.\n2. Дочекайтеся наступного запису в «Журналі» (Journal).",
+        "en": "1. Nothing to do.\n2. Wait for the next record in Journal.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie auf den nächsten Eintrag im „Protokoll“ (Journal)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-011",
+      "number": "005-012-011",
+      "key": "EVENT_CONNECTION_RECOVERED",
+      "aliases": [
+        "EVENT-CONNECTION-RECOVERED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Канал снова доступен",
+        "uk": "Канал знову доступний",
+        "en": "Channel available again",
+        "de": "Kanal wieder erreichbar"
+      },
+      "cause": {
+        "ru": "Канал, который раньше не работал, снова проходит проверки. Это не значит, что трафик уже вернулся на него.",
+        "uk": "Канал, який раніше не працював, знову проходить перевірки. Це не означає, що трафік уже повернувся на нього.",
+        "en": "A channel that failed earlier passes the checks again. This does not mean that traffic has already moved back to it.",
+        "de": "Ein Kanal, der vorher ausgefallen war, besteht die Prüfungen wieder. Das heißt nicht, dass der Datenverkehr bereits zu ihm zurückgekehrt ist."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-012",
+      "number": "005-012-012",
+      "key": "EVENT_CONTROLLER_IDLE",
+      "aliases": [
+        "EVENT-CONTROLLER-IDLE"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидание команды",
+        "uk": "Очікування команди",
+        "en": "Waiting for a command",
+        "de": "Warten auf einen Befehl"
+      },
+      "cause": {
+        "ru": "Сейчас нет выполняемой операции. Это не означает, что Auto выключен или что какой-то канал не работает.",
+        "uk": "Зараз немає операції, що виконується. Це не означає, що Auto вимкнено або що якийсь канал не працює.",
+        "en": "No operation is running right now. This does not mean that Auto is off or that a channel is not working.",
+        "de": "Derzeit läuft kein Vorgang. Das bedeutet nicht, dass Auto ausgeschaltet ist oder ein Kanal nicht funktioniert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-013",
+      "number": "005-012-013",
+      "key": "EVENT_DETAILS_NOT_SAVED",
+      "aliases": [
+        "EVENT-DETAILS-NOT-SAVED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "В записи не хватает подробностей",
+        "uk": "У записі бракує подробиць",
+        "en": "Record lacks details",
+        "de": "Dem Eintrag fehlen Details"
+      },
+      "cause": {
+        "ru": "Старая запись сохранила не всё: например, кто начал операцию или чем она закончилась. Недостающее не подставляется по сегодняшнему состоянию.",
+        "uk": "Старий запис зберіг не все: наприклад, хто почав операцію або чим вона завершилася. Відсутнє не підставляється за сьогоднішнім станом.",
+        "en": "An older record did not keep everything, for example who started the operation or how it ended. The missing parts are not filled in from today's state.",
+        "de": "Ein älterer Eintrag hat nicht alles gespeichert, zum Beispiel wer den Vorgang gestartet hat oder wie er endete. Fehlende Angaben werden nicht aus dem heutigen Zustand ergänzt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Текущее состояние смотрите на «Главной».",
+        "uk": "1. Нічого робити не потрібно.\n2. Поточний стан дивіться на «Головній» (Home).",
+        "en": "1. Nothing to do.\n2. See the current state on Home.",
+        "de": "1. Es ist nichts zu tun.\n2. Den aktuellen Zustand sehen Sie auf der „Startseite“ (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-014",
+      "number": "005-012-014",
+      "key": "EVENT_DIRECTION_NOT_SAVED",
+      "aliases": [
+        "EVENT-DIRECTION-NOT-SAVED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Направление переключения не записано",
+        "uk": "Напрямок перемикання не записано",
+        "en": "Switch direction not recorded",
+        "de": "Wechselrichtung nicht erfasst"
+      },
+      "cause": {
+        "ru": "В записи нет данных, с какого канала и на какой шло переключение. Направление не угадывается по нынешним настройкам.",
+        "uk": "У записі немає даних, з якого каналу й на який відбувалося перемикання. Напрямок не вгадується за поточними налаштуваннями.",
+        "en": "The record does not say from which channel to which the switch went. The direction is not guessed from the current settings.",
+        "de": "Der Eintrag enthält nicht, von welchem Kanal zu welchem gewechselt wurde. Die Richtung wird nicht aus den aktuellen Einstellungen erraten."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Текущее состояние смотрите на «Главной».",
+        "uk": "1. Нічого робити не потрібно.\n2. Поточний стан дивіться на «Головній» (Home).",
+        "en": "1. Nothing to do.\n2. See the current state on Home.",
+        "de": "1. Es ist nichts zu tun.\n2. Den aktuellen Zustand sehen Sie auf der „Startseite“ (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-015",
+      "number": "005-012-015",
+      "key": "EVENT_MONITORING",
+      "aliases": [
+        "EVENT-MONITORING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Наблюдение за каналами",
+        "uk": "Спостереження за каналами",
+        "en": "Watching the channels",
+        "de": "Kanäle werden überwacht"
+      },
+      "cause": {
+        "ru": "Auto проверяет каналы. Это обычное состояние, а не новое переключение трафика.",
+        "uk": "Auto перевіряє канали. Це звичайний стан, а не нове перемикання трафіку.",
+        "en": "Auto is checking the channels. This is the normal state, not a new traffic switch.",
+        "de": "Auto prüft die Kanäle. Das ist der normale Zustand, kein neuer Wechsel des Datenverkehrs."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-016",
+      "number": "005-012-016",
+      "key": "EVENT_OBSERVATION_GAP",
+      "aliases": [
+        "EVENT-OBSERVATION-GAP"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Перерыв в наблюдениях",
+        "uk": "Перерва в спостереженнях",
+        "en": "Gap in observations",
+        "de": "Lücke in den Beobachtungen"
+      },
+      "cause": {
+        "ru": "Какое-то время роутер не получал надёжных результатов проверок. За этот промежуток не считается ни успех, ни сбой.",
+        "uk": "Деякий час роутер не отримував надійних результатів перевірок. За цей проміжок не вважається ні успіх, ні збій.",
+        "en": "For a while the router had no reliable check results. Neither success nor failure is assumed for that period.",
+        "de": "Eine Zeit lang hatte der Router keine verlässlichen Prüfergebnisse. Für diesen Zeitraum wird weder Erfolg noch Ausfall angenommen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если перерывы повторяются часто, посмотрите соседние записи в «Журнале».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо перерви повторюються часто, перегляньте сусідні записи в «Журналі» (Journal).",
+        "en": "1. Nothing to do.\n2. If gaps happen often, look at the nearby records in Journal.",
+        "de": "1. Es ist nichts zu tun.\n2. Treten Lücken häufig auf, sehen Sie sich die benachbarten Einträge im „Protokoll“ (Journal) an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-017",
+      "number": "005-012-017",
+      "key": "EVENT_OPERATION_BLOCKED",
+      "aliases": [
+        "EVENT-OPERATION-BLOCKED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Действие отклонено",
+        "uk": "Дію відхилено",
+        "en": "Action refused",
+        "de": "Aktion abgelehnt"
+      },
+      "cause": {
+        "ru": "Для действия не было выполнено обязательное условие, поэтому ничего не изменено. Причина записана отдельным кодом.",
+        "uk": "Для дії не виконано обов'язкову умову, тому нічого не змінено. Причину записано окремим кодом.",
+        "en": "A required condition for the action was not met, so nothing was changed. The reason is saved as a separate code.",
+        "de": "Eine notwendige Voraussetzung für die Aktion war nicht erfüllt, daher wurde nichts geändert. Der Grund ist als eigener Code gespeichert."
+      },
+      "action": {
+        "ru": "1. Откройте код причины рядом с этой записью в «Журнале».\n2. Устраните то, что в нём названо, и повторите действие.",
+        "uk": "1. Відкрийте код причини поруч із цим записом у «Журналі» (Journal).\n2. Усуньте те, що в ньому названо, і повторіть дію.",
+        "en": "1. Open the reason code next to this record in Journal.\n2. Fix what it names and repeat the action.",
+        "de": "1. Öffnen Sie den Ursachencode neben diesem Eintrag im „Protokoll“ (Journal).\n2. Beheben Sie das dort Genannte und wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-018",
+      "number": "005-012-018",
+      "key": "EVENT_OPERATION_FAILED",
+      "aliases": [
+        "EVENT-OPERATION-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Операция не удалась",
+        "uk": "Операція не вдалася",
+        "en": "Operation failed",
+        "de": "Vorgang fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Операция закончилась с ошибкой. Неудачная попытка или откат не считаются успешным переключением; причина и итог записаны отдельно.",
+        "uk": "Операція завершилася з помилкою. Невдала спроба або відкат не вважаються успішним перемиканням; причину й підсумок записано окремо.",
+        "en": "The operation ended with an error. A failed attempt or a rollback is not counted as a successful switch; the reason and the outcome are saved separately.",
+        "de": "Der Vorgang endete mit einem Fehler. Ein fehlgeschlagener Versuch oder ein Zurücksetzen gilt nicht als erfolgreicher Wechsel; Grund und Ergebnis sind getrennt gespeichert."
+      },
+      "action": {
+        "ru": "1. Откройте код причины рядом с этой записью в «Журнале».\n2. Проверьте на «Главной», что интернет работает.",
+        "uk": "1. Відкрийте код причини поруч із цим записом у «Журналі» (Journal).\n2. Перевірте на «Головній» (Home), що інтернет працює.",
+        "en": "1. Open the reason code next to this record in Journal.\n2. Check on Home that the internet works.",
+        "de": "1. Öffnen Sie den Ursachencode neben diesem Eintrag im „Protokoll“ (Journal).\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-019",
+      "number": "005-012-019",
+      "key": "EVENT_OPERATION_STOPPED",
+      "aliases": [
+        "EVENT-OPERATION-STOPPED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Операция остановлена",
+        "uk": "Операцію зупинено",
+        "en": "Operation stopped",
+        "de": "Vorgang angehalten"
+      },
+      "cause": {
+        "ru": "Текущая операция завершилась. Включён ли Auto и какой маршрут сейчас, показывают отдельные записи.",
+        "uk": "Поточна операція завершилася. Чи увімкнено Auto і який маршрут зараз, показують окремі записи.",
+        "en": "The current operation has ended. Whether Auto is on and which route is used now is shown by separate records.",
+        "de": "Der aktuelle Vorgang ist beendet. Ob Auto eingeschaltet ist und welche Route gerade genutzt wird, zeigen eigene Einträge."
+      },
+      "action": {
+        "ru": "1. Текущее состояние Auto и маршрута смотрите на «Главной».",
+        "uk": "1. Поточний стан Auto та маршруту дивіться на «Головній» (Home).",
+        "en": "1. See the current state of Auto and the route on Home.",
+        "de": "1. Den aktuellen Zustand von Auto und der Route sehen Sie auf der „Startseite“ (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-020",
+      "number": "005-012-020",
+      "key": "EVENT_ORIGINAL_RESTORED",
+      "aliases": [
+        "EVENT-ORIGINAL-RESTORED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Исходный маршрут восстановлен",
+        "uk": "Початковий маршрут відновлено",
+        "en": "Original route restored",
+        "de": "Ursprüngliche Route wiederhergestellt"
+      },
+      "cause": {
+        "ru": "Роутер проверил и подтвердил, что трафик снова идёт по исходному маршруту. Это итог, а не запрос на возврат.",
+        "uk": "Роутер перевірив і підтвердив, що трафік знову йде початковим маршрутом. Це підсумок, а не запит на повернення.",
+        "en": "The router checked and confirmed that traffic uses the original route again. This is the outcome, not a request to return.",
+        "de": "Der Router hat geprüft und bestätigt, dass der Datenverkehr wieder über die ursprüngliche Route läuft. Das ist das Ergebnis, keine Rückkehranfrage."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-021",
+      "number": "005-012-021",
+      "key": "EVENT_PATH_CONFIRMATION",
+      "aliases": [
+        "EVENT-PATH-CONFIRMATION"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка нового маршрута",
+        "uk": "Перевірка нового маршруту",
+        "en": "Checking the new route",
+        "de": "Neue Route wird geprüft"
+      },
+      "cause": {
+        "ru": "Выбранный маршрут ещё не принят как подтверждённый. Роутер ждёт, пока проверки покажут, что через него действительно идёт интернет.",
+        "uk": "Вибраний маршрут ще не прийнято як підтверджений. Роутер чекає, поки перевірки покажуть, що через нього справді йде інтернет.",
+        "en": "The chosen route is not yet accepted as confirmed. The router is waiting until checks show that the internet really works through it.",
+        "de": "Die gewählte Route ist noch nicht als bestätigt übernommen. Der Router wartet, bis Prüfungen zeigen, dass das Internet darüber wirklich funktioniert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Подождите несколько минут.",
+        "uk": "1. Нічого робити не потрібно.\n2. Зачекайте кілька хвилин.",
+        "en": "1. Nothing to do.\n2. Wait a few minutes.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie einige Minuten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-022",
+      "number": "005-012-022",
+      "key": "EVENT_POLICY_REAPPLY",
+      "aliases": [
+        "EVENT-POLICY-REAPPLY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Правила VPN применены заново",
+        "uk": "Правила VPN застосовано повторно",
+        "en": "VPN rules applied again",
+        "de": "VPN-Regeln erneut angewendet"
+      },
+      "cause": {
+        "ru": "Роутер заново применил правила VPN, не меняя порядок каналов. Это не переключение канала и не результат проверки интернета.",
+        "uk": "Роутер повторно застосував правила VPN, не змінюючи порядок каналів. Це не перемикання каналу й не результат перевірки інтернету.",
+        "en": "The router applied the VPN rules again without changing the channel order. This is not a channel switch and not an internet check result.",
+        "de": "Der Router hat die VPN-Regeln erneut angewendet, ohne die Reihenfolge der Kanäle zu ändern. Das ist weder ein Kanalwechsel noch ein Ergebnis der Internetprüfung."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-023",
+      "number": "005-012-023",
+      "key": "EVENT_PROFILE_DISABLED",
+      "aliases": [
+        "EVENT-PROFILE-DISABLED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Профиль VPN выключен",
+        "uk": "Профіль VPN вимкнено",
+        "en": "VPN profile turned off",
+        "de": "VPN-Profil ausgeschaltet"
+      },
+      "cause": {
+        "ru": "Профиль VPN выключен в настройках роутера или неактивен. Это не то же самое, что неудачная проверка интернета.",
+        "uk": "Профіль VPN вимкнено в налаштуваннях роутера або він неактивний. Це не те саме, що невдала перевірка інтернету.",
+        "en": "The VPN profile is turned off in the router settings or is inactive. This is not the same as a failed internet check.",
+        "de": "Das VPN-Profil ist in den Router-Einstellungen ausgeschaltet oder inaktiv. Das ist nicht dasselbe wie eine fehlgeschlagene Internetprüfung."
+      },
+      "action": {
+        "ru": "1. Если профиль нужен, включите его в настройках VPN роутера.\n2. Проверьте карточку канала на «Главной».",
+        "uk": "1. Якщо профіль потрібен, увімкніть його в налаштуваннях VPN роутера.\n2. Перевірте картку каналу на «Головній» (Home).",
+        "en": "1. If you need the profile, turn it on in the router's VPN settings.\n2. Check the channel card on Home.",
+        "de": "1. Wenn Sie das Profil benötigen, schalten Sie es in den VPN-Einstellungen des Routers ein.\n2. Prüfen Sie die Kanalkarte auf der „Startseite“ (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-024",
+      "number": "005-012-024",
+      "key": "EVENT_RECORD_CONFLICT",
+      "aliases": [
+        "EVENT-RECORD-CONFLICT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Противоречивая запись",
+        "uk": "Суперечливий запис",
+        "en": "Conflicting record",
+        "de": "Widersprüchlicher Eintrag"
+      },
+      "cause": {
+        "ru": "В одной записи сохранены и успех, и неудача. Поэтому она не считается подтверждением успешного переключения.",
+        "uk": "В одному записі збережено і успіх, і невдачу. Тому він не вважається підтвердженням успішного перемикання.",
+        "en": "One record contains both a success and a failure. That is why it is not counted as a confirmed successful switch.",
+        "de": "Ein Eintrag enthält sowohl einen Erfolg als auch einen Fehlschlag. Deshalb gilt er nicht als Bestätigung eines erfolgreichen Wechsels."
+      },
+      "action": {
+        "ru": "1. Текущее состояние смотрите на «Главной».\n2. Посмотрите соседние записи в «Журнале».",
+        "uk": "1. Поточний стан дивіться на «Головній» (Home).\n2. Перегляньте сусідні записи в «Журналі» (Journal).",
+        "en": "1. See the current state on Home.\n2. Look at the nearby records in Journal.",
+        "de": "1. Den aktuellen Zustand sehen Sie auf der „Startseite“ (Home).\n2. Sehen Sie sich die benachbarten Einträge im „Protokoll“ (Journal) an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-025",
+      "number": "005-012-025",
+      "key": "EVENT_RECOVERY_PENDING",
+      "aliases": [
+        "EVENT-RECOVERY-PENDING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидается подтверждение восстановления",
+        "uk": "Очікується підтвердження відновлення",
+        "en": "Recovery awaiting confirmation",
+        "de": "Wiederherstellung wartet auf Bestätigung"
+      },
+      "cause": {
+        "ru": "Роутер снимает временную защиту трафика, но итог ещё не подтверждён. Попытка восстановления сама по себе не считается результатом.",
+        "uk": "Роутер знімає тимчасовий захист трафіку, але підсумок ще не підтверджено. Спроба відновлення сама по собі не вважається результатом.",
+        "en": "The router is releasing a temporary traffic protection, but the outcome is not yet confirmed. An attempt to recover is not counted as the result.",
+        "de": "Der Router hebt einen vorübergehenden Schutz des Datenverkehrs auf, aber das Ergebnis ist noch nicht bestätigt. Ein Wiederherstellungsversuch gilt nicht als Ergebnis."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если интернета долго нет, откройте «Помощь» → «У меня пропал интернет».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо інтернету довго немає, відкрийте «Довідка» (Help) → «У мене зник інтернет».",
+        "en": "1. Nothing to do.\n2. If the internet stays down for long, open Help → “I have no internet”.",
+        "de": "1. Es ist nichts zu tun.\n2. Bleibt das Internet länger weg, öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-026",
+      "number": "005-012-026",
+      "key": "EVENT_RESERVE_DEGRADED",
+      "aliases": [
+        "EVENT-RESERVE-DEGRADED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка резервного канала не прошла",
+        "uk": "Перевірка резервного каналу не пройшла",
+        "en": "Reserve channel check failed",
+        "de": "Prüfung des Reservekanals fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "На резервном канале тоже замечена проблема со связью. Возврат на основной канал всё равно выполняется только после свежих успешных проверок.",
+        "uk": "На резервному каналі теж помічено проблему зі зв'язком. Повернення на основний канал однаково виконується лише після свіжих успішних перевірок.",
+        "en": "A connectivity problem was also seen on the reserve channel. A return to the main channel still happens only after fresh successful checks.",
+        "de": "Auch auf dem Reservekanal wurde ein Verbindungsproblem festgestellt. Eine Rückkehr zum Hauptkanal erfolgt trotzdem erst nach frischen erfolgreichen Prüfungen."
+      },
+      "action": {
+        "ru": "1. Проверьте оба канала на «Главной».\n2. Если оба не работают, проверьте подписку или сервер у поставщика VPN.",
+        "uk": "1. Перевірте обидва канали на «Головній» (Home).\n2. Якщо обидва не працюють, перевірте підписку або сервер у постачальника VPN.",
+        "en": "1. Check both channels on Home.\n2. If both are down, check your subscription or server with the VPN provider.",
+        "de": "1. Prüfen Sie beide Kanäle auf der „Startseite“ (Home).\n2. Funktionieren beide nicht, prüfen Sie Abonnement oder Server beim VPN-Anbieter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-027",
+      "number": "005-012-027",
+      "key": "EVENT_RESERVE_HELD",
+      "aliases": [
+        "EVENT-RESERVE-HELD"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Трафик остался на резервном канале",
+        "uk": "Трафік залишився на резервному каналі",
+        "en": "Traffic stays on the reserve",
+        "de": "Datenverkehr bleibt auf der Reserve"
+      },
+      "cause": {
+        "ru": "Операция завершилась, а трафик остался на резервном канале. Auto при этом может продолжать работать; это не значит, что он выключен.",
+        "uk": "Операція завершилася, а трафік залишився на резервному каналі. Auto при цьому може й далі працювати; це не означає, що його вимкнено.",
+        "en": "The operation ended and traffic stayed on the reserve channel. Auto may keep running; this does not mean that it is off.",
+        "de": "Der Vorgang ist beendet, und der Datenverkehr bleibt auf dem Reservekanal. Auto kann dabei weiterlaufen; das bedeutet nicht, dass es ausgeschaltet ist."
+      },
+      "action": {
+        "ru": "1. Проверьте основной канал на «Главной».\n2. Подождите: Auto вернёт трафик, когда основной канал снова будет стабильно работать.",
+        "uk": "1. Перевірте основний канал на «Головній» (Home).\n2. Зачекайте: Auto поверне трафік, коли основний канал знову стабільно працюватиме.",
+        "en": "1. Check the main channel on Home.\n2. Wait: Auto moves traffic back when the main channel works steadily again.",
+        "de": "1. Prüfen Sie den Hauptkanal auf der „Startseite“ (Home).\n2. Warten Sie: Auto leitet den Datenverkehr zurück, sobald der Hauptkanal wieder stabil läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-028",
+      "number": "005-012-028",
+      "key": "EVENT_RESERVE_SELECTED",
+      "aliases": [
+        "EVENT-RESERVE-SELECTED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Выбран резервный канал",
+        "uk": "Вибрано резервний канал",
+        "en": "Reserve channel selected",
+        "de": "Reservekanal gewählt"
+      },
+      "cause": {
+        "ru": "Роутер подтвердил, что трафик идёт через резервный канал. Это само по себе не значит, что основной канал сломан: его состояние проверяется отдельно.",
+        "uk": "Роутер підтвердив, що трафік іде через резервний канал. Це саме по собі не означає, що основний канал зламаний: його стан перевіряється окремо.",
+        "en": "The router confirmed that traffic goes through the reserve channel. This alone does not mean that the main channel is broken; its state is checked separately.",
+        "de": "Der Router hat bestätigt, dass der Datenverkehr über den Reservekanal läuft. Das allein bedeutet nicht, dass der Hauptkanal defekt ist; sein Zustand wird separat geprüft."
+      },
+      "action": {
+        "ru": "1. Проверьте основной канал на «Главной».",
+        "uk": "1. Перевірте основний канал на «Головній» (Home).",
+        "en": "1. Check the main channel on Home.",
+        "de": "1. Prüfen Sie den Hauptkanal auf der „Startseite“ (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-029",
+      "number": "005-012-029",
+      "key": "EVENT_RESULT_NEEDS_VERIFICATION",
+      "aliases": [
+        "EVENT-RESULT-NEEDS-VERIFICATION"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Результат не подтверждён",
+        "uk": "Результат не підтверджено",
+        "en": "Result not confirmed",
+        "de": "Ergebnis nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Сохранённые данные не подтверждают, что операция действительно выполнена. Успешное переключение не придумывается.",
+        "uk": "Збережені дані не підтверджують, що операцію справді виконано. Успішне перемикання не вигадується.",
+        "en": "The saved data does not confirm that the operation was really done. A successful switch is not assumed.",
+        "de": "Die gespeicherten Daten bestätigen nicht, dass der Vorgang wirklich ausgeführt wurde. Ein erfolgreicher Wechsel wird nicht angenommen."
+      },
+      "action": {
+        "ru": "1. Посмотрите текущее состояние на «Главной».\n2. Повторяйте действие, только если оно действительно не выполнено.",
+        "uk": "1. Перегляньте поточний стан на «Головній» (Home).\n2. Повторюйте дію, лише якщо її справді не виконано.",
+        "en": "1. Look at the current state on Home.\n2. Repeat the action only if it was really not done.",
+        "de": "1. Sehen Sie sich den aktuellen Zustand auf der „Startseite“ (Home) an.\n2. Wiederholen Sie die Aktion nur, wenn sie wirklich nicht ausgeführt wurde."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-030",
+      "number": "005-012-030",
+      "key": "EVENT_RETURN_IN_PROGRESS",
+      "aliases": [
+        "EVENT-RETURN-IN-PROGRESS"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Возврат на исходный маршрут",
+        "uk": "Повернення на початковий маршрут",
+        "en": "Returning to the original route",
+        "de": "Rückkehr zur ursprünglichen Route"
+      },
+      "cause": {
+        "ru": "Роутер возвращает трафик на исходный маршрут. Восстановленным он будет считаться только после отдельного подтверждения.",
+        "uk": "Роутер повертає трафік на початковий маршрут. Відновленим він вважатиметься лише після окремого підтвердження.",
+        "en": "The router is moving traffic back to the original route. It counts as restored only after a separate confirmation.",
+        "de": "Der Router leitet den Datenverkehr zur ursprünglichen Route zurück. Als wiederhergestellt gilt sie erst nach einer eigenen Bestätigung."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Подождите несколько минут.",
+        "uk": "1. Нічого робити не потрібно.\n2. Зачекайте кілька хвилин.",
+        "en": "1. Nothing to do.\n2. Wait a few minutes.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie einige Minuten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-031",
+      "number": "005-012-031",
+      "key": "EVENT_ROLLBACK_RECORDED",
+      "aliases": [
+        "EVENT-ROLLBACK-RECORDED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Записан откат",
+        "uk": "Записано відкат",
+        "en": "Rollback recorded",
+        "de": "Zurücksetzen erfasst"
+      },
+      "cause": {
+        "ru": "Старая запись содержит этап отката. Если в ней нет подтверждения восстановления, успешный возврат не приписывается.",
+        "uk": "Старий запис містить етап відкату. Якщо в ньому немає підтвердження відновлення, успішне повернення не приписується.",
+        "en": "An older record contains a rollback stage. If it has no confirmation of the restore, a successful return is not assumed.",
+        "de": "Ein älterer Eintrag enthält eine Phase des Zurücksetzens. Fehlt darin die Bestätigung der Wiederherstellung, wird keine erfolgreiche Rückkehr angenommen."
+      },
+      "action": {
+        "ru": "1. Текущее состояние смотрите на «Главной».",
+        "uk": "1. Поточний стан дивіться на «Головній» (Home).",
+        "en": "1. See the current state on Home.",
+        "de": "1. Den aktuellen Zustand sehen Sie auf der „Startseite“ (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-032",
+      "number": "005-012-032",
+      "key": "EVENT_ROUTE_APPLYING",
+      "aliases": [
+        "EVENT-ROUTE-APPLYING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Применяется выбор маршрута",
+        "uk": "Застосовується вибір маршруту",
+        "en": "Applying route selection",
+        "de": "Routenauswahl wird angewendet"
+      },
+      "cause": {
+        "ru": "Роутер переводит трафик на выбранный маршрут. Итог подтвердит следующая запись.",
+        "uk": "Роутер переводить трафік на вибраний маршрут. Підсумок підтвердить наступний запис.",
+        "en": "The router is moving traffic to the chosen route. The next record will confirm the outcome.",
+        "de": "Der Router leitet den Datenverkehr auf die gewählte Route um. Der nächste Eintrag bestätigt das Ergebnis."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Дождитесь следующей записи в «Журнале».",
+        "uk": "1. Нічого робити не потрібно.\n2. Дочекайтеся наступного запису в «Журналі» (Journal).",
+        "en": "1. Nothing to do.\n2. Wait for the next record in Journal.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie auf den nächsten Eintrag im „Protokoll“ (Journal)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-033",
+      "number": "005-012-033",
+      "key": "EVENT_ROUTER_OBSERVATION",
+      "aliases": [
+        "EVENT-ROUTER-OBSERVATION"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Состояние Auto записано",
+        "uk": "Стан Auto записано",
+        "en": "Auto state recorded",
+        "de": "Auto-Zustand erfasst"
+      },
+      "cause": {
+        "ru": "Роутер записал текущее состояние Auto; канал при этом не менялся. Это не новое переключение.",
+        "uk": "Роутер записав поточний стан Auto; канал при цьому не змінювався. Це не нове перемикання.",
+        "en": "The router recorded the current Auto state; the channel did not change. This is not a new switch.",
+        "de": "Der Router hat den aktuellen Auto-Zustand erfasst; der Kanal hat sich dabei nicht geändert. Das ist kein neuer Wechsel."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-034",
+      "number": "005-012-034",
+      "key": "EVENT_START_CONFIRMATION_PENDING",
+      "aliases": [
+        "EVENT-START-CONFIRMATION-PENDING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Запуск ждёт подтверждения",
+        "uk": "Запуск чекає підтвердження",
+        "en": "Start awaiting confirmation",
+        "de": "Start wartet auf Bestätigung"
+      },
+      "cause": {
+        "ru": "Команда Start принята, но пока ещё видно прежнее состояние «остановлен». Это не новая команда Stop.",
+        "uk": "Команду Start прийнято, але поки ще видно попередній стан «зупинено». Це не нова команда Stop.",
+        "en": "The Start command was accepted, but the previous stopped state is still shown. This is not a new Stop command.",
+        "de": "Der Befehl Start wurde angenommen, aber noch wird der vorherige Zustand „angehalten“ angezeigt. Das ist kein neuer Stop-Befehl."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Подождите несколько минут.",
+        "uk": "1. Нічого робити не потрібно.\n2. Зачекайте кілька хвилин.",
+        "en": "1. Nothing to do.\n2. Wait a few minutes.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie einige Minuten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-035",
+      "number": "005-012-035",
+      "key": "EVENT_TRIAL_PREREQUISITE",
+      "aliases": [
+        "EVENT-TRIAL-PREREQUISITE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Режиму не хватает условия",
+        "uk": "Режиму бракує умови",
+        "en": "Mode requirement missing",
+        "de": "Voraussetzung für den Modus fehlt"
+      },
+      "cause": {
+        "ru": "Выбранному режиму работы нужно дополнительное условие, и оно пока не выполнено. Какое именно, указано в отдельном коде причины.",
+        "uk": "Вибраному режиму роботи потрібна додаткова умова, і її поки не виконано. Яка саме, зазначено в окремому коді причини.",
+        "en": "The chosen operating mode needs an additional requirement that is not met yet. The separate reason code says which one.",
+        "de": "Der gewählte Betriebsmodus benötigt eine zusätzliche Voraussetzung, die noch nicht erfüllt ist. Welche, nennt der eigene Ursachencode."
+      },
+      "action": {
+        "ru": "1. Откройте код причины рядом с этой записью в «Журнале».\n2. Выполните названное условие и повторите действие.",
+        "uk": "1. Відкрийте код причини поруч із цим записом у «Журналі» (Journal).\n2. Виконайте названу умову й повторіть дію.",
+        "en": "1. Open the reason code next to this record in Journal.\n2. Meet the named requirement and repeat the action.",
+        "de": "1. Öffnen Sie den Ursachencode neben diesem Eintrag im „Protokoll“ (Journal).\n2. Erfüllen Sie die genannte Voraussetzung und wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-036",
+      "number": "005-012-036",
+      "key": "EVENT_VENDOR_WAIT",
+      "aliases": [
+        "EVENT-VENDOR-WAIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидание операции роутера",
+        "uk": "Очікування операції роутера",
+        "en": "Waiting for a router operation",
+        "de": "Warten auf einen Router-Vorgang"
+      },
+      "cause": {
+        "ru": "Встроенная система роутера GL.iNet была занята своей сетевой операцией. Auto откладывает решения о переключении, пока она не закончится; это не означает сбой VPN.",
+        "uk": "Вбудована система роутера GL.iNet була зайнята своєю мережевою операцією. Auto відкладає рішення про перемикання, поки вона не завершиться; це не означає збою VPN.",
+        "en": "The router's built-in GL.iNet system was busy with its own network operation. Auto postpones switching decisions until it finishes; this does not mean a VPN failure.",
+        "de": "Das eingebaute GL.iNet-System des Routers war mit einem eigenen Netzwerkvorgang beschäftigt. Auto verschiebt Wechselentscheidungen, bis er beendet ist; das bedeutet keinen VPN-Ausfall."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Не меняйте настройки сети роутера, пока ожидание не закончится.",
+        "uk": "1. Нічого робити не потрібно.\n2. Не змінюйте налаштування мережі роутера, поки очікування не завершиться.",
+        "en": "1. Nothing to do.\n2. Do not change the router's network settings until the wait is over.",
+        "de": "1. Es ist nichts zu tun.\n2. Ändern Sie die Netzwerkeinstellungen des Routers nicht, bis das Warten beendet ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-037",
+      "number": "005-012-037",
+      "key": "EVENT_WINDOW_EXPIRED",
+      "aliases": [
+        "EVENT-WINDOW-EXPIRED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Время пробного окна истекло",
+        "uk": "Час пробного вікна минув",
+        "en": "Trial window ended",
+        "de": "Testzeitraum abgelaufen"
+      },
+      "cause": {
+        "ru": "Заданное время ограниченной операции закончилось. Каким стал маршрут в итоге, подтверждает отдельная запись.",
+        "uk": "Заданий час обмеженої операції закінчився. Яким став маршрут у підсумку, підтверджує окремий запис.",
+        "en": "The set time of a limited operation ran out. The resulting route is confirmed by a separate record.",
+        "de": "Die festgelegte Zeit eines begrenzten Vorgangs ist abgelaufen. Die daraus folgende Route wird durch einen eigenen Eintrag bestätigt."
+      },
+      "action": {
+        "ru": "1. Текущее состояние смотрите на «Главной».",
+        "uk": "1. Поточний стан дивіться на «Головній» (Home).",
+        "en": "1. See the current state on Home.",
+        "de": "1. Den aktuellen Zustand sehen Sie auf der „Startseite“ (Home)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "journal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-038",
+      "number": "005-012-038",
+      "key": "JOURNAL_FAMILY",
+      "aliases": [
+        "JOURNAL-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код записи о переключении",
+        "uk": "Код запису про перемикання",
+        "en": "Switch record code",
+        "de": "Code des Wechseldatensatzes"
+      },
+      "cause": {
+        "ru": "Код из группы проверок служебной записи о последнем переключении: роутер нашёл в ней что-то, что не прошло проверку, и не стал продолжать. Это семейство: описание относится ко всем кодам с префиксом «JOURNAL-».",
+        "uk": "Код із групи перевірок службового запису про останнє перемикання: роутер знайшов у ньому щось, що не пройшло перевірку, і не став продовжувати. Це родина: опис стосується всіх кодів із префіксом «JOURNAL-».",
+        "en": "A code of the group that checks the saved record of the last switch: the router found something in it that failed a check and did not continue. This is a family: the description applies to all codes starting with \"JOURNAL-\".",
+        "de": "Ein Code der Gruppe, die den gespeicherten Datensatz des letzten Wechsels prüft: Der Router hat darin etwas gefunden, das eine Prüfung nicht bestanden hat, und nicht weitergemacht. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „JOURNAL-“."
+      },
+      "action": {
+        "ru": "1. Если интернета нет, откройте «Помощь» → «У меня пропал интернет» и выполните аварийный возврат.\n2. Найдите точный код в «Помощи».",
+        "uk": "1. Якщо інтернету немає, відкрийте «Довідка» (Help) → «У мене зник інтернет» і виконайте аварійне повернення.\n2. Знайдіть точний код у «Довідці».",
+        "en": "1. If there is no internet, open Help → “I have no internet” and do the emergency return.\n2. Look up the exact code in Help.",
+        "de": "1. Wenn kein Internet da ist, öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Notfall-Rückkehr aus.\n2. Suchen Sie den genauen Code in der „Hilfe“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-EVT-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "switch",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-EVT-039",
+      "number": "005-012-039",
+      "key": "JOURNAL_DELEGATED_UNVERIFIED",
+      "aliases": [
+        "JOURNAL-DELEGATED-UNVERIFIED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Подготовленная запись о переключении отклонена",
+        "uk": "Підготовлений запис про перемикання відхилено",
+        "en": "Prepared switch record refused",
+        "de": "Vorbereiteter Wechseldatensatz abgelehnt"
+      },
+      "cause": {
+        "ru": "Защитная проверка роутера не приняла подготовленную запись о переключении и отклонила её до каких-либо изменений. Маршрут не менялся.",
+        "uk": "Захисна перевірка роутера не прийняла підготовлений запис про перемикання й відхилила його до будь-яких змін. Маршрут не змінювався.",
+        "en": "The router's safety check did not accept the prepared switch record and refused it before any change. The route was not changed.",
+        "de": "Die Sicherheitsprüfung des Routers hat den vorbereiteten Wechseldatensatz nicht angenommen und vor jeder Änderung abgelehnt. Die Route wurde nicht geändert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если код повторяется, сообщите его разработчику.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо код повторюється, повідомте його розробникові.",
+        "en": "1. Nothing to do.\n2. If the code repeats, report it to the developer.",
+        "de": "1. Es ist nichts zu tun.\n2. Wiederholt sich der Code, melden Sie ihn dem Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-040",
+      "number": "005-012-040",
+      "key": "JOURNAL_INTEGRITY_FAILED",
+      "aliases": [
+        "JOURNAL-INTEGRITY-FAILED"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Запись о переключении повреждена",
+        "uk": "Запис про перемикання пошкоджено",
+        "en": "Switch record damaged",
+        "de": "Wechseldatensatz beschädigt"
+      },
+      "cause": {
+        "ru": "Служебная запись о переключении повреждена и не прошла проверку целостности. Auto не продолжает работу по ней.",
+        "uk": "Службовий запис про перемикання пошкоджено, і він не пройшов перевірку цілісності. Auto не продовжує роботу за ним.",
+        "en": "The saved switch record is damaged and failed its integrity check. Auto does not continue based on it.",
+        "de": "Der gespeicherte Wechseldatensatz ist beschädigt und hat die Integritätsprüfung nicht bestanden. Auto arbeitet auf dieser Grundlage nicht weiter."
+      },
+      "action": {
+        "ru": "1. Ничего не удаляйте и не сбрасывайте на роутере.\n2. Откройте «Помощь» → «У меня пропал интернет» и выполните диагностику.\n3. Обратитесь за помощью и приложите результат диагностики.",
+        "uk": "1. Нічого не видаляйте й не скидайте на роутері.\n2. Відкрийте «Довідка» (Help) → «У мене зник інтернет» і виконайте діагностику.\n3. Зверніться по допомогу й додайте результат діагностики.",
+        "en": "1. Do not delete or reset anything on the router.\n2. Open Help → “I have no internet” and run the diagnostics.\n3. Ask for help and attach the diagnostic result.",
+        "de": "1. Löschen oder setzen Sie nichts am Router zurück.\n2. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Diagnose aus.\n3. Bitten Sie um Hilfe und fügen Sie das Diagnoseergebnis bei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-041",
+      "number": "005-012-041",
+      "key": "JOURNAL_ORDER_INVALID",
+      "aliases": [
+        "JOURNAL-ORDER-INVALID"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Порядок в записи о переключении неверен",
+        "uk": "Порядок у записі про перемикання хибний",
+        "en": "Switch record order invalid",
+        "de": "Reihenfolge im Wechseldatensatz ungültig"
+      },
+      "cause": {
+        "ru": "Сохранённый порядок каналов в служебной записи о переключении противоречив. Auto не продолжает работу по ней.",
+        "uk": "Збережений порядок каналів у службовому записі про перемикання суперечливий. Auto не продовжує роботу за ним.",
+        "en": "The saved channel order in the switch record is inconsistent. Auto does not continue based on it.",
+        "de": "Die gespeicherte Kanalreihenfolge im Wechseldatensatz ist widersprüchlich. Auto arbeitet auf dieser Grundlage nicht weiter."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь» → «У меня пропал интернет» и выполните аварийный возврат.\n2. Запустите Auto снова кнопкой Start.",
+        "uk": "1. Відкрийте «Довідка» (Help) → «У мене зник інтернет» і виконайте аварійне повернення.\n2. Запустіть Auto знову кнопкою Start.",
+        "en": "1. Open Help → “I have no internet” and do the emergency return.\n2. Start Auto again with the Start button.",
+        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Notfall-Rückkehr aus.\n2. Starten Sie Auto erneut mit der Schaltfläche Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-042",
+      "number": "005-012-042",
+      "key": "JOURNAL_PHASE_INVALID",
+      "aliases": [
+        "JOURNAL-PHASE-INVALID"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Неизвестный этап восстановления",
+        "uk": "Невідомий етап відновлення",
+        "en": "Unknown recovery stage",
+        "de": "Unbekannte Wiederherstellungsphase"
+      },
+      "cause": {
+        "ru": "В служебной записи о переключении нет этапа восстановления или он неизвестен. Auto отказывается продолжать.",
+        "uk": "У службовому записі про перемикання немає етапу відновлення або він невідомий. Auto відмовляється продовжувати.",
+        "en": "The switch record has no recovery stage or an unknown one. Auto refuses to continue.",
+        "de": "Im Wechseldatensatz fehlt die Wiederherstellungsphase oder sie ist unbekannt. Auto weigert sich fortzufahren."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь» → «У меня пропал интернет» и выполните аварийный возврат.\n2. Убедитесь на «Главной», что интернет работает.\n3. Запустите Auto снова кнопкой Start.",
+        "uk": "1. Відкрийте «Довідка» (Help) → «У мене зник інтернет» і виконайте аварійне повернення.\n2. Переконайтеся на «Головній» (Home), що інтернет працює.\n3. Запустіть Auto знову кнопкою Start.",
+        "en": "1. Open Help → “I have no internet” and do the emergency return.\n2. Make sure on Home that the internet works.\n3. Start Auto again with the Start button.",
+        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Notfall-Rückkehr aus.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert.\n3. Starten Sie Auto erneut mit der Schaltfläche Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-043",
+      "number": "005-012-043",
+      "key": "JOURNAL_SECTION_INVALID",
+      "aliases": [
+        "JOURNAL-SECTION-INVALID"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запись о переключении называет неверное правило",
+        "uk": "Запис про перемикання називає хибне правило",
+        "en": "Switch record names an invalid rule",
+        "de": "Wechseldatensatz nennt eine ungültige Regel"
+      },
+      "cause": {
+        "ru": "Служебная запись о переключении ссылается на правило, которого нет или которое недопустимо. Auto не продолжает работу по ней.",
+        "uk": "Службовий запис про перемикання посилається на правило, якого немає або яке неприпустиме. Auto не продовжує роботу за ним.",
+        "en": "The switch record refers to a rule that does not exist or is not allowed. Auto does not continue based on it.",
+        "de": "Der Wechseldatensatz verweist auf eine Regel, die nicht existiert oder unzulässig ist. Auto arbeitet auf dieser Grundlage nicht weiter."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь» → «У меня пропал интернет» и выполните аварийный возврат.\n2. Запустите Auto снова кнопкой Start.",
+        "uk": "1. Відкрийте «Довідка» (Help) → «У мене зник інтернет» і виконайте аварійне повернення.\n2. Запустіть Auto знову кнопкою Start.",
+        "en": "1. Open Help → “I have no internet” and do the emergency return.\n2. Start Auto again with the Start button.",
+        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Notfall-Rückkehr aus.\n2. Starten Sie Auto erneut mit der Schaltfläche Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-044",
+      "number": "005-012-044",
+      "key": "JOURNAL_UNVERIFIED",
+      "aliases": [
+        "JOURNAL-UNVERIFIED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Запись о переключении не проверена",
+        "uk": "Запис про перемикання не перевірено",
+        "en": "Switch record not verified",
+        "de": "Wechseldatensatz nicht überprüft"
+      },
+      "cause": {
+        "ru": "Роутеру не удалось проверить служебную запись о переключении, поэтому Auto не продолжает работу по ней.",
+        "uk": "Роутеру не вдалося перевірити службовий запис про перемикання, тому Auto не продовжує роботу за ним.",
+        "en": "The router could not verify the saved switch record, so Auto does not continue based on it.",
+        "de": "Der Router konnte den gespeicherten Wechseldatensatz nicht überprüfen, daher arbeitet Auto auf dieser Grundlage nicht weiter."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь» → «У меня пропал интернет» и выполните аварийный возврат.\n2. Если всё ещё неясно, откройте «Помощь» → «Кнопка Auto не запускается».",
+        "uk": "1. Відкрийте «Довідка» (Help) → «У мене зник інтернет» і виконайте аварійне повернення.\n2. Якщо все ще незрозуміло, відкрийте «Довідка» → «Кнопка Auto не запускається».",
+        "en": "1. Open Help → “I have no internet” and do the emergency return.\n2. If it is still unclear, open Help → “The Auto button refuses to start”.",
+        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Notfall-Rückkehr aus.\n2. Ist es weiterhin unklar, öffnen Sie „Hilfe“ → „Die Auto-Schaltfläche startet nicht“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-044",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-EVT-045",
+      "number": "005-012-045",
+      "key": "EVENT_AUTO_STARTING",
+      "aliases": [
+        "EVENT-AUTO-STARTING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Auto запускается",
+        "uk": "Auto запускається",
+        "en": "Auto is starting",
+        "de": "Auto wird gestartet"
+      },
+      "cause": {
+        "ru": "Auto начал запуск и готовится следить за каналами. Работа подтверждается следующей записью.",
+        "uk": "Auto почав запуск і готується стежити за каналами. Роботу підтверджує наступний запис.",
+        "en": "Auto has begun starting and is getting ready to watch the channels. The next record confirms that it is running.",
+        "de": "Auto hat mit dem Start begonnen und bereitet die Überwachung der Kanäle vor. Der nächste Eintrag bestätigt, dass es läuft."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Дождитесь следующей записи в «Журнале».",
+        "uk": "1. Нічого робити не потрібно.\n2. Дочекайтеся наступного запису в «Журналі» (Journal).",
+        "en": "1. Nothing to do.\n2. Wait for the next record in Journal.",
+        "de": "1. Es ist nichts zu tun.\n2. Warten Sie auf den nächsten Eintrag im „Protokoll“ (Journal)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-EVT-045",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "evt",
+        "runtime",
+        "translation-draft"
+      ]
+    }
+  ]
+}
