@@ -1,0 +1,2856 @@
+{
+  "namespace": "VPN",
+  "area": "FLT",
+  "codes": [
+    {
+      "code": "VPN-FLT-001",
+      "number": "005-011-001",
+      "key": "FAULT_FAMILY",
+      "aliases": [
+        "FAULT-*"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Код теста отказа",
+        "uk": "Код тесту відмови",
+        "en": "Failure test code",
+        "de": "Code des Ausfalltests"
+      },
+      "cause": {
+        "ru": "Код из группы теста отказа на тестовом стенде: тест сообщил о своём состоянии. Такой тест проверяет, что Auto правильно переходит на другой канал. Это семейство: описание относится ко всем кодам с префиксом «FAULT-».",
+        "uk": "Код із групи тесту відмови на тестовому стенді: тест повідомив про свій стан. Такий тест перевіряє, що Auto правильно переходить на інший канал. Це родина: опис стосується всіх кодів із префіксом «FAULT-».",
+        "en": "A code of the failure test group of the test bench: the test reported its state. Such a test checks that Auto correctly moves to the other channel. This is a family: the description applies to all codes starting with \"FAULT-\".",
+        "de": "Ein Code der Gruppe des Ausfalltests auf dem Teststand: Der Test hat seinen Zustand gemeldet. Ein solcher Test prüft, ob Auto korrekt auf den anderen Kanal wechselt. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „FAULT-“."
+      },
+      "action": {
+        "ru": "1. Посмотрите состояние теста в разделе «Тесты» на «Главной».\n2. Найдите точный код в «Помощи».",
+        "uk": "1. Перегляньте стан тесту у розділі «Тести» (Tests) на «Головній» (Home).\n2. Знайдіть точний код у «Довідці» (Help).",
+        "en": "1. Look at the test state in Home → Tests.\n2. Look up the exact code in Help.",
+        "de": "1. Sehen Sie sich den Zustand des Tests unter „Startseite“ (Home) → „Tests“ an.\n2. Suchen Sie den genauen Code in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-FLT-002",
+      "number": "005-011-002",
+      "key": "FAULT_ACTIVE",
+      "aliases": [
+        "FAULT-ACTIVE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Идёт тест отказа",
+        "uk": "Триває тест відмови",
+        "en": "Failure test is running",
+        "de": "Ausfalltest läuft"
+      },
+      "cause": {
+        "ru": "Тест отказа включён: на короткое время трафик одного канала намеренно прерван, чтобы проверить переход Auto.",
+        "uk": "Тест відмови увімкнено: на короткий час трафік одного каналу навмисно перервано, щоб перевірити перехід Auto.",
+        "en": "The failure test is on: traffic of one channel is deliberately interrupted for a short time to check that Auto moves over.",
+        "de": "Der Ausfalltest ist aktiv: Der Datenverkehr eines Kanals wird kurz absichtlich unterbrochen, um den Wechsel durch Auto zu prüfen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания теста.\n2. Если нужно прервать тест раньше, остановите его в разделе «Тесты» на «Главной».",
+        "uk": "1. Дочекайтеся завершення тесту.\n2. Якщо треба перервати тест раніше, зупиніть його у розділі «Тести» (Tests) на «Головній» (Home).",
+        "en": "1. Wait for the test to end.\n2. To end it earlier, stop it in Home → Tests.",
+        "de": "1. Warten Sie, bis der Test endet.\n2. Um ihn früher zu beenden, stoppen Sie ihn unter „Startseite“ (Home) → „Tests“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-003",
+      "number": "005-011-003",
+      "key": "FAULT_ALREADY_ACTIVE",
+      "aliases": [
+        "FAULT-ALREADY-ACTIVE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Тест отказа уже идёт",
+        "uk": "Тест відмови вже триває",
+        "en": "A failure test is already running",
+        "de": "Ein Ausfalltest läuft bereits"
+      },
+      "cause": {
+        "ru": "Одновременно может идти только один тест отказа, поэтому новый не запущен.",
+        "uk": "Одночасно може тривати лише один тест відмови, тому новий не запущено.",
+        "en": "Only one failure test can run at a time, so the new one was not started.",
+        "de": "Es kann immer nur ein Ausfalltest laufen, daher wurde der neue nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущего теста или остановите его.\n2. Повторите тест.",
+        "uk": "1. Дочекайтеся завершення поточного тесту або зупиніть його.\n2. Повторіть тест.",
+        "en": "1. Wait for the running test to end or stop it.\n2. Repeat the test.",
+        "de": "1. Warten Sie das Ende des laufenden Tests ab oder beenden Sie ihn.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-004",
+      "number": "005-011-004",
+      "key": "FAULT_APPLY_UNCONFIRMED",
+      "aliases": [
+        "FAULT-APPLY-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Прерывание не подтверждено",
+        "uk": "Переривання не підтверджено",
+        "en": "Interruption not confirmed",
+        "de": "Unterbrechung nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не подтвердил, что тестовое прерывание трафика включилось, поэтому для безопасности оно сразу снято.",
+        "uk": "Роутер не підтвердив, що тестове переривання трафіку ввімкнулося, тому для безпеки його одразу знято.",
+        "en": "The router did not confirm that the test interruption of traffic was applied, so it was removed right away to be safe.",
+        "de": "Der Router hat nicht bestätigt, dass die Testunterbrechung des Datenverkehrs aktiv wurde, daher wurde sie sicherheitshalber sofort aufgehoben."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-005",
+      "number": "005-011-005",
+      "key": "FAULT_CANCEL_UNKNOWN",
+      "aliases": [
+        "FAULT-CANCEL-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Отмена не подтверждена",
+        "uk": "Скасування не підтверджено",
+        "en": "Cancellation not confirmed",
+        "de": "Abbruch nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Запрос на отмену теста отправлен, но роутер его не подтвердил. Тест всё равно сам закончится, когда выйдет его время.",
+        "uk": "Запит на скасування тесту надіслано, але роутер його не підтвердив. Тест однаково сам завершиться, коли сплине його час.",
+        "en": "The request to cancel the test was sent, but the router did not confirm it. The test still ends by itself when its time is over.",
+        "de": "Die Anfrage zum Abbruch des Tests wurde gesendet, aber der Router hat sie nicht bestätigt. Der Test endet trotzdem von selbst, wenn seine Zeit abgelaufen ist."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Посмотрите состояние теста в разделе «Тесты» на «Главной».",
+        "uk": "1. Зачекайте хвилину.\n2. Перегляньте стан тесту у розділі «Тести» (Tests) на «Головній» (Home).",
+        "en": "1. Wait a minute.\n2. Look at the test state in Home → Tests.",
+        "de": "1. Warten Sie eine Minute.\n2. Sehen Sie sich den Zustand des Tests unter „Startseite“ (Home) → „Tests“ an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-006",
+      "number": "005-011-006",
+      "key": "FAULT_CANCELLED",
+      "aliases": [
+        "FAULT-CANCELLED"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Тест отказа отменён",
+        "uk": "Тест відмови скасовано",
+        "en": "Failure test cancelled",
+        "de": "Ausfalltest abgebrochen"
+      },
+      "cause": {
+        "ru": "Тест отказа отменён, тестовое прерывание трафика снято.",
+        "uk": "Тест відмови скасовано, тестове переривання трафіку знято.",
+        "en": "The failure test was cancelled and the test interruption of traffic was removed.",
+        "de": "Der Ausfalltest wurde abgebrochen und die Testunterbrechung des Datenverkehrs aufgehoben."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-007",
+      "number": "005-011-007",
+      "key": "FAULT_CERTIFICATE_STALE",
+      "aliases": [
+        "FAULT-CERTIFICATE-STALE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Разрешение на тест устарело",
+        "uk": "Дозвіл на тест застарів",
+        "en": "Test approval expired",
+        "de": "Testfreigabe abgelaufen"
+      },
+      "cause": {
+        "ru": "Разрешение на тест отказа устарело или не совпадает с текущим состоянием, поэтому тест не запущен.",
+        "uk": "Дозвіл на тест відмови застарів або не збігається з поточним станом, тому тест не запущено.",
+        "en": "The approval for the failure test is old or does not match the current state, so the test was not started.",
+        "de": "Die Freigabe für den Ausfalltest ist veraltet oder passt nicht zum aktuellen Zustand, daher wurde der Test nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Подготовьте тест заново в разделе «Тесты» на «Главной».",
+        "uk": "1. Підготуйте тест заново у розділі «Тести» (Tests) на «Головній» (Home).",
+        "en": "1. Prepare the test again in Home → Tests.",
+        "de": "1. Bereiten Sie den Test unter „Startseite“ (Home) → „Tests“ neu vor."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-008",
+      "number": "005-011-008",
+      "key": "FAULT_CERTIFIED_AUTO_REQUIRED",
+      "aliases": [
+        "FAULT-CERTIFIED-AUTO-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Тесту перехода нужен работающий Auto",
+        "uk": "Тесту переходу потрібен робочий Auto",
+        "en": "Transition test needs Auto running",
+        "de": "Wechseltest benötigt laufendes Auto"
+      },
+      "cause": {
+        "ru": "Тесту нужен включённый Auto, свежее подтверждение текущего канала и исправный второй канал. Сейчас этого нет, поэтому тест не запущен.",
+        "uk": "Тесту потрібен увімкнений Auto, свіже підтвердження поточного каналу й справний другий канал. Зараз цього немає, тому тест не запущено.",
+        "en": "The test needs Auto turned on, a fresh confirmation of the current channel and a working second channel. This is missing now, so the test was not started.",
+        "de": "Der Test benötigt eingeschaltetes Auto, eine frische Bestätigung des aktuellen Kanals und einen funktionierenden zweiten Kanal. Das fehlt derzeit, daher wurde der Test nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Проверьте оба канала на карточках «Главной».\n2. Включите Auto кнопкой Start.\n3. Откройте тест снова после свежих проверок.",
+        "uk": "1. Перевірте обидва канали на картках «Головної» (Home).\n2. Увімкніть Auto кнопкою Start.\n3. Відкрийте тест знову після свіжих перевірок.",
+        "en": "1. Check both channels on the channel cards on Home.\n2. Turn Auto on with the Start button.\n3. Open the test again after fresh checks arrive.",
+        "de": "1. Prüfen Sie beide Kanäle auf den Kanalkarten der „Startseite“ (Home).\n2. Schalten Sie Auto mit der Schaltfläche Start ein.\n3. Öffnen Sie den Test erneut, sobald frische Prüfungen vorliegen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-009",
+      "number": "005-011-009",
+      "key": "FAULT_CLAIM_STALE",
+      "aliases": [
+        "FAULT-CLAIM-STALE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Запрос на тест устарел",
+        "uk": "Запит на тест застарів",
+        "en": "Test request expired",
+        "de": "Testanfrage abgelaufen"
+      },
+      "cause": {
+        "ru": "Запрос на тест отказа ждал слишком долго и был отброшен.",
+        "uk": "Запит на тест відмови чекав надто довго й був відкинутий.",
+        "en": "The failure test request waited too long and was dropped.",
+        "de": "Die Anfrage für den Ausfalltest hat zu lange gewartet und wurde verworfen."
+      },
+      "action": {
+        "ru": "1. Запустите тест снова.",
+        "uk": "1. Запустіть тест знову.",
+        "en": "1. Start the test again.",
+        "de": "1. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-010",
+      "number": "005-011-010",
+      "key": "FAULT_CLEANED",
+      "aliases": [
+        "FAULT-CLEANED"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Тест отказа завершён и убран",
+        "uk": "Тест відмови завершено й прибрано",
+        "en": "Failure test cleaned up",
+        "de": "Ausfalltest aufgeräumt"
+      },
+      "cause": {
+        "ru": "Тест отказа закончился, тестовое прерывание трафика снято.",
+        "uk": "Тест відмови завершився, тестове переривання трафіку знято.",
+        "en": "The failure test ended and the test interruption of traffic was removed.",
+        "de": "Der Ausfalltest ist beendet und die Testunterbrechung des Datenverkehrs aufgehoben."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-011",
+      "number": "005-011-011",
+      "key": "FAULT_CLEANUP_UNCONFIRMED",
+      "aliases": [
+        "FAULT-CLEANUP-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Снятие прерывания не подтверждено",
+        "uk": "Зняття переривання не підтверджено",
+        "en": "Removal not confirmed",
+        "de": "Aufhebung nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Не подтверждено, что тестовое прерывание трафика снято. Оно всё равно закончится само по защитному таймеру.",
+        "uk": "Не підтверджено, що тестове переривання трафіку знято. Воно однаково завершиться саме за захисним таймером.",
+        "en": "It is not confirmed that the test interruption of traffic was removed. It still ends by itself on its safety timer.",
+        "de": "Es ist nicht bestätigt, dass die Testunterbrechung des Datenverkehrs aufgehoben wurde. Sie endet trotzdem von selbst durch ihren Sicherheitstimer."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут.\n2. Проверьте на «Главной», что интернет работает.\n3. Если интернета нет, откройте «Помощь» → «У меня пропал интернет».",
+        "uk": "1. Зачекайте кілька хвилин.\n2. Перевірте на «Головній» (Home), що інтернет працює.\n3. Якщо інтернету немає, відкрийте «Довідка» (Help) → «У мене зник інтернет».",
+        "en": "1. Wait a few minutes.\n2. Check on Home that the internet works.\n3. If there is no internet, open Help → “I have no internet”.",
+        "de": "1. Warten Sie einige Minuten.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert.\n3. Wenn kein Internet da ist, öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-012",
+      "number": "005-011-012",
+      "key": "FAULT_COMMAND_UNCONFIRMED",
+      "aliases": [
+        "FAULT-COMMAND-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Команда теста не подтверждена",
+        "uk": "Команду тесту не підтверджено",
+        "en": "Test command not confirmed",
+        "de": "Testbefehl nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не подтвердил команду теста отказа. Не считайте, что тест идёт.",
+        "uk": "Роутер не підтвердив команду тесту відмови. Не вважайте, що тест триває.",
+        "en": "The router did not confirm the failure test command. Do not assume that the test is running.",
+        "de": "Der Router hat den Befehl für den Ausfalltest nicht bestätigt. Gehen Sie nicht davon aus, dass der Test läuft."
+      },
+      "action": {
+        "ru": "1. Убедитесь в разделе «Тесты» на «Главной», что тест выключен.\n2. Проверьте на «Главной», что интернет работает.",
+        "uk": "1. Переконайтеся у розділі «Тести» (Tests) на «Головній» (Home), що тест вимкнено.\n2. Перевірте на «Головній» (Home), що інтернет працює.",
+        "en": "1. Make sure in Home → Tests that the test is off.\n2. Check on Home that the internet works.",
+        "de": "1. Prüfen Sie unter „Startseite“ (Home) → „Tests“, ob der Test aus ist.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-013",
+      "number": "005-011-013",
+      "key": "FAULT_CONTROL_CHANGED",
+      "aliases": [
+        "FAULT-CONTROL-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Состояние изменилось во время подготовки",
+        "uk": "Стан змінився під час підготовки",
+        "en": "State changed during preparation",
+        "de": "Zustand während der Vorbereitung geändert"
+      },
+      "cause": {
+        "ru": "Пока тест отказа готовился, другое действие изменило состояние управления. Тест не запущен.",
+        "uk": "Поки тест відмови готувався, інша дія змінила стан керування. Тест не запущено.",
+        "en": "While the failure test was being prepared, another action changed the control state. The test was not started.",
+        "de": "Während der Ausfalltest vorbereitet wurde, hat eine andere Aktion den Steuerzustand geändert. Der Test wurde nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Повторите тест с самого начала.",
+        "uk": "1. Повторіть тест із самого початку.",
+        "en": "1. Repeat the test from the start.",
+        "de": "1. Wiederholen Sie den Test von Anfang an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-014",
+      "number": "005-011-014",
+      "key": "FAULT_FIELDS",
+      "aliases": [
+        "FAULT-FIELDS"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Неверный запрос теста",
+        "uk": "Хибний запит тесту",
+        "en": "Invalid test request",
+        "de": "Ungültige Testanfrage"
+      },
+      "cause": {
+        "ru": "Запрос на тест отказа содержал неверные данные и не выполнен.",
+        "uk": "Запит на тест відмови містив хибні дані й не виконаний.",
+        "en": "The failure test request contained invalid data and was not carried out.",
+        "de": "Die Anfrage für den Ausfalltest enthielt ungültige Daten und wurde nicht ausgeführt."
+      },
+      "action": {
+        "ru": "1. Обновите страницу полностью.\n2. Повторите тест.",
+        "uk": "1. Повністю оновіть сторінку.\n2. Повторіть тест.",
+        "en": "1. Reload the page completely.\n2. Repeat the test.",
+        "de": "1. Laden Sie die Seite vollständig neu.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-015",
+      "number": "005-011-015",
+      "key": "FAULT_FOREIGN_TABLE",
+      "aliases": [
+        "FAULT-FOREIGN-TABLE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Чужое правило с тем же именем",
+        "uk": "Чуже правило з тим самим ім'ям",
+        "en": "Foreign rule with the same name",
+        "de": "Fremde Regel mit gleichem Namen"
+      },
+      "cause": {
+        "ru": "На роутере уже есть временное правило трафика с тем именем, которое использует тест, но создала его другая программа. Тест его не трогает и не запускается.",
+        "uk": "На роутері вже є тимчасове правило трафіку з тим ім'ям, яке використовує тест, але створила його інша програма. Тест його не чіпає й не запускається.",
+        "en": "The router already has a temporary traffic rule with the name the test uses, but another program created it. The test does not touch it and does not start.",
+        "de": "Auf dem Router gibt es bereits eine vorübergehende Datenverkehrsregel mit dem Namen, den der Test verwendet, aber ein anderes Programm hat sie angelegt. Der Test rührt sie nicht an und startet nicht."
+      },
+      "action": {
+        "ru": "1. Выясните, какая программа создала это правило.\n2. Устраните конфликт и повторите тест.",
+        "uk": "1. З'ясуйте, яка програма створила це правило.\n2. Усуньте конфлікт і повторіть тест.",
+        "en": "1. Find out which program created this rule.\n2. Resolve the conflict and repeat the test.",
+        "de": "1. Finden Sie heraus, welches Programm diese Regel angelegt hat.\n2. Beheben Sie den Konflikt und wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-016",
+      "number": "005-011-016",
+      "key": "FAULT_HEALTHY_RESERVE_REQUIRED",
+      "aliases": [
+        "FAULT-HEALTHY-RESERVE-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Нужен исправный резервный канал",
+        "uk": "Потрібен справний резервний канал",
+        "en": "Reserve channel must work",
+        "de": "Reservekanal muss funktionieren"
+      },
+      "cause": {
+        "ru": "Для теста оба канала, основной и резервный, должны работать прямо сейчас.",
+        "uk": "Для тесту обидва канали, основний і резервний, мають працювати просто зараз.",
+        "en": "For the test, both the main and the reserve channel must work right now.",
+        "de": "Für den Test müssen der Haupt- und der Reservekanal gerade jetzt funktionieren."
+      },
+      "action": {
+        "ru": "1. Проверьте оба канала на карточках «Главной».\n2. Повторите тест, когда оба канала работают.",
+        "uk": "1. Перевірте обидва канали на картках «Головної» (Home).\n2. Повторіть тест, коли обидва канали працюють.",
+        "en": "1. Check both channels on the channel cards on Home.\n2. Repeat the test when both channels work.",
+        "de": "1. Prüfen Sie beide Kanäle auf den Kanalkarten der „Startseite“ (Home).\n2. Wiederholen Sie den Test, wenn beide Kanäle funktionieren."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-017",
+      "number": "005-011-017",
+      "key": "FAULT_HISTORY_CORRUPT",
+      "aliases": [
+        "FAULT-HISTORY-CORRUPT"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "История тестов повреждена",
+        "uk": "Історію тестів пошкоджено",
+        "en": "Test history damaged",
+        "de": "Testverlauf beschädigt"
+      },
+      "cause": {
+        "ru": "Запись о прошлых тестах отказа не читается. Новые тесты при этом работают.",
+        "uk": "Запис про минулі тести відмови не читається. Нові тести при цьому працюють.",
+        "en": "The record of earlier failure tests cannot be read. New tests still work.",
+        "de": "Die Aufzeichnung früherer Ausfalltests ist nicht lesbar. Neue Tests funktionieren weiterhin."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-018",
+      "number": "005-011-018",
+      "key": "FAULT_HISTORY_UNAVAILABLE",
+      "aliases": [
+        "FAULT-HISTORY-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "История тестов недоступна",
+        "uk": "Історія тестів недоступна",
+        "en": "Test history unavailable",
+        "de": "Testverlauf nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Сохранённую историю тестов отказа не удалось прочитать. Новая история сама не создаётся.",
+        "uk": "Збережену історію тестів відмови не вдалося прочитати. Нова історія сама не створюється.",
+        "en": "The saved history of failure tests could not be read. A new history is not created automatically.",
+        "de": "Der gespeicherte Verlauf der Ausfalltests konnte nicht gelesen werden. Ein neuer Verlauf wird nicht automatisch angelegt."
+      },
+      "action": {
+        "ru": "1. Не удаляйте сохранённую историю.\n2. Поищите в «Журнале» ошибки чтения или записи.\n3. Проверьте на «Главной», что интернет работает.",
+        "uk": "1. Не видаляйте збережену історію.\n2. Пошукайте в «Журналі» (Journal) помилки читання або запису.\n3. Перевірте на «Головній» (Home), що інтернет працює.",
+        "en": "1. Do not delete the saved history.\n2. Look in Journal for read or write errors.\n3. Check on Home that the internet works.",
+        "de": "1. Löschen Sie den gespeicherten Verlauf nicht.\n2. Suchen Sie im „Protokoll“ (Journal) nach Lese- oder Schreibfehlern.\n3. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-019",
+      "number": "005-011-019",
+      "key": "FAULT_IDENTITY_GONE",
+      "aliases": [
+        "FAULT-IDENTITY-GONE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Выбранный VPN пропал",
+        "uk": "Вибраний VPN зник",
+        "en": "Tested VPN disappeared",
+        "de": "Getestetes VPN verschwunden"
+      },
+      "cause": {
+        "ru": "VPN, выбранного для теста отказа, больше нет на роутере.",
+        "uk": "VPN, вибраного для тесту відмови, більше немає на роутері.",
+        "en": "The VPN chosen for the failure test is no longer on the router.",
+        "de": "Das für den Ausfalltest gewählte VPN ist nicht mehr auf dem Router vorhanden."
+      },
+      "action": {
+        "ru": "1. Выберите VPN заново.\n2. Повторите тест.",
+        "uk": "1. Виберіть VPN заново.\n2. Повторіть тест.",
+        "en": "1. Choose the VPN again.\n2. Repeat the test.",
+        "de": "1. Wählen Sie das VPN erneut.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-020",
+      "number": "005-011-020",
+      "key": "FAULT_IDENTITY_UNVERIFIED",
+      "aliases": [
+        "FAULT-IDENTITY-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Выбранный VPN не подтверждён",
+        "uk": "Вибраний VPN не підтверджено",
+        "en": "Tested VPN not confirmed",
+        "de": "Getestetes VPN nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Не удалось подтвердить, на какой VPN подействует тест, поэтому он не запущен.",
+        "uk": "Не вдалося підтвердити, на який VPN подіє тест, тому його не запущено.",
+        "en": "It could not be confirmed which VPN the test would affect, so it was not started.",
+        "de": "Es ließ sich nicht bestätigen, welches VPN der Test betreffen würde, daher wurde er nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Дождитесь свежих проверок каналов.\n2. Повторите тест.",
+        "uk": "1. Дочекайтеся свіжих перевірок каналів.\n2. Повторіть тест.",
+        "en": "1. Wait for fresh channel checks.\n2. Repeat the test.",
+        "de": "1. Warten Sie auf frische Kanalprüfungen.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-021",
+      "number": "005-011-021",
+      "key": "FAULT_NATIVE_PREREQUISITES",
+      "aliases": [
+        "FAULT-NATIVE-PREREQUISITES"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Проверки роутера не пройдены",
+        "uk": "Перевірки роутера не пройдено",
+        "en": "Router checks not passed",
+        "de": "Router-Prüfungen nicht bestanden"
+      },
+      "cause": {
+        "ru": "Часть проверок готовности роутера не пройдена, поэтому тест не запущен.",
+        "uk": "Частину перевірок готовності роутера не пройдено, тому тест не запущено.",
+        "en": "Some of the router readiness checks are not passed, so the test was not started.",
+        "de": "Einige Prüfungen der Router-Bereitschaft sind nicht bestanden, daher wurde der Test nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Откройте проверку готовности роутера в «Настройках».\n2. Исправьте отмеченные пункты.\n3. Повторите тест.",
+        "uk": "1. Відкрийте перевірку готовності роутера в «Налаштуваннях» (Settings).\n2. Виправте позначені пункти.\n3. Повторіть тест.",
+        "en": "1. Open the router readiness check in Settings.\n2. Fix the marked items.\n3. Repeat the test.",
+        "de": "1. Öffnen Sie die Prüfung der Router-Bereitschaft in den „Einstellungen“ (Settings).\n2. Beheben Sie die markierten Punkte.\n3. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-022",
+      "number": "005-011-022",
+      "key": "FAULT_NFT_QUERY_FAILED",
+      "aliases": [
+        "FAULT-NFT-QUERY-FAILED"
+      ],
+      "level": "error",
+      "audience": "developer",
+      "title": {
+        "ru": "Не удаётся прочитать правило теста",
+        "uk": "Не вдається прочитати правило тесту",
+        "en": "Cannot read the test rule",
+        "de": "Testregel nicht lesbar"
+      },
+      "cause": {
+        "ru": "Роутер не ответил на запрос о собственном временном правиле теста. Больше ничего не изменено.",
+        "uk": "Роутер не відповів на запит про власне тимчасове правило тесту. Більше нічого не змінено.",
+        "en": "The router did not answer a query about the test's own temporary rule. Nothing else was changed.",
+        "de": "Der Router hat auf eine Abfrage zur eigenen vorübergehenden Regel des Tests nicht geantwortet. Sonst wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока закончится время теста.\n2. Повторите тест.",
+        "uk": "1. Дочекайтеся, поки сплине час тесту.\n2. Повторіть тест.",
+        "en": "1. Wait until the test time is over.\n2. Repeat the test.",
+        "de": "1. Warten Sie, bis die Testzeit abgelaufen ist.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-023",
+      "number": "005-011-023",
+      "key": "FAULT_NOT_ACTIVE",
+      "aliases": [
+        "FAULT-NOT-ACTIVE"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Тест отказа не идёт",
+        "uk": "Тест відмови не триває",
+        "en": "No failure test is running",
+        "de": "Kein Ausfalltest aktiv"
+      },
+      "cause": {
+        "ru": "Сейчас нет запущенного теста, поэтому отменять нечего.",
+        "uk": "Зараз немає запущеного тесту, тому скасовувати нічого.",
+        "en": "No test is running now, so there is nothing to cancel.",
+        "de": "Derzeit läuft kein Test, daher gibt es nichts abzubrechen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-024",
+      "number": "005-011-024",
+      "key": "FAULT_NOT_CURRENT_SOURCE",
+      "aliases": [
+        "FAULT-NOT-CURRENT-SOURCE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Это не текущий основной канал",
+        "uk": "Це не поточний основний канал",
+        "en": "Not the current main channel",
+        "de": "Nicht der aktuelle Hauptkanal"
+      },
+      "cause": {
+        "ru": "Тест отказа можно провести только для канала, через который сейчас идёт трафик.",
+        "uk": "Тест відмови можна провести лише для каналу, через який зараз іде трафік.",
+        "en": "The failure test can only be run on the channel that currently carries traffic.",
+        "de": "Der Ausfalltest kann nur für den Kanal laufen, der gerade den Datenverkehr trägt."
+      },
+      "action": {
+        "ru": "1. Выберите канал, который сейчас основной.\n2. Повторите тест.",
+        "uk": "1. Виберіть канал, який зараз основний.\n2. Повторіть тест.",
+        "en": "1. Choose the channel that is currently the main one.\n2. Repeat the test.",
+        "de": "1. Wählen Sie den Kanal, der gerade der Hauptkanal ist.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-025",
+      "number": "005-011-025",
+      "key": "FAULT_PATH_UNVERIFIED",
+      "aliases": [
+        "FAULT-PATH-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Путь VPN не подтверждён",
+        "uk": "Шлях VPN не підтверджено",
+        "en": "VPN path not confirmed",
+        "de": "VPN-Pfad nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Не удалось подтвердить, какое сетевое устройство роутера относится к этому VPN, поэтому тест ничего не прерывает.",
+        "uk": "Не вдалося підтвердити, який мережевий пристрій роутера належить до цього VPN, тому тест нічого не перериває.",
+        "en": "It could not be confirmed which network device of the router belongs to this VPN, so the test interrupts nothing.",
+        "de": "Es ließ sich nicht bestätigen, welches Netzwerkgerät des Routers zu diesem VPN gehört, daher unterbricht der Test nichts."
+      },
+      "action": {
+        "ru": "1. Дождитесь свежих проверок каналов.\n2. Повторите тест.",
+        "uk": "1. Дочекайтеся свіжих перевірок каналів.\n2. Повторіть тест.",
+        "en": "1. Wait for fresh channel checks.\n2. Repeat the test.",
+        "de": "1. Warten Sie auf frische Kanalprüfungen.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-026",
+      "number": "005-011-026",
+      "key": "FAULT_RPC_UNCONFIRMED",
+      "aliases": [
+        "FAULT-RPC-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Нет ответа от роутера",
+        "uk": "Немає відповіді від роутера",
+        "en": "No answer from the router",
+        "de": "Keine Antwort vom Router"
+      },
+      "cause": {
+        "ru": "Страница не получила подтверждённого ответа на запрос теста отказа.",
+        "uk": "Сторінка не отримала підтвердженої відповіді на запит тесту відмови.",
+        "en": "The page did not get a confirmed answer to the failure test request.",
+        "de": "Die Seite hat keine bestätigte Antwort auf die Anfrage zum Ausfalltest erhalten."
+      },
+      "action": {
+        "ru": "1. Обновите страницу полностью.\n2. Посмотрите состояние теста в разделе «Тесты» на «Главной».\n3. Повторяйте тест, только если он не идёт.",
+        "uk": "1. Повністю оновіть сторінку.\n2. Перегляньте стан тесту у розділі «Тести» (Tests) на «Головній» (Home).\n3. Повторюйте тест, лише якщо він не триває.",
+        "en": "1. Reload the page completely.\n2. Look at the test state in Home → Tests.\n3. Repeat the test only if it is not running.",
+        "de": "1. Laden Sie die Seite vollständig neu.\n2. Sehen Sie sich den Zustand des Tests unter „Startseite“ (Home) → „Tests“ an.\n3. Wiederholen Sie den Test nur, wenn er nicht läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-027",
+      "number": "005-011-027",
+      "key": "FAULT_SESSION_CONSENT_REQUIRED",
+      "aliases": [
+        "FAULT-SESSION-CONSENT-REQUIRED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Короткий обрыв не разрешён",
+        "uk": "Короткий обрив не дозволено",
+        "en": "Brief drop not allowed",
+        "de": "Kurze Unterbrechung nicht erlaubt"
+      },
+      "cause": {
+        "ru": "Не дано разрешение на короткий обрыв звонков и загрузок при переходе, а тесту оно нужно.",
+        "uk": "Не надано дозволу на короткий обрив дзвінків і завантажень під час переходу, а тесту він потрібен.",
+        "en": "Permission for a brief drop of calls and downloads during the switch is not given, and the test needs it.",
+        "de": "Die Erlaubnis für eine kurze Unterbrechung von Anrufen und Downloads beim Wechsel fehlt, der Test benötigt sie aber."
+      },
+      "action": {
+        "ru": "1. В «Настройках» разрешите короткий обрыв звонков и загрузок.\n2. Повторите тест.",
+        "uk": "1. У «Налаштуваннях» (Settings) дозвольте короткий обрив дзвінків і завантажень.\n2. Повторіть тест.",
+        "en": "1. In Settings, allow a brief drop of calls and downloads.\n2. Repeat the test.",
+        "de": "1. Erlauben Sie in den „Einstellungen“ (Settings) eine kurze Unterbrechung von Anrufen und Downloads.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-028",
+      "number": "005-011-028",
+      "key": "FAULT_START_UNCONFIRMED",
+      "aliases": [
+        "FAULT-START-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Запуск теста не подтверждён",
+        "uk": "Запуск тесту не підтверджено",
+        "en": "Test start not confirmed",
+        "de": "Teststart nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не подтвердил, что тест отказа начался.",
+        "uk": "Роутер не підтвердив, що тест відмови почався.",
+        "en": "The router did not confirm that the failure test started.",
+        "de": "Der Router hat nicht bestätigt, dass der Ausfalltest begonnen hat."
+      },
+      "action": {
+        "ru": "1. Посмотрите состояние теста в разделе «Тесты» на «Главной».\n2. Если тест показан как идущий, остановите его.",
+        "uk": "1. Перегляньте стан тесту у розділі «Тести» (Tests) на «Головній» (Home).\n2. Якщо тест показано як запущений, зупиніть його.",
+        "en": "1. Look at the test state in Home → Tests.\n2. If the test shows as running, stop it.",
+        "de": "1. Sehen Sie sich den Zustand des Tests unter „Startseite“ (Home) → „Tests“ an.\n2. Wird der Test als laufend angezeigt, beenden Sie ihn."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-029",
+      "number": "005-011-029",
+      "key": "FAULT_STATE_CORRUPT",
+      "aliases": [
+        "FAULT-STATE-CORRUPT"
+      ],
+      "level": "error",
+      "audience": "developer",
+      "title": {
+        "ru": "Состояние теста повреждено",
+        "uk": "Стан тесту пошкоджено",
+        "en": "Test state damaged",
+        "de": "Testzustand beschädigt"
+      },
+      "cause": {
+        "ru": "Сохранённое состояние теста отказа повреждено. При остановке программа сама убирает своё временное правило.",
+        "uk": "Збережений стан тесту відмови пошкоджено. Під час зупинки програма сама прибирає своє тимчасове правило.",
+        "en": "The saved state of the failure test is damaged. On stop, the program removes its own temporary rule.",
+        "de": "Der gespeicherte Zustand des Ausfalltests ist beschädigt. Beim Beenden entfernt das Programm seine eigene vorübergehende Regel selbst."
+      },
+      "action": {
+        "ru": "1. Остановите тест отказа в разделе «Тесты» на «Главной».\n2. Проверьте на «Главной», что интернет работает.",
+        "uk": "1. Зупиніть тест відмови у розділі «Тести» (Tests) на «Головній» (Home).\n2. Перевірте на «Головній» (Home), що інтернет працює.",
+        "en": "1. Stop the failure test in Home → Tests.\n2. Check on Home that the internet works.",
+        "de": "1. Beenden Sie den Ausfalltest unter „Startseite“ (Home) → „Tests“.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-030",
+      "number": "005-011-030",
+      "key": "FAULT_STATE_UNVERIFIED",
+      "aliases": [
+        "FAULT-STATE-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Состояние теста не подтверждено",
+        "uk": "Стан тесту не підтверджено",
+        "en": "Test state not confirmed",
+        "de": "Testzustand nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Сохранённому состоянию теста отказа нельзя доверять.",
+        "uk": "Збереженому стану тесту відмови не можна довіряти.",
+        "en": "The saved state of the failure test cannot be trusted.",
+        "de": "Dem gespeicherten Zustand des Ausfalltests kann nicht vertraut werden."
+      },
+      "action": {
+        "ru": "1. Остановите тест отказа в разделе «Тесты» на «Главной».\n2. Проверьте на «Главной», что интернет работает.",
+        "uk": "1. Зупиніть тест відмови у розділі «Тести» (Tests) на «Головній» (Home).\n2. Перевірте на «Головній» (Home), що інтернет працює.",
+        "en": "1. Stop the failure test in Home → Tests.\n2. Check on Home that the internet works.",
+        "de": "1. Beenden Sie den Ausfalltest unter „Startseite“ (Home) → „Tests“.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-031",
+      "number": "005-011-031",
+      "key": "FAULT_TABLE_ALREADY_EXISTS",
+      "aliases": [
+        "FAULT-TABLE-ALREADY-EXISTS"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Предыдущий тест ещё активен",
+        "uk": "Попередній тест ще активний",
+        "en": "A previous test is still active",
+        "de": "Ein vorheriger Test ist noch aktiv"
+      },
+      "cause": {
+        "ru": "Временное правило программы от предыдущего теста всё ещё существует.",
+        "uk": "Тимчасове правило програми від попереднього тесту все ще існує.",
+        "en": "The program's temporary rule from a previous test still exists.",
+        "de": "Die vorübergehende Regel des Programms aus einem vorherigen Test besteht noch."
+      },
+      "action": {
+        "ru": "1. Остановите тест в разделе «Тесты» на «Главной» или дождитесь, пока закончится его время.\n2. Повторите тест.",
+        "uk": "1. Зупиніть тест у розділі «Тести» (Tests) на «Головній» (Home) або дочекайтеся, поки сплине його час.\n2. Повторіть тест.",
+        "en": "1. Stop the test in Home → Tests or wait until its time is over.\n2. Repeat the test.",
+        "de": "1. Beenden Sie den Test unter „Startseite“ (Home) → „Tests“ oder warten Sie, bis seine Zeit abgelaufen ist.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-032",
+      "number": "005-011-032",
+      "key": "FAULT_TIMEOUT_RULE_FAILED",
+      "aliases": [
+        "FAULT-TIMEOUT-RULE-FAILED"
+      ],
+      "level": "error",
+      "audience": "developer",
+      "title": {
+        "ru": "Не удалось задать автоматическое окончание",
+        "uk": "Не вдалося задати автоматичне завершення",
+        "en": "Automatic end could not be set",
+        "de": "Automatisches Ende nicht festgelegt"
+      },
+      "cause": {
+        "ru": "Роутер не смог задать таймер, который сам снимает тестовое прерывание, поэтому ничего не прерывалось.",
+        "uk": "Роутер не зміг задати таймер, який сам знімає тестове переривання, тому нічого не переривалося.",
+        "en": "The router could not set the timer that removes the test interruption by itself, so nothing was interrupted.",
+        "de": "Der Router konnte den Timer nicht setzen, der die Testunterbrechung selbst aufhebt, daher wurde nichts unterbrochen."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.\n2. Если не получается снова, выполните диагностику из «Помощи» и пришлите результат разработчику.",
+        "uk": "1. Повторіть тест пізніше.\n2. Якщо знову не вдається, виконайте діагностику з «Довідки» (Help) і надішліть результат розробникові.",
+        "en": "1. Repeat the test later.\n2. If it keeps failing, run the diagnostics from Help and send the result to the developer.",
+        "de": "1. Wiederholen Sie den Test später.\n2. Schlägt es weiter fehl, führen Sie die Diagnose aus der „Hilfe“ (Help) aus und senden Sie das Ergebnis an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-033",
+      "number": "005-011-033",
+      "key": "FAULT_TRANSITION_CONFIRMED",
+      "aliases": [
+        "FAULT-TRANSITION-CONFIRMED"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Тест перехода пройден",
+        "uk": "Тест переходу пройдено",
+        "en": "Transition test passed",
+        "de": "Wechseltest bestanden"
+      },
+      "cause": {
+        "ru": "Второй канал прошёл свежие проверки, переход на него подтверждён. Тестовое прерывание трафика снято.",
+        "uk": "Другий канал пройшов свіжі перевірки, перехід на нього підтверджено. Тестове переривання трафіку знято.",
+        "en": "The other channel passed fresh checks and the move to it is confirmed. The test interruption of traffic was removed.",
+        "de": "Der andere Kanal hat frische Prüfungen bestanden, und der Wechsel zu ihm ist bestätigt. Die Testunterbrechung des Datenverkehrs wurde aufgehoben."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. При желании посмотрите историю тестов в разделе «Тесты» на «Главной».",
+        "uk": "1. Нічого робити не потрібно.\n2. За бажання перегляньте історію тестів у розділі «Тести» (Tests) на «Головній» (Home).",
+        "en": "1. Nothing to do.\n2. Optionally review the test history in Home → Tests.",
+        "de": "1. Es ist nichts zu tun.\n2. Sehen Sie sich bei Bedarf den Testverlauf unter „Startseite“ (Home) → „Tests“ an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-034",
+      "number": "005-011-034",
+      "key": "FAULT_TRANSITION_NOT_CONFIRMED",
+      "aliases": [
+        "FAULT-TRANSITION-NOT-CONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Переход не подтверждён",
+        "uk": "Перехід не підтверджено",
+        "en": "Transition not confirmed",
+        "de": "Wechsel nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Время теста вышло, а подтверждённого перехода не было. Тестовое прерывание трафика снято.",
+        "uk": "Час тесту сплив, а підтвердженого переходу не було. Тестове переривання трафіку знято.",
+        "en": "The test time ran out without a confirmed transition. The test interruption of traffic was removed.",
+        "de": "Die Testzeit ist ohne bestätigten Wechsel abgelaufen. Die Testunterbrechung des Datenverkehrs wurde aufgehoben."
+      },
+      "action": {
+        "ru": "1. Посмотрите в «Журнале» записи Auto за время теста.\n2. Проверьте оба канала на карточках «Главной».\n3. Проверьте настройки переключения в «Настройках».",
+        "uk": "1. Перегляньте в «Журналі» (Journal) записи Auto за час тесту.\n2. Перевірте обидва канали на картках «Головної» (Home).\n3. Перевірте налаштування перемикання в «Налаштуваннях» (Settings).",
+        "en": "1. Look at the Auto records in Journal for the test time.\n2. Check both channels on the channel cards on Home.\n3. Check the switching settings in Settings.",
+        "de": "1. Sehen Sie sich im „Protokoll“ (Journal) die Auto-Einträge aus der Testzeit an.\n2. Prüfen Sie beide Kanäle auf den Kanalkarten der „Startseite“ (Home).\n3. Prüfen Sie die Wechseleinstellungen in den „Einstellungen“ (Settings)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-035",
+      "number": "005-011-035",
+      "key": "FAULT_UNKNOWN",
+      "aliases": [
+        "FAULT-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Результат теста неизвестен",
+        "uk": "Результат тесту невідомий",
+        "en": "Test result unknown",
+        "de": "Testergebnis unbekannt"
+      },
+      "cause": {
+        "ru": "Результат запроса теста отказа неизвестен.",
+        "uk": "Результат запиту тесту відмови невідомий.",
+        "en": "The result of the failure test request is unknown.",
+        "de": "Das Ergebnis der Anfrage zum Ausfalltest ist unbekannt."
+      },
+      "action": {
+        "ru": "1. Обновите страницу полностью.\n2. Если через VPN не идёт трафик, остановите тест в разделе «Тесты» на «Главной».",
+        "uk": "1. Повністю оновіть сторінку.\n2. Якщо через VPN не йде трафік, зупиніть тест у розділі «Тести» (Tests) на «Головній» (Home).",
+        "en": "1. Reload the page completely.\n2. If the VPN carries no traffic, stop the test in Home → Tests.",
+        "de": "1. Laden Sie die Seite vollständig neu.\n2. Fließt über das VPN kein Datenverkehr, beenden Sie den Test unter „Startseite“ (Home) → „Tests“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-036",
+      "number": "005-011-036",
+      "key": "FAULT_UNSAFE_SCOPE",
+      "aliases": [
+        "FAULT-UNSAFE-SCOPE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Недопустимая область теста",
+        "uk": "Неприпустима область тесту",
+        "en": "Test scope not allowed",
+        "de": "Testbereich nicht zulässig"
+      },
+      "cause": {
+        "ru": "Запрошенная область теста недопустима, поэтому тест не запущен.",
+        "uk": "Запитана область тесту неприпустима, тому тест не запущено.",
+        "en": "The requested test scope is not allowed, so the test was not started.",
+        "de": "Der angeforderte Testbereich ist nicht zulässig, daher wurde der Test nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Запускайте тест только кнопками на странице.",
+        "uk": "1. Запускайте тест лише кнопками на сторінці.",
+        "en": "1. Start the test only with the controls on the page.",
+        "de": "1. Starten Sie den Test nur über die Bedienelemente der Seite."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-037",
+      "number": "005-011-037",
+      "key": "FAULT_UNVERIFIED",
+      "aliases": [
+        "FAULT-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Тест отказа не подтверждён",
+        "uk": "Тест відмови не підтверджено",
+        "en": "Failure test not confirmed",
+        "de": "Ausfalltest nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не подтвердил, что тестовое прерывание включено или снято.",
+        "uk": "Роутер не підтвердив, що тестове переривання ввімкнено або знято.",
+        "en": "The router did not confirm that the test interruption was applied or removed.",
+        "de": "Der Router hat nicht bestätigt, dass die Testunterbrechung aktiviert oder aufgehoben wurde."
+      },
+      "action": {
+        "ru": "1. Остановите тест отказа в разделе «Тесты» на «Главной».\n2. Проверьте на «Главной», что интернет работает.\n3. Повторите тест.",
+        "uk": "1. Зупиніть тест відмови у розділі «Тести» (Tests) на «Головній» (Home).\n2. Перевірте на «Головній» (Home), що інтернет працює.\n3. Повторіть тест.",
+        "en": "1. Stop the failure test in Home → Tests.\n2. Check on Home that the internet works.\n3. Repeat the test.",
+        "de": "1. Beenden Sie den Ausfalltest unter „Startseite“ (Home) → „Tests“.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert.\n3. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-038",
+      "number": "005-011-038",
+      "key": "FAULT_WATCHDOG_NOT_READY",
+      "aliases": [
+        "FAULT-WATCHDOG-NOT-READY"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Защитный таймер не готов",
+        "uk": "Захисний таймер не готовий",
+        "en": "Safety timer not ready",
+        "de": "Sicherheitstimer nicht bereit"
+      },
+      "cause": {
+        "ru": "Помощник, который сам снимает тестовое прерывание, не запустился, поэтому тест не начат.",
+        "uk": "Помічник, який сам знімає тестове переривання, не запустився, тому тест не розпочато.",
+        "en": "The helper that removes the test interruption by itself did not start, so the test was not started.",
+        "de": "Der Helfer, der die Testunterbrechung selbst aufhebt, ist nicht gestartet, daher wurde der Test nicht begonnen."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-039",
+      "number": "005-011-039",
+      "key": "FAULT_WINDOW_TOO_SHORT",
+      "aliases": [
+        "FAULT-WINDOW-TOO-SHORT"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Окно теста слишком короткое",
+        "uk": "Вікно тесту надто коротке",
+        "en": "Test window too short",
+        "de": "Testfenster zu kurz"
+      },
+      "cause": {
+        "ru": "Оставшегося времени пробного окна не хватает на тест и возврат после него.",
+        "uk": "Залишку часу пробного вікна не вистачає на тест і повернення після нього.",
+        "en": "The remaining time of the trial window is shorter than the test plus the return after it.",
+        "de": "Die verbleibende Zeit des Testfensters reicht nicht für den Test und die Rückkehr danach."
+      },
+      "action": {
+        "ru": "1. Выберите более короткий тест, который помещается в окно.\n2. Или подготовьте новое пробное окно.",
+        "uk": "1. Виберіть коротший тест, що вміщується у вікно.\n2. Або підготуйте нове пробне вікно.",
+        "en": "1. Choose a shorter test that fits the window.\n2. Or prepare a new trial window.",
+        "de": "1. Wählen Sie einen kürzeren Test, der in das Fenster passt.\n2. Oder bereiten Sie ein neues Testfenster vor."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-040",
+      "number": "005-011-040",
+      "key": "FAULT_WORKER_INVALID",
+      "aliases": [
+        "FAULT-WORKER-INVALID"
+      ],
+      "level": "error",
+      "audience": "developer",
+      "title": {
+        "ru": "Помощник теста неверный",
+        "uk": "Помічник тесту хибний",
+        "en": "Test helper invalid",
+        "de": "Testhelfer ungültig"
+      },
+      "cause": {
+        "ru": "Вспомогательный процесс теста неправильно назвал себя, поэтому ему не доверяют.",
+        "uk": "Допоміжний процес тесту неправильно назвав себе, тому йому не довіряють.",
+        "en": "The test's helper process did not identify itself correctly, so it is not trusted.",
+        "de": "Der Hilfsprozess des Tests hat sich nicht korrekt ausgewiesen, daher wird ihm nicht vertraut."
+      },
+      "action": {
+        "ru": "1. Остановите тест отказа в разделе «Тесты» на «Главной».\n2. Повторите тест.",
+        "uk": "1. Зупиніть тест відмови у розділі «Тести» (Tests) на «Головній» (Home).\n2. Повторіть тест.",
+        "en": "1. Stop the failure test in Home → Tests.\n2. Repeat the test.",
+        "de": "1. Beenden Sie den Ausfalltest unter „Startseite“ (Home) → „Tests“.\n2. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-041",
+      "number": "005-011-041",
+      "key": "FAULT_WORKER_STALE",
+      "aliases": [
+        "FAULT-WORKER-STALE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Помощник теста устарел",
+        "uk": "Помічник тесту застарів",
+        "en": "Test helper outdated",
+        "de": "Testhelfer veraltet"
+      },
+      "cause": {
+        "ru": "Вспомогательный процесс теста устарел, поэтому тест завершён.",
+        "uk": "Допоміжний процес тесту застарів, тому тест завершено.",
+        "en": "The test's helper process is outdated, so the test was ended.",
+        "de": "Der Hilfsprozess des Tests ist veraltet, daher wurde der Test beendet."
+      },
+      "action": {
+        "ru": "1. Повторите тест.",
+        "uk": "1. Повторіть тест.",
+        "en": "1. Repeat the test.",
+        "de": "1. Wiederholen Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-042",
+      "number": "005-011-042",
+      "key": "FAULT_WOULD_REMOVE_RESERVE",
+      "aliases": [
+        "FAULT-WOULD-REMOVE-RESERVE"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Тест задел бы и резервный канал",
+        "uk": "Тест зачепив би й резервний канал",
+        "en": "The test would also cut the reserve",
+        "de": "Der Test würde auch die Reserve trennen"
+      },
+      "cause": {
+        "ru": "Выбранная область теста включает и резервный канал, поэтому тест не запущен.",
+        "uk": "Вибрана область тесту охоплює й резервний канал, тому тест не запущено.",
+        "en": "The chosen test scope includes the reserve channel too, so the test was not started.",
+        "de": "Der gewählte Testbereich umfasst auch den Reservekanal, daher wurde der Test nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Запустите тест снова в разделе «Тесты» на «Главной»: он прерывает только канал, через который идёт трафик.",
+        "uk": "1. Запустіть тест знову у розділі «Тести» (Tests) на «Головній» (Home): він перериває лише канал, через який іде трафік.",
+        "en": "1. Start the test again in Home → Tests: it interrupts only the channel that carries traffic.",
+        "de": "1. Starten Sie den Test erneut unter „Startseite“ (Home) → „Tests“: Er unterbricht nur den Kanal, der den Datenverkehr trägt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-FLT-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-043",
+      "number": "005-011-043",
+      "key": "PLUG_P1",
+      "aliases": [
+        "PLUG-P1"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение в спокойной работе",
+        "uk": "Тест живлення: вимкнення під час спокійної роботи",
+        "en": "Power test: cut during calm operation",
+        "de": "Stromtest: Abschaltung im ruhigen Betrieb"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера, когда Auto просто наблюдает и сбоев нет: на короткое время или примерно на минуту. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера, коли Auto просто спостерігає і збоїв немає: на короткий час або приблизно на хвилину. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power while Auto is only watching and nothing is failing: briefly or for about a minute. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers ab, während Auto nur beobachtet und keine Störung vorliegt: kurz oder etwa eine Minute lang. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-044",
+      "number": "005-011-044",
+      "key": "PLUG_P2",
+      "aliases": [
+        "PLUG-P2"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение при переходе на резерв",
+        "uk": "Тест живлення: вимкнення під час переходу на резерв",
+        "en": "Power test: cut while moving to the reserve",
+        "de": "Stromtest: Abschaltung beim Wechsel auf die Reserve"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера в момент, когда Auto переводит трафик на резервный канал. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера в момент, коли Auto переводить трафік на резервний канал. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power at the moment Auto moves traffic to the reserve channel. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers in dem Moment ab, in dem Auto den Verkehr auf den Reservekanal umleitet. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-044",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-045",
+      "number": "005-011-045",
+      "key": "PLUG_P3",
+      "aliases": [
+        "PLUG-P3"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение при возврате на основной",
+        "uk": "Тест живлення: вимкнення під час повернення на основний",
+        "en": "Power test: cut while returning to the main channel",
+        "de": "Stromtest: Abschaltung bei der Rückkehr zum Hauptkanal"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера в момент, когда Auto возвращает трафик на основной канал. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера в момент, коли Auto повертає трафік на основний канал. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power at the moment Auto returns traffic to the main channel. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers in dem Moment ab, in dem Auto den Verkehr zum Hauptkanal zurückführt. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-045",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-046",
+      "number": "005-011-046",
+      "key": "PLUG_P4",
+      "aliases": [
+        "PLUG-P4"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение во время записи команды Stop",
+        "uk": "Тест живлення: вимкнення під час запису команди Stop",
+        "en": "Power test: cut while the Stop command is saved",
+        "de": "Stromtest: Abschaltung beim Speichern des Befehls Stop"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера, пока записывается ваша команда Stop. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера, поки записується ваша команда «Стоп» (Stop). Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power while your Stop command is being saved. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers ab, während Ihr Befehl „Stopp“ (Stop) gespeichert wird. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-046",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-047",
+      "number": "005-011-047",
+      "key": "PLUG_P5",
+      "aliases": [
+        "PLUG-P5"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение во время записи команды Start",
+        "uk": "Тест живлення: вимкнення під час запису команди Start",
+        "en": "Power test: cut while the Start command is saved",
+        "de": "Stromtest: Abschaltung beim Speichern des Befehls Start"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера, пока записывается ваша команда Start. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера, поки записується ваша команда «Старт» (Start). Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power while your Start command is being saved. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers ab, während Ihr Befehl „Start“ gespeichert wird. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-047",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-048",
+      "number": "005-011-048",
+      "key": "PLUG_P6",
+      "aliases": [
+        "PLUG-P6"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение при сохранении настроек",
+        "uk": "Тест живлення: вимкнення під час збереження налаштувань",
+        "en": "Power test: cut while settings are saved",
+        "de": "Stromtest: Abschaltung beim Speichern der Einstellungen"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера во время сохранения настроек. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера під час збереження налаштувань. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power while settings are being saved. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers ab, während die Einstellungen gespeichert werden. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-048",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-049",
+      "number": "005-011-049",
+      "key": "PLUG_P7",
+      "aliases": [
+        "PLUG-P7"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: второе отключение во время загрузки",
+        "uk": "Тест живлення: друге вимкнення під час завантаження",
+        "en": "Power test: second cut during start-up",
+        "de": "Stromtest: zweite Abschaltung während des Hochfahrens"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера, а затем ещё раз — пока роутер загружается после первого отключения. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера, а потім ще раз — поки роутер завантажується після першого вимкнення. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power, then cuts it again while the router is starting up after the first cut. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers ab und dann erneut, während der Router nach der ersten Abschaltung hochfährt. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-049",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-050",
+      "number": "005-011-050",
+      "key": "PLUG_P8",
+      "aliases": [
+        "PLUG-P8"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение при занятой службе VPN прошивки",
+        "uk": "Тест живлення: вимкнення, коли зайнята служба VPN прошивки",
+        "en": "Power test: cut while the firmware VPN service is busy",
+        "de": "Stromtest: Abschaltung bei beschäftigtem VPN-Dienst der Firmware"
+      },
+      "cause": {
+        "ru": "Задуман как отключение питания, пока встроенная служба VPN прошивки роутера занята своей работой. Сейчас этот тест не выполняется: нет безопасного способа вызвать такое состояние. Норма, когда тест будет доступен: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Задуманий як вимкнення живлення, поки вбудована служба VPN прошивки роутера зайнята своєю роботою. Зараз цей тест не виконується: немає безпечного способу викликати такий стан. Норма, коли тест буде доступний: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "Planned as a power cut while the built-in VPN service of the router firmware is busy. This test is not run at the moment: there is no safe way to bring about that state. Normal result, once the test is available: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Geplant als Stromabschaltung, während der eingebaute VPN-Dienst der Router-Firmware beschäftigt ist. Dieser Test wird derzeit nicht ausgeführt: Es gibt keinen sicheren Weg, diesen Zustand herbeizuführen. Normal, sobald der Test verfügbar ist: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-050",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-051",
+      "number": "005-011-051",
+      "key": "PLUG_P9",
+      "aliases": [
+        "PLUG-P9"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение в случайный момент",
+        "uk": "Тест живлення: вимкнення у випадковий момент",
+        "en": "Power test: cut at a random moment",
+        "de": "Stromtest: Abschaltung zu einem zufälligen Zeitpunkt"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера в случайный момент, в том числе во время записи истории и суточных итогов. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера у випадковий момент, зокрема під час запису історії та добових підсумків. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power at a random moment, including while history and daily totals are being written. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers zu einem zufälligen Zeitpunkt ab, auch während Verlauf und Tagessummen geschrieben werden. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-051",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-052",
+      "number": "005-011-052",
+      "key": "PLUG_P10",
+      "aliases": [
+        "PLUG-P10"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: мигание питания",
+        "uk": "Тест живлення: блимання живлення",
+        "en": "Power test: power flicker",
+        "de": "Stromtest: Stromflackern"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера совсем ненадолго, на несколько секунд, как при мигании света. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера зовсім ненадовго, на кілька секунд, як під час блимання світла. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power only very briefly, for a few seconds, like a flicker of the lights. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers nur ganz kurz ab, für wenige Sekunden, wie beim Flackern des Lichts. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-052",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-FLT-053",
+      "number": "005-011-053",
+      "key": "PLUG_P23",
+      "aliases": [
+        "PLUG-P23"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест питания: отключение в случайный момент переключения",
+        "uk": "Тест живлення: вимкнення у випадковий момент перемикання",
+        "en": "Power test: cut at a random moment of a switch",
+        "de": "Stromtest: Abschaltung zu einem zufälligen Zeitpunkt eines Wechsels"
+      },
+      "cause": {
+        "ru": "Стенд отключает питание роутера в случайный момент перехода на резервный канал или возврата на основной. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера у випадковий момент переходу на резервний канал або повернення на основний. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power at a random moment while moving to the reserve channel or returning to the main one. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers zu einem zufälligen Zeitpunkt ab, während auf den Reservekanal gewechselt oder zum Hauptkanal zurückgekehrt wird. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
+        "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
+        "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-FLT-053",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "flt",
+        "power-test",
+        "translation-draft"
+      ]
+    }
+  ]
+}
