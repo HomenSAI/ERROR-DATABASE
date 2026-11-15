@@ -5552,6 +5552,62 @@
         "runtime",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-SET-101",
+      "number": "005-005-101",
+      "key": "WG_SEED_KEPT_STOP_SKIP",
+      "aliases": [
+        "WG-SEED-KEPT-STOP-SKIP"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Быстрый старт при остановке: адрес из памяти не предложен",
+        "uk": "Швидкий старт під час зупинки: адресу з пам'яті не запропоновано",
+        "en": "Fast start while stopped: no address offered from memory",
+        "de": "Schnellstart im gestoppten Zustand: keine Adresse aus dem Speicher angeboten"
+      },
+      "cause": {
+        "ru": "При остановленном Auto роутер после включения обычно подсказывает туннелю WireGuard адрес его сервера из памяти. В этот раз адрес не предложен; в записи указана причина: нет запомненного адреса, он использован уже три старта подряд без новой проверки, устарел, не подходит к профилю, повреждён или туннель уже поднят. Туннель тогда ищет адрес обычным способом.",
+        "uk": "За зупиненого Auto роутер після ввімкнення зазвичай підказує тунелю WireGuard адресу його сервера з пам'яті. Цього разу адресу не запропоновано; у записі вказано причину: немає запам'ятованої адреси, її використано вже три старти поспіль без нової перевірки, вона застаріла, не підходить до профілю, пошкоджена або тунель уже піднято. Тунель тоді шукає адресу звичайним способом.",
+        "en": "With Auto stopped, after power-on the router usually offers the WireGuard tunnel the address of its server from memory. This time no address was offered; the entry names the reason: no remembered address, it was used three starts in a row without a new check, it is outdated, it does not match the profile, it is damaged, or the tunnel is already up. The tunnel then finds the address the normal way.",
+        "de": "Bei gestopptem Auto bietet der Router nach dem Einschalten dem WireGuard-Tunnel normalerweise die Adresse seines Servers aus dem Speicher an. Diesmal wurde keine Adresse angeboten; der Eintrag nennt den Grund: keine gemerkte Adresse, sie wurde drei Starts hintereinander ohne neue Prüfung verwendet, sie ist veraltet, passt nicht zum Profil, ist beschädigt oder der Tunnel ist bereits aktiv. Der Tunnel findet die Adresse dann auf normalem Weg."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: после следующего удачного соединения адрес снова будет годен.\n2. Если эта запись появляется при каждом старте, отправьте в поддержку записи «Журнала» о быстром старте.",
+        "uk": "1. Нічого робити не потрібно: після наступного вдалого з'єднання адреса знову буде придатна.\n2. Якщо цей запис з'являється під час кожного старту, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
+        "en": "1. Nothing to do: after the next successful connection the address is usable again.\n2. If this entry appears at every start, send the Journal entries about the fast start to support.",
+        "de": "1. Es ist nichts zu tun: Nach der nächsten erfolgreichen Verbindung ist die Adresse wieder nutzbar.\n2. Wenn dieser Eintrag bei jedem Start erscheint, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-101",
+      "related": [
+        "VPN-SET-097"
+      ],
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
     }
   ]
 }
