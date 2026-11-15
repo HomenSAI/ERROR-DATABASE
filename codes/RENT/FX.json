@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-FX-001",
+      "number": "003-012-001",
       "key": "FX_RATE_MISSING",
       "aliases": [
         "fx_rate_missing"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-FX-002",
+      "number": "003-012-002",
       "key": "NBU_RATE_ERROR",
       "aliases": [
         "nbu_rate_error"
@@ -104,6 +106,7 @@
     },
     {
       "code": "RENT-FX-003",
+      "number": "003-012-003",
       "key": "ACCOUNTING_CURRENCY_ONLY",
       "aliases": [
         "accounting_currency"

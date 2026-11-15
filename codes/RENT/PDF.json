@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-PDF-001",
+      "number": "003-009-001",
       "key": "PDF_FAILED",
       "aliases": [
         "pdf_failed"
@@ -65,6 +66,7 @@
     },
     {
       "code": "RENT-PDF-002",
+      "number": "003-009-002",
       "key": "PDF_FONT",
       "aliases": [
         "pdf_font"

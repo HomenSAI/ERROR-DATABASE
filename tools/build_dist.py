@@ -79,9 +79,11 @@ def _llms(catalog: Catalog, version: str) -> str:
         "> Единая база кодов ошибок экосистемы HomenSAI (Rent, JobPilot Pro, Core, Auto VPN, SECURITY-MODULE). "
         "Unified error-code database of the HomenSAI ecosystem.",
         "",
-        "Код `NS-AREA-NNN` никогда не переиспользуется; `key` — устойчивое машинное имя; `aliases` — прежние коды "
+        "Код `NS-AREA-NNN` никогда не переиспользуется; `number` — цифровой код `PPP-AAA-NNN` (пространство-область-"
+        "номер) для поиска, ищется и без дефисов; `key` — устойчивое машинное имя; `aliases` — прежние коды "
         "продуктов. Для каждого кода: заголовок «что случилось» и шаги «что делать» на RU/UK/EN/DE. "
-        "Code format NS-AREA-NNN, never reused; key is a stable machine name; aliases are former product codes; "
+        "Code format NS-AREA-NNN, never reused; number is the numeric code PPP-AAA-NNN (namespace-area-serial) for "
+        "search, also found without hyphens; key is a stable machine name; aliases are former product codes; "
         "each code lists title and steps in ru/uk/en/de.",
         "",
         f"- Справочник / reference: {SITE_URL}",
@@ -94,8 +96,9 @@ def _llms(catalog: Catalog, version: str) -> str:
             continue
         lines += [f"## {ns} — {info.get('title', ns)}", ""]
         for entry in entries:
-            meta = [f"level: {entry.level}", f"audience: {entry.audience}",
-                    f"retryable: {'true' if entry.retryable else 'false'}"]
+            meta = ([f"number: {entry.number}"] if entry.number else []) + [
+                f"level: {entry.level}", f"audience: {entry.audience}",
+                f"retryable: {'true' if entry.retryable else 'false'}"]
             if entry.aliases:
                 meta.append("aliases: " + ", ".join(entry.aliases))
             if entry.http_status:

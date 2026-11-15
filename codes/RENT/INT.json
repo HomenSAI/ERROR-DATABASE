@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-INT-001",
+      "number": "003-017-001",
       "key": "INTEGRITY_REASON",
       "aliases": [
         "integrity_reason"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-INT-002",
+      "number": "003-017-002",
       "key": "INTEGRITY_CHANGE",
       "aliases": [
         "integrity_change"
@@ -104,6 +106,7 @@
     },
     {
       "code": "RENT-INT-003",
+      "number": "003-017-003",
       "key": "INTEGRITY_SCHEMA",
       "aliases": [
         "integrity_schema"
@@ -165,6 +168,7 @@
     },
     {
       "code": "RENT-INT-004",
+      "number": "003-017-004",
       "key": "JOURNAL_GAP",
       "aliases": [
         "journal_gap"
@@ -215,6 +219,7 @@
     },
     {
       "code": "RENT-INT-005",
+      "number": "003-017-005",
       "key": "JOURNAL_LINK",
       "aliases": [
         "journal_link"
@@ -265,6 +270,7 @@
     },
     {
       "code": "RENT-INT-006",
+      "number": "003-017-006",
       "key": "JOURNAL_HASH",
       "aliases": [
         "journal_hash"
@@ -315,6 +321,7 @@
     },
     {
       "code": "RENT-INT-007",
+      "number": "003-017-007",
       "key": "ANCHOR_MISMATCH",
       "aliases": [
         "anchor_mismatch"
@@ -365,6 +372,7 @@
     },
     {
       "code": "RENT-INT-008",
+      "number": "003-017-008",
       "key": "AUDIT_CHANGED",
       "aliases": [
         "audit_changed"
@@ -415,6 +423,7 @@
     },
     {
       "code": "RENT-INT-009",
+      "number": "003-017-009",
       "key": "INDEX_CHANGED",
       "aliases": [
         "index_changed"
@@ -465,6 +474,7 @@
     },
     {
       "code": "RENT-INT-010",
+      "number": "003-017-010",
       "key": "INTEGRITY_ALARM",
       "aliases": [
         "integrity-alarm"

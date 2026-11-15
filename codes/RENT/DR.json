@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-DR-001",
+      "number": "003-001-001",
       "key": "BACKUP_PASSWORD_CHECK_OVERDUE",
       "aliases": [
         "DR-270-OVERDUE"
@@ -61,6 +62,7 @@
     },
     {
       "code": "RENT-DR-002",
+      "number": "003-001-002",
       "key": "CORRUPT",
       "aliases": [
         "corrupt"
@@ -122,6 +124,7 @@
     },
     {
       "code": "RENT-DR-003",
+      "number": "003-001-003",
       "key": "CHECKSUM",
       "aliases": [
         "checksum"
@@ -172,6 +175,7 @@
     },
     {
       "code": "RENT-DR-004",
+      "number": "003-001-004",
       "key": "FINGERPRINT",
       "aliases": [
         "fingerprint"
@@ -233,6 +237,7 @@
     },
     {
       "code": "RENT-DR-005",
+      "number": "003-001-005",
       "key": "DB_CORRUPT",
       "aliases": [
         "db_corrupt"
@@ -294,6 +299,7 @@
     },
     {
       "code": "RENT-DR-006",
+      "number": "003-001-006",
       "key": "SOURCE_CORRUPT",
       "aliases": [
         "source_corrupt"
@@ -355,6 +361,7 @@
     },
     {
       "code": "RENT-DR-007",
+      "number": "003-001-007",
       "key": "DRILL_NO_COPY",
       "aliases": [
         "drill_no_copy"
@@ -405,6 +412,7 @@
     },
     {
       "code": "RENT-DR-008",
+      "number": "003-001-008",
       "key": "DRILL_FAILED",
       "aliases": [
         "drill_failed"
@@ -466,6 +474,7 @@
     },
     {
       "code": "RENT-DR-009",
+      "number": "003-001-009",
       "key": "NO_PASSWORD",
       "aliases": [
         "no_password"
@@ -516,6 +525,7 @@
     },
     {
       "code": "RENT-DR-010",
+      "number": "003-001-010",
       "key": "WEAK_PASSWORD",
       "aliases": [
         "weak_password"
@@ -566,6 +576,7 @@
     },
     {
       "code": "RENT-DR-011",
+      "number": "003-001-011",
       "key": "DB_MISSING",
       "aliases": [
         "db_missing"
@@ -616,6 +627,7 @@
     },
     {
       "code": "RENT-DR-012",
+      "number": "003-001-012",
       "key": "EXCEL_FAILED",
       "aliases": [
         "excel_failed"
@@ -677,6 +689,7 @@
     },
     {
       "code": "RENT-DR-013",
+      "number": "003-001-013",
       "key": "FILES_FAILED",
       "aliases": [
         "files_failed"
@@ -727,6 +740,7 @@
     },
     {
       "code": "RENT-DR-014",
+      "number": "003-001-014",
       "key": "BUILD_FAILED",
       "aliases": [
         "build_failed"
@@ -788,6 +802,7 @@
     },
     {
       "code": "RENT-DR-015",
+      "number": "003-001-015",
       "key": "FOLDER_UNAVAILABLE",
       "aliases": [
         "folder_unavailable"
@@ -838,6 +853,7 @@
     },
     {
       "code": "RENT-DR-016",
+      "number": "003-001-016",
       "key": "FOLDER_FAILED",
       "aliases": [
         "folder_failed"
@@ -888,6 +904,7 @@
     },
     {
       "code": "RENT-DR-017",
+      "number": "003-001-017",
       "key": "TELEGRAM_TOKEN",
       "aliases": [
         "telegram_token"
@@ -938,6 +955,7 @@
     },
     {
       "code": "RENT-DR-018",
+      "number": "003-001-018",
       "key": "TELEGRAM_FAILED",
       "aliases": [
         "telegram_failed"
@@ -988,6 +1006,7 @@
     },
     {
       "code": "RENT-DR-019",
+      "number": "003-001-019",
       "key": "TELEGRAM_TOO_LARGE",
       "aliases": [
         "telegram_too_large"
@@ -1038,6 +1057,7 @@
     },
     {
       "code": "RENT-DR-020",
+      "number": "003-001-020",
       "key": "NO_KEY_MODE",
       "aliases": [
         "no_key_mode"
@@ -1088,6 +1108,7 @@
     },
     {
       "code": "RENT-DR-021",
+      "number": "003-001-021",
       "key": "RESTORE_FAILED",
       "aliases": [
         "restore_failed"
@@ -1138,6 +1159,7 @@
     },
     {
       "code": "RENT-DR-022",
+      "number": "003-001-022",
       "key": "NO_COPIES",
       "aliases": [
         "no_copies"
@@ -1188,6 +1210,7 @@
     },
     {
       "code": "RENT-DR-023",
+      "number": "003-001-023",
       "key": "SERVICES_RUNNING",
       "aliases": [
         "services_running"
@@ -1238,6 +1261,7 @@
     },
     {
       "code": "RENT-DR-024",
+      "number": "003-001-024",
       "key": "PARTS_MISMATCH",
       "aliases": [
         "parts_mismatch"
@@ -1288,6 +1312,7 @@
     },
     {
       "code": "RENT-DR-025",
+      "number": "003-001-025",
       "key": "NO_DESTINATION",
       "aliases": [
         "no_destination"
@@ -1338,6 +1363,7 @@
     },
     {
       "code": "RENT-DR-026",
+      "number": "003-001-026",
       "key": "INTERRUPTED",
       "aliases": [
         "interrupted"
@@ -1388,6 +1414,7 @@
     },
     {
       "code": "RENT-DR-027",
+      "number": "003-001-027",
       "key": "BAD_SETTINGS",
       "aliases": [
         "bad_settings"
@@ -1438,6 +1465,7 @@
     },
     {
       "code": "RENT-DR-028",
+      "number": "003-001-028",
       "key": "BAD_PROTECTION",
       "aliases": [
         "bad_protection"
@@ -1488,6 +1516,7 @@
     },
     {
       "code": "RENT-DR-029",
+      "number": "003-001-029",
       "key": "ALREADY_RUNNING",
       "aliases": [
         "already_running"
@@ -1538,6 +1567,7 @@
     },
     {
       "code": "RENT-DR-030",
+      "number": "003-001-030",
       "key": "NOT_CONFIRMED",
       "aliases": [
         "not_confirmed"
@@ -1588,6 +1618,7 @@
     },
     {
       "code": "RENT-DR-031",
+      "number": "003-001-031",
       "key": "CHAIN_FAILED",
       "aliases": [
         "chain_failed"
@@ -1649,6 +1680,7 @@
     },
     {
       "code": "RENT-DR-032",
+      "number": "003-001-032",
       "key": "COPY_UNCHAINED",
       "aliases": [
         "copy_unchained"
@@ -1699,6 +1731,7 @@
     },
     {
       "code": "RENT-DR-033",
+      "number": "003-001-033",
       "key": "KEY_CHANGED",
       "aliases": [
         "key_changed"
@@ -1749,6 +1782,7 @@
     },
     {
       "code": "RENT-DR-034",
+      "number": "003-001-034",
       "key": "MEDIUM_UNAVAILABLE",
       "aliases": [
         "medium_unavailable"
@@ -1799,6 +1833,7 @@
     },
     {
       "code": "RENT-DR-035",
+      "number": "003-001-035",
       "key": "BAD_PASSWORD",
       "aliases": [
         "bad_password"
@@ -1849,6 +1884,7 @@
     },
     {
       "code": "RENT-DR-036",
+      "number": "003-001-036",
       "key": "DRILL_BAD_PASSWORD",
       "aliases": [
         "drill_bad_password"
@@ -1899,6 +1935,7 @@
     },
     {
       "code": "RENT-DR-037",
+      "number": "003-001-037",
       "key": "CURRENT_PASSWORD",
       "aliases": [
         "current_password"
@@ -1949,6 +1986,7 @@
     },
     {
       "code": "RENT-DR-038",
+      "number": "003-001-038",
       "key": "CHECK_LOCKED",
       "aliases": [
         "check_locked"
@@ -1999,6 +2037,7 @@
     },
     {
       "code": "RENT-DR-039",
+      "number": "003-001-039",
       "key": "NO_KEY",
       "aliases": [
         "no_key"
@@ -2049,6 +2088,7 @@
     },
     {
       "code": "RENT-DR-040",
+      "number": "003-001-040",
       "key": "OPEN_OUTSIDE_PC",
       "aliases": [
         "open_outside_pc"
@@ -2110,6 +2150,7 @@
     },
     {
       "code": "RENT-DR-041",
+      "number": "003-001-041",
       "key": "INTERNAL_SAME_DISK",
       "aliases": [
         "internal_same_disk"
@@ -2160,6 +2201,7 @@
     },
     {
       "code": "RENT-DR-042",
+      "number": "003-001-042",
       "key": "ROTATION_HELD",
       "aliases": [
         "rotation_held"
@@ -2210,6 +2252,7 @@
     },
     {
       "code": "RENT-DR-043",
+      "number": "003-001-043",
       "key": "CHAIN_GAP",
       "aliases": [
         "chain_gap"
@@ -2271,6 +2314,7 @@
     },
     {
       "code": "RENT-DR-044",
+      "number": "003-001-044",
       "key": "CHAIN_LINK",
       "aliases": [
         "chain_link"
@@ -2332,6 +2376,7 @@
     },
     {
       "code": "RENT-DR-045",
+      "number": "003-001-045",
       "key": "CHAIN_SIGNATURE",
       "aliases": [
         "chain_signature"
@@ -2393,6 +2438,7 @@
     },
     {
       "code": "RENT-DR-046",
+      "number": "003-001-046",
       "key": "MANIFEST_MISSING",
       "aliases": [
         "manifest_missing"
@@ -2454,6 +2500,7 @@
     },
     {
       "code": "RENT-DR-047",
+      "number": "003-001-047",
       "key": "MANIFEST_DIFFERS",
       "aliases": [
         "manifest_differs"
@@ -2515,6 +2562,7 @@
     },
     {
       "code": "RENT-DR-048",
+      "number": "003-001-048",
       "key": "MANIFEST_FOREIGN",
       "aliases": [
         "manifest_foreign"
@@ -2576,6 +2624,7 @@
     },
     {
       "code": "RENT-DR-049",
+      "number": "003-001-049",
       "key": "MEDIUM_AHEAD",
       "aliases": [
         "medium_ahead"
@@ -2626,6 +2675,7 @@
     },
     {
       "code": "RENT-DR-050",
+      "number": "003-001-050",
       "key": "COPY_MISSING",
       "aliases": [
         "copy_missing"
@@ -2687,6 +2737,7 @@
     },
     {
       "code": "RENT-DR-051",
+      "number": "003-001-051",
       "key": "COPY_DIFFERS",
       "aliases": [
         "copy_differs"
@@ -2748,6 +2799,7 @@
     },
     {
       "code": "RENT-DR-052",
+      "number": "003-001-052",
       "key": "COPY_FOREIGN",
       "aliases": [
         "copy_foreign"
@@ -2809,6 +2861,7 @@
     },
     {
       "code": "RENT-DR-053",
+      "number": "003-001-053",
       "key": "BACKUP_PASSWORD_CHECK",
       "aliases": [
         "backup-password-check"
@@ -2870,6 +2923,7 @@
     },
     {
       "code": "RENT-DR-054",
+      "number": "003-001-054",
       "key": "BACKUP_CHAIN_BROKEN",
       "aliases": [
         "backup-chain-broken"
@@ -2931,6 +2985,7 @@
     },
     {
       "code": "RENT-DR-055",
+      "number": "003-001-055",
       "key": "BACKUP_MEDIUM_LINK",
       "aliases": [
         "medium_link"
@@ -2992,6 +3047,7 @@
     },
     {
       "code": "RENT-DR-056",
+      "number": "003-001-056",
       "key": "BACKUP_MEDIUM_MOVED",
       "aliases": [
         "medium_moved"
@@ -3053,6 +3109,7 @@
     },
     {
       "code": "RENT-DR-057",
+      "number": "003-001-057",
       "key": "BACKUP_TOO_BIG",
       "aliases": [
         "too_big"
@@ -3103,6 +3160,7 @@
     },
     {
       "code": "RENT-DR-058",
+      "number": "003-001-058",
       "key": "BACKUP_OS_FILES",
       "aliases": [
         "os_files"

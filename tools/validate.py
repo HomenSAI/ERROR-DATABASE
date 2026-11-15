@@ -2,7 +2,9 @@
 # HomenS.AI Error-database · © 2026 Serhii Khomenko · https://homensai.com/
 """Проверка базы ошибок без внешних зависимостей (ARCHITECTURE.md §8).
 
-Проверяет: формат файлов и обязательные поля, пространства и области из namespaces.json, уникальность code/key/aliases,
+Проверяет: формат файлов и обязательные поля, пространства и области из namespaces.json, их цифровые номера
+(`number`, `area_numbers`: три цифры, уникальны на своём уровне), цифровой код записи `number` = `PPP-AAA-NNN`
+(совпадает с вычисленным из namespaces.json, уникален), уникальность code/key/aliases,
 все 4 языка, одинаковые подстановки {..} во всех языках и объявленные params, номера без пропусков, ссылки related и
 replaced_by, белый список данных для ИИ и разработчика. Выход 0 — всё в порядке, 1 — есть ошибки (список в stderr).
 """
@@ -16,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LANGS = ("ru", "uk", "en", "de")
-REQUIRED = ("code", "key", "level", "audience", "title", "cause", "action", "escalation", "retryable", "help", "since")
+REQUIRED = ("code", "number", "key", "level", "audience", "title", "cause", "action", "escalation", "retryable", "help", "since")
 ALLOWED = set(REQUIRED) | {"aliases", "params", "http_status", "related", "deprecated", "replaced_by", "tags", "fixed_in", "examples"}
 LEVELS = {"info", "warn", "error", "alarm"}
 AUDIENCES = {"user", "admin", "developer"}
@@ -25,13 +27,17 @@ DATA = {"code", "params", "app_version", "os", "log_excerpt_redacted"}
 CODE_RE = re.compile(r"^([A-Z][A-Z0-9]{1,9})-([A-Z0-9]{2,8})-([0-9]{3})$")
 KEY_RE = re.compile(r"^[A-Z][A-Z0-9_]{2,80}$")
 VERSION_RE = re.compile(r"^\d+\.\d+\.\d+$")
+NUMBER_RE = re.compile(r"^[0-9]{3}-[0-9]{3}-[0-9]{3}$")
+PART_RE = re.compile(r"^[0-9]{3}$")
 PLACEHOLDER_RE = re.compile(r"\{([a-z_][a-z0-9_]*)\}")
 
 
 def validate(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     namespaces = json.loads((root / "namespaces.json").read_text(encoding="utf-8"))
+    errors += _namespace_numbers(namespaces)
     seen_codes: dict[str, str] = {}
+    seen_numbers: dict[str, str] = {}
     seen_names: dict[str, str] = {}
     numbers: dict[tuple[str, str], list[int]] = {}
     refs: list[tuple[str, str]] = []
@@ -51,7 +57,7 @@ def validate(root: Path = ROOT) -> list[str]:
         if path.parent.name != ns or path.stem != area:
             errors.append(f"{rel}: файл должен называться codes/{ns}/{area}.json")
         for entry in data.get("codes", []):
-            errors += _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs)
+            errors += _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs, namespaces, seen_numbers)
     for (ns, area), nums in numbers.items():
         if sorted(nums) != list(range(1, len(nums) + 1)):
             errors.append(f"{ns}-{area}: номера должны идти с 001 без пропусков, сейчас {sorted(nums)}")
@@ -61,7 +67,47 @@ def validate(root: Path = ROOT) -> list[str]:
     return errors
 
 
-def _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs) -> list[str]:
+def _namespace_numbers(namespaces: dict) -> list[str]:
+    """Номера пространств (`number`) и областей (`area_numbers`): три цифры, у каждого есть, уникальны на уровне."""
+    errors: list[str] = []
+    by_number: dict[str, str] = {}
+    for ns, info in namespaces.items():
+        number = info.get("number")
+        if not isinstance(number, str) or not PART_RE.match(number):
+            errors.append(f"namespaces.json: у пространства {ns} нет номера number из трёх цифр")
+        elif number in by_number:
+            errors.append(f"namespaces.json: номер {number} у пространств {by_number[number]} и {ns}")
+        else:
+            by_number[number] = ns
+        areas, area_numbers = info.get("areas", {}), info.get("area_numbers")
+        if not isinstance(area_numbers, dict):
+            errors.append(f"namespaces.json: у пространства {ns} нет area_numbers")
+            continue
+        for area in sorted(set(areas) - set(area_numbers)):
+            errors.append(f"namespaces.json: у области {ns}-{area} нет номера в area_numbers")
+        for area in sorted(set(area_numbers) - set(areas)):
+            errors.append(f"namespaces.json: area_numbers {ns}: номер у необъявленной области {area}")
+        seen: dict[str, str] = {}
+        for area, number in area_numbers.items():
+            if not isinstance(number, str) or not PART_RE.match(number):
+                errors.append(f"namespaces.json: номер области {ns}-{area} — три цифры, сейчас {number!r}")
+            elif number in seen:
+                errors.append(f"namespaces.json: номер области {number} в {ns} у {seen[number]} и {area}")
+            else:
+                seen[number] = area
+    return errors
+
+
+def expected_number(namespaces: dict, ns: str, area: str, serial: int) -> str | None:
+    """Цифровой код `PPP-AAA-NNN` по namespaces.json; `None`, если у пространства или области нет номера."""
+    info = namespaces.get(ns, {})
+    ns_number, area_number = info.get("number"), (info.get("area_numbers") or {}).get(area)
+    if not (isinstance(ns_number, str) and isinstance(area_number, str)):
+        return None
+    return f"{ns_number}-{area_number}-{serial:03d}"
+
+
+def _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs, namespaces, seen_numbers) -> list[str]:
     errors: list[str] = []
     code = entry.get("code", "?")
     where = f"{rel}:{code}"
@@ -76,9 +122,21 @@ def _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs) -> list[
         errors.append(f"{where}: код должен иметь вид {ns}-{area}-NNN")
     else:
         numbers.setdefault((ns, area), []).append(int(match.group(3)))
+        number = entry.get("number")
+        if "number" in entry:
+            want = expected_number(namespaces, ns, area, int(match.group(3)))
+            if not isinstance(number, str) or not NUMBER_RE.match(number):
+                errors.append(f"{where}: number должен иметь вид PPP-AAA-NNN (три цифры, дефис), сейчас {number!r}")
+            elif want is not None and number != want:
+                errors.append(f"{where}: number {number} не совпадает с вычисленным из namespaces.json: {want}")
     if code in seen_codes:
         errors.append(f"{where}: код уже есть в {seen_codes[code]}")
     seen_codes[code] = rel
+    number = entry.get("number")
+    if isinstance(number, str) and number:
+        if number in seen_numbers and seen_numbers[number] != code:
+            errors.append(f"{where}: number {number} уже у кода {seen_numbers[number]}")
+        seen_numbers[number] = code
     key = entry.get("key", "")
     if not KEY_RE.match(key):
         errors.append(f"{where}: key должен быть UPPER_SNAKE_CASE")

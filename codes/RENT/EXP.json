@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-EXP-001",
+      "number": "003-008-001",
       "key": "EXPORT_FAILED",
       "aliases": [
         "export_failed"
@@ -65,6 +66,7 @@
     },
     {
       "code": "RENT-EXP-002",
+      "number": "003-008-002",
       "key": "OLX_API_ERROR",
       "aliases": [
         "olx_api_error"
@@ -115,6 +117,7 @@
     },
     {
       "code": "RENT-EXP-003",
+      "number": "003-008-003",
       "key": "PRIVACY_PII_EXPORT",
       "aliases": [
         "privacy_pii_export"

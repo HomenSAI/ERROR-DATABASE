@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "VPN-ADV-001",
+      "number": "005-009-001",
       "key": "ADVISOR_FAMILY",
       "aliases": [
         "ADVISOR-*"
@@ -56,6 +57,7 @@
     },
     {
       "code": "VPN-ADV-002",
+      "number": "005-009-002",
       "key": "ADVISOR_BUSY_OUTAGE",
       "aliases": [
         "ADVISOR-BUSY-OUTAGE"
@@ -108,6 +110,7 @@
     },
     {
       "code": "VPN-ADV-003",
+      "number": "005-009-003",
       "key": "ADVISOR_BUSY_SWITCH",
       "aliases": [
         "ADVISOR-BUSY-SWITCH"
@@ -160,6 +163,7 @@
     },
     {
       "code": "VPN-ADV-004",
+      "number": "005-009-004",
       "key": "ADVISOR_CALM_UNKNOWN",
       "aliases": [
         "ADVISOR-CALM-UNKNOWN"
@@ -212,6 +216,7 @@
     },
     {
       "code": "VPN-ADV-005",
+      "number": "005-009-005",
       "key": "ADVISOR_MODEL_CONSECUTIVE",
       "aliases": [
         "ADVISOR-MODEL-CONSECUTIVE"
@@ -264,6 +269,7 @@
     },
     {
       "code": "VPN-ADV-006",
+      "number": "005-009-006",
       "key": "ADVISOR_NO_RECOMMENDATION",
       "aliases": [
         "ADVISOR-NO-RECOMMENDATION"
@@ -316,6 +322,7 @@
     },
     {
       "code": "VPN-ADV-007",
+      "number": "005-009-007",
       "key": "ADVISOR_ONCE_A_DAY",
       "aliases": [
         "ADVISOR-ONCE-A-DAY"
@@ -368,6 +375,7 @@
     },
     {
       "code": "VPN-ADV-008",
+      "number": "005-009-008",
       "key": "ADVISOR_OUT_OF_BOUNDS",
       "aliases": [
         "ADVISOR-OUT-OF-BOUNDS"
@@ -430,6 +438,7 @@
     },
     {
       "code": "VPN-ADV-009",
+      "number": "005-009-009",
       "key": "ADVISOR_PG_BELOW_THETA",
       "aliases": [
         "ADVISOR-PG-BELOW-THETA"
@@ -492,6 +501,7 @@
     },
     {
       "code": "VPN-ADV-010",
+      "number": "005-009-010",
       "key": "ADVISOR_RANGE",
       "aliases": [
         "ADVISOR-RANGE"
@@ -554,6 +564,7 @@
     },
     {
       "code": "VPN-ADV-011",
+      "number": "005-009-011",
       "key": "ADVISOR_RESCUE_ABOVE_STABLE",
       "aliases": [
         "ADVISOR-RESCUE-ABOVE-STABLE"
@@ -616,6 +627,7 @@
     },
     {
       "code": "VPN-ADV-012",
+      "number": "005-009-012",
       "key": "ADVISOR_RIDE_NOT_BELOW_LEAVE",
       "aliases": [
         "ADVISOR-RIDE-NOT-BELOW-LEAVE"
@@ -678,6 +690,7 @@
     },
     {
       "code": "VPN-ADV-013",
+      "number": "005-009-013",
       "key": "ADVISOR_UNAVAILABLE",
       "aliases": [
         "ADVISOR-UNAVAILABLE"

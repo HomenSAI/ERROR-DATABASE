@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-TRAIN-001",
+      "number": "003-019-001",
       "key": "TRAINING_UNKNOWN",
       "aliases": [
         "training_unknown"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-TRAIN-002",
+      "number": "003-019-002",
       "key": "REVIEW_INCOMPLETE",
       "aliases": [
         "review_incomplete"

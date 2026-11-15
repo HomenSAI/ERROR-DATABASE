@@ -1,7 +1,7 @@
 /* HomenS.AI Error-database · © 2026 Serhii Khomenko · https://homensai.com/ · https://github.com/HomenSAI */
 /* Сайт-справочник: поиск по search.<lang>.json, переключатель темы, переход со старых адресов на странице 404.
-   Поиск повторяет Catalog.search и нормализацию homensai_errors._texts (normalize, stem) — совпадение результатов
-   проверяет tests/test_site.py через node. Без внешних библиотек; DOM строится через textContent. */
+   Поиск повторяет Catalog.search и функции homensai_errors._texts (normalize, stem, canonical_number, number_digits) —
+   совпадение результатов проверяет tests/test_site.py через node. Без внешних библиотек; DOM строится через textContent. */
 (function (root) {
   "use strict";
 
@@ -25,21 +25,39 @@
     return token;
   }
 
-  /** Подготовить индекс search.<lang>.json: таблица имён (код, key, прежние коды) → код. */
+  /** Цифровой код PPP-AAA-NNN из ввода (003-012-003, 003012003, 003 012 003) или null: как _texts.canonical_number. */
+  function canonicalNumber(text) {
+    var match = /^([0-9]{3})[\s-]*([0-9]{3})[\s-]*([0-9]{3})$/.exec(String(text).trim());
+    return match ? match[1] + "-" + match[2] + "-" + match[3] : null;
+  }
+
+  /** Цифры начала цифрового кода из запроса (003-012, 003 012, 003012; 3–9 цифр) или null: как _texts.number_digits. */
+  function numberDigits(query) {
+    var raw = String(query).trim();
+    if (!/^[0-9][0-9\s-]*$/.test(raw)) { return null; }
+    var digits = raw.replace(/[^0-9]/g, "");
+    return digits.length >= 3 && digits.length <= 9 ? digits : null;
+  }
+
+  /** Подготовить индекс search.<lang>.json: таблица имён (код, цифровой код, key, прежние коды) → код. */
   function prepare(index) {
     var names = new Map();
     var docs = index.docs.map(function (doc) {
       var all = [doc.code, doc.key].concat(doc.aliases || []);
       all.forEach(function (name) { if (!names.has(name)) { names.set(name, doc.code); } });
+      if (doc.number && !names.has(doc.number)) { names.set(doc.number, doc.code); }
       return {doc: doc, names: all.map(normalize)};
     });
     return {index: index, names: names, docs: docs,
       byCode: new Map(index.docs.map(function (doc) { return [doc.code, doc]; }))};
   }
 
-  /** Код по точному имени (как Catalog.find) или null. */
+  /** Код по точному имени или цифровому коду (как Catalog.find) или null. */
   function find(prepared, name) {
-    return prepared.names.get(name) || prepared.names.get(String(name).trim().toUpperCase()) || null;
+    var found = prepared.names.get(name) || prepared.names.get(String(name).trim().toUpperCase());
+    if (found) { return found; }
+    var number = canonicalNumber(name);
+    return (number && prepared.names.get(number)) || null;
   }
 
   /** Поиск как Catalog.search: [[код, баллы], ...] по убыванию баллов, затем по коду; limit — необязателен. */
@@ -54,6 +72,15 @@
       prepared.docs.forEach(function (item) {
         var code = item.doc.code;
         if (code.indexOf(prefix) === 0 && !scores.has(code)) { scores.set(code, 500); }
+      });
+    }
+    var digits = numberDigits(raw);
+    if (digits) {
+      prepared.docs.forEach(function (item) {
+        var doc = item.doc;
+        if ((doc.number || "").replace(/-/g, "").indexOf(digits) === 0 && !scores.has(doc.code)) {
+          scores.set(doc.code, 500);
+        }
       });
     }
     var tokens = normalize(raw).split(" ").filter(Boolean);
@@ -85,7 +112,7 @@
     return typeof limit === "number" ? ranked.slice(0, Math.max(limit, 0)) : ranked;
   }
 
-  var api = {normalize: normalize, stem: stem, prepare: prepare, find: find, search: search};
+  var api = {normalize: normalize, stem: stem, canonicalNumber: canonicalNumber, numberDigits: numberDigits, prepare: prepare, find: find, search: search};
   if (typeof module !== "undefined" && module.exports) { module.exports = api; }
   root.HSAIErrors = api;
   if (typeof document === "undefined") { return; }
@@ -136,6 +163,10 @@
         var link = el("a");
         link.href = pages + doc.code + ".html";
         link.appendChild(el("code", "", doc.code));
+        if (doc.number) {
+          link.appendChild(document.createTextNode(" "));
+          link.appendChild(el("code", "num", doc.number));
+        }
         link.appendChild(document.createTextNode(" — " + doc.title));
         li.appendChild(link);
         li.appendChild(document.createTextNode(" "));

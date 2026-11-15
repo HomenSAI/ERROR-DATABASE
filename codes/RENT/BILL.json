@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-BILL-001",
+      "number": "003-002-001",
       "key": "CALC_NUMBER_RANGE",
       "aliases": [
         "calc_number_range"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-BILL-002",
+      "number": "003-002-002",
       "key": "INVOICE_NOT_FOUND",
       "aliases": [
         "invoice_not_found"
@@ -104,6 +106,7 @@
     },
     {
       "code": "RENT-BILL-003",
+      "number": "003-002-003",
       "key": "READING_MISSING",
       "aliases": [
         "reading_missing"
@@ -154,6 +157,7 @@
     },
     {
       "code": "RENT-BILL-004",
+      "number": "003-002-004",
       "key": "RENT_NOTICE_TOO_SHORT",
       "aliases": [
         "rent_notice_too_short"
@@ -204,6 +208,7 @@
     },
     {
       "code": "RENT-BILL-005",
+      "number": "003-002-005",
       "key": "TARIFF_NOT_FOUND",
       "aliases": [
         "tariff_not_found"

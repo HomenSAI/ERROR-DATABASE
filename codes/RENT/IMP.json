@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-IMP-001",
+      "number": "003-007-001",
       "key": "IMPORT_FORMAT",
       "aliases": [
         "import_format"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-IMP-002",
+      "number": "003-007-002",
       "key": "IMPORT_ROW_INVALID",
       "aliases": [
         "import_row_invalid"

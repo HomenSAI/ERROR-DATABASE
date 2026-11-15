@@ -6,8 +6,9 @@
 ## Как устроено
 - **Пространства кодов.** У каждого проекта или модуля своё: `RENT-…`, `JP-…`, `CORE-…`, `VPN-…`, `SEC-…`. Общие коды — `COMMON-…`.
 - **Файлы.** Один файл на область: `codes/<ПРОСТРАНСТВО>/<ОБЛАСТЬ>.json`, код вида `RENT-DR-001`.
+- **Цифровой код** `PPP-AAA-NNN` для поиска (с 1.2.0): `RENT-FX-003` → `003-012-003` (пространство `RENT` = 003, область `FX` = 012, номер ошибки 003); поле `number`, ищется и как `003012003` (`ARCHITECTURE.md` §3.1). Номера пространств: COMMON 001, CORE 002, RENT 003, JP 004, VPN 005, SEC 006.
 - **Поля записи** (подробно — `ARCHITECTURE.md` §4):
-  - `code`, `key`, `level` — `info` | `warn` | `error` | `alarm`;
+  - `code`, `number`, `key`, `level` — `info` | `warn` | `error` | `alarm`;
   - `title`, `cause` и `action` на RU/UK/EN/DE: «что случилось», «почему», «что делать»;
   - `escalation` — кому передать;
   - `help`, `since`, `deprecated`.
@@ -35,7 +36,8 @@ configure(catalog)                           # каталог для AppError; �
 catalog.render("RENT-DR-001", lang="uk", params={"days": 3})   # тексты и «новый код (прежний код)»
 catalog.to_problem("RENT-DR-001", lang="en", status=409, params={"days": 3})   # RFC 9457
 catalog.help_page("RENT-DR-001", lang="ru")  # Markdown помощи; язык не из каталога — запасной (en)
-catalog.search("пароль копий", lang="ru")    # по коду, старому коду, key и словам
+catalog.search("пароль копий", lang="ru")    # по коду, цифровому коду, старому коду, key и словам
+catalog.get("003-012-003")                   # и «003012003», «003 012 003» — запись RENT-FX-003
 raise AppError(Errors.RENT_DR_001, days=3)   # самодельный код — ошибка
 ```
 - Константы кодов: `python tools/gen_constants.py` (по умолчанию `src/homensai_errors/codes.py`; для продукта `--source --manifest --py --ts`, `--check` для CI).
@@ -45,7 +47,7 @@ raise AppError(Errors.RENT_DR_001, days=3)   # самодельный код —
 `python tools/build_dist.py` собирает `dist/`: `errors.json`, `errors.<NS>.json`, справочник `errors.<lang>.md`, `help/<lang>/<код>.md`, `search.<lang>.json`, `llms.txt`, `prompts/`, `SHA256SUMS`. Сборка детерминирована. `dist/` в Git не хранится: при теге `vX.Y.Z` задание `release.yml` на self-hosted runner владельца собирает его и прикладывает к GitHub Release вместе с архивом `homensai-errors-X.Y.Z.tar.gz`.
 
 ## Сайт-справочник
-https://homensai.github.io/ERROR-DATABASE/ — страница каждого кода на RU/UK/EN/DE и поиск по коду, прежнему коду и словам (`ARCHITECTURE.md` §6.4).
+https://homensai.github.io/ERROR-DATABASE/ — страница каждого кода на RU/UK/EN/DE и поиск по коду, цифровому коду, прежнему коду и словам (`ARCHITECTURE.md` §6.4).
 - Адреса: `/errors/<код>` (английский, с переключателем языка; это `type` ответа RFC 9457), `/<lang>/errors/<код>`, `/<lang>/ns/<NS>` — коды пространства, `/llms.txt`, `/errors.json`.
 - Сборка: `python tools/build_site.py` → `site/` (детерминированно, без внешних шрифтов, CDN и трекеров; в Git не хранится). Проверка — `tests/test_site.py`.
 - Публикация: `.github/workflows/pages.yml` при push в `main` на self-hosted runner владельца.
@@ -55,4 +57,4 @@ https://homensai.github.io/ERROR-DATABASE/ — страница каждого �
 Продукты HomenSAI берут коды только отсюда и свои не придумывают. При сборке нужные коды копируются внутрь продукта, поэтому каждая сборка самодостаточна и в сеть за ними не ходит.
 
 ## Состояние
-Архитектура 1.4, пример `COMMON-SYS-001`; пространство `RENT` — 233 кода (перенос справочника Rent, `CHANGELOG.md` 1.1.0); библиотека `homensai_errors`, сборка выпуска `dist/` и сайт-справочник (1.1.0). Наполнение — пакет ERR в реестре Rent.
+Архитектура 1.5 (цифровой код `PPP-AAA-NNN`, версия базы 1.2.0), пример `COMMON-SYS-001`; пространство `RENT` — 233 кода (перенос справочника Rent, `CHANGELOG.md` 1.1.0); библиотека `homensai_errors`, сборка выпуска `dist/` и сайт-справочник (1.1.0). Наполнение — пакет ERR в реестре Rent.

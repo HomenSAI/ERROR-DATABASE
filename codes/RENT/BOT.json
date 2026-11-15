@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-BOT-001",
+      "number": "003-010-001",
       "key": "BOT_TOKEN_MISSING",
       "aliases": [
         "bot_token_missing"
@@ -54,6 +55,7 @@
     },
     {
       "code": "RENT-BOT-002",
+      "number": "003-010-002",
       "key": "BOT_API_ERROR",
       "aliases": [
         "bot_api_error"
@@ -104,6 +106,7 @@
     },
     {
       "code": "RENT-BOT-003",
+      "number": "003-010-003",
       "key": "BOT_RATE_LIMIT",
       "aliases": [
         "bot_rate_limit"
@@ -154,6 +157,7 @@
     },
     {
       "code": "RENT-BOT-004",
+      "number": "003-010-004",
       "key": "NET_TIMEOUT",
       "aliases": [
         "net_timeout"
@@ -204,6 +208,7 @@
     },
     {
       "code": "RENT-BOT-005",
+      "number": "003-010-005",
       "key": "NET_CONNECTION",
       "aliases": [
         "net_connection"
@@ -254,6 +259,7 @@
     },
     {
       "code": "RENT-BOT-006",
+      "number": "003-010-006",
       "key": "PRIVACY_TOKEN_EXPOSED",
       "aliases": [
         "privacy_token_exposed"

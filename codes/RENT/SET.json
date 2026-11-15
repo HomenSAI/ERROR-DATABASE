@@ -4,6 +4,7 @@
   "codes": [
     {
       "code": "RENT-SET-001",
+      "number": "003-021-001",
       "key": "SMTP_INVALID",
       "aliases": [
         "smtp_invalid"
@@ -58,6 +59,7 @@
     },
     {
       "code": "RENT-SET-002",
+      "number": "003-021-002",
       "key": "HINT_CONTAINS_PASSWORD",
       "aliases": [
         "hint_contains_password"
@@ -112,6 +114,7 @@
     },
     {
       "code": "RENT-SET-003",
+      "number": "003-021-003",
       "key": "HINT_LONG",
       "aliases": [
         "hint_long"
@@ -166,6 +169,7 @@
     },
     {
       "code": "RENT-SET-004",
+      "number": "003-021-004",
       "key": "PASSWORD_MISMATCH",
       "aliases": [
         "password_mismatch"
@@ -220,6 +224,7 @@
     },
     {
       "code": "RENT-SET-005",
+      "number": "003-021-005",
       "key": "PASSWORD_SHORT",
       "aliases": [
         "password_short"
@@ -274,6 +279,7 @@
     },
     {
       "code": "RENT-SET-006",
+      "number": "003-021-006",
       "key": "PASSWORD_LONG",
       "aliases": [
         "password_long"
@@ -328,6 +334,7 @@
     },
     {
       "code": "RENT-SET-007",
+      "number": "003-021-007",
       "key": "PASSWORD_WEAK",
       "aliases": [
         "password_weak"
@@ -382,6 +389,7 @@
     },
     {
       "code": "RENT-SET-008",
+      "number": "003-021-008",
       "key": "GENERATED_FORMAT",
       "aliases": [
         "generated_format"
@@ -436,6 +444,7 @@
     },
     {
       "code": "RENT-SET-009",
+      "number": "003-021-009",
       "key": "GENERATED_MISMATCH",
       "aliases": [
         "generated_mismatch"
@@ -490,6 +499,7 @@
     },
     {
       "code": "RENT-SET-010",
+      "number": "003-021-010",
       "key": "PRIVACY_FIELD_KEY_WRONG",
       "aliases": [
         "privacy_field_key_wrong"
@@ -555,6 +565,7 @@
     },
     {
       "code": "RENT-SET-011",
+      "number": "003-021-011",
       "key": "PRIVACY_FIELD_KEY_MISSING",
       "aliases": [
         "privacy_field_key_missing"
@@ -620,6 +631,7 @@
     },
     {
       "code": "RENT-SET-012",
+      "number": "003-021-012",
       "key": "PRIVACY_FIELD_KEY_WEAK",
       "aliases": [
         "privacy_field_key_weak"
@@ -685,6 +697,7 @@
     },
     {
       "code": "RENT-SET-013",
+      "number": "003-021-013",
       "key": "PRIVACY_RESEAL_FAILED",
       "aliases": [
         "privacy_reseal_failed"
@@ -750,6 +763,7 @@
     },
     {
       "code": "RENT-SET-014",
+      "number": "003-021-014",
       "key": "PRIVACY_AEAD_MIGRATION",
       "aliases": [
         "privacy_aead_migration"

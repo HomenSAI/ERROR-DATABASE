@@ -231,7 +231,9 @@ def test_cli_writes_site(tmp_path):
 
 QUERIES = ["пароль копий", "пароля", "RENT-DR", "rent-dr-001", "DR-270-OVERDUE", "backup password",
            "BACKUP_PASSWORD_CHECK_OVERDUE", "Passwort", "Größe", "пам'ять", "ключ відновлення", "", "   ",
-           "nothing-like-this", "RENT", "копии", "network", "Netzwerk", "VPN-ADV", "{days}", "ё"]
+           "nothing-like-this", "RENT", "копии", "network", "Netzwerk", "VPN-ADV", "{days}", "ё",
+           "003-012-003", "003012003", "003 012 003", " 003  012-003 ", "003-012", "003 012", "003012", "003", "12",
+           "999-999-999", "03-012-003", "0030120033", "003-012-003 rent"]
 
 
 @pytest.mark.skipif(shutil.which("node") is None, reason="нет node — поиск на JS не проверить")
