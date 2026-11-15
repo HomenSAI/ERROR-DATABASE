@@ -1,0 +1,578 @@
+{
+  "namespace": "SEC",
+  "area": "SECW",
+  "codes": [
+    {
+      "code": "SEC-SECW-001",
+      "number": "006-004-001",
+      "key": "SEC_WIZARD_STEP",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такого шага мастера безопасности нет",
+        "uk": "Такого кроку майстра безпеки немає",
+        "en": "There is no such step in the security wizard",
+        "de": "Dieser Schritt im Sicherheitsassistenten existiert nicht"
+      },
+      "cause": {
+        "ru": "Мастер потерял текущий шаг: страница обновилась или мастер был открыт заново.",
+        "uk": "Майстер втратив поточний крок: сторінка оновилася або майстер було відкрито заново.",
+        "en": "The wizard lost the current step: the page was refreshed or the wizard was reopened.",
+        "de": "Der Assistent hat den aktuellen Schritt verloren: Die Seite wurde neu geladen oder der Assistent erneut geöffnet."
+      },
+      "action": {
+        "ru": "1. Откройте мастер заново кнопкой «Запустить мастер» в разделе «Безопасность».",
+        "uk": "1. Відкрийте майстер заново кнопкою «Запустити майстер» у розділі «Безпека».",
+        "en": "1. Open the wizard again with the “Start the wizard” button in the “Security” section.",
+        "de": "1. Öffnen Sie den Assistenten erneut über die Schaltfläche „Assistenten starten“ im Bereich „Sicherheit“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-001",
+      "since": "1.3.0",
+      "related": [
+        "RENT-SECW-001"
+      ],
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "SEC-SECW-002",
+      "number": "006-004-002",
+      "key": "SEC_WIZARD_CHOICE",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Выберите: «Выбрать», «Пропустить» или «Отложить»",
+        "uk": "Оберіть: «Обрати», «Пропустити» або «Відкласти»",
+        "en": "Choose: “Select”, “Skip”, or “Defer”",
+        "de": "Wählen Sie: „Auswählen“, „Überspringen“ oder „Zurückstellen“"
+      },
+      "cause": {
+        "ru": "Мастер предлагает на каждом шаге ровно три варианта.",
+        "uk": "Майстер пропонує на кожному кроці рівно три варіанти.",
+        "en": "The wizard offers exactly three options at each step.",
+        "de": "Der Assistent bietet in jedem Schritt genau drei Optionen."
+      },
+      "action": {
+        "ru": "1. На каждом шаге мастера нужно одно из трёх решений; его можно изменить в любой момент.",
+        "uk": "1. На кожному кроці майстра потрібне одне з трьох рішень; його можна змінити будь-коли.",
+        "en": "1. At each wizard step, one of three decisions is needed; it can be changed at any time.",
+        "de": "1. In jedem Schritt des Assistenten ist eine von drei Entscheidungen nötig; sie kann jederzeit geändert werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-002",
+      "since": "1.3.0",
+      "related": [
+        "RENT-SECW-002"
+      ],
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "SEC-SECW-003",
+      "number": "006-004-003",
+      "key": "SEC_WIZARD_RISK",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отметьте галочку «понимаю риск»",
+        "uk": "Позначте галочку «розумію ризик»",
+        "en": "Tick the “I understand the risk” box",
+        "de": "Aktivieren Sie das Kästchen „Ich verstehe das Risiko“"
+      },
+      "cause": {
+        "ru": "Такое подтверждение требуется для решений, которые могут повлиять на безопасность. Оно показывает, что решение принято осознанно.",
+        "uk": "Таке підтвердження потрібне для рішень, які можуть вплинути на безпеку. Воно показує, що рішення ухвалено усвідомлено.",
+        "en": "This confirmation is required for decisions that may affect security. It shows the decision was made consciously.",
+        "de": "Diese Bestätigung ist für Entscheidungen erforderlich, die die Sicherheit betreffen können. Sie zeigt, dass die Entscheidung bewusst getroffen wurde."
+      },
+      "action": {
+        "ru": "1. Отказ от меры и уровни 0–1 подтверждаются галочкой; решение пишется в журнал безопасности.",
+        "uk": "1. Відмова від заходу та рівні 0–1 підтверджуються галочкою; рішення пишеться в журнал безпеки.",
+        "en": "1. Declining a measure and levels 0–1 are confirmed with a tick; the decision is written to the security log.",
+        "de": "1. Die Ablehnung einer Maßnahme und Stufen 0–1 werden mit einem Häkchen bestätigt; die Entscheidung wird im Sicherheitsprotokoll erfasst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-003",
+      "since": "1.3.0",
+      "related": [
+        "RENT-SECW-003"
+      ],
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "SEC-SECW-004",
+      "number": "006-004-004",
+      "key": "SEC_WIZARD_LEVEL",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Уровень защиты — число от 0 до 5",
+        "uk": "Рівень захисту — число від 0 до 5",
+        "en": "Protection level — a number from 0 to 5",
+        "de": "Schutzstufe — eine Zahl von 0 bis 5"
+      },
+      "cause": {
+        "ru": "Уровень выбирают ползунком; доступны только целые числа от 0 до 5.",
+        "uk": "Рівень обирають повзунком; доступні лише цілі числа від 0 до 5.",
+        "en": "The level is chosen with a slider; only whole numbers from 0 to 5 are available.",
+        "de": "Die Stufe wird mit einem Regler gewählt; verfügbar sind nur ganze Zahlen von 0 bis 5."
+      },
+      "action": {
+        "ru": "1. Передвиньте ползунок на нужный уровень.",
+        "uk": "1. Пересуньте повзунок на потрібний рівень.",
+        "en": "1. Move the slider to the desired level.",
+        "de": "1. Bewegen Sie den Regler auf die gewünschte Stufe."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-004",
+      "since": "1.3.0",
+      "related": [
+        "RENT-SECW-004"
+      ],
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "SEC-SECW-005",
+      "number": "006-004-005",
+      "key": "SEC_RECOMMENDATION_UNKNOWN",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такой рекомендации нет",
+        "uk": "Такої рекомендації немає",
+        "en": "No such recommendation exists",
+        "de": "Diese Empfehlung gibt es nicht"
+      },
+      "cause": {
+        "ru": "Рекомендацию могли уже закрыть, или страница устарела.",
+        "uk": "Рекомендацію могли вже закрити, або сторінка застаріла.",
+        "en": "The recommendation may already be closed, or the page is out of date.",
+        "de": "Die Empfehlung wurde möglicherweise bereits geschlossen oder die Seite ist veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу раздела «Безопасность».",
+        "uk": "1. Оновіть сторінку розділу «Безпека».",
+        "en": "1. Refresh the “Security” section page.",
+        "de": "1. Aktualisieren Sie die Seite des Bereichs „Sicherheit“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-005",
+      "since": "1.3.0",
+      "related": [
+        "RENT-SECW-006"
+      ],
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "SEC-SECW-006",
+      "number": "006-004-006",
+      "key": "SEC_DEFER_PERIOD",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отложить можно на неделю, 2 недели, месяц, 3 месяца или полгода",
+        "uk": "Відкласти можна на тиждень, 2 тижні, місяць, 3 місяці або пів року",
+        "en": "You can defer for a week, 2 weeks, a month, 3 months, or six months",
+        "de": "Sie können um eine Woche, 2 Wochen, einen Monat, 3 Monate oder ein halbes Jahr aufschieben"
+      },
+      "cause": {
+        "ru": "Можно выбрать только доступные сроки из списка.",
+        "uk": "Можна вибрати лише доступні строки зі списку.",
+        "en": "Only the periods shown in the list are available.",
+        "de": "Verfügbar sind nur die in der Liste angezeigten Zeiträume."
+      },
+      "action": {
+        "ru": "1. Выберите срок из списка.",
+        "uk": "1. Оберіть строк зі списку.",
+        "en": "1. Choose a period from the list.",
+        "de": "1. Wählen Sie einen Zeitraum aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-006",
+      "since": "1.3.0",
+      "related": [
+        "RENT-SECW-007"
+      ],
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "SEC-SECW-007",
+      "number": "006-004-007",
+      "key": "SEC_HELP_UNKNOWN",
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такой страницы помощи нет",
+        "uk": "Такої сторінки довідки немає",
+        "en": "No such help page exists",
+        "de": "Diese Hilfeseite gibt es nicht"
+      },
+      "cause": {
+        "ru": "Страницу могли переместить, переименовать, или ссылка устарела.",
+        "uk": "Сторінку могли перемістити, перейменувати, або посилання застаріло.",
+        "en": "The page may have been moved, renamed, or the link may be outdated.",
+        "de": "Die Seite wurde möglicherweise verschoben, umbenannt oder der Link ist veraltet."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь → Безопасность» и выберите страницу из списка.",
+        "uk": "1. Відкрийте «Довідка → Безпека» та оберіть сторінку зі списку.",
+        "en": "1. Open “Help → Security” and choose a page from the list.",
+        "de": "1. Öffnen Sie „Hilfe → Sicherheit“ und wählen Sie eine Seite aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/SEC-SECW-007",
+      "since": "1.3.0",
+      "related": [
+        "RENT-SECW-005"
+      ],
+      "tags": [
+        "wizard"
+      ]
+    },
+    {
+      "code": "SEC-SECW-008",
+      "number": "006-004-008",
+      "key": "SEC_TRAINING_UNKNOWN",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такой тренировки нет или она сейчас недоступна",
+        "uk": "Такого тренування немає або воно зараз недоступне",
+        "en": "No such training exists or it is currently unavailable",
+        "de": "Diese Schulung gibt es nicht oder sie ist derzeit nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Ссылка может быть устаревшей, или тренировка временно закрыта.",
+        "uk": "Посилання може бути застарілим, або тренування тимчасово закрите.",
+        "en": "The link may be outdated, or the training has been temporarily closed.",
+        "de": "Der Link ist möglicherweise veraltet oder die Schulung wurde vorübergehend geschlossen."
+      },
+      "action": {
+        "ru": "1. Откройте «Безопасность → Тренировка» и выберите пункт из списка.",
+        "uk": "1. Відкрийте «Безпека → Тренування» та оберіть пункт зі списку.",
+        "en": "1. Open “Security → Training” and choose an item from the list.",
+        "de": "1. Öffnen Sie „Sicherheit → Training“ und wählen Sie einen Eintrag aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-008",
+      "since": "1.3.0",
+      "related": [
+        "RENT-TRAIN-001"
+      ],
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "code": "SEC-SECW-009",
+      "number": "006-004-009",
+      "key": "SEC_REVIEW_INCOMPLETE",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отметьте каждый пункт обзора восстановления",
+        "uk": "Позначте кожен пункт огляду відновлення",
+        "en": "Tick every item in the recovery review",
+        "de": "Markieren Sie jeden Punkt der Wiederherstellungsprüfung"
+      },
+      "cause": {
+        "ru": "Огляд завершают только тогда, когда подтверждены все его пункты.",
+        "uk": "Огляд завершують лише тоді, коли підтверджено всі його пункти.",
+        "en": "The review is completed only when all its items are confirmed.",
+        "de": "Die Prüfung wird erst abgeschlossen, wenn alle ihre Punkte bestätigt sind."
+      },
+      "action": {
+        "ru": "1. Если пункт не выполнен — откройте ссылку рядом с ним, исправьте и вернитесь к обзору.",
+        "uk": "1. Якщо пункт не виконано — відкрийте посилання поруч, виправте та поверніться до огляду.",
+        "en": "1. If an item is not done, open the link next to it, fix it, and return to the review.",
+        "de": "1. Wenn ein Punkt nicht erledigt ist, öffnen Sie den Link daneben, beheben Sie das Problem und kehren Sie zur Prüfung zurück."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-009",
+      "since": "1.3.0",
+      "related": [
+        "RENT-TRAIN-002"
+      ],
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "code": "SEC-SECW-010",
+      "number": "006-004-010",
+      "key": "SEC_DRILL_NO_COPY",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Для учебного восстановления не найдено ни одной копии",
+        "uk": "Для навчального відновлення не знайдено жодної копії",
+        "en": "No copy was found for the training recovery",
+        "de": "Für die Übungswiederherstellung wurde keine Kopie gefunden"
+      },
+      "cause": {
+        "ru": "Программа не нашла ни одной копии в доступных ей местах.",
+        "uk": "Програма не знайшла жодної копії в доступних їй місцях.",
+        "en": "The program did not find any backups in the places it can access.",
+        "de": "Das Programm hat an den zugänglichen Orten keine Sicherungskopien gefunden."
+      },
+      "action": {
+        "ru": "1. Подключите флешку или диск с копиями, проверьте папки копий в «Архиве» и начните заново.",
+        "uk": "1. Під’єднайте флешку або диск з копіями, перевірте теки копій в «Архіві» та почніть знову.",
+        "en": "1. Connect a USB drive or disk with copies, check the copy folders in “Archive”, and start again.",
+        "de": "1. Schließen Sie einen USB-Stick oder eine Festplatte mit Kopien an, prüfen Sie die Kopienordner in „Archiv“ und beginnen Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-010",
+      "since": "1.3.0",
+      "related": [
+        "RENT-DR-007"
+      ],
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "SEC-SECW-011",
+      "number": "006-004-011",
+      "key": "SEC_DRILL_FAILED",
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Учебное восстановление не удалось",
+        "uk": "Навчальне відновлення не вдалося",
+        "en": "The training recovery failed",
+        "de": "Die Übungswiederherstellung ist fehlgeschlagen"
+      },
+      "cause": {
+        "ru": "Копия может быть повреждена, пароль может не совпадать, или ключ восстановления может быть неправильным.",
+        "uk": "Копія може бути пошкоджена, пароль може не збігатися, або ключ відновлення може бути неправильним.",
+        "en": "The copy may be damaged, the password may not match, or the recovery key may be wrong.",
+        "de": "Die Kopie ist möglicherweise beschädigt, das Passwort passt nicht oder der Wiederherstellungsschlüssel ist falsch."
+      },
+      "action": {
+        "ru": "1. Проверьте пароль копий или ключ восстановления и попробуйте другую копию.\n2. Рабочая база не менялась.",
+        "uk": "1. Перевірте пароль копій або ключ відновлення та спробуйте іншу копію.\n2. Робоча база не змінювалася.",
+        "en": "1. Check the copy password or recovery key and try another copy.\n2. The working database was not changed.",
+        "de": "1. Prüfen Sie das Kopienpasswort oder den Wiederherstellungsschlüssel und versuchen Sie eine andere Kopie.\n2. Die Arbeitsdatenbank wurde nicht verändert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/SEC-SECW-011",
+      "since": "1.3.0",
+      "related": [
+        "RENT-DR-008"
+      ],
+      "tags": [
+        "backup"
+      ]
+    }
+  ]
+}
