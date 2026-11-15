@@ -1,0 +1,3441 @@
+{
+  "namespace": "VPN",
+  "area": "SPEED",
+  "codes": [
+    {
+      "code": "VPN-SPEED-001",
+      "number": "005-007-001",
+      "key": "SCAN_FAMILY",
+      "aliases": [
+        "SCAN-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код запроса «Проверить сейчас»",
+        "uk": "Код запиту «Перевірити зараз»",
+        "en": "Code of the “Check now” request",
+        "de": "Code der Anfrage „Jetzt prüfen“"
+      },
+      "cause": {
+        "ru": "Один из шагов запроса «Проверить сейчас» сообщил о своём состоянии. Работа VPN от этого не меняется. Это семейство: описание относится ко всем кодам с префиксом «SCAN-».",
+        "uk": "Один із кроків запиту «Перевірити зараз» (Check now) повідомив про свій стан. Робота VPN від цього не змінюється. Це родина: опис стосується всіх кодів із префіксом «SCAN-».",
+        "en": "One step of the “Check now” request reported its state. The VPN keeps working as before. This is a family: the description applies to all codes starting with \"SCAN-\".",
+        "de": "Ein Schritt der Anfrage „Jetzt prüfen“ (Check now) hat seinen Zustand gemeldet. Das VPN arbeitet unverändert weiter. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „SCAN-“."
+      },
+      "action": {
+        "ru": "1. Убедитесь, что мониторинг работает.\n2. Нажмите «Проверить сейчас» ещё раз.\n3. Если код остаётся, найдите точный код в «Помощи».",
+        "uk": "1. Переконайтеся, що моніторинг працює.\n2. Натисніть «Перевірити зараз» (Check now) ще раз.\n3. Якщо код лишається, знайдіть точний код у «Довідці» (Help).",
+        "en": "1. Make sure monitoring is running.\n2. Press “Check now” again.\n3. If the code stays, look up the exact code in Help.",
+        "de": "1. Stellen Sie sicher, dass die Überwachung läuft.\n2. Drücken Sie erneut „Jetzt prüfen“ (Check now).\n3. Bleibt der Code, suchen Sie den genauen Code in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-002",
+      "number": "005-007-002",
+      "key": "SCAN_ACK_UNCONFIRMED",
+      "aliases": [
+        "SCAN-ACK-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос проверки не подтверждён",
+        "uk": "Запит перевірки не підтверджено",
+        "en": "Check request not confirmed",
+        "de": "Prüfanfrage nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не подтвердил, что принял запрос «Проверить сейчас».",
+        "uk": "Роутер не підтвердив, що прийняв запит «Перевірити зараз» (Check now).",
+        "en": "The router did not confirm that it accepted the “Check now” request.",
+        "de": "Der Router hat nicht bestätigt, dass er die Anfrage „Jetzt prüfen“ (Check now) angenommen hat."
+      },
+      "action": {
+        "ru": "1. Убедитесь, что мониторинг работает.\n2. Нажмите «Проверить сейчас» ещё раз.",
+        "uk": "1. Переконайтеся, що моніторинг працює.\n2. Натисніть «Перевірити зараз» (Check now) ще раз.",
+        "en": "1. Make sure monitoring is running.\n2. Press “Check now” again.",
+        "de": "1. Stellen Sie sicher, dass die Überwachung läuft.\n2. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-003",
+      "number": "005-007-003",
+      "key": "SCAN_DEADLINE_EXCEEDED",
+      "aliases": [
+        "SCAN-DEADLINE-EXCEEDED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка длилась слишком долго",
+        "uk": "Перевірка тривала надто довго",
+        "en": "The check took too long",
+        "de": "Die Prüfung hat zu lange gedauert"
+      },
+      "cause": {
+        "ru": "Запрос «Проверить сейчас» не завершился вовремя и был прерван.",
+        "uk": "Запит «Перевірити зараз» (Check now) не завершився вчасно й був перерваний.",
+        "en": "The “Check now” request did not finish in time and was stopped.",
+        "de": "Die Anfrage „Jetzt prüfen“ (Check now) wurde nicht rechtzeitig fertig und wurde abgebrochen."
+      },
+      "action": {
+        "ru": "1. Убедитесь, что мониторинг работает.\n2. Подождите минуту.\n3. Нажмите «Проверить сейчас» ещё раз.",
+        "uk": "1. Переконайтеся, що моніторинг працює.\n2. Зачекайте хвилину.\n3. Натисніть «Перевірити зараз» (Check now) ще раз.",
+        "en": "1. Make sure monitoring is running.\n2. Wait a minute.\n3. Press “Check now” again.",
+        "de": "1. Stellen Sie sicher, dass die Überwachung läuft.\n2. Warten Sie eine Minute.\n3. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-004",
+      "number": "005-007-004",
+      "key": "SCAN_MEASUREMENT_FAILED",
+      "aliases": [
+        "SCAN-MEASUREMENT-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка не дала результата",
+        "uk": "Перевірка не дала результату",
+        "en": "The check gave no result",
+        "de": "Die Prüfung hat kein Ergebnis geliefert"
+      },
+      "cause": {
+        "ru": "Запрос «Проверить сейчас» не получил ни одного замера. Обычно это значит, что мониторинг сейчас не работает.",
+        "uk": "Запит «Перевірити зараз» (Check now) не отримав жодного виміру. Зазвичай це означає, що моніторинг зараз не працює.",
+        "en": "The “Check now” request got no measurement. This usually means monitoring is not running right now.",
+        "de": "Die Anfrage „Jetzt prüfen“ (Check now) hat keine Messung erhalten. Meist bedeutet das, dass die Überwachung gerade nicht läuft."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Система и диагностика» и посмотрите на лампу «Служба мониторинга».\n2. Нажмите «Проверить сейчас» ещё раз.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Система і діагностика» (System and diagnostics) і подивіться на лампу «Служба моніторингу» (Monitoring service).\n2. Натисніть «Перевірити зараз» (Check now) ще раз.",
+        "en": "1. Open Settings → “System and diagnostics” and look at the “Monitoring service” lamp.\n2. Press “Check now” again.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „System und Diagnose“ (System and diagnostics) und sehen Sie sich die Lampe „Überwachungsdienst“ (Monitoring service) an.\n2. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-005",
+      "number": "005-007-005",
+      "key": "SCAN_SNAPSHOT_MISMATCH",
+      "aliases": [
+        "SCAN-SNAPSHOT-MISMATCH"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Замер не относится к этому запросу",
+        "uk": "Вимір не належить до цього запиту",
+        "en": "The measurement does not belong to this request",
+        "de": "Die Messung gehört nicht zu dieser Anfrage"
+      },
+      "cause": {
+        "ru": "Полученный замер был сделан не по этому запросу проверки, поэтому он не показан как результат.",
+        "uk": "Отриманий вимір зроблено не за цим запитом перевірки, тому його не показано як результат.",
+        "en": "The measurement that came back was not made for this check request, so it is not shown as the result.",
+        "de": "Die erhaltene Messung wurde nicht für diese Prüfanfrage erstellt und wird daher nicht als Ergebnis angezeigt."
+      },
+      "action": {
+        "ru": "1. Нажмите «Проверить сейчас» ещё раз.",
+        "uk": "1. Натисніть «Перевірити зараз» (Check now) ще раз.",
+        "en": "1. Press “Check now” again.",
+        "de": "1. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-006",
+      "number": "005-007-006",
+      "key": "SCAN_SNAPSHOT_UNCONFIRMED",
+      "aliases": [
+        "SCAN-SNAPSHOT-UNCONFIRMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Результат проверки не подтверждён",
+        "uk": "Результат перевірки не підтверджено",
+        "en": "The check result is not confirmed",
+        "de": "Das Prüfergebnis ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не смог подтвердить, что замер сделан после вашего запроса.",
+        "uk": "Роутер не зміг підтвердити, що вимір зроблено після вашого запиту.",
+        "en": "The router could not confirm that the measurement was made after your request.",
+        "de": "Der Router konnte nicht bestätigen, dass die Messung nach Ihrer Anfrage erstellt wurde."
+      },
+      "action": {
+        "ru": "1. Нажмите «Проверить сейчас» ещё раз.",
+        "uk": "1. Натисніть «Перевірити зараз» (Check now) ще раз.",
+        "en": "1. Press “Check now” again.",
+        "de": "1. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-007",
+      "number": "005-007-007",
+      "key": "SCAN_STATE_CORRUPT",
+      "aliases": [
+        "SCAN-STATE-CORRUPT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сохранённое состояние проверки повреждено",
+        "uk": "Збережений стан перевірки пошкоджено",
+        "en": "The saved check state is damaged",
+        "de": "Der gespeicherte Prüfzustand ist beschädigt"
+      },
+      "cause": {
+        "ru": "Роутер не смог прочитать сохранённое состояние запроса проверки. Работа VPN от этого не меняется.",
+        "uk": "Роутер не зміг прочитати збережений стан запиту перевірки. Робота VPN від цього не змінюється.",
+        "en": "The router could not read the saved state of the check request. The VPN keeps working as before.",
+        "de": "Der Router konnte den gespeicherten Zustand der Prüfanfrage nicht lesen. Das VPN arbeitet unverändert weiter."
+      },
+      "action": {
+        "ru": "1. Нажмите «Проверить сейчас» ещё раз — будет создано новое состояние.",
+        "uk": "1. Натисніть «Перевірити зараз» (Check now) ще раз — буде створено новий стан.",
+        "en": "1. Press “Check now” again: a new state is created.",
+        "de": "1. Drücken Sie erneut „Jetzt prüfen“ (Check now): Ein neuer Zustand wird angelegt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-008",
+      "number": "005-007-008",
+      "key": "SCAN_STORAGE",
+      "aliases": [
+        "SCAN-STORAGE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос проверки не сохранён",
+        "uk": "Запит перевірки не збережено",
+        "en": "The check request was not saved",
+        "de": "Die Prüfanfrage wurde nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Роутер не смог записать запрос проверки. Чаще всего в памяти роутера мало свободного места.",
+        "uk": "Роутер не зміг записати запит перевірки. Найчастіше в пам'яті роутера мало вільного місця.",
+        "en": "The router could not save the check request. Most often the router is low on free space.",
+        "de": "Der Router konnte die Prüfanfrage nicht speichern. Meist hat der Router zu wenig freien Speicher."
+      },
+      "action": {
+        "ru": "1. Освободите место на роутере (см. «Помощь»).\n2. Нажмите «Проверить сейчас» ещё раз.",
+        "uk": "1. Звільніть місце на роутері (див. «Довідку» (Help)).\n2. Натисніть «Перевірити зараз» (Check now) ще раз.",
+        "en": "1. Free some space on the router (see Help).\n2. Press “Check now” again.",
+        "de": "1. Geben Sie Speicher auf dem Router frei (siehe „Hilfe“ (Help)).\n2. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-009",
+      "number": "005-007-009",
+      "key": "SPEED_FAMILY",
+      "aliases": [
+        "SPEED-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код теста скорости",
+        "uk": "Код тесту швидкості",
+        "en": "Speed test code",
+        "de": "Code des Geschwindigkeitstests"
+      },
+      "cause": {
+        "ru": "Один из шагов теста скорости сообщил о своём состоянии: например, о сети, лимитах, часах или загрузке роутера. Остальная работа роутера не затронута. Это семейство: описание относится ко всем кодам с префиксом «SPEED-».",
+        "uk": "Один із кроків тесту швидкості повідомив про свій стан: наприклад, про мережу, ліміти, годинник або навантаження роутера. Решта роботи роутера не порушена. Це родина: опис стосується всіх кодів із префіксом «SPEED-».",
+        "en": "One step of the speed test reported its state, for example about the network, limits, the clock or the router load. Nothing else on the router is affected. This is a family: the description applies to all codes starting with \"SPEED-\".",
+        "de": "Ein Schritt des Geschwindigkeitstests hat seinen Zustand gemeldet, etwa zum Netzwerk, zu Limits, zur Uhr oder zur Auslastung des Routers. Sonst ist auf dem Router nichts betroffen. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „SPEED-“."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.\n2. Если код повторяется, проверьте VPN и свободное место на роутере.",
+        "uk": "1. Повторіть тест пізніше.\n2. Якщо код повторюється, перевірте VPN і вільне місце на роутері.",
+        "en": "1. Repeat the test later.\n2. If the code repeats, check the VPN and the free space on the router.",
+        "de": "1. Wiederholen Sie den Test später.\n2. Wiederholt sich der Code, prüfen Sie das VPN und den freien Speicher des Routers."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-010",
+      "number": "005-007-010",
+      "key": "SPEED_ADDRESS",
+      "aliases": [
+        "SPEED-ADDRESS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес сервера теста скорости отклонён",
+        "uk": "Адресу сервера тесту швидкості відхилено",
+        "en": "Speed test server address refused",
+        "de": "Adresse des Testservers abgelehnt"
+      },
+      "cause": {
+        "ru": "Адрес сервера для теста скорости оказался не обычным адресом в интернете, поэтому роутер его не использовал.",
+        "uk": "Адреса сервера для тесту швидкості виявилася не звичайною адресою в інтернеті, тому роутер її не використав.",
+        "en": "The speed test server address was not a normal internet address, so the router did not use it.",
+        "de": "Die Adresse des Testservers war keine normale Internetadresse, deshalb hat der Router sie nicht verwendet."
+      },
+      "action": {
+        "ru": "1. Повторите тест.",
+        "uk": "1. Повторіть тест.",
+        "en": "1. Run the test again.",
+        "de": "1. Führen Sie den Test erneut aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-011",
+      "number": "005-007-011",
+      "key": "SPEED_AUTO_DISABLED",
+      "aliases": [
+        "SPEED-AUTO-DISABLED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Тест скорости ждёт, пока Auto освободится",
+        "uk": "Тест швидкості чекає, поки Auto звільниться",
+        "en": "The speed test waits for Auto",
+        "de": "Der Geschwindigkeitstest wartet auf Auto"
+      },
+      "cause": {
+        "ru": "В текущем состоянии Auto тест скорости не запускается, чтобы не мешать работе каналов.",
+        "uk": "У поточному стані Auto тест швидкості не запускається, щоб не заважати роботі каналів.",
+        "en": "The speed test does not run in the current Auto state, so it does not disturb the channels.",
+        "de": "Im aktuellen Zustand von Auto startet der Geschwindigkeitstest nicht, damit er die Kanäle nicht stört."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока Auto закончит текущий шаг.\n2. Запустите тест ещё раз.",
+        "uk": "1. Дочекайтеся, поки Auto завершить поточний крок.\n2. Запустіть тест ще раз.",
+        "en": "1. Wait until Auto finishes its current step.\n2. Start the test again.",
+        "de": "1. Warten Sie, bis Auto den aktuellen Schritt beendet hat.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-012",
+      "number": "005-007-012",
+      "key": "SPEED_BUSY",
+      "aliases": [
+        "SPEED-BUSY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Уже идёт другой тест",
+        "uk": "Уже триває інший тест",
+        "en": "Another test is running",
+        "de": "Ein anderer Test läuft bereits"
+      },
+      "cause": {
+        "ru": "Одновременно может идти только один тест скорости.",
+        "uk": "Одночасно може тривати лише один тест швидкості.",
+        "en": "Only one speed test can run at a time.",
+        "de": "Es kann immer nur ein Geschwindigkeitstest gleichzeitig laufen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущего теста или отмените его.\n2. Запустите тест ещё раз.",
+        "uk": "1. Дочекайтеся завершення поточного тесту або скасуйте його.\n2. Запустіть тест ще раз.",
+        "en": "1. Wait until the current test ends, or cancel it.\n2. Start the test again.",
+        "de": "1. Warten Sie, bis der laufende Test endet, oder brechen Sie ihn ab.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-013",
+      "number": "005-007-013",
+      "key": "SPEED_CANCEL_QUEUED",
+      "aliases": [
+        "SPEED-CANCEL-QUEUED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Отмена теста принята",
+        "uk": "Скасування тесту прийнято",
+        "en": "Test cancellation accepted",
+        "de": "Abbruch des Tests angenommen"
+      },
+      "cause": {
+        "ru": "Роутер принял запрос на отмену теста скорости и остановит его.",
+        "uk": "Роутер прийняв запит на скасування тесту швидкості й зупинить його.",
+        "en": "The router accepted the request to cancel the speed test and will stop it.",
+        "de": "Der Router hat die Anfrage zum Abbruch des Geschwindigkeitstests angenommen und beendet ihn."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-014",
+      "number": "005-007-014",
+      "key": "SPEED_CANCEL_UNVERIFIED",
+      "aliases": [
+        "SPEED-CANCEL-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отмена теста не подтверждена",
+        "uk": "Скасування тесту не підтверджено",
+        "en": "Test cancellation not confirmed",
+        "de": "Abbruch des Tests nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не смог подтвердить, что тест скорости действительно остановился.",
+        "uk": "Роутер не зміг підтвердити, що тест швидкості справді зупинився.",
+        "en": "The router could not confirm that the speed test really stopped.",
+        "de": "Der Router konnte nicht bestätigen, dass der Geschwindigkeitstest wirklich beendet wurde."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Обновите страницу и убедитесь, что тест больше не идёт.",
+        "uk": "1. Зачекайте хвилину.\n2. Оновіть сторінку й переконайтеся, що тест більше не триває.",
+        "en": "1. Wait a minute.\n2. Reload the page and check that the test is no longer running.",
+        "de": "1. Warten Sie eine Minute.\n2. Laden Sie die Seite neu und prüfen Sie, dass der Test nicht mehr läuft."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-015",
+      "number": "005-007-015",
+      "key": "SPEED_CANCELLED",
+      "aliases": [
+        "SPEED-CANCELLED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест скорости отменён",
+        "uk": "Тест швидкості скасовано",
+        "en": "Speed test cancelled",
+        "de": "Geschwindigkeitstest abgebrochen"
+      },
+      "cause": {
+        "ru": "Тест скорости был отменён и остановлен. Результат этого теста не сохраняется.",
+        "uk": "Тест швидкості скасовано й зупинено. Результат цього тесту не зберігається.",
+        "en": "The speed test was cancelled and stopped. No result of this test is kept.",
+        "de": "Der Geschwindigkeitstest wurde abgebrochen und beendet. Für diesen Test wird kein Ergebnis gespeichert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-016",
+      "number": "005-007-016",
+      "key": "SPEED_CLOCK_BACKWARD",
+      "aliases": [
+        "SPEED-CLOCK-BACKWARD"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Часы роутера сдвинулись назад",
+        "uk": "Годинник роутера зсунувся назад",
+        "en": "The router clock went back",
+        "de": "Die Uhr des Routers ist zurückgesprungen"
+      },
+      "cause": {
+        "ru": "Во время теста часы роутера перескочили назад, поэтому результат ненадёжен и не учитывается.",
+        "uk": "Під час тесту годинник роутера перескочив назад, тому результат ненадійний і не враховується.",
+        "en": "The router clock jumped back during the test, so the result is not reliable and is not used.",
+        "de": "Während des Tests ist die Uhr des Routers zurückgesprungen, daher ist das Ergebnis unzuverlässig und wird nicht verwendet."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-017",
+      "number": "005-007-017",
+      "key": "SPEED_CLOCK_UNSET",
+      "aliases": [
+        "SPEED-CLOCK-UNSET"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Часы роутера ещё не установлены",
+        "uk": "Годинник роутера ще не встановлено",
+        "en": "The router clock is not set yet",
+        "de": "Die Uhr des Routers ist noch nicht gestellt"
+      },
+      "cause": {
+        "ru": "Роутер пока не знает точного времени, поэтому не может посчитать лимиты тестов скорости.",
+        "uk": "Роутер поки не знає точного часу, тому не може порахувати ліміти тестів швидкості.",
+        "en": "The router does not know the real time yet, so it cannot count the speed test limits.",
+        "de": "Der Router kennt die genaue Uhrzeit noch nicht und kann daher die Limits der Geschwindigkeitstests nicht berechnen."
+      },
+      "action": {
+        "ru": "1. Подождите, пока роутер получит время из интернета.\n2. Запустите тест ещё раз.",
+        "uk": "1. Зачекайте, поки роутер отримає час з інтернету.\n2. Запустіть тест ще раз.",
+        "en": "1. Wait until the router gets the time from the internet.\n2. Start the test again.",
+        "de": "1. Warten Sie, bis der Router die Uhrzeit aus dem Internet erhalten hat.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-018",
+      "number": "005-007-018",
+      "key": "SPEED_COMPLETE",
+      "aliases": [
+        "SPEED-COMPLETE"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест скорости завершён",
+        "uk": "Тест швидкості завершено",
+        "en": "Speed test finished",
+        "de": "Geschwindigkeitstest abgeschlossen"
+      },
+      "cause": {
+        "ru": "Тест скорости сервера закончился, результат есть в таблице.",
+        "uk": "Тест швидкості сервера завершився, результат є в таблиці.",
+        "en": "The speed test of the server finished; the result is in the table.",
+        "de": "Der Geschwindigkeitstest des Servers ist beendet; das Ergebnis steht in der Tabelle."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-019",
+      "number": "005-007-019",
+      "key": "SPEED_CONFIG",
+      "aliases": [
+        "SPEED-CONFIG"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Настройка теста скорости вне допустимых пределов",
+        "uk": "Налаштування тесту швидкості поза допустимими межами",
+        "en": "A speed test setting is out of range",
+        "de": "Eine Einstellung des Geschwindigkeitstests liegt außerhalb des Bereichs"
+      },
+      "cause": {
+        "ru": "Одна из настроек теста скорости имеет недопустимое значение, поэтому настройки не приняты.",
+        "uk": "Одне з налаштувань тесту швидкості має неприпустиме значення, тому налаштування не прийнято.",
+        "en": "One of the speed test settings has a value that is not allowed, so the settings were not accepted.",
+        "de": "Eine Einstellung des Geschwindigkeitstests hat einen unzulässigen Wert, daher wurden die Einstellungen nicht übernommen."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Тест скорости: параметры».\n2. Введите значение в допустимых пределах и сохраните.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Тест швидкості: параметри» (Speed test: parameters).\n2. Введіть значення в допустимих межах і збережіть.",
+        "en": "1. Open Settings → “Speed test: parameters”.\n2. Enter a value within the allowed range and save.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Geschwindigkeitstest: Parameter“ (Speed test: parameters).\n2. Geben Sie einen Wert im zulässigen Bereich ein und speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-020",
+      "number": "005-007-020",
+      "key": "SPEED_CONFIG_FAILED",
+      "aliases": [
+        "SPEED-CONFIG-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Настройки теста скорости не сохранены",
+        "uk": "Налаштування тесту швидкості не збережено",
+        "en": "Speed test settings were not saved",
+        "de": "Einstellungen des Geschwindigkeitstests nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Роутер не смог сохранить настройки теста скорости. Действуют прежние настройки.",
+        "uk": "Роутер не зміг зберегти налаштування тесту швидкості. Діють попередні налаштування.",
+        "en": "The router could not save the speed test settings. The previous settings stay in effect.",
+        "de": "Der Router konnte die Einstellungen des Geschwindigkeitstests nicht speichern. Die bisherigen Einstellungen gelten weiter."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Сохраните настройки ещё раз.",
+        "uk": "1. Оновіть сторінку.\n2. Збережіть налаштування ще раз.",
+        "en": "1. Reload the page.\n2. Save the settings again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Speichern Sie die Einstellungen erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-021",
+      "number": "005-007-021",
+      "key": "SPEED_CONFIG_FIELDS",
+      "aliases": [
+        "SPEED-CONFIG-FIELDS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Настройки теста скорости пришли в неверном виде",
+        "uk": "Налаштування тесту швидкості надійшли в неправильному вигляді",
+        "en": "Speed test settings arrived in a wrong form",
+        "de": "Einstellungen des Geschwindigkeitstests kamen in falscher Form an"
+      },
+      "cause": {
+        "ru": "В присланных настройках теста скорости не хватало полей или были лишние. Чаще всего страница устарела после обновления. Ничего не изменено.",
+        "uk": "У надісланих налаштуваннях тесту швидкості бракувало полів або були зайві. Найчастіше сторінка застаріла після оновлення. Нічого не змінено.",
+        "en": "The speed test settings that were sent had missing or extra fields. Most often the page is outdated after an update. Nothing was changed.",
+        "de": "In den gesendeten Einstellungen des Geschwindigkeitstests fehlten Felder oder es gab überzählige. Meist ist die Seite nach einem Update veraltet. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Полностью обновите страницу, без кэша браузера.\n2. Сохраните настройки ещё раз.",
+        "uk": "1. Повністю оновіть сторінку, без кешу браузера.\n2. Збережіть налаштування ще раз.",
+        "en": "1. Fully reload the page, bypassing the browser cache.\n2. Save the settings again.",
+        "de": "1. Laden Sie die Seite vollständig neu, ohne Browser-Cache.\n2. Speichern Sie die Einstellungen erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-022",
+      "number": "005-007-022",
+      "key": "SPEED_CONFIG_LIMIT",
+      "aliases": [
+        "SPEED-CONFIG-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Тест превысил бы ваш лимит",
+        "uk": "Тест перевищив би ваш ліміт",
+        "en": "The test would exceed your limit",
+        "de": "Der Test würde Ihr Limit überschreiten"
+      },
+      "cause": {
+        "ru": "Этот тест израсходовал бы больше трафика, чем позволяет заданный вами лимит на тест или на день, поэтому он не запущен.",
+        "uk": "Цей тест витратив би більше трафіку, ніж дозволяє заданий вами ліміт на тест або на день, тому його не запущено.",
+        "en": "This test would use more data than the per-test or daily limit you set allows, so it was not started.",
+        "de": "Dieser Test würde mehr Daten verbrauchen, als Ihr Limit pro Test oder pro Tag erlaubt, daher wurde er nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Запустите тест позже или увеличьте лимит под таблицей.",
+        "uk": "1. Запустіть тест пізніше або збільште ліміт під таблицею.",
+        "en": "1. Run the test later, or raise the limit below the table.",
+        "de": "1. Starten Sie den Test später oder erhöhen Sie das Limit unter der Tabelle."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-023",
+      "number": "005-007-023",
+      "key": "SPEED_CONFIG_SAVED",
+      "aliases": [
+        "SPEED-CONFIG-SAVED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Настройки теста скорости сохранены",
+        "uk": "Налаштування тесту швидкості збережено",
+        "en": "Speed test settings saved",
+        "de": "Einstellungen des Geschwindigkeitstests gespeichert"
+      },
+      "cause": {
+        "ru": "Новые настройки теста скорости сохранены и уже действуют.",
+        "uk": "Нові налаштування тесту швидкості збережено, вони вже діють.",
+        "en": "The new speed test settings are saved and already in effect.",
+        "de": "Die neuen Einstellungen des Geschwindigkeitstests sind gespeichert und gelten bereits."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-024",
+      "number": "005-007-024",
+      "key": "SPEED_COOLDOWN",
+      "aliases": [
+        "SPEED-COOLDOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Этот сервер недавно уже проверяли",
+        "uk": "Цей сервер нещодавно вже перевіряли",
+        "en": "This server was tested recently",
+        "de": "Dieser Server wurde vor Kurzem getestet"
+      },
+      "cause": {
+        "ru": "Тест скорости этого сервера уже был совсем недавно. Повторный тест сразу не запускается, чтобы не тратить трафик.",
+        "uk": "Тест швидкості цього сервера вже був зовсім нещодавно. Повторний тест одразу не запускається, щоб не витрачати трафік.",
+        "en": "This server had a speed test very recently. A new test is not started right away, to save data.",
+        "de": "Für diesen Server lief erst vor Kurzem ein Geschwindigkeitstest. Ein neuer Test startet nicht sofort, um Datenvolumen zu sparen."
+      },
+      "action": {
+        "ru": "1. Повторите тест немного позже.",
+        "uk": "1. Повторіть тест трохи пізніше.",
+        "en": "1. Try again a little later.",
+        "de": "1. Versuchen Sie es etwas später erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-025",
+      "number": "005-007-025",
+      "key": "SPEED_CPU_BUSY",
+      "aliases": [
+        "SPEED-CPU-BUSY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Роутер сейчас занят",
+        "uk": "Роутер зараз зайнятий",
+        "en": "The router is busy",
+        "de": "Der Router ist ausgelastet"
+      },
+      "cause": {
+        "ru": "Процессор роутера сильно загружен, поэтому тест отложен, чтобы не мешать вашему трафику.",
+        "uk": "Процесор роутера сильно завантажений, тому тест відкладено, щоб не заважати вашому трафіку.",
+        "en": "The router processor is busy, so the test is postponed to avoid disturbing your traffic.",
+        "de": "Der Prozessor des Routers ist stark ausgelastet, daher wird der Test verschoben, um Ihren Datenverkehr nicht zu stören."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-026",
+      "number": "005-007-026",
+      "key": "SPEED_CPU_UNKNOWN",
+      "aliases": [
+        "SPEED-CPU-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Загрузка процессора неизвестна",
+        "uk": "Навантаження процесора невідоме",
+        "en": "Processor load is unknown",
+        "de": "Prozessorauslastung unbekannt"
+      },
+      "cause": {
+        "ru": "Роутер не смог узнать загрузку процессора, поэтому тест скорости не продолжен. Подключённые VPN остаются на месте.",
+        "uk": "Роутер не зміг дізнатися навантаження процесора, тому тест швидкості не продовжено. Підключені VPN лишаються як були.",
+        "en": "The router could not read its processor load, so the speed test did not continue. Connected VPNs stay as they are.",
+        "de": "Der Router konnte seine Prozessorauslastung nicht ermitteln, daher wurde der Geschwindigkeitstest nicht fortgesetzt. Verbundene VPNs bleiben bestehen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущей операции.\n2. Запустите тест ещё раз.",
+        "uk": "1. Дочекайтеся завершення поточної операції.\n2. Запустіть тест ще раз.",
+        "en": "1. Wait until the current operation finishes.\n2. Start the test again.",
+        "de": "1. Warten Sie, bis der aktuelle Vorgang abgeschlossen ist.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-027",
+      "number": "005-007-027",
+      "key": "SPEED_DAILY_LIMIT",
+      "aliases": [
+        "SPEED-DAILY-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Дневной лимит трафика на тесты исчерпан",
+        "uk": "Денний ліміт трафіку на тести вичерпано",
+        "en": "Daily data limit for tests used up",
+        "de": "Tageslimit für Testdaten aufgebraucht"
+      },
+      "cause": {
+        "ru": "Трафик, который вы разрешили тратить на тесты скорости за день, уже израсходован.",
+        "uk": "Трафік, який ви дозволили витрачати на тести швидкості за день, уже витрачено.",
+        "en": "The data you allowed for speed tests per day is already used up.",
+        "de": "Das Datenvolumen, das Sie pro Tag für Geschwindigkeitstests erlaubt haben, ist bereits verbraucht."
+      },
+      "action": {
+        "ru": "1. Подождите до следующего дня или увеличьте лимит в «Настройки» → «Тест скорости: параметры».",
+        "uk": "1. Зачекайте до наступного дня або збільште ліміт у «Налаштування» (Settings) → «Тест швидкості: параметри» (Speed test: parameters).",
+        "en": "1. Wait until the next day, or raise the limit in Settings → “Speed test: parameters”.",
+        "de": "1. Warten Sie bis zum nächsten Tag oder erhöhen Sie das Limit unter „Einstellungen“ (Settings) → „Geschwindigkeitstest: Parameter“ (Speed test: parameters)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-028",
+      "number": "005-007-028",
+      "key": "SPEED_DISABLED",
+      "aliases": [
+        "SPEED-DISABLED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Тесты скорости выключены",
+        "uk": "Тести швидкості вимкнено",
+        "en": "Speed tests are off",
+        "de": "Geschwindigkeitstests sind ausgeschaltet"
+      },
+      "cause": {
+        "ru": "Тесты скорости выключены в настройках, поэтому тест не запускается.",
+        "uk": "Тести швидкості вимкнено в налаштуваннях, тому тест не запускається.",
+        "en": "Speed tests are switched off in the settings, so the test does not run.",
+        "de": "Geschwindigkeitstests sind in den Einstellungen ausgeschaltet, daher startet der Test nicht."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Тест скорости: параметры».\n2. Включите «Разрешить тесты скорости» и сохраните.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Тест швидкості: параметри» (Speed test: parameters).\n2. Увімкніть «Дозволити тести швидкості» (Allow speed tests) і збережіть.",
+        "en": "1. Open Settings → “Speed test: parameters”.\n2. Turn on “Allow speed tests” and save.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „Geschwindigkeitstest: Parameter“ (Speed test: parameters).\n2. Schalten Sie „Geschwindigkeitstests erlauben“ (Allow speed tests) ein und speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-029",
+      "number": "005-007-029",
+      "key": "SPEED_DNS",
+      "aliases": [
+        "SPEED-DNS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Имя сервера теста не найдено",
+        "uk": "Ім'я сервера тесту не знайдено",
+        "en": "Speed test server name not found",
+        "de": "Name des Testservers nicht gefunden"
+      },
+      "cause": {
+        "ru": "Через этот VPN не удалось узнать адрес сервера теста скорости по его имени.",
+        "uk": "Через цей VPN не вдалося дізнатися адресу сервера тесту швидкості за його ім'ям.",
+        "en": "The address of the speed test server could not be found by its name through this VPN.",
+        "de": "Über dieses VPN konnte die Adresse des Testservers anhand seines Namens nicht ermittelt werden."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.\n2. Если повторяется, проверьте настройки DNS этого VPN.",
+        "uk": "1. Повторіть тест пізніше.\n2. Якщо повторюється, перевірте налаштування DNS цього VPN.",
+        "en": "1. Repeat the test later.\n2. If it repeats, check the DNS settings of this VPN.",
+        "de": "1. Wiederholen Sie den Test später.\n2. Wiederholt es sich, prüfen Sie die DNS-Einstellungen dieses VPNs."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-030",
+      "number": "005-007-030",
+      "key": "SPEED_HISTORY_CORRUPT",
+      "aliases": [
+        "SPEED-HISTORY-CORRUPT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "История скорости не читается",
+        "uk": "Історія швидкості не читається",
+        "en": "Speed history could not be read",
+        "de": "Geschwindigkeitsverlauf nicht lesbar"
+      },
+      "cause": {
+        "ru": "Сохранённые результаты тестов скорости не удалось прочитать, поэтому они пропущены. На работу VPN это не влияет.",
+        "uk": "Збережені результати тестів швидкості не вдалося прочитати, тому їх пропущено. На роботу VPN це не впливає.",
+        "en": "The saved speed test results could not be read, so they were skipped. The VPN is not affected.",
+        "de": "Die gespeicherten Ergebnisse der Geschwindigkeitstests konnten nicht gelesen werden und wurden übersprungen. Das VPN ist nicht betroffen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: новые тесты снова заполнят историю.",
+        "uk": "1. Нічого робити не потрібно: нові тести знову заповнять історію.",
+        "en": "1. Nothing to do: new tests fill the history again.",
+        "de": "1. Sie müssen nichts tun: Neue Tests füllen den Verlauf wieder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-031",
+      "number": "005-007-031",
+      "key": "SPEED_HISTORY_TRUNCATED",
+      "aliases": [
+        "SPEED-HISTORY-TRUNCATED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "История скорости сокращена",
+        "uk": "Історію швидкості скорочено",
+        "en": "Speed history shortened",
+        "de": "Geschwindigkeitsverlauf gekürzt"
+      },
+      "cause": {
+        "ru": "Хранятся только самые новые результаты тестов скорости; более старые удалены, чтобы не занимать память.",
+        "uk": "Зберігаються лише найновіші результати тестів швидкості; старіші видалено, щоб не займати пам'ять.",
+        "en": "Only the newest speed test results are kept; older ones were removed to save memory.",
+        "de": "Es werden nur die neuesten Ergebnisse der Geschwindigkeitstests aufbewahrt; ältere wurden entfernt, um Speicher zu sparen."
+      },
+      "action": {
+        "ru": "1. Ничего исправлять не нужно.\n2. Если старые результаты нужны, вовремя экспортируйте их.",
+        "uk": "1. Нічого виправляти не потрібно.\n2. Якщо старі результати потрібні, вчасно експортуйте їх.",
+        "en": "1. Nothing needs fixing.\n2. If you need older results, export them in time.",
+        "de": "1. Es muss nichts behoben werden.\n2. Wenn Sie ältere Ergebnisse brauchen, exportieren Sie sie rechtzeitig."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-032",
+      "number": "005-007-032",
+      "key": "SPEED_HTTP",
+      "aliases": [
+        "SPEED-HTTP"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сервер теста ответил ошибкой",
+        "uk": "Сервер тесту відповів помилкою",
+        "en": "The speed test server answered with an error",
+        "de": "Der Testserver hat mit einem Fehler geantwortet"
+      },
+      "cause": {
+        "ru": "Сервер теста скорости отказался отдать данные для замера.",
+        "uk": "Сервер тесту швидкості відмовився віддати дані для виміру.",
+        "en": "The speed test server refused to send the data for the measurement.",
+        "de": "Der Testserver hat die Daten für die Messung verweigert."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-033",
+      "number": "005-007-033",
+      "key": "SPEED_MONITOR_UNAVAILABLE",
+      "aliases": [
+        "SPEED-MONITOR-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Мониторинг недоступен для теста скорости",
+        "uk": "Моніторинг недоступний для тесту швидкості",
+        "en": "Monitoring is not available for the speed test",
+        "de": "Überwachung für den Geschwindigkeitstest nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Тесту скорости нужен работающий мониторинг, а он сейчас не отвечает.",
+        "uk": "Тесту швидкості потрібен робочий моніторинг, а він зараз не відповідає.",
+        "en": "The speed test needs monitoring to be running, and it does not answer right now.",
+        "de": "Der Geschwindigkeitstest braucht eine laufende Überwachung, die gerade nicht antwortet."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» → «Система и диагностика» → «Служба мониторинга».\n2. Нажмите «Восстановить мониторинг».\n3. Запустите тест ещё раз.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) → «Система і діагностика» (System and diagnostics) → «Служба моніторингу» (Monitoring service).\n2. Натисніть «Відновити моніторинг» (Restore monitoring).\n3. Запустіть тест ще раз.",
+        "en": "1. Open Settings → “System and diagnostics” → “Monitoring service”.\n2. Press “Restore monitoring”.\n3. Start the test again.",
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „System und Diagnose“ (System and diagnostics) → „Überwachungsdienst“ (Monitoring service).\n2. Drücken Sie „Überwachung wiederherstellen“ (Restore monitoring).\n3. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-034",
+      "number": "005-007-034",
+      "key": "SPEED_NETWORK",
+      "aliases": [
+        "SPEED-NETWORK"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Тест не смог подключиться",
+        "uk": "Тест не зміг підключитися",
+        "en": "The test could not connect",
+        "de": "Der Test konnte keine Verbindung herstellen"
+      },
+      "cause": {
+        "ru": "Тест скорости не смог подключиться к серверу теста через этот VPN.",
+        "uk": "Тест швидкості не зміг підключитися до сервера тесту через цей VPN.",
+        "en": "The speed test could not connect to the test server through this VPN.",
+        "de": "Der Geschwindigkeitstest konnte über dieses VPN keine Verbindung zum Testserver herstellen."
+      },
+      "action": {
+        "ru": "1. Проверьте, что VPN подключён и интернет работает.\n2. Запустите тест ещё раз.",
+        "uk": "1. Перевірте, що VPN підключений та інтернет працює.\n2. Запустіть тест ще раз.",
+        "en": "1. Check that the VPN is connected and the internet works.\n2. Start the test again.",
+        "de": "1. Prüfen Sie, ob das VPN verbunden ist und das Internet funktioniert.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-035",
+      "number": "005-007-035",
+      "key": "SPEED_NO_SAMPLE",
+      "aliases": [
+        "SPEED-NO-SAMPLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет пригодного замера",
+        "uk": "Немає придатного виміру",
+        "en": "No usable measurement",
+        "de": "Keine brauchbare Messung"
+      },
+      "cause": {
+        "ru": "Тест скорости не получил ни одного пригодного замера.",
+        "uk": "Тест швидкості не отримав жодного придатного виміру.",
+        "en": "The speed test got no usable measurement.",
+        "de": "Der Geschwindigkeitstest hat keine brauchbare Messung erhalten."
+      },
+      "action": {
+        "ru": "1. Проверьте, что VPN подключён.\n2. Повторите тест позже.",
+        "uk": "1. Перевірте, що VPN підключений.\n2. Повторіть тест пізніше.",
+        "en": "1. Check that the VPN is connected.\n2. Repeat the test later.",
+        "de": "1. Prüfen Sie, ob das VPN verbunden ist.\n2. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-036",
+      "number": "005-007-036",
+      "key": "SPEED_NOT_RUNNING",
+      "aliases": [
+        "SPEED-NOT-RUNNING"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест скорости сейчас не идёт",
+        "uk": "Тест швидкості зараз не триває",
+        "en": "No speed test is running",
+        "de": "Es läuft kein Geschwindigkeitstest"
+      },
+      "cause": {
+        "ru": "Отменять нечего: тест скорости уже закончился или не запускался.",
+        "uk": "Скасовувати нічого: тест швидкості вже завершився або не запускався.",
+        "en": "There is nothing to cancel: the speed test has already ended or was not started.",
+        "de": "Es gibt nichts abzubrechen: Der Geschwindigkeitstest ist bereits beendet oder wurde nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-037",
+      "number": "005-007-037",
+      "key": "SPEED_PAUSE_BUSY",
+      "aliases": [
+        "SPEED-PAUSE-BUSY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Тест ждёт: Auto возвращается из паузы",
+        "uk": "Тест чекає: Auto повертається з паузи",
+        "en": "Test waits: Auto is returning from a pause",
+        "de": "Test wartet: Auto kehrt aus einer Pause zurück"
+      },
+      "cause": {
+        "ru": "На время теста скорости Auto ненадолго приостанавливается. Сейчас ещё завершается выход из предыдущей паузы, поэтому новый тест не начат. Подключённые VPN остаются на месте.",
+        "uk": "На час тесту швидкості Auto ненадовго призупиняється. Зараз ще завершується вихід із попередньої паузи, тому новий тест не почато. Підключені VPN лишаються як були.",
+        "en": "Auto is paused briefly while a speed test runs. The end of the previous pause is still in progress, so a new test was not started. Connected VPNs stay as they are.",
+        "de": "Während eines Geschwindigkeitstests wird Auto kurz pausiert. Das Ende der vorherigen Pause läuft noch, daher wurde kein neuer Test gestartet. Verbundene VPNs bleiben bestehen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущей операции.\n2. Запустите тест ещё раз.\n3. Если вы сами остановили Auto кнопкой Stop, тест его не запустит.",
+        "uk": "1. Дочекайтеся завершення поточної операції.\n2. Запустіть тест ще раз.\n3. Якщо ви самі зупинили Auto кнопкою Stop, тест його не запустить.",
+        "en": "1. Wait until the current operation finishes.\n2. Start the test again.\n3. If you stopped Auto with Stop yourself, the test will not start it again.",
+        "de": "1. Warten Sie, bis der aktuelle Vorgang abgeschlossen ist.\n2. Starten Sie den Test erneut.\n3. Haben Sie Auto selbst mit Stop angehalten, startet der Test es nicht wieder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-038",
+      "number": "005-007-038",
+      "key": "SPEED_PAUSE_LOST",
+      "aliases": [
+        "SPEED-PAUSE-LOST"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пауза Auto для теста прервана",
+        "uk": "Паузу Auto для тесту перервано",
+        "en": "The Auto pause for the test was interrupted",
+        "de": "Die Auto-Pause für den Test wurde unterbrochen"
+      },
+      "cause": {
+        "ru": "На время теста скорости Auto ненадолго приостанавливается. Пока шёл тест, эту паузу перехватила другая операция, поэтому тест остановлен. Подключённые VPN остаются на месте.",
+        "uk": "На час тесту швидкості Auto ненадовго призупиняється. Поки тривав тест, цю паузу перехопила інша операція, тому тест зупинено. Підключені VPN лишаються як були.",
+        "en": "Auto is paused briefly while a speed test runs. Another operation took over this pause during the test, so the test was stopped. Connected VPNs stay as they are.",
+        "de": "Während eines Geschwindigkeitstests wird Auto kurz pausiert. Ein anderer Vorgang hat diese Pause während des Tests übernommen, daher wurde der Test beendet. Verbundene VPNs bleiben bestehen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущей операции.\n2. Запустите тест ещё раз.\n3. Если вы сами остановили Auto кнопкой Stop, тест его не запустит.",
+        "uk": "1. Дочекайтеся завершення поточної операції.\n2. Запустіть тест ще раз.\n3. Якщо ви самі зупинили Auto кнопкою Stop, тест його не запустить.",
+        "en": "1. Wait until the current operation finishes.\n2. Start the test again.\n3. If you stopped Auto with Stop yourself, the test will not start it again.",
+        "de": "1. Warten Sie, bis der aktuelle Vorgang abgeschlossen ist.\n2. Starten Sie den Test erneut.\n3. Haben Sie Auto selbst mit Stop angehalten, startet der Test es nicht wieder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-039",
+      "number": "005-007-039",
+      "key": "SPEED_PAUSE_MODE",
+      "aliases": [
+        "SPEED-PAUSE-MODE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Auto сейчас нельзя приостановить для теста",
+        "uk": "Auto зараз не можна призупинити для тесту",
+        "en": "Auto cannot be paused for the test now",
+        "de": "Auto kann jetzt nicht für den Test pausiert werden"
+      },
+      "cause": {
+        "ru": "На время теста скорости Auto ненадолго приостанавливается. Сейчас Auto переходит из одного состояния в другое, и паузу сделать нельзя. Подключённые VPN остаются на месте.",
+        "uk": "На час тесту швидкості Auto ненадовго призупиняється. Зараз Auto переходить з одного стану в інший, і паузу зробити не можна. Підключені VPN лишаються як були.",
+        "en": "Auto is paused briefly while a speed test runs. Auto is changing its state right now, so it cannot be paused. Connected VPNs stay as they are.",
+        "de": "Während eines Geschwindigkeitstests wird Auto kurz pausiert. Auto wechselt gerade seinen Zustand und kann nicht pausiert werden. Verbundene VPNs bleiben bestehen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущей операции.\n2. Запустите тест ещё раз.\n3. Если вы сами остановили Auto кнопкой Stop, тест его не запустит.",
+        "uk": "1. Дочекайтеся завершення поточної операції.\n2. Запустіть тест ще раз.\n3. Якщо ви самі зупинили Auto кнопкою Stop, тест його не запустить.",
+        "en": "1. Wait until the current operation finishes.\n2. Start the test again.\n3. If you stopped Auto with Stop yourself, the test will not start it again.",
+        "de": "1. Warten Sie, bis der aktuelle Vorgang abgeschlossen ist.\n2. Starten Sie den Test erneut.\n3. Haben Sie Auto selbst mit Stop angehalten, startet der Test es nicht wieder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-040",
+      "number": "005-007-040",
+      "key": "SPEED_PAUSE_TIMEOUT",
+      "aliases": [
+        "SPEED-PAUSE-TIMEOUT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Auto не подтвердил паузу вовремя",
+        "uk": "Auto не підтвердив паузу вчасно",
+        "en": "Auto did not confirm the pause in time",
+        "de": "Auto hat die Pause nicht rechtzeitig bestätigt"
+      },
+      "cause": {
+        "ru": "На время теста скорости Auto ненадолго приостанавливается. Auto не подтвердил паузу вовремя, поэтому тест не запущен. Подключённые VPN остаются на месте.",
+        "uk": "На час тесту швидкості Auto ненадовго призупиняється. Auto не підтвердив паузу вчасно, тому тест не запущено. Підключені VPN лишаються як були.",
+        "en": "Auto is paused briefly while a speed test runs. Auto did not confirm the pause in time, so the test was not started. Connected VPNs stay as they are.",
+        "de": "Während eines Geschwindigkeitstests wird Auto kurz pausiert. Auto hat die Pause nicht rechtzeitig bestätigt, daher wurde der Test nicht gestartet. Verbundene VPNs bleiben bestehen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущей операции.\n2. Запустите тест ещё раз.\n3. Если вы сами остановили Auto кнопкой Stop, тест его не запустит.",
+        "uk": "1. Дочекайтеся завершення поточної операції.\n2. Запустіть тест ще раз.\n3. Якщо ви самі зупинили Auto кнопкою Stop, тест його не запустить.",
+        "en": "1. Wait until the current operation finishes.\n2. Start the test again.\n3. If you stopped Auto with Stop yourself, the test will not start it again.",
+        "de": "1. Warten Sie, bis der aktuelle Vorgang abgeschlossen ist.\n2. Starten Sie den Test erneut.\n3. Haben Sie Auto selbst mit Stop angehalten, startet der Test es nicht wieder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-041",
+      "number": "005-007-041",
+      "key": "SPEED_PAUSE_UNVERIFIED",
+      "aliases": [
+        "SPEED-PAUSE-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пауза Auto для теста не подтверждена",
+        "uk": "Паузу Auto для тесту не підтверджено",
+        "en": "The Auto pause for the test is not confirmed",
+        "de": "Die Auto-Pause für den Test ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "На время теста скорости Auto ненадолго приостанавливается. Роутер не смог убедиться, что пауза действительно наступила, поэтому тест не запущен. Подключённые VPN остаются на месте.",
+        "uk": "На час тесту швидкості Auto ненадовго призупиняється. Роутер не зміг переконатися, що пауза справді настала, тому тест не запущено. Підключені VPN лишаються як були.",
+        "en": "Auto is paused briefly while a speed test runs. The router could not make sure the pause really began, so the test was not started. Connected VPNs stay as they are.",
+        "de": "Während eines Geschwindigkeitstests wird Auto kurz pausiert. Der Router konnte nicht sicherstellen, dass die Pause wirklich begonnen hat, daher wurde der Test nicht gestartet. Verbundene VPNs bleiben bestehen."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания текущей операции.\n2. Запустите тест ещё раз.\n3. Если вы сами остановили Auto кнопкой Stop, тест его не запустит.",
+        "uk": "1. Дочекайтеся завершення поточної операції.\n2. Запустіть тест ще раз.\n3. Якщо ви самі зупинили Auto кнопкою Stop, тест його не запустить.",
+        "en": "1. Wait until the current operation finishes.\n2. Start the test again.\n3. If you stopped Auto with Stop yourself, the test will not start it again.",
+        "de": "1. Warten Sie, bis der aktuelle Vorgang abgeschlossen ist.\n2. Starten Sie den Test erneut.\n3. Haben Sie Auto selbst mit Stop angehalten, startet der Test es nicht wieder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-042",
+      "number": "005-007-042",
+      "key": "SPEED_PROFILE_INACTIVE",
+      "aliases": [
+        "SPEED-PROFILE-INACTIVE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Этот VPN не подключён",
+        "uk": "Цей VPN не підключений",
+        "en": "This VPN is not connected",
+        "de": "Dieses VPN ist nicht verbunden"
+      },
+      "cause": {
+        "ru": "Тест скорости измеряет только подключённые VPN и сам их не подключает.",
+        "uk": "Тест швидкості вимірює лише підключені VPN і сам їх не підключає.",
+        "en": "The speed test measures only connected VPNs and does not connect them itself.",
+        "de": "Der Geschwindigkeitstest misst nur verbundene VPNs und verbindet sie nicht selbst."
+      },
+      "action": {
+        "ru": "1. Подключите этот VPN в интерфейсе роутера GL.iNet.\n2. Запустите тест ещё раз.",
+        "uk": "1. Підключіть цей VPN в інтерфейсі роутера GL.iNet.\n2. Запустіть тест ще раз.",
+        "en": "1. Connect this VPN in the GL.iNet router interface.\n2. Start the test again.",
+        "de": "1. Verbinden Sie dieses VPN in der Oberfläche des GL.iNet-Routers.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-043",
+      "number": "005-007-043",
+      "key": "SPEED_PROFILES",
+      "aliases": [
+        "SPEED-PROFILES"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не выбран ни один сервер",
+        "uk": "Не вибрано жодного сервера",
+        "en": "No server chosen",
+        "de": "Kein Server ausgewählt"
+      },
+      "cause": {
+        "ru": "Для теста скорости нужен хотя бы один выбранный подключённый сервер.",
+        "uk": "Для тесту швидкості потрібен принаймні один вибраний підключений сервер.",
+        "en": "The speed test needs at least one chosen connected server.",
+        "de": "Der Geschwindigkeitstest braucht mindestens einen ausgewählten, verbundenen Server."
+      },
+      "action": {
+        "ru": "1. Отметьте в таблице подключённые серверы.\n2. Запустите тест ещё раз.",
+        "uk": "1. Позначте в таблиці підключені сервери.\n2. Запустіть тест ще раз.",
+        "en": "1. Select connected servers in the table.\n2. Start the test again.",
+        "de": "1. Wählen Sie in der Tabelle verbundene Server aus.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-044",
+      "number": "005-007-044",
+      "key": "SPEED_PROFILES_CHANGED",
+      "aliases": [
+        "SPEED-PROFILES-CHANGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Список серверов изменился",
+        "uk": "Список серверів змінився",
+        "en": "The server list changed",
+        "de": "Die Serverliste hat sich geändert"
+      },
+      "cause": {
+        "ru": "После того как вы выбрали серверы, их список на роутере изменился, поэтому тест не запущен.",
+        "uk": "Після того як ви вибрали сервери, їхній список на роутері змінився, тому тест не запущено.",
+        "en": "The server list on the router changed after you chose the servers, so the test was not started.",
+        "de": "Die Serverliste auf dem Router hat sich geändert, nachdem Sie die Server ausgewählt haben, daher wurde der Test nicht gestartet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Выберите серверы заново и запустите тест.",
+        "uk": "1. Оновіть сторінку.\n2. Виберіть сервери заново й запустіть тест.",
+        "en": "1. Reload the page.\n2. Choose the servers again and start the test.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wählen Sie die Server erneut aus und starten Sie den Test."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-044",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-045",
+      "number": "005-007-045",
+      "key": "SPEED_QUEUED",
+      "aliases": [
+        "SPEED-QUEUED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Тест скорости поставлен в очередь",
+        "uk": "Тест швидкості поставлено в чергу",
+        "en": "Speed test queued",
+        "de": "Geschwindigkeitstest eingereiht"
+      },
+      "cause": {
+        "ru": "Роутер принял тест скорости; он начнётся через несколько секунд.",
+        "uk": "Роутер прийняв тест швидкості; він почнеться за кілька секунд.",
+        "en": "The router accepted the speed test; it starts in a few seconds.",
+        "de": "Der Router hat den Geschwindigkeitstest angenommen; er beginnt in wenigen Sekunden."
+      },
+      "action": {
+        "ru": "1. Дождитесь результата в таблице.",
+        "uk": "1. Дочекайтеся результату в таблиці.",
+        "en": "1. Wait for the result in the table.",
+        "de": "1. Warten Sie auf das Ergebnis in der Tabelle."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-045",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-046",
+      "number": "005-007-046",
+      "key": "SPEED_QUOTA_CORRUPT",
+      "aliases": [
+        "SPEED-QUOTA-CORRUPT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Счётчик трафика тестов скорости не читается",
+        "uk": "Лічильник трафіку тестів швидкості не читається",
+        "en": "The speed test data counter cannot be read",
+        "de": "Der Datenzähler der Geschwindigkeitstests ist nicht lesbar"
+      },
+      "cause": {
+        "ru": "Сохранённый счётчик трафика тестов скорости повреждён. Он не восстанавливается сам, поэтому тесты скорости остаются выключены, пока его не исправят. VPN и Auto это не затрагивает.",
+        "uk": "Збережений лічильник трафіку тестів швидкості пошкоджено. Він не відновлюється сам, тому тести швидкості лишаються вимкненими, доки його не виправлять. VPN і Auto це не зачіпає.",
+        "en": "The saved data counter of the speed tests is damaged. It is not rebuilt by itself, so speed tests stay off until it is repaired. The VPN and Auto are not affected.",
+        "de": "Der gespeicherte Datenzähler der Geschwindigkeitstests ist beschädigt. Er wird nicht selbst wiederhergestellt, daher bleiben Geschwindigkeitstests aus, bis er repariert ist. VPN und Auto sind nicht betroffen."
+      },
+      "action": {
+        "ru": "1. Сохраните диагностические данные, как описано в «Помощи».\n2. Отправьте их разработчику, чтобы счётчик исправили.",
+        "uk": "1. Збережіть діагностичні дані, як описано в «Довідці» (Help).\n2. Надішліть їх розробнику, щоб лічильник виправили.",
+        "en": "1. Save the diagnostic data as described in Help.\n2. Send it to the developer so the counter can be repaired.",
+        "de": "1. Speichern Sie die Diagnosedaten wie in der „Hilfe“ (Help) beschrieben.\n2. Senden Sie sie an den Entwickler, damit der Zähler repariert wird."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-046",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-047",
+      "number": "005-007-047",
+      "key": "SPEED_REQUEST",
+      "aliases": [
+        "SPEED-REQUEST"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запрос теста скорости неверный",
+        "uk": "Запит тесту швидкості неправильний",
+        "en": "The speed test request is wrong",
+        "de": "Die Anfrage zum Geschwindigkeitstest ist fehlerhaft"
+      },
+      "cause": {
+        "ru": "В запросе теста были неверные или лишние значения, поэтому он отклонён. Чаще всего страница устарела после обновления.",
+        "uk": "У запиті тесту були неправильні або зайві значення, тому його відхилено. Найчастіше сторінка застаріла після оновлення.",
+        "en": "The test request had wrong or extra values, so it was refused. Most often the page is outdated after an update.",
+        "de": "Die Testanfrage enthielt falsche oder überzählige Werte und wurde abgelehnt. Meist ist die Seite nach einem Update veraltet."
+      },
+      "action": {
+        "ru": "1. Полностью обновите страницу, без кэша браузера.\n2. Запустите тест ещё раз.",
+        "uk": "1. Повністю оновіть сторінку, без кешу браузера.\n2. Запустіть тест ще раз.",
+        "en": "1. Fully reload the page, bypassing the browser cache.\n2. Start the test again.",
+        "de": "1. Laden Sie die Seite vollständig neu, ohne Browser-Cache.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-047",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-048",
+      "number": "005-007-048",
+      "key": "SPEED_RESPONSE_LIMIT",
+      "aliases": [
+        "SPEED-RESPONSE-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Тест достиг предела загрузки",
+        "uk": "Тест досяг межі завантаження",
+        "en": "The test reached its download limit",
+        "de": "Der Test hat sein Download-Limit erreicht"
+      },
+      "cause": {
+        "ru": "Тест скорости скачал столько данных, сколько разрешено, и был остановлен, чтобы не тратить лишний трафик.",
+        "uk": "Тест швидкості завантажив стільки даних, скільки дозволено, і був зупинений, щоб не витрачати зайвий трафік.",
+        "en": "The speed test downloaded as much data as allowed and was stopped to save data.",
+        "de": "Der Geschwindigkeitstest hat so viele Daten geladen wie erlaubt und wurde beendet, um Datenvolumen zu sparen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-048",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-049",
+      "number": "005-007-049",
+      "key": "SPEED_ROUTE_UNVERIFIED",
+      "aliases": [
+        "SPEED-ROUTE-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Маршрут теста не подтверждён",
+        "uk": "Маршрут тесту не підтверджено",
+        "en": "The test route is not confirmed",
+        "de": "Der Testweg ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Роутер не смог убедиться, что тест идёт именно через выбранный VPN, поэтому результат не учтён.",
+        "uk": "Роутер не зміг переконатися, що тест іде саме через вибраний VPN, тому результат не враховано.",
+        "en": "The router could not make sure the test goes through the chosen VPN, so the result was not used.",
+        "de": "Der Router konnte nicht sicherstellen, dass der Test über das gewählte VPN läuft, daher wurde das Ergebnis nicht verwendet."
+      },
+      "action": {
+        "ru": "1. Проверьте, что VPN подключён.\n2. Запустите тест ещё раз.",
+        "uk": "1. Перевірте, що VPN підключений.\n2. Запустіть тест ще раз.",
+        "en": "1. Check that the VPN is connected.\n2. Start the test again.",
+        "de": "1. Prüfen Sie, ob das VPN verbunden ist.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-049",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-050",
+      "number": "005-007-050",
+      "key": "SPEED_SHORT_RESPONSE",
+      "aliases": [
+        "SPEED-SHORT-RESPONSE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сервер теста прислал слишком мало данных",
+        "uk": "Сервер тесту надіслав замало даних",
+        "en": "The test server sent too little data",
+        "de": "Der Testserver hat zu wenig Daten gesendet"
+      },
+      "cause": {
+        "ru": "Сервер отдал меньше данных, чем нужно для надёжного результата.",
+        "uk": "Сервер віддав менше даних, ніж потрібно для надійного результату.",
+        "en": "The server sent less data than needed for a reliable result.",
+        "de": "Der Server hat weniger Daten gesendet, als für ein zuverlässiges Ergebnis nötig sind."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-050",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-051",
+      "number": "005-007-051",
+      "key": "SPEED_START_FAILED",
+      "aliases": [
+        "SPEED-START-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Тест скорости не запущен",
+        "uk": "Тест швидкості не запущено",
+        "en": "The speed test did not start",
+        "de": "Der Geschwindigkeitstest wurde nicht gestartet"
+      },
+      "cause": {
+        "ru": "Роутер не принял тест скорости. Причина указана в коде рядом с этим сообщением.",
+        "uk": "Роутер не прийняв тест швидкості. Причину вказано в коді поруч із цим повідомленням.",
+        "en": "The router did not accept the speed test. The reason is given by the code next to this message.",
+        "de": "Der Router hat den Geschwindigkeitstest nicht angenommen. Der Grund steht im Code neben dieser Meldung."
+      },
+      "action": {
+        "ru": "1. Посмотрите код рядом с сообщением и найдите его в «Помощи».",
+        "uk": "1. Подивіться код поруч із повідомленням і знайдіть його в «Довідці» (Help).",
+        "en": "1. Look at the code next to the message and find it in Help.",
+        "de": "1. Sehen Sie sich den Code neben der Meldung an und suchen Sie ihn in der „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-051",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-052",
+      "number": "005-007-052",
+      "key": "SPEED_STATUS_UNAVAILABLE",
+      "aliases": [
+        "SPEED-STATUS-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Состояние теста скорости недоступно",
+        "uk": "Стан тесту швидкості недоступний",
+        "en": "Speed test status unavailable",
+        "de": "Status des Geschwindigkeitstests nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Роутер не прислал текущее состояние теста скорости.",
+        "uk": "Роутер не надіслав поточний стан тесту швидкості.",
+        "en": "The router did not send the current speed test status.",
+        "de": "Der Router hat den aktuellen Status des Geschwindigkeitstests nicht gesendet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте состояние теста ещё раз.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте стан тесту ще раз.",
+        "en": "1. Reload the page.\n2. Check the test status again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie den Teststatus erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-052",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-053",
+      "number": "005-007-053",
+      "key": "SPEED_SWITCH_IN_PROGRESS",
+      "aliases": [
+        "SPEED-SWITCH-IN-PROGRESS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Идёт переключение канала",
+        "uk": "Триває перемикання каналу",
+        "en": "A channel switch is running",
+        "de": "Ein Kanalwechsel läuft"
+      },
+      "cause": {
+        "ru": "Пока роутер переключает канал, тест скорости не запускается.",
+        "uk": "Поки роутер перемикає канал, тест швидкості не запускається.",
+        "en": "No speed test runs while the router is switching the channel.",
+        "de": "Während der Router den Kanal wechselt, startet kein Geschwindigkeitstest."
+      },
+      "action": {
+        "ru": "1. Дождитесь окончания переключения.\n2. Запустите тест ещё раз.",
+        "uk": "1. Дочекайтеся завершення перемикання.\n2. Запустіть тест ще раз.",
+        "en": "1. Wait until the switch ends.\n2. Start the test again.",
+        "de": "1. Warten Sie, bis der Wechsel abgeschlossen ist.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-053",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-054",
+      "number": "005-007-054",
+      "key": "SPEED_SYSTEM",
+      "aliases": [
+        "SPEED-SYSTEM"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сбой на роутере во время теста",
+        "uk": "Збій на роутері під час тесту",
+        "en": "A router failure during the test",
+        "de": "Ein Fehler auf dem Router während des Tests"
+      },
+      "cause": {
+        "ru": "Роутер не смог выполнить один из шагов теста скорости.",
+        "uk": "Роутер не зміг виконати один із кроків тесту швидкості.",
+        "en": "The router could not carry out one step of the speed test.",
+        "de": "Der Router konnte einen Schritt des Geschwindigkeitstests nicht ausführen."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-054",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-055",
+      "number": "005-007-055",
+      "key": "SPEED_TRAFFIC_BUSY",
+      "aliases": [
+        "SPEED-TRAFFIC-BUSY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "VPN сейчас загружен",
+        "uk": "VPN зараз завантажений",
+        "en": "The VPN is busy",
+        "de": "Das VPN ist ausgelastet"
+      },
+      "cause": {
+        "ru": "Через этот VPN сейчас идёт больше трафика, чем разрешено для теста, поэтому тест пропущен, чтобы не мешать вам.",
+        "uk": "Через цей VPN зараз іде більше трафіку, ніж дозволено для тесту, тому тест пропущено, щоб не заважати вам.",
+        "en": "This VPN carries more traffic than allowed for a test right now, so the test was skipped to avoid disturbing you.",
+        "de": "Über dieses VPN läuft gerade mehr Datenverkehr, als für einen Test erlaubt ist, daher wurde der Test übersprungen, um Sie nicht zu stören."
+      },
+      "action": {
+        "ru": "1. Запустите тест, когда VPN будет менее загружен, или поднимите допустимую загрузку в настройках теста скорости.",
+        "uk": "1. Запустіть тест, коли VPN буде менш завантажений, або підніміть допустиме навантаження в налаштуваннях тесту швидкості.",
+        "en": "1. Run the test when the VPN is less busy, or raise the allowed load in the speed test settings.",
+        "de": "1. Starten Sie den Test, wenn das VPN weniger ausgelastet ist, oder erhöhen Sie die erlaubte Last in den Einstellungen des Geschwindigkeitstests."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-055",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-056",
+      "number": "005-007-056",
+      "key": "SPEED_TRAFFIC_UNKNOWN",
+      "aliases": [
+        "SPEED-TRAFFIC-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Загрузка VPN неизвестна",
+        "uk": "Навантаження VPN невідоме",
+        "en": "VPN traffic is unknown",
+        "de": "Datenverkehr des VPNs unbekannt"
+      },
+      "cause": {
+        "ru": "Роутер пока не знает, сколько трафика идёт через этот VPN, поэтому не тестирует его.",
+        "uk": "Роутер поки не знає, скільки трафіку йде через цей VPN, тому не тестує його.",
+        "en": "The router does not know yet how much traffic goes through this VPN, so it does not test it.",
+        "de": "Der Router weiß noch nicht, wie viel Datenverkehr über dieses VPN läuft, und testet es daher nicht."
+      },
+      "action": {
+        "ru": "1. Подождите новых замеров.\n2. Запустите тест ещё раз.",
+        "uk": "1. Зачекайте на нові виміри.\n2. Запустіть тест ще раз.",
+        "en": "1. Wait for new measurements.\n2. Start the test again.",
+        "de": "1. Warten Sie auf neue Messungen.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-056",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-057",
+      "number": "005-007-057",
+      "key": "SPEED_WORKER_LOST",
+      "aliases": [
+        "SPEED-WORKER-LOST"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Фоновая часть теста остановилась",
+        "uk": "Фонова частина тесту зупинилася",
+        "en": "The background part of the test stopped",
+        "de": "Der Hintergrundteil des Tests wurde beendet"
+      },
+      "cause": {
+        "ru": "Фоновая часть теста скорости остановилась раньше, чем тест закончился.",
+        "uk": "Фонова частина тесту швидкості зупинилася раніше, ніж тест завершився.",
+        "en": "The background part of the speed test stopped before the test finished.",
+        "de": "Der Hintergrundteil des Geschwindigkeitstests wurde beendet, bevor der Test fertig war."
+      },
+      "action": {
+        "ru": "1. Запустите тест ещё раз.",
+        "uk": "1. Запустіть тест ще раз.",
+        "en": "1. Start the test again.",
+        "de": "1. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-057",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-058",
+      "number": "005-007-058",
+      "key": "SPEED_WORKER_START",
+      "aliases": [
+        "SPEED-WORKER-START"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось запустить тест",
+        "uk": "Не вдалося запустити тест",
+        "en": "The test could not be started",
+        "de": "Der Test konnte nicht gestartet werden"
+      },
+      "cause": {
+        "ru": "Роутер не смог запустить фоновую часть теста скорости.",
+        "uk": "Роутер не зміг запустити фонову частину тесту швидкості.",
+        "en": "The router could not start the background part of the speed test.",
+        "de": "Der Router konnte den Hintergrundteil des Geschwindigkeitstests nicht starten."
+      },
+      "action": {
+        "ru": "1. Повторите тест позже.",
+        "uk": "1. Повторіть тест пізніше.",
+        "en": "1. Repeat the test later.",
+        "de": "1. Wiederholen Sie den Test später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-058",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-059",
+      "number": "005-007-059",
+      "key": "SPEED_WORKER_TIMEOUT",
+      "aliases": [
+        "SPEED-WORKER-TIMEOUT"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Тест длился слишком долго",
+        "uk": "Тест тривав надто довго",
+        "en": "The test took too long",
+        "de": "Der Test hat zu lange gedauert"
+      },
+      "cause": {
+        "ru": "Тест скорости не закончился вовремя и был остановлен.",
+        "uk": "Тест швидкості не завершився вчасно й був зупинений.",
+        "en": "The speed test did not finish in time and was stopped.",
+        "de": "Der Geschwindigkeitstest wurde nicht rechtzeitig fertig und wurde beendet."
+      },
+      "action": {
+        "ru": "1. Выберите более короткую длительность теста.\n2. Запустите тест ещё раз.",
+        "uk": "1. Виберіть коротшу тривалість тесту.\n2. Запустіть тест ще раз.",
+        "en": "1. Choose a shorter test duration.\n2. Start the test again.",
+        "de": "1. Wählen Sie eine kürzere Testdauer.\n2. Starten Sie den Test erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-059",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-060",
+      "number": "005-007-060",
+      "key": "SQM_APPLY_FAILED",
+      "aliases": [
+        "SQM-APPLY-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Управление очередью (SQM) не включилось",
+        "uk": "Керування чергою (SQM) не ввімкнулося",
+        "en": "Queue management (SQM) could not be applied",
+        "de": "Warteschlangensteuerung (SQM) konnte nicht angewendet werden"
+      },
+      "cause": {
+        "ru": "Роутер не смог включить управление очередью на выходе VPN-туннеля: на роутере нет нужного компонента, или он отклонил запрос. Трафик идёт как обычно, без этой настройки.",
+        "uk": "Роутер не зміг увімкнути керування чергою на виході VPN-тунелю: на роутері немає потрібного компонента, або він відхилив запит. Трафік іде як звичайно, без цього налаштування.",
+        "en": "The router could not turn on queue management on the VPN tunnel output: a needed component is missing on the router or refused the request. Traffic flows as usual without this setting.",
+        "de": "Der Router konnte die Warteschlangensteuerung am Ausgang des VPN-Tunnels nicht einschalten: Eine nötige Komponente fehlt auf dem Router oder hat die Anfrage abgelehnt. Der Datenverkehr läuft wie gewohnt ohne diese Einstellung."
+      },
+      "action": {
+        "ru": "1. Установите недостающий компонент (см. «Помощь») или выключите SQM.\n2. Ничего больше делать не нужно: роутер сам повторит попытку.",
+        "uk": "1. Встановіть відсутній компонент (див. «Довідку» (Help)) або вимкніть SQM.\n2. Більше нічого робити не потрібно: роутер сам повторить спробу.",
+        "en": "1. Install the missing component (see Help) or switch SQM off.\n2. Nothing else is needed: the router tries again by itself.",
+        "de": "1. Installieren Sie die fehlende Komponente (siehe „Hilfe“ (Help)) oder schalten Sie SQM aus.\n2. Sonst ist nichts nötig: Der Router versucht es selbst erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-060",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-061",
+      "number": "005-007-061",
+      "key": "SQM_BANDWIDTH_UNSET",
+      "aliases": [
+        "SQM-BANDWIDTH-UNSET"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "SQM включён, но скорость отдачи не задана",
+        "uk": "SQM увімкнено, але швидкість віддачі не задано",
+        "en": "SQM is on, but no upload rate is set",
+        "de": "SQM ist eingeschaltet, aber keine Upload-Rate festgelegt"
+      },
+      "cause": {
+        "ru": "Управление очередью (SQM) включено, но допустимая скорость отдачи не задана, поэтому оно ничего не делает. Автоматического значения нет: неверное значение либо замедляет VPN, либо ничего не даёт.",
+        "uk": "Керування чергою (SQM) увімкнено, але допустиму швидкість віддачі не задано, тому воно нічого не робить. Автоматичного значення немає: неправильне значення або сповільнює VPN, або нічого не дає.",
+        "en": "Queue management (SQM) is on, but no valid upload rate is set, so it does nothing. There is no automatic value: a wrong one either slows the VPN or has no effect.",
+        "de": "Die Warteschlangensteuerung (SQM) ist eingeschaltet, aber es ist keine gültige Upload-Rate festgelegt, daher bewirkt sie nichts. Es gibt keinen automatischen Wert: Ein falscher Wert bremst das VPN oder bleibt wirkungslos."
+      },
+      "action": {
+        "ru": "1. Измерьте скорость отдачи через VPN тестом скорости.\n2. Задайте для SQM значение немного ниже измеренного, как описано в «Помощи».",
+        "uk": "1. Виміряйте швидкість віддачі через VPN тестом швидкості.\n2. Задайте для SQM значення трохи нижче виміряного, як описано в «Довідці» (Help).",
+        "en": "1. Measure the VPN upload speed with a speed test.\n2. Set the SQM rate a little below the measured one, as described in Help.",
+        "de": "1. Messen Sie die Upload-Geschwindigkeit des VPNs mit einem Geschwindigkeitstest.\n2. Legen Sie für SQM einen Wert etwas unter dem gemessenen fest, wie in der „Hilfe“ (Help) beschrieben."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-061",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-062",
+      "number": "005-007-062",
+      "key": "SQM_OFF",
+      "aliases": [
+        "SQM-OFF"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "SQM на VPN выключен",
+        "uk": "SQM на VPN вимкнено",
+        "en": "SQM on the VPN is off",
+        "de": "SQM auf dem VPN ist ausgeschaltet"
+      },
+      "cause": {
+        "ru": "Управление очередью (SQM) на выходе VPN-туннелей выключено, как и задумано по умолчанию. Трафик идёт как обычно.",
+        "uk": "Керування чергою (SQM) на виході VPN-тунелів вимкнено, як і передбачено за замовчуванням. Трафік іде як звичайно.",
+        "en": "Queue management (SQM) on the VPN tunnel output is off, as by default. Traffic flows as usual.",
+        "de": "Die Warteschlangensteuerung (SQM) am Ausgang der VPN-Tunnel ist ausgeschaltet, wie standardmäßig vorgesehen. Der Datenverkehr läuft wie gewohnt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Включайте SQM, только если отдача часто забита и связь тормозит под нагрузкой; сначала прочитайте «Помощь».",
+        "uk": "1. Нічого робити не потрібно.\n2. Вмикайте SQM, лише якщо віддача часто перевантажена і зв'язок гальмує під навантаженням; спершу прочитайте «Довідку» (Help).",
+        "en": "1. Nothing to do.\n2. Turn SQM on only if your upload is often full and the connection lags under load; read Help first.",
+        "de": "1. Sie müssen nichts tun.\n2. Schalten Sie SQM nur ein, wenn Ihr Upload oft ausgelastet ist und die Verbindung unter Last stockt; lesen Sie zuerst die „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SPEED-062",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-063",
+      "number": "005-007-063",
+      "key": "SQM_RESTORE_FAILED",
+      "aliases": [
+        "SQM-RESTORE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось снять настройку SQM",
+        "uk": "Не вдалося зняти налаштування SQM",
+        "en": "The SQM setting could not be removed",
+        "de": "Die SQM-Einstellung konnte nicht entfernt werden"
+      },
+      "cause": {
+        "ru": "Роутер не смог подтвердить, что убрал свою настройку очереди с VPN-туннеля. Запись об этом сохранена, и роутер ещё попробует её снять.",
+        "uk": "Роутер не зміг підтвердити, що прибрав своє налаштування черги з VPN-тунелю. Запис про це збережено, і роутер ще спробує його зняти.",
+        "en": "The router could not confirm that it removed its queue setting from the VPN tunnel. A record of it is kept, and the router will try to remove it again.",
+        "de": "Der Router konnte nicht bestätigen, dass er seine Warteschlangeneinstellung vom VPN-Tunnel entfernt hat. Ein Eintrag dazu bleibt gespeichert, und der Router versucht es erneut."
+      },
+      "action": {
+        "ru": "1. Не удаляйте настройку очереди вручную.\n2. Сохраните диагностические данные, как описано в «Помощи».\n3. Отправьте их разработчику.",
+        "uk": "1. Не видаляйте налаштування черги вручну.\n2. Збережіть діагностичні дані, як описано в «Довідці» (Help).\n3. Надішліть їх розробнику.",
+        "en": "1. Do not remove the queue setting by hand.\n2. Save the diagnostic data as described in Help.\n3. Send it to the developer.",
+        "de": "1. Entfernen Sie die Warteschlangeneinstellung nicht von Hand.\n2. Speichern Sie die Diagnosedaten wie in der „Hilfe“ (Help) beschrieben.\n3. Senden Sie sie an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-063",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "service",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SPEED-064",
+      "number": "005-007-064",
+      "key": "SQM_ROOT_QDISC_BUSY",
+      "aliases": [
+        "SQM-ROOT-QDISC-BUSY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У туннеля уже есть своя настройка очереди",
+        "uk": "Тунель уже має власне налаштування черги",
+        "en": "The tunnel already has its own queue setting",
+        "de": "Der Tunnel hat bereits eine eigene Warteschlangeneinstellung"
+      },
+      "cause": {
+        "ru": "На этом VPN-туннеле уже стоит другая настройка очереди — ваша или от прошивки. Роутер никогда её не заменяет.",
+        "uk": "На цьому VPN-тунелі вже є інше налаштування черги — ваше або від прошивки. Роутер ніколи його не замінює.",
+        "en": "This VPN tunnel already has another queue setting, made by you or by the firmware. The router never replaces it.",
+        "de": "Dieser VPN-Tunnel hat bereits eine andere Warteschlangeneinstellung, von Ihnen oder von der Firmware. Der Router ersetzt sie nie."
+      },
+      "action": {
+        "ru": "1. Если нужен SQM этой программы, уберите свою настройку очереди на этом туннеле, иначе выключите здесь SQM.",
+        "uk": "1. Якщо потрібен SQM цієї програми, приберіть своє налаштування черги на цьому тунелі, інакше вимкніть тут SQM.",
+        "en": "1. If you want this SQM, remove your own queue setting on that tunnel; otherwise switch SQM off here.",
+        "de": "1. Wenn Sie dieses SQM möchten, entfernen Sie Ihre eigene Warteschlangeneinstellung an diesem Tunnel; andernfalls schalten Sie SQM hier aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SPEED-064",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "speed",
+        "service",
+        "translation-draft"
+      ]
+    }
+  ]
+}
