@@ -6,9 +6,6 @@
       "code": "RENT-SET-001",
       "number": "003-021-001",
       "key": "SMTP_INVALID",
-      "aliases": [
-        "smtp_invalid"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -53,6 +50,8 @@
       "retryable": true,
       "help": "errors/RENT-SET-001",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-027",
       "tags": [
         "settings"
       ]

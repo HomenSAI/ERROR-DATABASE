@@ -1445,9 +1445,6 @@
       "code": "RENT-FORM-029",
       "number": "003-006-029",
       "key": "EMAIL_INVALID",
-      "aliases": [
-        "email_invalid"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -1488,6 +1485,8 @@
       "retryable": true,
       "help": "errors/RENT-FORM-029",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-AUTH-028",
       "tags": [
         "forms"
       ]

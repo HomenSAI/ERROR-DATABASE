@@ -171,9 +171,6 @@
       "code": "RENT-RECOV-004",
       "number": "003-020-004",
       "key": "RECOVERY_FORMAT",
-      "aliases": [
-        "recovery_format"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -218,6 +215,8 @@
       "retryable": true,
       "help": "errors/RENT-RECOV-004",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-KEY-002",
       "tags": [
         "recovery"
       ]
@@ -226,9 +225,6 @@
       "code": "RENT-RECOV-005",
       "number": "003-020-005",
       "key": "RECOVERY_CHECKSUM",
-      "aliases": [
-        "recovery_checksum"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -273,6 +269,8 @@
       "retryable": true,
       "help": "errors/RENT-RECOV-005",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-KEY-003",
       "tags": [
         "recovery"
       ]
@@ -281,9 +279,6 @@
       "code": "RENT-RECOV-006",
       "number": "003-020-006",
       "key": "RECOVERY_WRONG",
-      "aliases": [
-        "recovery_wrong"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -328,6 +323,8 @@
       "retryable": true,
       "help": "errors/RENT-RECOV-006",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-KEY-004",
       "tags": [
         "recovery"
       ]
@@ -336,9 +333,6 @@
       "code": "RENT-RECOV-007",
       "number": "003-020-007",
       "key": "SHARES_NEEDED",
-      "aliases": [
-        "shares_needed"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -383,6 +377,8 @@
       "retryable": true,
       "help": "errors/RENT-RECOV-007",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-KEY-005",
       "tags": [
         "recovery"
       ]
@@ -391,9 +387,6 @@
       "code": "RENT-RECOV-008",
       "number": "003-020-008",
       "key": "SHARES_MISMATCH",
-      "aliases": [
-        "shares_mismatch"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -438,6 +431,8 @@
       "retryable": true,
       "help": "errors/RENT-RECOV-008",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-KEY-006",
       "tags": [
         "recovery"
       ]

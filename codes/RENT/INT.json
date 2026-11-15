@@ -6,9 +6,6 @@
       "code": "RENT-INT-001",
       "number": "003-017-001",
       "key": "INTEGRITY_REASON",
-      "aliases": [
-        "integrity_reason"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -49,6 +46,8 @@
       "retryable": true,
       "help": "errors/RENT-INT-001",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-001",
       "tags": [
         "integrity"
       ]
@@ -57,9 +56,6 @@
       "code": "RENT-INT-002",
       "number": "003-017-002",
       "key": "INTEGRITY_CHANGE",
-      "aliases": [
-        "integrity_change"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -100,6 +96,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-002",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-002",
       "tags": [
         "integrity"
       ]
@@ -108,9 +106,6 @@
       "code": "RENT-INT-003",
       "number": "003-017-003",
       "key": "INTEGRITY_SCHEMA",
-      "aliases": [
-        "integrity_schema"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -162,6 +157,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-003",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-003",
       "tags": [
         "integrity"
       ]
@@ -170,9 +167,6 @@
       "code": "RENT-INT-004",
       "number": "003-017-004",
       "key": "JOURNAL_GAP",
-      "aliases": [
-        "journal_gap"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -213,6 +207,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-004",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-004",
       "tags": [
         "integrity"
       ]
@@ -221,9 +217,6 @@
       "code": "RENT-INT-005",
       "number": "003-017-005",
       "key": "JOURNAL_LINK",
-      "aliases": [
-        "journal_link"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -264,6 +257,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-005",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-005",
       "tags": [
         "integrity"
       ]
@@ -272,9 +267,6 @@
       "code": "RENT-INT-006",
       "number": "003-017-006",
       "key": "JOURNAL_HASH",
-      "aliases": [
-        "journal_hash"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -315,6 +307,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-006",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-006",
       "tags": [
         "integrity"
       ]
@@ -323,9 +317,6 @@
       "code": "RENT-INT-007",
       "number": "003-017-007",
       "key": "ANCHOR_MISMATCH",
-      "aliases": [
-        "anchor_mismatch"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -366,6 +357,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-007",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-007",
       "tags": [
         "integrity"
       ]
@@ -374,9 +367,6 @@
       "code": "RENT-INT-008",
       "number": "003-017-008",
       "key": "AUDIT_CHANGED",
-      "aliases": [
-        "audit_changed"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -417,6 +407,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-008",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-008",
       "tags": [
         "integrity"
       ]
@@ -425,9 +417,6 @@
       "code": "RENT-INT-009",
       "number": "003-017-009",
       "key": "INDEX_CHANGED",
-      "aliases": [
-        "index_changed"
-      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -468,6 +457,8 @@
       "retryable": false,
       "help": "errors/RENT-INT-009",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-INT-009",
       "tags": [
         "integrity"
       ]

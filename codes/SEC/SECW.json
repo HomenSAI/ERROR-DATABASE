@@ -6,6 +6,9 @@
       "code": "SEC-SECW-001",
       "number": "006-004-001",
       "key": "SEC_WIZARD_STEP",
+      "aliases": [
+        "wizard_step"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -45,10 +48,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-001",
-      "since": "1.3.0",
       "related": [
         "RENT-SECW-001"
       ],
+      "since": "1.3.0",
       "tags": [
         "wizard"
       ]
@@ -57,6 +60,9 @@
       "code": "SEC-SECW-002",
       "number": "006-004-002",
       "key": "SEC_WIZARD_CHOICE",
+      "aliases": [
+        "wizard_choice"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -96,10 +102,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-002",
-      "since": "1.3.0",
       "related": [
         "RENT-SECW-002"
       ],
+      "since": "1.3.0",
       "tags": [
         "wizard"
       ]
@@ -108,6 +114,9 @@
       "code": "SEC-SECW-003",
       "number": "006-004-003",
       "key": "SEC_WIZARD_RISK",
+      "aliases": [
+        "wizard_risk"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -147,10 +156,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-003",
-      "since": "1.3.0",
       "related": [
         "RENT-SECW-003"
       ],
+      "since": "1.3.0",
       "tags": [
         "wizard"
       ]
@@ -159,6 +168,9 @@
       "code": "SEC-SECW-004",
       "number": "006-004-004",
       "key": "SEC_WIZARD_LEVEL",
+      "aliases": [
+        "wizard_level"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -198,10 +210,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-004",
-      "since": "1.3.0",
       "related": [
         "RENT-SECW-004"
       ],
+      "since": "1.3.0",
       "tags": [
         "wizard"
       ]
@@ -210,6 +222,9 @@
       "code": "SEC-SECW-005",
       "number": "006-004-005",
       "key": "SEC_RECOMMENDATION_UNKNOWN",
+      "aliases": [
+        "recommendation_unknown"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -249,10 +264,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-005",
-      "since": "1.3.0",
       "related": [
         "RENT-SECW-006"
       ],
+      "since": "1.3.0",
       "tags": [
         "wizard"
       ]
@@ -261,6 +276,9 @@
       "code": "SEC-SECW-006",
       "number": "006-004-006",
       "key": "SEC_DEFER_PERIOD",
+      "aliases": [
+        "defer_period"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -300,10 +318,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-006",
-      "since": "1.3.0",
       "related": [
         "RENT-SECW-007"
       ],
+      "since": "1.3.0",
       "tags": [
         "wizard"
       ]
@@ -312,6 +330,9 @@
       "code": "SEC-SECW-007",
       "number": "006-004-007",
       "key": "SEC_HELP_UNKNOWN",
+      "aliases": [
+        "help_unknown"
+      ],
       "level": "info",
       "audience": "user",
       "title": {
@@ -351,10 +372,10 @@
       ],
       "retryable": false,
       "help": "errors/SEC-SECW-007",
-      "since": "1.3.0",
       "related": [
         "RENT-SECW-005"
       ],
+      "since": "1.3.0",
       "tags": [
         "wizard"
       ]
@@ -363,6 +384,9 @@
       "code": "SEC-SECW-008",
       "number": "006-004-008",
       "key": "SEC_TRAINING_UNKNOWN",
+      "aliases": [
+        "training_unknown"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -402,10 +426,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-008",
-      "since": "1.3.0",
       "related": [
         "RENT-TRAIN-001"
       ],
+      "since": "1.3.0",
       "tags": [
         "training"
       ]
@@ -414,6 +438,9 @@
       "code": "SEC-SECW-009",
       "number": "006-004-009",
       "key": "SEC_REVIEW_INCOMPLETE",
+      "aliases": [
+        "review_incomplete"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -453,10 +480,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-009",
-      "since": "1.3.0",
       "related": [
         "RENT-TRAIN-002"
       ],
+      "since": "1.3.0",
       "tags": [
         "training"
       ]
@@ -465,6 +492,9 @@
       "code": "SEC-SECW-010",
       "number": "006-004-010",
       "key": "SEC_DRILL_NO_COPY",
+      "aliases": [
+        "drill_no_copy"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -504,10 +534,10 @@
       ],
       "retryable": true,
       "help": "errors/SEC-SECW-010",
-      "since": "1.3.0",
       "related": [
         "RENT-DR-007"
       ],
+      "since": "1.3.0",
       "tags": [
         "backup"
       ]
@@ -516,6 +546,9 @@
       "code": "SEC-SECW-011",
       "number": "006-004-011",
       "key": "SEC_DRILL_FAILED",
+      "aliases": [
+        "drill_failed"
+      ],
       "level": "error",
       "audience": "user",
       "title": {
@@ -566,10 +599,10 @@
       ],
       "retryable": false,
       "help": "errors/SEC-SECW-011",
-      "since": "1.3.0",
       "related": [
         "RENT-DR-008"
       ],
+      "since": "1.3.0",
       "tags": [
         "backup"
       ]

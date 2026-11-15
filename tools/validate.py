@@ -6,7 +6,8 @@
 (`number`, `area_numbers`: три цифры, уникальны на своём уровне), цифровой код записи `number` = `PPP-AAA-NNN`
 (совпадает с вычисленным из namespaces.json, уникален), уникальность code/key/aliases,
 все 4 языка, одинаковые подстановки {..} во всех языках и объявленные params, номера без пропусков, ссылки related и
-replaced_by, белый список данных для ИИ и разработчика. Выход 0 — всё в порядке, 1 — есть ошибки (список в stderr).
+replaced_by (только у устаревшего кода, на действующий другой код), белый список данных для ИИ и разработчика.
+Выход 0 — всё в порядке, 1 — есть ошибки (список в stderr).
 """
 
 from __future__ import annotations
@@ -41,6 +42,8 @@ def validate(root: Path = ROOT) -> list[str]:
     seen_names: dict[str, str] = {}
     numbers: dict[tuple[str, str], list[int]] = {}
     refs: list[tuple[str, str]] = []
+    replacements: list[tuple[str, str, str]] = []  # (где, код, replaced_by)
+    deprecated: set[str] = set()
     for path in sorted((root / "codes").glob("*/*.json")):
         rel = path.relative_to(root).as_posix()
         try:
@@ -58,12 +61,24 @@ def validate(root: Path = ROOT) -> list[str]:
             errors.append(f"{rel}: файл должен называться codes/{ns}/{area}.json")
         for entry in data.get("codes", []):
             errors += _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs, namespaces, seen_numbers)
+            if "deprecated" in entry:
+                deprecated.add(entry.get("code", ""))
+            if "replaced_by" in entry:
+                replacements.append((f"{rel}: {entry.get('code', '?')}", entry.get("code", ""), entry["replaced_by"]))
     for (ns, area), nums in numbers.items():
         if sorted(nums) != list(range(1, len(nums) + 1)):
             errors.append(f"{ns}-{area}: номера должны идти с 001 без пропусков, сейчас {sorted(nums)}")
     for where, target in refs:
         if target not in seen_codes:
             errors.append(f"{where}: ссылка на несуществующий код {target}")
+    # Замена кода (§5): replaced_by — только у устаревшего кода, на другой и не устаревший код (без цепочек замен).
+    for where, code, target in replacements:
+        if code not in deprecated:
+            errors.append(f"{where}: replaced_by без deprecated — замену указывают только у устаревшего кода")
+        if target == code:
+            errors.append(f"{where}: replaced_by указывает сам на себя")
+        elif target in deprecated:
+            errors.append(f"{where}: replaced_by указывает на устаревший код {target} — укажите действующую замену")
     return errors
 
 

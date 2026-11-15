@@ -6,9 +6,6 @@
       "code": "RENT-TRAIN-001",
       "number": "003-019-001",
       "key": "TRAINING_UNKNOWN",
-      "aliases": [
-        "training_unknown"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -49,6 +46,8 @@
       "retryable": true,
       "help": "errors/RENT-TRAIN-001",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-008",
       "tags": [
         "training"
       ]
@@ -57,9 +56,6 @@
       "code": "RENT-TRAIN-002",
       "number": "003-019-002",
       "key": "REVIEW_INCOMPLETE",
-      "aliases": [
-        "review_incomplete"
-      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -100,6 +96,8 @@
       "retryable": true,
       "help": "errors/RENT-TRAIN-002",
       "since": "1.1.0",
+      "deprecated": "1.4.0",
+      "replaced_by": "SEC-SECW-009",
       "tags": [
         "training"
       ]
