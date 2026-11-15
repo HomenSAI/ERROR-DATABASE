@@ -409,6 +409,57 @@
       "tags": [
         "money"
       ]
+    },
+    {
+      "code": "RENT-PAY-009",
+      "number": "003-003-009",
+      "key": "BANK_API_REVIEW_NOT_FOUND",
+      "aliases": [
+        "bank_api_review_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не найдено: запись сверки monobank",
+        "uk": "Не знайдено: запис звірки monobank",
+        "en": "Not found: the monobank reconciliation record",
+        "de": "Nicht gefunden: der monobank-Abgleichseintrag"
+      },
+      "cause": {
+        "ru": "Запись сверки могли уже обработать или удалить в другом окне, а список на экране остался прежним — ссылка на неё больше не действует.",
+        "uk": "Запис звірки могли вже обробити або видалити в іншому вікні, а список на екрані залишився попереднім — посилання на нього більше не діє.",
+        "en": "The reconciliation record may have already been handled or deleted in another window, while the list on screen stayed the same, so the link to it no longer works.",
+        "de": "Der Abgleichseintrag wurde möglicherweise bereits in einem anderen Fenster bearbeitet oder gelöscht, während die Liste auf dem Bildschirm unverändert blieb; der Verweis darauf gilt nicht mehr."
+      },
+      "action": {
+        "ru": "1. Обновите список и выберите запись заново: её могли удалить или адрес устарел.",
+        "uk": "1. Оновіть список і виберіть запис заново: її могли видалити або адреса застаріла.",
+        "en": "1. Refresh the list and select the record again: it may have been deleted or the link is out of date.",
+        "de": "1. Aktualisieren Sie die Liste und wählen Sie den Eintrag erneut: Er wurde eventuell gelöscht oder der Verweis ist veraltet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-PAY-009",
+      "since": "1.4.0",
+      "tags": [
+        "money"
+      ]
     }
   ]
 }
