@@ -1,0 +1,2517 @@
+{
+  "namespace": "VPN",
+  "area": "SYS",
+  "codes": [
+    {
+      "code": "VPN-SYS-001",
+      "number": "005-014-001",
+      "key": "CANDIDATE_FAMILY",
+      "aliases": [
+        "CANDIDATE-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Внутренняя проверка подбора замены серверов",
+        "uk": "Внутрішня перевірка підбору заміни серверів",
+        "en": "Internal check of replacement server testing",
+        "de": "Interne Prüfung der Ersatzserver-Tests"
+      },
+      "cause": {
+        "ru": "Защитная проверка части, которая пробует серверы на замену, отклонила шаг. На работу каналов это не влияет. Это семейство: описание относится ко всем кодам с префиксом «CANDIDATE-».",
+        "uk": "Захисна перевірка частини, яка пробує сервери на заміну, відхилила крок. На роботу каналів це не впливає. Це родина: опис стосується всіх кодів із префіксом «CANDIDATE-».",
+        "en": "A safety check of the part that tries replacement servers refused a step. This does not affect how the channels work. This is a family: the description applies to all codes starting with \"CANDIDATE-\".",
+        "de": "Eine Schutzprüfung des Teils, der Ersatzserver ausprobiert, hat einen Schritt abgelehnt. Das beeinflusst die Kanäle nicht. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CANDIDATE-“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если код появляется на вашем роутере, сообщите полный код в поддержку.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо код з'являється на вашому роутері, повідомте повний код у підтримку.",
+        "en": "1. Nothing to do.\n2. If the code appears on your router, send the full code to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn der Code auf Ihrem Router erscheint, senden Sie den vollständigen Code an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-001",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-002",
+      "number": "005-014-002",
+      "key": "CASCADE_FAMILY",
+      "aliases": [
+        "CASCADE-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Внутренняя проверка плана резервных переходов",
+        "uk": "Внутрішня перевірка плану резервних переходів",
+        "en": "Internal check of the fallback plan",
+        "de": "Interne Prüfung des Ausweichplans"
+      },
+      "cause": {
+        "ru": "Защитная проверка плана переходов между серверами, каналами и протоколами отклонила неверный или устаревший шаг. В этой версии план к роутеру не применяется. Это семейство: описание относится ко всем кодам с префиксом «CASCADE-».",
+        "uk": "Захисна перевірка плану переходів між серверами, каналами та протоколами відхилила неправильний або застарілий крок. У цій версії план до роутера не застосовується. Це родина: опис стосується всіх кодів із префіксом «CASCADE-».",
+        "en": "A safety check of the plan for moving between servers, channels and protocols refused a wrong or outdated step. In this version the plan is not applied to the router. This is a family: the description applies to all codes starting with \"CASCADE-\".",
+        "de": "Eine Schutzprüfung des Plans für Wechsel zwischen Servern, Kanälen und Protokollen hat einen falschen oder veralteten Schritt abgelehnt. In dieser Version wird der Plan nicht auf den Router angewendet. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CASCADE-“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если код появляется на вашем роутере, сообщите полный код в поддержку.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо код з'являється на вашому роутері, повідомте повний код у підтримку.",
+        "en": "1. Nothing to do.\n2. If the code appears on your router, send the full code to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn der Code auf Ihrem Router erscheint, senden Sie den vollständigen Code an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-002",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-003",
+      "number": "005-014-003",
+      "key": "CAUSE_UNKNOWN",
+      "aliases": [
+        "CAUSE-UNKNOWN"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Причина сбоя неизвестна",
+        "uk": "Причина збою невідома",
+        "en": "The cause of the failure is unknown",
+        "de": "Die Ursache des Fehlers ist unbekannt"
+      },
+      "cause": {
+        "ru": "Роутер заметил сбой, но у него нет данных о причине. Причину он не угадывает.",
+        "uk": "Роутер помітив збій, але не має даних про причину. Причину він не вгадує.",
+        "en": "The router saw a failure but has no data about its cause. It does not guess the cause.",
+        "de": "Der Router hat einen Fehler bemerkt, hat aber keine Angaben zur Ursache. Er rät die Ursache nicht."
+      },
+      "action": {
+        "ru": "1. Посмотрите другие коды рядом с этим в «Журнале».",
+        "uk": "1. Перегляньте інші коди поруч із цим у «Журналі» (Journal).",
+        "en": "1. Look at the other codes next to this one in the Journal.",
+        "de": "1. Sehen Sie sich die anderen Codes neben diesem im „Protokoll“ (Journal) an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-003",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-004",
+      "number": "005-014-004",
+      "key": "CHECKPOINT_FAMILY",
+      "aliases": [
+        "CHECKPOINT-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка сохранённой статистики",
+        "uk": "Перевірка збереженої статистики",
+        "en": "Saved statistics check",
+        "de": "Prüfung der gespeicherten Statistik"
+      },
+      "cause": {
+        "ru": "Сохранённая статистика не прошла проверку: неверная структура, число или дата. Она не используется, остаётся прежняя исправная копия. Это семейство: описание относится ко всем кодам с префиксом «CHECKPOINT-».",
+        "uk": "Збережена статистика не пройшла перевірку: неправильна структура, число або дата. Вона не використовується, залишається попередня справна копія. Це родина: опис стосується всіх кодів із префіксом «CHECKPOINT-».",
+        "en": "The saved statistics failed a check: wrong structure, number or date. They are not used, and the previous good copy stays. This is a family: the description applies to all codes starting with \"CHECKPOINT-\".",
+        "de": "Die gespeicherte Statistik hat eine Prüfung nicht bestanden: falsche Struktur, Zahl oder Datum. Sie wird nicht verwendet, die vorherige gültige Kopie bleibt. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CHECKPOINT-“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если статистика пуста, проверьте дату роутера и откройте «Помощь».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо статистика порожня, перевірте дату роутера й відкрийте «Довідку» (Help).",
+        "en": "1. Nothing to do.\n2. If the statistics look empty, check the router date and open Help.",
+        "de": "1. Es ist nichts zu tun.\n2. Wirkt die Statistik leer, prüfen Sie das Datum des Routers und öffnen Sie die „Hilfe“ (Help)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-004",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-005",
+      "number": "005-014-005",
+      "key": "CLOCK_WRONG_DATE",
+      "aliases": [
+        "CLOCK-001"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неверная дата на роутере",
+        "uk": "Неправильна дата на роутері",
+        "en": "Wrong date on the router",
+        "de": "Falsches Datum auf dem Router"
+      },
+      "cause": {
+        "ru": "Дата роутера невозможна или резко изменилась. Статистика ждёт, пока часы станут правильными.",
+        "uk": "Дата роутера неможлива або різко змінилася. Статистика чекає, доки годинник стане правильним.",
+        "en": "The router date is impossible or jumped. The statistics wait until the clock is correct.",
+        "de": "Das Datum des Routers ist unmöglich oder hat einen Sprung gemacht. Die Statistik wartet, bis die Uhr stimmt."
+      },
+      "action": {
+        "ru": "1. Укажите часовой пояс в системных настройках роутера.\n2. Включите там автоматическую синхронизацию времени.",
+        "uk": "1. Вкажіть часовий пояс у системних налаштуваннях роутера.\n2. Увімкніть там автоматичну синхронізацію часу.",
+        "en": "1. Set the time zone in the system settings of the router.\n2. Turn on automatic time sync there.",
+        "de": "1. Stellen Sie die Zeitzone in den Systemeinstellungen des Routers ein.\n2. Schalten Sie dort die automatische Zeitsynchronisierung ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-005",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-006",
+      "number": "005-014-006",
+      "key": "EXPORT_KIND",
+      "aliases": [
+        "EXPORT-KIND"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неизвестный вид выгрузки",
+        "uk": "Невідомий вид вивантаження",
+        "en": "Unknown export",
+        "de": "Unbekannter Export"
+      },
+      "cause": {
+        "ru": "Страница попросила выгрузить таблицу, которой нет. Обычно это бывает, когда страница устарела после обновления.",
+        "uk": "Сторінка попросила вивантажити таблицю, якої немає. Зазвичай так буває, коли сторінка застаріла після оновлення.",
+        "en": "The page asked to export a table that does not exist. This usually happens when the page is outdated after an update.",
+        "de": "Die Seite wollte eine Tabelle exportieren, die es nicht gibt. Das passiert meist, wenn die Seite nach einem Update veraltet ist."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите выгрузку.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть вивантаження.",
+        "en": "1. Reload the page.\n2. Repeat the export.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie den Export."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-006",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-007",
+      "number": "005-014-007",
+      "key": "HISTORY_FAMILY",
+      "aliases": [
+        "HISTORY-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка истории переключений",
+        "uk": "Перевірка історії перемикань",
+        "en": "Switch history check",
+        "de": "Prüfung des Umschaltverlaufs"
+      },
+      "cause": {
+        "ru": "Сохранённая история переключений не прошла проверку целостности. Тогда Auto не действует, потому что не может подтвердить, что делал раньше. Это семейство: описание относится ко всем кодам с префиксом «HISTORY-».",
+        "uk": "Збережена історія перемикань не пройшла перевірку цілісності. Тоді Auto не діє, бо не може підтвердити, що робив раніше. Це родина: опис стосується всіх кодів із префіксом «HISTORY-».",
+        "en": "The saved switch history failed an integrity check. Auto then does not act, because it cannot confirm what it did before. This is a family: the description applies to all codes starting with \"HISTORY-\".",
+        "de": "Der gespeicherte Umschaltverlauf hat eine Integritätsprüfung nicht bestanden. Auto handelt dann nicht, weil es nicht bestätigen kann, was es vorher getan hat. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „HISTORY-“."
+      },
+      "action": {
+        "ru": "1. Посмотрите код рядом в «Журнале».\n2. Если повторяется, откройте «Помощь», раздел об отсутствии интернета.",
+        "uk": "1. Перегляньте код поруч у «Журналі» (Journal).\n2. Якщо повторюється, відкрийте «Довідку» (Help), розділ про відсутність інтернету.",
+        "en": "1. Look at the code next to it in the Journal.\n2. If it repeats, open Help, the section about having no internet.",
+        "de": "1. Sehen Sie sich den Code daneben im „Protokoll“ (Journal) an.\n2. Wiederholt es sich, öffnen Sie die „Hilfe“ (Help), Abschnitt über fehlendes Internet."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-007",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-008",
+      "number": "005-014-008",
+      "key": "HISTORY_UNAVAILABLE",
+      "aliases": [
+        "HISTORY-001"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "История переключений недоступна",
+        "uk": "Історія перемикань недоступна",
+        "en": "Switch history is unavailable",
+        "de": "Der Umschaltverlauf ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Сохранённую историю переключений не удаётся прочитать. Пока это так, Auto может не переключать каналы.",
+        "uk": "Збережену історію перемикань не вдається прочитати. Поки це так, Auto може не перемикати канали.",
+        "en": "The saved switch history cannot be read. While this lasts, Auto may not switch channels.",
+        "de": "Der gespeicherte Umschaltverlauf lässt sich nicht lesen. Solange das so ist, schaltet Auto die Kanäle möglicherweise nicht um."
+      },
+      "action": {
+        "ru": "1. Не удаляйте историю: она нужна для восстановления.\n2. Проверьте дату роутера и свободное место на вкладке «Система».\n3. Если не помогло, сохраните «Журнал» и обратитесь в поддержку.",
+        "uk": "1. Не видаляйте історію: вона потрібна для відновлення.\n2. Перевірте дату роутера й вільне місце на вкладці «Система» (System).\n3. Якщо не допомогло, збережіть «Журнал» (Journal) і зверніться до підтримки.",
+        "en": "1. Do not delete the history: it is needed for recovery.\n2. Check the router date and free space on the System tab.\n3. If that does not help, save the Journal and contact support.",
+        "de": "1. Löschen Sie den Verlauf nicht: Er wird für die Wiederherstellung gebraucht.\n2. Prüfen Sie Datum und freien Speicher des Routers auf der Registerkarte „System“ (System).\n3. Hilft das nicht, speichern Sie das „Protokoll“ (Journal) und wenden Sie sich an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-008",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-009",
+      "number": "005-014-009",
+      "key": "HISTORY_C_FAMILY",
+      "aliases": [
+        "HISTORY-C-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Необязательная запись истории отдельной программой",
+        "uk": "Необов'язковий запис історії окремою програмою",
+        "en": "Optional history writing by a separate program",
+        "de": "Optionales Schreiben des Verlaufs durch ein separates Programm"
+      },
+      "cause": {
+        "ru": "При включённой необязательной настройке историю переключений пишет отдельная программа. Если она не смогла, роутер записал то же событие обычным способом, ничего не потеряно. Это семейство: описание относится ко всем кодам с префиксом «HISTORY-C-».",
+        "uk": "За ввімкненого необов'язкового налаштування історію перемикань пише окрема програма. Якщо вона не змогла, роутер записав ту саму подію звичайним способом, нічого не втрачено. Це родина: опис стосується всіх кодів із префіксом «HISTORY-C-».",
+        "en": "With an optional setting turned on, a separate program writes the switch history. When it could not, the router wrote the same event the usual way; nothing is lost. This is a family: the description applies to all codes starting with \"HISTORY-C-\".",
+        "de": "Bei aktivierter optionaler Einstellung schreibt ein separates Programm den Umschaltverlauf. Konnte es das nicht, hat der Router dasselbe Ereignis auf dem üblichen Weg geschrieben; nichts ging verloren. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „HISTORY-C-“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если повторяется, выключите эту необязательную настройку.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо повторюється, вимкніть це необов'язкове налаштування.",
+        "en": "1. Nothing to do.\n2. If it repeats, turn this optional setting off.",
+        "de": "1. Es ist nichts zu tun.\n2. Wiederholt es sich, schalten Sie diese optionale Einstellung aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-009",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-010",
+      "number": "005-014-010",
+      "key": "HISTORY_PARTIAL",
+      "aliases": [
+        "HISTORY-PARTIAL"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Старая история сокращена",
+        "uk": "Стару історію скорочено",
+        "en": "Old history is summarised",
+        "de": "Älterer Verlauf ist zusammengefasst"
+      },
+      "cause": {
+        "ru": "Старые измерения объединены или удалены, чтобы не переполнять память роутера. Последние дни сохранены полностью.",
+        "uk": "Старі вимірювання об'єднано або видалено, щоб не переповнювати пам'ять роутера. Останні дні збережено повністю.",
+        "en": "Older measurements were combined or removed so as not to fill the router memory. The recent days are kept in full.",
+        "de": "Ältere Messungen wurden zusammengefasst oder entfernt, damit der Speicher des Routers nicht volläuft. Die letzten Tage sind vollständig erhalten."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-010",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-011",
+      "number": "005-014-011",
+      "key": "LATENCY_FAMILY",
+      "aliases": [
+        "LATENCY-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код истории задержки",
+        "uk": "Код історії затримки",
+        "en": "Delay history code",
+        "de": "Code des Verzögerungsverlaufs"
+      },
+      "cause": {
+        "ru": "Сохранённую историю задержки не удалось прочитать или проверить. Само по себе это не означает отказ VPN, текущие проверки продолжаются. Это семейство: описание относится ко всем кодам с префиксом «LATENCY-».",
+        "uk": "Збережену історію затримки не вдалося прочитати або перевірити. Саме по собі це не означає відмову VPN, поточні перевірки тривають. Це родина: опис стосується всіх кодів із префіксом «LATENCY-».",
+        "en": "The saved delay history could not be read or verified. This alone does not mean the VPN has failed; current checks go on. This is a family: the description applies to all codes starting with \"LATENCY-\".",
+        "de": "Der gespeicherte Verzögerungsverlauf ließ sich nicht lesen oder prüfen. Das allein bedeutet keinen VPN-Ausfall; die laufenden Prüfungen gehen weiter. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „LATENCY-“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если повторяется, проверьте свободное место на вкладке «Система».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо повторюється, перевірте вільне місце на вкладці «Система» (System).",
+        "en": "1. Nothing to do.\n2. If it repeats, check the free space on the System tab.",
+        "de": "1. Es ist nichts zu tun.\n2. Wiederholt es sich, prüfen Sie den freien Speicher auf der Registerkarte „System“ (System)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-011",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-012",
+      "number": "005-014-012",
+      "key": "LATENCY_HISTORY_UNAVAILABLE",
+      "aliases": [
+        "LATENCY-HISTORY-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "История задержки недоступна",
+        "uk": "Історія затримки недоступна",
+        "en": "Delay history is unavailable",
+        "de": "Der Verzögerungsverlauf ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Сохранённую историю задержки сейчас не удаётся прочитать. Графики могут быть пустыми какое-то время; текущие показания и Auto работают.",
+        "uk": "Збережену історію затримки зараз не вдається прочитати. Графіки можуть бути порожніми деякий час; поточні показники й Auto працюють.",
+        "en": "The saved delay history cannot be read right now. The charts may be empty for a while; current readings and Auto keep working.",
+        "de": "Der gespeicherte Verzögerungsverlauf lässt sich gerade nicht lesen. Die Diagramme können eine Weile leer sein; aktuelle Werte und Auto arbeiten weiter."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. История заполнится снова сама.",
+        "uk": "1. Нічого робити не потрібно.\n2. Історія заповниться знову сама.",
+        "en": "1. Nothing to do.\n2. The history fills again by itself.",
+        "de": "1. Es ist nichts zu tun.\n2. Der Verlauf füllt sich von selbst wieder."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-012",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-013",
+      "number": "005-014-013",
+      "key": "LATENCY_HISTORY_WRITE_FAILED",
+      "aliases": [
+        "LATENCY-HISTORY-WRITE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "История задержки не сохранилась",
+        "uk": "Історія затримки не збереглася",
+        "en": "Delay history was not saved",
+        "de": "Der Verzögerungsverlauf wurde nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Роутер не смог сохранить последние показания задержки. Ранее сохранённые данные остаются.",
+        "uk": "Роутер не зміг зберегти останні показники затримки. Раніше збережені дані залишаються.",
+        "en": "The router could not save the newest delay readings. The data saved earlier stays.",
+        "de": "Der Router konnte die neuesten Verzögerungswerte nicht speichern. Die früher gespeicherten Daten bleiben."
+      },
+      "action": {
+        "ru": "1. Если повторяется, проверьте свободное место на вкладке «Система».",
+        "uk": "1. Якщо повторюється, перевірте вільне місце на вкладці «Система» (System).",
+        "en": "1. If it repeats, check the free space on the System tab.",
+        "de": "1. Wiederholt es sich, prüfen Sie den freien Speicher auf der Registerkarte „System“ (System)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-013",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-014",
+      "number": "005-014-014",
+      "key": "MIGRATION_FAMILY",
+      "aliases": [
+        "MIGRATION-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код переноса настроек при обновлении",
+        "uk": "Код перенесення налаштувань під час оновлення",
+        "en": "Settings upgrade code",
+        "de": "Code der Einstellungsübernahme beim Update"
+      },
+      "cause": {
+        "ru": "При переносе настроек из старой версии одна из проверок не прошла. В этом случае ничего не меняется. Это семейство: описание относится ко всем кодам с префиксом «MIGRATION-».",
+        "uk": "Під час перенесення налаштувань зі старої версії одна з перевірок не пройшла. У такому разі нічого не змінюється. Це родина: опис стосується всіх кодів із префіксом «MIGRATION-».",
+        "en": "While moving settings from an older version, a check failed. In that case nothing is changed. This is a family: the description applies to all codes starting with \"MIGRATION-\".",
+        "de": "Beim Übernehmen der Einstellungen aus einer älteren Version ist eine Prüfung fehlgeschlagen. In diesem Fall wird nichts geändert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „MIGRATION-“."
+      },
+      "action": {
+        "ru": "1. Сохраните резервную копию настроек.\n2. Установите ту же версию ещё раз.\n3. Если повторяется, сообщите код в поддержку.",
+        "uk": "1. Збережіть резервну копію налаштувань.\n2. Встановіть ту саму версію ще раз.\n3. Якщо повторюється, повідомте код у підтримку.",
+        "en": "1. Keep the settings backup.\n2. Install the same version again.\n3. If it repeats, send the code to support.",
+        "de": "1. Bewahren Sie die Sicherung der Einstellungen auf.\n2. Installieren Sie dieselbe Version noch einmal.\n3. Wiederholt es sich, senden Sie den Code an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-014",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-015",
+      "number": "005-014-015",
+      "key": "MODEL_FAMILY",
+      "aliases": [
+        "MODEL-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Внутренняя проверка модели переключения",
+        "uk": "Внутрішня перевірка моделі перемикання",
+        "en": "Internal check of the switching model",
+        "de": "Interne Prüfung des Umschaltmodells"
+      },
+      "cause": {
+        "ru": "Правило модели процесса переключения, которая используется в тестах, отклонило шаг или сообщило о нём. На работу роутера это не влияет. Это семейство: описание относится ко всем кодам с префиксом «MODEL-».",
+        "uk": "Правило моделі процесу перемикання, яка використовується в тестах, відхилило крок або повідомило про нього. На роботу роутера це не впливає. Це родина: опис стосується всіх кодів із префіксом «MODEL-».",
+        "en": "A rule of the switching process model used in tests refused or reported a step. This does not affect how the router works. This is a family: the description applies to all codes starting with \"MODEL-\".",
+        "de": "Eine Regel des Umschaltmodells, das in Tests verwendet wird, hat einen Schritt abgelehnt oder gemeldet. Das beeinflusst den Router nicht. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „MODEL-“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-015",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-016",
+      "number": "005-014-016",
+      "key": "OFFLINE_FIXTURE",
+      "aliases": [
+        "OFFLINE-FIXTURE"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Тестовые данные автономного просмотра",
+        "uk": "Тестові дані автономного перегляду",
+        "en": "Test data of the offline preview",
+        "de": "Testdaten der Offline-Vorschau"
+      },
+      "cause": {
+        "ru": "Этот код есть только в автономном просмотре страницы для разработки. На настоящем роутере он не появляется.",
+        "uk": "Цей код є лише в автономному перегляді сторінки для розробки. На справжньому роутері він не з'являється.",
+        "en": "This code exists only in the offline page preview used for development. It never appears on a real router.",
+        "de": "Dieser Code existiert nur in der Offline-Vorschau der Seite für die Entwicklung. Auf einem echten Router erscheint er nie."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Es ist nichts zu tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-016",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-017",
+      "number": "005-014-017",
+      "key": "PAIR_FAMILY",
+      "aliases": [
+        "PAIR-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код работы Auto с двумя каналами",
+        "uk": "Код роботи Auto з двома каналами",
+        "en": "Two-channel Auto code",
+        "de": "Code von Auto mit zwei Kanälen"
+      },
+      "cause": {
+        "ru": "Auto с двумя каналами готовит каналы к работе или отказался от действия, которое не смог проверить. Кнопка Стоп всегда доступна. Это семейство: описание относится ко всем кодам с префиксом «PAIR-».",
+        "uk": "Auto з двома каналами готує канали до роботи або відмовився від дії, яку не зміг перевірити. Кнопка Стоп (Stop) завжди доступна. Це родина: опис стосується всіх кодів із префіксом «PAIR-».",
+        "en": "Two-channel Auto is preparing the channels or refused an action it could not verify. The Stop button is always available. This is a family: the description applies to all codes starting with \"PAIR-\".",
+        "de": "Auto mit zwei Kanälen bereitet die Kanäle vor oder hat eine Aktion abgelehnt, die es nicht prüfen konnte. Die Schaltfläche Stopp (Stop) ist immer verfügbar. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „PAIR-“."
+      },
+      "action": {
+        "ru": "1. Посмотрите состояние Auto на «Главной».\n2. Посмотрите подробности в «Журнале».",
+        "uk": "1. Перегляньте стан Auto на «Головній» (Home).\n2. Перегляньте подробиці в «Журналі» (Journal).",
+        "en": "1. Look at the state of Auto on Home.\n2. Look at the details in the Journal.",
+        "de": "1. Sehen Sie sich den Zustand von Auto auf der „Startseite“ (Home) an.\n2. Sehen Sie sich die Einzelheiten im „Protokoll“ (Journal) an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-017",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-018",
+      "number": "005-014-018",
+      "key": "PAIR_BUDGET_UNVERIFIED",
+      "aliases": [
+        "PAIR-BUDGET-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не читается счётчик недавних переключений",
+        "uk": "Не читається лічильник нещодавніх перемикань",
+        "en": "The count of recent switches cannot be read",
+        "de": "Der Zähler der letzten Umschaltungen ist nicht lesbar"
+      },
+      "cause": {
+        "ru": "Auto не может прочитать сохранённый счётчик недавних переключений, поэтому не переключает, пока не убедится, что ограничение соблюдено.",
+        "uk": "Auto не може прочитати збережений лічильник нещодавніх перемикань, тому не перемикає, доки не переконається, що обмеження дотримано.",
+        "en": "Auto cannot read its saved count of recent switches, so it does not switch until it can confirm the limit is respected.",
+        "de": "Auto kann den gespeicherten Zähler der letzten Umschaltungen nicht lesen und schaltet daher nicht um, bis es bestätigen kann, dass die Begrenzung eingehalten wird."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут.\n2. Если не прошло, нажмите Стоп, а затем Старт.",
+        "uk": "1. Зачекайте кілька хвилин.\n2. Якщо не минуло, натисніть Стоп (Stop), а потім Старт (Start).",
+        "en": "1. Wait a few minutes.\n2. If it stays, press Stop and then Start.",
+        "de": "1. Warten Sie einige Minuten.\n2. Bleibt es, drücken Sie Stopp (Stop) und dann Start (Start)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-018",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-019",
+      "number": "005-014-019",
+      "key": "PAIR_CONFIG_UNVERIFIED",
+      "aliases": [
+        "PAIR-CONFIG-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сохранённые настройки Auto не подтверждены",
+        "uk": "Збережені налаштування Auto не підтверджено",
+        "en": "Saved Auto settings not confirmed",
+        "de": "Gespeicherte Auto-Einstellungen nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Сохранённые настройки каналов или Auto не удалось прочитать и проверить.",
+        "uk": "Збережені налаштування каналів або Auto не вдалося прочитати й перевірити.",
+        "en": "The saved channel or Auto settings could not be read back and verified.",
+        "de": "Die gespeicherten Kanal- oder Auto-Einstellungen ließen sich nicht lesen und prüfen."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки» и проверьте основной и резервный каналы.\n2. Сохраните настройки ещё раз.",
+        "uk": "1. Відкрийте «Налаштування» (Settings) і перевірте основний і резервний канали.\n2. Збережіть налаштування ще раз.",
+        "en": "1. Open Settings and check the primary and reserve channels.\n2. Save the settings again.",
+        "de": "1. Öffnen Sie die „Einstellungen“ (Settings) und prüfen Sie Haupt- und Reservekanal.\n2. Speichern Sie die Einstellungen erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-019",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-020",
+      "number": "005-014-020",
+      "key": "PAIR_INTENT_UNVERIFIED",
+      "aliases": [
+        "PAIR-INTENT-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запись о незавершённом переключении не подтверждена",
+        "uk": "Запис про незавершене перемикання не підтверджено",
+        "en": "Record of an unfinished switch not confirmed",
+        "de": "Eintrag einer unvollendeten Umschaltung nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Запись о переключении, которое ещё идёт, не прошла проверку, поэтому Auto не продолжает его вслепую.",
+        "uk": "Запис про перемикання, яке ще триває, не пройшов перевірку, тому Auto не продовжує його наосліп.",
+        "en": "The record of a switch in progress could not be verified, so Auto does not continue it blindly.",
+        "de": "Der Eintrag einer laufenden Umschaltung ließ sich nicht prüfen, daher setzt Auto sie nicht blind fort."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут.\n2. Посмотрите подробности в «Журнале».",
+        "uk": "1. Зачекайте кілька хвилин.\n2. Перегляньте подробиці в «Журналі» (Journal).",
+        "en": "1. Wait a few minutes.\n2. Look at the details in the Journal.",
+        "de": "1. Warten Sie einige Minuten.\n2. Sehen Sie sich die Einzelheiten im „Protokoll“ (Journal) an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-020",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-021",
+      "number": "005-014-021",
+      "key": "PAIR_NETWORK_UNVERIFIED",
+      "aliases": [
+        "PAIR-NETWORK-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Состояние сети каналов не подтверждено",
+        "uk": "Стан мережі каналів не підтверджено",
+        "en": "Channel network state not confirmed",
+        "de": "Netzwerkzustand der Kanäle nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Auto не смог прочитать сетевые настройки двух каналов, поэтому ничего не делает.",
+        "uk": "Auto не зміг прочитати мережеві налаштування двох каналів, тому нічого не робить.",
+        "en": "Auto could not read the network settings of the two channels, so it does nothing.",
+        "de": "Auto konnte die Netzwerkeinstellungen der beiden Kanäle nicht lesen und unternimmt daher nichts."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут.\n2. Если не прошло, нажмите Старт ещё раз.",
+        "uk": "1. Зачекайте кілька хвилин.\n2. Якщо не минуло, натисніть Старт (Start) ще раз.",
+        "en": "1. Wait a few minutes.\n2. If it stays, press Start again.",
+        "de": "1. Warten Sie einige Minuten.\n2. Bleibt es, drücken Sie erneut Start (Start)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-021",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-022",
+      "number": "005-014-022",
+      "key": "PAIR_SYSTEM_UNEXPECTED",
+      "aliases": [
+        "PAIR-SYSTEM-001"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Непредвиденный внутренний сбой Auto",
+        "uk": "Непередбачений внутрішній збій Auto",
+        "en": "Unexpected internal failure in Auto",
+        "de": "Unerwarteter interner Fehler in Auto"
+      },
+      "cause": {
+        "ru": "Auto встретил сбой без отдельного кода и безопасно остановился. Сам по себе этот сбой маршрут не меняет.",
+        "uk": "Auto натрапив на збій без окремого коду й безпечно зупинився. Сам по собі цей збій маршрут не змінює.",
+        "en": "Auto met a failure without its own code and stopped safely. This failure alone does not change the route.",
+        "de": "Auto ist auf einen Fehler ohne eigenen Code gestoßen und hat sicher angehalten. Dieser Fehler allein ändert die Route nicht."
+      },
+      "action": {
+        "ru": "1. Нажмите Старт ещё раз.\n2. Если повторяется, сохраните «Журнал» и время события для поддержки.",
+        "uk": "1. Натисніть Старт (Start) ще раз.\n2. Якщо повторюється, збережіть «Журнал» (Journal) і час події для підтримки.",
+        "en": "1. Press Start again.\n2. If it repeats, save the Journal and the time of the event for support.",
+        "de": "1. Drücken Sie erneut Start (Start).\n2. Wiederholt es sich, speichern Sie das „Protokoll“ (Journal) und die Uhrzeit des Ereignisses für den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-022",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-023",
+      "number": "005-014-023",
+      "key": "PING_HISTORY",
+      "aliases": [
+        "PING-HISTORY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проблема с историей пингов",
+        "uk": "Проблема з історією пінгів",
+        "en": "Ping history problem",
+        "de": "Problem mit dem Ping-Verlauf"
+      },
+      "cause": {
+        "ru": "Сохранённую историю пингов не удалось использовать. Текущие пинги и переключение продолжают работать.",
+        "uk": "Збережену історію пінгів не вдалося використати. Поточні пінги й перемикання працюють далі.",
+        "en": "The saved ping history could not be used. Current pings and switching keep working.",
+        "de": "Der gespeicherte Ping-Verlauf konnte nicht verwendet werden. Aktuelle Pings und die Umschaltung arbeiten weiter."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. История соберётся заново сама.",
+        "uk": "1. Нічого робити не потрібно.\n2. Історія збереться заново сама.",
+        "en": "1. Nothing to do.\n2. The history is collected again by itself.",
+        "de": "1. Es ist nichts zu tun.\n2. Der Verlauf wird von selbst neu gesammelt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-023",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-024",
+      "number": "005-014-024",
+      "key": "PING_HISTORY_FAMILY",
+      "aliases": [
+        "PING-HISTORY*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код истории пингов",
+        "uk": "Код історії пінгів",
+        "en": "Ping history code",
+        "de": "Code des Ping-Verlaufs"
+      },
+      "cause": {
+        "ru": "Сохранённую историю пингов не удалось надёжно прочитать или записать. Текущие пинги и переключение продолжают работать. Это семейство: описание относится ко всем кодам с префиксом «PING-HISTORY».",
+        "uk": "Збережену історію пінгів не вдалося надійно прочитати або записати. Поточні пінги й перемикання працюють далі. Це родина: опис стосується всіх кодів із префіксом «PING-HISTORY».",
+        "en": "The saved ping history could not be read or written safely. Current pings and switching keep working. This is a family: the description applies to all codes starting with \"PING-HISTORY\".",
+        "de": "Der gespeicherte Ping-Verlauf ließ sich nicht sicher lesen oder schreiben. Aktuelle Pings und die Umschaltung arbeiten weiter. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „PING-HISTORY“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если повторяется, сбросьте график или переустановите пакет.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо повторюється, скиньте графік або перевстановіть пакет.",
+        "en": "1. Nothing to do.\n2. If it repeats, reset the chart or reinstall the package.",
+        "de": "1. Es ist nichts zu tun.\n2. Wiederholt es sich, setzen Sie das Diagramm zurück oder installieren Sie das Paket neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-024",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-025",
+      "number": "005-014-025",
+      "key": "PUBLICATION_CI_LUA",
+      "aliases": [
+        "PUBLICATION-CI-LUA"
+      ],
+      "level": "error",
+      "audience": "developer",
+      "title": {
+        "ru": "Отчёт сборки не подтверждает, что внутренние тесты прошли",
+        "uk": "Звіт збірки не підтверджує, що внутрішні тести пройшли",
+        "en": "The build report does not prove the internal tests ran",
+        "de": "Der Build-Bericht belegt nicht, dass die internen Tests liefen"
+      },
+      "cause": {
+        "ru": "В отчёте автоматической сборки нет подтверждения, что нужная среда тестов была доступна и хотя бы один такой тест выполнился. Выпуск по такому отчёту не делается.",
+        "uk": "У звіті автоматичної збірки немає підтвердження, що потрібне середовище тестів було доступне й хоча б один такий тест виконався. Випуск за таким звітом не робиться.",
+        "en": "The automatic build report does not confirm that the needed test environment was available and that at least one such test completed. No release is made from such a report.",
+        "de": "Der Bericht des automatischen Builds bestätigt nicht, dass die nötige Testumgebung verfügbar war und mindestens ein solcher Test abgeschlossen wurde. Auf Grundlage eines solchen Berichts erfolgt keine Veröffentlichung."
+      },
+      "action": {
+        "ru": "1. Запустите проверки сборки снова в проверенной среде.\n2. Сохраните неудачный отчёт как доказательство.",
+        "uk": "1. Запустіть перевірки збірки знову в перевіреному середовищі.\n2. Збережіть невдалий звіт як доказ.",
+        "en": "1. Run the build checks again in the reviewed environment.\n2. Keep the failed report as evidence.",
+        "de": "1. Führen Sie die Build-Prüfungen in der geprüften Umgebung erneut aus.\n2. Bewahren Sie den fehlgeschlagenen Bericht als Nachweis auf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-025",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-026",
+      "number": "005-014-026",
+      "key": "PUBLICATION_RECORD_SCOPE",
+      "aliases": [
+        "PUBLICATION-RECORD-SCOPE"
+      ],
+      "level": "error",
+      "audience": "developer",
+      "title": {
+        "ru": "Запись выпуска отличается от проверенного исходника",
+        "uk": "Запис випуску відрізняється від перевіреного вихідного коду",
+        "en": "The release record differs from the tested source",
+        "de": "Der Release-Eintrag weicht vom geprüften Quellstand ab"
+      },
+      "cause": {
+        "ru": "Запись выпуска содержит изменения сверх разрешённых или не удалось подтвердить происхождение и целостность пакета.",
+        "uk": "Запис випуску містить зміни понад дозволені або не вдалося підтвердити походження й цілісність пакета.",
+        "en": "The release record contains changes beyond the allowed ones, or the origin and integrity of the package could not be confirmed.",
+        "de": "Der Release-Eintrag enthält Änderungen über die erlaubten hinaus, oder Herkunft und Integrität des Pakets ließen sich nicht bestätigen."
+      },
+      "action": {
+        "ru": "1. Запустите полную автоматическую проверку на этой версии исходника.\n2. Или создайте новую запись выпуска только с проверенным пакетом и его описанием.",
+        "uk": "1. Запустіть повну автоматичну перевірку на цій версії вихідного коду.\n2. Або створіть новий запис випуску лише з перевіреним пакетом і його описом.",
+        "en": "1. Run the full automatic check on this source version.\n2. Or create a new release record with only the verified package and its notes.",
+        "de": "1. Führen Sie die vollständige automatische Prüfung für diesen Quellstand aus.\n2. Oder erstellen Sie einen neuen Release-Eintrag nur mit dem geprüften Paket und seinen Hinweisen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-026",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-027",
+      "number": "005-014-027",
+      "key": "RESPONSE_COMPARE_FAMILY",
+      "aliases": [
+        "RESPONSE-COMPARE*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код сравнения методов отклика",
+        "uk": "Код порівняння методів відгуку",
+        "en": "Response method comparison code",
+        "de": "Code des Vergleichs der Antwortmethoden"
+      },
+      "cause": {
+        "ru": "Сохранённое сравнение всех методов отклика не удалось надёжно прочитать или записать. На переключение и выбранный метод это не влияет. Это семейство: описание относится ко всем кодам с префиксом «RESPONSE-COMPARE».",
+        "uk": "Збережене порівняння всіх методів відгуку не вдалося надійно прочитати або записати. На перемикання й вибраний метод це не впливає. Це родина: опис стосується всіх кодів із префіксом «RESPONSE-COMPARE».",
+        "en": "The saved comparison of all response methods could not be read or written safely. Switching and the chosen method are not affected. This is a family: the description applies to all codes starting with \"RESPONSE-COMPARE\".",
+        "de": "Der gespeicherte Vergleich aller Antwortmethoden ließ sich nicht sicher lesen oder schreiben. Die Umschaltung und die gewählte Methode sind nicht betroffen. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „RESPONSE-COMPARE“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если не проходит, выключите и снова включите «измерять все методы».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо не минає, вимкніть і знову ввімкніть «вимірювати всі методи» (measure all methods).",
+        "en": "1. Nothing to do.\n2. If it stays, turn “measure all methods” off and on again.",
+        "de": "1. Es ist nichts zu tun.\n2. Bleibt es, schalten Sie „alle Methoden messen“ (measure all methods) aus und wieder ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-027",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-028",
+      "number": "005-014-028",
+      "key": "RESPONSE_COMPARE_SCHEMA",
+      "aliases": [
+        "RESPONSE-COMPARE-SCHEMA"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл сравнения методов имеет неверный вид",
+        "uk": "Файл порівняння методів має неправильний вигляд",
+        "en": "The method comparison has the wrong form",
+        "de": "Der Methodenvergleich hat die falsche Form"
+      },
+      "cause": {
+        "ru": "Сохранённое сравнение методов имеет неожиданную структуру и не используется.",
+        "uk": "Збережене порівняння методів має неочікувану структуру й не використовується.",
+        "en": "The saved method comparison has an unexpected structure and is not used.",
+        "de": "Der gespeicherte Methodenvergleich hat eine unerwartete Struktur und wird nicht verwendet."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Сравнение соберётся заново само.",
+        "uk": "1. Нічого робити не потрібно.\n2. Порівняння збереться заново саме.",
+        "en": "1. Nothing to do.\n2. The comparison is rebuilt by itself.",
+        "de": "1. Es ist nichts zu tun.\n2. Der Vergleich wird von selbst neu aufgebaut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-028",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-029",
+      "number": "005-014-029",
+      "key": "RESPONSE_COMPARE_SIZE",
+      "aliases": [
+        "RESPONSE-COMPARE-SIZE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сравнение методов слишком большое",
+        "uk": "Порівняння методів завелике",
+        "en": "The method comparison is too large",
+        "de": "Der Methodenvergleich ist zu groß"
+      },
+      "cause": {
+        "ru": "Сохранённое сравнение методов больше допустимого размера и не используется.",
+        "uk": "Збережене порівняння методів більше за допустимий розмір і не використовується.",
+        "en": "The saved method comparison is larger than allowed and is not used.",
+        "de": "Der gespeicherte Methodenvergleich ist größer als erlaubt und wird nicht verwendet."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Сравнение соберётся заново само.",
+        "uk": "1. Нічого робити не потрібно.\n2. Порівняння збереться заново саме.",
+        "en": "1. Nothing to do.\n2. The comparison is rebuilt by itself.",
+        "de": "1. Es ist nichts zu tun.\n2. Der Vergleich wird von selbst neu aufgebaut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-029",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-030",
+      "number": "005-014-030",
+      "key": "RESPONSE_COMPARE_UNAVAILABLE",
+      "aliases": [
+        "RESPONSE-COMPARE-UNAVAILABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сравнение методов недоступно",
+        "uk": "Порівняння методів недоступне",
+        "en": "The method comparison is unavailable",
+        "de": "Der Methodenvergleich ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Сохранённое сравнение всех методов отклика сейчас нельзя использовать. На переключение и выбранный метод отклика это не влияет.",
+        "uk": "Збережене порівняння всіх методів відгуку зараз не можна використати. На перемикання й вибраний метод відгуку це не впливає.",
+        "en": "The saved comparison of all response methods cannot be used right now. Switching and the chosen response method are not affected.",
+        "de": "Der gespeicherte Vergleich aller Antwortmethoden ist gerade nicht nutzbar. Die Umschaltung und die gewählte Antwortmethode sind nicht betroffen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если не проходит, выключите и снова включите «измерять все методы».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо не минає, вимкніть і знову ввімкніть «вимірювати всі методи» (measure all methods).",
+        "en": "1. Nothing to do.\n2. If it stays, turn “measure all methods” off and on again.",
+        "de": "1. Es ist nichts zu tun.\n2. Bleibt es, schalten Sie „alle Methoden messen“ (measure all methods) aus und wieder ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-030",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-031",
+      "number": "005-014-031",
+      "key": "RESPONSE_COMPARE_VALUE",
+      "aliases": [
+        "RESPONSE-COMPARE-VALUE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В сравнении методов неверное значение",
+        "uk": "У порівнянні методів неправильне значення",
+        "en": "The method comparison has a wrong value",
+        "de": "Der Methodenvergleich enthält einen falschen Wert"
+      },
+      "cause": {
+        "ru": "Одно из сохранённых значений сравнения вышло за допустимые пределы, поэтому сравнение не используется.",
+        "uk": "Одне зі збережених значень порівняння вийшло за допустимі межі, тому порівняння не використовується.",
+        "en": "One saved value of the comparison is outside the allowed range, so the comparison is not used.",
+        "de": "Ein gespeicherter Wert des Vergleichs liegt außerhalb des erlaubten Bereichs, daher wird der Vergleich nicht verwendet."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Сравнение соберётся заново само.",
+        "uk": "1. Нічого робити не потрібно.\n2. Порівняння збереться заново саме.",
+        "en": "1. Nothing to do.\n2. The comparison is rebuilt by itself.",
+        "de": "1. Es ist nichts zu tun.\n2. Der Vergleich wird von selbst neu aufgebaut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-031",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-032",
+      "number": "005-014-032",
+      "key": "RESPONSE_COMPARE_WRITE_FAILED",
+      "aliases": [
+        "RESPONSE-COMPARE-WRITE-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Сравнение методов не сохранилось",
+        "uk": "Порівняння методів не збереглося",
+        "en": "The method comparison was not saved",
+        "de": "Der Methodenvergleich wurde nicht gespeichert"
+      },
+      "cause": {
+        "ru": "Роутер не смог сохранить последнее сравнение методов отклика, например из-за нехватки места. Последняя исправная копия остаётся; Auto и индикаторы работают.",
+        "uk": "Роутер не зміг зберегти останнє порівняння методів відгуку, наприклад через брак місця. Остання справна копія залишається; Auto й індикатори працюють.",
+        "en": "The router could not save the latest comparison of response methods, for example for lack of space. The last good copy stays; Auto and the lamps keep working.",
+        "de": "Der Router konnte den letzten Vergleich der Antwortmethoden nicht speichern, zum Beispiel wegen Platzmangels. Die letzte gültige Kopie bleibt; Auto und die Anzeigen arbeiten weiter."
+      },
+      "action": {
+        "ru": "1. Подождите: роутер попробует сохранить снова.\n2. Если повторяется, проверьте свободное место на вкладке «Система».",
+        "uk": "1. Зачекайте: роутер спробує зберегти знову.\n2. Якщо повторюється, перевірте вільне місце на вкладці «Система» (System).",
+        "en": "1. Wait: the router will try to save again.\n2. If it repeats, check the free space on the System tab.",
+        "de": "1. Warten Sie: Der Router versucht erneut zu speichern.\n2. Wiederholt es sich, prüfen Sie den freien Speicher auf der Registerkarte „System“ (System)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-032",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-033",
+      "number": "005-014-033",
+      "key": "STATISTICS_FAMILY",
+      "aliases": [
+        "STATISTICS-*"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код сохранённой статистики",
+        "uk": "Код збереженої статистики",
+        "en": "Saved statistics code",
+        "de": "Code der gespeicherten Statistik"
+      },
+      "cause": {
+        "ru": "Сохранённые счётчики, подробности сбоев или место продолжения выгрузки не прошли проверку. Непроверенные данные не показываются как успешные наблюдения. Это семейство: описание относится ко всем кодам с префиксом «STATISTICS-».",
+        "uk": "Збережені лічильники, подробиці збоїв або місце продовження вивантаження не пройшли перевірку. Неперевірені дані не показуються як успішні спостереження. Це родина: опис стосується всіх кодів із префіксом «STATISTICS-».",
+        "en": "The saved counters, failure details or download resume point failed a check. Unverified data is not shown as a successful observation. This is a family: the description applies to all codes starting with \"STATISTICS-\".",
+        "de": "Gespeicherte Zähler, Fehlerdetails oder der Fortsetzungspunkt des Downloads haben eine Prüfung nicht bestanden. Ungeprüfte Daten werden nicht als erfolgreiche Beobachtung angezeigt. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „STATISTICS-“."
+      },
+      "action": {
+        "ru": "1. Повторите выгрузку.\n2. Не сбрасывайте счётчики.\n3. Если повторяется, сообщите код в поддержку.",
+        "uk": "1. Повторіть вивантаження.\n2. Не скидайте лічильники.\n3. Якщо повторюється, повідомте код у підтримку.",
+        "en": "1. Repeat the download.\n2. Do not reset the counters.\n3. If it repeats, send the code to support.",
+        "de": "1. Wiederholen Sie den Download.\n2. Setzen Sie die Zähler nicht zurück.\n3. Wiederholt es sich, senden Sie den Code an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-033",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft",
+        "family"
+      ]
+    },
+    {
+      "code": "VPN-SYS-034",
+      "number": "005-014-034",
+      "key": "STORAGE_PROBLEM",
+      "aliases": [
+        "STORAGE-001"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проблема с памятью роутера",
+        "uk": "Проблема з пам'яттю роутера",
+        "en": "Router storage problem",
+        "de": "Problem mit dem Speicher des Routers"
+      },
+      "cause": {
+        "ru": "Роутер не смог сохранить свои данные: нет свободного места или память доступна только для чтения.",
+        "uk": "Роутер не зміг зберегти свої дані: немає вільного місця або пам'ять доступна лише для читання.",
+        "en": "The router could not save its data: there is no free space or the storage is read-only.",
+        "de": "Der Router konnte seine Daten nicht speichern: Es ist kein Platz frei oder der Speicher ist schreibgeschützt."
+      },
+      "action": {
+        "ru": "1. Проверьте свободное место на вкладке «Система».\n2. Откройте «Помощь», раздел о размере журнала и хранимой истории.",
+        "uk": "1. Перевірте вільне місце на вкладці «Система» (System).\n2. Відкрийте «Довідку» (Help), розділ про розмір журналу та збережену історію.",
+        "en": "1. Check the free space on the System tab.\n2. Open Help, the section about journal size and kept history.",
+        "de": "1. Prüfen Sie den freien Speicher auf der Registerkarte „System“ (System).\n2. Öffnen Sie die „Hilfe“ (Help), Abschnitt über Protokollgröße und gespeicherten Verlauf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-034",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-035",
+      "number": "005-014-035",
+      "key": "STORAGE_RECOVERED",
+      "aliases": [
+        "STORAGE-RECOVERED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Данные восстановлены",
+        "uk": "Дані відновлено",
+        "en": "Data restored",
+        "de": "Daten wiederhergestellt"
+      },
+      "cause": {
+        "ru": "Повреждённые данные восстановлены из последней исправной копии.",
+        "uk": "Пошкоджені дані відновлено з останньої справної копії.",
+        "en": "The damaged data was restored from the last good copy.",
+        "de": "Die beschädigten Daten wurden aus der letzten gültigen Kopie wiederhergestellt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Учтите, что самые последние минуты могут отсутствовать.",
+        "uk": "1. Нічого робити не потрібно.\n2. Врахуйте, що останні хвилини можуть бути відсутні.",
+        "en": "1. Nothing to do.\n2. Note that the very latest minutes may be missing.",
+        "de": "1. Es ist nichts zu tun.\n2. Beachten Sie, dass die allerletzten Minuten fehlen können."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-035",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-036",
+      "number": "005-014-036",
+      "key": "UNKNOWN_FUTURE_TIMESTAMP",
+      "aliases": [
+        "UNKNOWN-FUTURE-TIMESTAMP"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Запись со временем в будущем",
+        "uk": "Запис із часом у майбутньому",
+        "en": "A record with a time in the future",
+        "de": "Ein Eintrag mit einer Zeit in der Zukunft"
+      },
+      "cause": {
+        "ru": "У записи время позже текущего: в тот момент часы роутера шли неправильно.",
+        "uk": "Запис має час, пізніший за поточний: у той момент годинник роутера йшов неправильно.",
+        "en": "A record has a time later than now: the router clock was wrong at that moment.",
+        "de": "Ein Eintrag hat eine spätere Zeit als jetzt: Die Uhr des Routers ging in dem Moment falsch."
+      },
+      "action": {
+        "ru": "1. Проверьте часы роутера.\n2. Откройте «Помощь», раздел о неверных датах.",
+        "uk": "1. Перевірте годинник роутера.\n2. Відкрийте «Довідку» (Help), розділ про неправильні дати.",
+        "en": "1. Check the router clock.\n2. Open Help, the section about wrong dates.",
+        "de": "1. Prüfen Sie die Uhr des Routers.\n2. Öffnen Sie die „Hilfe“ (Help), Abschnitt über falsche Daten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-036",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "data",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-037",
+      "number": "005-014-037",
+      "key": "FREE_ROUTE_NO_LANE",
+      "aliases": [
+        "FREE-ROUTE-NO-LANE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Данные о линии не читаются",
+        "uk": "Дані про лінію не читаються",
+        "en": "Line data cannot be read",
+        "de": "Leitungsdaten nicht lesbar"
+      },
+      "cause": {
+        "ru": "Планировщик свободного маршрута не получил пригодного описания линии, поэтому ничего не спланировал и ничего не изменил.",
+        "uk": "Планувальник вільного маршруту не отримав придатного опису лінії, тому нічого не спланував і нічого не змінив.",
+        "en": "The free route planner got no usable description of the line, so it planned nothing and changed nothing.",
+        "de": "Der Planer der freien Route hat keine brauchbare Beschreibung der Leitung erhalten, daher hat er nichts geplant und nichts geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Нажмите «Проверить снова».\n3. Если повторяется, сообщите код в поддержку.",
+        "uk": "1. Оновіть сторінку.\n2. Натисніть «Перевірити знову» (Check again).\n3. Якщо повторюється, повідомте код у підтримку.",
+        "en": "1. Reload the page.\n2. Press “Check again”.\n3. If it repeats, send the code to support.",
+        "de": "1. Laden Sie die Seite neu.\n2. Drücken Sie „Erneut prüfen“ (Check again).\n3. Wiederholt es sich, senden Sie den Code an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-037",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "internal",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-038",
+      "number": "005-014-038",
+      "key": "CORE_INTERNAL_DATA_FAILURE",
+      "aliases": [
+        "ARENA-LIMIT",
+        "CANON-DECODE",
+        "CANON-ENCODE",
+        "OUT-OF-MEMORY"
+      ],
+      "level": "warn",
+      "audience": "developer",
+      "title": {
+        "ru": "Встроенное ядро не смогло обработать данные",
+        "uk": "Вбудоване ядро не змогло обробити дані",
+        "en": "The built-in core could not process data",
+        "de": "Der eingebaute Kern konnte Daten nicht verarbeiten"
+      },
+      "cause": {
+        "ru": "Встроенная часть программы не смогла обработать данные: не хватило выделенной памяти или данные имеют неверный формат. Операция не выполнена.",
+        "uk": "Вбудована частина програми не змогла обробити дані: забракло виділеної пам'яті або дані мають неправильний формат. Операцію не виконано.",
+        "en": "The built-in part of the program could not process data: the reserved memory ran out or the data has a wrong format. The operation was not done.",
+        "de": "Der eingebaute Programmteil konnte Daten nicht verarbeiten: Der reservierte Speicher reichte nicht oder die Daten haben ein falsches Format. Der Vorgang wurde nicht ausgeführt."
+      },
+      "action": {
+        "ru": "1. Повторите действие.\n2. Если повторяется, сохраните входные данные и код для разбора.",
+        "uk": "1. Повторіть дію.\n2. Якщо повторюється, збережіть вхідні дані та код для розбору.",
+        "en": "1. Repeat the action.\n2. If it repeats, keep the input data and the code for analysis.",
+        "de": "1. Wiederholen Sie die Aktion.\n2. Wiederholt es sich, bewahren Sie Eingabedaten und Code für die Analyse auf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-038",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-039",
+      "number": "005-014-039",
+      "key": "DIAG_BUNDLE_FAILED",
+      "aliases": [
+        "DIAG-BUNDLE-FAILED",
+        "DIAG-BUNDLE-PRIVATE-DIR"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Пакет диагностики не создан",
+        "uk": "Пакет діагностики не створено",
+        "en": "The diagnostics package was not created",
+        "de": "Das Diagnosepaket wurde nicht erstellt"
+      },
+      "cause": {
+        "ru": "Роутер не смог собрать пакет диагностики, например из-за нехватки места или недоступной служебной папки. Ничего не изменено.",
+        "uk": "Роутер не зміг зібрати пакет діагностики, наприклад через брак місця або недоступну службову теку. Нічого не змінено.",
+        "en": "The router could not build the diagnostics package, for example for lack of space or an unavailable service folder. Nothing was changed.",
+        "de": "Der Router konnte das Diagnosepaket nicht erstellen, zum Beispiel wegen Platzmangels oder eines nicht verfügbaren Dienstordners. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Проверьте свободное место на вкладке «Система».\n2. Создайте пакет диагностики снова.",
+        "uk": "1. Перевірте вільне місце на вкладці «Система» (System).\n2. Створіть пакет діагностики знову.",
+        "en": "1. Check the free space on the System tab.\n2. Create the diagnostics package again.",
+        "de": "1. Prüfen Sie den freien Speicher auf der Registerkarte „System“ (System).\n2. Erstellen Sie das Diagnosepaket erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-039",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-040",
+      "number": "005-014-040",
+      "key": "HV_CORE_STOPPED",
+      "aliases": [
+        "HV-CORE-STOPPED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Встроенное ядро остановлено",
+        "uk": "Вбудоване ядро зупинено",
+        "en": "The built-in core stopped",
+        "de": "Der eingebaute Kern wurde gestoppt"
+      },
+      "cause": {
+        "ru": "Встроенная часть программы остановилась, и операция, которая ждала её ответа, прервана.",
+        "uk": "Вбудована частина програми зупинилася, і операцію, яка чекала її відповіді, перервано.",
+        "en": "The built-in part of the program stopped, and the operation that waited for its answer was cut short.",
+        "de": "Der eingebaute Programmteil hat angehalten, und der Vorgang, der auf seine Antwort wartete, wurde abgebrochen."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и посмотрите состояние Auto.\n2. Если Auto остановлен, нажмите Старт.\n3. Если повторяется, перезагрузите роутер.",
+        "uk": "1. Відкрийте «Головну» (Home) і перегляньте стан Auto.\n2. Якщо Auto зупинено, натисніть Старт (Start).\n3. Якщо повторюється, перезавантажте роутер.",
+        "en": "1. Open Home and look at the state of Auto.\n2. If Auto is stopped, press Start.\n3. If it repeats, restart the router.",
+        "de": "1. Öffnen Sie die „Startseite“ (Home) und sehen Sie sich den Zustand von Auto an.\n2. Ist Auto gestoppt, drücken Sie Start (Start).\n3. Wiederholt es sich, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-040",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-041",
+      "number": "005-014-041",
+      "key": "NO_BOOT_ID",
+      "aliases": [
+        "NO-BOOT-ID"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не прочитан номер текущего запуска роутера",
+        "uk": "Не прочитано номер поточного запуску роутера",
+        "en": "The router's current boot number could not be read",
+        "de": "Die aktuelle Startkennung des Routers ist nicht lesbar"
+      },
+      "cause": {
+        "ru": "Роутер не смог прочитать отметку своего текущего запуска, поэтому не может отличить старые записи от новых и действует осторожно.",
+        "uk": "Роутер не зміг прочитати позначку свого поточного запуску, тому не може відрізнити старі записи від нових і діє обережно.",
+        "en": "The router could not read the mark of its current start, so it cannot tell old records from new ones and acts carefully.",
+        "de": "Der Router konnte die Kennung seines aktuellen Starts nicht lesen, kann daher alte und neue Einträge nicht unterscheiden und handelt vorsichtig."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если повторяется, перезагрузите роутер.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо повторюється, перезавантажте роутер.",
+        "en": "1. Nothing to do.\n2. If it repeats, restart the router.",
+        "de": "1. Es ist nichts zu tun.\n2. Wiederholt es sich, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-041",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-042",
+      "number": "005-014-042",
+      "key": "OVERSIZE_FILE",
+      "aliases": [
+        "OVERSIZE-FILE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Служебные данные слишком большие",
+        "uk": "Службові дані завеликі",
+        "en": "Service data is too large",
+        "de": "Dienstdaten sind zu groß"
+      },
+      "cause": {
+        "ru": "Служебная запись роутера больше допустимого размера, поэтому она не прочитана и не используется. Ничего не изменено.",
+        "uk": "Службовий запис роутера більший за допустимий розмір, тому його не прочитано й не використано. Нічого не змінено.",
+        "en": "A service record of the router is larger than allowed, so it was not read or used. Nothing was changed.",
+        "de": "Ein Diensteintrag des Routers ist größer als erlaubt und wurde daher nicht gelesen oder verwendet. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если повторяется, проверьте свободное место на вкладке «Система».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо повторюється, перевірте вільне місце на вкладці «Система» (System).",
+        "en": "1. Nothing to do.\n2. If it repeats, check the free space on the System tab.",
+        "de": "1. Es ist nichts zu tun.\n2. Wiederholt es sich, prüfen Sie den freien Speicher auf der Registerkarte „System“ (System)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-042",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-043",
+      "number": "005-014-043",
+      "key": "ROUTER_FIREWALL_STATE_UNREADABLE",
+      "aliases": [
+        "STATE-UTF8",
+        "STATE-SIZE",
+        "STATE-ZONE-NAME",
+        "STATE-SYNTAX",
+        "STATE-PACKAGE",
+        "STATE-SECTION",
+        "STATE-DUPLICATE-SECTION",
+        "STATE-OPTION",
+        "STATE-DUPLICATE",
+        "STATE-MIXED-OPTION",
+        "STATE-ZONES"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не читаются настройки брандмауэра роутера",
+        "uk": "Не читаються налаштування брандмауера роутера",
+        "en": "The router's firewall settings cannot be read",
+        "de": "Die Firewall-Einstellungen des Routers sind nicht lesbar"
+      },
+      "cause": {
+        "ru": "Роутер не смог надёжно прочитать своё системное состояние: настройки брандмауэра. Ничего не изменено.",
+        "uk": "Роутер не зміг надійно прочитати свій системний стан: налаштування брандмауера. Нічого не змінено.",
+        "en": "The router could not reliably read its own system state: the firewall settings. Nothing was changed.",
+        "de": "Der Router konnte seinen eigenen Systemzustand nicht zuverlässig lesen: die Firewall-Einstellungen. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут: роутер проверит снова.\n2. Если повторяется, перезагрузите роутер.",
+        "uk": "1. Зачекайте кілька хвилин: роутер перевірить знову.\n2. Якщо повторюється, перезавантажте роутер.",
+        "en": "1. Wait a few minutes: the router checks again.\n2. If it repeats, restart the router.",
+        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wiederholt es sich, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-043",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-044",
+      "number": "005-014-044",
+      "key": "ROUTER_PROCESS_LIST_UNREADABLE",
+      "aliases": [
+        "PROCESS-COMMAND",
+        "PROCESS-IDENTITY",
+        "PROCESS-IDENTITY-CHANGED",
+        "PROCESS-LIMIT",
+        "PROCESS-LIST",
+        "PROCESS-READ",
+        "PROCESS-READ-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не читается список программ роутера",
+        "uk": "Не читається список програм роутера",
+        "en": "The router's list of running programs cannot be read",
+        "de": "Die Liste der laufenden Programme des Routers ist nicht lesbar"
+      },
+      "cause": {
+        "ru": "Роутер не смог надёжно прочитать своё системное состояние: список запущенных программ. Ничего не изменено.",
+        "uk": "Роутер не зміг надійно прочитати свій системний стан: список запущених програм. Нічого не змінено.",
+        "en": "The router could not reliably read its own system state: the list of running programs. Nothing was changed.",
+        "de": "Der Router konnte seinen eigenen Systemzustand nicht zuverlässig lesen: die Liste der laufenden Programme. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут: роутер проверит снова.\n2. Если повторяется, перезагрузите роутер.",
+        "uk": "1. Зачекайте кілька хвилин: роутер перевірить знову.\n2. Якщо повторюється, перезавантажте роутер.",
+        "en": "1. Wait a few minutes: the router checks again.\n2. If it repeats, restart the router.",
+        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wiederholt es sich, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-044",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-045",
+      "number": "005-014-045",
+      "key": "ROUTER_SYSTEM_FILE_UNVERIFIED",
+      "aliases": [
+        "UNVERIFIED-FILE",
+        "UNVERIFIED-LOCK-FILE",
+        "UNVERIFIED-LOCK-IDENTITY",
+        "UNVERIFIED-LOCK-PATH",
+        "UNVERIFIED-LOCK-RECORD"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Системная запись роутера не прошла проверку",
+        "uk": "Системний запис роутера не пройшов перевірку",
+        "en": "A system record of the router failed its check",
+        "de": "Ein Systemeintrag des Routers hat die Prüfung nicht bestanden"
+      },
+      "cause": {
+        "ru": "Роутер не смог надёжно прочитать своё системное состояние: служебная запись или отметка занятости не прошли проверку. Ничего не изменено.",
+        "uk": "Роутер не зміг надійно прочитати свій системний стан: службовий запис або позначка зайнятості не пройшли перевірку. Нічого не змінено.",
+        "en": "The router could not reliably read its own system state: a service record or a busy mark failed its check. Nothing was changed.",
+        "de": "Der Router konnte seinen eigenen Systemzustand nicht zuverlässig lesen: ein Diensteintrag oder eine Belegt-Markierung hat die Prüfung nicht bestanden. Es wurde nichts geändert."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут: роутер проверит снова.\n2. Если повторяется, перезагрузите роутер.",
+        "uk": "1. Зачекайте кілька хвилин: роутер перевірить знову.\n2. Якщо повторюється, перезавантажте роутер.",
+        "en": "1. Wait a few minutes: the router checks again.\n2. If it repeats, restart the router.",
+        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wiederholt es sich, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-SYS-045",
+      "since": "1.3.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
+    }
+  ]
+}
