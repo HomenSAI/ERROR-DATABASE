@@ -61,8 +61,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -114,8 +113,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -177,8 +175,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -194,7 +191,7 @@
         "ru": "Описание платы роутера слишком большое",
         "uk": "Опис плати роутера завеликий",
         "en": "Router board data too big",
-        "de": "Platinendaten des Routers zu groß"
+        "de": "Platinenbeschreibung des Routers zu groß"
       },
       "cause": {
         "ru": "Описание платы роутера оказалось больше, чем программа принимает, поэтому его не прочитали. Ничего не изменено.",
@@ -230,8 +227,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -283,8 +279,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -306,7 +301,7 @@
         "ru": "Код группы проверки истории выпусков при установке. Установщик сравнивает историю выпусков с пакетом и с тем, что помнит роутер; если файлы из разных выпусков, выпуск старее запомненного или история повреждена, установка не идёт. Ничего не изменено. Это семейство: описание относится ко всем кодам с префиксом «CHAIN-».",
         "uk": "Код групи перевірки історії випусків під час встановлення. Інсталятор порівнює історію випусків із пакетом і з тим, що пам'ятає роутер; якщо файли з різних випусків, випуск старіший за запам'ятований або історію пошкоджено, встановлення не відбувається. Нічого не змінено. Це родина: опис стосується всіх кодів із префіксом «CHAIN-».",
         "en": "A code of the release history check group. The installer compares the release history with the package and with what the router remembers; if the files come from different releases, the release is older than the remembered one or the history is damaged, nothing is installed. Nothing was changed. This is a family: the description applies to all codes starting with \"CHAIN-\".",
-        "de": "Ein Code der Gruppe „Prüfung des Versionsverlaufs“. Das Installationsprogramm vergleicht den Versionsverlauf mit dem Paket und mit dem, was der Router gespeichert hat; stammen die Dateien aus verschiedenen Versionen, ist die Version älter als die gespeicherte oder ist der Verlauf beschädigt, wird nichts installiert. Es wurde nichts geändert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CHAIN-“."
+        "de": "Ein Code der Gruppe „Prüfung des Versionsverlaufs“ bei der Installation. Das Installationsprogramm vergleicht den Versionsverlauf mit dem Paket und mit dem, was der Router gespeichert hat; stammen die Dateien aus verschiedenen Versionen, ist die Version älter als die gespeicherte oder ist der Verlauf beschädigt, läuft die Installation nicht. Es wurde nichts geändert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CHAIN-“."
       },
       "action": {
         "ru": "1. Возьмите все файлы из одного выпуска.\n2. Для намеренного возврата на старый выпуск следуйте разделу об откате в «Помощи».\n3. В остальных случаях не устанавливайте и сообщите код в поддержку.",
@@ -337,7 +332,6 @@
         "auto-vpn",
         "inst",
         "service",
-        "translation-draft",
         "family"
       ]
     },
@@ -400,8 +394,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -454,7 +447,6 @@
         "auto-vpn",
         "inst",
         "service",
-        "translation-draft",
         "family"
       ]
     },
@@ -469,15 +461,15 @@
       "audience": "user",
       "title": {
         "ru": "Нет сетевой системной программы",
-        "uk": "Немає мережевої системної програми",
+        "uk": "Немає системної програми для роботи з мережею",
         "en": "Network system tool missing",
-        "de": "Netzwerk-Systemwerkzeug fehlt"
+        "de": "Netzwerk-Systemprogramm fehlt"
       },
       "cause": {
         "ru": "На роутере нет системной программы для работы с сетью, без которой наблюдение за связью не работает.",
-        "uk": "На роутері немає системної програми для роботи з мережею, без якої спостереження за зв'язком не працює.",
+        "uk": "На роутері немає системної програми для роботи з мережею, без якої спостереження за з'єднанням не працює.",
         "en": "The router lacks a system tool for networking that connection monitoring needs.",
-        "de": "Auf dem Router fehlt ein System-Netzwerkwerkzeug, das die Verbindungsüberwachung benötigt."
+        "de": "Auf dem Router fehlt ein Systemprogramm für Netzwerkfunktionen, ohne das die Verbindungsüberwachung nicht funktioniert."
       },
       "action": {
         "ru": "1. Установите пакет заново: он доставит недостающее.\n2. Если код остаётся, выполните шаги диагностики из «Помощи».",
@@ -517,8 +509,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -580,8 +571,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -643,8 +633,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -706,8 +695,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -769,8 +757,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -792,7 +779,7 @@
         "ru": "Выбранная модель отличается от определённого оборудования, или оборудование не удалось проверить. Выбор модели никогда не включает неподдерживаемое переключение.",
         "uk": "Вибрана модель відрізняється від визначеного обладнання, або обладнання не вдалося перевірити. Вибір моделі ніколи не вмикає непідтримуване перемикання.",
         "en": "The chosen model differs from the detected hardware, or the hardware could not be checked. Choosing a model never turns on unsupported switching.",
-        "de": "Das gewählte Modell weicht von der erkannten Hardware ab, oder die Hardware konnte nicht geprüft werden. Die Modellwahl schaltet nie ein nicht unterstütztes Umschalten ein."
+        "de": "Das gewählte Modell weicht von der erkannten Hardware ab, oder die Hardware konnte nicht geprüft werden. Die Modellwahl aktiviert nie ein nicht unterstütztes Umschalten."
       },
       "action": {
         "ru": "1. В «Настройках» выберите «Автоматически» или модель, которую определил роутер.",
@@ -832,8 +819,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -849,7 +835,7 @@
         "ru": "Архив диагностики: небезопасное место записи",
         "uk": "Архів діагностики: небезпечне місце запису",
         "en": "Diagnostic archive: unsafe destination",
-        "de": "Diagnosearchiv: unsicheres Ziel"
+        "de": "Diagnosearchiv: unsicherer Speicherort"
       },
       "cause": {
         "ru": "На месте, куда должен лечь архив диагностики, уже стоит ссылка или папка. Программа не пишет туда, чтобы не перезаписать чужие данные.",
@@ -885,8 +871,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -902,7 +887,7 @@
         "ru": "Архив диагностики не прошёл проверку",
         "uk": "Архів діагностики не пройшов перевірку",
         "en": "Diagnostic archive not verified",
-        "de": "Diagnosearchiv nicht bestätigt"
+        "de": "Diagnosearchiv nicht verifiziert"
       },
       "cause": {
         "ru": "Архив диагностики был создан, но проверка после записи не прошла, поэтому его не выдали. Лишних данных не осталось.",
@@ -938,8 +923,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1001,8 +985,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1030,7 +1013,7 @@
         "ru": "1. Подождите, пока нужные VPN-каналы стабильно заработают.\n2. Обновите страницу и проверьте состояние снова.",
         "uk": "1. Зачекайте, поки потрібні VPN-канали стабільно запрацюють.\n2. Оновіть сторінку й перевірте стан знову.",
         "en": "1. Wait until the chosen VPN channels work steadily.\n2. Reload the page and check the status again.",
-        "de": "1. Warten Sie, bis die gewählten VPN-Kanäle stabil laufen.\n2. Laden Sie die Seite neu und prüfen Sie den Status erneut."
+        "de": "1. Warten Sie, bis die benötigten VPN-Kanäle stabil laufen.\n2. Laden Sie die Seite neu und prüfen Sie den Status erneut."
       },
       "escalation": [
         {
@@ -1054,8 +1037,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -1117,8 +1099,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1170,8 +1151,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1223,8 +1203,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -1276,8 +1255,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -1293,7 +1271,7 @@
         "ru": "Защита VPN-канала не подтверждена",
         "uk": "Захист VPN-каналу не підтверджено",
         "en": "VPN firewall protection not confirmed",
-        "de": "Firewall-Schutz des VPN nicht bestätigt"
+        "de": "Firewall-Schutz des VPN-Kanals nicht bestätigt"
       },
       "cause": {
         "ru": "Выбранный VPN-канал не найден среди проверенных правил межсетевого экрана. Переключение не разрешено.",
@@ -1329,8 +1307,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -1346,7 +1323,7 @@
         "ru": "Объединённый режим работы отключился",
         "uk": "Об'єднаний режим роботи вимкнувся",
         "en": "Combined mode fell back to the normal layout",
-        "de": "Kombinierter Modus auf Normalbetrieb zurückgefallen"
+        "de": "Kombinierter Modus hat sich abgeschaltet"
       },
       "cause": {
         "ru": "Необязательный режим, где наблюдение и Auto работают вместе, несколько раз подряд дал сбой. Программа вернулась к обычной схеме: наблюдение и Auto работают дальше.",
@@ -1382,8 +1359,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1435,8 +1411,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1498,8 +1473,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1561,8 +1535,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1614,8 +1587,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -1667,8 +1639,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -1730,8 +1701,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1793,8 +1763,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1856,8 +1825,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1873,19 +1841,19 @@
         "ru": "Набор и выпуск не совпадают",
         "uk": "Набір і випуск не збігаються",
         "en": "Kit and release differ",
-        "de": "Paket und Version stimmen nicht überein"
+        "de": "Installationspaket und Version stimmen nicht überein"
       },
       "cause": {
         "ru": "Набор ставит только пакет своего выпуска, а указан другой выпуск. Смешивать файлы разных выпусков нельзя. Ничего не изменено.",
         "uk": "Набір встановлює лише пакет свого випуску, а вказано інший випуск. Змішувати файли різних випусків не можна. Нічого не змінено.",
         "en": "The kit installs only the package of its own release, but a different release was given. Files of different releases are never mixed. Nothing was changed.",
-        "de": "Das Paket installiert nur die eigene Version, angegeben wurde aber eine andere. Dateien verschiedener Versionen werden nie gemischt. Es wurde nichts geändert."
+        "de": "Das Installationspaket installiert nur das Paket der eigenen Version, angegeben wurde aber eine andere. Dateien verschiedener Versionen werden nie gemischt. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Не указывайте другой выпуск, или скачайте архив нужного выпуска.\n2. Запустите установку из его собственного набора.",
         "uk": "1. Не вказуйте інший випуск або завантажте архів потрібного випуску.\n2. Запустіть встановлення з його власного набору.",
         "en": "1. Do not give a different release, or download the archive of the release you want.\n2. Run the installation from its own kit.",
-        "de": "1. Geben Sie keine andere Version an, oder laden Sie das Archiv der gewünschten Version herunter.\n2. Starten Sie die Installation aus dessen eigenem Paket."
+        "de": "1. Geben Sie keine andere Version an, oder laden Sie das Archiv der gewünschten Version herunter.\n2. Starten Sie die Installation aus dessen eigenem Installationspaket."
       },
       "escalation": [
         {
@@ -1919,8 +1887,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1982,8 +1949,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2036,7 +2002,6 @@
         "auto-vpn",
         "inst",
         "service",
-        "translation-draft",
         "family"
       ]
     },
@@ -2099,8 +2064,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2162,8 +2126,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2191,7 +2154,7 @@
         "ru": "1. После обновления нажмите Start, если Auto снова нужен.",
         "uk": "1. Після оновлення натисніть Start, якщо Auto знову потрібен.",
         "en": "1. After the upgrade, press Start if you want Auto again.",
-        "de": "1. Drücken Sie nach dem Update Start, wenn Sie Auto wieder möchten."
+        "de": "1. Drücken Sie nach dem Update die Schaltfläche Start, wenn Sie Auto wieder benötigen."
       },
       "escalation": [
         {
@@ -2215,8 +2178,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2242,9 +2204,9 @@
       },
       "action": {
         "ru": "1. Подождите минуту и повторите.\n2. Если код остаётся, сообщите его в поддержку.",
-        "uk": "1. Зачекайте хвилину й повторіть.\n2. Якщо код лишається, повідомте його в підтримку.",
+        "uk": "1. Зачекайте хвилину й повторіть.\n2. Якщо код залишається, повідомте його в підтримку.",
         "en": "1. Wait a minute and repeat.\n2. If the code stays, report it to support.",
-        "de": "1. Warten Sie eine Minute und wiederholen Sie den Vorgang.\n2. Bleibt der Code, melden Sie ihn dem Support."
+        "de": "1. Warten Sie eine Minute und wiederholen Sie den Vorgang.\n2. Bleibt der Code bestehen, melden Sie ihn dem Support."
       },
       "escalation": [
         {
@@ -2268,8 +2230,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2285,7 +2246,7 @@
         "ru": "Уже выполняется другое действие",
         "uk": "Уже виконується інша дія",
         "en": "Another control action is running",
-        "de": "Eine andere Steueraktion läuft"
+        "de": "Eine andere Aktion läuft bereits"
       },
       "cause": {
         "ru": "Управлением сейчас занято другое действие, поэтому этот шаг подождал и отказался.",
@@ -2321,8 +2282,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2374,8 +2334,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2427,8 +2386,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2480,8 +2438,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2533,8 +2490,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2596,8 +2552,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2649,8 +2604,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2666,7 +2620,7 @@
         "ru": "Есть неприменённые настройки роутера",
         "uk": "Є незастосовані налаштування роутера",
         "en": "Unapplied router settings exist",
-        "de": "Es gibt nicht angewendete Router-Einstellungen"
+        "de": "Es gibt noch nicht angewendete Router-Einstellungen"
       },
       "cause": {
         "ru": "В роутере есть изменённые, но ещё не применённые настройки, поэтому шаг обновления остановлен.",
@@ -2702,8 +2656,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2725,7 +2678,7 @@
         "ru": "Auto выключен и исходный маршрут на месте, поэтому обновление или остановка безопасны.",
         "uk": "Auto вимкнений і початковий маршрут на місці, тому оновлення або зупинка безпечні.",
         "en": "Auto is off and the original route is in place, so an upgrade or stop is safe.",
-        "de": "Auto ist aus und die ursprüngliche Route ist aktiv, daher sind Update oder Stoppen sicher."
+        "de": "Auto ist aus und die ursprüngliche Route ist vorhanden, daher sind Update oder Stopp sicher."
       },
       "action": {
         "ru": "1. Ничего делать не нужно: это хороший результат.",
@@ -2755,8 +2708,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2808,8 +2760,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2871,8 +2822,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2898,7 +2848,7 @@
       },
       "action": {
         "ru": "1. Перезагрузите роутер.\n2. Проверьте на вкладке «Система», что наблюдение за связью работает.\n3. Если не помогло, выполните шаги диагностики из «Помощи» и сообщите результат в поддержку.",
-        "uk": "1. Перезавантажте роутер.\n2. Перевірте на вкладці «Система» (System), що спостереження за зв'язком працює.\n3. Якщо не допомогло, виконайте кроки діагностики з «Довідки» (Help) і повідомте результат у підтримку.",
+        "uk": "1. Перезавантажте роутер.\n2. Перевірте на вкладці «Система» (System), що спостереження за з'єднанням працює.\n3. Якщо не допомогло, виконайте кроки діагностики з «Довідки» (Help) і повідомте результат у підтримку.",
         "en": "1. Restart the router.\n2. Check on the System tab that connection monitoring is running.\n3. If that does not help, follow the diagnostic steps in Help and send the result to support.",
         "de": "1. Starten Sie den Router neu.\n2. Prüfen Sie im Reiter „System“, ob die Verbindungsüberwachung läuft.\n3. Hilft das nicht, folgen Sie den Diagnoseschritten in der „Hilfe“ (Help) und senden Sie das Ergebnis an den Support."
       },
@@ -2934,8 +2884,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2987,8 +2936,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3040,8 +2988,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3093,8 +3040,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3146,8 +3092,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3209,8 +3154,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3272,8 +3216,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3325,8 +3268,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3346,7 +3288,7 @@
       },
       "cause": {
         "ru": "Установка, обновление или удаление пакета не завершились, например из-за отключения питания. Отметка больше ничего не блокирует, но установленная версия может быть неполной.",
-        "uk": "Встановлення, оновлення або видалення пакета не завершилися, наприклад через вимкнення живлення. Позначка більше нічого не блокує, але встановлена версія може бути неповною.",
+        "uk": "Встановлення, оновлення або видалення пакета не завершилося, наприклад через вимкнення живлення. Позначка більше нічого не блокує, але встановлена версія може бути неповною.",
         "en": "A package installation, upgrade or removal did not finish, for example because of a power cut. The mark no longer blocks anything, but the installed version may be incomplete.",
         "de": "Eine Paketinstallation, ein Update oder ein Entfernen wurde nicht abgeschlossen, etwa wegen eines Stromausfalls. Die Markierung blockiert nichts mehr, aber die installierte Version kann unvollständig sein."
       },
@@ -3378,8 +3320,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3393,13 +3334,13 @@
       "audience": "user",
       "title": {
         "ru": "Наблюдение за связью работает всегда",
-        "uk": "Спостереження за зв'язком працює завжди",
+        "uk": "Спостереження за з'єднанням працює завжди",
         "en": "Monitoring always runs",
-        "de": "Die Überwachung läuft immer"
+        "de": "Die Verbindungsüberwachung läuft immer"
       },
       "cause": {
         "ru": "Наблюдение за связью нельзя выключить, поэтому запрос на остановку отклонён. Кнопка Stop останавливает только Auto, но не наблюдение.",
-        "uk": "Спостереження за зв'язком не можна вимкнути, тому запит на зупинку відхилено. Кнопка Stop зупиняє лише Auto, але не спостереження.",
+        "uk": "Спостереження за з'єднанням не можна вимкнути, тому запит на зупинку відхилено. Кнопка Stop зупиняє лише Auto, але не спостереження.",
         "en": "Connection monitoring cannot be turned off, so the stop request was refused. The Stop button stops only Auto, never monitoring.",
         "de": "Die Verbindungsüberwachung lässt sich nicht ausschalten, daher wurde die Stoppanforderung abgelehnt. Die Schaltfläche Stop beendet nur Auto, nie die Überwachung."
       },
@@ -3431,8 +3372,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3494,8 +3434,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3547,8 +3486,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3600,8 +3538,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3663,8 +3600,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3716,8 +3652,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3769,8 +3704,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3822,8 +3756,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3875,8 +3808,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -3928,8 +3860,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -3955,7 +3886,7 @@
       },
       "action": {
         "ru": "1. Подождите, пока роутер успокоится, и обновите страницу.\n2. Если код остаётся, сообщите его в поддержку.",
-        "uk": "1. Зачекайте, поки роутер заспокоїться, і оновіть сторінку.\n2. Якщо код лишається, повідомте його в підтримку.",
+        "uk": "1. Зачекайте, поки роутер заспокоїться, і оновіть сторінку.\n2. Якщо код залишається, повідомте його в підтримку.",
         "en": "1. Wait until the router settles and reload the page.\n2. If the code stays, report it to support.",
         "de": "1. Warten Sie, bis der Router zur Ruhe kommt, und laden Sie die Seite neu.\n2. Bleibt der Code, melden Sie ihn dem Support."
       },
@@ -3981,8 +3912,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4034,8 +3964,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4063,7 +3992,7 @@
         "ru": "1. Ручное переключение сейчас не разрешено; наблюдение работает дальше.\n2. Дождитесь выпуска, где эта прошивка проверена, или используйте проверенную прошивку.",
         "uk": "1. Ручне перемикання зараз не дозволено; спостереження працює далі.\n2. Дочекайтеся випуску, де цю прошивку перевірено, або використовуйте перевірену прошивку.",
         "en": "1. Manual switching is not allowed for now; monitoring keeps running.\n2. Wait for a release that has checked this firmware, or use a checked firmware.",
-        "de": "1. Manuelles Umschalten ist vorerst nicht erlaubt; die Überwachung läuft weiter.\n2. Warten Sie auf eine Version, die diese Firmware geprüft hat, oder verwenden Sie eine geprüfte Firmware."
+        "de": "1. Manuelles Umschalten ist vorerst nicht erlaubt; die Überwachung läuft weiter.\n2. Warten Sie auf eine Version, in der diese Firmware geprüft wurde, oder verwenden Sie eine geprüfte Firmware."
       },
       "escalation": [
         {
@@ -4087,8 +4016,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4104,7 +4032,7 @@
         "ru": "Ручное переключение на MT3000 не подтверждено",
         "uk": "Ручне перемикання на MT3000 не підтверджено",
         "en": "MT3000 manual switching not certified",
-        "de": "Manuelles Umschalten am MT3000 nicht zertifiziert"
+        "de": "Manuelles Umschalten am MT3000 nicht bestätigt"
       },
       "cause": {
         "ru": "Ручное переключение на MT3000 ещё не прошло обязательную полную проверку. Отдельные удачные наблюдения переключение не разрешают.",
@@ -4140,8 +4068,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4193,8 +4120,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4256,8 +4182,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4271,15 +4196,15 @@
       "audience": "user",
       "title": {
         "ru": "Чтение данных роутера не уложилось во время",
-        "uk": "Читання даних роутера не вклалося в час",
+        "uk": "Час читання даних роутера вичерпано",
         "en": "Router read timed out",
-        "de": "Zeitüberschreitung beim Lesen des Routers"
+        "de": "Zeitüberschreitung beim Lesen der Routerdaten"
       },
       "cause": {
         "ru": "Проверка готовности роутера не закончилась за отведённое время.",
         "uk": "Перевірка готовності роутера не завершилася за відведений час.",
         "en": "A router readiness check did not finish in its allowed time.",
-        "de": "Eine Bereitschaftsprüfung des Routers wurde nicht in der vorgesehenen Zeit fertig."
+        "de": "Eine Bereitschaftsprüfung des Routers wurde nicht in der vorgesehenen Zeit abgeschlossen."
       },
       "action": {
         "ru": "1. Подождите и обновите страницу.\n2. Если повторяется, проверьте, не перегружен ли роутер.",
@@ -4319,8 +4244,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4372,8 +4296,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4389,13 +4312,13 @@
         "ru": "Не подтверждено, что Auto выключен",
         "uk": "Не підтверджено, що Auto вимкнений",
         "en": "Auto not confirmed off",
-        "de": "Nicht bestätigt, dass Auto aus ist"
+        "de": "Nicht bestätigt, dass Auto ausgeschaltet ist"
       },
       "cause": {
         "ru": "В сохранённых настройках Auto не выключен явно, поэтому ручное переключение не может взять управление на себя.",
         "uk": "У збережених налаштуваннях Auto не вимкнено явно, тому ручне перемикання не може взяти керування на себе.",
         "en": "The saved settings do not show Auto clearly off, so manual switching cannot take over control.",
-        "de": "Die gespeicherten Einstellungen zeigen Auto nicht eindeutig als aus, daher kann das manuelle Umschalten die Steuerung nicht übernehmen."
+        "de": "Die gespeicherten Einstellungen zeigen Auto nicht eindeutig als ausgeschaltet, daher kann das manuelle Umschalten die Steuerung nicht übernehmen."
       },
       "action": {
         "ru": "1. Остановите Auto кнопкой Stop.\n2. Дождитесь свежего состояния на странице и только потом переключайте вручную.",
@@ -4425,8 +4348,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -4488,8 +4410,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4505,7 +4426,7 @@
         "ru": "Размер пакета не совпадает",
         "uk": "Розмір пакета не збігається",
         "en": "Package size differs",
-        "de": "Paketgröße stimmt nicht"
+        "de": "Paketgröße stimmt nicht überein"
       },
       "cause": {
         "ru": "Скачанный пакет другого размера, чем ожидает набор: он повреждён или от другого выпуска. Он удалён на компьютере до того, как что-то попало на роутер.",
@@ -4551,8 +4472,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4604,8 +4524,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4621,13 +4540,13 @@
         "ru": "Задержка ещё не измерена",
         "uk": "Затримку ще не виміряно",
         "en": "Ping not measured yet",
-        "de": "Ping noch nicht gemessen"
+        "de": "Verzögerung noch nicht gemessen"
       },
       "cause": {
         "ru": "Роутер ещё не закончил первую проверку задержки через этот канал после запуска или смены настройки.",
         "uk": "Роутер ще не завершив першу перевірку затримки через цей канал після запуску або зміни налаштування.",
         "en": "The router has not finished the first ping through this channel since it started or the setting changed.",
-        "de": "Der Router hat seit dem Start oder der Änderung der Einstellung den ersten Ping über diesen Kanal noch nicht abgeschlossen."
+        "de": "Der Router hat seit dem Start oder der Änderung der Einstellung die erste Verzögerungsprüfung über diesen Kanal noch nicht abgeschlossen."
       },
       "action": {
         "ru": "1. Дождитесь следующей проверки: отсчёт виден под светофором.",
@@ -4657,8 +4576,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4674,7 +4592,7 @@
         "ru": "Эта версия прошивки не принимает пакет",
         "uk": "Ця версія прошивки не приймає пакет",
         "en": "This firmware cannot take the package",
-        "de": "Diese Firmware kann das Paket nicht aufnehmen"
+        "de": "Diese Firmware-Version akzeptiert das Paket nicht"
       },
       "cause": {
         "ru": "На этой прошивке другой менеджер пакетов, который не поддерживает нужный формат пакета. Такая прошивка подходит только для наблюдения, установка отклонена.",
@@ -4720,8 +4638,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4743,7 +4660,7 @@
         "ru": "Предварительная проверка роутера не закончилась результатом «готов». В её сообщениях названа причина, например включён Auto, есть неприменённые настройки или мало памяти. Ничего не установлено.",
         "uk": "Попередня перевірка роутера не завершилася результатом «готовий». У її повідомленнях названо причину, наприклад увімкнено Auto, є незастосовані налаштування або замало пам'яті. Нічого не встановлено.",
         "en": "The router pre-check did not end with a ready result. Its messages name the reason, for example Auto is on, settings are not applied or memory is low. Nothing was installed.",
-        "de": "Die Vorprüfung des Routers endete nicht mit „bereit“. Ihre Meldungen nennen den Grund, etwa eingeschaltetes Auto, nicht angewendete Einstellungen oder zu wenig Speicher. Es wurde nichts installiert."
+        "de": "Die Vorprüfung des Routers endete nicht mit „bereit“. Ihre Meldungen nennen den Grund, etwa eingeschaltetes Auto, nicht übernommene Einstellungen oder zu wenig Speicher. Es wurde nichts installiert."
       },
       "action": {
         "ru": "1. Исправьте то, что названо в сообщениях проверки.\n2. Запустите действие ещё раз.",
@@ -4783,8 +4700,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4800,7 +4716,7 @@
         "ru": "Копия настроек на роутере не создана",
         "uk": "Копію налаштувань на роутері не створено",
         "en": "Router copy of the settings failed",
-        "de": "Kopie der Einstellungen auf dem Router fehlgeschlagen"
+        "de": "Kopie der Einstellungen auf dem Router nicht erstellt"
       },
       "cause": {
         "ru": "На роутере не удалось создать место для копии или получить читаемый архив настроек, поэтому копия на роутере не сохранена. Установка продолжилась.",
@@ -4846,8 +4762,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4869,7 +4784,7 @@
         "ru": "Перед установкой программа сохранила настройки роутера в отдельный архив вне пакета, поэтому копия переживёт удаление; хранятся несколько последних копий. Пароль не нужен: секреты и так хранятся на этом роутере.",
         "uk": "Перед встановленням програма зберегла налаштування роутера в окремий архів поза пакетом, тому копія переживе видалення; зберігаються кілька останніх копій. Пароль не потрібен: секрети й так зберігаються на цьому роутері.",
         "en": "Right before installation the program saved the router settings to a separate archive outside the package, so the copy survives removal; several recent copies are kept. It needs no password: its secrets already live on this router.",
-        "de": "Direkt vor der Installation hat das Programm die Router-Einstellungen in einem separaten Archiv außerhalb des Pakets gespeichert, daher übersteht die Kopie ein Entfernen; mehrere aktuelle Kopien werden aufbewahrt. Ein Passwort ist nicht nötig: Ihre Geheimnisse liegen ohnehin auf diesem Router."
+        "de": "Direkt vor der Installation hat das Programm die Router-Einstellungen in einem separaten Archiv außerhalb des Pakets gespeichert, daher übersteht die Kopie das Entfernen; es werden mehrere letzte Kopien aufbewahrt. Ein Passwort ist nicht nötig: Die Geheimnisse liegen ohnehin auf diesem Router."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Чтобы вернуть прежние настройки, следуйте «Помощи»: это заменит все текущие настройки и перезагрузит роутер.",
@@ -4899,8 +4814,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -4928,7 +4842,7 @@
         "ru": "1. Храните зашифрованную копию на компьютере: сейчас она единственная.\n2. Перед следующей установкой освободите встроенную память, если нужна копия на роутере.",
         "uk": "1. Зберігайте зашифровану копію на комп'ютері: зараз вона єдина.\n2. Перед наступним встановленням звільніть вбудовану пам'ять, якщо потрібна копія на роутері.",
         "en": "1. Keep the encrypted copy on your computer safe: it is the only one now.\n2. Before the next installation, free built-in memory if you want the router copy.",
-        "de": "1. Bewahren Sie die verschlüsselte Kopie auf Ihrem Computer sicher auf: Sie ist jetzt die einzige.\n2. Geben Sie vor der nächsten Installation internen Speicher frei, wenn Sie die Router-Kopie möchten."
+        "de": "1. Bewahren Sie die verschlüsselte Kopie auf Ihrem Computer sicher auf: Sie ist jetzt die einzige.\n2. Geben Sie vor der nächsten Installation internen Speicher frei, wenn Sie eine Kopie auf dem Router brauchen."
       },
       "escalation": [
         {
@@ -4952,8 +4866,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5005,8 +4918,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5058,8 +4970,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5121,8 +5032,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5144,7 +5054,7 @@
         "ru": "Восстановление остановилось до того, как роутер начал заменять настройки, поэтому ни одна настройка не изменилась. Например, сохранённая копия изменилась во время ожидания или фоновый шаг не запустился. Auto остаётся остановленным.",
         "uk": "Відновлення зупинилося до того, як роутер почав замінювати налаштування, тому жодне налаштування не змінилося. Наприклад, збережена копія змінилася під час очікування або фоновий крок не запустився. Auto залишається зупиненим.",
         "en": "The restore stopped before the router began to replace any settings, so nothing was changed. For example, the saved copy changed during the wait or the background step did not start. Auto stays stopped.",
-        "de": "Die Wiederherstellung wurde abgebrochen, bevor der Router Einstellungen ersetzt hat, daher wurde nichts geändert. Zum Beispiel hat sich die gespeicherte Kopie während des Wartens verändert oder der Hintergrundschritt ist nicht gestartet. Auto bleibt gestoppt."
+        "de": "Die Wiederherstellung wurde abgebrochen, bevor der Router mit dem Ersetzen der Einstellungen begonnen hat, deshalb hat sich keine Einstellung geändert. Zum Beispiel hat sich die gespeicherte Kopie während des Wartens verändert, oder der Hintergrundschritt ist nicht gestartet. Auto bleibt gestoppt."
       },
       "action": {
         "ru": "1. Снова откройте «Вернуть как было» и посмотрите результат проверки.\n2. Если не помогло, восстановите зашифрованную копию с компьютера по инструкции в «Помощи».",
@@ -5184,8 +5094,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5207,7 +5116,7 @@
         "ru": "Роутер получил запрос на восстановление без нужных данных или с лишними данными и отклонил его. Ничего не изменено.",
         "uk": "Роутер отримав запит на відновлення без потрібних даних або із зайвими даними й відхилив його. Нічого не змінено.",
         "en": "The router received a restore request with missing or extra data and refused it. Nothing was changed.",
-        "de": "Der Router hat eine Wiederherstellungsanfrage mit fehlenden oder überzähligen Angaben erhalten und abgelehnt. Es wurde nichts geändert."
+        "de": "Der Router hat eine Wiederherstellungsanfrage ohne erforderliche Daten oder mit zusätzlichen Daten erhalten und abgelehnt. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Обновите страницу.\n2. Запустите восстановление кнопкой на странице.",
@@ -5237,8 +5146,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5300,8 +5208,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5323,7 +5230,7 @@
         "ru": "Сейчас программа устанавливается, обновляется или удаляется. Замена настроек в это время могла бы оставить роутер наполовину установленным. Ничего не изменено.",
         "uk": "Зараз програма встановлюється, оновлюється або видаляється. Заміна налаштувань у цей час могла б залишити роутер наполовину встановленим. Нічого не змінено.",
         "en": "The program is being installed, updated or removed right now. Replacing the settings at this moment could leave the router half installed. Nothing was changed.",
-        "de": "Das Programm wird gerade installiert, aktualisiert oder entfernt. Ein Ersetzen der Einstellungen in diesem Moment könnte den Router halb installiert zurücklassen. Es wurde nichts geändert."
+        "de": "Das Programm wird gerade installiert, aktualisiert oder entfernt. Wenn die Einstellungen in diesem Moment ersetzt würden, könnte der Router nur zur Hälfte installiert sein. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Дождитесь окончания работы с пакетом.\n2. Повторите восстановление.",
@@ -5353,8 +5260,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5406,8 +5312,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5429,13 +5334,13 @@
         "ru": "Копия настроек целая, но в системе роутера нет встроенного средства, которое её восстанавливает. Ничего не изменено.",
         "uk": "Копія налаштувань ціла, але в системі роутера немає вбудованого засобу, який її відновлює. Нічого не змінено.",
         "en": "The settings copy is intact, but the router system lacks the built-in tool that restores it. Nothing was changed.",
-        "de": "Die Kopie der Einstellungen ist intakt, aber dem Routersystem fehlt das eingebaute Werkzeug, das sie wiederherstellt. Es wurde nichts geändert."
+        "de": "Die Kopie der Einstellungen ist intakt, aber im System des Routers fehlt das eingebaute Werkzeug, das sie wiederherstellt. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Восстановите настройки через собственную страницу резервных копий роутера.\n2. Если не получается, попросите помощи по разделу «Помощь».",
         "uk": "1. Відновіть налаштування через власну сторінку резервних копій роутера.\n2. Якщо не виходить, попросіть допомоги за розділом «Довідка» (Help).",
         "en": "1. Restore the settings with the router's own backup page.\n2. If that does not work, ask for help as described in Help.",
-        "de": "1. Stellen Sie die Einstellungen über die eigene Sicherungsseite des Routers wieder her.\n2. Klappt das nicht, holen Sie sich Unterstützung wie in der „Hilfe“ (Help) beschrieben."
+        "de": "1. Stellen Sie die Einstellungen über die eigene Sicherungsseite des Routers wieder her.\n2. Funktioniert das nicht, holen Sie sich Hilfe wie in der „Hilfe“ (Help) beschrieben."
       },
       "escalation": [
         {
@@ -5459,8 +5364,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5512,8 +5416,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5565,8 +5468,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5582,7 +5484,7 @@
         "ru": "«Вернуть как было»: восстановление началось",
         "uk": "«Повернути як було»: відновлення почалося",
         "en": "\"Restore as it was\" has started",
-        "de": "„Wie vorher wiederherstellen“ wurde gestartet"
+        "de": "„Wie vorher wiederherstellen“: Wiederherstellung gestartet"
       },
       "cause": {
         "ru": "Вы подтвердили восстановление. Роутер запомнил проверенную копию, остановил Auto (после перезагрузки оно само не включится) и скоро восстановит копию и перезагрузится. Программа остаётся установленной.",
@@ -5594,7 +5496,7 @@
         "ru": "1. Подождите несколько минут: страница обновится сама.\n2. Учтите, что имя Wi-Fi, пароли и адрес роутера могут вернуться к старым значениям.",
         "uk": "1. Зачекайте кілька хвилин: сторінка оновиться сама.\n2. Зважте, що назва Wi-Fi, паролі та адреса роутера можуть повернутися до старих значень.",
         "en": "1. Wait a few minutes: the page reloads by itself.\n2. Keep in mind that your Wi-Fi name, passwords and router address may return to their old values.",
-        "de": "1. Warten Sie einige Minuten: Die Seite lädt sich von selbst neu.\n2. Beachten Sie, dass WLAN-Name, Passwörter und Routeradresse auf die alten Werte zurückgehen können."
+        "de": "1. Warten Sie einige Minuten: Die Seite lädt sich von selbst neu.\n2. Beachten Sie, dass Wi-Fi-Name, Passwörter und Routeradresse auf die alten Werte zurückgehen können."
       },
       "escalation": [
         {
@@ -5618,8 +5520,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5681,8 +5582,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5710,7 +5610,7 @@
         "ru": "1. Подождите минуту и повторите восстановление.\n2. Если красная полоса записи не исчезает, перезагрузите роутер и повторите.",
         "uk": "1. Зачекайте хвилину й повторіть відновлення.\n2. Якщо червона смуга запису не зникає, перезавантажте роутер і повторіть.",
         "en": "1. Wait a minute and try the restore again.\n2. If the red write bar stays, reboot the router and try again.",
-        "de": "1. Warten Sie eine Minute und versuchen Sie die Wiederherstellung erneut.\n2. Bleibt der rote Hinweisbalken, starten Sie den Router neu und versuchen Sie es erneut."
+        "de": "1. Warten Sie eine Minute und versuchen Sie die Wiederherstellung erneut.\n2. Verschwindet die rote Anzeige des Schreibvorgangs nicht, starten Sie den Router neu und versuchen Sie es erneut."
       },
       "escalation": [
         {
@@ -5734,8 +5634,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -5755,7 +5654,7 @@
       },
       "cause": {
         "ru": "Код группы подготовки роутера: сохранённое условие для запуска или ускорения сети отсутствует, изменилось или не подтверждено. Одна лишь успешная проверка зависимостей не доказывает безопасную работу. Это семейство: описание относится ко всем кодам с префиксом «PREP-».",
-        "uk": "Код групи підготовки роутера: збережена умова для запуску або прискорення мережі відсутня, змінилася або не підтверджена. Сама лише успішна перевірка залежностей не доводить безпечної роботи. Це родина: опис стосується всіх кодів із префіксом «PREP-».",
+        "uk": "Код групи підготовки роутера: збережена умова для запуску або прискорення мережі відсутня, змінилася або не підтверджена. Сама лише успішна перевірка залежностей не доводить безпечної роботи. Це сімейство: опис стосується всіх кодів із префіксом «PREP-».",
         "en": "A code of the router preparation group: a saved condition for startup or network acceleration is missing, changed or not confirmed. A passing dependency check alone does not prove safe operation. This is a family: the description applies to all codes starting with \"PREP-\".",
         "de": "Ein Code der Gruppe Routervorbereitung: Eine gespeicherte Voraussetzung für den Start oder die Netzwerkbeschleunigung fehlt, wurde geändert oder ist nicht bestätigt. Eine bestandene Abhängigkeitsprüfung allein beweist noch keinen sicheren Betrieb. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „PREP-“."
       },
@@ -5788,7 +5687,6 @@
         "auto-vpn",
         "inst",
         "platform",
-        "translation-draft",
         "family"
       ]
     },
@@ -5841,8 +5739,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -5894,8 +5791,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -5947,8 +5843,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -6000,8 +5895,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -6053,8 +5947,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -6106,8 +5999,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -6123,7 +6015,7 @@
         "ru": "Отключите автозапуск встроенного VPN-клиента",
         "uk": "Вимкніть автозапуск вбудованого VPN-клієнта",
         "en": "Turn off the start of the built-in VPN client",
-        "de": "Schalten Sie den Start des eingebauten VPN-Clients aus"
+        "de": "Schalten Sie den Autostart des eingebauten VPN-Clients aus"
       },
       "cause": {
         "ru": "Встроенная служба VPN-клиента роутера запускается при загрузке и может бороться с Auto за выбор канала.",
@@ -6135,7 +6027,7 @@
         "ru": "1. В расширенном интерфейсе роутера (LuCI) откройте System → Startup и отключите автозапуск VPN-клиента.\n2. Если неясно, откройте в «Помощи» статью «Кнопка Auto не запускается».",
         "uk": "1. У розширеному інтерфейсі роутера (LuCI) відкрийте System → Startup і вимкніть автозапуск VPN-клієнта.\n2. Якщо незрозуміло, відкрийте в «Довідці» (Help) статтю «Кнопка Auto не запускається».",
         "en": "1. In the advanced router interface (LuCI) open System → Startup and turn off the start of the VPN client.\n2. If it is still unclear, open the Help article \"The Auto button refuses to start\".",
-        "de": "1. Öffnen Sie in der erweiterten Routeroberfläche (LuCI) System → Startup und schalten Sie den Start des VPN-Clients aus.\n2. Ist es weiterhin unklar, öffnen Sie in der „Hilfe“ (Help) den Artikel „Die Auto-Schaltfläche startet nicht“."
+        "de": "1. Öffnen Sie in der erweiterten Routeroberfläche (LuCI) System → Startup und schalten Sie den Autostart des VPN-Clients aus.\n2. Ist es weiterhin unklar, öffnen Sie in der „Hilfe“ (Help) den Artikel „Die Auto-Schaltfläche startet nicht“."
       },
       "escalation": [
         {
@@ -6159,8 +6051,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -6212,8 +6103,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -6227,19 +6117,19 @@
       "audience": "user",
       "title": {
         "ru": "Проверьте автозапуск подключения WireGuard",
-        "uk": "Перевірте автозапуск підключення WireGuard",
+        "uk": "Перевірте автозапуск з'єднання WireGuard",
         "en": "Check the startup of the WireGuard connection",
         "de": "Prüfen Sie den Autostart der WireGuard-Verbindung"
       },
       "cause": {
         "ru": "Встроенное подключение WireGuard роутера настроено на запуск при загрузке. Оно может мешать Auto выбирать канал.",
-        "uk": "Вбудоване підключення WireGuard роутера налаштоване на запуск під час завантаження. Воно може заважати Auto вибирати канал.",
+        "uk": "Вбудоване з'єднання WireGuard роутера налаштоване на запуск під час завантаження. Воно може заважати Auto вибирати канал.",
         "en": "The router's built-in WireGuard connection is set to start at boot. It can get in the way of Auto choosing the channel.",
         "de": "Die eingebaute WireGuard-Verbindung des Routers ist so eingestellt, dass sie beim Hochfahren startet. Sie kann Auto bei der Kanalwahl stören."
       },
       "action": {
         "ru": "1. В расширенном интерфейсе роутера (LuCI) откройте Network → Interfaces, подключение WireGuard → Edit → General Setup и проверьте запуск при загрузке.\n2. Если неясно, откройте в «Помощи» статью «Кнопка Auto не запускается».",
-        "uk": "1. У розширеному інтерфейсі роутера (LuCI) відкрийте Network → Interfaces, підключення WireGuard → Edit → General Setup і перевірте запуск під час завантаження.\n2. Якщо незрозуміло, відкрийте в «Довідці» (Help) статтю «Кнопка Auto не запускається».",
+        "uk": "1. У розширеному інтерфейсі роутера (LuCI) відкрийте Network → Interfaces, з'єднання WireGuard → Edit → General Setup і перевірте запуск під час завантаження.\n2. Якщо незрозуміло, відкрийте в «Довідці» (Help) статтю «Кнопка Auto не запускається».",
         "en": "1. In the advanced router interface (LuCI) open Network → Interfaces, the WireGuard connection → Edit → General Setup and check the start at boot.\n2. If it is still unclear, open the Help article \"The Auto button refuses to start\".",
         "de": "1. Öffnen Sie in der erweiterten Routeroberfläche (LuCI) Network → Interfaces, die WireGuard-Verbindung → Edit → General Setup und prüfen Sie den Start beim Hochfahren.\n2. Ist es weiterhin unklar, öffnen Sie in der „Hilfe“ (Help) den Artikel „Die Auto-Schaltfläche startet nicht“."
       },
@@ -6265,8 +6155,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -6286,7 +6175,7 @@
       },
       "cause": {
         "ru": "Код группы действий подготовки роутера: действие подтверждено или отклонено с этим кодом. Успешная запись настройки сама не запускает Auto и не доказывает, что выполнены все условия. Это семейство: описание относится ко всем кодам с префиксом «PREPARATION-».",
-        "uk": "Код групи дій підготовки роутера: дію підтверджено або відхилено з цим кодом. Успішний запис налаштування сам не запускає Auto й не доводить, що виконано всі умови. Це родина: опис стосується всіх кодів із префіксом «PREPARATION-».",
+        "uk": "Код групи дій підготовки роутера: дію підтверджено або відхилено з цим кодом. Успішний запис налаштування сам не запускає Auto й не доводить, що виконано всі умови. Це сімейство: опис стосується всіх кодів із префіксом «PREPARATION-».",
         "en": "A code of the router preparation actions group: an action was confirmed or refused with this code. A successful setting write does not start Auto and does not prove that all conditions are met. This is a family: the description applies to all codes starting with \"PREPARATION-\".",
         "de": "Ein Code der Gruppe Aktionen der Routervorbereitung: Eine Aktion wurde mit diesem Code bestätigt oder abgelehnt. Ein erfolgreich geschriebener Wert startet Auto nicht und beweist nicht, dass alle Voraussetzungen erfüllt sind. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „PREPARATION-“."
       },
@@ -6319,7 +6208,6 @@
         "auto-vpn",
         "inst",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -6336,7 +6224,7 @@
         "ru": "Загрузка модуля при старте не подтверждена",
         "uk": "Завантаження модуля під час старту не підтверджено",
         "en": "Loading at startup is not confirmed",
-        "de": "Laden beim Start nicht bestätigt"
+        "de": "Laden des Moduls beim Start nicht bestätigt"
       },
       "cause": {
         "ru": "Роутер не смог подтвердить, что нужный модуль загружается при запуске роутера.",
@@ -6372,8 +6260,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6389,7 +6276,7 @@
         "ru": "Резервная копия не подтверждена",
         "uk": "Резервну копію не підтверджено",
         "en": "Backup copy not confirmed",
-        "de": "Sicherungskopie nicht bestätigt"
+        "de": "Sicherung nicht bestätigt"
       },
       "cause": {
         "ru": "Роутер не смог подтвердить копию исходных настроек, поэтому изменение не выполнено.",
@@ -6425,8 +6312,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6478,8 +6364,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6531,8 +6416,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6554,7 +6438,7 @@
         "ru": "Кто-то или что-то другое изменило настройку роутера, на которую опирается подготовка.",
         "uk": "Хтось або щось інше змінило налаштування роутера, на яке спирається підготовка.",
         "en": "Something else changed a router setting that the preparation relies on.",
-        "de": "Etwas anderes hat eine Routereinstellung geändert, auf die sich die Vorbereitung stützt."
+        "de": "Jemand oder etwas anderes hat eine Routereinstellung geändert, auf die sich die Vorbereitung stützt."
       },
       "action": {
         "ru": "1. Откройте подготовку роутера и посмотрите, что изменилось.\n2. Если вы согласны, примените подготовку снова.",
@@ -6584,8 +6468,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6607,7 +6490,7 @@
         "ru": "В запросе подготовки не хватало данных или были лишние, поэтому роутер его отклонил. Ничего не изменено.",
         "uk": "У запиті підготовки бракувало даних або були зайві, тому роутер його відхилив. Нічого не змінено.",
         "en": "The preparation request had missing or extra data, so the router refused it. Nothing was changed.",
-        "de": "In der Vorbereitungsanfrage fehlten Angaben oder es gab überzählige, daher hat der Router sie abgelehnt. Es wurde nichts geändert."
+        "de": "In der Vorbereitungsanfrage fehlten Angaben oder sie enthielt zu viele, daher hat der Router sie abgelehnt. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Обновите страницу с очисткой кэша браузера.\n2. Повторите действие.",
@@ -6637,8 +6520,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6654,7 +6536,7 @@
         "ru": "Файл программы не подтверждён",
         "uk": "Файл програми не підтверджено",
         "en": "A program file is not confirmed",
-        "de": "Eine Programmdatei ist nicht bestätigt"
+        "de": "Programmdatei nicht bestätigt"
       },
       "cause": {
         "ru": "Нужный для подготовки файл программы отсутствует или отличается от ожидаемого.",
@@ -6690,8 +6572,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6743,8 +6624,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6772,7 +6652,7 @@
         "ru": "1. Запишите код.\n2. Обратитесь за помощью по разделу «Помощь», чтобы очистить список.",
         "uk": "1. Запишіть код.\n2. Зверніться по допомогу за розділом «Довідка» (Help), щоб очистити список.",
         "en": "1. Note the code.\n2. Ask for help as described in Help to have the list cleaned.",
-        "de": "1. Notieren Sie den Code.\n2. Holen Sie sich Unterstützung wie in der „Hilfe“ (Help) beschrieben, um die Liste bereinigen zu lassen."
+        "de": "1. Notieren Sie den Code.\n2. Holen Sie sich über den Abschnitt „Hilfe“ (Help) Unterstützung, um die Liste bereinigen zu lassen."
       },
       "escalation": [
         {
@@ -6796,8 +6676,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6849,8 +6728,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6912,8 +6790,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6965,8 +6842,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -6988,13 +6864,13 @@
         "ru": "Изменение подготовки роутера осталось незавершённым, и его нужно довести до конца, прежде чем запускать Auto.",
         "uk": "Зміна підготовки роутера залишилася незавершеною, і її треба довести до кінця, перш ніж запускати Auto.",
         "en": "A router preparation change was left unfinished and has to be completed before Auto can start.",
-        "de": "Eine Änderung der Routervorbereitung ist unvollendet geblieben und muss abgeschlossen werden, bevor Auto starten kann."
+        "de": "Eine Änderung der Routervorbereitung ist unvollendet geblieben und muss abgeschlossen werden, bevor Sie Auto starten."
       },
       "action": {
         "ru": "1. Откройте «Настройки» → «Система и диагностика» → «Готовность роутера» и завершите подготовку.\n2. Если неясно, откройте в «Помощи» статью «Кнопка Auto не запускается».",
         "uk": "1. Відкрийте «Налаштування» (Settings) → «Система й діагностика» → «Готовність роутера» (Router readiness) і завершіть підготовку.\n2. Якщо незрозуміло, відкрийте в «Довідці» (Help) статтю «Кнопка Auto не запускається».",
         "en": "1. Open Settings → System and diagnostics → Router readiness and complete the preparation.\n2. If it is still unclear, open the Help article \"The Auto button refuses to start\".",
-        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „System und Diagnose“ → „Routerbereitschaft“ (Router readiness) und schließen Sie die Vorbereitung ab.\n2. Ist es weiterhin unklar, öffnen Sie in der „Hilfe“ (Help) den Artikel „Die Auto-Schaltfläche startet nicht“."
+        "de": "1. Öffnen Sie „Einstellungen“ (Settings) → „System und Diagnose“ → „Routerbereitschaft“ (Router readiness) und schließen Sie die Vorbereitung ab.\n2. Wenn es unklar ist, öffnen Sie in der „Hilfe“ (Help) den Artikel „Die Auto-Schaltfläche startet nicht“."
       },
       "escalation": [
         {
@@ -7018,8 +6894,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -7047,7 +6922,7 @@
         "ru": "1. Перезагрузите роутер (например, в расширенном интерфейсе LuCI: System → Reboot).\n2. Если неясно, откройте в «Помощи» статью «Кнопка Auto не запускается».",
         "uk": "1. Перезавантажте роутер (наприклад, у розширеному інтерфейсі LuCI: System → Reboot).\n2. Якщо незрозуміло, відкрийте в «Довідці» (Help) статтю «Кнопка Auto не запускається».",
         "en": "1. Reboot the router (for example in the advanced LuCI interface: System → Reboot).\n2. If it is still unclear, open the Help article \"The Auto button refuses to start\".",
-        "de": "1. Starten Sie den Router neu (zum Beispiel in der erweiterten LuCI-Oberfläche: System → Reboot).\n2. Ist es weiterhin unklar, öffnen Sie in der „Hilfe“ (Help) den Artikel „Die Auto-Schaltfläche startet nicht“."
+        "de": "1. Starten Sie den Router neu (zum Beispiel in der erweiterten LuCI-Oberfläche: System → Reboot).\n2. Wenn es unklar ist, öffnen Sie in der „Hilfe“ (Help) den Artikel „Die Auto-Schaltfläche startet nicht“."
       },
       "escalation": [
         {
@@ -7071,8 +6946,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -7124,8 +6998,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -7141,7 +7014,7 @@
         "ru": "Сначала остановите Auto",
         "uk": "Спочатку зупиніть Auto",
         "en": "Stop Auto before changing the preparation",
-        "de": "Stoppen Sie Auto vor der Änderung der Vorbereitung"
+        "de": "Stoppen Sie zuerst Auto"
       },
       "cause": {
         "ru": "Подготовку роутера можно менять только при выключенном Auto, чтобы не мешать его работе.",
@@ -7153,7 +7026,7 @@
         "ru": "1. Выключите Auto кнопкой Stop.\n2. Дождитесь, пока роутер вернётся к обычному маршруту.\n3. Повторите действие.",
         "uk": "1. Вимкніть Auto кнопкою «Стоп» (Stop).\n2. Дочекайтеся, поки роутер повернеться до звичайного маршруту.\n3. Повторіть дію.",
         "en": "1. Turn Auto off with Stop.\n2. Wait until the router is back on its normal route.\n3. Repeat the action.",
-        "de": "1. Schalten Sie Auto mit „Stopp“ (Stop) aus.\n2. Warten Sie, bis der Router wieder seinen normalen Weg nutzt.\n3. Wiederholen Sie die Aktion."
+        "de": "1. Schalten Sie Auto mit „Stopp“ (Stop) aus.\n2. Warten Sie, bis der Router wieder seine normale Route nutzt.\n3. Wiederholen Sie die Aktion."
       },
       "escalation": [
         {
@@ -7177,8 +7050,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -7230,8 +7102,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -7283,8 +7154,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -7336,8 +7206,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -7389,8 +7258,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -7442,8 +7310,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7495,8 +7362,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7548,8 +7414,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7601,8 +7466,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7654,8 +7518,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7681,7 +7544,7 @@
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Со следующего запуска причина будет записываться точно.",
-        "uk": "1. Нічого робити не потрібно.\n2. З наступного запуску причину записуватиметься точно.",
+        "uk": "1. Нічого робити не потрібно.\n2. З наступного запуску причина записуватиметься точно.",
         "en": "1. Nothing to do.\n2. From the next start the reason is recorded exactly.",
         "de": "1. Es ist nichts zu tun.\n2. Ab dem nächsten Start wird der Grund genau erfasst."
       },
@@ -7707,8 +7570,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7760,8 +7622,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7777,7 +7638,7 @@
         "ru": "Сбой во время запуска роутера",
         "uk": "Збій під час запуску роутера",
         "en": "Interrupted while starting",
-        "de": "Unterbrechung beim Start"
+        "de": "Unterbrechung beim Start des Routers"
       },
       "cause": {
         "ru": "Пропало питание или роутер завис во время запуска: прошлый запуск не успел закончить восстановление.",
@@ -7813,8 +7674,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7866,8 +7726,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7919,8 +7778,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -7940,7 +7798,7 @@
       },
       "cause": {
         "ru": "Пропало питание или роутер завис, когда Auto переключало канал. После запуска переключение откатывается к сохранённому порядку каналов.",
-        "uk": "Зникло живлення або роутер завис, коли Auto перемикало канал. Після запуску перемикання відкочується до збереженого порядку каналів.",
+        "uk": "Зникло живлення або роутер завис, коли Auto перемикало канал. Після запуску перемикання повертається до збереженого порядку каналів.",
         "en": "Power was lost or the router hung while Auto was switching the channel. After the start the switch is rolled back to the saved channel order.",
         "de": "Der Strom fiel aus oder der Router hing, während Auto den Kanal umschaltete. Nach dem Start wird die Umschaltung auf die gespeicherte Kanalreihenfolge zurückgesetzt."
       },
@@ -7982,8 +7840,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8009,9 +7866,9 @@
       },
       "action": {
         "ru": "1. Один раз это редко, но возможно: делать ничего не нужно.\n2. Если повторяется, сохраните диагностику по инструкции в «Помощи» и передайте её в поддержку.",
-        "uk": "1. Один раз це рідко, але можливо: робити нічого не потрібно.\n2. Якщо повторюється, збережіть діагностику за інструкцією в «Довідці» (Help) і передайте її в підтримку.",
+        "uk": "1. Один раз — це рідко, але можливо: робити нічого не потрібно.\n2. Якщо повторюється, збережіть діагностику за інструкцією в «Довідці» (Help) і передайте її в підтримку.",
         "en": "1. Once is rare but possible: nothing to do.\n2. If it repeats, save the diagnostics as described in Help and send them to support.",
-        "de": "1. Einmal ist selten, aber möglich: Es ist nichts zu tun.\n2. Wiederholt es sich, speichern Sie die Diagnose wie in der „Hilfe“ (Help) beschrieben und senden Sie sie an den Support."
+        "de": "1. Kommt es nur einmal vor, ist das selten, aber möglich: Es ist nichts zu tun.\n2. Wiederholt es sich, speichern Sie die Diagnose wie in der „Hilfe“ (Help) beschrieben und senden Sie sie an den Support."
       },
       "escalation": [
         {
@@ -8035,8 +7892,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8058,7 +7914,7 @@
         "ru": "Роутер перезагрузился по собственному расписанию. Служба остановилась правильно; это не сбой и не отключение питания.",
         "uk": "Роутер перезавантажився за власним розкладом. Служба зупинилася правильно; це не збій і не вимкнення живлення.",
         "en": "The router rebooted on its own schedule. The service stopped properly; this is neither an interruption nor a power cut.",
-        "de": "Der Router hat nach seinem eigenen Zeitplan neu gestartet. Der Dienst wurde ordnungsgemäß beendet; das ist weder eine Unterbrechung noch ein Stromausfall."
+        "de": "Der Router hat nach seinem eigenen Zeitplan neu gestartet. Der Dienst wurde ordnungsgemäß beendet; das ist weder ein Fehler noch ein Stromausfall."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Если вы включали Auto, оно вернётся само.",
@@ -8088,8 +7944,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8115,7 +7970,7 @@
       },
       "action": {
         "ru": "1. Один раз это безвредно: делать ничего не нужно.\n2. Если повторяется, сохраните диагностику по инструкции в «Помощи» и передайте её в поддержку.",
-        "uk": "1. Один раз це нешкідливо: робити нічого не потрібно.\n2. Якщо повторюється, збережіть діагностику за інструкцією в «Довідці» (Help) і передайте її в підтримку.",
+        "uk": "1. Один раз це безпечно: робити нічого не потрібно.\n2. Якщо повторюється, збережіть діагностику за інструкцією в «Довідці» (Help) і передайте її в підтримку.",
         "en": "1. Once is harmless: nothing to do.\n2. If it repeats, save the diagnostics as described in Help and send them to support.",
         "de": "1. Einmal ist harmlos: Es ist nichts zu tun.\n2. Wiederholt es sich, speichern Sie die Diagnose wie in der „Hilfe“ (Help) beschrieben und senden Sie sie an den Support."
       },
@@ -8141,8 +7996,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8194,8 +8048,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8257,8 +8110,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8310,8 +8162,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8339,7 +8190,7 @@
         "ru": "1. Проверьте адрес роутера в настройках установщика.\n2. Проверьте кабель или Wi-Fi до роутера и то, что удалённый вход в домашней сети включён.\n3. Запустите установку снова.",
         "uk": "1. Перевірте адресу роутера в налаштуваннях інсталятора.\n2. Перевірте кабель або Wi-Fi до роутера й те, що віддалений вхід у домашній мережі ввімкнено.\n3. Запустіть встановлення знову.",
         "en": "1. Check the router address in the installer settings.\n2. Check the cable or Wi-Fi to the router and that remote login is on in the home network.\n3. Run the installation again.",
-        "de": "1. Prüfen Sie die Routeradresse in den Einstellungen des Installationsprogramms.\n2. Prüfen Sie Kabel oder WLAN zum Router und ob die Fernanmeldung im Heimnetz eingeschaltet ist.\n3. Führen Sie die Installation erneut aus."
+        "de": "1. Prüfen Sie die Routeradresse in den Einstellungen des Installationsprogramms.\n2. Prüfen Sie Kabel oder Wi-Fi zum Router und ob die Fernanmeldung im Heimnetz eingeschaltet ist.\n3. Führen Sie die Installation erneut aus."
       },
       "escalation": [
         {
@@ -8363,8 +8214,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8384,15 +8234,15 @@
       },
       "cause": {
         "ru": "Встроенному VPN роутера перед применением правил нужна подготовленная рабочая среда. Роутер не смог подтвердить, что она готова и соответствует прошивке. Успешное завершение встроенного шага само не доказывает, что правила действительно применены.",
-        "uk": "Вбудованому VPN роутера перед застосуванням правил потрібне підготовлене робоче середовище. Роутер не зміг підтвердити, що воно готове й відповідає прошивці. Успішне завершення вбудованого кроку саме не доводить, що правила справді застосовано.",
+        "uk": "Вбудованому VPN роутера перед застосуванням правил потрібне підготовлене робоче середовище. Роутер не зміг підтвердити, що воно готове й відповідає прошивці. Успішне завершення вбудованого кроку саме по собі не доводить, що правила справді застосовано.",
         "en": "The router's built-in VPN needs a prepared working environment before it applies its rules. The router could not confirm that it is ready and matches the firmware. A successful built-in step alone does not prove that the rules are really in place.",
-        "de": "Das eingebaute VPN des Routers braucht eine vorbereitete Arbeitsumgebung, bevor es seine Regeln anwendet. Der Router konnte nicht bestätigen, dass sie bereit ist und zur Firmware passt. Ein erfolgreicher eingebauter Schritt allein beweist nicht, dass die Regeln wirklich aktiv sind."
+        "de": "Das eingebaute VPN des Routers braucht eine vorbereitete Arbeitsumgebung, bevor es seine Regeln anwendet. Der Router konnte nicht bestätigen, dass sie bereit ist und zur Firmware passt. Ein erfolgreicher Abschluss des eingebauten Schritts allein beweist nicht, dass die Regeln wirklich angewendet wurden."
       },
       "action": {
         "ru": "1. Установите проверенное обновление программы.\n2. Запустите Auto обычной кнопкой Start: программа сама подготовит нужное и проверит правила.\n3. Не создавайте системные файлы роутера вручную.",
         "uk": "1. Встановіть перевірене оновлення програми.\n2. Запустіть Auto звичайною кнопкою «Старт» (Start): програма сама підготує потрібне й перевірить правила.\n3. Не створюйте системні файли роутера вручну.",
         "en": "1. Install the checked program update.\n2. Start Auto with the normal Start button: the program prepares what is needed and checks the rules itself.\n3. Do not create router system files by hand.",
-        "de": "1. Installieren Sie die geprüfte Programmaktualisierung.\n2. Starten Sie Auto mit der normalen Schaltfläche „Start“ (Start): Das Programm bereitet das Nötige selbst vor und prüft die Regeln.\n3. Legen Sie keine Systemdateien des Routers von Hand an."
+        "de": "1. Installieren Sie das geprüfte Programm-Update.\n2. Starten Sie Auto mit der normalen Schaltfläche „Start“ (Start): Das Programm bereitet das Nötige selbst vor und prüft die Regeln.\n3. Legen Sie keine Systemdateien des Routers von Hand an."
       },
       "escalation": [
         {
@@ -8416,8 +8266,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -8469,8 +8318,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -8522,8 +8370,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8575,8 +8422,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -8638,8 +8484,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8691,8 +8536,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8744,8 +8588,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8797,8 +8640,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8850,8 +8692,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8903,8 +8744,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -8956,8 +8796,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9009,8 +8848,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9075,8 +8913,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9128,8 +8965,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     },
     {
@@ -9181,8 +9017,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9244,8 +9079,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9307,8 +9141,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9370,8 +9203,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9399,7 +9231,7 @@
         "ru": "1. Скачайте пакет заново и проверьте его подлинность по инструкции в «Помощи».\n2. Установите новую версию снова; это сообщение исчезнет после успешной установки.",
         "uk": "1. Завантажте пакет заново й перевірте його справжність за інструкцією в «Довідці» (Help).\n2. Встановіть нову версію знову; це повідомлення зникне після успішного встановлення.",
         "en": "1. Download the package again and verify it as described in Help.\n2. Install the new version again; this message disappears after a successful installation.",
-        "de": "1. Laden Sie das Paket erneut herunter und prüfen Sie es wie in der „Hilfe“ (Help) beschrieben.\n2. Installieren Sie die neue Version erneut; diese Meldung verschwindet nach einer erfolgreichen Installation."
+        "de": "1. Laden Sie das Paket erneut herunter und prüfen Sie seine Echtheit wie in der „Hilfe“ (Help) beschrieben.\n2. Installieren Sie die neue Version erneut; diese Meldung verschwindet nach einer erfolgreichen Installation."
       },
       "escalation": [
         {
@@ -9423,8 +9255,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9440,7 +9271,7 @@
         "ru": "Работа с пакетом отклонена: идёт восстановление",
         "uk": "Роботу з пакетом відхилено: триває відновлення",
         "en": "Package operation refused: a restore is running",
-        "de": "Paketvorgang abgelehnt: eine Wiederherstellung läuft"
+        "de": "Paketvorgang abgelehnt: Eine Wiederherstellung läuft"
       },
       "cause": {
         "ru": "Сейчас выполняется «Вернуть как было» (или роутер не может убедиться, что это не так). Установка, обновление или удаление пакета в это время смешали бы файлы программы с восстановленными настройками. Ничего не изменено.",
@@ -9476,8 +9307,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9493,7 +9323,7 @@
         "ru": "Восстановление не удалось: настройки могут быть заменены частично",
         "uk": "Відновлення не вдалося: налаштування можуть бути замінені частково",
         "en": "Restore failed: settings may be partly replaced",
-        "de": "Wiederherstellung fehlgeschlagen: Einstellungen evtl. teilweise ersetzt"
+        "de": "Wiederherstellung fehlgeschlagen: Einstellungen möglicherweise teilweise ersetzt"
       },
       "cause": {
         "ru": "Роутер начал записывать копию настроек, но запись прервалась. Часть настроек может быть уже из копии, а часть нет. Ничего не повторяется автоматически, Auto остаётся остановленным, роутер не перезагружался.",
@@ -9529,8 +9359,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9592,8 +9421,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9615,7 +9443,7 @@
         "ru": "Восстановление записало настройки из копии, а роутер с тех пор не перезагружался. До перезагрузки Start, ручное переключение и тесты отклоняются, чтобы Auto не работало на смеси старых и новых настроек. Stop работает всегда.",
         "uk": "Відновлення записало налаштування з копії, а роутер відтоді не перезавантажувався. До перезавантаження «Старт» (Start), ручне перемикання й тести відхиляються, щоб Auto не працювало на суміші старих і нових налаштувань. «Стоп» (Stop) працює завжди.",
         "en": "A restore wrote the settings from the copy, and the router has not rebooted since. Until it does, Start, manual switching and the tests are refused so that Auto never works on a mix of old and new settings. Stop always works.",
-        "de": "Eine Wiederherstellung hat die Einstellungen aus der Kopie geschrieben, und der Router wurde seitdem nicht neu gestartet. Bis dahin werden „Start“ (Start), manuelles Umschalten und die Tests abgelehnt, damit Auto nie mit einer Mischung aus alten und neuen Einstellungen arbeitet. „Stopp“ (Stop) funktioniert immer."
+        "de": "Eine Wiederherstellung hat die Einstellungen aus der Kopie geschrieben, und der Router wurde seitdem nicht neu gestartet. Bis zum Neustart werden „Start“ (Start), manuelles Umschalten und die Tests abgelehnt, damit Auto nie mit einer Mischung aus alten und neuen Einstellungen arbeitet. „Stopp“ (Stop) funktioniert immer."
       },
       "action": {
         "ru": "1. Перезагрузите роутер; после этого всё снова будет работать.",
@@ -9645,8 +9473,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9662,19 +9489,19 @@
         "ru": "Прошлое восстановление не завершено",
         "uk": "Попереднє відновлення не завершено",
         "en": "An earlier restore is unresolved",
-        "de": "Eine frühere Wiederherstellung ist ungeklärt"
+        "de": "Eine frühere Wiederherstellung ist nicht abgeschlossen"
       },
       "cause": {
         "ru": "Запись о прошлом восстановлении говорит, что настройки могли замениться частично, перезагрузки после него не было или сама запись не читается. Новое восстановление отклонено, пока вы не подтвердите, что знаете об этом. Ничего не изменено.",
         "uk": "Запис про попереднє відновлення свідчить, що налаштування могли замінитися частково, перезавантаження після нього не було або сам запис не читається. Нове відновлення відхилено, доки ви не підтвердите, що знаєте про це. Нічого не змінено.",
         "en": "The record of an earlier restore says settings may have been partly replaced, its reboot was not seen, or the record itself cannot be read. A new restore is refused until you confirm that you know this. Nothing was changed.",
-        "de": "Der Eintrag einer früheren Wiederherstellung besagt, dass Einstellungen teilweise ersetzt sein könnten, der Neustart danach nicht erkannt wurde oder der Eintrag selbst nicht lesbar ist. Eine neue Wiederherstellung wird abgelehnt, bis Sie bestätigen, dass Sie das wissen. Es wurde nichts geändert."
+        "de": "Der Eintrag einer früheren Wiederherstellung besagt, dass Einstellungen teilweise ersetzt sein könnten, es danach keinen Neustart gab oder der Eintrag selbst nicht lesbar ist. Eine neue Wiederherstellung wird abgelehnt, bis Sie bestätigen, dass Sie das wissen. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Откройте «Вернуть как было» и посмотрите состояние прошлого восстановления.\n2. Поставьте отметку подтверждения, чтобы восстановить проверенную копию снова, или сначала перезагрузите роутер, если не хватает только перезагрузки.",
         "uk": "1. Відкрийте «Повернути як було» (Restore as it was) і перегляньте стан попереднього відновлення.\n2. Поставте позначку підтвердження, щоб відновити перевірену копію знову, або спочатку перезавантажте роутер, якщо бракує лише перезавантаження.",
         "en": "1. Open \"Restore as it was\" and look at the state of the earlier restore.\n2. Tick the confirmation to restore the checked copy again, or reboot first if only the reboot is missing.",
-        "de": "1. Öffnen Sie „Wie vorher wiederherstellen“ (Restore as it was) und sehen Sie sich den Zustand der früheren Wiederherstellung an.\n2. Setzen Sie das Bestätigungshäkchen, um die geprüfte Kopie erneut wiederherzustellen, oder starten Sie zuerst neu, wenn nur der Neustart fehlt."
+        "de": "1. Öffnen Sie „Wie vorher wiederherstellen“ (Restore as it was) und sehen Sie sich den Zustand der früheren Wiederherstellung an.\n2. Setzen Sie das Bestätigungshäkchen, um die geprüfte Kopie erneut wiederherzustellen, oder starten Sie zuerst den Router neu, wenn nur der Neustart fehlt."
       },
       "escalation": [
         {
@@ -9698,8 +9525,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9715,13 +9541,13 @@
         "ru": "Незавершённое восстановление подтверждено",
         "uk": "Незавершене відновлення підтверджено",
         "en": "Unresolved restore confirmed",
-        "de": "Ungeklärte Wiederherstellung bestätigt"
+        "de": "Nicht abgeschlossene Wiederherstellung bestätigt"
       },
       "cause": {
         "ru": "Вы подтвердили, что прошлое восстановление осталось незавершённым, и запустили новое восстановление проверенной копии. Журнал сохраняет состояние прошлого восстановления.",
         "uk": "Ви підтвердили, що попереднє відновлення залишилося незавершеним, і запустили нове відновлення перевіреної копії. Журнал зберігає стан попереднього відновлення.",
         "en": "You confirmed that the earlier restore was unresolved and started a new restore of a checked copy. The journal keeps the state of the earlier restore.",
-        "de": "Sie haben bestätigt, dass die frühere Wiederherstellung ungeklärt war, und eine neue Wiederherstellung einer geprüften Kopie gestartet. Das Journal bewahrt den Zustand der früheren Wiederherstellung auf."
+        "de": "Sie haben bestätigt, dass die frühere Wiederherstellung nicht abgeschlossen war, und eine neue Wiederherstellung der geprüften Kopie gestartet. Das Journal bewahrt den Zustand der früheren Wiederherstellung auf."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -9751,8 +9577,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -9804,8 +9629,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "state",
-        "translation-draft"
+        "state"
       ]
     },
     {
@@ -9857,8 +9681,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "state",
-        "translation-draft"
+        "state"
       ]
     },
     {
@@ -9880,7 +9703,7 @@
         "ru": "Прошивки роутеров отличаются набором маленьких системных инструментов. При установке и при каждой загрузке программа быстро проверяет их на самом роутере, без обращения в сеть, и пользуется тем вариантом, который поддерживает ваш роутер. Если какая-то необязательная проверка не поддерживается, пропускается только она, а VPN, защита трафика и доступ к роутеру работают как обычно.",
         "uk": "Прошивки роутерів відрізняються набором маленьких системних інструментів. Під час встановлення та кожного завантаження програма швидко перевіряє їх на самому роутері, без звернення до мережі, і користується тим варіантом, який підтримує ваш роутер. Якщо якась необов'язкова перевірка не підтримується, пропускається лише вона, а VPN, захист трафіку й доступ до роутера працюють як звичайно.",
         "en": "Router firmwares differ in their set of small system tools. At installation and at every boot the program quickly tests them on the router itself, without using the network, and uses the form your router supports. If an optional check is not supported, only that check is skipped; the VPN, traffic protection and router access work as usual.",
-        "de": "Router-Firmwares unterscheiden sich in ihren kleinen Systemwerkzeugen. Bei der Installation und bei jedem Hochfahren testet das Programm sie schnell auf dem Router selbst, ohne Netzwerkzugriff, und nutzt die Form, die Ihr Router unterstützt. Wird eine optionale Prüfung nicht unterstützt, wird nur diese übersprungen; VPN, Schutz des Datenverkehrs und Zugriff auf den Router funktionieren wie gewohnt."
+        "de": "Router-Firmwares unterscheiden sich in der Auswahl kleiner Systemwerkzeuge. Bei der Installation und bei jedem Hochfahren testet das Programm sie schnell auf dem Router selbst, ohne Netzwerkzugriff, und nutzt die Variante, die Ihr Router unterstützt. Wird eine optionale Prüfung nicht unterstützt, wird nur diese übersprungen; VPN, Schutz des Datenverkehrs und Zugriff auf den Router funktionieren wie gewohnt."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Если на вашей прошивке что-то не поддерживается, сохраните диагностику по инструкции в «Помощи» и передайте её в поддержку.",
@@ -9910,8 +9733,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "state",
-        "translation-draft"
+        "state"
       ]
     },
     {
@@ -9931,7 +9753,7 @@
       },
       "cause": {
         "ru": "Проверка перед установкой определила, что эта модель роутера или его система не поддерживаются (например, обычный OpenWrt или другая модель). Устанавливать здесь нечего, пакет не предлагается.",
-        "uk": "Перевірка перед встановленням визначила, що ця модель роутера або його система не підтримуються (наприклад, звичайний OpenWrt або інша модель). Встановлювати тут нічого, пакет не пропонується.",
+        "uk": "Перевірка перед встановленням визначила, що ця модель роутера або його система не підтримуються (наприклад, звичайний OpenWrt або інша модель). Тут нічого встановлювати, пакет не пропонується.",
         "en": "The check before installation found that this router model or its system is not supported (for example plain OpenWrt or another model). There is nothing to install here, so the package is not offered.",
         "de": "Die Prüfung vor der Installation hat ergeben, dass dieses Routermodell oder sein System nicht unterstützt wird (zum Beispiel reines OpenWrt oder ein anderes Modell). Hier gibt es nichts zu installieren, das Paket wird nicht angeboten."
       },
@@ -9973,8 +9795,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -10026,8 +9847,7 @@
       "tags": [
         "auto-vpn",
         "inst",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     }
   ]

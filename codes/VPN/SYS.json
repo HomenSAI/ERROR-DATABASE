@@ -15,11 +15,11 @@
         "ru": "Внутренняя проверка подбора замены серверов",
         "uk": "Внутрішня перевірка підбору заміни серверів",
         "en": "Internal check of replacement server testing",
-        "de": "Interne Prüfung der Ersatzserver-Tests"
+        "de": "Interne Prüfung der Auswahl von Ersatzservern"
       },
       "cause": {
         "ru": "Защитная проверка части, которая пробует серверы на замену, отклонила шаг. На работу каналов это не влияет. Это семейство: описание относится ко всем кодам с префиксом «CANDIDATE-».",
-        "uk": "Захисна перевірка частини, яка пробує сервери на заміну, відхилила крок. На роботу каналів це не впливає. Це родина: опис стосується всіх кодів із префіксом «CANDIDATE-».",
+        "uk": "Захисна перевірка частини, яка пробує сервери на заміну, відхилила крок. На роботу каналів це не впливає. Це сімейство: опис стосується всіх кодів із префіксом «CANDIDATE-».",
         "en": "A safety check of the part that tries replacement servers refused a step. This does not affect how the channels work. This is a family: the description applies to all codes starting with \"CANDIDATE-\".",
         "de": "Eine Schutzprüfung des Teils, der Ersatzserver ausprobiert, hat einen Schritt abgelehnt. Das beeinflusst die Kanäle nicht. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CANDIDATE-“."
       },
@@ -52,7 +52,6 @@
         "auto-vpn",
         "sys",
         "internal",
-        "translation-draft",
         "family"
       ]
     },
@@ -73,7 +72,7 @@
       },
       "cause": {
         "ru": "Защитная проверка плана переходов между серверами, каналами и протоколами отклонила неверный или устаревший шаг. В этой версии план к роутеру не применяется. Это семейство: описание относится ко всем кодам с префиксом «CASCADE-».",
-        "uk": "Захисна перевірка плану переходів між серверами, каналами та протоколами відхилила неправильний або застарілий крок. У цій версії план до роутера не застосовується. Це родина: опис стосується всіх кодів із префіксом «CASCADE-».",
+        "uk": "Захисна перевірка плану переходів між серверами, каналами та протоколами відхилила неправильний або застарілий крок. У цій версії план до роутера не застосовується. Це сімейство: опис стосується всіх кодів із префіксом «CASCADE-».",
         "en": "A safety check of the plan for moving between servers, channels and protocols refused a wrong or outdated step. In this version the plan is not applied to the router. This is a family: the description applies to all codes starting with \"CASCADE-\".",
         "de": "Eine Schutzprüfung des Plans für Wechsel zwischen Servern, Kanälen und Protokollen hat einen falschen oder veralteten Schritt abgelehnt. In dieser Version wird der Plan nicht auf den Router angewendet. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CASCADE-“."
       },
@@ -106,7 +105,6 @@
         "auto-vpn",
         "sys",
         "internal",
-        "translation-draft",
         "family"
       ]
     },
@@ -159,8 +157,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -180,15 +177,15 @@
       },
       "cause": {
         "ru": "Сохранённая статистика не прошла проверку: неверная структура, число или дата. Она не используется, остаётся прежняя исправная копия. Это семейство: описание относится ко всем кодам с префиксом «CHECKPOINT-».",
-        "uk": "Збережена статистика не пройшла перевірку: неправильна структура, число або дата. Вона не використовується, залишається попередня справна копія. Це родина: опис стосується всіх кодів із префіксом «CHECKPOINT-».",
+        "uk": "Збережена статистика не пройшла перевірку: неправильна структура, число або дата. Вона не використовується, залишається попередня справна копія. Це сімейство: опис стосується всіх кодів із префіксом «CHECKPOINT-».",
         "en": "The saved statistics failed a check: wrong structure, number or date. They are not used, and the previous good copy stays. This is a family: the description applies to all codes starting with \"CHECKPOINT-\".",
-        "de": "Die gespeicherte Statistik hat eine Prüfung nicht bestanden: falsche Struktur, Zahl oder Datum. Sie wird nicht verwendet, die vorherige gültige Kopie bleibt. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CHECKPOINT-“."
+        "de": "Die gespeicherte Statistik hat eine Prüfung nicht bestanden: falsche Struktur, Zahl oder Datum. Sie wird nicht verwendet, die bisherige funktionierende Kopie bleibt erhalten. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „CHECKPOINT-“."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Если статистика пуста, проверьте дату роутера и откройте «Помощь».",
         "uk": "1. Нічого робити не потрібно.\n2. Якщо статистика порожня, перевірте дату роутера й відкрийте «Довідку» (Help).",
         "en": "1. Nothing to do.\n2. If the statistics look empty, check the router date and open Help.",
-        "de": "1. Es ist nichts zu tun.\n2. Wirkt die Statistik leer, prüfen Sie das Datum des Routers und öffnen Sie die „Hilfe“ (Help)."
+        "de": "1. Es ist nichts zu tun.\n2. Wenn die Statistik leer wirkt, prüfen Sie das Datum des Routers und öffnen Sie die „Hilfe“ (Help)."
       },
       "escalation": [
         {
@@ -213,7 +210,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -234,7 +230,7 @@
       },
       "cause": {
         "ru": "Дата роутера невозможна или резко изменилась. Статистика ждёт, пока часы станут правильными.",
-        "uk": "Дата роутера неможлива або різко змінилася. Статистика чекає, доки годинник стане правильним.",
+        "uk": "Дата роутера неможлива або різко змінилася. Статистика чекає, доки годинник не стане правильним.",
         "en": "The router date is impossible or jumped. The statistics wait until the clock is correct.",
         "de": "Das Datum des Routers ist unmöglich oder hat einen Sprung gemacht. Die Statistik wartet, bis die Uhr stimmt."
       },
@@ -266,8 +262,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -283,7 +278,7 @@
         "ru": "Неизвестный вид выгрузки",
         "uk": "Невідомий вид вивантаження",
         "en": "Unknown export",
-        "de": "Unbekannter Export"
+        "de": "Unbekannte Exportart"
       },
       "cause": {
         "ru": "Страница попросила выгрузить таблицу, которой нет. Обычно это бывает, когда страница устарела после обновления.",
@@ -319,8 +314,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -340,15 +334,15 @@
       },
       "cause": {
         "ru": "Сохранённая история переключений не прошла проверку целостности. Тогда Auto не действует, потому что не может подтвердить, что делал раньше. Это семейство: описание относится ко всем кодам с префиксом «HISTORY-».",
-        "uk": "Збережена історія перемикань не пройшла перевірку цілісності. Тоді Auto не діє, бо не може підтвердити, що робив раніше. Це родина: опис стосується всіх кодів із префіксом «HISTORY-».",
+        "uk": "Збережена історія перемикань не пройшла перевірку цілісності. Тоді Auto не діє, бо не може підтвердити, що робив раніше. Це сімейство: опис стосується всіх кодів із префіксом «HISTORY-».",
         "en": "The saved switch history failed an integrity check. Auto then does not act, because it cannot confirm what it did before. This is a family: the description applies to all codes starting with \"HISTORY-\".",
-        "de": "Der gespeicherte Umschaltverlauf hat eine Integritätsprüfung nicht bestanden. Auto handelt dann nicht, weil es nicht bestätigen kann, was es vorher getan hat. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „HISTORY-“."
+        "de": "Der gespeicherte Umschaltverlauf hat eine Integritätsprüfung nicht bestanden. Auto unternimmt dann nichts, weil es nicht bestätigen kann, was es vorher getan hat. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „HISTORY-“."
       },
       "action": {
         "ru": "1. Посмотрите код рядом в «Журнале».\n2. Если повторяется, откройте «Помощь», раздел об отсутствии интернета.",
         "uk": "1. Перегляньте код поруч у «Журналі» (Journal).\n2. Якщо повторюється, відкрийте «Довідку» (Help), розділ про відсутність інтернету.",
         "en": "1. Look at the code next to it in the Journal.\n2. If it repeats, open Help, the section about having no internet.",
-        "de": "1. Sehen Sie sich den Code daneben im „Protokoll“ (Journal) an.\n2. Wiederholt es sich, öffnen Sie die „Hilfe“ (Help), Abschnitt über fehlendes Internet."
+        "de": "1. Sehen Sie sich den Code daneben im „Protokoll“ (Journal) an.\n2. Wiederholt er sich, öffnen Sie die „Hilfe“ (Help), den Abschnitt über fehlendes Internet."
       },
       "escalation": [
         {
@@ -373,7 +367,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -402,7 +395,7 @@
         "ru": "1. Не удаляйте историю: она нужна для восстановления.\n2. Проверьте дату роутера и свободное место на вкладке «Система».\n3. Если не помогло, сохраните «Журнал» и обратитесь в поддержку.",
         "uk": "1. Не видаляйте історію: вона потрібна для відновлення.\n2. Перевірте дату роутера й вільне місце на вкладці «Система» (System).\n3. Якщо не допомогло, збережіть «Журнал» (Journal) і зверніться до підтримки.",
         "en": "1. Do not delete the history: it is needed for recovery.\n2. Check the router date and free space on the System tab.\n3. If that does not help, save the Journal and contact support.",
-        "de": "1. Löschen Sie den Verlauf nicht: Er wird für die Wiederherstellung gebraucht.\n2. Prüfen Sie Datum und freien Speicher des Routers auf der Registerkarte „System“ (System).\n3. Hilft das nicht, speichern Sie das „Protokoll“ (Journal) und wenden Sie sich an den Support."
+        "de": "1. Löschen Sie den Verlauf nicht: Er wird für die Wiederherstellung gebraucht.\n2. Prüfen Sie das Datum des Routers und den freien Speicherplatz auf der Registerkarte „System“ (System).\n3. Hilft das nicht, speichern Sie das „Protokoll“ (Journal) und wenden Sie sich an den Support."
       },
       "escalation": [
         {
@@ -436,8 +429,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -490,7 +482,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -507,13 +498,13 @@
         "ru": "Старая история сокращена",
         "uk": "Стару історію скорочено",
         "en": "Old history is summarised",
-        "de": "Älterer Verlauf ist zusammengefasst"
+        "de": "Älterer Verlauf wurde zusammengefasst"
       },
       "cause": {
         "ru": "Старые измерения объединены или удалены, чтобы не переполнять память роутера. Последние дни сохранены полностью.",
         "uk": "Старі вимірювання об'єднано або видалено, щоб не переповнювати пам'ять роутера. Останні дні збережено повністю.",
         "en": "Older measurements were combined or removed so as not to fill the router memory. The recent days are kept in full.",
-        "de": "Ältere Messungen wurden zusammengefasst oder entfernt, damit der Speicher des Routers nicht volläuft. Die letzten Tage sind vollständig erhalten."
+        "de": "Ältere Messungen wurden zusammengefasst oder entfernt, damit der Speicher des Routers nicht voll wird. Die letzten Tage sind vollständig erhalten."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -543,8 +534,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -597,7 +587,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -650,8 +639,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -713,8 +701,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -767,7 +754,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -790,7 +776,7 @@
         "ru": "Правило модели процесса переключения, которая используется в тестах, отклонило шаг или сообщило о нём. На работу роутера это не влияет. Это семейство: описание относится ко всем кодам с префиксом «MODEL-».",
         "uk": "Правило моделі процесу перемикання, яка використовується в тестах, відхилило крок або повідомило про нього. На роботу роутера це не впливає. Це родина: опис стосується всіх кодів із префіксом «MODEL-».",
         "en": "A rule of the switching process model used in tests refused or reported a step. This does not affect how the router works. This is a family: the description applies to all codes starting with \"MODEL-\".",
-        "de": "Eine Regel des Umschaltmodells, das in Tests verwendet wird, hat einen Schritt abgelehnt oder gemeldet. Das beeinflusst den Router nicht. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „MODEL-“."
+        "de": "Eine Regel des Umschaltmodells, das in Tests verwendet wird, hat einen Schritt abgelehnt oder gemeldet. Das beeinflusst den Betrieb des Routers nicht. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „MODEL-“."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -821,7 +807,6 @@
         "auto-vpn",
         "sys",
         "internal",
-        "translation-draft",
         "family"
       ]
     },
@@ -844,7 +829,7 @@
         "ru": "Этот код есть только в автономном просмотре страницы для разработки. На настоящем роутере он не появляется.",
         "uk": "Цей код є лише в автономному перегляді сторінки для розробки. На справжньому роутері він не з'являється.",
         "en": "This code exists only in the offline page preview used for development. It never appears on a real router.",
-        "de": "Dieser Code existiert nur in der Offline-Vorschau der Seite für die Entwicklung. Auf einem echten Router erscheint er nie."
+        "de": "Dieser Code existiert nur in der Offline-Vorschau der Seite für die Entwicklung. Auf einem echten Router erscheint er nicht."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -874,8 +859,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -928,7 +912,6 @@
         "auto-vpn",
         "sys",
         "internal",
-        "translation-draft",
         "family"
       ]
     },
@@ -981,8 +964,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -1034,8 +1016,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -1087,8 +1068,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -1140,8 +1120,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -1203,8 +1182,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -1256,8 +1234,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1310,7 +1287,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -1373,8 +1349,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -1436,8 +1411,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -1457,7 +1431,7 @@
       },
       "cause": {
         "ru": "Сохранённое сравнение всех методов отклика не удалось надёжно прочитать или записать. На переключение и выбранный метод это не влияет. Это семейство: описание относится ко всем кодам с префиксом «RESPONSE-COMPARE».",
-        "uk": "Збережене порівняння всіх методів відгуку не вдалося надійно прочитати або записати. На перемикання й вибраний метод це не впливає. Це родина: опис стосується всіх кодів із префіксом «RESPONSE-COMPARE».",
+        "uk": "Збережене порівняння всіх методів відгуку не вдалося надійно прочитати або записати. На перемикання й вибраний метод це не впливає. Це сімейство кодів: опис стосується всіх кодів із префіксом «RESPONSE-COMPARE».",
         "en": "The saved comparison of all response methods could not be read or written safely. Switching and the chosen method are not affected. This is a family: the description applies to all codes starting with \"RESPONSE-COMPARE\".",
         "de": "Der gespeicherte Vergleich aller Antwortmethoden ließ sich nicht sicher lesen oder schreiben. Die Umschaltung und die gewählte Methode sind nicht betroffen. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „RESPONSE-COMPARE“."
       },
@@ -1490,7 +1464,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -1507,7 +1480,7 @@
         "ru": "Файл сравнения методов имеет неверный вид",
         "uk": "Файл порівняння методів має неправильний вигляд",
         "en": "The method comparison has the wrong form",
-        "de": "Der Methodenvergleich hat die falsche Form"
+        "de": "Die Datei des Methodenvergleichs hat die falsche Form"
       },
       "cause": {
         "ru": "Сохранённое сравнение методов имеет неожиданную структуру и не используется.",
@@ -1543,8 +1516,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1596,8 +1568,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1649,8 +1620,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1702,8 +1672,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1765,8 +1734,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1786,9 +1754,9 @@
       },
       "cause": {
         "ru": "Сохранённые счётчики, подробности сбоев или место продолжения выгрузки не прошли проверку. Непроверенные данные не показываются как успешные наблюдения. Это семейство: описание относится ко всем кодам с префиксом «STATISTICS-».",
-        "uk": "Збережені лічильники, подробиці збоїв або місце продовження вивантаження не пройшли перевірку. Неперевірені дані не показуються як успішні спостереження. Це родина: опис стосується всіх кодів із префіксом «STATISTICS-».",
+        "uk": "Збережені лічильники, подробиці збоїв або місце продовження вивантаження не пройшли перевірку. Неперевірені дані не показуються як успішні спостереження. Це сімейство: опис стосується всіх кодів із префіксом «STATISTICS-».",
         "en": "The saved counters, failure details or download resume point failed a check. Unverified data is not shown as a successful observation. This is a family: the description applies to all codes starting with \"STATISTICS-\".",
-        "de": "Gespeicherte Zähler, Fehlerdetails oder der Fortsetzungspunkt des Downloads haben eine Prüfung nicht bestanden. Ungeprüfte Daten werden nicht als erfolgreiche Beobachtung angezeigt. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „STATISTICS-“."
+        "de": "Gespeicherte Zähler, Fehlerdetails oder der Fortsetzungspunkt des Downloads haben eine Prüfung nicht bestanden. Ungeprüfte Daten werden nicht als erfolgreiche Beobachtung angezeigt. Dies ist eine Familie von Codes: Die Beschreibung gilt für alle Codes mit dem Präfix „STATISTICS-“."
       },
       "action": {
         "ru": "1. Повторите выгрузку.\n2. Не сбрасывайте счётчики.\n3. Если повторяется, сообщите код в поддержку.",
@@ -1819,7 +1787,6 @@
         "auto-vpn",
         "sys",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -1882,8 +1849,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1935,8 +1901,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1988,8 +1953,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -2041,8 +2005,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "internal",
-        "translation-draft"
+        "internal"
       ]
     },
     {
@@ -2097,8 +2060,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2161,8 +2123,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2224,8 +2185,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2253,7 +2213,7 @@
         "ru": "1. Ничего делать не нужно.\n2. Если повторяется, перезагрузите роутер.",
         "uk": "1. Нічого робити не потрібно.\n2. Якщо повторюється, перезавантажте роутер.",
         "en": "1. Nothing to do.\n2. If it repeats, restart the router.",
-        "de": "1. Es ist nichts zu tun.\n2. Wiederholt es sich, starten Sie den Router neu."
+        "de": "1. Sie müssen nichts tun.\n2. Wenn es sich wiederholt, starten Sie den Router neu."
       },
       "escalation": [
         {
@@ -2277,8 +2237,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2306,7 +2265,7 @@
         "ru": "1. Ничего делать не нужно.\n2. Если повторяется, проверьте свободное место на вкладке «Система».",
         "uk": "1. Нічого робити не потрібно.\n2. Якщо повторюється, перевірте вільне місце на вкладці «Система» (System).",
         "en": "1. Nothing to do.\n2. If it repeats, check the free space on the System tab.",
-        "de": "1. Es ist nichts zu tun.\n2. Wiederholt es sich, prüfen Sie den freien Speicher auf der Registerkarte „System“ (System)."
+        "de": "1. Sie müssen nichts tun.\n2. Wenn es sich wiederholt, prüfen Sie den freien Speicher auf der Registerkarte „System“ (System)."
       },
       "escalation": [
         {
@@ -2330,8 +2289,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2363,13 +2321,13 @@
         "ru": "Роутер не смог надёжно прочитать своё системное состояние: настройки брандмауэра. Ничего не изменено.",
         "uk": "Роутер не зміг надійно прочитати свій системний стан: налаштування брандмауера. Нічого не змінено.",
         "en": "The router could not reliably read its own system state: the firewall settings. Nothing was changed.",
-        "de": "Der Router konnte seinen eigenen Systemzustand nicht zuverlässig lesen: die Firewall-Einstellungen. Es wurde nichts geändert."
+        "de": "Der Router konnte seinen Systemzustand nicht zuverlässig lesen: die Firewall-Einstellungen. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Подождите несколько минут: роутер проверит снова.\n2. Если повторяется, перезагрузите роутер.",
         "uk": "1. Зачекайте кілька хвилин: роутер перевірить знову.\n2. Якщо повторюється, перезавантажте роутер.",
         "en": "1. Wait a few minutes: the router checks again.\n2. If it repeats, restart the router.",
-        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wiederholt es sich, starten Sie den Router neu."
+        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wenn es sich wiederholt, starten Sie den Router neu."
       },
       "escalation": [
         {
@@ -2393,8 +2351,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2416,19 +2373,19 @@
         "ru": "Не читается список программ роутера",
         "uk": "Не читається список програм роутера",
         "en": "The router's list of running programs cannot be read",
-        "de": "Die Liste der laufenden Programme des Routers ist nicht lesbar"
+        "de": "Die Programmliste des Routers ist nicht lesbar"
       },
       "cause": {
         "ru": "Роутер не смог надёжно прочитать своё системное состояние: список запущенных программ. Ничего не изменено.",
         "uk": "Роутер не зміг надійно прочитати свій системний стан: список запущених програм. Нічого не змінено.",
         "en": "The router could not reliably read its own system state: the list of running programs. Nothing was changed.",
-        "de": "Der Router konnte seinen eigenen Systemzustand nicht zuverlässig lesen: die Liste der laufenden Programme. Es wurde nichts geändert."
+        "de": "Der Router konnte seinen Systemzustand nicht zuverlässig lesen: die Liste der laufenden Programme. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Подождите несколько минут: роутер проверит снова.\n2. Если повторяется, перезагрузите роутер.",
         "uk": "1. Зачекайте кілька хвилин: роутер перевірить знову.\n2. Якщо повторюється, перезавантажте роутер.",
         "en": "1. Wait a few minutes: the router checks again.\n2. If it repeats, restart the router.",
-        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wiederholt es sich, starten Sie den Router neu."
+        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wenn es sich wiederholt, starten Sie den Router neu."
       },
       "escalation": [
         {
@@ -2452,8 +2409,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2479,13 +2435,13 @@
         "ru": "Роутер не смог надёжно прочитать своё системное состояние: служебная запись или отметка занятости не прошли проверку. Ничего не изменено.",
         "uk": "Роутер не зміг надійно прочитати свій системний стан: службовий запис або позначка зайнятості не пройшли перевірку. Нічого не змінено.",
         "en": "The router could not reliably read its own system state: a service record or a busy mark failed its check. Nothing was changed.",
-        "de": "Der Router konnte seinen eigenen Systemzustand nicht zuverlässig lesen: ein Diensteintrag oder eine Belegt-Markierung hat die Prüfung nicht bestanden. Es wurde nichts geändert."
+        "de": "Der Router konnte seinen Systemzustand nicht zuverlässig lesen: ein Diensteintrag oder eine Belegtmarkierung hat die Prüfung nicht bestanden. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Подождите несколько минут: роутер проверит снова.\n2. Если повторяется, перезагрузите роутер.",
         "uk": "1. Зачекайте кілька хвилин: роутер перевірить знову.\n2. Якщо повторюється, перезавантажте роутер.",
         "en": "1. Wait a few minutes: the router checks again.\n2. If it repeats, restart the router.",
-        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wiederholt es sich, starten Sie den Router neu."
+        "de": "1. Warten Sie einige Minuten: Der Router prüft erneut.\n2. Wenn es sich wiederholt, starten Sie den Router neu."
       },
       "escalation": [
         {
@@ -2509,8 +2465,7 @@
       "tags": [
         "auto-vpn",
         "sys",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     }
   ]

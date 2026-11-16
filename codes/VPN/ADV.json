@@ -19,7 +19,7 @@
       },
       "cause": {
         "ru": "Советник сети или главный ползунок сообщил о своём состоянии; настройки из-за этого не изменились. Это семейство: описание относится ко всем кодам с префиксом «ADVISOR-».",
-        "uk": "Порадник мережі або головний повзунок повідомив про свій стан; налаштування через це не змінилися. Це родина: опис стосується всіх кодів із префіксом «ADVISOR-».",
+        "uk": "Порадник мережі або головний повзунок повідомив про свій стан; налаштування через це не змінилися. Це сімейство: опис стосується всіх кодів із префіксом «ADVISOR-».",
         "en": "The network advisor or the master slider reported its state; the settings were not changed because of it. This is a family: the description applies to all codes starting with \"ADVISOR-\".",
         "de": "Der Netzwerkberater oder der Hauptschieberegler hat seinen Zustand gemeldet; die Einstellungen wurden dadurch nicht geändert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „ADVISOR-“."
       },
@@ -51,8 +51,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -68,7 +67,7 @@
         "ru": "Не сейчас: идёт обрыв канала",
         "uk": "Не зараз: триває обрив каналу",
         "en": "Not now: a channel outage is in progress",
-        "de": "Nicht jetzt: Ein Kanalausfall läuft"
+        "de": "Nicht jetzt: Ein Kanalausfall ist im Gange"
       },
       "cause": {
         "ru": "Пока обрыв канала не закончился, настройки ползунка не меняются: текущее решение доводится до конца по прежним правилам. Ничего не изменено.",
@@ -104,8 +103,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -121,7 +119,7 @@
         "ru": "Не сейчас: идёт переключение",
         "uk": "Не зараз: триває перемикання",
         "en": "Not now: a switch is in progress",
-        "de": "Nicht jetzt: Ein Umschalten läuft"
+        "de": "Nicht jetzt: Eine Umschaltung läuft"
       },
       "cause": {
         "ru": "Пока Auto переключает или возвращает канал или маршрут временно недоступен, настройки ползунка не меняются, чтобы переключение не шло с наполовину изменёнными правилами. Ничего не изменено.",
@@ -157,8 +155,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -184,7 +181,7 @@
       },
       "action": {
         "ru": "1. Откройте вкладку «Система» и проверьте, что наблюдение за связью работает.\n2. Повторите действие.",
-        "uk": "1. Відкрийте вкладку «Система» (System) і перевірте, що спостереження за зв'язком працює.\n2. Повторіть дію.",
+        "uk": "1. Відкрийте вкладку «Система» (System) і перевірте, що спостереження за з'єднанням працює.\n2. Повторіть дію.",
         "en": "1. Open the System tab and check that connection monitoring is running.\n2. Repeat the action.",
         "de": "1. Öffnen Sie den Reiter „System“ und prüfen Sie, ob die Verbindungsüberwachung läuft.\n2. Wiederholen Sie die Aktion."
       },
@@ -210,8 +207,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -263,8 +259,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -316,8 +311,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -333,13 +327,13 @@
         "ru": "Автоподстройка сегодня уже меняла настройки",
         "uk": "Автопідстроювання сьогодні вже змінювало налаштування",
         "en": "Auto-adaptation already changed the settings today",
-        "de": "Die automatische Anpassung hat heute bereits geändert"
+        "de": "Die automatische Anpassung hat die Einstellungen heute bereits geändert"
       },
       "cause": {
         "ru": "В режиме «Авто» ползунок сдвигается не чаще раза в сутки и только на небольшой шаг, чтобы один плохой день не раскачал настройки.",
         "uk": "У режимі «Авто» повзунок зсувається не частіше ніж раз на добу й лише на невеликий крок, щоб один поганий день не розхитав налаштування.",
         "en": "In Auto mode the slider moves at most once a day and only by a small step, so a single bad day cannot swing the settings.",
-        "de": "Im Modus „Auto“ bewegt sich der Schieberegler höchstens einmal am Tag und nur um einen kleinen Schritt, damit ein einzelner schlechter Tag die Einstellungen nicht durcheinanderbringt."
+        "de": "Im Modus „Auto“ bewegt sich der Schieberegler höchstens einmal am Tag und nur um einen kleinen Schritt, damit ein einzelner schlechter Tag die Einstellungen nicht ins Schwanken bringt."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -369,8 +363,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -432,8 +425,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -495,8 +487,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -558,8 +549,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -621,8 +611,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -684,8 +673,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -737,8 +725,7 @@
       "tags": [
         "auto-vpn",
         "adv",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     }
   ]

@@ -19,7 +19,7 @@
       },
       "cause": {
         "ru": "Код из группы теста отказа на тестовом стенде: тест сообщил о своём состоянии. Такой тест проверяет, что Auto правильно переходит на другой канал. Это семейство: описание относится ко всем кодам с префиксом «FAULT-».",
-        "uk": "Код із групи тесту відмови на тестовому стенді: тест повідомив про свій стан. Такий тест перевіряє, що Auto правильно переходить на інший канал. Це родина: опис стосується всіх кодів із префіксом «FAULT-».",
+        "uk": "Код із групи тесту відмови на тестовому стенді: тест повідомив про свій стан. Такий тест перевіряє, що Auto правильно переходить на інший канал. Це сімейство: опис стосується всіх кодів із префіксом «FAULT-».",
         "en": "A code of the failure test group of the test bench: the test reported its state. Such a test checks that Auto correctly moves to the other channel. This is a family: the description applies to all codes starting with \"FAULT-\".",
         "de": "Ein Code der Gruppe des Ausfalltests auf dem Teststand: Der Test hat seinen Zustand gemeldet. Ein solcher Test prüft, ob Auto korrekt auf den anderen Kanal wechselt. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „FAULT-“."
       },
@@ -52,7 +52,6 @@
         "auto-vpn",
         "flt",
         "switch",
-        "translation-draft",
         "family"
       ]
     },
@@ -75,7 +74,7 @@
         "ru": "Тест отказа включён: на короткое время трафик одного канала намеренно прерван, чтобы проверить переход Auto.",
         "uk": "Тест відмови увімкнено: на короткий час трафік одного каналу навмисно перервано, щоб перевірити перехід Auto.",
         "en": "The failure test is on: traffic of one channel is deliberately interrupted for a short time to check that Auto moves over.",
-        "de": "Der Ausfalltest ist aktiv: Der Datenverkehr eines Kanals wird kurz absichtlich unterbrochen, um den Wechsel durch Auto zu prüfen."
+        "de": "Der Ausfalltest ist aktiv: Der Datenverkehr eines Kanals wird absichtlich für kurze Zeit unterbrochen, um den Wechsel durch Auto zu prüfen."
       },
       "action": {
         "ru": "1. Дождитесь окончания теста.\n2. Если нужно прервать тест раньше, остановите его в разделе «Тесты» на «Главной».",
@@ -105,8 +104,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -158,8 +156,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -211,8 +208,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -264,8 +260,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -317,8 +312,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -370,8 +364,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -423,8 +416,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -476,8 +468,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -493,7 +484,7 @@
         "ru": "Тест отказа завершён и убран",
         "uk": "Тест відмови завершено й прибрано",
         "en": "Failure test cleaned up",
-        "de": "Ausfalltest aufgeräumt"
+        "de": "Ausfalltest beendet und aufgeräumt"
       },
       "cause": {
         "ru": "Тест отказа закончился, тестовое прерывание трафика снято.",
@@ -529,8 +520,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -550,7 +540,7 @@
       },
       "cause": {
         "ru": "Не подтверждено, что тестовое прерывание трафика снято. Оно всё равно закончится само по защитному таймеру.",
-        "uk": "Не підтверджено, що тестове переривання трафіку знято. Воно однаково завершиться саме за захисним таймером.",
+        "uk": "Не підтверджено, що тестове переривання трафіку знято. Воно все одно завершиться само за захисним таймером.",
         "en": "It is not confirmed that the test interruption of traffic was removed. It still ends by itself on its safety timer.",
         "de": "Es ist nicht bestätigt, dass die Testunterbrechung des Datenverkehrs aufgehoben wurde. Sie endet trotzdem von selbst durch ihren Sicherheitstimer."
       },
@@ -582,8 +572,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -609,9 +598,9 @@
       },
       "action": {
         "ru": "1. Убедитесь в разделе «Тесты» на «Главной», что тест выключен.\n2. Проверьте на «Главной», что интернет работает.",
-        "uk": "1. Переконайтеся у розділі «Тести» (Tests) на «Головній» (Home), що тест вимкнено.\n2. Перевірте на «Головній» (Home), що інтернет працює.",
+        "uk": "1. Переконайтеся, що в розділі «Тести» (Tests) на «Головній» (Home) тест вимкнено.\n2. Перевірте на «Головній» (Home), що інтернет працює.",
         "en": "1. Make sure in Home → Tests that the test is off.\n2. Check on Home that the internet works.",
-        "de": "1. Prüfen Sie unter „Startseite“ (Home) → „Tests“, ob der Test aus ist.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert."
+        "de": "1. Prüfen Sie im Abschnitt „Tests“ auf der „Startseite“ (Home), ob der Test ausgeschaltet ist.\n2. Prüfen Sie auf der „Startseite“ (Home), ob das Internet funktioniert."
       },
       "escalation": [
         {
@@ -635,8 +624,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -688,8 +676,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -741,8 +728,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -794,8 +780,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -815,7 +800,7 @@
       },
       "cause": {
         "ru": "Для теста оба канала, основной и резервный, должны работать прямо сейчас.",
-        "uk": "Для тесту обидва канали, основний і резервний, мають працювати просто зараз.",
+        "uk": "Для тесту обидва канали, основний і резервний, мають працювати вже зараз.",
         "en": "For the test, both the main and the reserve channel must work right now.",
         "de": "Für den Test müssen der Haupt- und der Reservekanal gerade jetzt funktionieren."
       },
@@ -847,8 +832,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -900,8 +884,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -953,8 +936,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -970,7 +952,7 @@
         "ru": "Выбранный VPN пропал",
         "uk": "Вибраний VPN зник",
         "en": "Tested VPN disappeared",
-        "de": "Getestetes VPN verschwunden"
+        "de": "Gewähltes VPN verschwunden"
       },
       "cause": {
         "ru": "VPN, выбранного для теста отказа, больше нет на роутере.",
@@ -1006,8 +988,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1023,7 +1004,7 @@
         "ru": "Выбранный VPN не подтверждён",
         "uk": "Вибраний VPN не підтверджено",
         "en": "Tested VPN not confirmed",
-        "de": "Getestetes VPN nicht bestätigt"
+        "de": "Gewähltes VPN nicht bestätigt"
       },
       "cause": {
         "ru": "Не удалось подтвердить, на какой VPN подействует тест, поэтому он не запущен.",
@@ -1059,8 +1040,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1112,8 +1092,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1175,8 +1154,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1228,8 +1206,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1251,7 +1228,7 @@
         "ru": "Тест отказа можно провести только для канала, через который сейчас идёт трафик.",
         "uk": "Тест відмови можна провести лише для каналу, через який зараз іде трафік.",
         "en": "The failure test can only be run on the channel that currently carries traffic.",
-        "de": "Der Ausfalltest kann nur für den Kanal laufen, der gerade den Datenverkehr trägt."
+        "de": "Der Ausfalltest kann nur für den Kanal durchgeführt werden, über den gerade der Datenverkehr läuft."
       },
       "action": {
         "ru": "1. Выберите канал, который сейчас основной.\n2. Повторите тест.",
@@ -1281,8 +1258,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1334,8 +1310,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1387,8 +1362,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1440,8 +1414,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1493,8 +1466,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1556,8 +1528,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1609,8 +1580,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1662,8 +1632,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1679,13 +1648,13 @@
         "ru": "Не удалось задать автоматическое окончание",
         "uk": "Не вдалося задати автоматичне завершення",
         "en": "Automatic end could not be set",
-        "de": "Automatisches Ende nicht festgelegt"
+        "de": "Automatisches Ende ließ sich nicht festlegen"
       },
       "cause": {
         "ru": "Роутер не смог задать таймер, который сам снимает тестовое прерывание, поэтому ничего не прерывалось.",
         "uk": "Роутер не зміг задати таймер, який сам знімає тестове переривання, тому нічого не переривалося.",
         "en": "The router could not set the timer that removes the test interruption by itself, so nothing was interrupted.",
-        "de": "Der Router konnte den Timer nicht setzen, der die Testunterbrechung selbst aufhebt, daher wurde nichts unterbrochen."
+        "de": "Der Router konnte den Timer nicht einrichten, der die Testunterbrechung selbst aufhebt, daher wurde nichts unterbrochen."
       },
       "action": {
         "ru": "1. Повторите тест позже.\n2. Если не получается снова, выполните диагностику из «Помощи» и пришлите результат разработчику.",
@@ -1725,8 +1694,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1748,7 +1716,7 @@
         "ru": "Второй канал прошёл свежие проверки, переход на него подтверждён. Тестовое прерывание трафика снято.",
         "uk": "Другий канал пройшов свіжі перевірки, перехід на нього підтверджено. Тестове переривання трафіку знято.",
         "en": "The other channel passed fresh checks and the move to it is confirmed. The test interruption of traffic was removed.",
-        "de": "Der andere Kanal hat frische Prüfungen bestanden, und der Wechsel zu ihm ist bestätigt. Die Testunterbrechung des Datenverkehrs wurde aufgehoben."
+        "de": "Der zweite Kanal hat die aktuellen Prüfungen bestanden, der Wechsel zu ihm ist bestätigt. Die Testunterbrechung des Datenverkehrs wurde aufgehoben."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. При желании посмотрите историю тестов в разделе «Тесты» на «Главной».",
@@ -1778,8 +1746,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1831,8 +1798,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1884,8 +1850,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1913,7 +1878,7 @@
         "ru": "1. Запускайте тест только кнопками на странице.",
         "uk": "1. Запускайте тест лише кнопками на сторінці.",
         "en": "1. Start the test only with the controls on the page.",
-        "de": "1. Starten Sie den Test nur über die Bedienelemente der Seite."
+        "de": "1. Starten Sie den Test nur über die Schaltflächen auf der Seite."
       },
       "escalation": [
         {
@@ -1937,8 +1902,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1990,8 +1954,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2043,8 +2006,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2096,8 +2058,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2111,7 +2072,7 @@
       "audience": "developer",
       "title": {
         "ru": "Помощник теста неверный",
-        "uk": "Помічник тесту хибний",
+        "uk": "Помічник тесту некоректний",
         "en": "Test helper invalid",
         "de": "Testhelfer ungültig"
       },
@@ -2159,8 +2120,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2212,8 +2172,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2265,8 +2224,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2318,8 +2276,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2371,8 +2328,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2424,8 +2380,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2477,8 +2432,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2530,8 +2484,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2583,8 +2536,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2612,7 +2564,7 @@
         "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
         "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
         "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
-        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verschwundenen Internet."
       },
       "escalation": [
         {
@@ -2636,8 +2588,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2657,7 +2608,7 @@
       },
       "cause": {
         "ru": "Задуман как отключение питания, пока встроенная служба VPN прошивки роутера занята своей работой. Сейчас этот тест не выполняется: нет безопасного способа вызвать такое состояние. Норма, когда тест будет доступен: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
-        "uk": "Задуманий як вимкнення живлення, поки вбудована служба VPN прошивки роутера зайнята своєю роботою. Зараз цей тест не виконується: немає безпечного способу викликати такий стан. Норма, коли тест буде доступний: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "uk": "Задумано як вимкнення живлення, поки вбудована служба VPN прошивки роутера зайнята своєю роботою. Зараз цей тест не виконується: немає безпечного способу викликати такий стан. Норма, коли тест буде доступний: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
         "en": "Planned as a power cut while the built-in VPN service of the router firmware is busy. This test is not run at the moment: there is no safe way to bring about that state. Normal result, once the test is available: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
         "de": "Geplant als Stromabschaltung, während der eingebaute VPN-Dienst der Router-Firmware beschäftigt ist. Dieser Test wird derzeit nicht ausgeführt: Es gibt keinen sicheren Weg, diesen Zustand herbeizuführen. Normal, sobald der Test verfügbar ist: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
       },
@@ -2665,7 +2616,7 @@
         "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
         "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
         "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
-        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verschwundenen Internet."
       },
       "escalation": [
         {
@@ -2689,8 +2640,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2718,7 +2668,7 @@
         "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
         "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
         "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
-        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verschwundenen Internet."
       },
       "escalation": [
         {
@@ -2742,8 +2692,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2771,7 +2720,7 @@
         "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
         "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
         "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
-        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verschwundenen Internet."
       },
       "escalation": [
         {
@@ -2795,8 +2744,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     },
     {
@@ -2824,7 +2772,7 @@
         "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
         "uk": "1. Нічого робити не потрібно: це опис перевірки на стенді розробника.\n2. Якщо після вимкнення живлення інтернет удома не повернувся сам, відкрийте «Довідку» (Help) і розділ про зниклий інтернет.",
         "en": "1. Nothing to do: this describes a check on the developer test bench.\n2. If the internet at your home did not come back on its own after a power cut, open Help and the section about lost internet.",
-        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verlorenen Internet."
+        "de": "1. Es ist nichts zu tun: Dies beschreibt eine Prüfung auf dem Prüfstand des Entwicklers.\n2. Kam das Internet bei Ihnen nach einem Stromausfall nicht von selbst zurück, öffnen Sie die „Hilfe“ (Help) und den Abschnitt zum verschwundenen Internet."
       },
       "escalation": [
         {
@@ -2848,8 +2796,7 @@
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test",
-        "translation-draft"
+        "power-test"
       ]
     }
   ]
