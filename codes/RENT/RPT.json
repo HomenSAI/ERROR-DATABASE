@@ -1,0 +1,496 @@
+{
+  "namespace": "RENT",
+  "area": "RPT",
+  "codes": [
+    {
+      "code": "RENT-RPT-001",
+      "number": "003-025-001",
+      "key": "MONTH_SEAL_BROKEN",
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Нарушена целостность: обнаружено несанкционированное изменение данных",
+        "uk": "Порушено цілісність: виявлено несанкціоновану зміну даних",
+        "en": "Integrity violated: unauthorised data change detected",
+        "de": "Integrität verletzt: unbefugte Datenänderung erkannt"
+      },
+      "cause": {
+        "ru": "Данные запечатанного месяца не совпадают с его печатью: запись изменена, удалена или добавлена после запечатывания, либо подменена сама печать.",
+        "uk": "Дані запечатаного місяця не збігаються з його печаткою: запис змінено, видалено або додано після запечатування, або підмінено саму печатку.",
+        "en": "The data of a sealed month does not match its seal: a record was changed, deleted or added after sealing, or the seal itself was replaced.",
+        "de": "Die Daten eines versiegelten Monats stimmen nicht mit seinem Siegel überein: Ein Eintrag wurde nach dem Versiegeln geändert, gelöscht oder hinzugefügt, oder das Siegel selbst wurde ersetzt."
+      },
+      "action": {
+        "ru": "1. Посмотрите место в строке тревоги: месяц, объект, раздел, запись и поле.\n2. Цифры этого месяца в отчёты не берутся, пока месяц не восстановлен.\n3. Восстановите базу из последней хорошей копии и сверьте печати с копиями из архива и сообщений.",
+        "uk": "1. Перегляньте місце в рядку тривоги: місяць, об'єкт, розділ, запис і поле.\n2. Цифри цього місяця до звітів не беруться, доки місяць не відновлено.\n3. Відновіть базу з останньої доброї копії та звірте печатки з копіями з архіву й повідомлень.",
+        "en": "1. Check the place in the alert line: month, property, section, record and field.\n2. The figures of this month are not used in reports until the month is restored.\n3. Restore the database from the last good backup and compare the seals with the copies from the archive and messages.",
+        "de": "1. Prüfen Sie die Stelle in der Warnzeile: Monat, Objekt, Bereich, Eintrag und Feld.\n2. Die Zahlen dieses Monats werden nicht in Berichte übernommen, bis der Monat wiederhergestellt ist.\n3. Stellen Sie die Datenbank aus der letzten guten Sicherung wieder her und vergleichen Sie die Siegel mit den Kopien aus dem Archiv und den Nachrichten."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-RPT-001",
+      "since": "1.7.0",
+      "tags": [
+        "integrity",
+        "report-base",
+        "seal"
+      ]
+    },
+    {
+      "code": "RENT-RPT-002",
+      "number": "003-025-002",
+      "key": "OUTSIDE_CHANGE",
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Данные изменены мимо программы",
+        "uk": "Дані змінено в обхід програми",
+        "en": "Data was changed outside the program",
+        "de": "Daten wurden außerhalb des Programms geändert"
+      },
+      "cause": {
+        "ru": "Значение в базе изменилось без программы — например, другим редактором базы. Кто и почему это сделал, неизвестно.",
+        "uk": "Значення в базі змінилося без програми — наприклад, іншим редактором бази. Хто і чому це зробив, невідомо.",
+        "en": "A value in the database changed without the program — for example, with another database editor. Who did it and why is unknown.",
+        "de": "Ein Wert in der Datenbank wurde ohne das Programm geändert — zum Beispiel mit einem anderen Datenbankeditor. Wer das getan hat und warum, ist unbekannt."
+      },
+      "action": {
+        "ru": "1. Откройте историю записи: там видно, что было и что стало.\n2. Если изменение не ваше — восстановите базу из последней хорошей копии и смените пароли.",
+        "uk": "1. Відкрийте історію запису: там видно, що було і що стало.\n2. Якщо зміна не ваша — відновіть базу з останньої доброї копії та змініть паролі.",
+        "en": "1. Open the record history: it shows what the value was and what it became.\n2. If the change was not yours, restore the database from the last good backup and change your passwords.",
+        "de": "1. Öffnen Sie den Verlauf des Eintrags: Dort sehen Sie, was vorher war und was jetzt ist.\n2. Wenn die Änderung nicht von Ihnen stammt, stellen Sie die Datenbank aus der letzten guten Sicherung wieder her und ändern Sie Ihre Passwörter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-RPT-002",
+      "since": "1.7.0",
+      "tags": [
+        "integrity",
+        "report-base",
+        "history"
+      ]
+    },
+    {
+      "code": "RENT-RPT-003",
+      "number": "003-025-003",
+      "key": "SEALED_MONTH_WRITE",
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Запись в запечатанный месяц",
+        "uk": "Запис у запечатаний місяць",
+        "en": "Write to a sealed month",
+        "de": "Eintrag in einen versiegelten Monat"
+      },
+      "cause": {
+        "ru": "В уже запечатанный месяц добавлена или изменена запись. Исправления прошлых месяцев делаются только записью в текущем месяце.",
+        "uk": "До вже запечатаного місяця додано або змінено запис. Виправлення минулих місяців робляться лише записом у поточному місяці.",
+        "en": "A record in an already sealed month was added or changed. Corrections of past months are made only with an entry in the current month.",
+        "de": "In einem bereits versiegelten Monat wurde ein Eintrag hinzugefügt oder geändert. Korrekturen vergangener Monate erfolgen nur durch einen Eintrag im aktuellen Monat."
+      },
+      "action": {
+        "ru": "1. Проверьте указанную запись и месяц.\n2. Внесите исправление в текущем месяце со ссылкой на исходную запись.",
+        "uk": "1. Перевірте зазначений запис і місяць.\n2. Внесіть виправлення в поточному місяці з посиланням на вихідний запис.",
+        "en": "1. Check the record and month shown.\n2. Enter the correction in the current month with a reference to the original record.",
+        "de": "1. Prüfen Sie den angezeigten Eintrag und Monat.\n2. Erfassen Sie die Korrektur im aktuellen Monat mit Verweis auf den ursprünglichen Eintrag."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-RPT-003",
+      "since": "1.7.0",
+      "tags": [
+        "integrity",
+        "report-base",
+        "seal"
+      ]
+    },
+    {
+      "code": "RENT-RPT-004",
+      "number": "003-025-004",
+      "key": "REASON_REQUIRED",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Укажите причину изменения",
+        "uk": "Вкажіть причину зміни",
+        "en": "Enter the reason for the change",
+        "de": "Geben Sie den Grund für die Änderung an"
+      },
+      "cause": {
+        "ru": "Любое изменение сохранённого значения записывается в историю вместе с причиной.",
+        "uk": "Будь-яка зміна збереженого значення записується в історію разом із причиною.",
+        "en": "Every change of a saved value is recorded in the history together with its reason.",
+        "de": "Jede Änderung eines gespeicherten Werts wird zusammen mit dem Grund im Verlauf gespeichert."
+      },
+      "action": {
+        "ru": "1. Напишите коротко, почему меняете значение, и сохраните ещё раз.",
+        "uk": "1. Напишіть коротко, чому змінюєте значення, і збережіть ще раз.",
+        "en": "1. Briefly write why you are changing the value and save again.",
+        "de": "1. Schreiben Sie kurz, warum Sie den Wert ändern, und speichern Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RPT-004",
+      "since": "1.7.0",
+      "tags": [
+        "report-base",
+        "history"
+      ]
+    },
+    {
+      "code": "RENT-RPT-005",
+      "number": "003-025-005",
+      "key": "SEAL_ORDER",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Месяцы запечатываются по порядку",
+        "uk": "Місяці запечатуються по черзі",
+        "en": "Months are sealed in order",
+        "de": "Monate werden der Reihe nach versiegelt"
+      },
+      "cause": {
+        "ru": "Печать каждого месяца связана с печатью предыдущего, поэтому пропустить месяц нельзя.",
+        "uk": "Печатка кожного місяця пов'язана з печаткою попереднього, тому пропустити місяць не можна.",
+        "en": "The seal of each month is linked to the seal of the previous one, so a month cannot be skipped.",
+        "de": "Das Siegel jedes Monats ist mit dem Siegel des Vormonats verknüpft, daher kann kein Monat übersprungen werden."
+      },
+      "action": {
+        "ru": "1. Сначала запечатайте самый ранний незапечатанный месяц.",
+        "uk": "1. Спочатку запечатайте найраніший незапечатаний місяць.",
+        "en": "1. First seal the earliest month that is not yet sealed.",
+        "de": "1. Versiegeln Sie zuerst den frühesten noch nicht versiegelten Monat."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RPT-005",
+      "since": "1.7.0",
+      "tags": [
+        "report-base",
+        "seal"
+      ]
+    },
+    {
+      "code": "RENT-RPT-006",
+      "number": "003-025-006",
+      "key": "SEAL_CURRENT_MONTH",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Текущий месяц запечатать нельзя",
+        "uk": "Поточний місяць запечатати не можна",
+        "en": "The current month cannot be sealed",
+        "de": "Der aktuelle Monat kann nicht versiegelt werden"
+      },
+      "cause": {
+        "ru": "В текущем месяце делаются все исправления, поэтому он всегда остаётся открытым.",
+        "uk": "У поточному місяці робляться всі виправлення, тому він завжди лишається відкритим.",
+        "en": "All corrections are made in the current month, so it always stays open.",
+        "de": "Alle Korrekturen erfolgen im aktuellen Monat, daher bleibt er immer offen."
+      },
+      "action": {
+        "ru": "1. Запечатайте месяц после его окончания.",
+        "uk": "1. Запечатайте місяць після його закінчення.",
+        "en": "1. Seal the month after it has ended.",
+        "de": "1. Versiegeln Sie den Monat nach seinem Ende."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RPT-006",
+      "since": "1.7.0",
+      "tags": [
+        "report-base",
+        "seal"
+      ]
+    },
+    {
+      "code": "RENT-RPT-007",
+      "number": "003-025-007",
+      "key": "SEAL_DRAFTS",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В месяце есть незавершённые записи",
+        "uk": "У місяці є незавершені записи",
+        "en": "The month has unfinished records",
+        "de": "Der Monat enthält unfertige Einträge"
+      },
+      "cause": {
+        "ru": "В настройках выбрано не запечатывать месяц, пока в нём есть черновики, или такие записи нельзя перенести в текущий месяц.",
+        "uk": "У налаштуваннях вибрано не запечатувати місяць, доки в ньому є чернетки, або такі записи не можна перенести в поточний місяць.",
+        "en": "The settings say not to seal a month while it has drafts, or such records cannot be moved to the current month.",
+        "de": "In den Einstellungen ist festgelegt, einen Monat nicht zu versiegeln, solange er Entwürfe enthält, oder solche Einträge können nicht in den aktuellen Monat verschoben werden."
+      },
+      "action": {
+        "ru": "1. Завершите или удалите черновики из списка.\n2. Или выберите другой режим в настройках рабочего окна.",
+        "uk": "1. Завершіть або видаліть чернетки зі списку.\n2. Або виберіть інший режим у налаштуваннях робочого вікна.",
+        "en": "1. Finish or delete the drafts in the list.\n2. Or choose another mode in the working window settings.",
+        "de": "1. Schließen Sie die Entwürfe aus der Liste ab oder löschen Sie sie.\n2. Oder wählen Sie in den Einstellungen des Arbeitsfensters einen anderen Modus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RPT-007",
+      "since": "1.7.0",
+      "tags": [
+        "report-base",
+        "seal"
+      ]
+    },
+    {
+      "code": "RENT-RPT-008",
+      "number": "003-025-008",
+      "key": "SEAL_PIN",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подтвердите запечатывание PIN-кодом",
+        "uk": "Підтвердьте запечатування PIN-кодом",
+        "en": "Confirm sealing with your PIN",
+        "de": "Bestätigen Sie das Versiegeln mit Ihrer PIN"
+      },
+      "cause": {
+        "ru": "После запечатывания месяц изменить нельзя, поэтому действие подтверждается PIN-кодом.",
+        "uk": "Після запечатування місяць змінити не можна, тому дія підтверджується PIN-кодом.",
+        "en": "A sealed month cannot be changed, so the action is confirmed with your PIN.",
+        "de": "Ein versiegelter Monat kann nicht geändert werden, daher wird die Aktion mit Ihrer PIN bestätigt."
+      },
+      "action": {
+        "ru": "1. Введите PIN-код и подтвердите ещё раз.",
+        "uk": "1. Введіть PIN-код і підтвердьте ще раз.",
+        "en": "1. Enter your PIN and confirm again.",
+        "de": "1. Geben Sie Ihre PIN ein und bestätigen Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RPT-008",
+      "since": "1.7.0",
+      "tags": [
+        "report-base",
+        "seal",
+        "pin"
+      ]
+    },
+    {
+      "code": "RENT-RPT-009",
+      "number": "003-025-009",
+      "key": "SEAL_SOON",
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Месяц скоро будет запечатан автоматически",
+        "uk": "Місяць скоро буде запечатано автоматично",
+        "en": "The month will soon be sealed automatically",
+        "de": "Der Monat wird bald automatisch versiegelt"
+      },
+      "cause": {
+        "ru": "Месяц выходит за рабочее окно. Незапечатанный месяц за окном запечатывается автоматически.",
+        "uk": "Місяць виходить за робоче вікно. Незапечатаний місяць за вікном запечатується автоматично.",
+        "en": "The month is leaving the working window. An unsealed month outside the window is sealed automatically.",
+        "de": "Der Monat verlässt das Arbeitsfenster. Ein nicht versiegelter Monat außerhalb des Fensters wird automatisch versiegelt."
+      },
+      "action": {
+        "ru": "1. Внесите показания и счета за этот месяц.\n2. Запечатайте месяц сами или дождитесь автоматического запечатывания.",
+        "uk": "1. Внесіть показники та рахунки за цей місяць.\n2. Запечатайте місяць самі або дочекайтеся автоматичного запечатування.",
+        "en": "1. Enter the meter readings and invoices for this month.\n2. Seal the month yourself or wait for automatic sealing.",
+        "de": "1. Erfassen Sie die Zählerstände und Rechnungen für diesen Monat.\n2. Versiegeln Sie den Monat selbst oder warten Sie auf das automatische Versiegeln."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RPT-009",
+      "since": "1.7.0",
+      "tags": [
+        "report-base",
+        "seal"
+      ]
+    }
+  ]
+}
