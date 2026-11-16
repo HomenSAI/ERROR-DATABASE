@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "homensai-errors"
-version = "1.7.0"
+version = "1.8.0"
 description = "Каталог кодов ошибок HomenS.AI: Catalog, AppError, RFC 9457, помощь, поиск"
 readme = "README.md"
 requires-python = ">=3.10"

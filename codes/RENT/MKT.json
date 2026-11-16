@@ -1,0 +1,421 @@
+{
+  "namespace": "RENT",
+  "area": "MKT",
+  "codes": [
+    {
+      "code": "RENT-MKT-001",
+      "number": "003-024-001",
+      "key": "NOT_CONFIGURED",
+      "aliases": [
+        "market_not_configured",
+        "not_configured"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Источник цен не подключён",
+        "uk": "Джерело цін не підключено",
+        "en": "Price source is not connected",
+        "de": "Preisquelle ist nicht verbunden"
+      },
+      "cause": {
+        "ru": "Для источника объявлений не задан ключ доступа.",
+        "uk": "Для джерела оголошень не задано ключ доступу.",
+        "en": "No access key is set for the listings source.",
+        "de": "Für die Anzeigenquelle ist kein Zugangsschlüssel hinterlegt."
+      },
+      "action": {
+        "ru": "1. Получите ключ у площадки.\n2. Задайте его в настройках рыночной цены.\n3. Проверка повторится сама примерно через час.",
+        "uk": "1. Отримайте ключ у майданчика.\n2. Задайте його в налаштуваннях ринкової ціни.\n3. Перевірка повториться сама приблизно через годину.",
+        "en": "1. Get a key from the listings site.\n2. Set it in the market price settings.\n3. The check repeats by itself in about an hour.",
+        "de": "1. Holen Sie einen Schlüssel bei der Plattform.\n2. Tragen Sie ihn in den Einstellungen zum Marktpreis ein.\n3. Die Prüfung wiederholt sich nach etwa einer Stunde von selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-MKT-001",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "code": "RENT-MKT-002",
+      "number": "003-024-002",
+      "key": "KEY_REJECTED",
+      "aliases": [
+        "market_key_rejected",
+        "key_rejected"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Площадка не приняла ключ",
+        "uk": "Майданчик не прийняв ключ",
+        "en": "The site rejected the key",
+        "de": "Die Plattform hat den Schlüssel abgelehnt"
+      },
+      "cause": {
+        "ru": "Ключ неверный или срок его действия закончился.",
+        "uk": "Ключ неправильний або строк його дії закінчився.",
+        "en": "The key is wrong or has expired.",
+        "de": "Der Schlüssel ist falsch oder abgelaufen."
+      },
+      "action": {
+        "ru": "1. Проверьте ключ и срок его действия.\n2. При необходимости получите новый ключ и задайте его в настройках рыночной цены.",
+        "uk": "1. Перевірте ключ і строк його дії.\n2. За потреби отримайте новий ключ і задайте його в налаштуваннях ринкової ціни.",
+        "en": "1. Check the key and its expiry date.\n2. If needed, get a new key and set it in the market price settings.",
+        "de": "1. Prüfen Sie den Schlüssel und sein Ablaufdatum.\n2. Holen Sie bei Bedarf einen neuen Schlüssel und tragen Sie ihn in den Einstellungen zum Marktpreis ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-MKT-002",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "code": "RENT-MKT-003",
+      "number": "003-024-003",
+      "key": "REQUEST_REJECTED",
+      "aliases": [
+        "market_request_rejected",
+        "request_rejected"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Площадка отклонила запрос",
+        "uk": "Майданчик відхилив запит",
+        "en": "The site rejected the request",
+        "de": "Die Plattform hat die Anfrage abgelehnt"
+      },
+      "cause": {
+        "ru": "Площадка не поняла запрос: чаще всего неверны коды области или города.",
+        "uk": "Майданчик не зрозумів запит: найчастіше неправильні коди області або міста.",
+        "en": "The site did not understand the request: most often the region or city codes are wrong.",
+        "de": "Die Plattform hat die Anfrage nicht verstanden: meist sind die Gebiets- oder Stadtcodes falsch."
+      },
+      "action": {
+        "ru": "1. Проверьте коды области и города в настройках рыночной цены.\n2. Повторите проверку на следующий день.",
+        "uk": "1. Перевірте коди області та міста в налаштуваннях ринкової ціни.\n2. Повторіть перевірку наступного дня.",
+        "en": "1. Check the region and city codes in the market price settings.\n2. Repeat the check the next day.",
+        "de": "1. Prüfen Sie die Gebiets- und Stadtcodes in den Einstellungen zum Marktpreis.\n2. Wiederholen Sie die Prüfung am nächsten Tag."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-MKT-003",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "code": "RENT-MKT-004",
+      "number": "003-024-004",
+      "key": "RATE_LIMITED",
+      "aliases": [
+        "market_rate_limited",
+        "rate_limited"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Площадка просит подождать",
+        "uk": "Майданчик просить зачекати",
+        "en": "The site asks to wait",
+        "de": "Die Plattform bittet um Wartezeit"
+      },
+      "cause": {
+        "ru": "Исчерпан часовой лимит запросов к площадке.",
+        "uk": "Вичерпано годинний ліміт запитів до майданчика.",
+        "en": "The hourly request limit of the site is used up.",
+        "de": "Das Stundenlimit für Anfragen an die Plattform ist erreicht."
+      },
+      "action": {
+        "ru": "Ничего делать не нужно: проверка повторится сама примерно через час.",
+        "uk": "Нічого робити не потрібно: перевірка повториться сама приблизно через годину.",
+        "en": "Nothing to do: the check repeats by itself in about an hour.",
+        "de": "Sie müssen nichts tun: Die Prüfung wiederholt sich nach etwa einer Stunde von selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-MKT-004",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "code": "RENT-MKT-005",
+      "number": "003-024-005",
+      "key": "SOURCE_UNAVAILABLE",
+      "aliases": [
+        "market_source_unavailable",
+        "source_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Площадка недоступна",
+        "uk": "Майданчик недоступний",
+        "en": "The site is unavailable",
+        "de": "Die Plattform ist nicht erreichbar"
+      },
+      "cause": {
+        "ru": "Площадка не отвечает или нет связи с интернетом.",
+        "uk": "Майданчик не відповідає або немає зв’язку з інтернетом.",
+        "en": "The site does not respond or there is no internet connection.",
+        "de": "Die Plattform antwortet nicht oder es gibt keine Internetverbindung."
+      },
+      "action": {
+        "ru": "1. Проверьте подключение к интернету.\n2. Повтор будет позже сам.",
+        "uk": "1. Перевірте підключення до інтернету.\n2. Повтор буде пізніше сам.",
+        "en": "1. Check your internet connection.\n2. The check will repeat later by itself.",
+        "de": "1. Prüfen Sie die Internetverbindung.\n2. Die Prüfung wird später von selbst wiederholt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-MKT-005",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "code": "RENT-MKT-006",
+      "number": "003-024-006",
+      "key": "BAD_RESPONSE",
+      "aliases": [
+        "market_bad_response",
+        "bad_response"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Неожиданный ответ площадки",
+        "uk": "Несподівана відповідь майданчика",
+        "en": "Unexpected reply from the site",
+        "de": "Unerwartete Antwort der Plattform"
+      },
+      "cause": {
+        "ru": "Ответ площадки не похож на список объявлений: возможно, площадка изменила формат.",
+        "uk": "Відповідь майданчика не схожа на список оголошень: можливо, майданчик змінив формат.",
+        "en": "The reply does not look like a list of listings: the site may have changed its format.",
+        "de": "Die Antwort sieht nicht wie eine Anzeigenliste aus: Möglicherweise hat die Plattform ihr Format geändert."
+      },
+      "action": {
+        "ru": "Повтор будет на следующий день сам. Если ошибка не уходит, обратитесь за помощью.",
+        "uk": "Повтор буде наступного дня сам. Якщо помилка не зникає, зверніться по допомогу.",
+        "en": "The check repeats the next day by itself. If the error stays, ask for help.",
+        "de": "Die Prüfung wird am nächsten Tag von selbst wiederholt. Bleibt der Fehler, holen Sie Hilfe."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-MKT-006",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "code": "RENT-MKT-007",
+      "number": "003-024-007",
+      "key": "AREA_MISSING",
+      "aliases": [
+        "market_area_missing",
+        "area_missing"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не заданы коды города",
+        "uk": "Не задано коди міста",
+        "en": "City codes are not set",
+        "de": "Stadtcodes sind nicht festgelegt"
+      },
+      "cause": {
+        "ru": "Для города квартиры не заданы коды области в настройках рыночной цены.",
+        "uk": "Для міста квартири не задано коди області в налаштуваннях ринкової ціни.",
+        "en": "The region codes for the unit’s city are not set in the market price settings.",
+        "de": "Für die Stadt der Wohnung sind in den Einstellungen zum Marktpreis keine Gebietscodes festgelegt."
+      },
+      "action": {
+        "ru": "Задайте коды области и города в настройках рыночной цены.",
+        "uk": "Задайте коди області та міста в налаштуваннях ринкової ціни.",
+        "en": "Set the region and city codes in the market price settings.",
+        "de": "Tragen Sie die Gebiets- und Stadtcodes in den Einstellungen zum Marktpreis ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-MKT-007",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "code": "RENT-MKT-008",
+      "number": "003-024-008",
+      "key": "SNAPSHOT_FAILED",
+      "aliases": [
+        "market_snapshot_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Снимок цен не получен",
+        "uk": "Знімок цін не отримано",
+        "en": "Price snapshot not received",
+        "de": "Preisaufnahme nicht erhalten"
+      },
+      "cause": {
+        "ru": "Снимок рыночной цены не получен по неустановленной причине.",
+        "uk": "Знімок ринкової ціни не отримано з невстановленої причини.",
+        "en": "The market price snapshot was not received for an unknown reason.",
+        "de": "Die Marktpreisaufnahme wurde aus unbekanntem Grund nicht empfangen."
+      },
+      "action": {
+        "ru": "Повтор будет позже сам. Если ошибка не уходит, обратитесь за помощью.",
+        "uk": "Повтор буде пізніше сам. Якщо помилка не зникає, зверніться по допомогу.",
+        "en": "The check repeats later by itself. If the error stays, ask for help.",
+        "de": "Die Prüfung wird später von selbst wiederholt. Bleibt der Fehler, holen Sie Hilfe."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-MKT-008",
+      "since": "1.8.0",
+      "tags": [
+        "market"
+      ]
+    }
+  ]
+}
