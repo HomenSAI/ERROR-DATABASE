@@ -30,7 +30,7 @@ FORMAT = 1
 ALWAYS_NAMESPACES = ("COMMON",)
 
 ENTRY_FIELDS = ("code", "number", "key", "aliases", "level", "audience", "title", "cause", "action", "escalation",
-                "params", "retryable", "http_status", "help", "related", "since", "deprecated", "replaced_by", "tags",
+                "params", "retryable", "http_status", "help", "related", "parent", "variants", "since", "deprecated", "replaced_by", "tags",
                 "fixed_in", "examples")
 STEP_FIELDS = ("to", "when", "assistant", "prompt", "channel", "data")
 _PLACEHOLDER_RE = re.compile(r"\{([a-z_][a-z0-9_]*)\}")
@@ -79,6 +79,8 @@ class Entry:
     params: Mapping[str, str] = field(default_factory=lambda: MappingProxyType({}))
     http_status: int | None = None
     related: tuple[str, ...] = ()
+    parent: str | None = None
+    variants: tuple[str, ...] = ()
     deprecated: str | None = None
     replaced_by: str | None = None
     tags: tuple[str, ...] = ()
@@ -115,7 +117,7 @@ class Entry:
             value = getattr(self, name)
             if value is None or value == "":
                 continue
-            if name in ("aliases", "params", "related", "tags", "fixed_in") and not value:
+            if name in ("aliases", "params", "related", "variants", "tags", "fixed_in") and not value:
                 continue
             if name in ("title", "cause", "action"):
                 value = {lang: value[lang] for lang in LANGS if lang in value}
@@ -213,7 +215,7 @@ def _substitute(text: str, params: Mapping[str, Any]) -> str:
 
 
 class Catalog:
-    """Каталог кодов: поиск по `code`, `key` и `aliases`; тексты, RFC 9457, помощь, поиск.
+    """Каталог кодов: поиск по `code`, `key`, `aliases` и `variants`; тексты, RFC 9457, помощь, поиск.
 
     `strict=True` — для тестов продукта: неизвестный код и неверные подстановки — исключение.
     `strict=False` — для работы: неизвестный код заменяется на `COMMON-SYS-001` с записью в журнал, недостающие
@@ -248,7 +250,7 @@ class Catalog:
                 if missing:
                     raise CatalogError(f"{entry.code}: {field_name} без языков {missing}")
             self._entries[entry.code] = entry
-            for name in (entry.code, entry.key, *entry.aliases, *([entry.number] if entry.number else [])):
+            for name in (entry.code, entry.key, *entry.aliases, *entry.variants, *([entry.number] if entry.number else [])):
                 owner = self._names.setdefault(name, entry.code)
                 if owner != entry.code:
                     raise CatalogError(f"{entry.code}: имя {name} уже занято кодом {owner}")
@@ -393,7 +395,7 @@ class Catalog:
         return list(self._entries)
 
     def find(self, name: str) -> Entry | None:
-        """Запись по коду, `key`, старому коду (`aliases`) или цифровому коду; `None`, если нет.
+        """Запись по коду, `key`, старому коду (`aliases`), id версии сценария (`variants`, §4.4) или цифровому коду; `None`, если нет.
 
         Цифровой код принимается с дефисами (`003-012-003`), без них (`003012003`) и с пробелами (`003 012 003`).
         """
@@ -563,6 +565,10 @@ class Catalog:
             meta.append(f"{labels['replaced_by']} [{entry.replaced_by}]({entry.replaced_by}{link_suffix})")
         if entry.fixed_in:
             meta.append(f"{labels['fixed_in']}: " + ", ".join(f"{p} {v}" for p, v in sorted(entry.fixed_in.items())))
+        if entry.parent:
+            meta.append(f"{labels['parent']} [{entry.parent}]({entry.parent}{link_suffix})")
+        if entry.variants:
+            meta.append(f"{labels['variants']}: " + ", ".join(entry.variants))
         lines += ["---", "", " · ".join(meta), ""]
         return "\n".join(lines)
 
@@ -612,7 +618,7 @@ class Catalog:
         if tokens:
             for entry in self:
                 doc = self.search_doc(entry, lang)
-                names = [_texts.normalize(n) for n in (entry.code, entry.key, *entry.aliases)]
+                names = [_texts.normalize(n) for n in (entry.code, entry.key, *entry.aliases, *entry.variants)]
                 score = 0
                 for token in tokens:
                     base = _texts.stem(token)

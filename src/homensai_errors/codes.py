@@ -961,6 +961,8 @@ class Errors:
     PLUG_P10: Final = "VPN-FLT-052"  # VPN-FLT-052
     VPN_FLT_053: Final = "VPN-FLT-053"  # PLUG_P23
     PLUG_P23: Final = "VPN-FLT-053"  # VPN-FLT-053
+    VPN_FLT_054: Final = "VPN-FLT-054"  # PLUG_P4_STOP_DONE
+    PLUG_P4_STOP_DONE: Final = "VPN-FLT-054"  # VPN-FLT-054
     VPN_INST_001: Final = "VPN-INST-001"  # ARCHIVER_MISSING
     ARCHIVER_MISSING: Final = "VPN-INST-001"  # VPN-INST-001
     VPN_INST_002: Final = "VPN-INST-002"  # AUTO_RESUME_PENDING
@@ -3369,6 +3371,7 @@ CODES: Final[frozenset[str]] = frozenset({
     "VPN-FLT-051",
     "VPN-FLT-052",
     "VPN-FLT-053",
+    "VPN-FLT-054",
     "VPN-INST-001",
     "VPN-INST-002",
     "VPN-INST-003",
