@@ -19,9 +19,9 @@
       },
       "cause": {
         "ru": "Один из шагов отправки уведомлений в Telegram сообщил о своём состоянии. Работа VPN от этого не меняется. Это семейство: описание относится ко всем кодам с префиксом «TELEGRAM-».",
-        "uk": "Один із кроків надсилання сповіщень у Telegram повідомив про свій стан. Робота VPN від цього не змінюється. Це родина: опис стосується всіх кодів із префіксом «TELEGRAM-».",
+        "uk": "Один із кроків надсилання сповіщень у Telegram повідомив про свій стан. Робота VPN від цього не змінюється. Це сімейство кодів: опис стосується всіх кодів із префіксом «TELEGRAM-».",
         "en": "One step of sending Telegram notifications reported its state. The VPN keeps working as before. This is a family: the description applies to all codes starting with \"TELEGRAM-\".",
-        "de": "Ein Schritt beim Senden der Telegram-Benachrichtigungen hat seinen Zustand gemeldet. Das VPN arbeitet unverändert weiter. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „TELEGRAM-“."
+        "de": "Ein Schritt beim Senden der Telegram-Benachrichtigungen hat seinen Zustand gemeldet. Das VPN arbeitet unverändert weiter. Dies ist eine Code-Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „TELEGRAM-“."
       },
       "action": {
         "ru": "1. Откройте «Настройки» → «Уведомления Telegram».\n2. Проверьте настройки Telegram.\n3. Если не помогло, откройте «Помощь» → «Не приходят отчёты в Telegram».",
@@ -52,7 +52,6 @@
         "auto-vpn",
         "tg",
         "telegram",
-        "translation-draft",
         "family"
       ]
     },
@@ -105,8 +104,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -158,8 +156,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -211,8 +208,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -264,8 +260,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -317,8 +312,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -370,8 +364,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -423,8 +416,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -452,7 +444,7 @@
         "ru": "1. Подождите следующего отчёта.\n2. Если ошибка повторяется, сообщите разработчику этот код.",
         "uk": "1. Зачекайте на наступний звіт.\n2. Якщо помилка повторюється, повідомте розробнику цей код.",
         "en": "1. Wait for the next report.\n2. If it repeats, send this code to the developer.",
-        "de": "1. Warten Sie auf den nächsten Bericht.\n2. Wiederholt es sich, senden Sie diesen Code an den Entwickler."
+        "de": "1. Warten Sie auf den nächsten Bericht.\n2. Wenn der Fehler wiederholt auftritt, senden Sie diesen Code an den Entwickler."
       },
       "escalation": [
         {
@@ -486,8 +478,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -503,7 +494,7 @@
         "ru": "Неверный выбор пунктов отчёта",
         "uk": "Неправильний вибір пунктів звіту",
         "en": "The report items are not valid",
-        "de": "Die Berichtspunkte sind ungültig"
+        "de": "Ungültige Auswahl der Berichtspunkte"
       },
       "cause": {
         "ru": "Список пунктов, выбранных для отчёта в Telegram, неверен, поэтому он не принят.",
@@ -539,8 +530,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -592,8 +582,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -645,8 +634,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -698,8 +686,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -761,8 +748,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -814,8 +800,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -867,8 +852,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -920,8 +904,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -943,7 +926,7 @@
         "ru": "Роутер не смог прочитать сохранённое состояние отчётов Telegram. Обычно он восстанавливает его сам.",
         "uk": "Роутер не зміг прочитати збережений стан звітів Telegram. Зазвичай він відновлює його сам.",
         "en": "The router could not read the saved state of the Telegram reports. Usually it rebuilds it by itself.",
-        "de": "Der Router konnte den gespeicherten Zustand der Telegram-Berichte nicht lesen. Meist stellt er ihn selbst wieder her."
+        "de": "Der Router konnte den gespeicherten Zustand der Telegram-Berichte nicht lesen. Normalerweise stellt er ihn selbst wieder her."
       },
       "action": {
         "ru": "1. Подождите следующего отчёта.\n2. Если код остаётся, сохраните настройки ещё раз в «Настройки» → «Уведомления Telegram».",
@@ -983,8 +966,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1036,8 +1018,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1065,7 +1046,7 @@
         "ru": "1. Проверьте свободное место на роутере (см. «Помощь» → «Размер журнала и хранимая история»).",
         "uk": "1. Перевірте вільне місце на роутері (див. «Довідку» (Help) → «Розмір журналу та збережена історія» (Journal size and retained history)).",
         "en": "1. Check the free space on the router (see Help → “Journal size and retained history”).",
-        "de": "1. Prüfen Sie den freien Speicher des Routers (siehe „Hilfe“ (Help) → „Journalgröße und gespeicherter Verlauf“ (Journal size and retained history))."
+        "de": "1. Prüfen Sie den freien Speicher des Routers (siehe „Hilfe“ (Help) → „Protokollgröße und gespeicherter Verlauf“ (Journal size and retained history))."
       },
       "escalation": [
         {
@@ -1099,8 +1080,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1152,8 +1132,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1205,8 +1184,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1258,8 +1236,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1311,8 +1288,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1374,8 +1350,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1427,8 +1402,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     },
     {
@@ -1480,8 +1454,7 @@
       "tags": [
         "auto-vpn",
         "tg",
-        "telegram",
-        "translation-draft"
+        "telegram"
       ]
     }
   ]
