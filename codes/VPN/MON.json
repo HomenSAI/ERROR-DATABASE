@@ -51,8 +51,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -104,8 +103,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -127,7 +125,7 @@
         "ru": "Данных пока недостаточно, поэтому состояние канала остаётся «неизвестно». Так бывает, пока VPN ещё проверяется.",
         "uk": "Даних поки недостатньо, тому стан каналу лишається «невідомо». Так буває, поки VPN ще перевіряється.",
         "en": "There is not enough data yet, so the channel state stays \"unknown\". This is normal while the VPN is still being checked.",
-        "de": "Es gibt noch nicht genug Daten, daher bleibt der Kanalzustand „unbekannt“. Das ist normal, solange das VPN noch geprüft wird."
+        "de": "Es gibt noch nicht genug Daten, daher bleibt der Kanalzustand „unbekannt“. Das kommt vor, solange das VPN noch geprüft wird."
       },
       "action": {
         "ru": "1. Подождите несколько минут.\n2. Если состояние не меняется, запустите проверку ещё раз на главной странице.",
@@ -157,8 +155,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -210,8 +207,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -233,7 +229,7 @@
         "ru": "Защищённые соединения через оба канала проходят, но поиск адресов сайтов (DNS) не работает ни в одном. Это проблема с DNS, а не с туннелями.",
         "uk": "Захищені з'єднання через обидва канали проходять, але пошук адрес сайтів (DNS) не працює в жодному. Це проблема з DNS, а не з тунелями.",
         "en": "Secure connections pass through both channels, but looking up site names (DNS) fails on both. This is a DNS problem, not a tunnel failure.",
-        "de": "Sichere Verbindungen gehen über beide Kanäle, aber die Namensauflösung (DNS) schlägt in beiden fehl. Das ist ein DNS-Problem, kein Tunnelausfall."
+        "de": "Sichere Verbindungen gehen über beide Kanäle, aber die Namensauflösung (DNS) schlägt in beiden fehl. Das ist ein Problem mit DNS, nicht mit den Tunneln."
       },
       "action": {
         "ru": "1. Проверьте настройки DNS в профилях VPN.\n2. Проверьте настройки DNS самого роутера.",
@@ -273,8 +269,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -326,8 +321,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -379,8 +373,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -432,8 +425,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -485,8 +477,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -538,8 +529,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -591,8 +581,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -654,8 +643,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -717,8 +705,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -770,8 +757,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -833,8 +819,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -886,8 +871,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -939,8 +923,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -992,8 +975,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1045,8 +1027,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1098,8 +1079,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1127,7 +1107,7 @@
         "ru": "1. Подождите фоновой проверки: открытие страницы не запускает лишних измерений.",
         "uk": "1. Зачекайте фонової перевірки: відкриття сторінки не запускає зайвих вимірювань.",
         "en": "1. Wait for the background check: opening the page starts no extra measurement.",
-        "de": "1. Warten Sie die Hintergrundprüfung ab: Das Öffnen der Seite startet keine zusätzliche Messung."
+        "de": "1. Warten Sie die Hintergrundprüfung ab: Das Öffnen der Seite startet keine zusätzlichen Messungen."
       },
       "escalation": [
         {
@@ -1151,8 +1131,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1178,7 +1157,7 @@
       },
       "action": {
         "ru": "1. Подождите следующей фоновой проверки.\n2. Если результаты остаются старыми, проверьте в «Системе», что наблюдение за каналами работает.",
-        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Якщо результати лишаються старими, перевірте в розділі «Система» (System), що спостереження за каналами працює.",
+        "uk": "1. Зачекайте наступної фонової перевірки.\n2. Якщо результати залишаються старими, перевірте в розділі «Система» (System), що спостереження за каналами працює.",
         "en": "1. Wait for the next background check.\n2. If results stay old, check in System that channel monitoring is running.",
         "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Bleiben die Ergebnisse veraltet, prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft."
       },
@@ -1204,8 +1183,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1233,7 +1211,7 @@
         "ru": "1. Подождите следующей проверки пинга.\n2. Сравните с результатами проверок DNS и защищённых соединений: некоторые сети блокируют пинг, хотя всё работает.",
         "uk": "1. Зачекайте наступної перевірки пінгу.\n2. Порівняйте з результатами перевірок DNS і захищених з'єднань: деякі мережі блокують пінг, хоча все працює.",
         "en": "1. Wait for the next ping check.\n2. Compare with the DNS and secure connection results: some networks block ping even when everything works.",
-        "de": "1. Warten Sie die nächste Ping-Prüfung ab.\n2. Vergleichen Sie mit den Ergebnissen der DNS- und Verbindungsprüfungen: Manche Netze blockieren Ping, obwohl alles funktioniert."
+        "de": "1. Warten Sie die nächste Ping-Prüfung ab.\n2. Vergleichen Sie mit den Ergebnissen der DNS-Prüfung und der Prüfung geschützter Verbindungen: Manche Netze blockieren Ping, obwohl alles funktioniert."
       },
       "escalation": [
         {
@@ -1267,8 +1245,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1296,7 +1273,7 @@
         "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории пинга см. «Помощь».",
         "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію пінгу див. «Довідку» (Help).",
         "en": "1. Wait for the next background check.\n2. For how ping is measured and stored, see Help.",
-        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie der Ping gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Details zur Messung und zum Verlauf des Pings finden Sie in der „Hilfe“ (Help)."
       },
       "escalation": [
         {
@@ -1320,8 +1297,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1343,7 +1319,7 @@
         "ru": "Архив пинга не удалось проверить, поэтому он не показывается. Другие данные вместо него не подставляются.",
         "uk": "Архів пінгу не вдалося перевірити, тому він не показується. Інші дані замість нього не підставляються.",
         "en": "The ping archive could not be verified, so it is not shown. No other data is shown in its place.",
-        "de": "Das Ping-Archiv konnte nicht überprüft werden und wird daher nicht angezeigt. Andere Daten werden nicht ersatzweise gezeigt."
+        "de": "Das Ping-Archiv konnte nicht geprüft werden und wird daher nicht angezeigt. An seiner Stelle werden keine anderen Daten angezeigt."
       },
       "action": {
         "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории пинга см. «Помощь».",
@@ -1373,8 +1349,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1436,8 +1411,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1459,7 +1433,7 @@
         "ru": "VPN-подключение изменилось, поэтому прежний результат пинга отброшен и не приписывается новому подключению.",
         "uk": "VPN-підключення змінилося, тому попередній результат пінгу відкинуто і не приписано новому підключенню.",
         "en": "The VPN connection has changed, so the previous ping result was dropped and is not credited to the new connection.",
-        "de": "Die VPN-Verbindung hat sich geändert, daher wurde das frühere Ping-Ergebnis verworfen und nicht der neuen Verbindung zugeordnet."
+        "de": "Die VPN-Verbindung hat sich geändert, daher wurde das frühere Ping-Ergebnis verworfen und wird der neuen Verbindung nicht zugerechnet."
       },
       "action": {
         "ru": "1. Подождите, пока роутер увидит новое подключение и проверит его пингом.",
@@ -1489,8 +1463,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1512,13 +1485,13 @@
         "ru": "Этот VPN выключен или не подключён, поэтому пинг через него не измеряется.",
         "uk": "Цей VPN вимкнено або не підключено, тому пінг через нього не вимірюється.",
         "en": "This VPN is turned off or not connected, so ping is not measured through it.",
-        "de": "Dieses VPN ist ausgeschaltet oder nicht verbunden, daher wird kein Ping darüber gemessen."
+        "de": "Dieses VPN ist ausgeschaltet oder nicht verbunden, daher wird über dieses VPN kein Ping gemessen."
       },
       "action": {
         "ru": "1. Проверьте, включено ли это VPN-подключение на роутере.\n2. Учтите: показ пинга сам не подключает туннель и не меняет работу Auto.",
         "uk": "1. Перевірте, чи ввімкнено це VPN-підключення на роутері.\n2. Зважте: показ пінгу сам не підключає тунель і не змінює роботу Auto.",
         "en": "1. Check whether this VPN connection is turned on on the router.\n2. Note: the ping display itself does not connect a tunnel or change Auto.",
-        "de": "1. Prüfen Sie, ob diese VPN-Verbindung auf dem Router eingeschaltet ist.\n2. Hinweis: Die Ping-Anzeige verbindet keinen Tunnel und ändert Auto nicht."
+        "de": "1. Prüfen Sie, ob diese VPN-Verbindung auf dem Router eingeschaltet ist.\n2. Hinweis: Die Ping-Anzeige baut selbst keinen Tunnel auf und ändert die Arbeitsweise von Auto nicht."
       },
       "escalation": [
         {
@@ -1542,8 +1515,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1595,8 +1567,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1618,7 +1589,7 @@
         "ru": "Для этого канала нет проверенного измерения пинга. Отсутствие пинга само по себе не означает, что канал не работает.",
         "uk": "Для цього каналу немає перевіреного вимірювання пінгу. Відсутність пінгу сама по собі не означає, що канал не працює.",
         "en": "There is no verified ping measurement for this channel. Missing ping alone does not mean the channel is down.",
-        "de": "Für diesen Kanal gibt es keine überprüfte Ping-Messung. Ein fehlender Ping allein bedeutet nicht, dass der Kanal ausgefallen ist."
+        "de": "Für diesen Kanal gibt es keine geprüfte Ping-Messung. Ein fehlender Ping allein bedeutet nicht, dass der Kanal nicht funktioniert."
       },
       "action": {
         "ru": "1. Проверьте в «Системе», что наблюдение за каналами работает.\n2. Проверьте, что выбрана нужная пара каналов.",
@@ -1648,8 +1619,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1677,7 +1647,7 @@
         "ru": "1. Добавьте это подключение заново через «Добавить VPN-канал»: программа сама настроит всё нужное.\n2. Если не получается, выполните шаги из «Помощи».",
         "uk": "1. Додайте це підключення заново через «Додати VPN-канал» (Add a VPN channel): програма сама налаштує все потрібне.\n2. Якщо не виходить, виконайте кроки з «Довідки» (Help).",
         "en": "1. Add this connection again with \"Add a VPN channel\": the program sets up everything needed by itself.\n2. If that does not work, follow the steps in Help.",
-        "de": "1. Fügen Sie diese Verbindung über „VPN-Kanal hinzufügen“ (Add a VPN channel) erneut hinzu: Das Programm richtet alles Nötige selbst ein.\n2. Klappt das nicht, folgen Sie den Schritten in der „Hilfe“ (Help)."
+        "de": "1. Fügen Sie diese Verbindung über „VPN-Kanal hinzufügen“ (Add a VPN channel) erneut hinzu: Das Programm richtet alles Nötige selbst ein.\n2. Wenn das nicht gelingt, folgen Sie den Schritten in der „Hilfe“ (Help)."
       },
       "escalation": [
         {
@@ -1701,8 +1671,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1754,8 +1723,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1777,13 +1745,13 @@
         "ru": "Сервер несколько раз не ответил на обновление защищённого соединения, и туннель прекратил попытки. Роутер теперь проверяет этот канал чаще, а Auto решает только по своим проверкам.",
         "uk": "Сервер кілька разів не відповів на оновлення захищеного з'єднання, і тунель припинив спроби. Роутер тепер перевіряє цей канал частіше, а Auto вирішує лише за своїми перевірками.",
         "en": "The server did not answer the secure connection renewal several times, and the tunnel stopped trying. The router now checks this channel more often; Auto decides only by its own checks.",
-        "de": "Der Server hat mehrmals nicht auf die Erneuerung der sicheren Verbindung geantwortet, und der Tunnel hat aufgegeben. Der Router prüft diesen Kanal jetzt häufiger; Auto entscheidet nur nach seinen eigenen Prüfungen."
+        "de": "Der Server hat mehrmals nicht auf die Erneuerung der sicheren Verbindung geantwortet, und der Tunnel hat es aufgegeben. Der Router prüft diesen Kanal jetzt häufiger; Auto entscheidet nur nach seinen eigenen Prüfungen."
       },
       "action": {
         "ru": "1. Если это повторяется, проверьте сервер VPN.\n2. Проверьте интернет самого роутера.",
         "uk": "1. Якщо це повторюється, перевірте сервер VPN.\n2. Перевірте інтернет самого роутера.",
         "en": "1. If it repeats, check the VPN server.\n2. Check the router's own Internet.",
-        "de": "1. Wiederholt sich das, prüfen Sie den VPN-Server.\n2. Prüfen Sie die Internetverbindung des Routers selbst."
+        "de": "1. Wiederholt sich das, prüfen Sie den VPN-Server.\n2. Prüfen Sie, ob der Router selbst Internet hat."
       },
       "escalation": [
         {
@@ -1807,8 +1775,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1830,13 +1797,13 @@
         "ru": "Сервер вовремя не ответил на обновление защищённого соединения. Это бывает и из-за одного потерянного пакета, поэтому роутер лишь чаще проверяет канал и сам из-за этого не переключает.",
         "uk": "Сервер вчасно не відповів на оновлення захищеного з'єднання. Це буває і через один втрачений пакет, тому роутер лише частіше перевіряє канал і сам через це не перемикає.",
         "en": "The server did not answer a secure connection renewal in time. A single lost packet can cause this, so the router only checks the channel more often and never switches because of it.",
-        "de": "Der Server hat nicht rechtzeitig auf eine Erneuerung der sicheren Verbindung geantwortet. Schon ein verlorenes Paket kann das auslösen, daher prüft der Router den Kanal nur häufiger und wechselt deswegen nicht."
+        "de": "Der Server hat nicht rechtzeitig auf eine Erneuerung der sicheren Verbindung geantwortet. Schon ein verlorenes Paket kann das auslösen, daher prüft der Router den Kanal nur häufiger und schaltet deswegen selbst nicht um."
       },
       "action": {
         "ru": "1. Ничего делать не нужно, если проверки канала проходят.",
         "uk": "1. Нічого робити не потрібно, якщо перевірки каналу проходять.",
         "en": "1. Nothing to do as long as the channel checks pass.",
-        "de": "1. Es ist nichts zu tun, solange die Kanalprüfungen bestanden werden."
+        "de": "1. Es ist nichts zu tun, solange die Kanalprüfungen erfolgreich sind."
       },
       "escalation": [
         {
@@ -1860,8 +1827,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1913,8 +1879,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1936,7 +1901,7 @@
         "ru": "Проверка роутера прошла мимо этого VPN, поэтому ничего о нём не доказывает.",
         "uk": "Перевірка роутера пройшла повз цей VPN, тому нічого про нього не доводить.",
         "en": "The router's check did not travel through this VPN, so it proves nothing about it.",
-        "de": "Die Prüfung des Routers lief nicht über dieses VPN und beweist daher nichts darüber."
+        "de": "Die Prüfung des Routers lief an diesem VPN vorbei und beweist daher nichts über dieses VPN."
       },
       "action": {
         "ru": "1. Выполните шаги из VPN-MON-035.",
@@ -1976,8 +1941,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2039,8 +2003,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2102,8 +2065,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2119,7 +2081,7 @@
         "ru": "Сброс статистики не выполнен",
         "uk": "Скидання статистики не виконано",
         "en": "The statistics reset was not done",
-        "de": "Die Statistik wurde nicht zurückgesetzt"
+        "de": "Das Zurücksetzen der Statistik wurde nicht ausgeführt"
       },
       "cause": {
         "ru": "Роутер не смог сохранить архив старых данных, поэтому оставил их без изменений.",
@@ -2165,8 +2127,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2228,8 +2189,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2251,13 +2211,13 @@
         "ru": "Роутер принял запрос на сброс, но наблюдение за каналами не сообщило результат вовремя: возможно, оно остановлено или занято проверкой. Неизвестно, выполнен сброс или нет.",
         "uk": "Роутер прийняв запит на скидання, але спостереження за каналами не повідомило результат вчасно: можливо, воно зупинене або зайняте перевіркою. Невідомо, чи виконано скидання.",
         "en": "The router accepted the reset request, but channel monitoring did not report the result in time: it may be stopped or busy with a check. It is unknown whether the reset was done.",
-        "de": "Der Router hat die Anfrage angenommen, aber die Kanalüberwachung hat das Ergebnis nicht rechtzeitig gemeldet: Sie ist vielleicht angehalten oder mit einer Prüfung beschäftigt. Ob zurückgesetzt wurde, ist unbekannt."
+        "de": "Der Router hat die Anfrage zum Zurücksetzen angenommen, aber die Kanalüberwachung hat das Ergebnis nicht rechtzeitig gemeldet: Sie ist vielleicht angehalten oder mit einer Prüfung beschäftigt. Ob zurückgesetzt wurde, ist unbekannt."
       },
       "action": {
         "ru": "1. Не отправляйте новый сброс, пока результат неизвестен.\n2. Проверьте в «Системе», что наблюдение за каналами работает.\n3. Обновите страницу и посмотрите, сброшена ли статистика.",
         "uk": "1. Не надсилайте нове скидання, поки результат невідомий.\n2. Перевірте в розділі «Система» (System), що спостереження за каналами працює.\n3. Оновіть сторінку й подивіться, чи скинуто статистику.",
         "en": "1. Do not send another reset while the result is unknown.\n2. Check in System that channel monitoring is running.\n3. Reload the page and see whether the statistics were reset.",
-        "de": "1. Senden Sie kein neues Zurücksetzen, solange das Ergebnis unbekannt ist.\n2. Prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft.\n3. Laden Sie die Seite neu und sehen Sie nach, ob die Statistik zurückgesetzt wurde."
+        "de": "1. Lösen Sie kein erneutes Zurücksetzen aus, solange das Ergebnis unbekannt ist.\n2. Prüfen Sie unter „System“ (System), ob die Kanalüberwachung läuft.\n3. Laden Sie die Seite neu und sehen Sie nach, ob die Statistik zurückgesetzt wurde."
       },
       "escalation": [
         {
@@ -2281,8 +2241,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2302,7 +2261,7 @@
       },
       "cause": {
         "ru": "Страница запросила у роутера текущее состояние и не получила ответа: роутер занят, ответ опоздал или произошёл сбой страницы. Пока ответа нет, ничего не показывается как работающее.",
-        "uk": "Сторінка запросила в роутера поточний стан і не отримала відповіді: роутер зайнятий, відповідь запізнилася або стався збій сторінки. Поки відповіді немає, нічого не показується як робоче.",
+        "uk": "Сторінка запитала у роутера поточний стан і не отримала відповіді: роутер зайнятий, відповідь запізнилася або стався збій сторінки. Поки відповіді немає, нічого не показується як працююче.",
         "en": "The page asked the router for the current state and got no answer: the router is busy, the answer came too late or the page failed. Until it answers, nothing is shown as working.",
         "de": "Die Seite hat den Router nach dem aktuellen Zustand gefragt und keine Antwort erhalten: Der Router ist ausgelastet, die Antwort kam zu spät oder die Seite hatte einen Fehler. Bis zur Antwort wird nichts als funktionierend angezeigt."
       },
@@ -2344,8 +2303,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2397,8 +2355,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2450,8 +2407,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2477,9 +2433,9 @@
       },
       "action": {
         "ru": "1. Проверьте в панели GL.iNet данные входа и сервер этого профиля.\n2. Перед изменением или переподключением профиля нажмите «Стоп» и дождитесь завершения.\n3. Не перезапускайте работающее подключение только ради смены статуса.",
-        "uk": "1. Перевірте в панелі GL.iNet дані входу та сервер цього профілю.\n2. Перед зміною або перепідключенням профілю натисніть «Стоп» (Stop) і дочекайтеся завершення.\n3. Не перезапускайте робоче підключення лише заради зміни статусу.",
+        "uk": "1. Перевірте в панелі GL.iNet дані входу та сервер цього профілю.\n2. Перед зміною або перепідключенням профілю натисніть «Стоп» (Stop) і дочекайтеся завершення.\n3. Не перезапускайте працююче підключення лише заради зміни статусу.",
         "en": "1. Check the login data and the server of this profile in the GL.iNet panel.\n2. Before changing or reconnecting the profile, press Stop and wait until it finishes.\n3. Do not restart a working connection just to change its status.",
-        "de": "1. Prüfen Sie Anmeldedaten und Server dieses Profils im GL.iNet-Panel.\n2. Drücken Sie vor dem Ändern oder Neuverbinden des Profils „Stopp“ (Stop) und warten Sie, bis der Vorgang abgeschlossen ist.\n3. Starten Sie eine funktionierende Verbindung nicht nur wegen der Statusanzeige neu."
+        "de": "1. Prüfen Sie Anmeldedaten und Server dieses Profils im GL.iNet-Panel.\n2. Drücken Sie vor dem Ändern oder Neuverbinden des Profils „Stopp“ (Stop) und warten Sie, bis der Vorgang abgeschlossen ist.\n3. Starten Sie eine funktionierende Verbindung nicht neu, nur um den Status zu ändern."
       },
       "escalation": [
         {
@@ -2503,8 +2459,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2556,8 +2511,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2577,7 +2531,7 @@
       },
       "cause": {
         "ru": "Через подключённый VPN прошла только часть проверочных защищённых соединений. Часть трафика может идти, и одно это сообщение не значит, что интернета нет совсем.",
-        "uk": "Через підключений VPN пройшла лише частина перевірних захищених з'єднань. Частина трафіку може йти, і саме це повідомлення не означає, що інтернету немає зовсім.",
+        "uk": "Через підключений VPN пройшла лише частина перевірочних захищених з'єднань. Частина трафіку може йти, і саме це повідомлення не означає, що інтернету немає зовсім.",
         "en": "Only some test secure connections passed through the connected VPN. Some traffic may still pass, and this message alone does not mean the Internet is gone.",
         "de": "Nur ein Teil der sicheren Testverbindungen ist über das verbundene VPN durchgegangen. Ein Teil des Verkehrs kann noch fließen, und diese Meldung allein bedeutet nicht, dass das Internet ganz fehlt."
       },
@@ -2609,8 +2563,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2626,7 +2579,7 @@
         "ru": "Не найден адрес VPN-сервера",
         "uk": "Не знайдено адресу VPN-сервера",
         "en": "The VPN server name cannot be found",
-        "de": "Der Name des VPN-Servers lässt sich nicht auflösen"
+        "de": "Die Adresse des VPN-Servers wurde nicht gefunden"
       },
       "cause": {
         "ru": "Имя VPN-сервера не удаётся превратить в адрес, поэтому подключиться к нему нельзя.",
@@ -2662,8 +2615,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2685,11 +2637,11 @@
         "ru": "Небольшие проверки через этот VPN проходят, а крупные пакеты пропадают. Страницы могут открываться, но загрузки и видеозвонки зависают. Auto считает это сбоем и предпочитает другой туннель, если у него такой проблемы нет.",
         "uk": "Невеликі перевірки через цей VPN проходять, а великі пакети зникають. Сторінки можуть відкриватися, але завантаження й відеодзвінки зависають. Auto вважає це збоєм і віддає перевагу іншому тунелю, якщо в нього такої проблеми немає.",
         "en": "Small checks pass through this VPN, but large packets get lost. Pages may open while uploads and video calls hang. Auto counts this as a failure and prefers the other tunnel if it does not have this problem.",
-        "de": "Kleine Prüfungen gehen über dieses VPN, aber große Pakete gehen verloren. Seiten können laden, während Uploads und Videoanrufe hängen. Auto wertet das als Ausfall und bevorzugt den anderen Tunnel, wenn dieser das Problem nicht hat."
+        "de": "Kleine Prüfungen gehen über dieses VPN, aber große Pakete gehen verloren. Seiten können sich öffnen, aber Uploads und Videoanrufe hängen. Auto wertet das als Ausfall und bevorzugt den anderen Tunnel, wenn dieser das Problem nicht hat."
       },
       "action": {
         "ru": "1. Уменьшите размер пакета (MTU) в профиле этого VPN в панели GL.iNet или выберите другой сервер.\n2. Если проблема в обоих туннелях, проверьте подключение роутера к интернету, например модем.\n3. Если не помогло, выполните шаги из «Помощи».",
-        "uk": "1. Зменшіть розмір пакета (MTU) у профілі цього VPN у панелі GL.iNet або виберіть інший сервер.\n2. Якщо проблема в обох тунелях, перевірте підключення роутера до інтернету, наприклад модем.\n3. Якщо не допомогло, виконайте кроки з «Довідки» (Help).",
+        "uk": "1. Зменшіть розмір пакета (MTU) у профілі цього VPN у панелі GL.iNet або виберіть інший сервер.\n2. Якщо проблема в обох тунелях, перевірте з'єднання роутера з інтернетом, наприклад модем.\n3. Якщо не допомогло, виконайте кроки з «Довідки» (Help).",
         "en": "1. Lower the packet size (MTU) in this VPN profile in the GL.iNet panel or choose another server.\n2. If both tunnels show it, check the router's Internet connection, for example the modem.\n3. If that does not help, follow the steps in Help.",
         "de": "1. Verringern Sie die Paketgröße (MTU) im Profil dieses VPN im GL.iNet-Panel oder wählen Sie einen anderen Server.\n2. Zeigen beide Tunnel das Problem, prüfen Sie die Internetverbindung des Routers, zum Beispiel das Modem.\n3. Hilft das nicht, folgen Sie den Schritten in der „Hilfe“ (Help)."
       },
@@ -2715,8 +2667,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2768,8 +2719,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2821,8 +2771,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2874,8 +2823,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2895,9 +2843,9 @@
       },
       "cause": {
         "ru": "Интернет роутера вернулся после пропадания. Пока основной канал не пройдёт проверку, Auto не переключает: резерв, поднявшийся чуть раньше, не повод менять канал.",
-        "uk": "Інтернет роутера повернувся після зникнення. Поки основний канал не пройде перевірку, Auto не перемикає: резерв, що піднявся трохи раніше, не привід змінювати канал.",
+        "uk": "Інтернет роутера повернувся після зникнення. Поки основний канал не пройде перевірку, Auto не перемикає: резерв, який запрацював трохи раніше, не привід змінювати канал.",
         "en": "The router's Internet is back after an outage. Until the main channel passes a check, Auto does not switch: a reserve that came up a little earlier is no reason to change the channel.",
-        "de": "Das Internet des Routers ist nach einem Ausfall zurück. Bis der Hauptkanal eine Prüfung besteht, wechselt Auto nicht: Eine Reserve, die etwas früher bereit ist, ist kein Grund für einen Wechsel."
+        "de": "Das Internet des Routers ist nach einem Ausfall zurück. Bis der Hauptkanal eine Prüfung besteht, wechselt Auto nicht: Eine Reserve, die etwas früher wieder da ist, ist kein Grund, den Kanal zu wechseln."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Время ожидания при желании можно изменить в «Настройках».",
@@ -2927,8 +2875,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2948,15 +2895,15 @@
       },
       "cause": {
         "ru": "Код группы измерения отклика обычных сайтов через VPN. Такой код сам по себе не означает сбой VPN, а старые значения вместо свежих не подставляются. Это семейство: описание относится ко всем кодам с префиксом «WEBSITE-».",
-        "uk": "Код групи вимірювання відгуку звичайних сайтів через VPN. Такий код сам по собі не означає збою VPN, а старі значення замість свіжих не підставляються. Це родина: опис стосується всіх кодів із префіксом «WEBSITE-».",
+        "uk": "Код групи вимірювання відгуку звичайних сайтів через VPN. Такий код сам по собі не означає збою VPN, а старі значення замість свіжих не підставляються. Це сімейство кодів: опис стосується всіх кодів із префіксом «WEBSITE-».",
         "en": "A code of the group that measures how ordinary sites respond through the VPN. Such a code alone does not mean the VPN failed, and old values are never shown in place of fresh ones. This is a family: the description applies to all codes starting with \"WEBSITE-\".",
-        "de": "Ein Code der Gruppe, die misst, wie gewöhnliche Websites über das VPN antworten. Ein solcher Code allein bedeutet keinen VPN-Ausfall, und alte Werte ersetzen nie frische. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „WEBSITE-“."
+        "de": "Ein Code der Gruppe, die misst, wie gewöhnliche Websites über das VPN antworten. Ein solcher Code allein bedeutet keinen VPN-Ausfall, und alte Werte ersetzen nie frische. Dies ist eine Familie von Codes: Die Beschreibung gilt für alle Codes mit dem Präfix „WEBSITE-“."
       },
       "action": {
         "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
         "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
         "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
-        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antworten der Websites gemessen und gespeichert werden, steht in der „Hilfe“ (Help)."
       },
       "escalation": [
         {
@@ -2981,7 +2928,6 @@
         "auto-vpn",
         "mon",
         "monitor",
-        "translation-draft",
         "family"
       ]
     },
@@ -3004,13 +2950,13 @@
         "ru": "Фоновое измерение отклика трёх сайтов ещё собирается. Открытие страницы не запускает лишних запросов.",
         "uk": "Фонове вимірювання відгуку трьох сайтів ще збирається. Відкриття сторінки не запускає зайвих запитів.",
         "en": "The background measurement of how three sites respond is still being collected. Opening the page starts no extra requests.",
-        "de": "Die Hintergrundmessung der Antwortzeit von drei Websites wird noch erhoben. Das Öffnen der Seite startet keine zusätzlichen Anfragen."
+        "de": "Die Hintergrundmessung der Antworten von drei Websites läuft noch. Das Öffnen der Seite startet keine zusätzlichen Anfragen."
       },
       "action": {
         "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
         "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
         "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
-        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antworten der Websites gemessen und gespeichert werden, steht in der „Hilfe“ (Help)."
       },
       "escalation": [
         {
@@ -3034,8 +2980,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3057,13 +3002,13 @@
         "ru": "Последнее измерение отклика сайтов было слишком давно. Повторный показ сохранённых данных не делает их свежими.",
         "uk": "Останнє вимірювання відгуку сайтів було надто давно. Повторний показ збережених даних не робить їх свіжими.",
         "en": "The last site response measurement was too long ago. Showing saved data again does not make it fresh.",
-        "de": "Die letzte Messung der Website-Antwortzeit liegt zu lange zurück. Gespeicherte Daten werden durch erneutes Anzeigen nicht aktuell."
+        "de": "Die letzte Messung der Website-Antworten liegt zu lange zurück. Gespeicherte Daten werden durch erneutes Anzeigen nicht aktuell."
       },
       "action": {
         "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
         "uk": "1. Зачекайте наступної фонової перевірки.\n2. Докладніше про спосіб вимірювання та історію відгуку сайтів див. «Довідку» (Help).",
         "en": "1. Wait for the next background check.\n2. For how site response is measured and stored, see Help.",
-        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antwortzeit der Websites gemessen und gespeichert wird, steht in der „Hilfe“ (Help)."
+        "de": "1. Warten Sie die nächste Hintergrundprüfung ab.\n2. Wie die Antworten der Websites gemessen und gespeichert werden, steht in der „Hilfe“ (Help)."
       },
       "escalation": [
         {
@@ -3087,8 +3032,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3150,8 +3094,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3203,8 +3146,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3226,7 +3168,7 @@
         "ru": "Архив отклика сайтов не удалось проверить, поэтому он не показывается. Старые технические данные вместо него не подставляются.",
         "uk": "Архів відгуку сайтів не вдалося перевірити, тому він не показується. Старі технічні дані замість нього не підставляються.",
         "en": "The site response archive could not be verified, so it is not shown. Old technical data is not shown in its place.",
-        "de": "Das Archiv der Website-Antwortzeit konnte nicht überprüft werden und wird daher nicht angezeigt. Alte technische Daten werden nicht ersatzweise gezeigt."
+        "de": "Das Archiv der Website-Antwortzeit konnte nicht überprüft werden und wird daher nicht angezeigt. Alte technische Daten werden nicht ersatzweise angezeigt."
       },
       "action": {
         "ru": "1. Подождите следующей фоновой проверки.\n2. Подробнее о способе измерения и истории отклика сайтов см. «Помощь».",
@@ -3256,8 +3198,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3277,7 +3218,7 @@
       },
       "cause": {
         "ru": "Архив отклика сайтов не удалось безопасно записать. Текущие проверки продолжаются, пропущенная история остаётся пустой.",
-        "uk": "Архів відгуку сайтів не вдалося безпечно записати. Поточні перевірки тривають, пропущена історія лишається порожньою.",
+        "uk": "Архів відгуку сайтів не вдалося безпечно записати. Поточні перевірки тривають, пропущена історія залишається порожньою.",
         "en": "The site response archive could not be written safely. Current checks continue; the missing history stays empty.",
         "de": "Das Archiv der Website-Antwortzeit konnte nicht sicher geschrieben werden. Die laufenden Prüfungen gehen weiter; der fehlende Verlauf bleibt leer."
       },
@@ -3319,8 +3260,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3382,8 +3322,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3435,8 +3374,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3488,8 +3426,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3541,8 +3478,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3604,8 +3540,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3667,8 +3602,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3730,8 +3664,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3783,8 +3716,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3846,8 +3778,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3902,8 +3833,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -3958,8 +3888,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -4014,8 +3943,7 @@
       "tags": [
         "auto-vpn",
         "mon",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     }
   ]
