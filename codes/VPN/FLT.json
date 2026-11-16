@@ -2272,14 +2272,12 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-043",
-      "variants": [
-        "PLUG-P1.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p1-1"
       ]
     },
     {
@@ -2327,16 +2325,14 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-044",
-      "variants": [
-        "PLUG-P2.1",
-        "PLUG-P2.2",
-        "PLUG-P2.3"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p2-1",
+        "plug-p2-2",
+        "plug-p2-3"
       ]
     },
     {
@@ -2384,16 +2380,14 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-045",
-      "variants": [
-        "PLUG-P3.1",
-        "PLUG-P3.2",
-        "PLUG-P3.3"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p3-1",
+        "plug-p3-2",
+        "plug-p3-3"
       ]
     },
     {
@@ -2441,14 +2435,12 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-046",
-      "variants": [
-        "PLUG-P4.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p4-1"
       ]
     },
     {
@@ -2496,14 +2488,12 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-047",
-      "variants": [
-        "PLUG-P5.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p5-1"
       ]
     },
     {
@@ -2551,14 +2541,12 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-048",
-      "variants": [
-        "PLUG-P6.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p6-1"
       ]
     },
     {
@@ -2606,14 +2594,12 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-049",
-      "variants": [
-        "PLUG-P7.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p7-1"
       ]
     },
     {
@@ -2632,10 +2618,10 @@
         "de": "Stromtest: Abschaltung bei beschäftigtem VPN-Dienst der Firmware"
       },
       "cause": {
-        "ru": "Задуман как отключение питания, пока встроенная служба VPN прошивки роутера занята своей работой. Сейчас этот тест не выполняется: нет безопасного способа вызвать такое состояние. Норма, когда тест будет доступен: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
-        "uk": "Задумано як вимкнення живлення, поки вбудована служба VPN прошивки роутера зайнята своєю роботою. Зараз цей тест не виконується: немає безпечного способу викликати такий стан. Норма, коли тест буде доступний: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
-        "en": "Planned as a power cut while the built-in VPN service of the router firmware is busy. This test is not run at the moment: there is no safe way to bring about that state. Normal result, once the test is available: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
-        "de": "Geplant als Stromabschaltung, während der eingebaute VPN-Dienst der Router-Firmware beschäftigt ist. Dieser Test wird derzeit nicht ausgeführt: Es gibt keinen sicheren Weg, diesen Zustand herbeizuführen. Normal, sobald der Test verfügbar ist: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+        "ru": "Стенд отключает питание роутера, а после включения отключает его ещё раз — в тот момент, когда встроенная служба VPN прошивки GL сама переключает туннель на другой сервер. Тест выполняется с 16.11.2026 (Auto VPN 2.1.0-alpha12-36, сценарий P8.1); он вырос из теста VPN-FLT-046. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера, а після ввімкнення вимикає його ще раз — у той момент, коли вбудована служба VPN прошивки GL сама перемикає тунель на інший сервер. Тест виконується з 16.11.2026 (Auto VPN 2.1.0-alpha12-36, сценарій P8.1); він виріс із тесту VPN-FLT-046. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power and, after it comes back, cuts it once more at the moment the built-in VPN service of the GL firmware switches the tunnel to another server by itself. The test has been run since 16.11.2026 (Auto VPN 2.1.0-alpha12-36, scenario P8.1); it grew out of the test VPN-FLT-046. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers ab und nach dem Wiedereinschalten noch einmal – in dem Moment, in dem der eingebaute VPN-Dienst der GL-Firmware den Tunnel selbst auf einen anderen Server umschaltet. Der Test wird seit 16.11.2026 ausgeführt (Auto VPN 2.1.0-alpha12-36, Szenario P8.1); er ist aus dem Test VPN-FLT-046 hervorgegangen. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
       },
       "action": {
         "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
@@ -2664,14 +2650,12 @@
       "related": [
         "VPN-FLT-046"
       ],
-      "variants": [
-        "PLUG-P8.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p8-1"
       ]
     },
     {
@@ -2719,14 +2703,12 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-051",
-      "variants": [
-        "PLUG-P9.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p9-1"
       ]
     },
     {
@@ -2774,14 +2756,12 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-052",
-      "variants": [
-        "PLUG-P10.1"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p10-1"
       ]
     },
     {
@@ -2829,16 +2809,14 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-053",
-      "variants": [
-        "PLUG-P23.1",
-        "PLUG-P23.2",
-        "PLUG-P23.3"
-      ],
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p23-1",
+        "plug-p23-2",
+        "plug-p23-3"
       ]
     },
     {
@@ -2857,10 +2835,10 @@
         "de": "Stromtest: Abschaltung nach abgeschlossenem Befehl Stop"
       },
       "cause": {
-        "ru": "Стенд отключает питание роутера через 5–30 секунд после того, как ваша команда Stop полностью выполнена. Это ветвь теста VPN-FLT-046, в котором отключение приходится на саму запись команды. Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
-        "uk": "Стенд вимикає живлення роутера через 5–30 секунд після того, як вашу команду «Стоп» (Stop) повністю виконано. Це гілка тесту VPN-FLT-046, у якому вимкнення припадає на сам запис команди. Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
-        "en": "The test bench cuts the router power 5–30 seconds after your Stop command has fully finished. This is a branch of the test VPN-FLT-046, in which the cut hits the saving of the command itself. Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
-        "de": "Der Prüfstand schaltet den Strom des Routers ab, 5–30 Sekunden nachdem Ihr Befehl „Stopp“ (Stop) vollständig ausgeführt wurde. Dies ist ein Zweig des Tests VPN-FLT-046, bei dem die Abschaltung das Speichern des Befehls selbst trifft. Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
+        "ru": "Стенд отключает питание роутера через 5–30 секунд после того, как ваша команда Stop полностью выполнена. Это ветвь теста VPN-FLT-046 (сценарий P4.2; в VPN-FLT-046 отключение приходится на саму запись команды — сценарий P4.1). Норма: после включения питания интернет в доме возвращается сам, а Auto возвращается в то состояние, в котором был до отключения.",
+        "uk": "Стенд вимикає живлення роутера через 5–30 секунд після того, як вашу команду «Стоп» (Stop) повністю виконано. Це гілка тесту VPN-FLT-046 (сценарій P4.2; у VPN-FLT-046 вимкнення припадає на сам запис команди — сценарій P4.1). Норма: після ввімкнення живлення інтернет удома повертається сам, а Auto повертається в той стан, у якому був до вимкнення.",
+        "en": "The test bench cuts the router power 5–30 seconds after your Stop command has fully finished. This is a branch of the test VPN-FLT-046 (scenario P4.2; in VPN-FLT-046 the cut hits the saving of the command itself - scenario P4.1). Normal result: after the power comes back, the home internet returns on its own and Auto returns to the state it was in before the cut.",
+        "de": "Der Prüfstand schaltet den Strom des Routers ab, 5–30 Sekunden nachdem Ihr Befehl „Stopp“ (Stop) vollständig ausgeführt wurde. Dies ist ein Zweig des Tests VPN-FLT-046 (Szenario P4.2; bei VPN-FLT-046 trifft die Abschaltung das Speichern des Befehls selbst – Szenario P4.1). Normal: Nach dem Wiedereinschalten kehrt das Internet im Haus von selbst zurück, und Auto kehrt in den Zustand vor der Abschaltung zurück."
       },
       "action": {
         "ru": "1. Ничего делать не нужно: это описание проверки на стенде разработчика.\n2. Если после отключения питания у вас дома интернет не вернулся сам, откройте «Помощь» и раздел о пропавшем интернете.",
@@ -2886,15 +2864,16 @@
       ],
       "retryable": false,
       "help": "errors/VPN-FLT-054",
-      "parent": "VPN-FLT-046",
-      "variants": [
-        "PLUG-P4.2"
+      "related": [
+        "VPN-FLT-046"
       ],
       "since": "1.7.0",
       "tags": [
         "auto-vpn",
         "flt",
-        "power-test"
+        "power-test",
+        "plug-p4-2",
+        "branch-of-vpn-flt-046"
       ]
     }
   ]

@@ -18,7 +18,6 @@ LABELS: dict[str, dict[str, str]] = {
         "retryable": "Можно повторить позже", "yes": "да", "no": "нет", "since": "с версии",
         "deprecated": "устарел с версии", "replaced_by": "заменён кодом", "fixed_in": "исправлено в версии",
         "reference": "Справочник кодов ошибок HomenS.AI", "version": "версия", "number": "Цифровой код",
-        "parent": "ветвь кода", "variants": "версии сценария",
     },
     "uk": {
         "legacy_one": "попередній код", "legacy_many": "попередні коди", "why": "Чому", "todo": "Що робити",
@@ -26,7 +25,6 @@ LABELS: dict[str, dict[str, str]] = {
         "retryable": "Можна повторити пізніше", "yes": "так", "no": "ні", "since": "з версії",
         "deprecated": "застарів з версії", "replaced_by": "замінено кодом", "fixed_in": "виправлено у версії",
         "reference": "Довідник кодів помилок HomenS.AI", "version": "версія", "number": "Цифровий код",
-        "parent": "гілка коду", "variants": "версії сценарію",
     },
     "en": {
         "legacy_one": "former code", "legacy_many": "former codes", "why": "Why", "todo": "What to do",
@@ -34,7 +32,6 @@ LABELS: dict[str, dict[str, str]] = {
         "retryable": "Can be retried later", "yes": "yes", "no": "no", "since": "since version",
         "deprecated": "deprecated since version", "replaced_by": "replaced by", "fixed_in": "fixed in version",
         "reference": "HomenS.AI error code reference", "version": "version", "number": "Numeric code",
-        "parent": "branch of", "variants": "scenario versions",
     },
     "de": {
         "legacy_one": "früherer Code", "legacy_many": "frühere Codes", "why": "Warum", "todo": "Was tun",
@@ -42,7 +39,6 @@ LABELS: dict[str, dict[str, str]] = {
         "retryable": "Später wiederholbar", "yes": "ja", "no": "nein", "since": "seit Version",
         "deprecated": "veraltet seit Version", "replaced_by": "ersetzt durch", "fixed_in": "behoben in Version",
         "reference": "HomenS.AI Fehlercode-Referenz", "version": "Version", "number": "Numerischer Code",
-        "parent": "Zweig von", "variants": "Szenarioversionen",
     },
 }
 

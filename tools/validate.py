@@ -6,9 +6,7 @@
 (`number`, `area_numbers`: три цифры, уникальны на своём уровне), цифровой код записи `number` = `PPP-AAA-NNN`
 (совпадает с вычисленным из namespaces.json, уникален), уникальность code/key/aliases,
 все 4 языка, одинаковые подстановки {..} во всех языках и объявленные params, номера без пропусков, ссылки related и
-replaced_by (только у устаревшего кода, на действующий другой код), белый список данных для ИИ и разработчика,
-parent (код-ветвь: существующий другой код той же области, без циклов) и variants (id версий и ветвей сценария —
-вид PLUG-P3.2, уникальны во всей базе вместе с code/key/aliases), §4.4.
+replaced_by (только у устаревшего кода, на действующий другой код), белый список данных для ИИ и разработчика.
 Выход 0 — всё в порядке, 1 — есть ошибки (список в stderr).
 """
 
@@ -22,8 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LANGS = ("ru", "uk", "en", "de")
 REQUIRED = ("code", "number", "key", "level", "audience", "title", "cause", "action", "escalation", "retryable", "help", "since")
-ALLOWED = set(REQUIRED) | {"aliases", "params", "http_status", "related", "deprecated", "replaced_by", "tags", "fixed_in", "examples",
-                         "parent", "variants"}
+ALLOWED = set(REQUIRED) | {"aliases", "params", "http_status", "related", "deprecated", "replaced_by", "tags", "fixed_in", "examples"}
 LEVELS = {"info", "warn", "error", "alarm"}
 AUDIENCES = {"user", "admin", "developer"}
 STEPS = {"self", "admin", "ai", "developer"}
@@ -34,7 +31,6 @@ VERSION_RE = re.compile(r"^\d+\.\d+\.\d+$")
 NUMBER_RE = re.compile(r"^[0-9]{3}-[0-9]{3}-[0-9]{3}$")
 PART_RE = re.compile(r"^[0-9]{3}$")
 PLACEHOLDER_RE = re.compile(r"\{([a-z_][a-z0-9_]*)\}")
-VARIANT_RE = re.compile(r"^[A-Z][A-Z0-9-]*[A-Z0-9](\.[0-9]+)+$")
 
 
 def validate(root: Path = ROOT) -> list[str]:
@@ -48,7 +44,6 @@ def validate(root: Path = ROOT) -> list[str]:
     refs: list[tuple[str, str]] = []
     replacements: list[tuple[str, str, str]] = []  # (где, код, replaced_by)
     deprecated: set[str] = set()
-    parents: dict[str, tuple[str, str]] = {}  # код -> (где, parent)
     for path in sorted((root / "codes").glob("*/*.json")):
         rel = path.relative_to(root).as_posix()
         try:
@@ -68,8 +63,6 @@ def validate(root: Path = ROOT) -> list[str]:
             errors += _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs, namespaces, seen_numbers)
             if "deprecated" in entry:
                 deprecated.add(entry.get("code", ""))
-            if "parent" in entry:
-                parents[entry.get("code", "")] = (f"{rel}: {entry.get('code', '?')}", entry["parent"])
             if "replaced_by" in entry:
                 replacements.append((f"{rel}: {entry.get('code', '?')}", entry.get("code", ""), entry["replaced_by"]))
     for (ns, area), nums in numbers.items():
@@ -86,22 +79,6 @@ def validate(root: Path = ROOT) -> list[str]:
             errors.append(f"{where}: replaced_by указывает сам на себя")
         elif target in deprecated:
             errors.append(f"{where}: replaced_by указывает на устаревший код {target} — укажите действующую замену")
-    # Ветвь (§4.4): parent — другой существующий код той же области, цепочка parent без циклов.
-    for code, (where, target) in parents.items():
-        if target == code:
-            errors.append(f"{where}: parent указывает сам на себя")
-            continue
-        if target not in seen_codes:
-            errors.append(f"{where}: parent — несуществующий код {target}")
-            continue
-        if target.rsplit("-", 1)[0] != code.rsplit("-", 1)[0]:
-            errors.append(f"{where}: parent {target} — из другой области, ветвь заводится в той же области")
-        chain, cur = [code], target
-        while cur in parents and cur not in chain:
-            chain.append(cur)
-            cur = parents[cur][1]
-        if cur in chain:
-            errors.append(f"{where}: цикл parent {' -> '.join(chain + [cur])}")
     return errors
 
 
@@ -178,16 +155,7 @@ def _entry(rel, ns, area, entry, seen_codes, seen_names, numbers, refs, namespac
     key = entry.get("key", "")
     if not KEY_RE.match(key):
         errors.append(f"{where}: key должен быть UPPER_SNAKE_CASE")
-    variants = entry.get("variants", [])
-    if "variants" in entry and (not isinstance(variants, list) or not variants):
-        errors.append(f"{where}: variants — непустой список id версий сценария")
-        variants = []
-    for name in variants:
-        if not isinstance(name, str) or not VARIANT_RE.match(name):
-            errors.append(f"{where}: variants — id вида PLUG-P3.2 (имя и номера через точку), сейчас {name!r}")
-    if len(set(map(str, variants))) != len(variants):
-        errors.append(f"{where}: variants — повтор id")
-    for name in [key, *entry.get("aliases", []), *[v for v in variants if isinstance(v, str)]]:
+    for name in [key, *entry.get("aliases", [])]:
         if name in seen_names and seen_names[name] != code:
             errors.append(f"{where}: имя {name} уже занято кодом {seen_names[name]}")
         seen_names[name] = code
