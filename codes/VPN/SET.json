@@ -61,8 +61,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -124,8 +123,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -177,8 +175,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -230,8 +227,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -251,7 +247,7 @@
       },
       "cause": {
         "ru": "Код группы экспериментов на роутере: сообщает о запуске, остановке или шаге эксперимента либо о причине отказа. Эксперимент никогда сам не запускает Auto и возвращает ваши настройки в конце или после Stop. Это семейство: описание относится ко всем кодам с префиксом «EXPERIMENT-».",
-        "uk": "Код групи експериментів на роутері: повідомляє про запуск, зупинку чи крок експерименту або про причину відмови. Експеримент ніколи сам не запускає Auto і повертає ваші налаштування наприкінці або після Stop. Це родина: опис стосується всіх кодів із префіксом «EXPERIMENT-».",
+        "uk": "Код групи експериментів на роутері: повідомляє про запуск, зупинку чи крок експерименту або про причину відмови. Експеримент ніколи сам не запускає Auto і повертає ваші налаштування наприкінці або після Stop. Це сімейство: опис стосується всіх кодів із префіксом «EXPERIMENT-».",
         "en": "A code of the on-router experiment group: it reports a start, stop or step of an experiment, or why it was refused. An experiment never starts Auto by itself and puts your settings back at the end or after Stop. This is a family: the description applies to all codes starting with \"EXPERIMENT-\".",
         "de": "Ein Code der Gruppe der Experimente auf dem Router: Er meldet Start, Stopp oder einen Schritt eines Experiments oder den Grund einer Ablehnung. Ein Experiment startet Auto nie von selbst und stellt Ihre Einstellungen am Ende oder nach Stop wieder her. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „EXPERIMENT-“."
       },
@@ -284,7 +280,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -347,8 +342,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -400,8 +394,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -453,8 +446,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -506,8 +498,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -559,8 +550,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -612,8 +602,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -665,8 +654,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -718,8 +706,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -771,8 +758,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -824,8 +810,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -877,8 +862,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -900,13 +884,13 @@
         "ru": "Раздел Telegram в первой настройке не совпадает с поддерживаемой формой. Этот раздел необязателен.",
         "uk": "Розділ Telegram у першому налаштуванні не збігається з підтримуваною формою. Цей розділ необов'язковий.",
         "en": "The Telegram section of the setup does not match the supported form. This section is optional.",
-        "de": "Der Telegram-Abschnitt der Einrichtung passt nicht zum unterstützten Formular. Dieser Abschnitt ist optional."
+        "de": "Der Telegram-Abschnitt der ersten Einrichtung entspricht nicht der unterstützten Form. Dieser Abschnitt ist optional."
       },
       "action": {
         "ru": "1. Обновите страницу.\n2. Оставьте прежние настройки Telegram или включите раздел Telegram и проверьте его поля.",
         "uk": "1. Оновіть сторінку.\n2. Залиште попередні налаштування Telegram або увімкніть розділ Telegram і перевірте його поля.",
         "en": "1. Reload the page.\n2. Keep the existing Telegram settings, or turn on the Telegram section and check its fields.",
-        "de": "1. Laden Sie die Seite neu.\n2. Behalten Sie die bisherigen Telegram-Einstellungen oder schalten Sie den Telegram-Abschnitt ein und prüfen Sie seine Felder."
+        "de": "1. Laden Sie die Seite neu.\n2. Behalten Sie die bisherigen Telegram-Einstellungen, oder aktivieren Sie den Telegram-Abschnitt und prüfen Sie dessen Felder."
       },
       "escalation": [
         {
@@ -930,8 +914,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -993,8 +976,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -1046,8 +1028,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -1100,7 +1081,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -1115,7 +1095,7 @@
       "audience": "user",
       "title": {
         "ru": "Пара каналов для Auto не настроена",
-        "uk": "Пару каналів для Auto не налаштовано",
+        "uk": "Пара каналів для Auto не налаштована",
         "en": "The channel pair for Auto is not set up",
         "de": "Das Kanalpaar für Auto ist nicht eingerichtet"
       },
@@ -1153,8 +1133,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -1216,8 +1195,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -1269,8 +1247,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -1323,7 +1300,6 @@
         "auto-vpn",
         "set",
         "switch",
-        "translation-draft",
         "family"
       ]
     },
@@ -1376,8 +1352,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1429,8 +1404,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1482,8 +1456,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1535,8 +1508,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1588,8 +1560,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1641,8 +1612,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1704,8 +1674,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1757,8 +1726,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1778,9 +1746,9 @@
       },
       "cause": {
         "ru": "Код группы приоритетов серверов: шаг изменения порядка серверов сообщил о своём состоянии. Это семейство: описание относится ко всем кодам с префиксом «PRIORITY-».",
-        "uk": "Код групи пріоритетів серверів: крок зміни порядку серверів повідомив про свій стан. Це родина: опис стосується всіх кодів із префіксом «PRIORITY-».",
+        "uk": "Код групи пріоритетів серверів: крок зміни порядку серверів повідомив про свій стан. Це сімейство кодів: опис стосується всіх кодів із префіксом «PRIORITY-».",
         "en": "A code of the server priorities group: a step of changing the server order reported its state. This is a family: the description applies to all codes starting with \"PRIORITY-\".",
-        "de": "Ein Code der Gruppe der Serverprioritäten: Ein Schritt beim Ändern der Serverreihenfolge hat seinen Zustand gemeldet. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „PRIORITY-“."
+        "de": "Ein Code der Gruppe der Serverprioritäten: Ein Schritt beim Ändern der Serverreihenfolge hat seinen Zustand gemeldet. Es handelt sich um eine Familie von Codes: Die Beschreibung gilt für alle Codes mit dem Präfix „PRIORITY-“."
       },
       "action": {
         "ru": "1. Обновите страницу.\n2. Повторите действие.",
@@ -1811,7 +1779,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -1864,8 +1831,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -1927,8 +1893,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -1990,8 +1955,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2043,8 +2007,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2096,8 +2059,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2149,8 +2111,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2212,8 +2173,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2241,7 +2201,7 @@
         "ru": "1. Ничего делать не нужно.",
         "uk": "1. Нічого робити не потрібно.",
         "en": "1. Nothing to do.",
-        "de": "1. Es ist nichts zu tun."
+        "de": "1. Sie müssen nichts tun."
       },
       "escalation": [
         {
@@ -2265,8 +2225,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2288,13 +2247,13 @@
         "ru": "Не выбран ни один сервер, который можно упорядочить.",
         "uk": "Не вибрано жодного сервера, який можна впорядкувати.",
         "en": "No server that can be ordered is selected.",
-        "de": "Es ist kein Server ausgewählt, der geordnet werden kann."
+        "de": "Es wurde kein Server ausgewählt, dessen Reihenfolge Sie festlegen können."
       },
       "action": {
         "ru": "1. Отметьте серверы, порядок которых хотите задать.\n2. Сохраните ещё раз.",
         "uk": "1. Позначте сервери, порядок яких хочете задати.\n2. Збережіть ще раз.",
         "en": "1. Tick the servers you want to order.\n2. Save again.",
-        "de": "1. Markieren Sie die Server, die Sie ordnen möchten.\n2. Speichern Sie erneut."
+        "de": "1. Markieren Sie die Server, deren Reihenfolge Sie festlegen möchten.\n2. Speichern Sie erneut."
       },
       "escalation": [
         {
@@ -2318,8 +2277,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2381,8 +2339,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2434,8 +2391,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2487,8 +2443,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2510,7 +2465,7 @@
         "ru": "Страница отправила запрос без нужных значений уровня и ускорения. Обычно страница устарела после обновления. Ничего не изменено.",
         "uk": "Сторінка надіслала запит без потрібних значень рівня та прискорення. Зазвичай сторінка застаріла після оновлення. Нічого не змінено.",
         "en": "The page sent the request without the expected level and boost values. Usually the page is outdated after an update. Nothing was changed.",
-        "de": "Die Seite hat die Anfrage ohne die erwarteten Werte für Stufe und Beschleunigung gesendet. Meist ist die Seite nach einem Update veraltet. Es wurde nichts geändert."
+        "de": "Die Seite hat die Anfrage ohne die erforderlichen Werte für Stufe und Beschleunigung gesendet. Normalerweise ist die Seite nach einem Update veraltet. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Полностью обновите страницу (Ctrl+F5).\n2. Примените уровень ещё раз.",
@@ -2540,8 +2495,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2593,8 +2547,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -2646,8 +2599,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2699,8 +2651,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2752,8 +2703,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2769,7 +2719,7 @@
         "ru": "Профили не входят в общие правила VPN",
         "uk": "Профілі не входять до загальних правил VPN",
         "en": "Profiles are not general VPN rules",
-        "de": "Profile sind keine allgemeinen VPN-Regeln"
+        "de": "Profile sind nicht Teil der allgemeinen VPN-Regeln"
       },
       "cause": {
         "ru": "Выбранные профили не используются в настройках VPN роутера как общие правила для всех устройств.",
@@ -2805,8 +2755,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2859,7 +2808,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -2912,8 +2860,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2965,8 +2912,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3018,8 +2964,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3071,8 +3016,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3134,8 +3078,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3187,8 +3130,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3250,8 +3192,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3303,8 +3244,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3356,8 +3296,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3373,13 +3312,13 @@
         "ru": "Неизвестный способ измерения отклика",
         "uk": "Невідомий спосіб вимірювання відгуку",
         "en": "Unknown response measurement",
-        "de": "Unbekannte Antwortzeitmessung"
+        "de": "Unbekannte Methode der Antwortmessung"
       },
       "cause": {
         "ru": "Страница отправила способ измерения отклика, которого роутер не предлагает. Ничего не сохранено.",
         "uk": "Сторінка надіслала спосіб вимірювання відгуку, якого роутер не пропонує. Нічого не збережено.",
         "en": "The page sent a response measurement the router does not offer. Nothing was saved.",
-        "de": "Die Seite hat eine Antwortzeitmessung gesendet, die der Router nicht anbietet. Es wurde nichts gespeichert."
+        "de": "Die Seite hat eine Methode der Antwortmessung gesendet, die der Router nicht anbietet. Es wurde nichts gespeichert."
       },
       "action": {
         "ru": "1. Полностью обновите страницу (Ctrl+F5).\n2. Выберите значение из списка ещё раз.\n3. Сохраните ещё раз.",
@@ -3419,8 +3358,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3473,7 +3411,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -3536,8 +3473,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3589,8 +3525,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3642,8 +3577,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3695,8 +3629,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3758,8 +3691,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3811,8 +3743,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3864,8 +3795,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3917,8 +3847,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -3970,8 +3899,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4023,8 +3951,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4076,8 +4003,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4105,7 +4031,7 @@
         "ru": "1. Выберите активный профиль на другом туннеле или отложите выбор пары.",
         "uk": "1. Виберіть активний профіль на іншому тунелі або відкладіть вибір пари.",
         "en": "1. Choose an active profile on another tunnel, or postpone the pair.",
-        "de": "1. Wählen Sie ein aktives Profil auf einem anderen Tunnel oder stellen Sie das Paar zurück."
+        "de": "1. Wählen Sie ein aktives Profil auf einem anderen Tunnel oder verschieben Sie die Auswahl des Paares auf später."
       },
       "escalation": [
         {
@@ -4129,8 +4055,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4192,8 +4117,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4245,8 +4169,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4298,8 +4221,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4351,8 +4273,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4414,8 +4335,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -4477,8 +4397,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4530,8 +4449,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4583,8 +4501,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4637,7 +4554,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -4654,7 +4570,7 @@
         "ru": "На обычном OpenWrt нет программ VPN",
         "uk": "На звичайному OpenWrt немає програм VPN",
         "en": "No VPN software on plain OpenWrt",
-        "de": "Keine VPN-Software auf einfachem OpenWrt"
+        "de": "Keine VPN-Software auf normalem OpenWrt"
       },
       "cause": {
         "ru": "На роутере не установлены ни WireGuard, ни OpenVPN, поэтому наблюдать не за чем.",
@@ -4664,9 +4580,9 @@
       },
       "action": {
         "ru": "1. Установите пакеты WireGuard или OpenVPN сами либо разрешите это комплекту установки.\n2. Запустите проверку снова.",
-        "uk": "1. Встановіть пакети WireGuard або OpenVPN самі або дозвольте це комплекту встановлення.\n2. Запустіть перевірку знову.",
+        "uk": "1. Встановіть пакети WireGuard або OpenVPN самостійно або дозвольте комплекту встановлення зробити це.\n2. Запустіть перевірку знову.",
         "en": "1. Install the WireGuard or OpenVPN packages yourself, or allow the installer kit to do it.\n2. Run the check again.",
-        "de": "1. Installieren Sie die WireGuard- oder OpenVPN-Pakete selbst, oder erlauben Sie es dem Installationspaket.\n2. Führen Sie die Prüfung erneut aus."
+        "de": "1. Installieren Sie die WireGuard- oder OpenVPN-Pakete selbst, oder erlauben Sie dem Installationspaket, dies zu tun.\n2. Führen Sie die Prüfung erneut aus."
       },
       "escalation": [
         {
@@ -4700,8 +4616,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4754,7 +4669,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -4807,8 +4721,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4822,21 +4735,21 @@
       "audience": "user",
       "title": {
         "ru": "Адрес проверки полосы — не веб-адрес",
-        "uk": "Адреса перевірки смуги — не вебадреса",
+        "uk": "Адреса перевірки смуги — не веб-адреса",
         "en": "Lane check address is not a web address",
         "de": "Prüfadresse der Spur ist keine Webadresse"
       },
       "cause": {
         "ru": "Необязательный адрес проверки полосы должен быть полным веб-адресом с именем сайта, без пробелов и не слишком длинным. Ничего не сохранено.",
-        "uk": "Необов'язкова адреса перевірки смуги має бути повною вебадресою з іменем сайту, без пробілів і не надто довгою. Нічого не збережено.",
+        "uk": "Необов'язкова адреса перевірки смуги має бути повною веб-адресою з іменем сайту, без пробілів і не надто довгою. Нічого не збережено.",
         "en": "The optional check address of a lane must be a full web address with a site name, without spaces and not too long. Nothing was saved.",
-        "de": "Die optionale Prüfadresse einer Spur muss eine vollständige Webadresse mit Seitennamen sein, ohne Leerzeichen und nicht zu lang. Es wurde nichts gespeichert."
+        "de": "Die optionale Prüfadresse einer Spur muss eine vollständige Webadresse mit dem Namen der Website sein, ohne Leerzeichen und nicht zu lang. Es wurde nichts gespeichert."
       },
       "action": {
         "ru": "1. Введите полный веб-адрес сайта или оставьте поле пустым.\n2. Сохраните ещё раз.",
-        "uk": "1. Введіть повну вебадресу сайту або залиште поле порожнім.\n2. Збережіть ще раз.",
+        "uk": "1. Введіть повну веб-адресу сайту або залиште поле порожнім.\n2. Збережіть ще раз.",
         "en": "1. Enter the full web address of a site, or leave the field empty.\n2. Save again.",
-        "de": "1. Geben Sie die vollständige Webadresse einer Seite ein oder lassen Sie das Feld leer.\n2. Speichern Sie erneut."
+        "de": "1. Geben Sie die vollständige Webadresse einer Website ein oder lassen Sie das Feld leer.\n2. Speichern Sie erneut."
       },
       "escalation": [
         {
@@ -4870,8 +4783,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4899,7 +4811,7 @@
         "ru": "1. Поставьте отметку подтверждения на шаге 4 мастера или оставьте «По правилам».",
         "uk": "1. Поставте позначку підтвердження на кроці 4 майстра або залиште «За правилами» (By the rules).",
         "en": "1. Tick the confirmation in step 4 of the wizard, or keep “By the rules”.",
-        "de": "1. Setzen Sie im Schritt 4 des Assistenten das Bestätigungshäkchen oder behalten Sie „Nach den Regeln“ (By the rules)."
+        "de": "Setzen Sie im Schritt 4 des Assistenten das Bestätigungshäkchen oder behalten Sie „Nach den Regeln“ (By the rules)."
       },
       "escalation": [
         {
@@ -4923,8 +4835,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -4986,8 +4897,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -5039,8 +4949,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -5092,8 +5001,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -5146,7 +5054,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -5200,7 +5107,6 @@
         "auto-vpn",
         "set",
         "setup",
-        "translation-draft",
         "family"
       ]
     },
@@ -5253,8 +5159,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -5282,7 +5187,7 @@
         "ru": "1. Удалите или перенесите правила другой программы.\n2. Создайте полосу снова.",
         "uk": "1. Видаліть або перенесіть правила іншої програми.\n2. Створіть смугу знову.",
         "en": "1. Remove or move the rules of the other program.\n2. Create the lane again.",
-        "de": "1. Entfernen oder verschieben Sie die Regeln des anderen Programms.\n2. Legen Sie die Spur erneut an."
+        "de": "1. Entfernen Sie die Regeln des anderen Programms oder verschieben Sie sie.\n2. Legen Sie die Spur erneut an."
       },
       "escalation": [
         {
@@ -5306,8 +5211,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "setup",
-        "translation-draft"
+        "setup"
       ]
     },
     {
@@ -5327,7 +5231,7 @@
       },
       "cause": {
         "ru": "Код группы быстрого старта после отключения питания. Туннель WireGuard сначала ищет адрес своего сервера по имени, а это невозможно, пока не поднялось собственное подключение роутера. Роутер запоминает адрес сервера, который сам проверил, и при следующем старте временно подсказывает его из памяти; профиль VPN, сеть и защита при этом не меняются. Если адрес устарел, он забывается и туннель запускается обычным способом; Stop удаляет всё, что относится к этой функции. Это семейство: описание относится ко всем кодам с префиксом «WG-SEED-».",
-        "uk": "Код групи швидкого старту після вимкнення живлення. Тунель WireGuard спочатку шукає адресу свого сервера за іменем, а це неможливо, поки не піднялося власне підключення роутера. Роутер запам'ятовує адресу сервера, яку сам перевірив, і під час наступного старту тимчасово підказує її з пам'яті; профіль VPN, мережа й захист при цьому не змінюються. Якщо адреса застаріла, вона забувається і тунель запускається звичайним способом; Stop видаляє все, що стосується цієї функції. Це родина: опис стосується всіх кодів із префіксом «WG-SEED-».",
+        "uk": "Код групи швидкого старту після вимкнення живлення. Тунель WireGuard спочатку шукає адресу свого сервера за іменем, а це неможливо, поки не піднялося власне підключення роутера. Роутер запам'ятовує адресу сервера, яку сам перевірив, і під час наступного старту тимчасово підказує її з пам'яті; профіль VPN, мережа й захист при цьому не змінюються. Якщо адреса застаріла, вона забувається і тунель запускається звичайним способом; Stop видаляє все, що стосується цієї функції. Це сімейство: опис стосується всіх кодів із префіксом «WG-SEED-».",
         "en": "A code of the fast start after a power cut group. A WireGuard tunnel first looks up its server address by name, which cannot work before the router's own connection is up. The router remembers a server address it has checked itself and, at the next start, offers it from memory for a short time; the VPN profile, network and protection settings are not changed. If the address is outdated, it is forgotten and the tunnel starts the normal way; Stop removes everything of this feature. This is a family: the description applies to all codes starting with \"WG-SEED-\".",
         "de": "Ein Code der Gruppe des Schnellstarts nach einem Stromausfall. Ein WireGuard-Tunnel sucht zuerst die Adresse seines Servers über den Namen, was nicht geht, bevor die eigene Verbindung des Routers steht. Der Router merkt sich eine selbst geprüfte Serveradresse und bietet sie beim nächsten Start kurzzeitig aus dem Speicher an; VPN-Profil, Netzwerk und Schutzeinstellungen werden dabei nicht geändert. Ist die Adresse veraltet, wird sie vergessen und der Tunnel startet auf normalem Weg; Stop entfernt alles, was zu dieser Funktion gehört. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „WG-SEED-“."
       },
@@ -5360,7 +5264,6 @@
         "auto-vpn",
         "set",
         "switch",
-        "translation-draft",
         "family"
       ]
     },
@@ -5423,8 +5326,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -5486,8 +5388,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -5549,8 +5450,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -5570,15 +5470,15 @@
       },
       "cause": {
         "ru": "При остановленном Auto роутер после включения обычно подсказывает туннелю WireGuard адрес его сервера из памяти. В этот раз адрес не предложен; в записи указана причина: нет запомненного адреса, он использован уже три старта подряд без новой проверки, устарел, не подходит к профилю, повреждён или туннель уже поднят. Туннель тогда ищет адрес обычным способом.",
-        "uk": "За зупиненого Auto роутер після ввімкнення зазвичай підказує тунелю WireGuard адресу його сервера з пам'яті. Цього разу адресу не запропоновано; у записі вказано причину: немає запам'ятованої адреси, її використано вже три старти поспіль без нової перевірки, вона застаріла, не підходить до профілю, пошкоджена або тунель уже піднято. Тунель тоді шукає адресу звичайним способом.",
+        "uk": "За зупиненого Auto роутер після ввімкнення зазвичай підказує тунелю WireGuard адресу його сервера з пам'яті. Цього разу адресу не запропоновано; у записі вказано причину: немає запам'ятованої адреси, її використано вже три старти поспіль без нової перевірки, вона застаріла, не підходить до профілю, пошкоджена або тунель уже піднято. Туннель тоді шукає адресу звичайним способом.",
         "en": "With Auto stopped, after power-on the router usually offers the WireGuard tunnel the address of its server from memory. This time no address was offered; the entry names the reason: no remembered address, it was used three starts in a row without a new check, it is outdated, it does not match the profile, it is damaged, or the tunnel is already up. The tunnel then finds the address the normal way.",
-        "de": "Bei gestopptem Auto bietet der Router nach dem Einschalten dem WireGuard-Tunnel normalerweise die Adresse seines Servers aus dem Speicher an. Diesmal wurde keine Adresse angeboten; der Eintrag nennt den Grund: keine gemerkte Adresse, sie wurde drei Starts hintereinander ohne neue Prüfung verwendet, sie ist veraltet, passt nicht zum Profil, ist beschädigt oder der Tunnel ist bereits aktiv. Der Tunnel findet die Adresse dann auf normalem Weg."
+        "de": "Bei gestopptem Auto bietet der Router nach dem Einschalten dem WireGuard-Tunnel normalerweise die Adresse seines Servers aus dem Speicher an. Diesmal wurde keine Adresse angeboten; der Eintrag nennt den Grund: keine gemerkte Adresse, sie wurde drei Starts hintereinander ohne neue Prüfung verwendet, sie ist veraltet, passt nicht zum Profil, ist beschädigt oder der Tunnel ist bereits aktiv. Der Tunnel sucht die Adresse dann auf normalem Weg."
       },
       "action": {
         "ru": "1. Ничего делать не нужно: после следующего удачного соединения адрес снова будет годен.\n2. Если эта запись появляется при каждом старте, отправьте в поддержку записи «Журнала» о быстром старте.",
         "uk": "1. Нічого робити не потрібно: після наступного вдалого з'єднання адреса знову буде придатна.\n2. Якщо цей запис з'являється під час кожного старту, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
         "en": "1. Nothing to do: after the next successful connection the address is usable again.\n2. If this entry appears at every start, send the Journal entries about the fast start to support.",
-        "de": "1. Es ist nichts zu tun: Nach der nächsten erfolgreichen Verbindung ist die Adresse wieder nutzbar.\n2. Wenn dieser Eintrag bei jedem Start erscheint, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+        "de": "1. Es ist nichts zu tun: Nach der nächsten erfolgreichen Verbindung ist die Adresse wieder nutzbar.\n2. Wenn dieser Eintrag bei jedem Start erscheint, senden Sie die Einträge des „Journals“ (Journal) zum Schnellstart an den Support."
       },
       "escalation": [
         {
@@ -5605,8 +5505,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -5634,7 +5533,7 @@
         "ru": "1. Ничего делать не нужно.\n2. Если туннель после включения подключается заметно дольше обычного, отправьте в поддержку записи «Журнала» о быстром старте.",
         "uk": "1. Нічого робити не потрібно.\n2. Якщо тунель після ввімкнення підключається помітно довше, ніж зазвичай, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
         "en": "1. Nothing to do.\n2. If the tunnel takes clearly longer than usual to connect after power-on, send the Journal entries about the fast start to support.",
-        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ (Journal) zum Schnellstart an den Support."
       },
       "escalation": [
         {
@@ -5662,8 +5561,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -5691,7 +5589,7 @@
         "ru": "1. Ничего делать не нужно.\n2. Если туннель после включения подключается заметно дольше обычного, отправьте в поддержку записи «Журнала» о быстром старте.",
         "uk": "1. Нічого робити не потрібно.\n2. Якщо тунель після ввімкнення підключається помітно довше, ніж зазвичай, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
         "en": "1. Nothing to do.\n2. If the tunnel takes clearly longer than usual to connect after power-on, send the Journal entries about the fast start to support.",
-        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ (Journal) zum Schnellstart an den Support."
       },
       "escalation": [
         {
@@ -5719,8 +5617,7 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     }
   ]
