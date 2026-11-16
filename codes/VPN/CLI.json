@@ -51,8 +51,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -114,8 +113,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -167,8 +165,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -220,8 +217,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -283,8 +279,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -336,8 +331,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -399,8 +393,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -452,8 +445,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -515,8 +507,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -568,8 +559,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -631,8 +621,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -684,8 +673,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -737,8 +725,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -790,8 +777,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -843,8 +829,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -896,8 +881,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -949,8 +933,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1002,8 +985,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1023,7 +1005,7 @@
       },
       "cause": {
         "ru": "Проверка компьютера из набора установки нашла, что нужной программы нет или она слишком старая, даже после автоматической установки. На роутере ничего не изменено.",
-        "uk": "Перевірка комп'ютера з набору встановлення виявила, що потрібної програми немає або вона застаріла навіть після автоматичного встановлення. На роутері нічого не змінено.",
+        "uk": "Перевірка комп'ютера з набору встановлення виявила, що потрібної програми немає або вона занадто стара, навіть після автоматичного встановлення. На роутері нічого не змінено.",
         "en": "The computer check of the install kit found that a needed program is missing or too old, even after the automatic installation. Nothing was changed on the router.",
         "de": "Die Computerprüfung des Installationspakets hat festgestellt, dass ein benötigtes Programm fehlt oder zu alt ist, auch nach der automatischen Installation. Am Router wurde nichts geändert."
       },
@@ -1055,8 +1037,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1078,7 +1059,7 @@
         "ru": "Помощник проверки работает только в PowerShell 7, а он не найден или запущена старая версия.",
         "uk": "Помічник перевірки працює лише в PowerShell 7, а його не знайдено або запущено стару версію.",
         "en": "The test helper works only in PowerShell 7, which was not found or an older version was started.",
-        "de": "Der Testhelfer funktioniert nur mit PowerShell 7; es wurde nicht gefunden oder eine ältere Version gestartet."
+        "de": "Der Testhelfer funktioniert nur mit PowerShell 7; PowerShell 7 wurde nicht gefunden oder es wurde eine ältere Version gestartet."
       },
       "action": {
         "ru": "1. Установите PowerShell 7, скачав его с официального сайта или из магазина приложений.\n2. Запустите помощник в PowerShell 7.",
@@ -1108,8 +1089,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -1161,8 +1141,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "helper",
-        "translation-draft"
+        "helper"
       ]
     },
     {
@@ -1214,8 +1193,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1267,8 +1245,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1330,8 +1307,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1383,8 +1359,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1446,8 +1421,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1509,8 +1483,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1543,11 +1516,11 @@
         "ru": "Компьютер получил ответ DNS через роутер, но он неполный, повреждён или не относится к заданному вопросу. Такой ответ не считается успешной проверкой.",
         "uk": "Комп'ютер отримав відповідь DNS через роутер, але вона неповна, пошкоджена або не стосується заданого запиту. Така відповідь не вважається успішною перевіркою.",
         "en": "The computer got a DNS answer through the router, but it is incomplete, damaged or does not match the question. Such an answer does not count as a passed check.",
-        "de": "Der Computer hat über den Router eine DNS-Antwort erhalten, die aber unvollständig, beschädigt oder unpassend zur Anfrage ist. Eine solche Antwort gilt nicht als bestandene Prüfung."
+        "de": "Der Computer hat über den Router eine DNS-Antwort erhalten, sie ist aber unvollständig, beschädigt oder passt nicht zur gestellten Anfrage. Eine solche Antwort gilt nicht als erfolgreiche Prüfung."
       },
       "action": {
         "ru": "1. Поставьте в настройках сети компьютера получение DNS автоматически.\n2. Подождите несколько минут и запустите помощник снова.",
-        "uk": "1. Встановіть у налаштуваннях мережі комп'ютера отримання DNS автоматично.\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
+        "uk": "1. У налаштуваннях мережі комп'ютера встановіть автоматичне отримання DNS.\n2. Зачекайте кілька хвилин і запустіть помічник знову.",
         "en": "1. Set DNS to automatic in the computer's network settings.\n2. Wait a few minutes and run the helper again.",
         "de": "1. Stellen Sie DNS in den Netzwerkeinstellungen des Computers auf automatisch.\n2. Warten Sie einige Minuten und starten Sie den Helfer erneut."
       },
@@ -1573,8 +1546,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1598,7 +1570,7 @@
         "ru": "Ответ с адресом выхода в интернет пришёл в непонятном виде или без адреса IPv4. Проверочная служба в интернете могла временно ответить иначе.",
         "uk": "Відповідь з адресою виходу в інтернет надійшла в незрозумілому вигляді або без адреси IPv4. Перевірочна служба в інтернеті могла тимчасово відповісти інакше.",
         "en": "The answer with the internet exit address came in an unreadable form or without an IPv4 address. The test service on the internet may have answered differently for a while.",
-        "de": "Die Antwort mit der Internet-Ausgangsadresse war unlesbar oder enthielt keine IPv4-Adresse. Der Prüfdienst im Internet hat vielleicht vorübergehend anders geantwortet."
+        "de": "Die Antwort mit der Internet-Ausgangsadresse war unverständlich oder enthielt keine IPv4-Adresse. Der Prüfdienst im Internet hat vielleicht vorübergehend anders geantwortet."
       },
       "action": {
         "ru": "1. Подождите несколько минут и запустите помощник снова.",
@@ -1628,8 +1600,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1691,8 +1662,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1754,8 +1724,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1807,8 +1776,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1870,8 +1838,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1895,7 +1862,7 @@
         "ru": "Во время проверки у компьютера сменился адрес или подключение, или их нельзя однозначно определить. Результат такой проверки ненадёжен.",
         "uk": "Під час перевірки в комп'ютера змінилася адреса чи підключення, або їх не можна однозначно визначити. Результат такої перевірки ненадійний.",
         "en": "During the check the computer's address or connection changed, or it cannot be determined clearly. The result of such a check is not reliable.",
-        "de": "Während der Prüfung haben sich Adresse oder Verbindung des Computers geändert oder sind nicht eindeutig. Das Ergebnis einer solchen Prüfung ist nicht zuverlässig."
+        "de": "Während der Prüfung haben sich Adresse oder Verbindung des Computers geändert oder lassen sich nicht eindeutig bestimmen. Das Ergebnis einer solchen Prüfung ist nicht zuverlässig."
       },
       "action": {
         "ru": "1. Не переключайте сети на компьютере во время проверки.\n2. Запустите помощник проверки снова.",
@@ -1925,8 +1892,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -1978,8 +1944,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2041,8 +2006,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2104,8 +2068,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2160,8 +2123,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2223,8 +2185,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2276,8 +2237,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2338,8 +2298,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2401,8 +2360,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2454,8 +2412,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2517,8 +2474,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2570,8 +2526,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2633,8 +2588,7 @@
       "tags": [
         "auto-vpn",
         "cli",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     }
   ]
