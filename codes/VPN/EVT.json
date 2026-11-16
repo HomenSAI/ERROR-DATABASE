@@ -21,7 +21,7 @@
         "ru": "Auto включён и следит за каналами. Это запись о работе, а не о переключении: каждый канал по-прежнему регулярно проверяется.",
         "uk": "Auto увімкнено, і він стежить за каналами. Це запис про роботу, а не про перемикання: кожен канал і далі регулярно перевіряється.",
         "en": "Auto is on and watching the channels. This records that it is working, not a switch: each channel is still checked regularly.",
-        "de": "Auto ist eingeschaltet und überwacht die Kanäle. Dieser Eintrag zeigt nur, dass es arbeitet, keinen Wechsel: Jeder Kanal wird weiterhin regelmäßig geprüft."
+        "de": "Auto ist eingeschaltet und überwacht die Kanäle. Dieser Eintrag meldet den Betrieb, keinen Wechsel: Jeder Kanal wird weiterhin regelmäßig geprüft."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -51,8 +51,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -75,13 +74,13 @@
         "ru": "Записана команда на запуск Auto и то, кто её дал. Сам запуск подтверждается позже отдельной записью.",
         "uk": "Записано команду на запуск Auto і те, хто її дав. Сам запуск підтверджується пізніше окремим записом.",
         "en": "The command to start Auto and who gave it were recorded. The start itself is confirmed later by a separate record.",
-        "de": "Der Befehl zum Starten von Auto und sein Auslöser wurden erfasst. Der Start selbst wird später durch einen eigenen Eintrag bestätigt."
+        "de": "Der Befehl zum Starten von Auto und die Person, die ihn gegeben hat, wurden erfasst. Der Start selbst wird später durch einen eigenen Eintrag bestätigt."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Убедитесь в «Журнале», что следом появилась запись о работе Auto.",
         "uk": "1. Нічого робити не потрібно.\n2. Перевірте в «Журналі» (Journal), що слідом з'явився запис про роботу Auto.",
         "en": "1. Nothing to do.\n2. Check in Journal that a record about Auto running follows.",
-        "de": "1. Es ist nichts zu tun.\n2. Prüfen Sie im „Protokoll“ (Journal), ob danach ein Eintrag über das laufende Auto folgt."
+        "de": "1. Es ist nichts zu tun.\n2. Prüfen Sie im „Protokoll“ (Journal), ob danach ein Eintrag über den Betrieb von Auto erscheint."
       },
       "escalation": [
         {
@@ -105,8 +104,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -159,8 +157,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -212,8 +209,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -265,8 +261,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -318,8 +313,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -371,8 +365,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -424,8 +417,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -477,8 +469,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -530,8 +521,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -583,8 +573,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -636,8 +625,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -689,8 +677,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -742,8 +729,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -795,8 +781,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -848,8 +833,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -911,8 +895,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -974,8 +957,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1027,8 +1009,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1080,8 +1061,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1133,8 +1113,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1186,8 +1165,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1239,8 +1217,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1292,8 +1269,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1345,8 +1321,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1398,8 +1373,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1415,7 +1389,7 @@
         "ru": "Трафик остался на резервном канале",
         "uk": "Трафік залишився на резервному каналі",
         "en": "Traffic stays on the reserve",
-        "de": "Datenverkehr bleibt auf der Reserve"
+        "de": "Datenverkehr bleibt auf dem Reservekanal"
       },
       "cause": {
         "ru": "Операция завершилась, а трафик остался на резервном канале. Auto при этом может продолжать работать; это не значит, что он выключен.",
@@ -1451,8 +1425,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1504,8 +1477,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1557,8 +1529,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1610,8 +1581,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1637,7 +1607,7 @@
       },
       "action": {
         "ru": "1. Текущее состояние смотрите на «Главной».",
-        "uk": "1. Поточний стан дивіться на «Головній» (Home).",
+        "uk": "1. Перегляньте поточний стан на «Головній» (Home).",
         "en": "1. See the current state on Home.",
         "de": "1. Den aktuellen Zustand sehen Sie auf der „Startseite“ (Home)."
       },
@@ -1663,8 +1633,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1716,8 +1685,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1769,8 +1737,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1822,8 +1789,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1875,8 +1841,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1928,8 +1893,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -1945,7 +1909,7 @@
         "ru": "Время пробного окна истекло",
         "uk": "Час пробного вікна минув",
         "en": "Trial window ended",
-        "de": "Testzeitraum abgelaufen"
+        "de": "Testzeitfenster abgelaufen"
       },
       "cause": {
         "ru": "Заданное время ограниченной операции закончилось. Каким стал маршрут в итоге, подтверждает отдельная запись.",
@@ -1981,8 +1945,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "journal",
-        "translation-draft"
+        "journal"
       ]
     },
     {
@@ -2004,13 +1967,13 @@
         "ru": "Код из группы проверок служебной записи о последнем переключении: роутер нашёл в ней что-то, что не прошло проверку, и не стал продолжать. Это семейство: описание относится ко всем кодам с префиксом «JOURNAL-».",
         "uk": "Код із групи перевірок службового запису про останнє перемикання: роутер знайшов у ньому щось, що не пройшло перевірку, і не став продовжувати. Це родина: опис стосується всіх кодів із префіксом «JOURNAL-».",
         "en": "A code of the group that checks the saved record of the last switch: the router found something in it that failed a check and did not continue. This is a family: the description applies to all codes starting with \"JOURNAL-\".",
-        "de": "Ein Code der Gruppe, die den gespeicherten Datensatz des letzten Wechsels prüft: Der Router hat darin etwas gefunden, das eine Prüfung nicht bestanden hat, und nicht weitergemacht. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „JOURNAL-“."
+        "de": "Ein Code der Gruppe, die den gespeicherten Datensatz des letzten Wechsels prüft: Der Router hat darin etwas gefunden, das eine Prüfung nicht bestanden hat, und nicht weitergemacht. Dies ist eine Codefamilie: Die Beschreibung gilt für alle Codes mit dem Präfix „JOURNAL-“."
       },
       "action": {
         "ru": "1. Если интернета нет, откройте «Помощь» → «У меня пропал интернет» и выполните аварийный возврат.\n2. Найдите точный код в «Помощи».",
         "uk": "1. Якщо інтернету немає, відкрийте «Довідка» (Help) → «У мене зник інтернет» і виконайте аварійне повернення.\n2. Знайдіть точний код у «Довідці».",
         "en": "1. If there is no internet, open Help → “I have no internet” and do the emergency return.\n2. Look up the exact code in Help.",
-        "de": "1. Wenn kein Internet da ist, öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Notfall-Rückkehr aus.\n2. Suchen Sie den genauen Code in der „Hilfe“."
+        "de": "1. Wenn kein Internet vorhanden ist, öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ und führen Sie die Notfall-Rückkehr aus.\n2. Suchen Sie den genauen Code in der „Hilfe“."
       },
       "escalation": [
         {
@@ -2035,7 +1998,6 @@
         "auto-vpn",
         "evt",
         "switch",
-        "translation-draft",
         "family"
       ]
     },
@@ -2098,8 +2060,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2161,8 +2122,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2176,7 +2136,7 @@
       "audience": "user",
       "title": {
         "ru": "Порядок в записи о переключении неверен",
-        "uk": "Порядок у записі про перемикання хибний",
+        "uk": "Порядок у записі про перемикання невірний",
         "en": "Switch record order invalid",
         "de": "Reihenfolge im Wechseldatensatz ungültig"
       },
@@ -2224,8 +2184,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2287,8 +2246,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2302,7 +2260,7 @@
       "audience": "user",
       "title": {
         "ru": "Запись о переключении называет неверное правило",
-        "uk": "Запис про перемикання називає хибне правило",
+        "uk": "Запис про перемикання називає невірне правило",
         "en": "Switch record names an invalid rule",
         "de": "Wechseldatensatz nennt eine ungültige Regel"
       },
@@ -2350,8 +2308,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2373,7 +2330,7 @@
         "ru": "Роутеру не удалось проверить служебную запись о переключении, поэтому Auto не продолжает работу по ней.",
         "uk": "Роутеру не вдалося перевірити службовий запис про перемикання, тому Auto не продовжує роботу за ним.",
         "en": "The router could not verify the saved switch record, so Auto does not continue based on it.",
-        "de": "Der Router konnte den gespeicherten Wechseldatensatz nicht überprüfen, daher arbeitet Auto auf dieser Grundlage nicht weiter."
+        "de": "Der Router konnte den Wechseldatensatz nicht überprüfen, daher arbeitet Auto auf dieser Grundlage nicht weiter."
       },
       "action": {
         "ru": "1. Откройте «Помощь» → «У меня пропал интернет» и выполните аварийный возврат.\n2. Если всё ещё неясно, откройте «Помощь» → «Кнопка Auto не запускается».",
@@ -2413,8 +2370,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2466,8 +2422,7 @@
       "tags": [
         "auto-vpn",
         "evt",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     }
   ]
