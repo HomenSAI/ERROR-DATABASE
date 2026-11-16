@@ -25,7 +25,7 @@
       },
       "action": {
         "ru": "1. Ничего делать не нужно: следующий круг пройдёт сам.\n2. Если это повторяется, откройте «Помощь» и отправьте код разработчику.",
-        "uk": "1. Нічого робити не потрібно: наступне коло пройде саме.\n2. Якщо це повторюється, відкрийте «Довідку» (Help) і надішліть код розробнику.",
+        "uk": "1. Нічого робити не потрібно: наступне коло пройде само.\n2. Якщо це повторюється, відкрийте «Довідку» (Help) і надішліть код розробнику.",
         "en": "1. Nothing to do: the next round runs by itself.\n2. If it repeats, open Help and send the code to the developer.",
         "de": "1. Es ist nichts zu tun: Die nächste Runde läuft von selbst.\n2. Wiederholt sich das, öffnen Sie die „Hilfe“ (Help) und senden Sie den Code an den Entwickler."
       },
@@ -61,8 +61,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -114,8 +113,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -135,7 +133,7 @@
       },
       "cause": {
         "ru": "Код группы запросов страницы к роутеру. Обычно он значит, что роутер отклонил запрос из-за его вида или размера и ничего не изменил. Это семейство: описание относится ко всем кодам с префиксом «RPC-».",
-        "uk": "Код групи запитів сторінки до роутера. Зазвичай він означає, що роутер відхилив запит через його вигляд або розмір і нічого не змінив. Це родина: опис стосується всіх кодів із префіксом «RPC-».",
+        "uk": "Код групи запитів сторінки до роутера. Зазвичай він означає, що роутер відхилив запит через його вигляд або розмір і нічого не змінив. Це сімейство: опис стосується всіх кодів із префіксом «RPC-».",
         "en": "A code of the group of page requests to the router. Usually it means the router refused a request because of its form or size and changed nothing. This is a family: the description applies to all codes starting with \"RPC-\".",
         "de": "Ein Code der Gruppe von Seitenanfragen an den Router. Meist bedeutet er, dass der Router eine Anfrage wegen ihrer Form oder Größe abgelehnt und nichts geändert hat. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „RPC-“."
       },
@@ -168,7 +166,6 @@
         "auto-vpn",
         "rpc",
         "service",
-        "translation-draft",
         "family"
       ]
     },
@@ -221,8 +218,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -238,13 +234,13 @@
         "ru": "Ответ на нажатие кнопки потерян",
         "uk": "Відповідь на натискання кнопки втрачено",
         "en": "The answer to a button press was lost",
-        "de": "Die Antwort auf einen Tastendruck ging verloren"
+        "de": "Die Antwort auf das Drücken der Schaltfläche ging verloren"
       },
       "cause": {
         "ru": "Роутер не ответил на нажатие кнопки вовремя или не смог записать ответ. Нажатие не повторялось, поэтому дважды не выполнится, но могло и не сработать.",
         "uk": "Роутер не відповів на натискання кнопки вчасно або не зміг записати відповідь. Натискання не повторювалося, тому двічі не виконається, але могло й не спрацювати.",
         "en": "The router did not answer the button press in time or could not write its answer. The press was not repeated, so it cannot run twice, but it may not have taken effect.",
-        "de": "Der Router hat nicht rechtzeitig auf den Tastendruck geantwortet oder seine Antwort nicht schreiben können. Der Druck wurde nicht wiederholt, wird also nicht doppelt ausgeführt, hat aber vielleicht nicht gewirkt."
+        "de": "Der Router hat nicht rechtzeitig auf das Drücken der Schaltfläche geantwortet oder konnte seine Antwort nicht schreiben. Das Drücken wurde nicht wiederholt, wird also nicht doppelt ausgeführt, hat aber vielleicht nicht gewirkt."
       },
       "action": {
         "ru": "1. Подождите несколько секунд: страница сама перечитает состояние.\n2. Нажмите кнопку ещё раз, только если ничего не изменилось.",
@@ -274,8 +270,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -337,8 +332,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -390,8 +384,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -453,8 +446,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -468,9 +460,9 @@
       "audience": "user",
       "title": {
         "ru": "Подтверждать нечего",
-        "uk": "Підтверджувати нічого",
+        "uk": "Немає чого підтверджувати",
         "en": "Nothing is waiting for confirmation",
-        "de": "Nichts wartet auf eine Bestätigung"
+        "de": "Nichts zu bestätigen"
       },
       "cause": {
         "ru": "Подтверждение пришло, но ни одно переключение его не ждёт: возможно, время уже вышло.",
@@ -506,8 +498,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -559,8 +550,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -622,8 +612,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -685,8 +674,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -748,8 +736,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -811,8 +798,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -874,8 +860,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -937,8 +922,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1000,8 +984,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1063,8 +1046,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1126,8 +1108,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1179,8 +1160,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1242,8 +1222,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1257,7 +1236,7 @@
       "audience": "user",
       "title": {
         "ru": "Нет связующего модуля страницы",
-        "uk": "Немає сполучного модуля сторінки",
+        "uk": "Немає з'єднувального модуля сторінки",
         "en": "The page connector is missing",
         "de": "Das Verbindungsmodul der Seite fehlt"
       },
@@ -1305,8 +1284,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1368,8 +1346,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1421,8 +1398,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1474,8 +1450,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1491,7 +1466,7 @@
         "ru": "В запросе лишние данные",
         "uk": "У запиті зайві дані",
         "en": "The request has extra data",
-        "de": "Die Anfrage enthält zusätzliche Daten"
+        "de": "Die Anfrage enthält überflüssige Daten"
       },
       "cause": {
         "ru": "Роутер отклонил запрос с неожиданными полями. Ничего не изменено.",
@@ -1537,8 +1512,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1566,7 +1540,7 @@
         "ru": "1. Обновите страницу.\n2. Если ошибка остаётся, установите программу заново.",
         "uk": "1. Оновіть сторінку.\n2. Якщо помилка лишається, встановіть програму заново.",
         "en": "1. Reload the page.\n2. If it stays, install the program again.",
-        "de": "1. Laden Sie die Seite neu.\n2. Bleibt der Fehler, installieren Sie das Programm erneut."
+        "de": "1. Laden Sie die Seite neu.\n2. Bleibt der Fehler bestehen, installieren Sie das Programm erneut."
       },
       "escalation": [
         {
@@ -1600,8 +1574,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1663,8 +1636,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1716,8 +1688,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1745,7 +1716,7 @@
         "ru": "1. Обновите страницу и проверьте текущее состояние.\n2. Повторите действие, только если оно не выполнилось.",
         "uk": "1. Оновіть сторінку й перевірте поточний стан.\n2. Повторіть дію, лише якщо вона не виконалася.",
         "en": "1. Reload the page and check the current state.\n2. Repeat the action only if it did not take effect.",
-        "de": "1. Laden Sie die Seite neu und prüfen Sie den aktuellen Zustand.\n2. Wiederholen Sie die Aktion nur, wenn sie nicht gewirkt hat."
+        "de": "1. Laden Sie die Seite neu und prüfen Sie den aktuellen Zustand.\n2. Wiederholen Sie die Aktion nur, wenn sie nicht ausgeführt wurde."
       },
       "escalation": [
         {
@@ -1779,8 +1750,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1842,8 +1812,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1905,8 +1874,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1922,7 +1890,7 @@
         "ru": "Временный путь запуска передан Auto",
         "uk": "Тимчасовий шлях запуску передано Auto",
         "en": "The start-up path was handed over to Auto",
-        "de": "Der Startweg wurde an Auto übergeben"
+        "de": "Der vorübergehende Startweg wurde an Auto übergeben"
       },
       "cause": {
         "ru": "Временный путь, которым роутер пользовался при запуске, освобождён: сеть теперь ведёт Auto. Это нормальный шаг запуска.",
@@ -1958,8 +1926,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "state",
-        "translation-draft"
+        "state"
       ]
     },
     {
@@ -2011,8 +1978,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "state",
-        "translation-draft"
+        "state"
       ]
     },
     {
@@ -2040,7 +2006,7 @@
         "ru": "1. Пользуйтесь кнопками как обычно.\n2. Если это не проходит, обновите страницу или перезагрузите роутер.",
         "uk": "1. Користуйтеся кнопками як зазвичай.\n2. Якщо це не минає, оновіть сторінку або перезавантажте роутер.",
         "en": "1. Use the buttons as usual.\n2. If it does not go away, reload the page or restart the router.",
-        "de": "1. Verwenden Sie die Schaltflächen wie gewohnt.\n2. Verschwindet die Meldung nicht, laden Sie die Seite neu oder starten Sie den Router neu."
+        "de": "1. Verwenden Sie die Schaltflächen wie gewohnt.\n2. Wenn das nicht vorbeigeht, laden Sie die Seite neu oder starten Sie den Router neu."
       },
       "escalation": [
         {
@@ -2064,8 +2030,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2127,8 +2092,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2190,8 +2154,7 @@
       "tags": [
         "auto-vpn",
         "rpc",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     }
   ]
