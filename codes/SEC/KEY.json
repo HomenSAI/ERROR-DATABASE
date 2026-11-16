@@ -470,6 +470,61 @@
       "tags": [
         "recovery"
       ]
+    },
+    {
+      "code": "SEC-KEY-009",
+      "number": "006-002-009",
+      "key": "TRUSTEE_CODE_WRONG",
+      "aliases": [
+        "trustee_code_wrong"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Код доверенного лица не подходит",
+        "uk": "Код довіреної особи не підходить",
+        "en": "The trusted person code does not match",
+        "de": "Der Code der Vertrauensperson passt nicht"
+      },
+      "cause": {
+        "ru": "Код доступа введён с ошибкой, отозван или уже использован. Код выдаёт владелец при назначении доверенного лица.",
+        "uk": "Код доступу введено з помилкою, відкликано або вже використано. Код видає власник під час призначення довіреної особи.",
+        "en": "The access code was mistyped, revoked or already used. The owner issues the code when appointing the trusted person.",
+        "de": "Der Zugangscode wurde falsch eingegeben, widerrufen oder bereits verwendet. Den Code vergibt der Eigentümer bei der Ernennung der Vertrauensperson."
+      },
+      "action": {
+        "ru": "1. Введите код ещё раз так, как он записан у вас.\n2. После 5 неверных попыток подряд подождите 15 минут.\n3. Если код не подходит, попросите владельца назначить вас заново.",
+        "uk": "1. Введіть код ще раз так, як він записаний у вас.\n2. Після 5 неправильних спроб поспіль зачекайте 15 хвилин.\n3. Якщо код не підходить, попросіть власника призначити вас знову.",
+        "en": "1. Enter the code again exactly as you have it written down.\n2. After 5 wrong attempts in a row, wait 15 minutes.\n3. If the code still does not match, ask the owner to appoint you again.",
+        "de": "1. Geben Sie den Code erneut genau so ein, wie Sie ihn notiert haben.\n2. Warten Sie nach 5 falschen Versuchen in Folge 15 Minuten.\n3. Passt der Code weiterhin nicht, bitten Sie den Eigentümer, Sie erneut zu ernennen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "код не подходит"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-KEY-009",
+      "since": "1.5.0",
+      "tags": [
+        "recovery"
+      ]
     }
   ]
 }
