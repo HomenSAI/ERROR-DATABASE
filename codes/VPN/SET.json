@@ -5608,6 +5608,120 @@
         "switch",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-SET-102",
+      "number": "005-005-102",
+      "key": "WG_SEED_KEPT_STOP",
+      "aliases": [
+        "WG-SEED-KEPT-STOP"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Быстрый старт при остановке: адрес из памяти предложен",
+        "uk": "Швидкий старт під час зупинки: адресу з пам'яті запропоновано",
+        "en": "Fast start while stopped: address offered from memory",
+        "de": "Schnellstart im gestoppten Zustand: Adresse aus dem Speicher angeboten"
+      },
+      "cause": {
+        "ru": "Auto остановлен, но после включения питания роутер временно подсказал туннелю WireGuard проверенный адрес его сервера из памяти, чтобы туннель не ждал поиска адреса по имени. Ничего не запускается и не переключается: туннелем по-прежнему управляет роутер GL. Подсказка снимается, как только туннель поднялся, или вскоре после появления подключения роутера. Вторая запись того же вида сообщает, что подсказка снята; если туннель подключился по этому адресу, адрес снова считается свежим.",
+        "uk": "Auto зупинено, але після ввімкнення живлення роутер тимчасово підказав тунелю WireGuard перевірену адресу його сервера з пам'яті, щоб тунель не чекав пошуку адреси за іменем. Нічого не запускається і не перемикається: тунелем і далі керує роутер GL. Підказку знімають, щойно тунель піднявся, або невдовзі після появи підключення роутера. Другий запис того самого виду повідомляє, що підказку знято; якщо тунель підключився за цією адресою, адреса знову вважається свіжою.",
+        "en": "Auto is stopped, but after power-on the router briefly offered the WireGuard tunnel the checked address of its server from memory, so the tunnel does not wait for the name lookup. Nothing is started or switched: the GL router still runs the tunnel. The hint is removed as soon as the tunnel is up, or soon after the router's own connection appears. A second entry of the same kind reports that the hint was removed; if the tunnel connected on this address, the address counts as fresh again.",
+        "de": "Auto ist gestoppt, aber nach dem Einschalten hat der Router dem WireGuard-Tunnel kurz die geprüfte Adresse seines Servers aus dem Speicher angeboten, damit der Tunnel nicht auf die Namensauflösung wartet. Nichts wird gestartet oder umgeschaltet: Den Tunnel steuert weiterhin der GL-Router. Der Hinweis wird entfernt, sobald der Tunnel aktiv ist, oder kurz nachdem die eigene Verbindung des Routers besteht. Ein zweiter Eintrag derselben Art meldet, dass der Hinweis entfernt wurde; hat sich der Tunnel über diese Adresse verbunden, gilt die Adresse wieder als frisch."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если туннель после включения подключается заметно дольше обычного, отправьте в поддержку записи «Журнала» о быстром старте.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо тунель після ввімкнення підключається помітно довше, ніж зазвичай, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
+        "en": "1. Nothing to do.\n2. If the tunnel takes clearly longer than usual to connect after power-on, send the Journal entries about the fast start to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-102",
+      "related": [
+        "VPN-SET-097",
+        "VPN-SET-101"
+      ],
+      "since": "1.4.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-103",
+      "number": "005-005-103",
+      "key": "WG_SEED_EARLY",
+      "aliases": [
+        "WG-SEED-EARLY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Быстрый старт: адрес из памяти до запуска сети (не используется с 2.1.0-alpha12-36)",
+        "uk": "Швидкий старт: адреса з пам'яті до запуску мережі (не використовується з 2.1.0-alpha12-36)",
+        "en": "Fast start: address from memory before the network starts (not used since 2.1.0-alpha12-36)",
+        "de": "Schnellstart: Adresse aus dem Speicher vor dem Netzwerkstart (seit 2.1.0-alpha12-36 nicht verwendet)"
+      },
+      "cause": {
+        "ru": "Не используется с версии 2.1.0-alpha12-36 (запись оставлена для журналов прежних версий 2.1.0-alpha12-34 и -35): ранняя подсказка убрана, загрузка после завершённого «Стоп» снова идёт как в 2.1.0-alpha12-33 — туннелем полностью управляет GL. Причина: с подсказкой прошивка GL при включении питания сама перебирала серверы в 6 из 6 проверок, без неё — в 0 из 8 (серии розетки a1234/a1235, VPN-FLT-046). Роутер GL сам поднимает этот туннель WireGuard при включении (так бывает после «Стоп»), и делает это раньше, чем запускается HomenS.AI Auto VPN. Поэтому проверенный адрес сервера из памяти готовится ещё до запуска сети роутера и подсказывается туннелю в момент появления подключения роутера: туннелю не нужно ждать поиска адреса по имени. С версии 2.1.0-alpha12-35 адрес не подсказывается раньше подключения: иначе прошивка GL начинала отсчёт 30 секунд на запуск туннеля ещё без подключения и сама переключала серверы. Ничего не запускается и не переключается; подсказка снимается, как только туннель поднялся, или вскоре после появления подключения роутера. Если включён Auto, он принимает эту подсказку как свою (в записи сказано «adopted»).",
+        "uk": "Не використовується з версії 2.1.0-alpha12-36 (запис залишено для журналів попередніх версій 2.1.0-alpha12-34 і -35): ранню підказку прибрано, завантаження після завершеного «Стоп» знову йде як у 2.1.0-alpha12-33 — тунелем повністю керує GL. Причина: з підказкою прошивка GL під час увімкнення живлення сама перебирала сервери в 6 з 6 перевірок, без неї — в 0 з 8 (серії розетки a1234/a1235, VPN-FLT-046). Роутер GL сам піднімає цей тунель WireGuard під час увімкнення (так буває після «Стоп»), і робить це раніше, ніж запускається HomenS.AI Auto VPN. Тому перевірену адресу сервера з пам'яті готують ще до запуску мережі роутера і підказують тунелю в момент появи підключення роутера: тунелю не потрібно чекати пошуку адреси за іменем. З версії 2.1.0-alpha12-35 адресу не підказують раніше за підключення: інакше прошивка GL починала відлік 30 секунд на запуск тунелю ще без підключення і сама перемикала сервери. Нічого не запускається і не перемикається; підказку знімають, щойно тунель піднявся, або невдовзі після появи підключення роутера. Якщо ввімкнено Auto, він приймає цю підказку як свою (у записі сказано «adopted»).",
+        "en": "Not used since 2.1.0-alpha12-36 (the entry stays for the logs of the earlier versions 2.1.0-alpha12-34 and -35): the early hint is removed, a boot after a finished Stop runs again as in 2.1.0-alpha12-33 - GL alone runs the tunnel. Why: with the hint the GL firmware switched servers by itself at power-on in 6 of 6 checks, without it in 0 of 8 (smart plug series a1234/a1235, VPN-FLT-046). The GL router brings this WireGuard tunnel up by itself at power-on (this happens after Stop), earlier than HomenS.AI Auto VPN starts. So the checked server address from memory is prepared even before the router's network starts and handed to the tunnel when the router's own connection appears: the tunnel does not need to wait for the name lookup. Since 2.1.0-alpha12-35 the address is not given before the connection: otherwise the GL firmware started its 30-second count for the tunnel start before there was a connection and switched servers by itself. Nothing is started or switched; the hint is removed as soon as the tunnel is up, or soon after the router's own connection appears. When Auto is on, it takes the hint over as its own (the entry says \"adopted\").",
+        "de": "Seit 2.1.0-alpha12-36 nicht mehr verwendet (der Eintrag bleibt für die Protokolle der früheren Versionen 2.1.0-alpha12-34 und -35): Der frühe Hinweis ist entfernt, ein Start nach abgeschlossenem „Stopp“ läuft wieder wie in 2.1.0-alpha12-33 – GL steuert den Tunnel allein. Grund: Mit dem Hinweis wechselte die GL-Firmware beim Einschalten in 6 von 6 Prüfungen selbst die Server, ohne ihn in 0 von 8 (Steckdosen-Serien a1234/a1235, VPN-FLT-046). Der GL-Router startet diesen WireGuard-Tunnel beim Einschalten selbst (so ist es nach „Stopp“), und zwar früher, als HomenS.AI Auto VPN startet. Deshalb wird die geprüfte Serveradresse aus dem Speicher schon vor dem Netzwerkstart des Routers vorbereitet und dem Tunnel angeboten, sobald die eigene Verbindung des Routers besteht: Der Tunnel muss nicht auf die Namensauflösung warten. Seit 2.1.0-alpha12-35 wird die Adresse nicht vor der Verbindung angeboten: Sonst begann die GL-Firmware ihre 30 Sekunden für den Tunnelstart schon ohne Verbindung zu zählen und wechselte selbst die Server. Nichts wird gestartet oder umgeschaltet; der Hinweis wird entfernt, sobald der Tunnel aktiv ist, oder kurz nachdem die eigene Verbindung des Routers besteht. Ist Auto eingeschaltet, übernimmt es den Hinweis als eigenen (im Eintrag steht „adopted“)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если туннель после включения подключается заметно дольше обычного, отправьте в поддержку записи «Журнала» о быстром старте.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо тунель після ввімкнення підключається помітно довше, ніж зазвичай, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
+        "en": "1. Nothing to do.\n2. If the tunnel takes clearly longer than usual to connect after power-on, send the Journal entries about the fast start to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn sich der Tunnel nach dem Einschalten deutlich länger als üblich verbindet, senden Sie die Einträge des „Journals“ zum Schnellstart an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-103",
+      "related": [
+        "VPN-SET-097",
+        "VPN-SET-102"
+      ],
+      "since": "1.4.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
     }
   ]
 }
