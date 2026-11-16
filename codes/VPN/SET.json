@@ -5619,6 +5619,63 @@
         "set",
         "switch"
       ]
+    },
+    {
+      "code": "VPN-SET-104",
+      "number": "005-005-104",
+      "key": "GL_KEYPAIR_NUDGE",
+      "aliases": [
+        "GL-KEYPAIR-NUDGE"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Auto остановлен: роутеру GL помогли отметить туннель WireGuard подключённым",
+        "uk": "Auto зупинено: роутеру GL допомогли позначити тунель WireGuard підключеним",
+        "en": "Auto is stopped: the GL router was helped to mark the WireGuard tunnel connected",
+        "de": "Auto ist gestoppt: dem GL-Router wurde geholfen, den WireGuard-Tunnel als verbunden zu markieren"
+      },
+      "cause": {
+        "ru": "Auto остановлен, туннелем после включения питания управляет роутер GL. Туннель WireGuard уже связался с сервером, но прошивка GL ещё не отметила его подключённым: её собственный обработчик этого события ждал в общей очереди системных событий роутера, пока закончится другая долгая служба GL (kmwan, около минуты). Без помощи прошивка GL успевает решить, что сервер не отвечает, и сама перебирает серверы — интернет появляется примерно через 140 секунд вместо 85. Поэтому Auto один раз запустил тот же обработчик прошивки GL с теми же данными события. Сервер, профиль, настройки и состояние Auto не менялись, туннель не перезапускался. Обработчик из очереди потом сам видит, что работа сделана, и ничего не повторяет. Вторая запись того же вида сообщает итог: туннель поднят (UP) или ещё нет (NOT-UP).",
+        "uk": "Auto зупинено, тунелем після ввімкнення живлення керує роутер GL. Тунель WireGuard уже зв'язався з сервером, але прошивка GL ще не позначила його підключеним: її власний обробник цієї події чекав у спільній черзі системних подій роутера, поки завершиться інша довга служба GL (kmwan, близько хвилини). Без допомоги прошивка GL встигає вирішити, що сервер не відповідає, і сама перебирає сервери — інтернет з'являється приблизно через 140 секунд замість 85. Тому Auto один раз запустив той самий обробник прошивки GL з тими самими даними події. Сервер, профіль, налаштування і стан Auto не змінювалися, тунель не перезапускався. Обробник із черги потім сам бачить, що роботу виконано, і нічого не повторює. Другий запис того самого виду повідомляє підсумок: тунель піднято (UP) або ще ні (NOT-UP).",
+        "en": "Auto is stopped; after power-on the GL router runs the tunnel. The WireGuard tunnel had already reached its server, but the GL firmware had not yet marked it connected: its own handler of this event was waiting in the router's shared queue of system events until another long GL service (kmwan, about a minute) finished. Without help the GL firmware decides the server does not answer and switches servers by itself - the internet comes after about 140 seconds instead of 85. So Auto ran the same GL firmware handler once, with the same event data. The server, the profile, the settings and the state of Auto were not changed, the tunnel was not restarted. The queued handler later sees that the work is done and repeats nothing. A second entry of the same kind reports the result: the tunnel is up (UP) or not yet (NOT-UP).",
+        "de": "Auto ist gestoppt; nach dem Einschalten steuert der GL-Router den Tunnel. Der WireGuard-Tunnel hatte seinen Server bereits erreicht, aber die GL-Firmware hatte ihn noch nicht als verbunden markiert: Ihr eigener Handler für dieses Ereignis wartete in der gemeinsamen Warteschlange der Systemereignisse des Routers, bis ein anderer langer GL-Dienst (kmwan, etwa eine Minute) fertig war. Ohne Hilfe entscheidet die GL-Firmware, dass der Server nicht antwortet, und wechselt selbst die Server - das Internet kommt nach etwa 140 statt 85 Sekunden. Deshalb hat Auto denselben Handler der GL-Firmware einmal mit denselben Ereignisdaten gestartet. Server, Profil, Einstellungen und der Zustand von Auto wurden nicht geändert, der Tunnel wurde nicht neu gestartet. Der Handler aus der Warteschlange sieht danach selbst, dass die Arbeit erledigt ist, und wiederholt nichts. Ein zweiter Eintrag derselben Art meldet das Ergebnis: Tunnel aktiv (UP) oder noch nicht (NOT-UP)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если после записи NOT-UP интернет долго не появляется, отправьте в поддержку записи «Журнала» о быстром старте.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо після запису NOT-UP інтернет довго не з'являється, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
+        "en": "1. Nothing to do.\n2. If the internet does not come for a long time after a NOT-UP entry, send the Journal entries about the fast start to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn das Internet nach einem NOT-UP-Eintrag lange nicht kommt, senden Sie die Einträge des „Journals“ (Journal) zum Schnellstart an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-104",
+      "related": [
+        "VPN-SET-102",
+        "VPN-FLT-046"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
     }
   ]
 }

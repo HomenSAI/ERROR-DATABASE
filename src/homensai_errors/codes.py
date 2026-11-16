@@ -2541,6 +2541,8 @@ class Errors:
     WG_SEED_KEPT_STOP: Final = "VPN-SET-102"  # VPN-SET-102
     VPN_SET_103: Final = "VPN-SET-103"  # WG_SEED_EARLY
     WG_SEED_EARLY: Final = "VPN-SET-103"  # VPN-SET-103
+    VPN_SET_104: Final = "VPN-SET-104"  # GL_KEYPAIR_NUDGE
+    GL_KEYPAIR_NUDGE: Final = "VPN-SET-104"  # VPN-SET-104
     VPN_SPEED_001: Final = "VPN-SPEED-001"  # SCAN_FAMILY
     SCAN_FAMILY: Final = "VPN-SPEED-001"  # VPN-SPEED-001
     VPN_SPEED_002: Final = "VPN-SPEED-002"  # SCAN_ACK_UNCONFIRMED
@@ -4167,6 +4169,7 @@ CODES: Final[frozenset[str]] = frozenset({
     "VPN-SET-101",
     "VPN-SET-102",
     "VPN-SET-103",
+    "VPN-SET-104",
     "VPN-SPEED-001",
     "VPN-SPEED-002",
     "VPN-SPEED-003",
