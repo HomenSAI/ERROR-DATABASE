@@ -18977,6 +18977,176 @@
         "pair",
         "state"
       ]
+    },
+    {
+      "code": "VPN-PAIR-350",
+      "number": "005-001-350",
+      "key": "BOOT_CARRY_PRIMARY_KEPT",
+      "aliases": [
+        "BOOT-CARRY-PRIMARY-KEPT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "После включения питания интернет оставлен на работающем основном канале",
+        "uk": "Після ввімкнення живлення інтернет залишено на робочому основному каналі",
+        "en": "After power-on the internet stays on the working primary",
+        "de": "Nach dem Einschalten bleibt das Internet auf dem funktionierenden Hauptkanal"
+      },
+      "cause": {
+        "ru": "До отключения питания Auto работал через запасной канал. После включения интернет в сети уже пошёл через исправный основной канал, поэтому Auto не уводит соединения на запасной только потому, что так было до отключения: он спокойно, с проверкой, принимает работающий основной канал. Дальнейшие переходы — по выбранной настройке возврата.",
+        "uk": "До вимкнення живлення Auto працював через запасний канал. Після ввімкнення інтернет у мережі вже пішов через справний основний канал, тому Auto не переводить з'єднання на запасний лише тому, що так було до вимкнення: він спокійно, з перевіркою, приймає робочий основний канал. Подальші переходи — за вибраним налаштуванням повернення.",
+        "en": "Before the power cut Auto ran on the reserve. After the power-on the network's internet already went through a healthy primary, so Auto does not move the connections to the reserve just because it was so before the cut: it accepts the working primary, with a check. Later switches follow the chosen return setting.",
+        "de": "Vor dem Stromausfall lief Auto über den Reservekanal. Nach dem Einschalten lief das Internet im Netz bereits über einen intakten Hauptkanal. Deshalb verschiebt Auto die Verbindungen nicht auf die Reserve, nur weil es vor dem Ausfall so war: Es übernimmt den funktionierenden Hauptkanal mit einer Prüfung. Weitere Wechsel folgen der gewählten Rückkehr-Einstellung."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-350",
+      "related": [
+        "VPN-PAIR-170"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-351",
+      "number": "005-001-351",
+      "key": "PRIORITY_CHANNEL_HEALTHY",
+      "aliases": [
+        "PRIORITY-CHANNEL-HEALTHY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Переход на приоритетный канал: он снова здоров",
+        "uk": "Перехід на пріоритетний канал: він знову справний",
+        "en": "Switch to the priority channel: it is healthy again",
+        "de": "Wechsel auf den Vorrangkanal: er ist wieder intakt"
+      },
+      "cause": {
+        "ru": "В настройках выбрано «Приоритетный канал — как можно быстрее». Выбранный канал прошёл короткую проверку (около 10 секунд, две успешные пробы), и Auto перевёл интернет на него, даже если текущий канал работал.",
+        "uk": "У налаштуваннях вибрано «Пріоритетний канал — якнайшвидше». Вибраний канал пройшов коротку перевірку (близько 10 секунд, дві успішні проби), і Auto перевів інтернет на нього, навіть якщо поточний канал працював.",
+        "en": "The setting \"Priority channel - as fast as possible\" is chosen. The chosen channel passed a short check (about 10 seconds, two good probes), and Auto moved the internet onto it, even though the current channel was working.",
+        "de": "In den Einstellungen ist „Vorrangkanal – so schnell wie möglich“ gewählt. Der gewählte Kanal hat eine kurze Prüfung bestanden (etwa 10 Sekunden, zwei erfolgreiche Proben), und Auto hat das Internet auf ihn verlegt, auch wenn der aktuelle Kanal funktionierte."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если переходы мешают, выберите в настройках «Держать рабочий канал».",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо переходи заважають, виберіть у налаштуваннях «Тримати робочий канал».",
+        "en": "1. Nothing to do.\n2. If the switches get in the way, choose \"Keep the working channel\" in the settings.",
+        "de": "1. Sie müssen nichts tun.\n2. Wenn die Wechsel stören, wählen Sie in den Einstellungen „Funktionierenden Kanal halten“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-351",
+      "related": [
+        "VPN-PAIR-170",
+        "VPN-PAIR-352"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-352",
+      "number": "005-001-352",
+      "key": "PRIORITY_CHANNEL_LIMIT",
+      "aliases": [
+        "PRIORITY-CHANNEL-LIMIT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пауза: уже 3 перехода за 15 минут",
+        "uk": "Пауза: уже 3 переходи за 15 хвилин",
+        "en": "Paused: already 3 switches in 15 minutes",
+        "de": "Pause: bereits 3 Wechsel in 15 Minuten"
+      },
+      "cause": {
+        "ru": "В настройках выбрано «Приоритетный канал — как можно быстрее». За последние 15 минут уже было 3 перехода, поэтому переход на приоритетный канал ждёт, пока окно освободится, чтобы не прыгать туда-обратно. Если текущий канал перестанет работать, Auto уйдёт с него сразу, без паузы.",
+        "uk": "У налаштуваннях вибрано «Пріоритетний канал — якнайшвидше». За останні 15 хвилин уже було 3 переходи, тому перехід на пріоритетний канал чекає, доки вікно звільниться, щоб не стрибати туди-назад. Якщо поточний канал перестане працювати, Auto піде з нього одразу, без паузи.",
+        "en": "The setting \"Priority channel - as fast as possible\" is chosen. There were already 3 switches in the last 15 minutes, so the switch to the priority channel waits until the window frees up, to avoid jumping back and forth. If the current channel stops working, Auto leaves it at once, without the pause.",
+        "de": "In den Einstellungen ist „Vorrangkanal – so schnell wie möglich“ gewählt. In den letzten 15 Minuten gab es bereits 3 Wechsel, daher wartet der Wechsel auf den Vorrangkanal, bis das Fenster frei wird, um kein Hin und Her zu verursachen. Fällt der aktuelle Kanal aus, verlässt Auto ihn sofort, ohne Pause."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: переход пройдёт сам, когда окно освободится.\n2. Если это повторяется часто, проверьте приоритетный VPN-сервер или выберите «Держать рабочий канал».",
+        "uk": "1. Нічого робити не потрібно: перехід відбудеться сам, коли вікно звільниться.\n2. Якщо це часто повторюється, перевірте пріоритетний VPN-сервер або виберіть «Тримати робочий канал».",
+        "en": "1. Nothing to do: the switch happens by itself when the window frees up.\n2. If it repeats often, check the priority VPN server or choose \"Keep the working channel\".",
+        "de": "1. Sie müssen nichts tun: Der Wechsel erfolgt von selbst, sobald das Fenster frei ist.\n2. Wiederholt es sich oft, prüfen Sie den Vorrang-VPN-Server oder wählen Sie „Funktionierenden Kanal halten“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-352",
+      "related": [
+        "VPN-PAIR-153",
+        "VPN-PAIR-351"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "switch",
+        "translation-draft"
+      ]
     }
   ]
 }
