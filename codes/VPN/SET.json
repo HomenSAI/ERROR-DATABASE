@@ -5676,6 +5676,64 @@
         "switch",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-SET-105",
+      "number": "005-005-105",
+      "key": "WG_SEED_STOP_REKICK",
+      "aliases": [
+        "WG-SEED-STOP-REKICK"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Auto остановлен: туннель WireGuard один раз перезапущен с адресом сервера из памяти",
+        "uk": "Auto зупинено: тунель WireGuard один раз перезапущено з адресою сервера з пам'яті",
+        "en": "Auto is stopped: the WireGuard tunnel was restarted once with the server address from memory",
+        "de": "Auto ist gestoppt: der WireGuard-Tunnel wurde einmal mit der Serveradresse aus dem Speicher neu gestartet"
+      },
+      "cause": {
+        "ru": "Auto остановлен, туннелем после включения питания управляет роутер GL. Подключение роутера к интернету уже появилось, запомненный адрес сервера был на месте, но туннель WireGuard так и не поднялся и не связался с сервером: до этого он не смог найти адрес сервера по имени, а система роутера больше не запускала его заново. Без помощи прошивка GL сама перебирает серверы и потом возвращается обратно — это давало перерыв интернета на 9–13 секунд, когда соединение уже было. Поэтому Auto один раз перезапустил именно этот туннель через системную сетевую службу (так же, как это делает GL), сохранив подсказку адреса. Один раз за включение, только при остановленном Auto, никогда после связи туннеля с сервером, после его подъёма, после помощи GL-KEYPAIR-NUDGE и позже 120 секунд после включения. Сервер, профиль и настройки не меняются, Auto не запускается. «FAILED» в строке: команда перезапуска отклонена, тогда GL запускает туннель сам, как раньше.",
+        "uk": "Auto зупинено, тунелем після ввімкнення живлення керує роутер GL. Підключення роутера до інтернету вже з'явилося, запам'ятована адреса сервера була на місці, але тунель WireGuard так і не піднявся і не зв'язався з сервером: перед цим він не зміг знайти адресу сервера за іменем, а система роутера більше не запускала його знову. Без допомоги прошивка GL сама перебирає сервери і потім повертається назад — це давало перерву інтернету на 9–13 секунд, коли з'єднання вже було. Тому Auto один раз перезапустив саме цей тунель через системну мережеву службу (так само, як це робить GL), зберігши підказку адреси. Один раз за ввімкнення, лише при зупиненому Auto, ніколи після зв'язку тунелю з сервером, після його підняття, після допомоги GL-KEYPAIR-NUDGE і пізніше 120 секунд після ввімкнення. Сервер, профіль і налаштування не змінюються, Auto не запускається. «FAILED» у рядку: команду перезапуску відхилено, тоді GL запускає тунель сам, як раніше.",
+        "en": "Auto is stopped; after power-on the GL router runs the tunnel. The router's own internet connection was already up and the remembered server address was in place, but the WireGuard tunnel was still down without any handshake: before this it had failed to look up its server name and the router's system did not start it again. Without help the GL firmware switches servers by itself and then goes back, which cost a 9-13 s internet outage after the connection was already there. So Auto restarted that one tunnel once through the system network service (the same way GL does), keeping the address hint. Once per power-on, only while Auto is stopped, never after a handshake, after the tunnel is up, after GL-KEYPAIR-NUDGE or later than 120 s after power-on. No server, profile or setting is changed and Auto is not started. 'FAILED' in the line: the restart command was refused; GL then runs the tunnel alone as before.",
+        "de": "Auto ist gestoppt; nach dem Einschalten steuert der GL-Router den Tunnel. Die eigene Internetverbindung des Routers war bereits da und die gespeicherte Serveradresse war vorhanden, aber der WireGuard-Tunnel war noch nicht aktiv und ohne Handshake: Zuvor konnte er den Servernamen nicht auflösen, und das System des Routers startete ihn nicht erneut. Ohne Hilfe wechselt die GL-Firmware selbst die Server und kehrt danach zurück, was einen Internetausfall von 9-13 s verursachte, obwohl die Verbindung schon bestand. Deshalb hat Auto genau diesen Tunnel einmal über den Netzwerkdienst des Systems neu gestartet (so wie GL es tut) und den Adresshinweis beibehalten. Einmal pro Einschalten, nur bei gestopptem Auto, nie nach einem Handshake, nach dem Hochfahren des Tunnels, nach GL-KEYPAIR-NUDGE oder später als 120 s nach dem Einschalten. Server, Profil und Einstellungen werden nicht geändert, Auto wird nicht gestartet. „FAILED“ in der Zeile: Der Neustartbefehl wurde abgelehnt; dann startet GL den Tunnel wie bisher allein."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если после включения интернет всё равно пропадает примерно на 10 секунд, отправьте в поддержку строки logread -e WG-SEED -e GL-KEYPAIR-NUDGE.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо після ввімкнення інтернет однаково зникає приблизно на 10 секунд, надішліть у підтримку рядки logread -e WG-SEED -e GL-KEYPAIR-NUDGE.",
+        "en": "1. Nothing to do.\n2. If the internet still breaks for about 10 seconds after power-on, send the lines of logread -e WG-SEED -e GL-KEYPAIR-NUDGE to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn das Internet nach dem Einschalten trotzdem etwa 10 Sekunden ausfällt, senden Sie die Zeilen von logread -e WG-SEED -e GL-KEYPAIR-NUDGE an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-105",
+      "related": [
+        "VPN-SET-102",
+        "VPN-SET-104",
+        "VPN-FLT-046"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
     }
   ]
 }
