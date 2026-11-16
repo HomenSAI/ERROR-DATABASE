@@ -19,13 +19,13 @@
       },
       "cause": {
         "ru": "Код группы проверки отчётов о тестах, которые выпуск может приложить к пакету. Установщик проверяет, что эти отчёты действительно относятся к этому выпуску. Если отчётов нет в наборе, установка продолжается; если они не подходят, ничего не устанавливается. Это семейство: описание относится ко всем кодам с префиксом «EVIDENCE-».",
-        "uk": "Код групи перевірки звітів про тести, які випуск може додати до пакета. Інсталятор перевіряє, що ці звіти справді належать до цього випуску. Якщо звітів немає в наборі, встановлення триває; якщо вони не підходять, нічого не встановлюється. Це родина: опис стосується всіх кодів із префіксом «EVIDENCE-».",
+        "uk": "Код групи перевірки звітів про тести, які випуск може додати до пакета. Інсталятор перевіряє, що ці звіти справді належать до цього випуску. Якщо звітів немає в наборі, встановлення продовжується; якщо вони не підходять, нічого не встановлюється. Це сімейство: опис стосується всіх кодів із префіксом «EVIDENCE-».",
         "en": "A code of the group that checks the test reports a release may ship with the package. The installer makes sure these reports really belong to this release. If the reports are not in the kit, the install continues; if they do not match, nothing is installed. This is a family: the description applies to all codes starting with \"EVIDENCE-\".",
         "de": "Ein Code der Gruppe, die die Testberichte prüft, die ein Release dem Paket beilegen kann. Der Installer stellt sicher, dass diese Berichte wirklich zu diesem Release gehören. Fehlen die Berichte im Kit, wird die Installation fortgesetzt; passen sie nicht, wird nichts installiert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „EVIDENCE-“."
       },
       "action": {
         "ru": "1. Если установка отказала, заново скачайте отчёты со страницы выпуска именно этой версии или уберите их из набора — для роутера они необязательны.\n2. Повторите установку.",
-        "uk": "1. Якщо встановлення відмовило, заново завантажте звіти зі сторінки випуску саме цієї версії або приберіть їх із набору — для роутера вони необов'язкові.\n2. Повторіть встановлення.",
+        "uk": "1. Якщо встановлення відхилено, заново завантажте звіти зі сторінки випуску саме цієї версії або приберіть їх із набору — для роутера вони необов'язкові.\n2. Повторіть встановлення.",
         "en": "1. If the install was refused, download the reports again from the release page of this exact version, or remove them from the kit: the router does not need them.\n2. Run the install again.",
         "de": "1. Wurde die Installation abgelehnt, laden Sie die Berichte erneut von der Release-Seite genau dieser Version herunter oder entfernen Sie sie aus dem Kit: Der Router benötigt sie nicht.\n2. Führen Sie die Installation erneut aus."
       },
@@ -52,7 +52,6 @@
         "auto-vpn",
         "int",
         "service",
-        "translation-draft",
         "family"
       ]
     },
@@ -79,7 +78,7 @@
       },
       "action": {
         "ru": "1. Откройте страницу выпуска в браузере и прочитайте там идентификатор ключа выпуска.\n2. Запустите установщик снова и укажите этот идентификатор, как описано в инструкции по установке.",
-        "uk": "1. Відкрийте сторінку випуску в браузері та прочитайте там ідентифікатор ключа випуску.\n2. Запустіть інсталятор знову й укажіть цей ідентифікатор, як описано в інструкції зі встановлення.",
+        "uk": "1. Відкрийте сторінку випуску в браузері та прочитайте там ідентифікатор ключу випуску.\n2. Запустіть інсталятор знову й укажіть цей ідентифікатор, як описано в інструкції зі встановлення.",
         "en": "1. Open the release page in your browser and read the release key identifier there.\n2. Start the installer again and enter this identifier as described in the installation guide.",
         "de": "1. Öffnen Sie die Release-Seite im Browser und lesen Sie dort die Kennung des Release-Schlüssels ab.\n2. Starten Sie den Installer erneut und geben Sie diese Kennung an, wie in der Installationsanleitung beschrieben."
       },
@@ -115,8 +114,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -178,8 +176,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -241,8 +238,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -264,7 +260,7 @@
         "ru": "При запуске службы самопроверка нашла установку непроверенной или повреждённой, поэтому Auto работать не может. Запуск отклонён, а не отложен на потом.",
         "uk": "Під час запуску служби самоперевірка виявила, що встановлення не перевірене або пошкоджене, тому Auto не може працювати. Запуск відхилено, а не відкладено на потім.",
         "en": "When the service started, its self-check found the installation unverified or damaged, so Auto cannot run. Start is refused instead of being postponed.",
-        "de": "Beim Start des Dienstes hat die Selbstprüfung die Installation als ungeprüft oder beschädigt erkannt, daher kann Auto nicht laufen. Der Start wird abgelehnt statt verschoben."
+        "de": "Beim Start des Dienstes hat die Selbstprüfung die Installation als ungeprüft oder beschädigt erkannt, daher kann Auto nicht laufen. Der Start wird abgelehnt und nicht auf später verschoben."
       },
       "action": {
         "ru": "1. Переустановите пакет (подойдёт та же версия).\n2. Снова нажмите Start.",
@@ -304,8 +300,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -357,8 +352,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -374,13 +368,13 @@
         "ru": "Проверка файлов отложена на время установки",
         "uk": "Перевірку файлів відкладено на час встановлення",
         "en": "File check postponed during installation",
-        "de": "Dateiprüfung während der Installation verschoben"
+        "de": "Dateiprüfung für die Dauer der Installation verschoben"
       },
       "cause": {
         "ru": "Шла установка пакета, поэтому файлы программы ещё не проверены. Проверка запустится сама, как только установка закончится.",
         "uk": "Тривало встановлення пакета, тому файли програми ще не перевірено. Перевірка запуститься сама, щойно встановлення завершиться.",
         "en": "A package installation was running, so the program files were not checked yet. The check runs by itself as soon as the installation ends.",
-        "de": "Es lief eine Paketinstallation, daher wurden die Programmdateien noch nicht geprüft. Die Prüfung startet von selbst, sobald die Installation endet."
+        "de": "Es lief eine Paketinstallation, daher wurden die Programmdateien noch nicht geprüft. Die Prüfung startet von selbst, sobald die Installation abgeschlossen ist."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Подождите несколько минут: результат заменит это сообщение.",
@@ -410,8 +404,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -439,7 +432,7 @@
         "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.\n2. Если файл снова повреждён, сохраните диагностический отчёт и отправьте его в поддержку.",
         "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.\n2. Якщо файл знову пошкоджено, збережіть діагностичний звіт і надішліть його до підтримки.",
         "en": "1. If the message stays, reinstall the same package version.\n2. If the file is damaged again, save the diagnostic report and send it to support.",
-        "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut.\n2. Ist die Datei erneut beschädigt, speichern Sie den Diagnosebericht und senden Sie ihn an den Support."
+        "de": "1. Bleibt die Meldung bestehen, installieren Sie dieselbe Paketversion erneut.\n2. Ist die Datei erneut beschädigt, speichern Sie den Diagnosebericht und senden Sie ihn an den Support."
       },
       "escalation": [
         {
@@ -463,8 +456,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -484,13 +476,13 @@
       },
       "cause": {
         "ru": "Файла программы, который входит в пакет, нет на роутере. Роутер сам возвращает его из сохранённой чистой копии, если может.",
-        "uk": "Файлу програми, що входить до пакета, немає на роутері. Роутер сам повертає його зі збереженої чистої копії, якщо може.",
+        "uk": "Файла програми, що входить до пакета, немає на роутері. Роутер сам повертає його зі збереженої чистої копії, якщо може.",
         "en": "A program file that belongs to the package is missing on the router. The router puts it back by itself from its saved clean copy when it can.",
         "de": "Eine Programmdatei, die zum Paket gehört, fehlt auf dem Router. Der Router stellt sie nach Möglichkeit selbst aus seiner gespeicherten sauberen Kopie wieder her."
       },
       "action": {
         "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.\n2. Если файл снова пропадёт, сохраните диагностический отчёт и отправьте его в поддержку.",
-        "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.\n2. Якщо файл знову зникне, збережіть діагностичний звіт і надішліть його до підтримки.",
+        "uk": "1. Якщо повідомлення залишається, перевстановіть ту саму версію пакета.\n2. Якщо файл знову зникне, збережіть діагностичний звіт і надішліть його в службу підтримки.",
         "en": "1. If the message stays, reinstall the same package version.\n2. If the file disappears again, save the diagnostic report and send it to support.",
         "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut.\n2. Fehlt die Datei erneut, speichern Sie den Diagnosebericht und senden Sie ihn an den Support."
       },
@@ -526,8 +518,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -553,7 +544,7 @@
       },
       "action": {
         "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.",
-        "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.",
+        "uk": "1. Якщо повідомлення залишається, перевстановіть ту саму версію пакета.",
         "en": "1. If the message stays, reinstall the same package version.",
         "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut."
       },
@@ -579,8 +570,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -632,8 +622,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -653,13 +642,13 @@
       },
       "cause": {
         "ru": "Во время установки сама проверка файлов не завершилась как надо, поэтому установка не проверена. Если предыдущая рабочая версия сохранилась, она возвращается и запускается автоматически; иначе служба остаётся выключенной.",
-        "uk": "Під час встановлення сама перевірка файлів не завершилася як слід, тому встановлення не перевірене. Якщо попередня робоча версія збереглася, її повертають і запускають автоматично; інакше служба лишається вимкненою.",
+        "uk": "Під час встановлення сама перевірка файлів не завершилася як слід, тому встановлення не перевірене. Якщо попередня робоча версія збереглася, її повертають і запускають автоматично; інакше служба залишається вимкненою.",
         "en": "During the installation the file check itself did not finish properly, so the installation is not verified. If the previous working version was kept, it is put back and started automatically; otherwise the service stays off.",
-        "de": "Während der Installation ist die Dateiprüfung selbst nicht richtig abgeschlossen worden, daher ist die Installation nicht geprüft. Wurde die vorherige funktionierende Version behalten, wird sie automatisch zurückgeholt und gestartet; sonst bleibt der Dienst aus."
+        "de": "Während der Installation ist die Dateiprüfung selbst nicht richtig abgeschlossen worden, daher ist die Installation nicht geprüft. Wurde die vorherige funktionierende Version behalten, wird sie automatisch zurückgeholt und gestartet; sonst bleibt der Dienst ausgeschaltet."
       },
       "action": {
         "ru": "1. Установите тот же пакет ещё раз.\n2. Если это повторится, сохраните вывод установки и обратитесь в поддержку.",
-        "uk": "1. Встановіть той самий пакет ще раз.\n2. Якщо це повториться, збережіть вивід встановлення й зверніться до підтримки.",
+        "uk": "1. Встановіть той самий пакет ще раз.\n2. Якщо це повториться, збережіть результат встановлення й зверніться до підтримки.",
         "en": "1. Install the same package again.\n2. If it happens again, keep the installation output and contact support.",
         "de": "1. Installieren Sie dasselbe Paket erneut.\n2. Tritt es erneut auf, bewahren Sie die Ausgabe der Installation auf und wenden Sie sich an den Support."
       },
@@ -695,8 +684,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -748,8 +736,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -769,13 +756,13 @@
       },
       "cause": {
         "ru": "Эталонный список файлов программы из пакета отсутствует или повреждён, поэтому файлы не с чем сравнить. Роутер берёт список из сохранённой чистой копии, если может.",
-        "uk": "Еталонний список файлів програми з пакета відсутній або пошкоджений, тому файли немає з чим порівняти. Роутер бере список зі збереженої чистої копії, якщо може.",
+        "uk": "Еталонний список файлів програми з пакета відсутній або пошкоджений, тому немає з чим порівняти файли. Роутер бере список зі збереженої чистої копії, якщо може.",
         "en": "The reference list of program files shipped in the package is missing or damaged, so the files cannot be compared with it. The router takes the list from its saved clean copy when it can.",
         "de": "Die Referenzliste der Programmdateien aus dem Paket fehlt oder ist beschädigt, daher können die Dateien nicht damit verglichen werden. Der Router übernimmt die Liste nach Möglichkeit aus seiner gespeicherten sauberen Kopie."
       },
       "action": {
         "ru": "1. Если сообщение остаётся, переустановите ту же версию пакета.",
-        "uk": "1. Якщо повідомлення лишається, перевстановіть ту саму версію пакета.",
+        "uk": "1. Якщо повідомлення залишається, перевстановіть ту саму версію пакета.",
         "en": "1. If the message stays, reinstall the same package version.",
         "de": "1. Bleibt die Meldung, installieren Sie dieselbe Paketversion erneut."
       },
@@ -811,8 +798,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -864,8 +850,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -887,7 +872,7 @@
         "ru": "Восстановление файлов программы никогда не записывает ваши настройки, принятые условия, журнал, историю и сертификаты.",
         "uk": "Відновлення файлів програми ніколи не записує ваших налаштувань, прийнятих умов, журналу, історії та сертифікатів.",
         "en": "Restoring program files never writes your settings, accepted terms, journal, history or certificates.",
-        "de": "Die Wiederherstellung von Programmdateien schreibt nie Ihre Einstellungen, akzeptierten Bedingungen, das Journal, den Verlauf oder Zertifikate."
+        "de": "Die Wiederherstellung von Programmdateien schreibt niemals Ihre Einstellungen, die akzeptierten Bedingungen, das Protokoll, den Verlauf oder Zertifikate."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -917,8 +902,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -980,8 +964,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1033,8 +1016,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1056,7 +1038,7 @@
         "ru": "Во время установки только что распакованные файлы программы не совпали с пакетом: файл повреждён или отсутствует либо повреждён сам список файлов. Если предыдущая рабочая версия сохранилась, она возвращается и запускается автоматически; иначе служба остаётся выключенной.",
         "uk": "Під час встановлення щойно розпаковані файли програми не збіглися з пакетом: файл пошкоджений або відсутній чи пошкоджений сам список файлів. Якщо попередня робоча версія збереглася, її повертають і запускають автоматично; інакше служба лишається вимкненою.",
         "en": "During the installation the freshly unpacked program files did not match the package: a file is damaged or missing, or the file list itself is damaged. If the previous working version was kept, it is put back and started automatically; otherwise the service stays off.",
-        "de": "Während der Installation stimmten die frisch entpackten Programmdateien nicht mit dem Paket überein: Eine Datei ist beschädigt oder fehlt, oder die Dateiliste selbst ist beschädigt. Wurde die vorherige funktionierende Version behalten, wird sie automatisch zurückgeholt und gestartet; sonst bleibt der Dienst aus."
+        "de": "Während der Installation stimmten die frisch entpackten Programmdateien nicht mit dem Paket überein: Eine Datei ist beschädigt oder fehlt, oder die Dateiliste selbst ist beschädigt. Wurde die vorherige funktionierende Version behalten, wird sie automatisch zurückgeholt und gestartet; sonst bleibt der Dienst ausgeschaltet."
       },
       "action": {
         "ru": "1. Проверьте, что на роутере достаточно свободной памяти.\n2. Заново скачайте пакет со страницы выпуска.\n3. Установите его ещё раз.",
@@ -1096,8 +1078,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1149,8 +1130,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1172,7 +1152,7 @@
         "ru": "Работа с пакетами ещё долго шла после запуска службы, поэтому отложенная проверка файлов не дождалась её конца. Служба работает как раньше.",
         "uk": "Робота з пакетами ще довго тривала після запуску служби, тому відкладена перевірка файлів не дочекалася її завершення. Служба працює як раніше.",
         "en": "A package operation was still busy long after the service started, so the postponed file check gave up. The service keeps running as before.",
-        "de": "Ein Paketvorgang lief noch lange nach dem Start des Dienstes, daher hat die verschobene Dateiprüfung aufgegeben. Der Dienst läuft wie bisher weiter."
+        "de": "Ein Paketvorgang lief noch lange nach dem Start des Dienstes, daher hat die verschobene Dateiprüfung nicht auf sein Ende gewartet. Der Dienst läuft wie bisher weiter."
       },
       "action": {
         "ru": "1. Дождитесь, пока не останется идущих установок пакетов.\n2. Перезагрузите роутер.",
@@ -1202,8 +1182,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1219,7 +1198,7 @@
         "ru": "Отложенная проверка файлов выполнена",
         "uk": "Відкладену перевірку файлів виконано",
         "en": "Postponed file check done",
-        "de": "Verschobene Dateiprüfung erledigt"
+        "de": "Verschobene Dateiprüfung ausgeführt"
       },
       "cause": {
         "ru": "Проверка файлов, отложенная на время установки, выполнена после её окончания. Следующее сообщение показывает результат.",
@@ -1255,8 +1234,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1318,8 +1296,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1339,7 +1316,7 @@
       },
       "cause": {
         "ru": "Программа восстанавливает свои файлы лишь несколько раз подряд, чтобы повторяющееся повреждение не вызвало бесконечный цикл. Сейчас этот предел достигнут.",
-        "uk": "Програма відновлює свої файли лише кілька разів поспіль, щоб повторюване пошкодження не спричинило нескінченний цикл. Зараз цю межу досягнуто.",
+        "uk": "Програма відновлює свої файли лише кілька разів поспіль, щоб повторюване пошкодження не спричинило нескінченного циклу. Зараз цю межу досягнуто.",
         "en": "The program restores its files only a few times in a row, so damage that keeps coming back cannot cause an endless loop. This limit has now been reached.",
         "de": "Das Programm stellt seine Dateien nur wenige Male hintereinander wieder her, damit ein immer wiederkehrender Schaden keine Endlosschleife auslöst. Diese Grenze ist jetzt erreicht."
       },
@@ -1347,7 +1324,7 @@
         "ru": "1. Проверьте свободную память роутера.\n2. Сохраните резервную копию настроек.\n3. Переустановите пакет.",
         "uk": "1. Перевірте вільну пам'ять роутера.\n2. Збережіть резервну копію налаштувань.\n3. Перевстановіть пакет.",
         "en": "1. Check the free memory of the router.\n2. Save a backup of your settings.\n3. Reinstall the package.",
-        "de": "1. Prüfen Sie den freien Speicher des Routers.\n2. Sichern Sie Ihre Einstellungen.\n3. Installieren Sie das Paket erneut."
+        "de": "1. Prüfen Sie den freien Speicher des Routers.\n2. Erstellen Sie eine Sicherung Ihrer Einstellungen.\n3. Installieren Sie das Paket erneut."
       },
       "escalation": [
         {
@@ -1371,8 +1348,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1424,8 +1400,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1487,8 +1462,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1540,8 +1514,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1593,8 +1566,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1656,8 +1628,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1709,8 +1680,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1772,8 +1742,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1801,7 +1770,7 @@
         "ru": "1. Установите нужную версию пакета ещё раз.\n2. Дайте установке полностью завершиться.",
         "uk": "1. Встановіть потрібну версію пакета ще раз.\n2. Дайте встановленню повністю завершитися.",
         "en": "1. Install the package version you want again.\n2. Let the installation finish completely.",
-        "de": "1. Installieren Sie die gewünschte Paketversion erneut.\n2. Lassen Sie die Installation vollständig abschließen."
+        "de": "1. Installieren Sie die gewünschte Paketversion erneut.\n2. Lassen Sie die Installation vollständig durchlaufen."
       },
       "escalation": [
         {
@@ -1825,8 +1794,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1878,8 +1846,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -1941,8 +1908,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2004,8 +1970,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2057,8 +2022,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2078,7 +2042,7 @@
       },
       "cause": {
         "ru": "Код группы проверки подписи пакета. Установщик проверяет подпись до любых изменений. Если пакет не подписан доверенным ключом выпуска или проверить подпись нечем, ничего не устанавливается. Это семейство: описание относится ко всем кодам с префиксом «SIGNATURE-».",
-        "uk": "Код групи перевірки підпису пакета. Інсталятор перевіряє підпис до будь-яких змін. Якщо пакет не підписано довіреним ключем випуску або перевірити підпис нічим, нічого не встановлюється. Це родина: опис стосується всіх кодів із префіксом «SIGNATURE-».",
+        "uk": "Код групи перевірки підпису пакета. Інсталятор перевіряє підпис до будь-яких змін. Якщо пакет не підписано довіреним ключем випуску або немає чим перевірити підпис, нічого не встановлюється. Це сімейство кодів: опис стосується всіх кодів із префіксом «SIGNATURE-».",
         "en": "A code of the group that checks the package signature. The installer checks the signature before it changes anything. If the package is not signed by a trusted release key, or the signature cannot be checked, nothing is installed. This is a family: the description applies to all codes starting with \"SIGNATURE-\".",
         "de": "Ein Code der Gruppe, die die Paketsignatur prüft. Der Installer prüft die Signatur, bevor er etwas ändert. Ist das Paket nicht mit einem vertrauenswürdigen Release-Schlüssel signiert oder lässt sich die Signatur nicht prüfen, wird nichts installiert. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „SIGNATURE-“."
       },
@@ -2121,7 +2085,6 @@
         "auto-vpn",
         "int",
         "service",
-        "translation-draft",
         "family"
       ]
     },
@@ -2184,8 +2147,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2247,8 +2209,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -2300,8 +2261,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2363,8 +2323,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2426,8 +2385,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2489,8 +2447,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2512,7 +2469,7 @@
         "ru": "Команду доверия ключу вызвали без нужных или с неизвестными параметрами. Ничего не изменено.",
         "uk": "Команду довіри ключу викликали без потрібних або з невідомими параметрами. Нічого не змінено.",
         "en": "The key trust command was called with missing or unknown arguments. Nothing was changed.",
-        "de": "Der Befehl zum Vertrauen eines Schlüssels wurde mit fehlenden oder unbekannten Angaben aufgerufen. Es wurde nichts geändert."
+        "de": "Der Befehl zum Vertrauen eines Schlüssels wurde ohne die benötigten oder mit unbekannten Parametern aufgerufen. Es wurde nichts geändert."
       },
       "action": {
         "ru": "1. Сверьте команду с инструкцией по установке.\n2. Запустите её снова точно так, как там показано.",
@@ -2552,8 +2509,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     },
     {
@@ -2615,8 +2571,7 @@
       "tags": [
         "auto-vpn",
         "int",
-        "runtime",
-        "translation-draft"
+        "runtime"
       ]
     }
   ]

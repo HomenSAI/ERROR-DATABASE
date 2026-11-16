@@ -19,7 +19,7 @@
       },
       "cause": {
         "ru": "Один из шагов запроса «Проверить сейчас» сообщил о своём состоянии. Работа VPN от этого не меняется. Это семейство: описание относится ко всем кодам с префиксом «SCAN-».",
-        "uk": "Один із кроків запиту «Перевірити зараз» (Check now) повідомив про свій стан. Робота VPN від цього не змінюється. Це родина: опис стосується всіх кодів із префіксом «SCAN-».",
+        "uk": "Один із кроків запиту «Перевірити зараз» (Check now) повідомив про свій стан. Робота VPN від цього не змінюється. Це сімейство: опис стосується всіх кодів із префіксом «SCAN-».",
         "en": "One step of the “Check now” request reported its state. The VPN keeps working as before. This is a family: the description applies to all codes starting with \"SCAN-\".",
         "de": "Ein Schritt der Anfrage „Jetzt prüfen“ (Check now) hat seinen Zustand gemeldet. Das VPN arbeitet unverändert weiter. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „SCAN-“."
       },
@@ -51,7 +51,6 @@
       "tags": [
         "auto-vpn",
         "speed",
-        "translation-draft",
         "family"
       ]
     },
@@ -103,8 +102,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -155,8 +153,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -217,8 +214,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -279,8 +275,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -331,8 +326,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -393,8 +387,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -416,13 +409,13 @@
         "ru": "Роутер не смог записать запрос проверки. Чаще всего в памяти роутера мало свободного места.",
         "uk": "Роутер не зміг записати запит перевірки. Найчастіше в пам'яті роутера мало вільного місця.",
         "en": "The router could not save the check request. Most often the router is low on free space.",
-        "de": "Der Router konnte die Prüfanfrage nicht speichern. Meist hat der Router zu wenig freien Speicher."
+        "de": "Der Router konnte die Prüfanfrage nicht speichern. Meist ist im Speicher des Routers zu wenig Platz frei."
       },
       "action": {
         "ru": "1. Освободите место на роутере (см. «Помощь»).\n2. Нажмите «Проверить сейчас» ещё раз.",
         "uk": "1. Звільніть місце на роутері (див. «Довідку» (Help)).\n2. Натисніть «Перевірити зараз» (Check now) ще раз.",
         "en": "1. Free some space on the router (see Help).\n2. Press “Check now” again.",
-        "de": "1. Geben Sie Speicher auf dem Router frei (siehe „Hilfe“ (Help)).\n2. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
+        "de": "1. Geben Sie Speicherplatz auf dem Router frei (siehe „Hilfe“ (Help)).\n2. Drücken Sie erneut „Jetzt prüfen“ (Check now)."
       },
       "escalation": [
         {
@@ -445,8 +438,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -466,15 +458,15 @@
       },
       "cause": {
         "ru": "Один из шагов теста скорости сообщил о своём состоянии: например, о сети, лимитах, часах или загрузке роутера. Остальная работа роутера не затронута. Это семейство: описание относится ко всем кодам с префиксом «SPEED-».",
-        "uk": "Один із кроків тесту швидкості повідомив про свій стан: наприклад, про мережу, ліміти, годинник або навантаження роутера. Решта роботи роутера не порушена. Це родина: опис стосується всіх кодів із префіксом «SPEED-».",
+        "uk": "Один із кроків тесту швидкості повідомив про свій стан: наприклад, про мережу, ліміти, годинник або навантаження роутера. Решта роботи роутера не зачіпається. Це група кодів: опис стосується всіх кодів із префіксом «SPEED-».",
         "en": "One step of the speed test reported its state, for example about the network, limits, the clock or the router load. Nothing else on the router is affected. This is a family: the description applies to all codes starting with \"SPEED-\".",
-        "de": "Ein Schritt des Geschwindigkeitstests hat seinen Zustand gemeldet, etwa zum Netzwerk, zu Limits, zur Uhr oder zur Auslastung des Routers. Sonst ist auf dem Router nichts betroffen. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „SPEED-“."
+        "de": "Ein Schritt des Geschwindigkeitstests hat seinen Zustand gemeldet, etwa zum Netzwerk, zu Limits, zur Uhr oder zur Auslastung des Routers. Alles andere auf dem Router ist davon nicht betroffen. Dies ist eine Gruppe von Codes: Die Beschreibung gilt für alle Codes mit dem Präfix „SPEED-“."
       },
       "action": {
         "ru": "1. Повторите тест позже.\n2. Если код повторяется, проверьте VPN и свободное место на роутере.",
         "uk": "1. Повторіть тест пізніше.\n2. Якщо код повторюється, перевірте VPN і вільне місце на роутері.",
         "en": "1. Repeat the test later.\n2. If the code repeats, check the VPN and the free space on the router.",
-        "de": "1. Wiederholen Sie den Test später.\n2. Wiederholt sich der Code, prüfen Sie das VPN und den freien Speicher des Routers."
+        "de": "1. Wiederholen Sie den Test später.\n2. Wiederholt sich der Code, prüfen Sie das VPN und den freien Speicherplatz auf dem Router."
       },
       "escalation": [
         {
@@ -498,7 +490,6 @@
       "tags": [
         "auto-vpn",
         "speed",
-        "translation-draft",
         "family"
       ]
     },
@@ -550,8 +541,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -567,7 +557,7 @@
         "ru": "Тест скорости ждёт, пока Auto освободится",
         "uk": "Тест швидкості чекає, поки Auto звільниться",
         "en": "The speed test waits for Auto",
-        "de": "Der Geschwindigkeitstest wartet auf Auto"
+        "de": "Der Geschwindigkeitstest wartet, bis Auto frei ist"
       },
       "cause": {
         "ru": "В текущем состоянии Auto тест скорости не запускается, чтобы не мешать работе каналов.",
@@ -602,8 +592,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -654,8 +643,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -677,7 +665,7 @@
         "ru": "Роутер принял запрос на отмену теста скорости и остановит его.",
         "uk": "Роутер прийняв запит на скасування тесту швидкості й зупинить його.",
         "en": "The router accepted the request to cancel the speed test and will stop it.",
-        "de": "Der Router hat die Anfrage zum Abbruch des Geschwindigkeitstests angenommen und beendet ihn."
+        "de": "Der Router hat die Anfrage zum Abbruch des Geschwindigkeitstests angenommen und wird ihn stoppen."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -706,8 +694,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -729,13 +716,13 @@
         "ru": "Роутер не смог подтвердить, что тест скорости действительно остановился.",
         "uk": "Роутер не зміг підтвердити, що тест швидкості справді зупинився.",
         "en": "The router could not confirm that the speed test really stopped.",
-        "de": "Der Router konnte nicht bestätigen, dass der Geschwindigkeitstest wirklich beendet wurde."
+        "de": "Der Router konnte nicht bestätigen, dass der Geschwindigkeitstest wirklich gestoppt wurde."
       },
       "action": {
         "ru": "1. Подождите минуту.\n2. Обновите страницу и убедитесь, что тест больше не идёт.",
         "uk": "1. Зачекайте хвилину.\n2. Оновіть сторінку й переконайтеся, що тест більше не триває.",
         "en": "1. Wait a minute.\n2. Reload the page and check that the test is no longer running.",
-        "de": "1. Warten Sie eine Minute.\n2. Laden Sie die Seite neu und prüfen Sie, dass der Test nicht mehr läuft."
+        "de": "1. Warten Sie eine Minute.\n2. Laden Sie die Seite neu und vergewissern Sie sich, dass der Test nicht mehr läuft."
       },
       "escalation": [
         {
@@ -758,8 +745,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -781,7 +767,7 @@
         "ru": "Тест скорости был отменён и остановлен. Результат этого теста не сохраняется.",
         "uk": "Тест швидкості скасовано й зупинено. Результат цього тесту не зберігається.",
         "en": "The speed test was cancelled and stopped. No result of this test is kept.",
-        "de": "Der Geschwindigkeitstest wurde abgebrochen und beendet. Für diesen Test wird kein Ergebnis gespeichert."
+        "de": "Der Geschwindigkeitstest wurde abgebrochen und gestoppt. Für diesen Test wird kein Ergebnis gespeichert."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -810,8 +796,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -833,7 +818,7 @@
         "ru": "Во время теста часы роутера перескочили назад, поэтому результат ненадёжен и не учитывается.",
         "uk": "Під час тесту годинник роутера перескочив назад, тому результат ненадійний і не враховується.",
         "en": "The router clock jumped back during the test, so the result is not reliable and is not used.",
-        "de": "Während des Tests ist die Uhr des Routers zurückgesprungen, daher ist das Ergebnis unzuverlässig und wird nicht verwendet."
+        "de": "Während des Tests ist die Uhr des Routers zurückgesprungen, daher ist das Ergebnis unzuverlässig und wird nicht berücksichtigt."
       },
       "action": {
         "ru": "1. Повторите тест позже.",
@@ -862,8 +847,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -879,7 +863,7 @@
         "ru": "Часы роутера ещё не установлены",
         "uk": "Годинник роутера ще не встановлено",
         "en": "The router clock is not set yet",
-        "de": "Die Uhr des Routers ist noch nicht gestellt"
+        "de": "Die Uhr des Routers ist noch nicht eingestellt"
       },
       "cause": {
         "ru": "Роутер пока не знает точного времени, поэтому не может посчитать лимиты тестов скорости.",
@@ -914,8 +898,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -966,8 +949,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1018,8 +1000,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1080,8 +1061,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1132,8 +1112,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1184,8 +1163,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1236,8 +1214,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1288,8 +1265,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1340,8 +1316,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1361,9 +1336,9 @@
       },
       "cause": {
         "ru": "Роутер не смог узнать загрузку процессора, поэтому тест скорости не продолжен. Подключённые VPN остаются на месте.",
-        "uk": "Роутер не зміг дізнатися навантаження процесора, тому тест швидкості не продовжено. Підключені VPN лишаються як були.",
+        "uk": "Роутер не зміг визначити навантаження процесора, тому тест швидкості не продовжено. Підключені VPN залишаються без змін.",
         "en": "The router could not read its processor load, so the speed test did not continue. Connected VPNs stay as they are.",
-        "de": "Der Router konnte seine Prozessorauslastung nicht ermitteln, daher wurde der Geschwindigkeitstest nicht fortgesetzt. Verbundene VPNs bleiben bestehen."
+        "de": "Der Router konnte seine Prozessorauslastung nicht ermitteln, daher wurde der Geschwindigkeitstest nicht fortgesetzt. Die verbundenen VPNs bleiben unverändert."
       },
       "action": {
         "ru": "1. Дождитесь окончания текущей операции.\n2. Запустите тест ещё раз.",
@@ -1392,8 +1367,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1407,9 +1381,9 @@
       "audience": "user",
       "title": {
         "ru": "Дневной лимит трафика на тесты исчерпан",
-        "uk": "Денний ліміт трафіку на тести вичерпано",
+        "uk": "Щоденний ліміт трафіку на тести вичерпано",
         "en": "Daily data limit for tests used up",
-        "de": "Tageslimit für Testdaten aufgebraucht"
+        "de": "Tägliches Datenlimit für Tests aufgebraucht"
       },
       "cause": {
         "ru": "Трафик, который вы разрешили тратить на тесты скорости за день, уже израсходован.",
@@ -1419,7 +1393,7 @@
       },
       "action": {
         "ru": "1. Подождите до следующего дня или увеличьте лимит в «Настройки» → «Тест скорости: параметры».",
-        "uk": "1. Зачекайте до наступного дня або збільште ліміт у «Налаштування» (Settings) → «Тест швидкості: параметри» (Speed test: parameters).",
+        "uk": "1. Дочекайтеся наступного дня або збільште ліміт у «Налаштування» (Settings) → «Тест швидкості: параметри» (Speed test: parameters).",
         "en": "1. Wait until the next day, or raise the limit in Settings → “Speed test: parameters”.",
         "de": "1. Warten Sie bis zum nächsten Tag oder erhöhen Sie das Limit unter „Einstellungen“ (Settings) → „Geschwindigkeitstest: Parameter“ (Speed test: parameters)."
       },
@@ -1444,8 +1418,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1496,8 +1469,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1523,7 +1495,7 @@
       },
       "action": {
         "ru": "1. Повторите тест позже.\n2. Если повторяется, проверьте настройки DNS этого VPN.",
-        "uk": "1. Повторіть тест пізніше.\n2. Якщо повторюється, перевірте налаштування DNS цього VPN.",
+        "uk": "1. Повторіть тест пізніше.\n2. Якщо це повторюється, перевірте налаштування DNS цього VPN.",
         "en": "1. Repeat the test later.\n2. If it repeats, check the DNS settings of this VPN.",
         "de": "1. Wiederholen Sie den Test später.\n2. Wiederholt es sich, prüfen Sie die DNS-Einstellungen dieses VPNs."
       },
@@ -1548,8 +1520,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1600,8 +1571,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1652,8 +1622,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1673,7 +1642,7 @@
       },
       "cause": {
         "ru": "Сервер теста скорости отказался отдать данные для замера.",
-        "uk": "Сервер тесту швидкості відмовився віддати дані для виміру.",
+        "uk": "Сервер тесту швидкості відмовився віддати дані для вимірювання.",
         "en": "The speed test server refused to send the data for the measurement.",
         "de": "Der Testserver hat die Daten für die Messung verweigert."
       },
@@ -1704,8 +1673,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1725,7 +1693,7 @@
       },
       "cause": {
         "ru": "Тесту скорости нужен работающий мониторинг, а он сейчас не отвечает.",
-        "uk": "Тесту швидкості потрібен робочий моніторинг, а він зараз не відповідає.",
+        "uk": "Тесту швидкості потрібен працюючий моніторинг, а він зараз не відповідає.",
         "en": "The speed test needs monitoring to be running, and it does not answer right now.",
         "de": "Der Geschwindigkeitstest braucht eine laufende Überwachung, die gerade nicht antwortet."
       },
@@ -1756,8 +1724,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1808,8 +1775,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1860,8 +1826,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1912,8 +1877,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -1964,8 +1928,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2016,8 +1979,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2068,8 +2030,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2130,8 +2091,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2182,8 +2142,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2234,8 +2193,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2286,8 +2244,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2338,8 +2295,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2390,8 +2346,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2452,8 +2407,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2475,7 +2429,7 @@
         "ru": "В запросе теста были неверные или лишние значения, поэтому он отклонён. Чаще всего страница устарела после обновления.",
         "uk": "У запиті тесту були неправильні або зайві значення, тому його відхилено. Найчастіше сторінка застаріла після оновлення.",
         "en": "The test request had wrong or extra values, so it was refused. Most often the page is outdated after an update.",
-        "de": "Die Testanfrage enthielt falsche oder überzählige Werte und wurde abgelehnt. Meist ist die Seite nach einem Update veraltet."
+        "de": "Die Testanfrage enthielt falsche oder überflüssige Werte und wurde abgelehnt. Meist ist die Seite nach einem Update veraltet."
       },
       "action": {
         "ru": "1. Полностью обновите страницу, без кэша браузера.\n2. Запустите тест ещё раз.",
@@ -2504,8 +2458,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2527,7 +2480,7 @@
         "ru": "Тест скорости скачал столько данных, сколько разрешено, и был остановлен, чтобы не тратить лишний трафик.",
         "uk": "Тест швидкості завантажив стільки даних, скільки дозволено, і був зупинений, щоб не витрачати зайвий трафік.",
         "en": "The speed test downloaded as much data as allowed and was stopped to save data.",
-        "de": "Der Geschwindigkeitstest hat so viele Daten geladen wie erlaubt und wurde beendet, um Datenvolumen zu sparen."
+        "de": "Der Geschwindigkeitstest hat so viele Daten heruntergeladen, wie erlaubt, und wurde beendet, um Datenvolumen zu sparen."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.",
@@ -2556,8 +2509,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2573,13 +2525,13 @@
         "ru": "Маршрут теста не подтверждён",
         "uk": "Маршрут тесту не підтверджено",
         "en": "The test route is not confirmed",
-        "de": "Der Testweg ist nicht bestätigt"
+        "de": "Die Testroute wurde nicht bestätigt"
       },
       "cause": {
         "ru": "Роутер не смог убедиться, что тест идёт именно через выбранный VPN, поэтому результат не учтён.",
         "uk": "Роутер не зміг переконатися, що тест іде саме через вибраний VPN, тому результат не враховано.",
         "en": "The router could not make sure the test goes through the chosen VPN, so the result was not used.",
-        "de": "Der Router konnte nicht sicherstellen, dass der Test über das gewählte VPN läuft, daher wurde das Ergebnis nicht verwendet."
+        "de": "Der Router konnte nicht sicherstellen, dass der Test über das gewählte VPN läuft, daher wurde das Ergebnis nicht gewertet."
       },
       "action": {
         "ru": "1. Проверьте, что VPN подключён.\n2. Запустите тест ещё раз.",
@@ -2608,8 +2560,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2660,8 +2611,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2687,7 +2637,7 @@
       },
       "action": {
         "ru": "1. Посмотрите код рядом с сообщением и найдите его в «Помощи».",
-        "uk": "1. Подивіться код поруч із повідомленням і знайдіть його в «Довідці» (Help).",
+        "uk": "1. Подивіться на код поруч із повідомленням і знайдіть його в «Довідці» (Help).",
         "en": "1. Look at the code next to the message and find it in Help.",
         "de": "1. Sehen Sie sich den Code neben der Meldung an und suchen Sie ihn in der „Hilfe“ (Help)."
       },
@@ -2722,8 +2672,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2774,8 +2723,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2791,7 +2739,7 @@
         "ru": "Идёт переключение канала",
         "uk": "Триває перемикання каналу",
         "en": "A channel switch is running",
-        "de": "Ein Kanalwechsel läuft"
+        "de": "Ein Kanalwechsel läuft gerade"
       },
       "cause": {
         "ru": "Пока роутер переключает канал, тест скорости не запускается.",
@@ -2826,8 +2774,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2878,8 +2825,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2893,7 +2839,7 @@
       "audience": "user",
       "title": {
         "ru": "VPN сейчас загружен",
-        "uk": "VPN зараз завантажений",
+        "uk": "VPN зараз навантажений",
         "en": "The VPN is busy",
         "de": "Das VPN ist ausgelastet"
       },
@@ -2905,9 +2851,9 @@
       },
       "action": {
         "ru": "1. Запустите тест, когда VPN будет менее загружен, или поднимите допустимую загрузку в настройках теста скорости.",
-        "uk": "1. Запустіть тест, коли VPN буде менш завантажений, або підніміть допустиме навантаження в налаштуваннях тесту швидкості.",
+        "uk": "1. Запустіть тест, коли VPN буде менш навантажений, або підніміть допустиме навантаження в налаштуваннях тесту швидкості.",
         "en": "1. Run the test when the VPN is less busy, or raise the allowed load in the speed test settings.",
-        "de": "1. Starten Sie den Test, wenn das VPN weniger ausgelastet ist, oder erhöhen Sie die erlaubte Last in den Einstellungen des Geschwindigkeitstests."
+        "de": "Starten Sie den Test, wenn das VPN weniger ausgelastet ist, oder erhöhen Sie die zulässige Auslastung in den Einstellungen des Geschwindigkeitstests."
       },
       "escalation": [
         {
@@ -2930,8 +2876,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2947,11 +2892,11 @@
         "ru": "Загрузка VPN неизвестна",
         "uk": "Навантаження VPN невідоме",
         "en": "VPN traffic is unknown",
-        "de": "Datenverkehr des VPNs unbekannt"
+        "de": "Auslastung des VPNs unbekannt"
       },
       "cause": {
         "ru": "Роутер пока не знает, сколько трафика идёт через этот VPN, поэтому не тестирует его.",
-        "uk": "Роутер поки не знає, скільки трафіку йде через цей VPN, тому не тестує його.",
+        "uk": "Роутер поки що не знає, скільки трафіку йде через цей VPN, тому не тестує його.",
         "en": "The router does not know yet how much traffic goes through this VPN, so it does not test it.",
         "de": "Der Router weiß noch nicht, wie viel Datenverkehr über dieses VPN läuft, und testet es daher nicht."
       },
@@ -2982,8 +2927,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -2999,13 +2943,13 @@
         "ru": "Фоновая часть теста остановилась",
         "uk": "Фонова частина тесту зупинилася",
         "en": "The background part of the test stopped",
-        "de": "Der Hintergrundteil des Tests wurde beendet"
+        "de": "Der Hintergrundteil des Tests wurde gestoppt"
       },
       "cause": {
         "ru": "Фоновая часть теста скорости остановилась раньше, чем тест закончился.",
         "uk": "Фонова частина тесту швидкості зупинилася раніше, ніж тест завершився.",
         "en": "The background part of the speed test stopped before the test finished.",
-        "de": "Der Hintergrundteil des Geschwindigkeitstests wurde beendet, bevor der Test fertig war."
+        "de": "Der Hintergrundteil des Geschwindigkeitstests wurde gestoppt, bevor der Test abgeschlossen war."
       },
       "action": {
         "ru": "1. Запустите тест ещё раз.",
@@ -3034,8 +2978,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -3086,8 +3029,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -3109,7 +3051,7 @@
         "ru": "Тест скорости не закончился вовремя и был остановлен.",
         "uk": "Тест швидкості не завершився вчасно й був зупинений.",
         "en": "The speed test did not finish in time and was stopped.",
-        "de": "Der Geschwindigkeitstest wurde nicht rechtzeitig fertig und wurde beendet."
+        "de": "Der Geschwindigkeitstest wurde nicht rechtzeitig abgeschlossen und wurde gestoppt."
       },
       "action": {
         "ru": "1. Выберите более короткую длительность теста.\n2. Запустите тест ещё раз.",
@@ -3148,8 +3090,7 @@
       "since": "1.3.0",
       "tags": [
         "auto-vpn",
-        "speed",
-        "translation-draft"
+        "speed"
       ]
     },
     {
@@ -3165,7 +3106,7 @@
         "ru": "Управление очередью (SQM) не включилось",
         "uk": "Керування чергою (SQM) не ввімкнулося",
         "en": "Queue management (SQM) could not be applied",
-        "de": "Warteschlangensteuerung (SQM) konnte nicht angewendet werden"
+        "de": "Warteschlangensteuerung (SQM) konnte nicht eingeschaltet werden"
       },
       "cause": {
         "ru": "Роутер не смог включить управление очередью на выходе VPN-туннеля: на роутере нет нужного компонента, или он отклонил запрос. Трафик идёт как обычно, без этой настройки.",
@@ -3211,8 +3152,7 @@
       "tags": [
         "auto-vpn",
         "speed",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3264,8 +3204,7 @@
       "tags": [
         "auto-vpn",
         "speed",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3317,8 +3256,7 @@
       "tags": [
         "auto-vpn",
         "speed",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3340,7 +3278,7 @@
         "ru": "Роутер не смог подтвердить, что убрал свою настройку очереди с VPN-туннеля. Запись об этом сохранена, и роутер ещё попробует её снять.",
         "uk": "Роутер не зміг підтвердити, що прибрав своє налаштування черги з VPN-тунелю. Запис про це збережено, і роутер ще спробує його зняти.",
         "en": "The router could not confirm that it removed its queue setting from the VPN tunnel. A record of it is kept, and the router will try to remove it again.",
-        "de": "Der Router konnte nicht bestätigen, dass er seine Warteschlangeneinstellung vom VPN-Tunnel entfernt hat. Ein Eintrag dazu bleibt gespeichert, und der Router versucht es erneut."
+        "de": "Der Router konnte nicht bestätigen, dass er seine Warteschlangeneinstellung vom VPN-Tunnel entfernt hat. Ein Eintrag dazu ist gespeichert, und der Router wird später erneut versuchen, sie zu entfernen."
       },
       "action": {
         "ru": "1. Не удаляйте настройку очереди вручную.\n2. Сохраните диагностические данные, как описано в «Помощи».\n3. Отправьте их разработчику.",
@@ -3380,8 +3318,7 @@
       "tags": [
         "auto-vpn",
         "speed",
-        "service",
-        "translation-draft"
+        "service"
       ]
     },
     {
@@ -3433,8 +3370,7 @@
       "tags": [
         "auto-vpn",
         "speed",
-        "service",
-        "translation-draft"
+        "service"
       ]
     }
   ]

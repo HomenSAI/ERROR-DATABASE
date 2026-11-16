@@ -19,7 +19,7 @@
       },
       "cause": {
         "ru": "Код группы о чтении адреса VPN-сервера, к которому канал подключён прямо сейчас. Роутер не смог надёжно его прочитать, или адрес изменился во время чтения. Одно имя сервера в настройках не показывает, какой сервер используется на самом деле. Это семейство: описание относится ко всем кодам с префиксом «ENDPOINT-».",
-        "uk": "Код групи про читання адреси VPN-сервера, до якого канал підключений саме зараз. Роутер не зміг надійно її прочитати, або адреса змінилася під час читання. Сама лише назва сервера в налаштуваннях не показує, який сервер використовується насправді. Це родина: опис стосується всіх кодів із префіксом «ENDPOINT-».",
+        "uk": "Код групи про читання адреси VPN-сервера, до якого канал підключений саме зараз. Роутер не зміг надійно її прочитати, або адреса змінилася під час читання. Сама лише назва сервера в налаштуваннях не показує, який сервер використовується насправді. Це сімейство: опис стосується всіх кодів із префіксом «ENDPOINT-».",
         "en": "A code of the group about reading the address of the VPN server a channel is connected to right now. The router could not read it reliably, or it changed while being read. The server name in the settings alone does not show which server is really in use. This is a family: the description applies to all codes starting with \"ENDPOINT-\".",
         "de": "Ein Code der Gruppe zum Auslesen der Adresse des VPN-Servers, mit dem ein Kanal gerade verbunden ist. Der Router konnte sie nicht zuverlässig lesen, oder sie hat sich beim Lesen geändert. Der Servername in den Einstellungen allein zeigt nicht, welcher Server wirklich genutzt wird. Dies ist eine Familie: Die Beschreibung gilt für alle Codes mit dem Präfix „ENDPOINT-“."
       },
@@ -52,7 +52,6 @@
         "auto-vpn",
         "srv",
         "data",
-        "translation-draft",
         "family"
       ]
     },
@@ -105,8 +104,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -158,8 +156,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -211,8 +208,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -264,8 +260,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -317,8 +312,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -370,8 +364,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -423,8 +416,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -476,8 +468,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -539,8 +530,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -592,8 +582,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -655,8 +644,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -718,8 +706,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -739,7 +726,7 @@
       },
       "cause": {
         "ru": "Включена строгая проверка ключей, и в одном из каналов пары Auto есть сервер, ключ которого изменился и ещё не принят. Если это канал, который должен передавать трафик, Auto не запускается; иначе Auto запускается, но не переводит трафик на этот канал. Уйти с этого канала, Stop и откат возможны всегда.",
-        "uk": "Увімкнено сувору перевірку ключів, і в одному з каналів пари Auto є сервер, ключ якого змінився й ще не прийнятий. Якщо це канал, який має передавати трафік, Auto не запускається; інакше Auto запускається, але не переводить трафік на цей канал. Піти з цього каналу, «Стоп» (Stop) і відкат можливі завжди.",
+        "uk": "Увімкнено сувору перевірку ключів, і в одному з каналів пари Auto є сервер, ключ якого змінився й ще не прийнятий. Якщо це канал, який має передавати трафік, Auto не запускається; інакше Auto запускається, але не переводить трафік на цей канал. Вийти з цього каналу, «Стоп» (Stop) і відкат можливі завжди.",
         "en": "Strict key checking is on, and a channel of the Auto pair has a server whose key changed and was not accepted yet. If this is the channel that would carry the traffic, Auto does not start; otherwise Auto starts but does not move traffic onto that channel. Leaving the channel, Stop and rollback always stay possible.",
         "de": "Die strenge Schlüsselprüfung ist eingeschaltet, und ein Kanal des Auto-Paares hat einen Server, dessen Schlüssel sich geändert hat und noch nicht akzeptiert wurde. Ist es der Kanal, der den Verkehr tragen soll, startet Auto nicht; sonst startet Auto, verlegt den Verkehr aber nicht auf diesen Kanal. Das Verlassen des Kanals, „Stop“ (Stop) und das Zurücksetzen bleiben immer möglich."
       },
@@ -771,8 +758,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -788,7 +774,7 @@
         "ru": "Канал передаёт трафик: сервер не меняется",
         "uk": "Канал передає трафік: сервер не змінюється",
         "en": "Channel carries traffic: server kept",
-        "de": "Kanal trägt Verkehr: Server bleibt"
+        "de": "Kanal trägt Verkehr: Server wird nicht gewechselt"
       },
       "cause": {
         "ru": "Программа никогда не меняет сервер канала, который передаёт трафик прямо сейчас, а также когда не может уверенно определить, какой канал это делает.",
@@ -824,8 +810,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -877,8 +862,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -900,7 +884,7 @@
         "ru": "Смена сервера не удалась, или новый сервер не прошёл проверку канала вовремя. Auto вернул прежний сервер; в «Журнале» видно, получилось ли это.",
         "uk": "Зміна сервера не вдалася, або новий сервер не пройшов перевірку каналу вчасно. Auto повернув попередній сервер; у «Журналі» (Journal) видно, чи це вдалося.",
         "en": "Changing the server did not succeed, or the new server did not pass the channel check in time. Auto put the previous server back; the Journal shows whether that worked.",
-        "de": "Der Serverwechsel ist nicht gelungen, oder der neue Server hat die Kanalprüfung nicht rechtzeitig bestanden. Auto hat den vorherigen Server zurückgesetzt; im „Journal“ (Journal) steht, ob das geklappt hat."
+        "de": "Der Serverwechsel ist nicht gelungen, oder der neue Server hat die Kanalprüfung nicht rechtzeitig bestanden. Auto hat den vorherigen Server wieder eingesetzt; im „Journal“ (Journal) steht, ob das geklappt hat."
       },
       "action": {
         "ru": "1. Проверьте этот канал в настройках VPN-клиента в панели GL.iNet.\n2. Если это повторяется, сохраните диагностический отчёт.",
@@ -940,8 +924,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -993,8 +976,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1046,8 +1028,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1099,8 +1080,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1152,8 +1132,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1205,8 +1184,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1268,8 +1246,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1289,7 +1266,7 @@
       },
       "cause": {
         "ru": "Роутер заметил новые настройки VPN для этого канала. Прежние хорошие результаты к новым настройкам не относятся, поэтому канал проверяется заново.",
-        "uk": "Роутер помітив нові налаштування VPN для цього каналу. Попередні добрі результати до нових налаштувань не належать, тому канал перевіряється заново.",
+        "uk": "Роутер помітив нові налаштування VPN для цього каналу. Попередні добрі результати не стосуються нових налаштувань, тому канал перевіряється заново.",
         "en": "The router noticed new VPN settings for this channel. Earlier good results do not count for the new settings, so the channel is checked again.",
         "de": "Der Router hat neue VPN-Einstellungen für diesen Kanal bemerkt. Frühere gute Ergebnisse gelten für die neuen Einstellungen nicht, daher wird der Kanal neu geprüft."
       },
@@ -1321,8 +1298,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1374,8 +1350,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1427,8 +1402,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1480,8 +1454,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1533,8 +1506,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1586,8 +1558,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1639,8 +1610,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1692,8 +1662,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1745,8 +1714,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1762,13 +1730,13 @@
         "ru": "VPN замечен впервые",
         "uk": "VPN помічено вперше",
         "en": "VPN seen for the first time",
-        "de": "VPN zum ersten Mal gesehen"
+        "de": "VPN erstmals erkannt"
       },
       "cause": {
         "ru": "Роутер впервые увидел этот профиль VPN. Само по себе это ничего не говорит о переключении.",
         "uk": "Роутер уперше побачив цей профіль VPN. Саме по собі це нічого не каже про перемикання.",
         "en": "The router saw this VPN profile for the first time. This alone says nothing about a switch.",
-        "de": "Der Router hat dieses VPN-Profil zum ersten Mal gesehen. Das allein sagt nichts über einen Wechsel aus."
+        "de": "Der Router hat dieses VPN-Profil zum ersten Mal erkannt. Das allein sagt nichts über einen Wechsel aus."
       },
       "action": {
         "ru": "1. Ничего делать не нужно.\n2. Дождитесь следующих проверок.",
@@ -1798,8 +1766,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -1821,7 +1788,7 @@
         "ru": "Настройка VPN этого канала изменилась во время измерений, поэтому их результаты отброшены.",
         "uk": "Налаштування VPN цього каналу змінилося під час вимірювань, тому їхні результати відкинуто.",
         "en": "The VPN setup of this channel changed while measurements were running, so their results were discarded.",
-        "de": "Die VPN-Einrichtung dieses Kanals hat sich während der Messungen geändert, daher wurden ihre Ergebnisse verworfen."
+        "de": "Die VPN-Einstellungen dieses Kanals haben sich während der Messungen geändert, daher wurden ihre Ergebnisse verworfen."
       },
       "action": {
         "ru": "1. Дождитесь новых проверок этого VPN.",
@@ -1851,8 +1818,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1904,8 +1870,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -1957,8 +1922,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -1974,13 +1938,13 @@
         "ru": "Часы роутера непригодны для проверок",
         "uk": "Годинник роутера непридатний для перевірок",
         "en": "Router clock not valid for checks",
-        "de": "Router-Uhr für Prüfungen ungültig"
+        "de": "Router-Uhr für Prüfungen unbrauchbar"
       },
       "cause": {
         "ru": "Время проверки неверное, поэтому роутер не может определить, какой VPN используется.",
         "uk": "Час перевірки неправильний, тому роутер не може визначити, який VPN використовується.",
         "en": "The time of the check is not valid, so the router cannot tell which VPN is in use.",
-        "de": "Die Zeit der Prüfung ist ungültig, daher kann der Router nicht feststellen, welches VPN genutzt wird."
+        "de": "Die Zeit der Prüfung stimmt nicht, daher kann der Router nicht feststellen, welches VPN genutzt wird."
       },
       "action": {
         "ru": "1. Проверьте дату и время роутера в панели GL.iNet.\n2. Дождитесь следующей проверки.",
@@ -2010,8 +1974,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -2033,7 +1996,7 @@
         "ru": "Роутер увидел другой профиль VPN на том же туннеле. Почему он сменился и как это влияет на домашнюю сеть, пока неизвестно.",
         "uk": "Роутер побачив інший профіль VPN на тому самому тунелі. Чому він змінився і як це впливає на домашню мережу, поки невідомо.",
         "en": "The router saw a different VPN profile on the same tunnel. Why it changed and how it affects your home network is not known yet.",
-        "de": "Der Router hat im selben Tunnel ein anderes VPN-Profil gesehen. Warum es sich geändert hat und wie sich das auf Ihr Heimnetz auswirkt, ist noch nicht bekannt."
+        "de": "Der Router hat auf demselben Tunnel ein anderes VPN-Profil gesehen. Warum es sich geändert hat und wie sich das auf Ihr Heimnetz auswirkt, ist noch nicht bekannt."
       },
       "action": {
         "ru": "1. Проверьте, какой профиль VPN активен в панели GL.iNet.\n2. Дождитесь следующих проверок этого канала.",
@@ -2063,8 +2026,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "data",
-        "translation-draft"
+        "data"
       ]
     },
     {
@@ -2080,7 +2042,7 @@
         "ru": "Выбор сервера прошивкой не виден",
         "uk": "Вибір сервера прошивкою не видно",
         "en": "Firmware server choice is not visible",
-        "de": "Serverauswahl der Firmware ist nicht sichtbar"
+        "de": "Serverauswahl durch die Firmware ist nicht sichtbar"
       },
       "cause": {
         "ru": "Прошивка роутера сама выбирает сервер внутри канала и не сообщает, почему и сколько раз пробовала. Программа проверяет только, работает ли канал сейчас.",
@@ -2116,8 +2078,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "monitor",
-        "translation-draft"
+        "monitor"
       ]
     },
     {
@@ -2169,8 +2130,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2192,13 +2152,13 @@
         "ru": "Роутер ещё не закончил наблюдение за тем, какой VPN используется. Это не показывает, перебрала ли прошивка все серверы.",
         "uk": "Роутер ще не завершив спостереження за тим, який VPN використовується. Це не показує, чи перебрала прошивка всі сервери.",
         "en": "The router has not finished observing which VPN is in use. This does not show whether the firmware has run out of servers to try.",
-        "de": "Der Router hat noch nicht fertig beobachtet, welches VPN genutzt wird. Das zeigt nicht, ob die Firmware bereits alle Server durchprobiert hat."
+        "de": "Der Router beobachtet noch, welches VPN genutzt wird. Das zeigt nicht, ob die Firmware bereits alle Server durchprobiert hat."
       },
       "action": {
         "ru": "1. Немного подождите: проверки повторяются сами.",
         "uk": "1. Трохи зачекайте: перевірки повторюються самі.",
         "en": "1. Wait a little: the checks repeat by themselves.",
-        "de": "1. Warten Sie etwas: Die Prüfungen wiederholen sich von selbst."
+        "de": "1. Warten Sie kurz: Die Prüfungen wiederholen sich von selbst."
       },
       "escalation": [
         {
@@ -2222,8 +2182,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2275,8 +2234,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch",
-        "translation-draft"
+        "switch"
       ]
     },
     {
@@ -2328,8 +2286,7 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "platform",
-        "translation-draft"
+        "platform"
       ]
     }
   ]
