@@ -5742,7 +5742,8 @@
       "number": "005-005-106",
       "key": "LAB_SWITCH_ON",
       "aliases": [
-        "LAB-SWITCH-ON"
+        "LAB-SWITCH-ON",
+        "LAB-*"
       ],
       "level": "info",
       "audience": "developer",
