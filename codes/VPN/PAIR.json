@@ -19260,6 +19260,62 @@
         "state",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-PAIR-355",
+      "number": "005-001-355",
+      "key": "PAIR_CLEANUP_WAIT",
+      "aliases": [
+        "PAIR-CLEANUP-WAIT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Завершение пары ждёт: причина в строке журнала",
+        "uk": "Завершення пари чекає: причина в рядку журналу",
+        "en": "Ending the pair waits: the reason is in the log line",
+        "de": "Das Beenden des Paars wartet: der Grund steht in der Protokollzeile"
+      },
+      "cause": {
+        "ru": "Auto заканчивает сеанс пары (после «Стоп», после отключения питания или перезапуска) и ещё не вернул маршрут на основной канал. Строка PAIR-CLEANUP-WAIT называет причину ожидания (например SOURCE-NOT-VERIFIED — основной канал ещё не подтверждён), состояние записи переключения и был ли это ваш «Стоп». Строка пишется при каждой смене причины и не чаще раза в 30 секунд, пока причина та же. После вашего «Стоп» при выключенном Auto возврат идёт сразу после короткой проверки основного канала, интернет в сети не блокируется полностью, а прошивка GL сразу получает назад свой автозапуск VPN.",
+        "uk": "Auto завершує сеанс пари (після «Стоп», після вимкнення живлення або перезапуску) і ще не повернув маршрут на основний канал. Рядок PAIR-CLEANUP-WAIT називає причину очікування (наприклад SOURCE-NOT-VERIFIED — основний канал ще не підтверджено), стан запису перемикання і чи був це ваш «Стоп». Рядок пишеться при кожній зміні причини і не частіше разу на 30 секунд, поки причина та сама. Після вашого «Стоп» при вимкненому Auto повернення йде одразу після короткої перевірки основного каналу, інтернет у мережі не блокується повністю, а прошивка GL одразу отримує назад свій автозапуск VPN.",
+        "en": "Auto is ending a pair session (after Stop, after a power cut or a restart) and has not yet returned the route to the primary. The line PAIR-CLEANUP-WAIT names the reason of the wait (for example SOURCE-NOT-VERIFIED - the primary is not confirmed yet), the state of the switch record and whether it was your Stop. It is written on every change of the reason and at most once every 30 seconds while the reason stays. After your Stop with Auto off the return follows right after the short check of the primary, the network is not fully blocked, and the GL firmware gets its VPN autostart back at once.",
+        "de": "Auto beendet eine Paarsitzung (nach Stopp, nach einem Stromausfall oder Neustart) und hat die Route noch nicht auf den Hauptkanal zurückgeführt. Die Zeile PAIR-CLEANUP-WAIT nennt den Grund des Wartens (zum Beispiel SOURCE-NOT-VERIFIED - der Hauptkanal ist noch nicht bestätigt), den Zustand des Wechseleintrags und ob es Ihr Stopp war. Sie wird bei jeder Änderung des Grundes und höchstens alle 30 Sekunden geschrieben, solange der Grund gleich bleibt. Nach Ihrem Stopp bei ausgeschaltetem Auto folgt die Rückkehr direkt nach der kurzen Prüfung des Hauptkanals, das Netz wird nicht vollständig gesperrt, und die GL-Firmware erhält ihren VPN-Autostart sofort zurück."
+      },
+      "action": {
+        "ru": "1. Обычно ничего делать не нужно: возврат закончится сам.\n2. Если строка с той же причиной повторяется больше 10 минут, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Зазвичай нічого робити не потрібно: повернення закінчиться саме.\n2. Якщо рядок з тією самою причиною повторюється понад 10 хвилин, збережіть «Журнал» (Journal) і надішліть його розробнику.",
+        "en": "1. Usually nothing to do: the return ends by itself.\n2. If the line with the same reason repeats for more than 10 minutes, save the Journal and send it to the developer.",
+        "de": "1. Meist müssen Sie nichts tun: Die Rückkehr endet von selbst.\n2. Wiederholt sich die Zeile mit demselben Grund länger als 10 Minuten, speichern Sie das „Protokoll“ (Journal) und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-355",
+      "related": [
+        "VPN-PAIR-354"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
     }
   ]
 }
