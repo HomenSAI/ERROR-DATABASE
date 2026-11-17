@@ -491,6 +491,70 @@
         "report-base",
         "seal"
       ]
+    },
+    {
+      "code": "RENT-RPT-010",
+      "number": "003-025-010",
+      "key": "STORED_RESULT_MISMATCH",
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Хранимые итоги разошлись с расчётом",
+        "uk": "Збережені підсумки розійшлися з розрахунком",
+        "en": "Stored totals differ from the calculation",
+        "de": "Gespeicherte Summen weichen von der Berechnung ab"
+      },
+      "cause": {
+        "ru": "Готовые итоги, которые программа хранит для быстрых отчётов, не совпали с проверочным расчётом. Так бывает, если базу изменили в обход программы.",
+        "uk": "Готові підсумки, які програма зберігає для швидких звітів, не збіглися з перевірочним розрахунком. Так буває, якщо базу змінили в обхід програми.",
+        "en": "The ready-made totals that the program stores for fast reports did not match the check calculation. This happens when the database was changed outside the program.",
+        "de": "Die fertigen Summen, die das Programm für schnelle Berichte speichert, stimmen nicht mit der Kontrollberechnung überein. Das passiert, wenn die Datenbank außerhalb des Programms geändert wurde."
+      },
+      "action": {
+        "ru": "1. Значения уже пересчитаны заново и в отчёты не берутся.\n2. Проверьте целостность базы в разделе «Безопасность» и при необходимости восстановите последнюю хорошую копию.",
+        "uk": "1. Значення вже перераховано заново й до звітів не беруться.\n2. Перевірте цілісність бази в розділі «Безпека» і за потреби відновіть останню добру копію.",
+        "en": "1. The values have already been recalculated and are not used in reports.\n2. Check the database integrity in the Security section and, if needed, restore the last good backup.",
+        "de": "1. Die Werte wurden bereits neu berechnet und werden nicht in Berichten verwendet.\n2. Prüfen Sie die Integrität der Datenbank im Bereich „Sicherheit“ und stellen Sie bei Bedarf die letzte gute Sicherung wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-RPT-010",
+      "since": "1.8.0",
+      "tags": [
+        "integrity",
+        "report-base"
+      ]
     }
   ]
 }
