@@ -5618,7 +5618,8 @@
         "auto-vpn",
         "set",
         "switch"
-      ]
+      ],
+      "deprecated": "1.7.0"
     },
     {
       "code": "VPN-SET-104",

@@ -10299,10 +10299,10 @@
         "de": "Die Rückkehr zum Hauptkanal ist mehrmals fehlgeschlagen. Das Programm hat die Versuche eingestellt, lässt Verkehr nur über VPN durch und hat Auto ausgeschaltet."
       },
       "action": {
-        "ru": "1. Откройте «Помощь» → «У меня нет интернета» (аварийный возврат).\n2. Проверьте порядок правил VPN в роутере и восстановите его вручную.\n3. Завершите аварийный возврат, как описано там же.",
-        "uk": "1. Відкрийте «Довідка» (Help) → «У мене немає інтернету» (аварійне повернення).\n2. Перевірте порядок правил VPN у роутері й відновіть його вручну.\n3. Завершіть аварійне повернення, як описано там само.",
-        "en": "1. Open Help → \"I have no internet\" (emergency return).\n2. Check the order of the VPN rules in the router and restore it by hand.\n3. Finish the emergency return as described there.",
-        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ (Notfall-Rückkehr).\n2. Prüfen Sie die Reihenfolge der VPN-Regeln im Router und stellen Sie sie von Hand wieder her.\n3. Schließen Sie die Notfall-Rückkehr wie dort beschrieben ab."
+        "ru": "1. Откройте «Помощь» → «У меня нет интернета» (аварийный возврат).\n2. Проверьте порядок правил VPN в роутере и восстановите его вручную.\n3. Завершите аварийный возврат, как описано там же.\n4. Или нажмите «Старт» или «Стоп»: с версии 2.1.0-alpha12-44 это и есть восстановление — остановленный возврат завершается (см. VPN-PAIR-354).",
+        "uk": "1. Відкрийте «Довідка» (Help) → «У мене немає інтернету» (аварійне повернення).\n2. Перевірте порядок правил VPN у роутері й відновіть його вручну.\n3. Завершіть аварійне повернення, як описано там само.\n4. Або натисніть «Старт» чи «Стоп»: з версії 2.1.0-alpha12-44 це і є відновлення — зупинене повернення завершується (див. VPN-PAIR-354).",
+        "en": "1. Open Help → \"I have no internet\" (emergency return).\n2. Check the order of the VPN rules in the router and restore it by hand.\n3. Finish the emergency return as described there.\n4. Or press Start or Stop: since 2.1.0-alpha12-44 this is the recovery - the stopped return is ended (see VPN-PAIR-354).",
+        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ (Notfall-Rückkehr).\n2. Prüfen Sie die Reihenfolge der VPN-Regeln im Router und stellen Sie sie von Hand wieder her.\n3. Schließen Sie die Notfall-Rückkehr wie dort beschrieben ab.\n4. Oder drücken Sie Start oder Stopp: Seit 2.1.0-alpha12-44 ist das die Wiederherstellung - die angehaltene Rückkehr wird beendet (siehe VPN-PAIR-354)."
       },
       "escalation": [
         {
@@ -10337,6 +10337,9 @@
         "auto-vpn",
         "pair",
         "switch"
+      ],
+      "related": [
+        "VPN-PAIR-354"
       ]
     },
     {
