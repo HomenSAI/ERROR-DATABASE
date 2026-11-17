@@ -5736,6 +5736,177 @@
         "switch",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-SET-106",
+      "number": "005-005-106",
+      "key": "LAB_SWITCH_ON",
+      "aliases": [
+        "LAB-SWITCH-ON"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Испытательный выключатель включён (не по умолчанию)",
+        "uk": "Випробувальний вимикач увімкнено (не за замовчуванням)",
+        "en": "A test switch is on (not at its default)",
+        "de": "Ein Prüfschalter ist eingeschaltet (nicht auf dem Standardwert)"
+      },
+      "cause": {
+        "ru": "Испытательные выключатели Auto VPN (с 2.1.0-alpha12-48) — параметры секции lab файла /etc/config/homensai_vpn, только для испытательного стенда: их нет на странице и в настройках, программа их сама не пишет; без секции lab всё работает как в -47. При каждом запуске службы пишется одна строка LAB-SWITCH-ON на каждый выключатель не в значении по умолчанию: имя, значение, значение по умолчанию и проверяемая гипотеза (H1–H12). Так в каждом цикле розетки видно, какие выключатели были включены.",
+        "uk": "Випробувальні вимикачі Auto VPN (з 2.1.0-alpha12-48) — параметри секції lab файлу /etc/config/homensai_vpn, лише для випробувального стенда: їх немає на сторінці та в налаштуваннях, програма їх сама не пише; без секції lab усе працює як у -47. При кожному запуску служби пишеться один рядок LAB-SWITCH-ON на кожен вимикач не в значенні за замовчуванням: ім'я, значення, значення за замовчуванням і гіпотеза, що перевіряється (H1–H12). Так у кожному циклі розетки видно, які вимикачі були ввімкнені.",
+        "en": "Auto VPN test switches (since 2.1.0-alpha12-48) are options of the section lab of /etc/config/homensai_vpn, for the test stand only: they are not on the page or in the settings and the program never writes them; without the section lab everything works as in -47. At every service start one line LAB-SWITCH-ON is written per switch not at its default: name, value, default and the hypothesis under test (H1-H12). So every plug cycle shows which switches were on.",
+        "de": "Prüfschalter von Auto VPN (seit 2.1.0-alpha12-48) sind Optionen des Abschnitts lab von /etc/config/homensai_vpn, nur für den Prüfstand: sie stehen nicht auf der Seite oder in den Einstellungen, und das Programm schreibt sie nie; ohne den Abschnitt lab arbeitet alles wie in -47. Bei jedem Start des Dienstes wird je Schalter, der nicht auf dem Standardwert steht, eine Zeile LAB-SWITCH-ON geschrieben: Name, Wert, Standardwert und die geprüfte Hypothese (H1-H12). So zeigt jeder Steckdosenzyklus, welche Schalter eingeschaltet waren."
+      },
+      "action": {
+        "ru": "1. Это строка испытательного стенда: на обычном роутере секции lab нет и строка не появляется.\n2. Вернуть поведение по умолчанию: uci delete homensai_vpn.lab; uci commit homensai_vpn; затем перезапуск службы или следующая загрузка.",
+        "uk": "1. Це рядок випробувального стенда: на звичайному роутері секції lab немає і рядок не з'являється.\n2. Повернути поведінку за замовчуванням: uci delete homensai_vpn.lab; uci commit homensai_vpn; потім перезапуск служби або наступне завантаження.",
+        "en": "1. This is a test-stand line: an ordinary router has no section lab and never shows it.\n2. Back to the default behaviour: uci delete homensai_vpn.lab; uci commit homensai_vpn; then a service restart or the next boot.",
+        "de": "1. Dies ist eine Zeile des Prüfstands: ein gewöhnlicher Router hat keinen Abschnitt lab und zeigt sie nie.\n2. Zurück zum Standardverhalten: uci delete homensai_vpn.lab; uci commit homensai_vpn; danach ein Neustart des Dienstes oder der nächste Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-106",
+      "related": [
+        "VPN-SET-107",
+        "VPN-SET-108"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "lab",
+        "stand",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-107",
+      "number": "005-005-107",
+      "key": "LAB_SWITCH_INVALID",
+      "aliases": [
+        "LAB-SWITCH-INVALID"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Испытательный выключатель с неверным значением не применён",
+        "uk": "Випробувальний вимикач із неправильним значенням не застосовано",
+        "en": "A test switch with an invalid value was ignored",
+        "de": "Ein Prüfschalter mit ungültigem Wert wurde ignoriert"
+      },
+      "cause": {
+        "ru": "Испытательные выключатели Auto VPN (с 2.1.0-alpha12-48) — параметры секции lab файла /etc/config/homensai_vpn, только для испытательного стенда: их нет на странице и в настройках, программа их сама не пишет; без секции lab всё работает как в -47. Строка LAB-SWITCH-INVALID при запуске службы: значение выключателя не подходит (не 0/1, число вне границ, неизвестный вариант) или такого выключателя нет. Он не применён, работает значение по умолчанию.",
+        "uk": "Випробувальні вимикачі Auto VPN (з 2.1.0-alpha12-48) — параметри секції lab файлу /etc/config/homensai_vpn, лише для випробувального стенда; без секції lab усе працює як у -47. Рядок LAB-SWITCH-INVALID під час запуску служби: значення вимикача не підходить (не 0/1, число поза межами, невідомий варіант) або такого вимикача немає. Його не застосовано, працює значення за замовчуванням.",
+        "en": "Auto VPN test switches (since 2.1.0-alpha12-48) are options of the section lab of /etc/config/homensai_vpn, for the test stand only; without the section lab everything works as in -47. The line LAB-SWITCH-INVALID at a service start: the value of a switch does not fit (not 0/1, a number out of its bounds, an unknown choice) or there is no such switch. It is not applied; the default works.",
+        "de": "Prüfschalter von Auto VPN (seit 2.1.0-alpha12-48) sind Optionen des Abschnitts lab von /etc/config/homensai_vpn, nur für den Prüfstand; ohne den Abschnitt lab arbeitet alles wie in -47. Die Zeile LAB-SWITCH-INVALID beim Start des Dienstes: der Wert eines Schalters passt nicht (nicht 0/1, eine Zahl außerhalb der Grenzen, eine unbekannte Auswahl) oder es gibt diesen Schalter nicht. Er wird nicht angewendet; der Standardwert gilt."
+      },
+      "action": {
+        "ru": "1. Это строка испытательного стенда: на обычном роутере секции lab нет и строка не появляется.\n2. Вернуть поведение по умолчанию: uci delete homensai_vpn.lab; uci commit homensai_vpn; затем перезапуск службы или следующая загрузка.",
+        "uk": "1. Це рядок випробувального стенда: на звичайному роутері секції lab немає і рядок не з'являється.\n2. Повернути поведінку за замовчуванням: uci delete homensai_vpn.lab; uci commit homensai_vpn; потім перезапуск служби або наступне завантаження.",
+        "en": "1. This is a test-stand line: an ordinary router has no section lab and never shows it.\n2. Back to the default behaviour: uci delete homensai_vpn.lab; uci commit homensai_vpn; then a service restart or the next boot.",
+        "de": "1. Dies ist eine Zeile des Prüfstands: ein gewöhnlicher Router hat keinen Abschnitt lab und zeigt sie nie.\n2. Zurück zum Standardverhalten: uci delete homensai_vpn.lab; uci commit homensai_vpn; danach ein Neustart des Dienstes oder der nächste Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-107",
+      "related": [
+        "VPN-SET-106",
+        "VPN-SET-108"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "lab",
+        "stand",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-108",
+      "number": "005-005-108",
+      "key": "LAB_SWITCH_ACTION",
+      "aliases": [
+        "LAB-SWITCH-ACTION"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Испытательный выключатель изменил решение программы",
+        "uk": "Випробувальний вимикач змінив рішення програми",
+        "en": "A test switch changed a decision of the program",
+        "de": "Ein Prüfschalter hat eine Entscheidung des Programms geändert"
+      },
+      "cause": {
+        "ru": "Испытательные выключатели Auto VPN (с 2.1.0-alpha12-48) — параметры секции lab файла /etc/config/homensai_vpn, только для испытательного стенда: их нет на странице и в настройках, программа их сама не пишет; без секции lab всё работает как в -47. Строка LAB-SWITCH-ACTION: включённый выключатель в этот момент изменил решение (например, DNS сети передан при остановке dnsmasq GL, наблюдатель gl_nudge не запущен, правило ядра проверено ещё раз). В строке — имя выключателя, его значение и что сделано.",
+        "uk": "Випробувальні вимикачі Auto VPN (з 2.1.0-alpha12-48) — параметри секції lab файлу /etc/config/homensai_vpn, лише для випробувального стенда; без секції lab усе працює як у -47. Рядок LAB-SWITCH-ACTION: увімкнений вимикач у цю мить змінив рішення (наприклад, DNS мережі передано під час зупинки dnsmasq GL, спостерігач gl_nudge не запущено, правило ядра перевірено ще раз). У рядку — ім'я вимикача, його значення і що зроблено.",
+        "en": "Auto VPN test switches (since 2.1.0-alpha12-48) are options of the section lab of /etc/config/homensai_vpn, for the test stand only; without the section lab everything works as in -47. The line LAB-SWITCH-ACTION: a switch that is on changed a decision at this moment (for example LAN DNS moved when GL's dnsmasq stopped, no gl_nudge watch, the kernel policy attested again). The line names the switch, its value and what was done.",
+        "de": "Prüfschalter von Auto VPN (seit 2.1.0-alpha12-48) sind Optionen des Abschnitts lab von /etc/config/homensai_vpn, nur für den Prüfstand; ohne den Abschnitt lab arbeitet alles wie in -47. Die Zeile LAB-SWITCH-ACTION: ein eingeschalteter Schalter hat in diesem Moment eine Entscheidung geändert (zum Beispiel LAN-DNS beim Stopp von GLs dnsmasq umgelegt, keine gl_nudge-Beobachtung, die Kernel-Richtlinie erneut bestätigt). Die Zeile nennt den Schalter, seinen Wert und was getan wurde."
+      },
+      "action": {
+        "ru": "1. Это строка испытательного стенда: на обычном роутере секции lab нет и строка не появляется.\n2. Вернуть поведение по умолчанию: uci delete homensai_vpn.lab; uci commit homensai_vpn; затем перезапуск службы или следующая загрузка.",
+        "uk": "1. Це рядок випробувального стенда: на звичайному роутері секції lab немає і рядок не з'являється.\n2. Повернути поведінку за замовчуванням: uci delete homensai_vpn.lab; uci commit homensai_vpn; потім перезапуск служби або наступне завантаження.",
+        "en": "1. This is a test-stand line: an ordinary router has no section lab and never shows it.\n2. Back to the default behaviour: uci delete homensai_vpn.lab; uci commit homensai_vpn; then a service restart or the next boot.",
+        "de": "1. Dies ist eine Zeile des Prüfstands: ein gewöhnlicher Router hat keinen Abschnitt lab und zeigt sie nie.\n2. Zurück zum Standardverhalten: uci delete homensai_vpn.lab; uci commit homensai_vpn; danach ein Neustart des Dienstes oder der nächste Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-108",
+      "related": [
+        "VPN-SET-106",
+        "VPN-SET-107"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "lab",
+        "stand",
+        "translation-draft"
+      ]
     }
   ]
 }
