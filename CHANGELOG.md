@@ -12,6 +12,7 @@
   обязательна), `RENT-RPT-005` `SEAL_ORDER`, `RENT-RPT-006` `SEAL_CURRENT_MONTH`, `RENT-RPT-007` `SEAL_DRAFTS`,
   `RENT-RPT-008` `SEAL_PIN` — `warn`; `RENT-RPT-009` `SEAL_SOON` (автоматическое запечатывание через 7 дней) — `info`.
   Тексты RU/UK/EN/DE; в пространстве `RENT` область RPT — 9 кодов.
+- **SEC: `SEC-SECW-012` `SEC_OFFER_PERIOD`** (`006-004-012`, warn, прежний ключ модуля `offer_period`) — периодичность напоминания о повышении защиты указана неверно (модуль безопасности 0.6.0, решение владельца Rent 28.10-375). Область SECW — 12 кодов.
 - Версия библиотеки и `pyproject.toml` — 1.8.0; константы обновлены `tools/gen_constants.py`.
 
 ## 1.7.0 — не выпущено

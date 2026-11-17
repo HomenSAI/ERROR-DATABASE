@@ -606,6 +606,58 @@
       "tags": [
         "backup"
       ]
+    },
+    {
+      "code": "SEC-SECW-012",
+      "number": "006-004-012",
+      "key": "SEC_OFFER_PERIOD",
+      "aliases": [
+        "offer_period"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Периодичность предложения указана неверно",
+        "uk": "Періодичність пропозиції вказано неправильно",
+        "en": "The reminder interval is not valid",
+        "de": "Das Erinnerungsintervall ist ungültig"
+      },
+      "cause": {
+        "ru": "Для напоминания о повышении защиты можно выбрать только готовые сроки.",
+        "uk": "Для нагадування про підвищення захисту можна вибрати лише готові строки.",
+        "en": "Only the ready-made intervals can be chosen for the protection upgrade reminder.",
+        "de": "Für die Erinnerung an die Schutzverbesserung sind nur die vorgegebenen Intervalle wählbar."
+      },
+      "action": {
+        "ru": "1. Выберите один из сроков: 2 недели, месяц, 2 месяца, 3 месяца или полгода.\n2. Ничего не изменено.",
+        "uk": "1. Виберіть один зі строків: 2 тижні, місяць, 2 місяці, 3 місяці або пів року.\n2. Нічого не змінено.",
+        "en": "1. Choose one of the intervals: 2 weeks, 1 month, 2 months, 3 months or 6 months.\n2. Nothing was changed.",
+        "de": "1. Wählen Sie eines der Intervalle: 2 Wochen, 1 Monat, 2 Monate, 3 Monate oder 6 Monate.\n2. Es wurde nichts geändert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/SEC-SECW-012",
+      "related": [],
+      "since": "1.8.0",
+      "tags": [
+        "wizard"
+      ]
     }
   ]
 }
