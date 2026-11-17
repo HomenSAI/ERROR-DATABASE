@@ -19147,6 +19147,119 @@
         "switch",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-PAIR-353",
+      "number": "005-001-353",
+      "key": "ROLLBACK_TRANSIENT",
+      "aliases": [
+        "ROLLBACK-TRANSIENT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Возврат при загрузке: команда не завершилась — повтор без счёта",
+        "uk": "Повернення під час завантаження: команда не завершилася — повтор без рахунку",
+        "en": "Return at boot: a command did not finish - repeated, not counted",
+        "de": "Rückkehr beim Start: ein Befehl wurde nicht beendet - Wiederholung ohne Zählung"
+      },
+      "cause": {
+        "ru": "Сразу после отключения питания во время переключения Auto возвращается на основной канал. Команда этого возврата не уложилась во время или завершилась системной ошибкой (например, при сильной нагрузке на роутер). В первые 10 минут после загрузки это не считается неудачным возвратом: Auto ждёт несколько секунд и повторяет тот же возврат (строка ROLLBACK-BOOT-RETRY).",
+        "uk": "Одразу після вимкнення живлення під час перемикання Auto повертається на основний канал. Команда цього повернення не вклалася в час або завершилася системною помилкою (наприклад, під час сильного навантаження на роутер). У перші 10 хвилин після завантаження це не вважається невдалим поверненням: Auto чекає кілька секунд і повторює те саме повернення (рядок ROLLBACK-BOOT-RETRY).",
+        "en": "Right after a power cut during a switch Auto returns to the primary. A command of that return timed out or failed at the system level (for example while the router is heavily loaded). Inside the first 10 minutes after the boot this does not count as a failed return: Auto waits a few seconds and repeats the same return (line ROLLBACK-BOOT-RETRY).",
+        "de": "Direkt nach einem Stromausfall während eines Wechsels kehrt Auto zum Hauptkanal zurück. Ein Befehl dieser Rückkehr überschritt die Zeit oder scheiterte auf Systemebene (zum Beispiel bei starker Last des Routers). In den ersten 10 Minuten nach dem Start zählt das nicht als fehlgeschlagene Rückkehr: Auto wartet einige Sekunden und wiederholt dieselbe Rückkehr (Zeile ROLLBACK-BOOT-RETRY)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это закончится само.\n2. Если это повторяется долго после загрузки, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Нічого робити не потрібно: це закінчиться саме.\n2. Якщо це повторюється довго після завантаження, збережіть «Журнал» (Journal) і надішліть його розробнику.",
+        "en": "1. Nothing to do: it ends by itself.\n2. If it still repeats long after the boot, save the Journal and send it to the developer.",
+        "de": "1. Sie müssen nichts tun: Es endet von selbst.\n2. Wiederholt es sich lange nach dem Start, speichern Sie das „Protokoll“ (Journal) und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-353",
+      "related": [
+        "VPN-PAIR-188",
+        "VPN-PAIR-189"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-354",
+      "number": "005-001-354",
+      "key": "OWNER_RECOVERY",
+      "aliases": [
+        "OWNER-RECOVERY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ваш «Старт» или «Стоп» завершил остановленный автоматический возврат",
+        "uk": "Ваш «Старт» або «Стоп» завершив зупинене автоматичне повернення",
+        "en": "Your Start or Stop ended the stopped automatic return",
+        "de": "Ihr Start oder Stopp hat die angehaltene automatische Rückkehr beendet"
+      },
+      "cause": {
+        "ru": "После ROLLBACK-GIVEN-UP (автоматический возврат несколько раз не удался) ваш «Старт» или «Стоп» — это восстановление: порядок маршрутов, который был до переключения, возвращается, прошивка GL штатно пересобирает правила, защита «только VPN» остаётся, запись переключения закрывается. Auto остаётся выключенным. Если политику маршрутов меняли не через программу, программа только снимает свою защиту (строка ROLLBACK-OWNER-RECOVERY).",
+        "uk": "Після ROLLBACK-GIVEN-UP (автоматичне повернення кілька разів не вдалося) ваш «Старт» або «Стоп» — це відновлення: порядок маршрутів, що був до перемикання, повертається, прошивка GL штатно перебудовує правила, захист «лише VPN» лишається, запис перемикання закривається. Auto лишається вимкненим. Якщо політику маршрутів змінювали не через програму, програма лише знімає свій захист (рядок ROLLBACK-OWNER-RECOVERY).",
+        "en": "After ROLLBACK-GIVEN-UP (the automatic return failed several times) your Start or Stop is the recovery: the route order from before the switch is put back, the GL firmware rebuilds its rules as usual, the VPN-only protection stays on and the switch record is closed. Auto stays off. If the route policy had been changed outside the program, the program only releases its protection (line ROLLBACK-OWNER-RECOVERY).",
+        "de": "Nach ROLLBACK-GIVEN-UP (die automatische Rückkehr ist mehrmals fehlgeschlagen) ist Ihr Start oder Stopp die Wiederherstellung: Die Routenreihenfolge von vor dem Wechsel wird zurückgesetzt, die GL-Firmware baut ihre Regeln wie üblich neu auf, der Schutz „nur VPN“ bleibt aktiv und der Wechseleintrag wird geschlossen. Auto bleibt aus. Wurde die Routenrichtlinie außerhalb des Programms geändert, gibt das Programm nur seinen Schutz frei (Zeile ROLLBACK-OWNER-RECOVERY)."
+      },
+      "action": {
+        "ru": "1. Проверьте на «Главной», что интернет идёт через основной VPN.\n2. Нажмите «Старт», чтобы снова включить Auto. Если «Старт» ответил ROLLBACK-GIVEN-UP, подождите несколько секунд и нажмите ещё раз.",
+        "uk": "1. Перевірте на «Головній», що інтернет іде через основний VPN.\n2. Натисніть «Старт», щоб знову ввімкнути Auto. Якщо «Старт» відповів ROLLBACK-GIVEN-UP, зачекайте кілька секунд і натисніть ще раз.",
+        "en": "1. Check on Home that the primary VPN carries the internet.\n2. Press Start to turn Auto on again. If Start answers ROLLBACK-GIVEN-UP, wait a few seconds and press it once more.",
+        "de": "1. Prüfen Sie auf der Startseite, dass das Internet über das Haupt-VPN läuft.\n2. Drücken Sie Start, um Auto wieder einzuschalten. Antwortet Start mit ROLLBACK-GIVEN-UP, warten Sie einige Sekunden und drücken Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-354",
+      "related": [
+        "VPN-PAIR-189"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
     }
   ]
 }
