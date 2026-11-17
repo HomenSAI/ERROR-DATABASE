@@ -19319,6 +19319,62 @@
         "state",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-PAIR-356",
+      "number": "005-001-356",
+      "key": "PAIR_CLEANUP_BOUND",
+      "aliases": [
+        "PAIR-CLEANUP-BOUND"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидание резерва после питания ограничено: основной канал работает",
+        "uk": "Очікування резерву після живлення обмежено: основний канал працює",
+        "en": "The wait for the reserve after a power cut is bounded: the primary works",
+        "de": "Das Warten auf die Reserve nach einem Stromausfall ist begrenzt: der Hauptkanal arbeitet"
+      },
+      "cause": {
+        "ru": "После отключения питания Auto завершал старый сеанс пары и ждал, пока резервный канал (обычно OpenVPN) станет готов. Интернет в сети уже шёл через основной канал (собственный перенос Auto), а ожидание резерва задерживало запуск Auto на несколько минут. Теперь, если основной канал проверен и держит сеть не меньше 90 секунд, а резерв всё ещё не готов, запись переключения закрывается (ROLLED-BACK), сеть остаётся на основном канале, а резерв проверяет новый сеанс Auto. На резерв при этом ничего не переключается.",
+        "uk": "Після вимкнення живлення Auto завершував старий сеанс пари і чекав, поки резервний канал (зазвичай OpenVPN) стане готовим. Інтернет у мережі вже йшов через основний канал (власне перенесення Auto), а очікування резерву затримувало запуск Auto на кілька хвилин. Тепер, якщо основний канал перевірено і він тримає мережу не менше 90 секунд, а резерв усе ще не готовий, запис перемикання закривається (ROLLED-BACK), мережа залишається на основному каналі, а резерв перевіряє новий сеанс Auto. На резерв при цьому нічого не перемикається.",
+        "en": "After a power cut Auto was ending the old pair session and waited for the reserve channel (usually OpenVPN) to become ready. The network already used the primary (Auto's own carry), and the wait for the reserve delayed Auto by several minutes. Now, when the primary is proven and has carried the network for at least 90 seconds while the reserve is still not ready, the switch record is closed (ROLLED-BACK), the network stays on the primary and the new Auto session checks the reserve. Nothing is switched to the reserve.",
+        "de": "Nach einem Stromausfall beendete Auto die alte Paarsitzung und wartete, bis der Reservekanal (meist OpenVPN) bereit war. Das Netz lief bereits über den Hauptkanal (Autos eigene Übernahme), und das Warten auf die Reserve verzögerte Auto um mehrere Minuten. Jetzt wird der Wechseleintrag geschlossen (ROLLED-BACK), wenn der Hauptkanal geprüft ist und das Netz mindestens 90 Sekunden trägt, die Reserve aber noch nicht bereit ist; das Netz bleibt auf dem Hauptkanal, und die neue Auto-Sitzung prüft die Reserve. Auf die Reserve wird nichts umgeschaltet."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto запустится сам и проверит резерв.\n2. Если строка повторяется после каждого отключения питания, проверьте резервный сервер на странице «Серверы».",
+        "uk": "1. Нічого робити не потрібно: Auto запуститься сам і перевірить резерв.\n2. Якщо рядок повторюється після кожного вимкнення живлення, перевірте резервний сервер на сторінці «Сервери» (Servers).",
+        "en": "1. Nothing to do: Auto starts by itself and checks the reserve.\n2. If the line repeats after every power cut, check the reserve server on the Servers page.",
+        "de": "1. Nichts zu tun: Auto startet von selbst und prüft die Reserve.\n2. Wiederholt sich die Zeile nach jedem Stromausfall, prüfen Sie den Reserveserver auf der Seite „Server“ (Servers)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-356",
+      "related": [
+        "VPN-PAIR-355"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
     }
   ]
 }
