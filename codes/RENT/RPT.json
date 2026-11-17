@@ -6,6 +6,9 @@
       "code": "RENT-RPT-001",
       "number": "003-025-001",
       "key": "MONTH_SEAL_BROKEN",
+      "aliases": [
+        "month-seal-alarm"
+      ],
       "level": "alarm",
       "audience": "user",
       "title": {
@@ -71,6 +74,9 @@
       "code": "RENT-RPT-002",
       "number": "003-025-002",
       "key": "OUTSIDE_CHANGE",
+      "aliases": [
+        "rpt-outside-change"
+      ],
       "level": "alarm",
       "audience": "user",
       "title": {
@@ -136,6 +142,9 @@
       "code": "RENT-RPT-003",
       "number": "003-025-003",
       "key": "SEALED_MONTH_WRITE",
+      "aliases": [
+        "rpt-sealed-write"
+      ],
       "level": "alarm",
       "audience": "user",
       "title": {
@@ -201,6 +210,9 @@
       "code": "RENT-RPT-004",
       "number": "003-025-004",
       "key": "REASON_REQUIRED",
+      "aliases": [
+        "rpt-reason-required"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -250,6 +262,9 @@
       "code": "RENT-RPT-005",
       "number": "003-025-005",
       "key": "SEAL_ORDER",
+      "aliases": [
+        "rpt-seal-order"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -299,6 +314,9 @@
       "code": "RENT-RPT-006",
       "number": "003-025-006",
       "key": "SEAL_CURRENT_MONTH",
+      "aliases": [
+        "rpt-seal-current"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -348,6 +366,9 @@
       "code": "RENT-RPT-007",
       "number": "003-025-007",
       "key": "SEAL_DRAFTS",
+      "aliases": [
+        "rpt-seal-drafts"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -397,6 +418,9 @@
       "code": "RENT-RPT-008",
       "number": "003-025-008",
       "key": "SEAL_PIN",
+      "aliases": [
+        "rpt-seal-pin"
+      ],
       "level": "warn",
       "audience": "user",
       "title": {
@@ -496,6 +520,9 @@
       "code": "RENT-RPT-010",
       "number": "003-025-010",
       "key": "STORED_RESULT_MISMATCH",
+      "aliases": [
+        "stored-result-mismatch"
+      ],
       "level": "alarm",
       "audience": "user",
       "title": {
