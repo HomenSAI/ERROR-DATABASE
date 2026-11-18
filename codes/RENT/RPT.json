@@ -524,7 +524,8 @@
       "number": "003-025-010",
       "key": "STORED_RESULT_MISMATCH",
       "aliases": [
-        "stored-result-mismatch"
+        "stored-result-mismatch",
+        "rpt-recount-mismatch"
       ],
       "level": "alarm",
       "audience": "user",
