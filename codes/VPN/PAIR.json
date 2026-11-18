@@ -19431,6 +19431,119 @@
         "state",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-PAIR-358",
+      "number": "005-001-358",
+      "key": "PAIR_CLEANUP_BOUND_WAIT",
+      "aliases": [
+        "PAIR-CLEANUP-BOUND-WAIT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидание резерва после питания ещё не ограничено: названа причина",
+        "uk": "Очікування резерву після живлення ще не обмежено: названо причину",
+        "en": "The wait for the reserve after a power cut is not bounded yet: the reason is named",
+        "de": "Das Warten auf die Reserve nach einem Stromausfall ist noch nicht begrenzt: der Grund wird genannt"
+      },
+      "cause": {
+        "ru": "После отключения питания Auto ждёт резервный канал и через 90 секунд работы основного канала может закрыть запись переключения (VPN-PAIR-356). Эта строка называет, что пока мешает: ROLE — неизвестен текущий порядок каналов; CARRY — сеть держит не собственный перенос Auto на основном канале; NO-SESSION-MARK — нет отметки сеанса этой загрузки; WRITER — не завершена чужая запись правил; SOURCE-NOT-HEALTHY — основной канал не прошёл живую проверку; RESERVE-READY — резерв уже готов (обычный возврат). Строка пишется при смене причины и не чаще раза в минуту.",
+        "uk": "Після вимкнення живлення Auto чекає резервний канал і через 90 секунд роботи основного каналу може закрити запис перемикання (VPN-PAIR-356). Цей рядок називає, що поки заважає: ROLE — невідомий поточний порядок каналів; CARRY — мережу тримає не власне перенесення Auto на основному каналі; NO-SESSION-MARK — немає позначки сеансу цього завантаження; WRITER — не завершено чужий запис правил; SOURCE-NOT-HEALTHY — основний канал не пройшов живу перевірку; RESERVE-READY — резерв уже готовий (звичайне повернення). Рядок пишеться при зміні причини і не частіше разу на хвилину.",
+        "en": "After a power cut Auto waits for the reserve and, after 90 seconds on the primary, may close the switch record (VPN-PAIR-356). This line names what still holds it back: ROLE - the current channel order is unknown; CARRY - the network is not on Auto's own carry over the primary; NO-SESSION-MARK - no session mark of this boot; WRITER - a foreign rule write is unfinished; SOURCE-NOT-HEALTHY - the primary failed its live check; RESERVE-READY - the reserve is ready already (the usual return). Written when the reason changes, at most once a minute.",
+        "de": "Nach einem Stromausfall wartet Auto auf die Reserve und kann nach 90 Sekunden auf dem Hauptkanal den Wechseleintrag schließen (VPN-PAIR-356). Diese Zeile nennt, was das noch verhindert: ROLE - die aktuelle Kanalreihenfolge ist unbekannt; CARRY - das Netz läuft nicht über Autos eigene Übernahme auf dem Hauptkanal; NO-SESSION-MARK - keine Sitzungsmarke dieses Starts; WRITER - ein fremder Regel-Schreibvorgang ist unvollendet; SOURCE-NOT-HEALTHY - der Hauptkanal hat die Live-Prüfung nicht bestanden; RESERVE-READY - die Reserve ist schon bereit (normale Rückkehr). Wird bei einem Wechsel des Grundes geschrieben, höchstens einmal pro Minute."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto продолжает сам.\n2. Если строка с SOURCE-NOT-HEALTHY держится несколько минут, проверьте основной сервер на странице «Серверы».",
+        "uk": "1. Нічого робити не потрібно: Auto продовжує сам.\n2. Якщо рядок із SOURCE-NOT-HEALTHY тримається кілька хвилин, перевірте основний сервер на сторінці «Сервери» (Servers).",
+        "en": "1. Nothing to do: Auto goes on by itself.\n2. If the line with SOURCE-NOT-HEALTHY stays for several minutes, check the primary server on the Servers page.",
+        "de": "1. Nichts zu tun: Auto macht selbst weiter.\n2. Bleibt die Zeile mit SOURCE-NOT-HEALTHY mehrere Minuten, prüfen Sie den Hauptserver auf der Seite „Server“ (Servers)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-358",
+      "related": [
+        "VPN-PAIR-356",
+        "VPN-PAIR-355"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-359",
+      "number": "005-001-359",
+      "key": "PAIR_CLEANUP_BOUND_RETRY",
+      "aliases": [
+        "PAIR-CLEANUP-BOUND-RETRY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Закрытие записи переключения не удалось: повтор через минуту",
+        "uk": "Закриття запису перемикання не вдалося: повтор через хвилину",
+        "en": "Closing the switch record failed: retry in a minute",
+        "de": "Das Schließen des Wechseleintrags ist fehlgeschlagen: neuer Versuch in einer Minute"
+      },
+      "cause": {
+        "ru": "Auto пытался закрыть запись переключения после 90 секунд работы основного канала (VPN-PAIR-356), но перестроение правил GL не удалось (например, GL ещё перезапускает свой брандмауэр). Запись остаётся как была, сеть остаётся на основном канале; следующая попытка не раньше чем через минуту.",
+        "uk": "Auto намагався закрити запис перемикання після 90 секунд роботи основного каналу (VPN-PAIR-356), але перебудова правил GL не вдалася (наприклад, GL ще перезапускає свій брандмауер). Запис залишається як був, мережа залишається на основному каналі; наступна спроба не раніше ніж через хвилину.",
+        "en": "Auto tried to close the switch record after 90 seconds on the primary (VPN-PAIR-356), but the rebuild of GL's rules failed (for example GL is still restarting its firewall). The record stays as it was, the network stays on the primary; the next try comes no sooner than in a minute.",
+        "de": "Auto versuchte, den Wechseleintrag nach 90 Sekunden auf dem Hauptkanal zu schließen (VPN-PAIR-356), aber der Neuaufbau der GL-Regeln schlug fehl (zum Beispiel startet GL seine Firewall noch neu). Der Eintrag bleibt, das Netz bleibt auf dem Hauptkanal; der nächste Versuch frühestens in einer Minute."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto повторит сам.\n2. Если строка повторяется больше 10 минут, перезагрузите роутер.",
+        "uk": "1. Нічого робити не потрібно: Auto повторить сам.\n2. Якщо рядок повторюється понад 10 хвилин, перезавантажте роутер.",
+        "en": "1. Nothing to do: Auto retries by itself.\n2. If the line repeats for more than 10 minutes, restart the router.",
+        "de": "1. Nichts zu tun: Auto versucht es selbst erneut.\n2. Wiederholt sich die Zeile länger als 10 Minuten, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-359",
+      "related": [
+        "VPN-PAIR-356"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
     }
   ]
 }
