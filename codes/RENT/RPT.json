@@ -514,6 +514,9 @@
       "tags": [
         "report-base",
         "seal"
+      ],
+      "aliases": [
+        "rpt-seal-soon"
       ]
     },
     {
@@ -581,6 +584,58 @@
       "tags": [
         "integrity",
         "report-base"
+      ]
+    },
+    {
+      "code": "RENT-RPT-011",
+      "number": "003-025-011",
+      "key": "SEAL_OVERDUE",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Месяц не запечатан вовремя",
+        "uk": "Місяць не запечатано вчасно",
+        "en": "The month was not sealed on time",
+        "de": "Der Monat wurde nicht rechtzeitig versiegelt"
+      },
+      "cause": {
+        "ru": "Месяц вышел за рабочее окно, но автоматическое запечатывание не прошло: в месяце остались незавершённые записи или программа в это время не работала.",
+        "uk": "Місяць вийшов за робоче вікно, але автоматичне запечатування не відбулося: у місяці лишилися незавершені записи або програма в цей час не працювала.",
+        "en": "The month has left the working window, but automatic sealing did not happen: the month still has unfinished records or the program was not running at that time.",
+        "de": "Der Monat hat das Arbeitsfenster verlassen, aber das automatische Versiegeln hat nicht stattgefunden: Im Monat gibt es noch unfertige Einträge oder das Programm lief zu dieser Zeit nicht."
+      },
+      "action": {
+        "ru": "1. Откройте «Месяцы».\n2. Завершите или удалите черновики за этот месяц.\n3. Запечатайте месяц сами.",
+        "uk": "1. Відкрийте «Місяці».\n2. Завершіть або видаліть чернетки за цей місяць.\n3. Запечатайте місяць самі.",
+        "en": "1. Open “Months”.\n2. Finish or delete the drafts for this month.\n3. Seal the month yourself.",
+        "de": "1. Öffnen Sie „Monate“.\n2. Schließen Sie die Entwürfe für diesen Monat ab oder löschen Sie sie.\n3. Versiegeln Sie den Monat selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/RENT-RPT-011",
+      "since": "1.8.0",
+      "tags": [
+        "report-base",
+        "seal"
+      ],
+      "aliases": [
+        "rpt-seal-overdue"
       ]
     }
   ]
