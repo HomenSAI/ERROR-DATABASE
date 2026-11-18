@@ -524,8 +524,7 @@
       "number": "003-025-010",
       "key": "STORED_RESULT_MISMATCH",
       "aliases": [
-        "stored-result-mismatch",
-        "rpt-recount-mismatch"
+        "stored-result-mismatch"
       ],
       "level": "alarm",
       "audience": "user",
@@ -637,6 +636,73 @@
       ],
       "aliases": [
         "rpt-seal-overdue"
+      ]
+    },
+    {
+      "code": "RENT-RPT-012",
+      "number": "003-025-012",
+      "key": "RECOUNT_MISMATCH",
+      "aliases": [
+        "rpt-recount-mismatch"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Итоги месяца разошлись с пересчётом",
+        "uk": "Підсумки місяця розійшлися з перерахунком",
+        "en": "Month totals differ from the recalculation",
+        "de": "Monatssummen weichen von der Neuberechnung ab"
+      },
+      "cause": {
+        "ru": "Итоги запечатанного месяца, которые программа хранит в базе, не совпали с полным пересчётом этого месяца. Так бывает из-за ошибки программы или изменения базы в обход программы.",
+        "uk": "Підсумки запечатаного місяця, які програма зберігає в базі, не збіглися з повним перерахунком цього місяця. Так буває через помилку програми або зміну бази в обхід програми.",
+        "en": "The totals of a sealed month that the program stores in the database did not match a full recalculation of that month. This happens because of a program error or a change to the database outside the program.",
+        "de": "Die Summen eines versiegelten Monats, die das Programm in der Datenbank speichert, stimmen nicht mit einer vollständigen Neuberechnung dieses Monats überein. Das passiert durch einen Programmfehler oder eine Änderung der Datenbank außerhalb des Programms."
+      },
+      "action": {
+        "ru": "1. Проверьте целостность базы в разделе «Безопасность».\n2. Сообщите разработчику номер месяца и код ошибки.",
+        "uk": "1. Перевірте цілісність бази в розділі «Безпека».\n2. Повідомте розробнику номер місяця та код помилки.",
+        "en": "1. Check the database integrity in the Security section.\n2. Tell the developer the month and the error code.",
+        "de": "1. Prüfen Sie die Integrität der Datenbank im Bereich „Sicherheit“.\n2. Teilen Sie dem Entwickler den Monat und den Fehlercode mit."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/RENT-RPT-012",
+      "since": "1.8.0",
+      "tags": [
+        "integrity",
+        "report-base"
       ]
     }
   ]
