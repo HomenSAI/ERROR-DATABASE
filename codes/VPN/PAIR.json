@@ -19659,6 +19659,122 @@
         "state",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-PAIR-362",
+      "number": "005-001-362",
+      "key": "LANE_PROTOCOLS_DIFFERENT_TARGETS",
+      "aliases": [
+        "LANE-PROTOCOLS-DIFFERENT-TARGETS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Полоса: у соседних туннелей WireGuard и OpenVPN разные списки целей",
+        "uk": "Смуга: у сусідніх тунелів WireGuard і OpenVPN різні списки цілей",
+        "en": "Lane: neighbouring WireGuard and OpenVPN tunnels have different target lists",
+        "de": "Spur: benachbarte WireGuard- und OpenVPN-Tunnel haben unterschiedliche Ziellisten"
+      },
+      "cause": {
+        "ru": "Жёлтый уровень. Два туннеля (один WireGuard, один OpenVPN) стоят рядом в порядке правил GL и сделаны для одного и того же, но списки целей, которые GL хранит для каждого туннеля отдельно, различаются по содержимому. Auto считает их двумя разными полосами, поэтому между ними нет переключения протокола: при отказе одного туннеля запасного протокола у его адресов нет. Сами адреса не показываются и не записываются.",
+        "uk": "Жовтий рівень. Два тунелі (один WireGuard, один OpenVPN) стоять поруч у порядку правил GL і зроблені для одного й того самого, але списки цілей, які GL зберігає для кожного тунелю окремо, відрізняються за вмістом. Auto вважає їх двома різними смугами, тому між ними немає перемикання протоколу: при відмові одного тунелю запасного протоколу для його адрес немає. Самі адреси не показуються і не записуються.",
+        "en": "Yellow. Two tunnels (one WireGuard, one OpenVPN) stand next to each other in GL's rule order and look meant for the same thing, but the target lists GL keeps separately for each tunnel differ in content. Auto treats them as two different lanes, so there is no protocol switch between them: if one tunnel fails, its addresses have no spare protocol. The addresses themselves are neither shown nor logged.",
+        "de": "Gelb. Zwei Tunnel (einer WireGuard, einer OpenVPN) stehen in der Regelreihenfolge von GL nebeneinander und scheinen für dasselbe gedacht, aber die Zielliste, die GL für jeden Tunnel getrennt führt, unterscheidet sich im Inhalt. Auto behandelt sie als zwei verschiedene Spuren, daher gibt es zwischen ihnen keinen Protokollwechsel: Fällt ein Tunnel aus, haben seine Adressen kein Ersatzprotokoll. Die Adressen selbst werden weder angezeigt noch protokolliert."
+      },
+      "action": {
+        "ru": "1. В панели GL.iNet сделайте списки целей обоих туннелей одинаковыми (один и тот же набор адресов в правилах для WireGuard и OpenVPN).\n2. Нажмите «Проверить снова» в мастере полос: если списки совпали, туннели станут одной полосой.",
+        "uk": "1. У панелі GL.iNet зробіть списки цілей обох тунелів однаковими (один і той самий набір адрес у правилах для WireGuard і OpenVPN).\n2. Натисніть «Перевірити знову» в майстрі смуг: якщо списки збіглися, тунелі стануть однією смугою.",
+        "en": "1. In the GL.iNet panel make the target lists of both tunnels the same (the same set of addresses in the WireGuard and OpenVPN rules).\n2. Press 'Check again' in the lanes wizard: once the lists match, the tunnels become one lane.",
+        "de": "1. Machen Sie im GL.iNet-Panel die Ziellisten beider Tunnel gleich (derselbe Adressensatz in den WireGuard- und OpenVPN-Regeln).\n2. Klicken Sie im Spuren-Assistenten auf „Erneut prüfen“: stimmen die Listen überein, werden die Tunnel zu einer Spur."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-362",
+      "related": [
+        "VPN-PAIR-304",
+        "VPN-PAIR-302",
+        "VPN-PAIR-363"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-363",
+      "number": "005-001-363",
+      "key": "LANE_TARGETS_UNREADABLE",
+      "aliases": [
+        "LANE-TARGETS-UNREADABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Полоса: список целей правила GL не читается",
+        "uk": "Смуга: список цілей правила GL не читається",
+        "en": "Lane: the rule's GL target list cannot be read",
+        "de": "Spur: die GL-Zielliste der Regel ist nicht lesbar"
+      },
+      "cause": {
+        "ru": "Жёлтый уровень. Правило GL берёт цели из своего файла списка для туннеля (/etc/domain_mac_list/dst_net…), а Auto не смог прочитать этот файл или он пуст. Цели сравниваются по именам, и туннели с одним и тем же списком считаются разными полосами; переключение протокола между ними отказывается (PAIR-LANE-NOT-ONE-LANE). Адреса не показываются и не записываются.",
+        "uk": "Жовтий рівень. Правило GL бере цілі зі свого файлу списку для тунелю (/etc/domain_mac_list/dst_net…), а Auto не зміг прочитати цей файл або він порожній. Цілі порівнюються за іменами, і тунелі з одним і тим самим списком вважаються різними смугами; перемикання протоколу між ними відхиляється (PAIR-LANE-NOT-ONE-LANE). Адреси не показуються і не записуються.",
+        "en": "Yellow. The GL rule takes its targets from its own list file for the tunnel (/etc/domain_mac_list/dst_net...), and Auto could not read that file or it is empty. The targets are compared by name, tunnels with the same list count as different lanes, and a protocol switch between them is refused (PAIR-LANE-NOT-ONE-LANE). The addresses are neither shown nor logged.",
+        "de": "Gelb. Die GL-Regel bezieht ihre Ziele aus ihrer eigenen Listendatei für den Tunnel (/etc/domain_mac_list/dst_net…), und Auto konnte diese Datei nicht lesen oder sie ist leer. Die Ziele werden nach Namen verglichen, Tunnel mit derselben Liste gelten als verschiedene Spuren, und ein Protokollwechsel zwischen ihnen wird abgelehnt (PAIR-LANE-NOT-ONE-LANE). Die Adressen werden weder angezeigt noch protokolliert."
+      },
+      "action": {
+        "ru": "1. В панели GL.iNet откройте правило и убедитесь, что список целей не пуст и сохранён.\n2. Нажмите «Проверить снова» в мастере полос.",
+        "uk": "1. У панелі GL.iNet відкрийте правило і переконайтеся, що список цілей не порожній і збережений.\n2. Натисніть «Перевірити знову» в майстрі смуг.",
+        "en": "1. In the GL.iNet panel open the rule and make sure the target list is not empty and is saved.\n2. Press 'Check again' in the lanes wizard.",
+        "de": "1. Öffnen Sie im GL.iNet-Panel die Regel und prüfen Sie, dass die Zielliste nicht leer und gespeichert ist.\n2. Klicken Sie im Spuren-Assistenten auf „Erneut prüfen“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-363",
+      "related": [
+        "VPN-PAIR-304",
+        "VPN-PAIR-302",
+        "VPN-PAIR-362"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "switch",
+        "translation-draft"
+      ]
     }
   ]
 }
