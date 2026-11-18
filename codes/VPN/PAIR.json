@@ -19336,10 +19336,10 @@
         "de": "Das Warten auf die Reserve nach einem Stromausfall ist begrenzt: der Hauptkanal arbeitet"
       },
       "cause": {
-        "ru": "После отключения питания Auto завершал старый сеанс пары и ждал, пока резервный канал (обычно OpenVPN) станет готов. Интернет в сети уже шёл через основной канал (собственный перенос Auto), а ожидание резерва задерживало запуск Auto на несколько минут. Теперь, если основной канал проверен и держит сеть не меньше 90 секунд, а резерв всё ещё не готов, запись переключения закрывается (ROLLED-BACK), сеть остаётся на основном канале, а резерв проверяет новый сеанс Auto. На резерв при этом ничего не переключается.",
-        "uk": "Після вимкнення живлення Auto завершував старий сеанс пари і чекав, поки резервний канал (зазвичай OpenVPN) стане готовим. Інтернет у мережі вже йшов через основний канал (власне перенесення Auto), а очікування резерву затримувало запуск Auto на кілька хвилин. Тепер, якщо основний канал перевірено і він тримає мережу не менше 90 секунд, а резерв усе ще не готовий, запис перемикання закривається (ROLLED-BACK), мережа залишається на основному каналі, а резерв перевіряє новий сеанс Auto. На резерв при цьому нічого не перемикається.",
-        "en": "After a power cut Auto was ending the old pair session and waited for the reserve channel (usually OpenVPN) to become ready. The network already used the primary (Auto's own carry), and the wait for the reserve delayed Auto by several minutes. Now, when the primary is proven and has carried the network for at least 90 seconds while the reserve is still not ready, the switch record is closed (ROLLED-BACK), the network stays on the primary and the new Auto session checks the reserve. Nothing is switched to the reserve.",
-        "de": "Nach einem Stromausfall beendete Auto die alte Paarsitzung und wartete, bis der Reservekanal (meist OpenVPN) bereit war. Das Netz lief bereits über den Hauptkanal (Autos eigene Übernahme), und das Warten auf die Reserve verzögerte Auto um mehrere Minuten. Jetzt wird der Wechseleintrag geschlossen (ROLLED-BACK), wenn der Hauptkanal geprüft ist und das Netz mindestens 90 Sekunden trägt, die Reserve aber noch nicht bereit ist; das Netz bleibt auf dem Hauptkanal, und die neue Auto-Sitzung prüft die Reserve. Auf die Reserve wird nichts umgeschaltet."
+        "ru": "После отключения питания Auto завершал старый сеанс пары и ждал, пока резервный канал (обычно OpenVPN) станет готов. Интернет в сети уже шёл через основной канал (собственный перенос Auto), а ожидание резерва задерживало запуск Auto на несколько минут. Теперь, если основной канал проверен и держит сеть не меньше 90 секунд, а резерв всё ещё не готов, запись переключения закрывается (ROLLED-BACK), сеть остаётся на основном канале, а резерв проверяет новый сеанс Auto. Порядок каналов в GL при этом возвращается к порядку сеанса (резерв первым), но сеть остаётся на собственном переносе Auto через основной канал, пока путь GL не проверен (VPN-PAIR-361).",
+        "uk": "Після вимкнення живлення Auto завершував старий сеанс пари і чекав, поки резервний канал (зазвичай OpenVPN) стане готовим. Інтернет у мережі вже йшов через основний канал (власне перенесення Auto), а очікування резерву затримувало запуск Auto на кілька хвилин. Тепер, якщо основний канал перевірено і він тримає мережу не менше 90 секунд, а резерв усе ще не готовий, запис перемикання закривається (ROLLED-BACK), мережа залишається на основному каналі, а резерв перевіряє новий сеанс Auto. Порядок каналів у GL при цьому повертається до порядку сеансу (резерв першим), але мережа залишається на власному перенесенні Auto через основний канал, поки шлях GL не перевірено (VPN-PAIR-361).",
+        "en": "After a power cut Auto was ending the old pair session and waited for the reserve channel (usually OpenVPN) to become ready. The network already used the primary (Auto's own carry), and the wait for the reserve delayed Auto by several minutes. Now, when the primary is proven and has carried the network for at least 90 seconds while the reserve is still not ready, the switch record is closed (ROLLED-BACK), the network stays on the primary and the new Auto session checks the reserve. The channel order in GL goes back to the session order (the reserve first), but the network stays on Auto's own carry over the primary until GL's path is proven (VPN-PAIR-361).",
+        "de": "Nach einem Stromausfall beendete Auto die alte Paarsitzung und wartete, bis der Reservekanal (meist OpenVPN) bereit war. Das Netz lief bereits über den Hauptkanal (Autos eigene Übernahme), und das Warten auf die Reserve verzögerte Auto um mehrere Minuten. Jetzt wird der Wechseleintrag geschlossen (ROLLED-BACK), wenn der Hauptkanal geprüft ist und das Netz mindestens 90 Sekunden trägt, die Reserve aber noch nicht bereit ist; das Netz bleibt auf dem Hauptkanal, und die neue Auto-Sitzung prüft die Reserve. Die Kanalreihenfolge in GL kehrt dabei zur Sitzungsreihenfolge zurück (Reserve zuerst), aber das Netz bleibt auf Autos eigener Übernahme über den Hauptkanal, bis der GL-Pfad geprüft ist (VPN-PAIR-361)."
       },
       "action": {
         "ru": "1. Ничего делать не нужно: Auto запустится сам и проверит резерв.\n2. Если строка повторяется после каждого отключения питания, проверьте резервный сервер на странице «Серверы».",
@@ -19366,7 +19366,8 @@
       "retryable": false,
       "help": "errors/VPN-PAIR-356",
       "related": [
-        "VPN-PAIR-355"
+        "VPN-PAIR-355",
+        "VPN-PAIR-361"
       ],
       "since": "1.7.0",
       "tags": [
@@ -19448,10 +19449,10 @@
         "de": "Das Warten auf die Reserve nach einem Stromausfall ist noch nicht begrenzt: der Grund wird genannt"
       },
       "cause": {
-        "ru": "После отключения питания Auto ждёт резервный канал и через 90 секунд работы основного канала может закрыть запись переключения (VPN-PAIR-356). Эта строка называет, что пока мешает: ROLE — неизвестен текущий порядок каналов; CARRY — сеть держит не собственный перенос Auto на основном канале; NO-SESSION-MARK — нет отметки сеанса этой загрузки; WRITER — не завершена чужая запись правил; SOURCE-NOT-HEALTHY — основной канал не прошёл живую проверку; RESERVE-READY — резерв уже готов (обычный возврат). Строка пишется при смене причины и не чаще раза в минуту. CARRY-ON-TARGET — перенос Auto идёт через резерв, но порядок каналов, который восстанавливает Auto, ведёт не на него (restore order role=...) или резерв не прошёл живую проверку (target not healthy).",
-        "uk": "Після вимкнення живлення Auto чекає резервний канал і через 90 секунд роботи основного каналу може закрити запис перемикання (VPN-PAIR-356). Цей рядок називає, що поки заважає: ROLE — невідомий поточний порядок каналів; CARRY — мережу тримає не власне перенесення Auto на основному каналі; NO-SESSION-MARK — немає позначки сеансу цього завантаження; WRITER — не завершено чужий запис правил; SOURCE-NOT-HEALTHY — основний канал не пройшов живу перевірку; RESERVE-READY — резерв уже готовий (звичайне повернення). Рядок пишеться при зміні причини і не частіше разу на хвилину. CARRY-ON-TARGET — перенесення Auto йде через резерв, але порядок каналів, який відновлює Auto, веде не на нього (restore order role=...) або резерв не пройшов живу перевірку (target not healthy).",
-        "en": "After a power cut Auto waits for the reserve and, after 90 seconds on the primary, may close the switch record (VPN-PAIR-356). This line names what still holds it back: ROLE - the current channel order is unknown; CARRY - the network is not on Auto's own carry over the primary; NO-SESSION-MARK - no session mark of this boot; WRITER - a foreign rule write is unfinished; SOURCE-NOT-HEALTHY - the primary failed its live check; RESERVE-READY - the reserve is ready already (the usual return). Written when the reason changes, at most once a minute. CARRY-ON-TARGET - Auto's carry runs over the reserve, but the channel order Auto restores does not lead to it (restore order role=...) or the reserve failed its live check (target not healthy).",
-        "de": "Nach einem Stromausfall wartet Auto auf die Reserve und kann nach 90 Sekunden auf dem Hauptkanal den Wechseleintrag schließen (VPN-PAIR-356). Diese Zeile nennt, was das noch verhindert: ROLE - die aktuelle Kanalreihenfolge ist unbekannt; CARRY - das Netz läuft nicht über Autos eigene Übernahme auf dem Hauptkanal; NO-SESSION-MARK - keine Sitzungsmarke dieses Starts; WRITER - ein fremder Regel-Schreibvorgang ist unvollendet; SOURCE-NOT-HEALTHY - der Hauptkanal hat die Live-Prüfung nicht bestanden; RESERVE-READY - die Reserve ist schon bereit (normale Rückkehr). Wird bei einem Wechsel des Grundes geschrieben, höchstens einmal pro Minute. CARRY-ON-TARGET - Autos Übernahme läuft über die Reserve, aber die Kanalreihenfolge, die Auto wiederherstellt, führt nicht zu ihr (restore order role=...) oder die Reserve hat die Live-Prüfung nicht bestanden (target not healthy)."
+        "ru": "После отключения питания Auto ждёт резервный канал и через 90 секунд работы основного канала может закрыть запись переключения (VPN-PAIR-356). Эта строка называет, что пока мешает: ROLE — неизвестен текущий порядок каналов; CARRY — сеть держит не собственный перенос Auto на основном канале; NO-SESSION-MARK — нет отметки сеанса этой загрузки; WRITER — не завершена чужая запись правил; SOURCE-NOT-HEALTHY — основной канал не прошёл живую проверку; RESERVE-READY — резерв уже готов (обычный возврат). Строка пишется при смене причины и не чаще раза в минуту. CARRY-ON-TARGET — перенос Auto идёт через резерв, но резерв не прошёл живую проверку (target not healthy).",
+        "uk": "Після вимкнення живлення Auto чекає резервний канал і через 90 секунд роботи основного каналу може закрити запис перемикання (VPN-PAIR-356). Цей рядок називає, що поки заважає: ROLE — невідомий поточний порядок каналів; CARRY — мережу тримає не власне перенесення Auto на основному каналі; NO-SESSION-MARK — немає позначки сеансу цього завантаження; WRITER — не завершено чужий запис правил; SOURCE-NOT-HEALTHY — основний канал не пройшов живу перевірку; RESERVE-READY — резерв уже готовий (звичайне повернення). Рядок пишеться при зміні причини і не частіше разу на хвилину. CARRY-ON-TARGET — перенесення Auto йде через резерв, але резерв не пройшов живу перевірку (target not healthy).",
+        "en": "After a power cut Auto waits for the reserve and, after 90 seconds on the primary, may close the switch record (VPN-PAIR-356). This line names what still holds it back: ROLE - the current channel order is unknown; CARRY - the network is not on Auto's own carry over the primary; NO-SESSION-MARK - no session mark of this boot; WRITER - a foreign rule write is unfinished; SOURCE-NOT-HEALTHY - the primary failed its live check; RESERVE-READY - the reserve is ready already (the usual return). Written when the reason changes, at most once a minute. CARRY-ON-TARGET - Auto's carry runs over the reserve, but the reserve failed its live check (target not healthy).",
+        "de": "Nach einem Stromausfall wartet Auto auf die Reserve und kann nach 90 Sekunden auf dem Hauptkanal den Wechseleintrag schließen (VPN-PAIR-356). Diese Zeile nennt, was das noch verhindert: ROLE - die aktuelle Kanalreihenfolge ist unbekannt; CARRY - das Netz läuft nicht über Autos eigene Übernahme auf dem Hauptkanal; NO-SESSION-MARK - keine Sitzungsmarke dieses Starts; WRITER - ein fremder Regel-Schreibvorgang ist unvollendet; SOURCE-NOT-HEALTHY - der Hauptkanal hat die Live-Prüfung nicht bestanden; RESERVE-READY - die Reserve ist schon bereit (normale Rückkehr). Wird bei einem Wechsel des Grundes geschrieben, höchstens einmal pro Minute. CARRY-ON-TARGET - Autos Übernahme läuft über die Reserve, aber die Reserve hat die Live-Prüfung nicht bestanden (target not healthy)."
       },
       "action": {
         "ru": "1. Ничего делать не нужно: Auto продолжает сам.\n2. Если строка с SOURCE-NOT-HEALTHY держится несколько минут, проверьте основной сервер на странице «Серверы».",
@@ -19593,6 +19594,63 @@
       "related": [
         "VPN-PAIR-356",
         "VPN-PAIR-358"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-361",
+      "number": "005-001-361",
+      "key": "BOOT_CARRY_BOUND_KEPT",
+      "aliases": [
+        "BOOT-CARRY-BOUND-KEPT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Собственный перенос Auto сохранён: путь GL через резерв ещё не проверен",
+        "uk": "Власне перенесення Auto збережено: шлях GL через резерв ще не перевірено",
+        "en": "Auto's own carry is kept: GL's path over the reserve is not proven yet",
+        "de": "Autos eigene Übernahme bleibt: der GL-Pfad über die Reserve ist noch nicht geprüft"
+      },
+      "cause": {
+        "ru": "После отключения питания Auto закрыл запись переключения ограниченным способом (VPN-PAIR-356), пока сеть шла через собственный перенос Auto по основному каналу. Порядок каналов в GL при этом стал «резерв первым», а резерв ещё не подключён. Поэтому ваш «Стоп», смена режима загрузки или часовой предел переноса не снимают перенос: сеть осталась бы без интернета. Перенос снимается, только когда первый канал GL проверен для сети. Строка пишется один раз за перенос.",
+        "uk": "Після вимкнення живлення Auto закрив запис перемикання обмеженим способом (VPN-PAIR-356), поки мережа йшла через власне перенесення Auto по основному каналу. Порядок каналів у GL при цьому став «резерв першим», а резерв ще не підключено. Тому ваш «Стоп», зміна режиму завантаження або годинна межа перенесення не знімають перенесення: мережа залишилася б без інтернету. Перенесення знімається, лише коли перший канал GL перевірено для мережі. Рядок пишеться один раз за перенесення.",
+        "en": "After a power cut Auto closed the switch record the bounded way (VPN-PAIR-356) while the network ran on Auto's own carry over the primary. GL's channel order became \"reserve first\", and the reserve is not connected yet. So your Stop, a change of the boot mode or the one-hour carry limit do not remove the carry: the network would be left without internet. The carry goes only when GL's first channel is proven for the network. Written once per carry.",
+        "de": "Nach einem Stromausfall schloss Auto den Wechseleintrag auf begrenzte Weise (VPN-PAIR-356), während das Netz über Autos eigene Übernahme auf dem Hauptkanal lief. Die Kanalreihenfolge in GL wurde dabei „Reserve zuerst“, und die Reserve ist noch nicht verbunden. Daher entfernen Ihr Stopp, eine Änderung des Startmodus oder die Stundengrenze der Übernahme die Übernahme nicht: das Netz wäre ohne Internet. Die Übernahme endet erst, wenn der erste GL-Kanal für das Netz geprüft ist. Wird einmal pro Übernahme geschrieben."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: интернет в сети работает через основной канал.\n2. Если резерв надолго остаётся «не подключён» на странице GL, проверьте резервный сервер на странице «Серверы».",
+        "uk": "1. Нічого робити не потрібно: інтернет у мережі працює через основний канал.\n2. Якщо резерв надовго залишається «не підключений» на сторінці GL, перевірте резервний сервер на сторінці «Сервери» (Servers).",
+        "en": "1. Nothing to do: the network's internet runs over the primary.\n2. If the reserve stays \"not connected\" on the GL page for long, check the reserve server on the Servers page.",
+        "de": "1. Nichts zu tun: das Internet im Netz läuft über den Hauptkanal.\n2. Bleibt die Reserve lange „nicht verbunden“ auf der GL-Seite, prüfen Sie den Reserveserver auf der Seite „Server“ (Servers)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-361",
+      "related": [
+        "VPN-PAIR-356",
+        "VPN-PAIR-360"
       ],
       "since": "1.7.0",
       "tags": [
