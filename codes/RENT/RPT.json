@@ -727,10 +727,10 @@
         "de": "Der Eintrag gehört zu einem versiegelten Monat. Die Summen versiegelter Monate ändern sich nicht, deshalb speichert das Programm einen solchen Eintrag nicht."
       },
       "action": {
-        "ru": "1. Внесите исправление записью текущего месяца: она сошлётся на исходную запись.\n2. Если запись должна была попасть в текущий месяц, проверьте её дату.",
-        "uk": "1. Внесіть виправлення записом поточного місяця: він пошлеться на початковий запис.\n2. Якщо запис мав потрапити в поточний місяць, перевірте його дату.",
-        "en": "1. Enter the correction as a record of the current month: it will refer to the original record.\n2. If the record should have gone into the current month, check its date.",
-        "de": "1. Erfassen Sie die Korrektur als Eintrag des aktuellen Monats: Er verweist auf den ursprünglichen Eintrag.\n2. Wenn der Eintrag in den aktuellen Monat gehört, prüfen Sie sein Datum."
+        "ru": "1. Исправьте ошибку записью в любом незапечатанном месяце: изменение сохранится в истории со ссылкой на исходную запись.\n2. Если запись должна быть в незапечатанном месяце, проверьте её дату.",
+        "uk": "1. Виправте помилку записом у будь-якому незапечатаному місяці: зміна збережеться в історії з посиланням на початковий запис.\n2. Якщо запис має бути в незапечатаному місяці, перевірте його дату.",
+        "en": "1. Correct the error with a record in any unsealed month: the change is kept in the history with a link to the original record.\n2. If the record belongs to an unsealed month, check its date.",
+        "de": "1. Korrigieren Sie den Fehler mit einem Eintrag in einem beliebigen nicht versiegelten Monat: Die Änderung bleibt mit Verweis auf den ursprünglichen Eintrag in der Historie.\n2. Wenn der Eintrag in einen nicht versiegelten Monat gehört, prüfen Sie sein Datum."
       },
       "escalation": [
         {
