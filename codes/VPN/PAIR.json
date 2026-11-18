@@ -19375,6 +19375,62 @@
         "state",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-PAIR-357",
+      "number": "005-001-357",
+      "key": "PAIR_STUCK_HELD",
+      "aliases": [
+        "PAIR-STUCK-HELD"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Auto застрял на резервном канале: правила GL не проверены",
+        "uk": "Auto застряг на резервному каналі: правила GL не перевірено",
+        "en": "Auto is stuck on the reserve: GL's rules are not verified",
+        "de": "Auto hängt auf der Reserve fest: die Regeln von GL sind nicht geprüft"
+      },
+      "cause": {
+        "ru": "Auto завершает сеанс на резервном канале (HELD-ON-RESERVE), но возврат на основной канал отклонён: правила маршрутизации GL не прошли проверку (KERNEL-POLICY-UNVERIFIED). Auto отмечает, сколько длится это состояние (не чаще раза в минуту), чтобы через 15 минут разрешить обновление программы. Сеть при этом не переключается.",
+        "uk": "Auto завершує сеанс на резервному каналі (HELD-ON-RESERVE), але повернення на основний канал відхилено: правила маршрутизації GL не пройшли перевірку (KERNEL-POLICY-UNVERIFIED). Auto відмічає, скільки триває цей стан (не частіше разу на хвилину), щоб через 15 хвилин дозволити оновлення програми. Мережа при цьому не перемикається.",
+        "en": "Auto is ending a session on the reserve (HELD-ON-RESERVE), but the return to the primary is refused: GL's routing rules did not pass the check (KERNEL-POLICY-UNVERIFIED). Auto notes how long this lasts (at most once a minute) so that a program upgrade is allowed after 15 minutes. The network is not switched.",
+        "de": "Auto beendet eine Sitzung auf der Reserve (HELD-ON-RESERVE), aber die Rückkehr zum Hauptkanal wird abgelehnt: die Routing-Regeln von GL haben die Prüfung nicht bestanden (KERNEL-POLICY-UNVERIFIED). Auto vermerkt, wie lange das dauert (höchstens einmal pro Minute), damit nach 15 Minuten ein Programm-Update erlaubt ist. Das Netz wird nicht umgeschaltet."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут: Auto повторяет возврат сам.\n2. Если состояние держится больше 15 минут, установите новую версию программы или перезагрузите роутер.\n3. Если строка повторяется, сохраните диагностику и передайте её поддержке.",
+        "uk": "1. Зачекайте кілька хвилин: Auto повторює повернення сам.\n2. Якщо стан триває понад 15 хвилин, встановіть нову версію програми або перезавантажте роутер.\n3. Якщо рядок повторюється, збережіть діагностику і передайте її підтримці.",
+        "en": "1. Wait a few minutes: Auto retries the return by itself.\n2. If the state lasts more than 15 minutes, install the new program version or restart the router.\n3. If the line repeats, save the diagnostics and send them to support.",
+        "de": "1. Warten Sie einige Minuten: Auto wiederholt die Rückkehr selbst.\n2. Dauert der Zustand länger als 15 Minuten, installieren Sie die neue Programmversion oder starten Sie den Router neu.\n3. Wiederholt sich die Zeile, speichern Sie die Diagnose und senden Sie sie an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-357",
+      "related": [
+        "VPN-INST-181"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
     }
   ]
 }
