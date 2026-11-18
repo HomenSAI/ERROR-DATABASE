@@ -2467,6 +2467,615 @@
         "sys",
         "runtime"
       ]
+    },
+    {
+      "code": "VPN-SYS-046",
+      "number": "005-014-046",
+      "key": "HV_CORE_UNCLEAN_END",
+      "aliases": [
+        "HV-CORE-UNCLEAN-END"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Встроенное ядро завершилось без чистой остановки",
+        "uk": "Вбудоване ядро завершилося без чистої зупинки",
+        "en": "The built-in core ended without a clean stop",
+        "de": "Der eingebaute Kern endete ohne sauberen Stopp"
+      },
+      "cause": {
+        "ru": "Строка журнала при запуске: предыдущий процесс встроенного ядра (номер в строке) закончился без чистой остановки, например из-за перезапуска или потери питания. Ядро запущено заново.",
+        "uk": "Рядок журналу під час запуску: попередній процес вбудованого ядра (номер у рядку) закінчився без чистої зупинки, наприклад через перезапуск або втрату живлення. Ядро запущено заново.",
+        "en": "A log line at start: the previous process of the built-in core (its number is in the line) ended without a clean stop, for example because of a restart or a power loss. The core was started again.",
+        "de": "Eine Protokollzeile beim Start: Der vorherige Prozess des eingebauten Kerns (die Nummer steht in der Zeile) endete ohne sauberen Stopp, zum Beispiel durch einen Neustart oder Stromverlust. Der Kern wurde neu gestartet."
+      },
+      "action": {
+        "ru": "1. После отключения питания ничего делать не нужно.\n2. Если строка повторяется без причины, откройте VPN-SYS-040 и отправьте «Журнал» разработчику.",
+        "uk": "1. Після вимкнення живлення нічого робити не потрібно.\n2. Якщо рядок повторюється без причини, відкрийте VPN-SYS-040 і надішліть «Журнал» розробнику.",
+        "en": "1. After a power cut nothing to do.\n2. If the line repeats for no reason, open VPN-SYS-040 and send the Journal to the developer.",
+        "de": "1. Nach einem Stromausfall müssen Sie nichts tun.\n2. Wiederholt sich die Zeile ohne Grund, öffnen Sie VPN-SYS-040 und senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-046",
+      "related": [
+        "VPN-SYS-040",
+        "VPN-INST-025"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-047",
+      "number": "005-014-047",
+      "key": "HV_CORE_AUTO_STEP",
+      "aliases": [
+        "HV-CORE-AUTO-STEP"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Один шаг Auto задержал цикл встроенного ядра",
+        "uk": "Один крок Auto затримав цикл вбудованого ядра",
+        "en": "One Auto step held the built-in core loop",
+        "de": "Ein Auto-Schritt hielt die Schleife des eingebauten Kerns auf"
+      },
+      "cause": {
+        "ru": "Строка журнала: один шаг Auto занял цикл встроенного ядра надолго (секунды и место указаны в строке). Остальные задачи ядра в это время ждали. Единичные случаи при медленном роутере не опасны.",
+        "uk": "Рядок журналу: один крок Auto зайняв цикл вбудованого ядра надовго (секунди і місце зазначено в рядку). Інші задачі ядра в цей час чекали. Поодинокі випадки на повільному роутері не небезпечні.",
+        "en": "A log line: one Auto step kept the loop of the built-in core busy for long (the seconds and the place are in the line). The other tasks of the core waited. Single cases on a slow router are not dangerous.",
+        "de": "Eine Protokollzeile: Ein Auto-Schritt hielt die Schleife des eingebauten Kerns lange beschäftigt (Sekunden und Stelle stehen in der Zeile). Die übrigen Aufgaben des Kerns warteten. Einzelfälle auf einem langsamen Router sind nicht gefährlich."
+      },
+      "action": {
+        "ru": "1. Единичная строка: ничего делать не нужно.\n2. Если строки повторяются, отправьте «Журнал» разработчику.",
+        "uk": "1. Поодинокий рядок: нічого робити не потрібно.\n2. Якщо рядки повторюються, надішліть «Журнал» розробнику.",
+        "en": "1. A single line: nothing to do.\n2. If the lines repeat, send the Journal to the developer.",
+        "de": "1. Einzelne Zeile: Sie müssen nichts tun.\n2. Wiederholen sich die Zeilen, senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-047",
+      "related": [
+        "VPN-INST-025"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-048",
+      "number": "005-014-048",
+      "key": "HV_CORE_LOOP_LAG",
+      "aliases": [
+        "HV-CORE-LOOP-LAG"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Цикл встроенного ядра опоздал",
+        "uk": "Цикл вбудованого ядра запізнився",
+        "en": "The built-in core loop was late",
+        "de": "Die Schleife des eingebauten Kerns war verspätet"
+      },
+      "cause": {
+        "ru": "Строка журнала: цикл встроенного ядра запоздал на указанное число секунд, обычно из-за нагрузки роутера. Проверки и переключения в это время откладывались.",
+        "uk": "Рядок журналу: цикл вбудованого ядра запізнився на вказану кількість секунд, зазвичай через навантаження роутера. Перевірки й перемикання в цей час відкладалися.",
+        "en": "A log line: the built-in core loop was late by the number of seconds in the line, usually because of the router load. Checks and switches were delayed meanwhile.",
+        "de": "Eine Protokollzeile: Die Schleife des eingebauten Kerns war um die angegebene Zahl von Sekunden verspätet, meist wegen der Router-Last. Prüfungen und Wechsel wurden währenddessen verzögert."
+      },
+      "action": {
+        "ru": "1. Единичная строка: ничего делать не нужно.\n2. Если строки повторяются, снизьте нагрузку на роутер или отправьте «Журнал» разработчику.",
+        "uk": "1. Поодинокий рядок: нічого робити не потрібно.\n2. Якщо рядки повторюються, зменште навантаження на роутер або надішліть «Журнал» розробнику.",
+        "en": "1. A single line: nothing to do.\n2. If the lines repeat, reduce the router load or send the Journal to the developer.",
+        "de": "1. Einzelne Zeile: Sie müssen nichts tun.\n2. Wiederholen sich die Zeilen, verringern Sie die Router-Last oder senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-048",
+      "related": [
+        "VPN-INST-025"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-049",
+      "number": "005-014-049",
+      "key": "HV_CORE_MONITOR_STALLED",
+      "aliases": [
+        "HV-CORE-MONITOR-STALLED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Встроенное ядро: наблюдение не проходило слишком долго",
+        "uk": "Вбудоване ядро: спостереження не проходило надто довго",
+        "en": "Built-in core: no monitoring pass for too long",
+        "de": "Eingebauter Kern: zu lange kein Überwachungsdurchlauf"
+      },
+      "cause": {
+        "ru": "Строка журнала: встроенное ядро не видело прохода наблюдения указанное число секунд и запускает проход само. Это защита от зависшего наблюдения.",
+        "uk": "Рядок журналу: вбудоване ядро не бачило проходу спостереження вказану кількість секунд і запускає прохід само. Це захист від завислого спостереження.",
+        "en": "A log line: the built-in core saw no monitoring pass for the number of seconds in the line and starts a pass itself. This is the protection against a hung monitoring.",
+        "de": "Eine Protokollzeile: Der eingebaute Kern sah die angegebene Zahl von Sekunden keinen Überwachungsdurchlauf und startet selbst einen. Dies ist der Schutz vor hängender Überwachung."
+      },
+      "action": {
+        "ru": "1. Подождите минуту и проверьте, что на «Главной» свежие данные.\n2. Если строка повторяется, откройте VPN-INST-025 и отправьте «Журнал» разработчику.",
+        "uk": "1. Зачекайте хвилину і перевірте, що на «Головній» свіжі дані.\n2. Якщо рядок повторюється, відкрийте VPN-INST-025 і надішліть «Журнал» розробнику.",
+        "en": "1. Wait a minute and check that Home shows fresh data.\n2. If the line repeats, open VPN-INST-025 and send the Journal to the developer.",
+        "de": "1. Warten Sie eine Minute und prüfen Sie, ob „Start“ (Home) frische Daten zeigt.\n2. Wiederholt sich die Zeile, öffnen Sie VPN-INST-025 und senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-049",
+      "related": [
+        "VPN-INST-025",
+        "VPN-SYS-040"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-050",
+      "number": "005-014-050",
+      "key": "HV_CORE_STANDBY_EXEC_FAILED",
+      "aliases": [
+        "HV-CORE-STANDBY-EXEC-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Встроенное ядро не смогло запустить запасной процесс",
+        "uk": "Вбудоване ядро не змогло запустити запасний процес",
+        "en": "The built-in core could not start its standby process",
+        "de": "Der eingebaute Kern konnte seinen Bereitschaftsprozess nicht starten"
+      },
+      "cause": {
+        "ru": "Встроенное ядро не смогло запустить программу в режиме ожидания. Оно переходит на обычную раскладку, где наблюдение и Auto работают отдельными процессами (VPN-INST-024).",
+        "uk": "Вбудоване ядро не змогло запустити програму в режимі очікування. Воно переходить на звичайну розкладку, де спостереження й Auto працюють окремими процесами (VPN-INST-024).",
+        "en": "The built-in core could not start the program in standby mode. It goes back to the normal layout where monitoring and Auto run as separate processes (VPN-INST-024).",
+        "de": "Der eingebaute Kern konnte das Programm im Bereitschaftsmodus nicht starten. Er geht auf die normale Anordnung zurück, in der Überwachung und Auto als getrennte Prozesse laufen (VPN-INST-024)."
+      },
+      "action": {
+        "ru": "1. Ничего не потеряно: наблюдение и Auto продолжают работать.\n2. Если строка повторяется, отправьте «Журнал» разработчику.",
+        "uk": "1. Нічого не втрачено: спостереження й Auto продовжують працювати.\n2. Якщо рядок повторюється, надішліть «Журнал» розробнику.",
+        "en": "1. Nothing is lost: monitoring and Auto keep working.\n2. If the line repeats, send the Journal to the developer.",
+        "de": "1. Nichts geht verloren: Überwachung und Auto arbeiten weiter.\n2. Wiederholt sich die Zeile, senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-050",
+      "related": [
+        "VPN-INST-024"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-051",
+      "number": "005-014-051",
+      "key": "HV_CORE_FALLBACK_FAILED",
+      "aliases": [
+        "HV-CORE-FALLBACK-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Встроенное ядро не смогло вернуться к обычной раскладке",
+        "uk": "Вбудоване ядро не змогло повернутися до звичайної розкладки",
+        "en": "The built-in core could not return to the normal layout",
+        "de": "Der eingebaute Kern konnte nicht zur normalen Anordnung zurückkehren"
+      },
+      "cause": {
+        "ru": "После сбоя встроенное ядро пыталось перейти на обычную раскладку (VPN-INST-024), но запуск не удался. Служба останавливается, и процедура запуска роутера запускает её снова.",
+        "uk": "Після збою вбудоване ядро намагалося перейти на звичайну розкладку (VPN-INST-024), але запуск не вдався. Службу зупиняють, і процедура запуску роутера запускає її знову.",
+        "en": "After a failure the built-in core tried to go back to the normal layout (VPN-INST-024), but the start failed. The service stops and the router start procedure starts it again.",
+        "de": "Nach einem Fehler versuchte der eingebaute Kern, zur normalen Anordnung zurückzukehren (VPN-INST-024), doch der Start schlug fehl. Der Dienst hält an und die Startprozedur des Routers startet ihn erneut."
+      },
+      "action": {
+        "ru": "1. Подождите минуту: служба запустится снова.\n2. Если не запустилась, перезапустите роутер и отправьте «Журнал» разработчику.",
+        "uk": "1. Зачекайте хвилину: служба запуститься знову.\n2. Якщо не запустилась, перезапустіть роутер і надішліть «Журнал» розробнику.",
+        "en": "1. Wait a minute: the service starts again.\n2. If it does not, restart the router and send the Journal to the developer.",
+        "de": "1. Warten Sie eine Minute: Der Dienst startet erneut.\n2. Wenn nicht, starten Sie den Router neu und senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-051",
+      "related": [
+        "VPN-INST-024",
+        "VPN-SYS-040"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-052",
+      "number": "005-014-052",
+      "key": "HV_CORE_MONITOR_BUSY",
+      "aliases": [
+        "HV-CORE-MONITOR-BUSY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Встроенное ядро: наблюдение уже запущено",
+        "uk": "Вбудоване ядро: спостереження вже запущено",
+        "en": "Built-in core: the monitoring is already running",
+        "de": "Eingebauter Kern: die Überwachung läuft bereits"
+      },
+      "cause": {
+        "ru": "Вторая копия встроенного ядра не запустилась, потому что файл агента уже занят первой копией. Это нормальная защита от двух копий; службу снова запускает процедура запуска.",
+        "uk": "Друга копія вбудованого ядра не запустилася, бо файл агента вже зайнятий першою копією. Це нормальний захист від двох копій; службу знову запускає процедура запуску.",
+        "en": "A second copy of the built-in core did not start because the agent file is already held by the first copy. This is the normal protection against two copies; the start procedure starts the service again.",
+        "de": "Eine zweite Kopie des eingebauten Kerns startete nicht, weil die Agentendatei bereits von der ersten Kopie belegt ist. Dies ist der normale Schutz vor zwei Kopien; die Startprozedur startet den Dienst erneut."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-052",
+      "related": [
+        "VPN-SYS-040"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-053",
+      "number": "005-014-053",
+      "key": "NATIVE_SUPERVISOR_BUSY",
+      "aliases": [
+        "NATIVE-SUPERVISOR-BUSY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Auto ждёт: управляющий процесс уже занят",
+        "uk": "Auto чекає: керуючий процес уже зайнятий",
+        "en": "Auto waits: the supervisor is already busy",
+        "de": "Auto wartet: der Steuerprozess ist bereits belegt"
+      },
+      "cause": {
+        "ru": "Процесс Auto не смог занять блокировку управления, потому что она у другого процесса. Он ждёт или завершается; служба запускает его снова. Строка нормальна, если повторяется только в первые секунды после запуска.",
+        "uk": "Процес Auto не зміг зайняти блокування керування, бо вона в іншого процесу. Він чекає або завершується; служба запускає його знову. Рядок нормальний, якщо повторюється лише в перші секунди після запуску.",
+        "en": "The Auto process could not take the control lock because another process holds it. It waits or ends; the service starts it again. The line is normal if it repeats only in the first seconds after a start.",
+        "de": "Der Auto-Prozess konnte die Steuersperre nicht belegen, weil sie ein anderer Prozess hält. Er wartet oder endet; der Dienst startet ihn erneut. Die Zeile ist normal, wenn sie sich nur in den ersten Sekunden nach dem Start wiederholt."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если строка идёт долго, перезапустите роутер.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо рядок іде довго, перезапустіть роутер.",
+        "en": "1. Nothing to do.\n2. If the line goes on for long, restart the router.",
+        "de": "1. Sie müssen nichts tun.\n2. Läuft die Zeile lange weiter, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-053",
+      "related": [
+        "VPN-SYS-040"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-054",
+      "number": "005-014-054",
+      "key": "UCI_STALE_TEMP_CLEANED",
+      "aliases": [
+        "UCI-STALE-TEMP-CLEANED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Оставшиеся временные файлы настроек удалены при загрузке",
+        "uk": "Залишені тимчасові файли налаштувань видалено під час завантаження",
+        "en": "Leftover temporary settings files were removed at boot",
+        "de": "Übrig gebliebene temporäre Einstellungsdateien wurden beim Start entfernt"
+      },
+      "cause": {
+        "ru": "При загрузке роутера Auto нашёл и удалил оставшиеся временные файлы записи настроек, которые остались после прерванной записи (число в строке). Сами настройки не затронуты.",
+        "uk": "Під час завантаження роутера Auto знайшов і видалив залишені тимчасові файли запису налаштувань, що лишилися після перерваного запису (кількість у рядку). Самі налаштування не зачеплено.",
+        "en": "At router boot Auto found and removed leftover temporary files of a settings write that an interrupted write had left (the number is in the line). The settings themselves are not affected.",
+        "de": "Beim Start des Routers fand Auto übrig gebliebene temporäre Dateien eines Schreibvorgangs der Einstellungen, die ein unterbrochener Schreibvorgang hinterlassen hatte, und entfernte sie (die Zahl steht in der Zeile). Die Einstellungen selbst sind nicht betroffen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-054",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "boot",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SYS-055",
+      "number": "005-014-055",
+      "key": "SHA256_UNAVAILABLE",
+      "aliases": [
+        "SHA256-UNAVAILABLE"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Контрольная сумма SHA-256 недоступна",
+        "uk": "Контрольна сума SHA-256 недоступна",
+        "en": "The SHA-256 checksum is not available",
+        "de": "Die SHA-256-Prüfsumme ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Программе нужно посчитать контрольную сумму SHA-256 (для канонической записи состояния), но на роутере нет рабочей программы для этого или она дала неверный ответ. Запись, которой нужна сумма, не выполняется, чтобы не записать непроверенные данные.",
+        "uk": "Програмі потрібно порахувати контрольну суму SHA-256 (для канонічного запису стану), але на роутері немає робочої програми для цього або вона дала неправильну відповідь. Запис, якому потрібна сума, не виконується, щоб не записати неперевірені дані.",
+        "en": "The program needs a SHA-256 checksum (for the canonical state record), but the router has no working program for it or it gave a wrong answer. The write that needs the sum is not done, so unchecked data is not written.",
+        "de": "Das Programm braucht eine SHA-256-Prüfsumme (für den kanonischen Zustandseintrag), aber der Router hat dafür kein funktionierendes Programm oder es lieferte eine falsche Antwort. Der Schreibvorgang, der die Summe braucht, wird nicht ausgeführt, damit keine ungeprüften Daten geschrieben werden."
+      },
+      "action": {
+        "ru": "1. Перезагрузите роутер.\n2. Если код остаётся, переустановите пакет Auto и отправьте «Журнал» разработчику.",
+        "uk": "1. Перезавантажте роутер.\n2. Якщо код лишається, перевстановіть пакет Auto і надішліть «Журнал» розробнику.",
+        "en": "1. Restart the router.\n2. If the code stays, reinstall the Auto package and send the Journal to the developer.",
+        "de": "1. Starten Sie den Router neu.\n2. Bleibt der Code, installieren Sie das Auto-Paket neu und senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SYS-055",
+      "related": [
+        "VPN-SYS-038"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "sys",
+        "runtime",
+        "translation-draft"
+      ]
     }
   ]
 }

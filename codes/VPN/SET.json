@@ -5908,6 +5908,60 @@
         "stand",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-SET-109",
+      "number": "005-005-109",
+      "key": "ONBOARDING_SAVE_RESULT",
+      "aliases": [
+        "ONBOARDING-SAVE-RESULT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Первичная настройка: результат сохранения не подтверждён",
+        "uk": "Первинне налаштування: результат збереження не підтверджено",
+        "en": "First setup: the save result was not confirmed",
+        "de": "Ersteinrichtung: das Speichern wurde nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Мастер первой настройки отправил настройки на роутер, но ответ не содержит подтверждения сохранения. Строка журнала начинается с названия шага и содержит первые 200 символов ответа. Настройки могли не сохраниться.",
+        "uk": "Майстер першого налаштування надіслав налаштування на роутер, але відповідь не містить підтвердження збереження. Рядок журналу починається з назви кроку й містить перші 200 символів відповіді. Налаштування могли не зберегтися.",
+        "en": "The first-setup wizard sent the settings to the router, but the reply carries no confirmation of the save. The log line starts with the step name and holds the first 200 characters of the reply. The settings may not have been saved.",
+        "de": "Der Assistent der Ersteinrichtung sendete die Einstellungen an den Router, aber die Antwort enthält keine Bestätigung des Speicherns. Die Protokollzeile beginnt mit dem Schrittnamen und enthält die ersten 200 Zeichen der Antwort. Die Einstellungen wurden möglicherweise nicht gespeichert."
+      },
+      "action": {
+        "ru": "1. Откройте мастер ещё раз и проверьте, что введённые значения сохранились.\n2. Если нет, повторите шаг; при повторе отправьте «Журнал» разработчику.",
+        "uk": "1. Відкрийте майстер ще раз і перевірте, що введені значення збереглися.\n2. Якщо ні, повторіть крок; при повторі надішліть «Журнал» розробнику.",
+        "en": "1. Open the wizard again and check that the entered values were saved.\n2. If not, repeat the step; if it repeats, send the Journal to the developer.",
+        "de": "1. Öffnen Sie den Assistenten erneut und prüfen Sie, ob die eingegebenen Werte gespeichert wurden.\n2. Wenn nicht, wiederholen Sie den Schritt; wiederholt es sich, senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-109",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "wizard",
+        "log",
+        "translation-draft"
+      ]
     }
   ]
 }
