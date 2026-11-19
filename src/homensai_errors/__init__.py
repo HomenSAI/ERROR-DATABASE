@@ -19,7 +19,7 @@ from .errors import (FALLBACK_CODE, AppError, CatalogError, IntegrityError, Para
                      default_catalog)
 from ._texts import LANGS
 
-__version__ = "1.8.0"
+__version__ = "1.9.0"
 
 __all__ = [
     "AppError", "CODES", "Catalog", "CatalogError", "DATABASE", "Entry", "Errors", "FALLBACK_CODE", "Hit",

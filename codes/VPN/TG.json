@@ -1456,6 +1456,296 @@
         "tg",
         "telegram"
       ]
+    },
+    {
+      "code": "VPN-TG-028",
+      "number": "005-008-028",
+      "key": "TELEGRAM_BOOT_CARRY",
+      "aliases": [
+        "TELEGRAM-BOOT-CARRY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Уведомление: интернет восстановлен после отключения питания",
+        "uk": "Сповіщення: інтернет відновлено після вимкнення живлення",
+        "en": "Notice: internet is back after a power cut",
+        "de": "Meldung: das Internet ist nach einem Stromausfall zurück"
+      },
+      "cause": {
+        "ru": "Telegram-уведомление, которое Auto отправляет один раз за загрузку: после отключения питания интернет через VPN снова работает. Сообщение называет время от включения питания до интернета и канал-носитель (основной или нет). Возврат на основной канал позже не сообщается.",
+        "uk": "Telegram-сповіщення, яке Auto надсилає один раз за завантаження: після вимкнення живлення інтернет через VPN знову працює. Повідомлення називає час від увімкнення живлення до інтернету і канал-носій (основний чи ні). Повернення на основний канал пізніше не повідомляється.",
+        "en": "A Telegram notice Auto sends once per boot: after a power cut the internet through a VPN works again. The message names the time from power-on to internet and the carrier channel (primary or not). A later return to the primary channel is not reported.",
+        "de": "Eine Telegram-Meldung, die Auto einmal pro Start sendet: Nach einem Stromausfall funktioniert das Internet über ein VPN wieder. Die Nachricht nennt die Zeit vom Einschalten bis zum Internet und den Trägerkanal (Hauptkanal oder nicht). Eine spätere Rückkehr zum Hauptkanal wird nicht gemeldet."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-028",
+      "related": [
+        "VPN-TG-021",
+        "VPN-PAIR-259"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "notification",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-029",
+      "number": "005-008-029",
+      "key": "TELEGRAM_BOOT_ONLINE",
+      "aliases": [
+        "TELEGRAM-BOOT-ONLINE"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Уведомление: интернет у устройств после включения питания",
+        "uk": "Сповіщення: інтернет у пристроїв після ввімкнення живлення",
+        "en": "Notice: internet for the devices after power-on",
+        "de": "Meldung: Internet für die Geräte nach dem Einschalten"
+      },
+      "cause": {
+        "ru": "Telegram-уведомление, которое Auto отправляет один раз за загрузку: через сколько секунд после включения питания у устройств появился интернет. Подробности по секундам — «Пульт → Журнал → Загрузка по секундам».",
+        "uk": "Telegram-сповіщення, яке Auto надсилає один раз за завантаження: через скільки секунд після ввімкнення живлення у пристроїв з’явився інтернет. Подробиці по секундах — «Пульт → Журнал → Завантаження по секундах».",
+        "en": "A Telegram notice Auto sends once per boot: how many seconds after power-on the devices got internet. The second-by-second detail is in Console, Log, \"Boot by seconds\".",
+        "de": "Eine Telegram-Meldung, die Auto einmal pro Start sendet: nach wie vielen Sekunden nach dem Einschalten die Geräte Internet hatten. Die Details Sekunde für Sekunde stehen unter „Konsole“, „Protokoll“, „Start nach Sekunden“."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-029",
+      "related": [
+        "VPN-TG-021",
+        "VPN-TG-028"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "notification",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-030",
+      "number": "005-008-030",
+      "key": "TELEGRAM_REPORT_PERIOD",
+      "aliases": [
+        "TELEGRAM-REPORT-PERIOD"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Отчёт за период",
+        "uk": "Звіт за період",
+        "en": "Report for the period",
+        "de": "Bericht für den Zeitraum"
+      },
+      "cause": {
+        "ru": "Периодический отчёт Auto в Telegram за выбранный интервал: серверы, события, трафик и другие пункты, выбранные в настройках отчёта. Код стоит в заголовке сообщения; коды ошибок внутри отчёта описаны отдельно.",
+        "uk": "Періодичний звіт Auto в Telegram за вибраний інтервал: сервери, події, трафік та інші пункти, вибрані в налаштуваннях звіту. Код стоїть у заголовку повідомлення; коди помилок усередині звіту описано окремо.",
+        "en": "The periodic Auto report in Telegram for the chosen interval: servers, events, traffic and the other items chosen in the report settings. The code is in the message header; the error codes inside the report are described separately.",
+        "de": "Der periodische Auto-Bericht in Telegram für das gewählte Intervall: Server, Ereignisse, Datenverkehr und die übrigen in den Berichtseinstellungen gewählten Punkte. Der Code steht im Kopf der Nachricht; die Fehlercodes im Bericht sind gesondert beschrieben."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Состав отчёта меняется в настройках Telegram.",
+        "uk": "1. Нічого робити не потрібно.\n2. Склад звіту змінюється в налаштуваннях Telegram.",
+        "en": "1. Nothing to do.\n2. The content of the report is changed in the Telegram settings.",
+        "de": "1. Sie müssen nichts tun.\n2. Der Inhalt des Berichts wird in den Telegram-Einstellungen geändert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-030",
+      "related": [
+        "VPN-TG-004"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "notification",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-031",
+      "number": "005-008-031",
+      "key": "EXPERIMENT_PROGRESS",
+      "aliases": [
+        "EXPERIMENT-PROGRESS"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Эксперимент: промежуточное сообщение",
+        "uk": "Експеримент: проміжне повідомлення",
+        "en": "Experiment: progress message",
+        "de": "Experiment: Zwischenmeldung"
+      },
+      "cause": {
+        "ru": "Telegram-сообщение о ходе эксперимента с настройками Auto: сколько прошло и осталось, преимущество над стандартными настройками и текущая рекомендация. Приходит с периодом, выбранным владельцем; итог — отдельное сообщение (VPN-TG-032).",
+        "uk": "Telegram-повідомлення про перебіг експерименту з налаштуваннями Auto: скільки минуло й лишилося, перевага над стандартними налаштуваннями та поточна рекомендація. Надходить із періодом, вибраним власником; підсумок — окреме повідомлення (VPN-TG-032).",
+        "en": "A Telegram message about the course of an experiment with Auto settings: how much time passed and is left, the advantage over the standard settings and the current recommendation. It comes with the period the owner chose; the result is a separate message (VPN-TG-032).",
+        "de": "Eine Telegram-Nachricht über den Verlauf eines Experiments mit Auto-Einstellungen: wie viel Zeit vergangen und übrig ist, der Vorteil gegenüber den Standardeinstellungen und die aktuelle Empfehlung. Sie kommt im vom Eigentümer gewählten Abstand; das Ergebnis ist eine eigene Nachricht (VPN-TG-032)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-031",
+      "related": [
+        "VPN-TG-004",
+        "VPN-TG-032"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "notification",
+        "experiment",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-TG-032",
+      "number": "005-008-032",
+      "key": "EXPERIMENT_FINISHED",
+      "aliases": [
+        "EXPERIMENT-FINISHED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Эксперимент: итоговое сообщение",
+        "uk": "Експеримент: підсумкове повідомлення",
+        "en": "Experiment: final message",
+        "de": "Experiment: Abschlussmeldung"
+      },
+      "cause": {
+        "ru": "Telegram-сообщение об окончании эксперимента с настройками Auto (завершён или прерван): итоговое преимущество над стандартными настройками и рекомендация. У прерванного эксперимента результат частичный.",
+        "uk": "Telegram-повідомлення про закінчення експерименту з налаштуваннями Auto (завершено або перервано): підсумкова перевага над стандартними налаштуваннями й рекомендація. У перерваного експерименту результат частковий.",
+        "en": "A Telegram message about the end of an experiment with Auto settings (finished or interrupted): the final advantage over the standard settings and the recommendation. The result of an interrupted experiment is partial.",
+        "de": "Eine Telegram-Nachricht über das Ende eines Experiments mit Auto-Einstellungen (beendet oder abgebrochen): der endgültige Vorteil gegenüber den Standardeinstellungen und die Empfehlung. Das Ergebnis eines abgebrochenen Experiments ist unvollständig."
+      },
+      "action": {
+        "ru": "1. Прочитайте рекомендацию.\n2. Чтобы принять или отклонить экспериментальные настройки, откройте страницу экспериментов.",
+        "uk": "1. Прочитайте рекомендацію.\n2. Щоб прийняти або відхилити експериментальні налаштування, відкрийте сторінку експериментів.",
+        "en": "1. Read the recommendation.\n2. To accept or reject the experimental settings, open the experiments page.",
+        "de": "1. Lesen Sie die Empfehlung.\n2. Um die experimentellen Einstellungen zu übernehmen oder zu verwerfen, öffnen Sie die Experimentseite."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-TG-032",
+      "related": [
+        "VPN-TG-031"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "tg",
+        "telegram",
+        "notification",
+        "experiment",
+        "translation-draft"
+      ]
     }
   ]
 }

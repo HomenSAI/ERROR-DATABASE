@@ -3945,6 +3945,325 @@
         "mon",
         "monitor"
       ]
+    },
+    {
+      "code": "VPN-MON-073",
+      "number": "005-002-073",
+      "key": "MONITOR_LOOP_ERROR",
+      "aliases": [
+        "MONITOR-LOOP-ERROR"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Цикл наблюдения: ошибка внутри прохода",
+        "uk": "Цикл спостереження: помилка всередині проходу",
+        "en": "Monitoring loop: an error inside a pass",
+        "de": "Überwachungsschleife: ein Fehler innerhalb eines Durchlaufs"
+      },
+      "cause": {
+        "ru": "Внутри прохода наблюдения возникла ошибка, цикл поймал её и продолжил работу. Строка называет место, сколько раз это уже было, и текст ошибки; повторы в журнале ограничены по частоте. Данные этого прохода могут быть неполными.",
+        "uk": "Всередині проходу спостереження виникла помилка, цикл її впіймав і продовжив роботу. Рядок називає місце, скільки разів це вже було, і текст помилки; повтори в журналі обмежено за частотою. Дані цього проходу можуть бути неповними.",
+        "en": "An error happened inside a monitoring pass; the loop caught it and went on. The line names the place, how many times it already happened and the error text; repeats in the log are rate-limited. The data of that pass may be incomplete.",
+        "de": "Innerhalb eines Überwachungsdurchlaufs trat ein Fehler auf; die Schleife fing ihn ab und arbeitete weiter. Die Zeile nennt die Stelle, wie oft er schon auftrat, und den Fehlertext; Wiederholungen im Protokoll sind begrenzt. Die Daten dieses Durchlaufs können unvollständig sein."
+      },
+      "action": {
+        "ru": "1. Если строка одиночная, ничего делать не нужно.\n2. Если она повторяется, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Якщо рядок поодинокий, нічого робити не потрібно.\n2. Якщо вона повторюється, збережіть «Журнал» і надішліть його розробнику.",
+        "en": "1. If the line is a single one, nothing to do.\n2. If it repeats, save the Journal and send it to the developer.",
+        "de": "1. Ist die Zeile einmalig, müssen Sie nichts tun.\n2. Wiederholt sie sich, speichern Sie das „Journal“ und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-073",
+      "related": [
+        "VPN-MON-074"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "loop",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-074",
+      "number": "005-002-074",
+      "key": "MONITOR_LOOP_FATAL",
+      "aliases": [
+        "MONITOR-LOOP-FATAL"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Цикл наблюдения: тяжёлая ошибка",
+        "uk": "Цикл спостереження: важка помилка",
+        "en": "Monitoring loop: a serious error",
+        "de": "Überwachungsschleife: ein schwerer Fehler"
+      },
+      "cause": {
+        "ru": "Внутри цикла наблюдения возникла ошибка, после которой цикл не может надёжно продолжать. Строка называет место, число повторов и текст ошибки. Защита сети и ручное управление не затронуты; наблюдение может остановиться, пока служба не перезапустится.",
+        "uk": "Всередині циклу спостереження виникла помилка, після якої цикл не може надійно продовжувати. Рядок називає місце, кількість повторів і текст помилки. Захист мережі й ручне керування не зачеплено; спостереження може зупинитися, доки службу не буде перезапущено.",
+        "en": "An error happened inside the monitoring loop after which the loop cannot go on reliably. The line names the place, the number of repeats and the error text. The network protection and manual control are not affected; monitoring may stop until the service restarts.",
+        "de": "In der Überwachungsschleife trat ein Fehler auf, nach dem die Schleife nicht zuverlässig weiterlaufen kann. Die Zeile nennt die Stelle, die Zahl der Wiederholungen und den Fehlertext. Netzschutz und manuelle Steuerung sind nicht betroffen; die Überwachung kann anhalten, bis der Dienst neu startet."
+      },
+      "action": {
+        "ru": "1. Откройте «Главную» и проверьте, обновляются ли данные.\n2. Если нет, перезапустите роутер.\n3. Сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Відкрийте «Головну» і перевірте, чи оновлюються дані.\n2. Якщо ні, перезапустіть роутер.\n3. Збережіть «Журнал» і надішліть його розробнику.",
+        "en": "1. Open Home and check whether the data updates.\n2. If not, restart the router.\n3. Save the Journal and send it to the developer.",
+        "de": "1. Öffnen Sie „Start“ (Home) und prüfen Sie, ob sich die Daten aktualisieren.\n2. Wenn nicht, starten Sie den Router neu.\n3. Speichern Sie das „Journal“ und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-074",
+      "related": [
+        "VPN-MON-073"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "loop",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-075",
+      "number": "005-002-075",
+      "key": "MONITOR_PASS_STUCK",
+      "aliases": [
+        "MONITOR-PASS-STUCK"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Проход наблюдения завис дольше сторожевого срока",
+        "uk": "Прохід спостереження завис довше за сторожовий строк",
+        "en": "A monitoring pass hung past its watchdog",
+        "de": "Ein Überwachungsdurchlauf hängt länger als sein Wächter erlaubt"
+      },
+      "cause": {
+        "ru": "Один проход наблюдения не закончился за сторожевой срок (указан в строке в секундах). Цикл признан неработающим, и служба перезапускает его. Пока проход висел, данные на страницах могли устареть.",
+        "uk": "Один прохід спостереження не закінчився за сторожовий строк (зазначено в рядку в секундах). Цикл визнано таким, що не працює, і служба перезапускає його. Доки прохід висів, дані на сторінках могли застаріти.",
+        "en": "One monitoring pass did not finish within its watchdog time (given in the line in seconds). The loop was judged dead and the service restarts it. While the pass hung, the data on the pages may have gone stale.",
+        "de": "Ein Überwachungsdurchlauf endete nicht innerhalb seiner Wächterzeit (in der Zeile in Sekunden angegeben). Die Schleife gilt als tot und der Dienst startet sie neu. Solange der Durchlauf hing, können die Daten auf den Seiten veraltet sein."
+      },
+      "action": {
+        "ru": "1. Подождите перезапуска и проверьте, что на «Главной» снова свежие данные.\n2. Если строка повторяется, отправьте «Журнал» разработчику.",
+        "uk": "1. Зачекайте перезапуску і перевірте, що на «Головній» знову свіжі дані.\n2. Якщо рядок повторюється, надішліть «Журнал» розробнику.",
+        "en": "1. Wait for the restart and check that Home shows fresh data again.\n2. If the line repeats, send the Journal to the developer.",
+        "de": "1. Warten Sie den Neustart ab und prüfen Sie, ob „Start“ (Home) wieder frische Daten zeigt.\n2. Wiederholt sich die Zeile, senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-075",
+      "related": [
+        "VPN-MON-073",
+        "VPN-MON-074",
+        "VPN-MON-076"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "loop",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-076",
+      "number": "005-002-076",
+      "key": "MONITOR_TICK_LOST",
+      "aliases": [
+        "MONITOR-TICK-LOST"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Следующий проход наблюдения не наступил после повторных запусков",
+        "uk": "Наступний прохід спостереження не настав після повторних запусків",
+        "en": "The next monitoring pass did not come after re-arming",
+        "de": "Der nächste Überwachungsdurchlauf kam auch nach erneutem Scharfstellen nicht"
+      },
+      "cause": {
+        "ru": "Следующий проход наблюдения не начался, хотя его таймер несколько раз запускали заново (число указано в строке). Цикл признан неработающим, и служба перезапускает его.",
+        "uk": "Наступний прохід спостереження не почався, хоча його таймер кілька разів запускали заново (кількість зазначено в рядку). Цикл визнано таким, що не працює, і служба перезапускає його.",
+        "en": "The next monitoring pass did not start although its timer was re-armed several times (the number is in the line). The loop was judged dead and the service restarts it.",
+        "de": "Der nächste Überwachungsdurchlauf begann nicht, obwohl sein Timer mehrmals neu gestartet wurde (die Zahl steht in der Zeile). Die Schleife gilt als tot und der Dienst startet sie neu."
+      },
+      "action": {
+        "ru": "1. Подождите перезапуска и проверьте, что на «Главной» снова свежие данные.\n2. Если строка повторяется, отправьте «Журнал» разработчику.",
+        "uk": "1. Зачекайте перезапуску і перевірте, що на «Головній» знову свіжі дані.\n2. Якщо рядок повторюється, надішліть «Журнал» розробнику.",
+        "en": "1. Wait for the restart and check that Home shows fresh data again.\n2. If the line repeats, send the Journal to the developer.",
+        "de": "1. Warten Sie den Neustart ab und prüfen Sie, ob „Start“ (Home) wieder frische Daten zeigt.\n2. Wiederholt sich die Zeile, senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-076",
+      "related": [
+        "VPN-MON-073",
+        "VPN-MON-074",
+        "VPN-MON-075"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "loop",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-MON-077",
+      "number": "005-002-077",
+      "key": "MONITOR_TICK_REARMED",
+      "aliases": [
+        "MONITOR-TICK-REARMED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Следующий проход наблюдения потерян и запущен заново",
+        "uk": "Наступний прохід спостереження втрачено і запущено заново",
+        "en": "The next monitoring pass was lost and armed again",
+        "de": "Der nächste Überwachungsdurchlauf ging verloren und wurde neu gestartet"
+      },
+      "cause": {
+        "ru": "Таймер следующего прохода наблюдения не сработал вовремя, и цикл запустил его заново. Одно такое событие безвредно; если подряд набирается несколько, цикл признаётся неработающим (VPN-MON-076).",
+        "uk": "Таймер наступного проходу спостереження не спрацював вчасно, і цикл запустив його заново. Одна така подія безпечна; якщо поспіль їх набирається кілька, цикл визнається таким, що не працює (VPN-MON-076).",
+        "en": "The timer of the next monitoring pass did not fire in time and the loop armed it again. One such event is harmless; if several come in a row, the loop is judged dead (VPN-MON-076).",
+        "de": "Der Timer des nächsten Überwachungsdurchlaufs löste nicht rechtzeitig aus, und die Schleife startete ihn neu. Ein solches Ereignis ist harmlos; kommen mehrere hintereinander, gilt die Schleife als tot (VPN-MON-076)."
+      },
+      "action": {
+        "ru": "1. Если строка одиночная, ничего делать не нужно.\n2. Если она повторяется, откройте описание VPN-MON-076.",
+        "uk": "1. Якщо рядок поодинокий, нічого робити не потрібно.\n2. Якщо вона повторюється, відкрийте опис VPN-MON-076.",
+        "en": "1. If the line is a single one, nothing to do.\n2. If it repeats, open the description of VPN-MON-076.",
+        "de": "1. Ist die Zeile einmalig, müssen Sie nichts tun.\n2. Wiederholt sie sich, öffnen Sie die Beschreibung von VPN-MON-076."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-MON-077",
+      "related": [
+        "VPN-MON-076"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "mon",
+        "loop",
+        "log",
+        "translation-draft"
+      ]
     }
   ]
 }
