@@ -9849,6 +9849,63 @@
         "inst",
         "runtime"
       ]
+    },
+    {
+      "code": "VPN-INST-181",
+      "number": "005-003-181",
+      "key": "LIFECYCLE_STUCK_HELD_ALLOWED",
+      "aliases": [
+        "LIFECYCLE-STUCK-HELD-ALLOWED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Обновление разрешено: Auto застрял на резервном канале",
+        "uk": "Оновлення дозволено: Auto застряг на резервному каналі",
+        "en": "Upgrade allowed: Auto was stuck on the reserve",
+        "de": "Update erlaubt: Auto hing auf der Reserve fest"
+      },
+      "cause": {
+        "ru": "Запись переключения Auto не меньше 15 минут оставалась на резервном канале (HELD-ON-RESERVE): возврат на основной канал каждый раз отклонялся, потому что правила маршрутизации GL не прошли проверку (KERNEL-POLICY-UNVERIFIED). Раньше в этом состоянии обновление программы отклонялось («Сначала остановите Auto»), и исправленную версию нельзя было установить. Теперь обновление (только обновление, не удаление) проходит; установщик ничего не меняет в сети, а новая версия сама восстанавливает запись после запуска.",
+        "uk": "Запис перемикання Auto щонайменше 15 хвилин залишався на резервному каналі (HELD-ON-RESERVE): повернення на основний канал щоразу відхилялося, бо правила маршрутизації GL не пройшли перевірку (KERNEL-POLICY-UNVERIFIED). Раніше в цьому стані оновлення програми відхилялося («Спочатку зупиніть Auto»), і виправлену версію не можна було встановити. Тепер оновлення (лише оновлення, не видалення) проходить; інсталятор нічого не змінює в мережі, а нова версія сама відновлює запис після запуску.",
+        "en": "Auto's switch record stayed on the reserve (HELD-ON-RESERVE) for at least 15 minutes: every return to the primary was refused because GL's routing rules did not pass the check (KERNEL-POLICY-UNVERIFIED). Before, an upgrade was refused in this state (Stop Auto first) and the fixed version could not be installed. Now an upgrade (only an upgrade, never a removal) proceeds; the installer changes nothing in the network, and the new version recovers the record after its start.",
+        "de": "Der Wechseleintrag von Auto blieb mindestens 15 Minuten auf der Reserve (HELD-ON-RESERVE): jede Rückkehr zum Hauptkanal wurde abgelehnt, weil die Routing-Regeln von GL die Prüfung nicht bestanden (KERNEL-POLICY-UNVERIFIED). Früher wurde ein Update in diesem Zustand abgelehnt („Beenden Sie zuerst Auto“), und die korrigierte Version ließ sich nicht installieren. Jetzt läuft ein Update (nur ein Update, nie eine Entfernung) durch; das Installationsprogramm ändert nichts im Netz, und die neue Version stellt den Eintrag nach ihrem Start wieder her."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: дождитесь окончания установки.\n2. После установки проверьте на странице, что Auto снова работает и сеть идёт через основной канал.\n3. Если строка повторяется, сохраните диагностику и передайте её поддержке.",
+        "uk": "1. Нічого робити не потрібно: дочекайтеся завершення встановлення.\n2. Після встановлення перевірте на сторінці, що Auto знову працює і мережа йде через основний канал.\n3. Якщо рядок повторюється, збережіть діагностику і передайте її підтримці.",
+        "en": "1. Nothing to do: wait for the installation to finish.\n2. After it, check on the page that Auto works again and the network uses the primary.\n3. If the line repeats, save the diagnostics and send them to support.",
+        "de": "1. Nichts zu tun: warten Sie, bis die Installation fertig ist.\n2. Prüfen Sie danach auf der Seite, dass Auto wieder arbeitet und das Netz den Hauptkanal nutzt.\n3. Wiederholt sich die Zeile, speichern Sie die Diagnose und senden Sie sie an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-INST-181",
+      "related": [
+        "VPN-INST-053",
+        "VPN-PAIR-357"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "inst",
+        "service",
+        "translation-draft"
+      ]
     }
   ]
 }

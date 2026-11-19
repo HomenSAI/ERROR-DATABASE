@@ -2288,6 +2288,218 @@
         "srv",
         "platform"
       ]
+    },
+    {
+      "code": "VPN-SRV-044",
+      "number": "005-010-044",
+      "key": "WG_ENDPOINT_POOL_KEY_MISMATCH",
+      "aliases": [
+        "WG-ENDPOINT-POOL-KEY-MISMATCH"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес WireGuard-сервера — общий пул, ключ — одного сервера",
+        "uk": "WireGuard endpoint is a pool address with one server key",
+        "en": "WireGuard endpoint is a pool address with one server key",
+        "de": "WireGuard endpoint is a pool address with one server key"
+      },
+      "cause": {
+        "ru": "GL записывает у WireGuard-сервера NordVPN ключ одного конкретного сервера (например de1554), но общий адрес города (berlin.de.wg.nordhold.net). Адрес города указывает на случайный сервер города с другим ключом, и сервер молча игнорирует соединение: трафик уходит, ответа нет, GL каждые 8–15 с перебирает серверы.",
+        "uk": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s.",
+        "en": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s.",
+        "de": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s."
+      },
+      "action": {
+        "ru": "1. Включите «Автоисправление адресов серверов» в настройках: продукт проверит ключ в базе NordVPN и подставит адрес сервера.\n2. Или вручную: GL → VPN → WireGuard → сервер → «Адрес» = <имя сервера>.nordvpn.com:51820.\n3. После обновления списка серверов NordVPN в GL городские адреса появятся снова; при включённой настройке они исправятся сами.",
+        "uk": "1. Turn on \"Auto-correct server addresses\" in the settings: the product checks the key in the NordVPN database and sets the server address.\n2. Or by hand: GL -> VPN -> WireGuard -> the server -> Address = <server name>.nordvpn.com:51820.\n3. After you refresh the NordVPN servers in GL the city addresses come back; with the setting on they are corrected again by themselves.",
+        "en": "1. Turn on \"Auto-correct server addresses\" in the settings: the product checks the key in the NordVPN database and sets the server address.\n2. Or by hand: GL -> VPN -> WireGuard -> the server -> Address = <server name>.nordvpn.com:51820.\n3. After you refresh the NordVPN servers in GL the city addresses come back; with the setting on they are corrected again by themselves.",
+        "de": "1. Turn on \"Auto-correct server addresses\" in the settings: the product checks the key in the NordVPN database and sets the server address.\n2. Or by hand: GL -> VPN -> WireGuard -> the server -> Address = <server name>.nordvpn.com:51820.\n3. After you refresh the NordVPN servers in GL the city addresses come back; with the setting on they are corrected again by themselves."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-044",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "server",
+        "wireguard",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-045",
+      "number": "005-010-045",
+      "key": "WG_ENDPOINT_CORRECTED",
+      "aliases": [
+        "WG-ENDPOINT-CORRECTED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес сервера WireGuard исправлен",
+        "uk": "WireGuard server address corrected",
+        "en": "WireGuard server address corrected",
+        "de": "WireGuard server address corrected"
+      },
+      "cause": {
+        "ru": "Продукт проверил в базе серверов NordVPN (через рабочий канал), что ключ принадлежит именно этому серверу, и заменил общий адрес города на собственный адрес сервера (например de1554.nordvpn.com). Копия прежних значений сохранена. Если сервер всё равно не ответит, значения вернутся (VPN-SRV-047).",
+        "uk": "The product checked in the NordVPN server database (through a working channel) that the key belongs to exactly this server and replaced the shared city address by the server's own address (for example de1554.nordvpn.com). A copy of the previous values is kept. If the server still does not answer, the values are put back (VPN-SRV-047).",
+        "en": "The product checked in the NordVPN server database (through a working channel) that the key belongs to exactly this server and replaced the shared city address by the server's own address (for example de1554.nordvpn.com). A copy of the previous values is kept. If the server still does not answer, the values are put back (VPN-SRV-047).",
+        "de": "The product checked in the NordVPN server database (through a working channel) that the key belongs to exactly this server and replaced the shared city address by the server's own address (for example de1554.nordvpn.com). A copy of the previous values is kept. If the server still does not answer, the values are put back (VPN-SRV-047)."
+      },
+      "action": {
+        "ru": "Делать ничего не нужно. Прежние значения лежат в /etc/homensai-vpn/wg-endpoint-backup.json.",
+        "uk": "Nothing to do. The previous values are in /etc/homensai-vpn/wg-endpoint-backup.json.",
+        "en": "Nothing to do. The previous values are in /etc/homensai-vpn/wg-endpoint-backup.json.",
+        "de": "Nothing to do. The previous values are in /etc/homensai-vpn/wg-endpoint-backup.json."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-045",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "server",
+        "wireguard",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-046",
+      "number": "005-010-046",
+      "key": "WG_ENDPOINT_UNVERIFIED",
+      "aliases": [
+        "WG-ENDPOINT-UNVERIFIED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес сервера WireGuard не исправлен: нет подтверждения",
+        "uk": "WireGuard server address not changed: no proof",
+        "en": "WireGuard server address not changed: no proof",
+        "de": "WireGuard server address not changed: no proof"
+      },
+      "cause": {
+        "ru": "Найден WireGuard-сервер с адресом города и ключом одного сервера, но подтверждения нет: база NordVPN недоступна через рабочий канал, ключ не совпал, DNS противоречит, или автоисправление выключено в настройках. Ничего не изменено; без исправления туннель может не подключаться.",
+        "uk": "A WireGuard server with a city address and the key of one server was found, but there is no proof: the NordVPN database is unreachable through a working channel, the key did not match, DNS contradicts, or the auto-correction is off in the settings. Nothing was changed; without the correction the tunnel may not connect.",
+        "en": "A WireGuard server with a city address and the key of one server was found, but there is no proof: the NordVPN database is unreachable through a working channel, the key did not match, DNS contradicts, or the auto-correction is off in the settings. Nothing was changed; without the correction the tunnel may not connect.",
+        "de": "A WireGuard server with a city address and the key of one server was found, but there is no proof: the NordVPN database is unreachable through a working channel, the key did not match, DNS contradicts, or the auto-correction is off in the settings. Nothing was changed; without the correction the tunnel may not connect."
+      },
+      "action": {
+        "ru": "1. Проверьте интернет роутера; проверка повторится сама с нарастающей паузой.\n2. Включите «Автоисправление адресов серверов» или поправьте адрес вручную: GL → VPN → WireGuard → сервер → «Адрес» = <имя сервера>.nordvpn.com:51820.",
+        "uk": "1. Check the router internet; the check repeats by itself with a growing pause.\n2. Turn on \"Auto-correct server addresses\" or fix the address by hand: GL -> VPN -> WireGuard -> the server -> Address = <server name>.nordvpn.com:51820.",
+        "en": "1. Check the router internet; the check repeats by itself with a growing pause.\n2. Turn on \"Auto-correct server addresses\" or fix the address by hand: GL -> VPN -> WireGuard -> the server -> Address = <server name>.nordvpn.com:51820.",
+        "de": "1. Check the router internet; the check repeats by itself with a growing pause.\n2. Turn on \"Auto-correct server addresses\" or fix the address by hand: GL -> VPN -> WireGuard -> the server -> Address = <server name>.nordvpn.com:51820."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-046",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "server",
+        "wireguard",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SRV-047",
+      "number": "005-010-047",
+      "key": "WG_ENDPOINT_ROLLBACK",
+      "aliases": [
+        "WG-ENDPOINT-ROLLBACK"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Исправление адреса сервера WireGuard отменено",
+        "uk": "WireGuard server address correction rolled back",
+        "en": "WireGuard server address correction rolled back",
+        "de": "WireGuard server address correction rolled back"
+      },
+      "cause": {
+        "ru": "После исправления адреса активный туннель не получил рукопожатия за отведённое время (45 с), и прежние значения возвращены из копии. Причина не в городском адресе: сервер недоступен или ключ изменился. До конца загрузки этот сервер больше не трогается.",
+        "uk": "After the address correction the active tunnel got no handshake within the allowed time (45 s), and the previous values were restored from the copy. The cause is not the city address: the server is unreachable or its key changed. This server is not touched again until the next boot.",
+        "en": "After the address correction the active tunnel got no handshake within the allowed time (45 s), and the previous values were restored from the copy. The cause is not the city address: the server is unreachable or its key changed. This server is not touched again until the next boot.",
+        "de": "After the address correction the active tunnel got no handshake within the allowed time (45 s), and the previous values were restored from the copy. The cause is not the city address: the server is unreachable or its key changed. This server is not touched again until the next boot."
+      },
+      "action": {
+        "ru": "Выберите другой сервер в GL → VPN. Если повторяется на разных серверах, сохраните «Журнал» и отправьте разработчику.",
+        "uk": "Pick another server in GL -> VPN. If it repeats on different servers, save the Journal and send it to the developer.",
+        "en": "Pick another server in GL -> VPN. If it repeats on different servers, save the Journal and send it to the developer.",
+        "de": "Pick another server in GL -> VPN. If it repeats on different servers, save the Journal and send it to the developer."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SRV-047",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "server",
+        "wireguard",
+        "translation-draft"
+      ]
     }
   ]
 }

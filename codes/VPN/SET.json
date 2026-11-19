@@ -5618,6 +5618,349 @@
         "auto-vpn",
         "set",
         "switch"
+      ],
+      "deprecated": "1.7.0"
+    },
+    {
+      "code": "VPN-SET-104",
+      "number": "005-005-104",
+      "key": "GL_KEYPAIR_NUDGE",
+      "aliases": [
+        "GL-KEYPAIR-NUDGE"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Auto остановлен: роутеру GL помогли отметить туннель WireGuard подключённым",
+        "uk": "Auto зупинено: роутеру GL допомогли позначити тунель WireGuard підключеним",
+        "en": "Auto is stopped: the GL router was helped to mark the WireGuard tunnel connected",
+        "de": "Auto ist gestoppt: dem GL-Router wurde geholfen, den WireGuard-Tunnel als verbunden zu markieren"
+      },
+      "cause": {
+        "ru": "Auto остановлен, туннелем после включения питания управляет роутер GL. Туннель WireGuard уже связался с сервером, но прошивка GL ещё не отметила его подключённым: её собственный обработчик этого события ждал в общей очереди системных событий роутера, пока закончится другая долгая служба GL (kmwan, около минуты). Без помощи прошивка GL успевает решить, что сервер не отвечает, и сама перебирает серверы — интернет появляется примерно через 140 секунд вместо 85. Поэтому Auto один раз запустил тот же обработчик прошивки GL с теми же данными события. Сервер, профиль, настройки и состояние Auto не менялись, туннель не перезапускался. Обработчик из очереди потом сам видит, что работа сделана, и ничего не повторяет. Вторая запись того же вида сообщает итог: туннель поднят (UP) или ещё нет (NOT-UP). С 2.1.0-alpha12-41: пока прошивка GL сама перебирает серверы (работает её tunnel-switch), Auto туннель не трогает; тогда строка сообщает SKIPPED, и до конца этой загрузки помощи нет — GL заканчивает перебор сам. С 2.1.0-alpha12-43: помощь только в первые 75 секунд после включения. Позже начинается собственное окно запуска прошивки GL (её проверка подключения и перебор серверов tunnel-switch); любое действие Auto с туннелем в этом окне делало перебор хуже, поэтому строка сообщает «not nudged» и туннель не трогается. Если GL всё же перебирает серверы, Auto только наблюдает: одна строка при начале (SKIPPED: у устройств нет интернета через VPN, пока перебор не закончится) и одна при конце (ended). Так перерыв виден в журнале.",
+        "uk": "Auto зупинено, тунелем після ввімкнення живлення керує роутер GL. Тунель WireGuard уже зв'язався з сервером, але прошивка GL ще не позначила його підключеним: її власний обробник цієї події чекав у спільній черзі системних подій роутера, поки завершиться інша довга служба GL (kmwan, близько хвилини). Без допомоги прошивка GL встигає вирішити, що сервер не відповідає, і сама перебирає сервери — інтернет з'являється приблизно через 140 секунд замість 85. Тому Auto один раз запустив той самий обробник прошивки GL з тими самими даними події. Сервер, профіль, налаштування і стан Auto не змінювалися, тунель не перезапускався. Обробник із черги потім сам бачить, що роботу виконано, і нічого не повторює. Другий запис того самого виду повідомляє підсумок: тунель піднято (UP) або ще ні (NOT-UP). З 2.1.0-alpha12-41: поки прошивка GL сама перебирає сервери (працює її tunnel-switch), Auto тунель не чіпає; тоді рядок повідомляє SKIPPED, і до кінця цього завантаження допомоги немає — GL завершує перебір сам. З 2.1.0-alpha12-43: допомога лише в перші 75 секунд після ввімкнення. Пізніше починається власне вікно запуску прошивки GL (її перевірка підключення і перебір серверів tunnel-switch); будь-яка дія Auto з тунелем у цьому вікні робила перебір гіршим, тому рядок повідомляє «not nudged» і тунель не чіпається. Якщо GL усе ж перебирає сервери, Auto лише спостерігає: один рядок на початку (SKIPPED: у пристроїв немає інтернету через VPN, доки перебір не завершиться) і один наприкінці (ended). Так перерва видна в журналі.",
+        "en": "Auto is stopped; after power-on the GL router runs the tunnel. The WireGuard tunnel had already reached its server, but the GL firmware had not yet marked it connected: its own handler of this event was waiting in the router's shared queue of system events until another long GL service (kmwan, about a minute) finished. Without help the GL firmware decides the server does not answer and switches servers by itself - the internet comes after about 140 seconds instead of 85. So Auto ran the same GL firmware handler once, with the same event data. The server, the profile, the settings and the state of Auto were not changed, the tunnel was not restarted. The queued handler later sees that the work is done and repeats nothing. A second entry of the same kind reports the result: the tunnel is up (UP) or not yet (NOT-UP). Since 2.1.0-alpha12-41: while the GL firmware is rotating servers itself (its tunnel-switch runs), Auto does not touch the tunnel; the line then says SKIPPED and there is no help for the rest of this boot - GL finishes the rotation itself. Since 2.1.0-alpha12-43: the help only comes within the first 75 seconds after power-on. Later the GL firmware's own start window runs (its connection check and its tunnel-switch server rotation); every action of Auto on the tunnel inside that window made the rotation worse, so the line then says \"not nudged\" and the tunnel is not touched. If GL does rotate servers, Auto only watches: one line when it starts (SKIPPED: the devices have no VPN internet until it ends) and one when it ends (ended), so the outage is visible in the journal.",
+        "de": "Auto ist gestoppt; nach dem Einschalten steuert der GL-Router den Tunnel. Der WireGuard-Tunnel hatte seinen Server bereits erreicht, aber die GL-Firmware hatte ihn noch nicht als verbunden markiert: Ihr eigener Handler für dieses Ereignis wartete in der gemeinsamen Warteschlange der Systemereignisse des Routers, bis ein anderer langer GL-Dienst (kmwan, etwa eine Minute) fertig war. Ohne Hilfe entscheidet die GL-Firmware, dass der Server nicht antwortet, und wechselt selbst die Server - das Internet kommt nach etwa 140 statt 85 Sekunden. Deshalb hat Auto denselben Handler der GL-Firmware einmal mit denselben Ereignisdaten gestartet. Server, Profil, Einstellungen und der Zustand von Auto wurden nicht geändert, der Tunnel wurde nicht neu gestartet. Der Handler aus der Warteschlange sieht danach selbst, dass die Arbeit erledigt ist, und wiederholt nichts. Ein zweiter Eintrag derselben Art meldet das Ergebnis: Tunnel aktiv (UP) oder noch nicht (NOT-UP). Seit 2.1.0-alpha12-41: Solange die GL-Firmware selbst die Server wechselt (ihr tunnel-switch läuft), rührt Auto den Tunnel nicht an; die Zeile meldet dann SKIPPED, und für den Rest dieses Starts gibt es keine Hilfe - GL beendet den Wechsel selbst. Seit 2.1.0-alpha12-43: Die Hilfe kommt nur in den ersten 75 Sekunden nach dem Einschalten. Danach läuft das eigene Startfenster der GL-Firmware (ihre Verbindungsprüfung und ihr Serverwechsel tunnel-switch); jede Aktion von Auto am Tunnel in diesem Fenster machte den Wechsel schlechter, daher meldet die Zeile dann „not nudged“ und der Tunnel wird nicht angerührt. Wechselt GL dennoch die Server, beobachtet Auto nur: eine Zeile am Anfang (SKIPPED: die Geräte haben kein Internet über VPN, bis der Wechsel endet) und eine am Ende (ended), so ist der Ausfall im Journal sichtbar."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если после записи NOT-UP интернет долго не появляется, отправьте в поддержку записи «Журнала» о быстром старте.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо після запису NOT-UP інтернет довго не з'являється, надішліть у підтримку записи «Журналу» (Journal) про швидкий старт.",
+        "en": "1. Nothing to do.\n2. If the internet does not come for a long time after a NOT-UP entry, send the Journal entries about the fast start to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn das Internet nach einem NOT-UP-Eintrag lange nicht kommt, senden Sie die Einträge des „Journals“ (Journal) zum Schnellstart an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-104",
+      "related": [
+        "VPN-FLT-046",
+        "VPN-SET-102",
+        "VPN-SET-105"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-105",
+      "number": "005-005-105",
+      "key": "WG_SEED_STOP_REKICK",
+      "aliases": [
+        "WG-SEED-STOP-REKICK"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Auto остановлен: туннель WireGuard ещё не поднят — Auto его не перезапускает, запуск заканчивает GL",
+        "uk": "Auto зупинено: тунель WireGuard ще не піднято — Auto його не перезапускає, запуск завершує GL",
+        "en": "Auto is stopped: the WireGuard tunnel is not up yet - Auto does not restart it, GL finishes the start",
+        "de": "Auto ist gestoppt: der WireGuard-Tunnel ist noch nicht aktiv - Auto startet ihn nicht neu, GL beendet den Start"
+      },
+      "cause": {
+        "ru": "Auto остановлен, туннелем после включения питания управляет роутер GL. Подключение роутера к интернету уже появилось, запомненный адрес сервера был на месте, но туннель WireGuard так и не поднялся и не связался с сервером: до этого он не смог найти адрес сервера по имени, а система роутера больше не запускала его заново. Без помощи прошивка GL сама перебирает серверы и потом возвращается обратно — это давало перерыв интернета на 9–13 секунд, когда соединение уже было. Поэтому Auto один раз перезапустил именно этот туннель через системную сетевую службу (так же, как это делает GL), сохранив подсказку адреса. Один раз за включение, только при остановленном Auto, никогда после связи туннеля с сервером, после его подъёма, после помощи GL-KEYPAIR-NUDGE и позже 120 секунд после включения. Сервер, профиль и настройки не меняются, Auto не запускается. «FAILED» в строке: команда перезапуска отклонена, тогда GL запускает туннель сам, как раньше. Никогда во время собственного перебора серверов прошивкой GL (tunnel-switch); за одну загрузку срабатывает только одна помощь — этот перезапуск или GL-KEYPAIR-NUDGE. С 2.1.0-alpha12-43 перезапуска больше нет: на розетке (-41, цикл 43497) он оборвал запуск туннеля, который Auto уже начал ранней перезагрузкой сети (PREP-STOCK-NETWORK-APPLIED) за 3 секунды до этого, после чего GL перебрал все 4 профиля и интернета не было 207 секунд. Теперь единственное действие Auto после включения при остановленном Auto — эта ранняя перезагрузка; строка WG-SEED-STOP-REKICK лишь один раз отмечает, что прежнее условие перезапуска выполнилось («no netifd restart»). Подсказка адреса сервера также не ставится позже 75 секунд после включения и снимается сразу, когда GL начинает перебор серверов: у других профилей то же имя сервера, и подсказка вела бы их на чужой сервер.",
+        "uk": "Auto зупинено, тунелем після ввімкнення живлення керує роутер GL. Підключення роутера до інтернету вже з'явилося, запам'ятована адреса сервера була на місці, але тунель WireGuard так і не піднявся і не зв'язався з сервером: перед цим він не зміг знайти адресу сервера за іменем, а система роутера більше не запускала його знову. Без допомоги прошивка GL сама перебирає сервери і потім повертається назад — це давало перерву інтернету на 9–13 секунд, коли з'єднання вже було. Тому Auto один раз перезапустив саме цей тунель через системну мережеву службу (так само, як це робить GL), зберігши підказку адреси. Один раз за ввімкнення, лише при зупиненому Auto, ніколи після зв'язку тунелю з сервером, після його підняття, після допомоги GL-KEYPAIR-NUDGE і пізніше 120 секунд після ввімкнення. Сервер, профіль і налаштування не змінюються, Auto не запускається. «FAILED» у рядку: команду перезапуску відхилено, тоді GL запускає тунель сам, як раніше. Ніколи під час власного перебору серверів прошивкою GL (tunnel-switch); за одне завантаження спрацьовує лише одна допомога — цей перезапуск або GL-KEYPAIR-NUDGE. З 2.1.0-alpha12-43 перезапуску більше немає: на розетці (-41, цикл 43497) він обірвав запуск тунелю, який Auto вже почав раннім перезавантаженням мережі (PREP-STOCK-NETWORK-APPLIED) за 3 секунди до цього, після чого GL перебрав усі 4 профілі й інтернету не було 207 секунд. Тепер єдина дія Auto після ввімкнення при зупиненому Auto — це раннє перезавантаження; рядок WG-SEED-STOP-REKICK лише один раз позначає, що колишня умова перезапуску виконалася («no netifd restart»). Підказка адреси сервера також не ставиться пізніше 75 секунд після ввімкнення і знімається одразу, коли GL починає перебір серверів: у інших профілів те саме ім'я сервера, і підказка вела б їх на чужий сервер.",
+        "en": "Auto is stopped; after power-on the GL router runs the tunnel. The router's own internet connection was already up and the remembered server address was in place, but the WireGuard tunnel was still down without any handshake: before this it had failed to look up its server name and the router's system did not start it again. Without help the GL firmware switches servers by itself and then goes back, which cost a 9-13 s internet outage after the connection was already there. So Auto restarted that one tunnel once through the system network service (the same way GL does), keeping the address hint. Once per power-on, only while Auto is stopped, never after a handshake, after the tunnel is up, after GL-KEYPAIR-NUDGE or later than 120 s after power-on. No server, profile or setting is changed and Auto is not started. 'FAILED' in the line: the restart command was refused; GL then runs the tunnel alone as before. Never during the GL firmware's own server rotation (tunnel-switch); only one helper fires per boot - this restart or GL-KEYPAIR-NUDGE. Since 2.1.0-alpha12-43 there is no restart any more: on the plug stand (-41, cycle 43497) it cut the tunnel start that Auto had already begun with its early network reload (PREP-STOCK-NETWORK-APPLIED) 3 seconds before; GL then tried all 4 profiles and there was no internet for 207 seconds. Now the only action of Auto after power-on while Auto is stopped is that early reload; the WG-SEED-STOP-REKICK line only notes once that the old restart condition held (\"no netifd restart\"). The server address hint is also never set later than 75 seconds after power-on and is removed at once when GL starts rotating servers: the other profiles share the server name, and the hint would send them to another server.",
+        "de": "Auto ist gestoppt; nach dem Einschalten steuert der GL-Router den Tunnel. Die eigene Internetverbindung des Routers war bereits da und die gespeicherte Serveradresse war vorhanden, aber der WireGuard-Tunnel war noch nicht aktiv und ohne Handshake: Zuvor konnte er den Servernamen nicht auflösen, und das System des Routers startete ihn nicht erneut. Ohne Hilfe wechselt die GL-Firmware selbst die Server und kehrt danach zurück, was einen Internetausfall von 9-13 s verursachte, obwohl die Verbindung schon bestand. Deshalb hat Auto genau diesen Tunnel einmal über den Netzwerkdienst des Systems neu gestartet (so wie GL es tut) und den Adresshinweis beibehalten. Einmal pro Einschalten, nur bei gestopptem Auto, nie nach einem Handshake, nach dem Hochfahren des Tunnels, nach GL-KEYPAIR-NUDGE oder später als 120 s nach dem Einschalten. Server, Profil und Einstellungen werden nicht geändert, Auto wird nicht gestartet. „FAILED“ in der Zeile: Der Neustartbefehl wurde abgelehnt; dann startet GL den Tunnel wie bisher allein. Nie während des eigenen Serverwechsels der GL-Firmware (tunnel-switch); pro Start greift nur eine Hilfe - dieser Neustart oder GL-KEYPAIR-NUDGE. Seit 2.1.0-alpha12-43 gibt es keinen Neustart mehr: Am Steckdosenstand (-41, Zyklus 43497) brach er den Tunnelstart ab, den Auto 3 Sekunden zuvor mit seinem frühen Netzwerk-Reload (PREP-STOCK-NETWORK-APPLIED) begonnen hatte; GL probierte danach alle 4 Profile, und 207 Sekunden lang gab es kein Internet. Jetzt ist dieser frühe Reload die einzige Aktion von Auto nach dem Einschalten bei gestopptem Auto; die Zeile WG-SEED-STOP-REKICK vermerkt nur einmal, dass die frühere Neustartbedingung erfüllt war („no netifd restart“). Der Hinweis auf die Serveradresse wird außerdem nie später als 75 Sekunden nach dem Einschalten gesetzt und sofort entfernt, wenn GL mit dem Serverwechsel beginnt: Die anderen Profile haben denselben Servernamen, und der Hinweis würde sie zu einem fremden Server führen."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если после включения интернет всё равно пропадает примерно на 10 секунд, отправьте в поддержку строки logread -e WG-SEED -e GL-KEYPAIR-NUDGE.",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо після ввімкнення інтернет однаково зникає приблизно на 10 секунд, надішліть у підтримку рядки logread -e WG-SEED -e GL-KEYPAIR-NUDGE.",
+        "en": "1. Nothing to do.\n2. If the internet still breaks for about 10 seconds after power-on, send the lines of logread -e WG-SEED -e GL-KEYPAIR-NUDGE to support.",
+        "de": "1. Es ist nichts zu tun.\n2. Wenn das Internet nach dem Einschalten trotzdem etwa 10 Sekunden ausfällt, senden Sie die Zeilen von logread -e WG-SEED -e GL-KEYPAIR-NUDGE an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-105",
+      "related": [
+        "VPN-SET-102",
+        "VPN-SET-104",
+        "VPN-FLT-046"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-106",
+      "number": "005-005-106",
+      "key": "LAB_SWITCH_ON",
+      "aliases": [
+        "LAB-SWITCH-ON",
+        "LAB-*"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Испытательный выключатель включён (не по умолчанию)",
+        "uk": "Випробувальний вимикач увімкнено (не за замовчуванням)",
+        "en": "A test switch is on (not at its default)",
+        "de": "Ein Prüfschalter ist eingeschaltet (nicht auf dem Standardwert)"
+      },
+      "cause": {
+        "ru": "Испытательные выключатели Auto VPN (с 2.1.0-alpha12-48) — параметры секции lab файла /etc/config/homensai_vpn, только для испытательного стенда: их нет на странице и в настройках, программа их сама не пишет; без секции lab всё работает как в -47. При каждом запуске службы пишется одна строка LAB-SWITCH-ON на каждый выключатель не в значении по умолчанию: имя, значение, значение по умолчанию и проверяемая гипотеза (H1–H12). Так в каждом цикле розетки видно, какие выключатели были включены.",
+        "uk": "Випробувальні вимикачі Auto VPN (з 2.1.0-alpha12-48) — параметри секції lab файлу /etc/config/homensai_vpn, лише для випробувального стенда: їх немає на сторінці та в налаштуваннях, програма їх сама не пише; без секції lab усе працює як у -47. При кожному запуску служби пишеться один рядок LAB-SWITCH-ON на кожен вимикач не в значенні за замовчуванням: ім'я, значення, значення за замовчуванням і гіпотеза, що перевіряється (H1–H12). Так у кожному циклі розетки видно, які вимикачі були ввімкнені.",
+        "en": "Auto VPN test switches (since 2.1.0-alpha12-48) are options of the section lab of /etc/config/homensai_vpn, for the test stand only: they are not on the page or in the settings and the program never writes them; without the section lab everything works as in -47. At every service start one line LAB-SWITCH-ON is written per switch not at its default: name, value, default and the hypothesis under test (H1-H12). So every plug cycle shows which switches were on.",
+        "de": "Prüfschalter von Auto VPN (seit 2.1.0-alpha12-48) sind Optionen des Abschnitts lab von /etc/config/homensai_vpn, nur für den Prüfstand: sie stehen nicht auf der Seite oder in den Einstellungen, und das Programm schreibt sie nie; ohne den Abschnitt lab arbeitet alles wie in -47. Bei jedem Start des Dienstes wird je Schalter, der nicht auf dem Standardwert steht, eine Zeile LAB-SWITCH-ON geschrieben: Name, Wert, Standardwert und die geprüfte Hypothese (H1-H12). So zeigt jeder Steckdosenzyklus, welche Schalter eingeschaltet waren."
+      },
+      "action": {
+        "ru": "1. Это строка испытательного стенда: на обычном роутере секции lab нет и строка не появляется.\n2. Вернуть поведение по умолчанию: uci delete homensai_vpn.lab; uci commit homensai_vpn; затем перезапуск службы или следующая загрузка.",
+        "uk": "1. Це рядок випробувального стенда: на звичайному роутері секції lab немає і рядок не з'являється.\n2. Повернути поведінку за замовчуванням: uci delete homensai_vpn.lab; uci commit homensai_vpn; потім перезапуск служби або наступне завантаження.",
+        "en": "1. This is a test-stand line: an ordinary router has no section lab and never shows it.\n2. Back to the default behaviour: uci delete homensai_vpn.lab; uci commit homensai_vpn; then a service restart or the next boot.",
+        "de": "1. Dies ist eine Zeile des Prüfstands: ein gewöhnlicher Router hat keinen Abschnitt lab und zeigt sie nie.\n2. Zurück zum Standardverhalten: uci delete homensai_vpn.lab; uci commit homensai_vpn; danach ein Neustart des Dienstes oder der nächste Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-106",
+      "related": [
+        "VPN-SET-107",
+        "VPN-SET-108"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "lab",
+        "stand",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-107",
+      "number": "005-005-107",
+      "key": "LAB_SWITCH_INVALID",
+      "aliases": [
+        "LAB-SWITCH-INVALID"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Испытательный выключатель с неверным значением не применён",
+        "uk": "Випробувальний вимикач із неправильним значенням не застосовано",
+        "en": "A test switch with an invalid value was ignored",
+        "de": "Ein Prüfschalter mit ungültigem Wert wurde ignoriert"
+      },
+      "cause": {
+        "ru": "Испытательные выключатели Auto VPN (с 2.1.0-alpha12-48) — параметры секции lab файла /etc/config/homensai_vpn, только для испытательного стенда: их нет на странице и в настройках, программа их сама не пишет; без секции lab всё работает как в -47. Строка LAB-SWITCH-INVALID при запуске службы: значение выключателя не подходит (не 0/1, число вне границ, неизвестный вариант) или такого выключателя нет. Он не применён, работает значение по умолчанию.",
+        "uk": "Випробувальні вимикачі Auto VPN (з 2.1.0-alpha12-48) — параметри секції lab файлу /etc/config/homensai_vpn, лише для випробувального стенда; без секції lab усе працює як у -47. Рядок LAB-SWITCH-INVALID під час запуску служби: значення вимикача не підходить (не 0/1, число поза межами, невідомий варіант) або такого вимикача немає. Його не застосовано, працює значення за замовчуванням.",
+        "en": "Auto VPN test switches (since 2.1.0-alpha12-48) are options of the section lab of /etc/config/homensai_vpn, for the test stand only; without the section lab everything works as in -47. The line LAB-SWITCH-INVALID at a service start: the value of a switch does not fit (not 0/1, a number out of its bounds, an unknown choice) or there is no such switch. It is not applied; the default works.",
+        "de": "Prüfschalter von Auto VPN (seit 2.1.0-alpha12-48) sind Optionen des Abschnitts lab von /etc/config/homensai_vpn, nur für den Prüfstand; ohne den Abschnitt lab arbeitet alles wie in -47. Die Zeile LAB-SWITCH-INVALID beim Start des Dienstes: der Wert eines Schalters passt nicht (nicht 0/1, eine Zahl außerhalb der Grenzen, eine unbekannte Auswahl) oder es gibt diesen Schalter nicht. Er wird nicht angewendet; der Standardwert gilt."
+      },
+      "action": {
+        "ru": "1. Это строка испытательного стенда: на обычном роутере секции lab нет и строка не появляется.\n2. Вернуть поведение по умолчанию: uci delete homensai_vpn.lab; uci commit homensai_vpn; затем перезапуск службы или следующая загрузка.",
+        "uk": "1. Це рядок випробувального стенда: на звичайному роутері секції lab немає і рядок не з'являється.\n2. Повернути поведінку за замовчуванням: uci delete homensai_vpn.lab; uci commit homensai_vpn; потім перезапуск служби або наступне завантаження.",
+        "en": "1. This is a test-stand line: an ordinary router has no section lab and never shows it.\n2. Back to the default behaviour: uci delete homensai_vpn.lab; uci commit homensai_vpn; then a service restart or the next boot.",
+        "de": "1. Dies ist eine Zeile des Prüfstands: ein gewöhnlicher Router hat keinen Abschnitt lab und zeigt sie nie.\n2. Zurück zum Standardverhalten: uci delete homensai_vpn.lab; uci commit homensai_vpn; danach ein Neustart des Dienstes oder der nächste Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-107",
+      "related": [
+        "VPN-SET-106",
+        "VPN-SET-108"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "lab",
+        "stand",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-108",
+      "number": "005-005-108",
+      "key": "LAB_SWITCH_ACTION",
+      "aliases": [
+        "LAB-SWITCH-ACTION"
+      ],
+      "level": "info",
+      "audience": "developer",
+      "title": {
+        "ru": "Испытательный выключатель изменил решение программы",
+        "uk": "Випробувальний вимикач змінив рішення програми",
+        "en": "A test switch changed a decision of the program",
+        "de": "Ein Prüfschalter hat eine Entscheidung des Programms geändert"
+      },
+      "cause": {
+        "ru": "Испытательные выключатели Auto VPN (с 2.1.0-alpha12-48) — параметры секции lab файла /etc/config/homensai_vpn, только для испытательного стенда: их нет на странице и в настройках, программа их сама не пишет; без секции lab всё работает как в -47. Строка LAB-SWITCH-ACTION: включённый выключатель в этот момент изменил решение (например, DNS сети передан при остановке dnsmasq GL, наблюдатель gl_nudge не запущен, правило ядра проверено ещё раз). В строке — имя выключателя, его значение и что сделано.",
+        "uk": "Випробувальні вимикачі Auto VPN (з 2.1.0-alpha12-48) — параметри секції lab файлу /etc/config/homensai_vpn, лише для випробувального стенда; без секції lab усе працює як у -47. Рядок LAB-SWITCH-ACTION: увімкнений вимикач у цю мить змінив рішення (наприклад, DNS мережі передано під час зупинки dnsmasq GL, спостерігач gl_nudge не запущено, правило ядра перевірено ще раз). У рядку — ім'я вимикача, його значення і що зроблено.",
+        "en": "Auto VPN test switches (since 2.1.0-alpha12-48) are options of the section lab of /etc/config/homensai_vpn, for the test stand only; without the section lab everything works as in -47. The line LAB-SWITCH-ACTION: a switch that is on changed a decision at this moment (for example LAN DNS moved when GL's dnsmasq stopped, no gl_nudge watch, the kernel policy attested again). The line names the switch, its value and what was done.",
+        "de": "Prüfschalter von Auto VPN (seit 2.1.0-alpha12-48) sind Optionen des Abschnitts lab von /etc/config/homensai_vpn, nur für den Prüfstand; ohne den Abschnitt lab arbeitet alles wie in -47. Die Zeile LAB-SWITCH-ACTION: ein eingeschalteter Schalter hat in diesem Moment eine Entscheidung geändert (zum Beispiel LAN-DNS beim Stopp von GLs dnsmasq umgelegt, keine gl_nudge-Beobachtung, die Kernel-Richtlinie erneut bestätigt). Die Zeile nennt den Schalter, seinen Wert und was getan wurde."
+      },
+      "action": {
+        "ru": "1. Это строка испытательного стенда: на обычном роутере секции lab нет и строка не появляется.\n2. Вернуть поведение по умолчанию: uci delete homensai_vpn.lab; uci commit homensai_vpn; затем перезапуск службы или следующая загрузка.",
+        "uk": "1. Це рядок випробувального стенда: на звичайному роутері секції lab немає і рядок не з'являється.\n2. Повернути поведінку за замовчуванням: uci delete homensai_vpn.lab; uci commit homensai_vpn; потім перезапуск служби або наступне завантаження.",
+        "en": "1. This is a test-stand line: an ordinary router has no section lab and never shows it.\n2. Back to the default behaviour: uci delete homensai_vpn.lab; uci commit homensai_vpn; then a service restart or the next boot.",
+        "de": "1. Dies ist eine Zeile des Prüfstands: ein gewöhnlicher Router hat keinen Abschnitt lab und zeigt sie nie.\n2. Zurück zum Standardverhalten: uci delete homensai_vpn.lab; uci commit homensai_vpn; danach ein Neustart des Dienstes oder der nächste Start."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-108",
+      "related": [
+        "VPN-SET-106",
+        "VPN-SET-107"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "lab",
+        "stand",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-SET-109",
+      "number": "005-005-109",
+      "key": "ONBOARDING_SAVE_RESULT",
+      "aliases": [
+        "ONBOARDING-SAVE-RESULT"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Первичная настройка: результат сохранения не подтверждён",
+        "uk": "Первинне налаштування: результат збереження не підтверджено",
+        "en": "First setup: the save result was not confirmed",
+        "de": "Ersteinrichtung: das Speichern wurde nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Мастер первой настройки отправил настройки на роутер, но ответ не содержит подтверждения сохранения. Строка журнала начинается с названия шага и содержит первые 200 символов ответа. Настройки могли не сохраниться.",
+        "uk": "Майстер першого налаштування надіслав налаштування на роутер, але відповідь не містить підтвердження збереження. Рядок журналу починається з назви кроку й містить перші 200 символів відповіді. Налаштування могли не зберегтися.",
+        "en": "The first-setup wizard sent the settings to the router, but the reply carries no confirmation of the save. The log line starts with the step name and holds the first 200 characters of the reply. The settings may not have been saved.",
+        "de": "Der Assistent der Ersteinrichtung sendete die Einstellungen an den Router, aber die Antwort enthält keine Bestätigung des Speicherns. Die Protokollzeile beginnt mit dem Schrittnamen und enthält die ersten 200 Zeichen der Antwort. Die Einstellungen wurden möglicherweise nicht gespeichert."
+      },
+      "action": {
+        "ru": "1. Откройте мастер ещё раз и проверьте, что введённые значения сохранились.\n2. Если нет, повторите шаг; при повторе отправьте «Журнал» разработчику.",
+        "uk": "1. Відкрийте майстер ще раз і перевірте, що введені значення збереглися.\n2. Якщо ні, повторіть крок; при повторі надішліть «Журнал» розробнику.",
+        "en": "1. Open the wizard again and check that the entered values were saved.\n2. If not, repeat the step; if it repeats, send the Journal to the developer.",
+        "de": "1. Öffnen Sie den Assistenten erneut und prüfen Sie, ob die eingegebenen Werte gespeichert wurden.\n2. Wenn nicht, wiederholen Sie den Schritt; wiederholt es sich, senden Sie das „Journal“ an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-SET-109",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "set",
+        "wizard",
+        "log",
+        "translation-draft"
       ]
     }
   ]

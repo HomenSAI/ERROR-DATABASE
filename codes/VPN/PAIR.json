@@ -10299,10 +10299,10 @@
         "de": "Die Rückkehr zum Hauptkanal ist mehrmals fehlgeschlagen. Das Programm hat die Versuche eingestellt, lässt Verkehr nur über VPN durch und hat Auto ausgeschaltet."
       },
       "action": {
-        "ru": "1. Откройте «Помощь» → «У меня нет интернета» (аварийный возврат).\n2. Проверьте порядок правил VPN в роутере и восстановите его вручную.\n3. Завершите аварийный возврат, как описано там же.",
-        "uk": "1. Відкрийте «Довідка» (Help) → «У мене немає інтернету» (аварійне повернення).\n2. Перевірте порядок правил VPN у роутері й відновіть його вручну.\n3. Завершіть аварійне повернення, як описано там само.",
-        "en": "1. Open Help → \"I have no internet\" (emergency return).\n2. Check the order of the VPN rules in the router and restore it by hand.\n3. Finish the emergency return as described there.",
-        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ (Notfall-Rückkehr).\n2. Prüfen Sie die Reihenfolge der VPN-Regeln im Router und stellen Sie sie von Hand wieder her.\n3. Schließen Sie die Notfall-Rückkehr wie dort beschrieben ab."
+        "ru": "1. Откройте «Помощь» → «У меня нет интернета» (аварийный возврат).\n2. Проверьте порядок правил VPN в роутере и восстановите его вручную.\n3. Завершите аварийный возврат, как описано там же.\n4. Или нажмите «Старт» или «Стоп»: с версии 2.1.0-alpha12-44 это и есть восстановление — остановленный возврат завершается (см. VPN-PAIR-354).",
+        "uk": "1. Відкрийте «Довідка» (Help) → «У мене немає інтернету» (аварійне повернення).\n2. Перевірте порядок правил VPN у роутері й відновіть його вручну.\n3. Завершіть аварійне повернення, як описано там само.\n4. Або натисніть «Старт» чи «Стоп»: з версії 2.1.0-alpha12-44 це і є відновлення — зупинене повернення завершується (див. VPN-PAIR-354).",
+        "en": "1. Open Help → \"I have no internet\" (emergency return).\n2. Check the order of the VPN rules in the router and restore it by hand.\n3. Finish the emergency return as described there.\n4. Or press Start or Stop: since 2.1.0-alpha12-44 this is the recovery - the stopped return is ended (see VPN-PAIR-354).",
+        "de": "1. Öffnen Sie „Hilfe“ (Help) → „Ich habe kein Internet“ (Notfall-Rückkehr).\n2. Prüfen Sie die Reihenfolge der VPN-Regeln im Router und stellen Sie sie von Hand wieder her.\n3. Schließen Sie die Notfall-Rückkehr wie dort beschrieben ab.\n4. Oder drücken Sie Start oder Stopp: Seit 2.1.0-alpha12-44 ist das die Wiederherstellung - die angehaltene Rückkehr wird beendet (siehe VPN-PAIR-354)."
       },
       "escalation": [
         {
@@ -10337,6 +10337,9 @@
         "auto-vpn",
         "pair",
         "switch"
+      ],
+      "related": [
+        "VPN-PAIR-354"
       ]
     },
     {
@@ -19145,6 +19148,1211 @@
         "auto-vpn",
         "pair",
         "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-353",
+      "number": "005-001-353",
+      "key": "ROLLBACK_TRANSIENT",
+      "aliases": [
+        "ROLLBACK-TRANSIENT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Возврат при загрузке: команда не завершилась — повтор без счёта",
+        "uk": "Повернення під час завантаження: команда не завершилася — повтор без рахунку",
+        "en": "Return at boot: a command did not finish - repeated, not counted",
+        "de": "Rückkehr beim Start: ein Befehl wurde nicht beendet - Wiederholung ohne Zählung"
+      },
+      "cause": {
+        "ru": "Сразу после отключения питания во время переключения Auto возвращается на основной канал. Команда этого возврата не уложилась во время или завершилась системной ошибкой (например, при сильной нагрузке на роутер). В первые 10 минут после загрузки это не считается неудачным возвратом: Auto ждёт несколько секунд и повторяет тот же возврат (строка ROLLBACK-BOOT-RETRY).",
+        "uk": "Одразу після вимкнення живлення під час перемикання Auto повертається на основний канал. Команда цього повернення не вклалася в час або завершилася системною помилкою (наприклад, під час сильного навантаження на роутер). У перші 10 хвилин після завантаження це не вважається невдалим поверненням: Auto чекає кілька секунд і повторює те саме повернення (рядок ROLLBACK-BOOT-RETRY).",
+        "en": "Right after a power cut during a switch Auto returns to the primary. A command of that return timed out or failed at the system level (for example while the router is heavily loaded). Inside the first 10 minutes after the boot this does not count as a failed return: Auto waits a few seconds and repeats the same return (line ROLLBACK-BOOT-RETRY).",
+        "de": "Direkt nach einem Stromausfall während eines Wechsels kehrt Auto zum Hauptkanal zurück. Ein Befehl dieser Rückkehr überschritt die Zeit oder scheiterte auf Systemebene (zum Beispiel bei starker Last des Routers). In den ersten 10 Minuten nach dem Start zählt das nicht als fehlgeschlagene Rückkehr: Auto wartet einige Sekunden und wiederholt dieselbe Rückkehr (Zeile ROLLBACK-BOOT-RETRY)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: это закончится само.\n2. Если это повторяется долго после загрузки, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Нічого робити не потрібно: це закінчиться саме.\n2. Якщо це повторюється довго після завантаження, збережіть «Журнал» (Journal) і надішліть його розробнику.",
+        "en": "1. Nothing to do: it ends by itself.\n2. If it still repeats long after the boot, save the Journal and send it to the developer.",
+        "de": "1. Sie müssen nichts tun: Es endet von selbst.\n2. Wiederholt es sich lange nach dem Start, speichern Sie das „Protokoll“ (Journal) und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-353",
+      "related": [
+        "VPN-PAIR-188",
+        "VPN-PAIR-189"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-354",
+      "number": "005-001-354",
+      "key": "OWNER_RECOVERY",
+      "aliases": [
+        "OWNER-RECOVERY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ваш «Старт» или «Стоп» завершил остановленный автоматический возврат",
+        "uk": "Ваш «Старт» або «Стоп» завершив зупинене автоматичне повернення",
+        "en": "Your Start or Stop ended the stopped automatic return",
+        "de": "Ihr Start oder Stopp hat die angehaltene automatische Rückkehr beendet"
+      },
+      "cause": {
+        "ru": "После ROLLBACK-GIVEN-UP (автоматический возврат несколько раз не удался) ваш «Старт» или «Стоп» — это восстановление: порядок маршрутов, который был до переключения, возвращается, прошивка GL штатно пересобирает правила, защита «только VPN» остаётся, запись переключения закрывается. Auto остаётся выключенным. Если политику маршрутов меняли не через программу, программа только снимает свою защиту (строка ROLLBACK-OWNER-RECOVERY).",
+        "uk": "Після ROLLBACK-GIVEN-UP (автоматичне повернення кілька разів не вдалося) ваш «Старт» або «Стоп» — це відновлення: порядок маршрутів, що був до перемикання, повертається, прошивка GL штатно перебудовує правила, захист «лише VPN» лишається, запис перемикання закривається. Auto лишається вимкненим. Якщо політику маршрутів змінювали не через програму, програма лише знімає свій захист (рядок ROLLBACK-OWNER-RECOVERY).",
+        "en": "After ROLLBACK-GIVEN-UP (the automatic return failed several times) your Start or Stop is the recovery: the route order from before the switch is put back, the GL firmware rebuilds its rules as usual, the VPN-only protection stays on and the switch record is closed. Auto stays off. If the route policy had been changed outside the program, the program only releases its protection (line ROLLBACK-OWNER-RECOVERY).",
+        "de": "Nach ROLLBACK-GIVEN-UP (die automatische Rückkehr ist mehrmals fehlgeschlagen) ist Ihr Start oder Stopp die Wiederherstellung: Die Routenreihenfolge von vor dem Wechsel wird zurückgesetzt, die GL-Firmware baut ihre Regeln wie üblich neu auf, der Schutz „nur VPN“ bleibt aktiv und der Wechseleintrag wird geschlossen. Auto bleibt aus. Wurde die Routenrichtlinie außerhalb des Programms geändert, gibt das Programm nur seinen Schutz frei (Zeile ROLLBACK-OWNER-RECOVERY)."
+      },
+      "action": {
+        "ru": "1. Проверьте на «Главной», что интернет идёт через основной VPN.\n2. Нажмите «Старт», чтобы снова включить Auto. Если «Старт» ответил ROLLBACK-GIVEN-UP, подождите несколько секунд и нажмите ещё раз.",
+        "uk": "1. Перевірте на «Головній», що інтернет іде через основний VPN.\n2. Натисніть «Старт», щоб знову ввімкнути Auto. Якщо «Старт» відповів ROLLBACK-GIVEN-UP, зачекайте кілька секунд і натисніть ще раз.",
+        "en": "1. Check on Home that the primary VPN carries the internet.\n2. Press Start to turn Auto on again. If Start answers ROLLBACK-GIVEN-UP, wait a few seconds and press it once more.",
+        "de": "1. Prüfen Sie auf der Startseite, dass das Internet über das Haupt-VPN läuft.\n2. Drücken Sie Start, um Auto wieder einzuschalten. Antwortet Start mit ROLLBACK-GIVEN-UP, warten Sie einige Sekunden und drücken Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-354",
+      "related": [
+        "VPN-PAIR-189"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-355",
+      "number": "005-001-355",
+      "key": "PAIR_CLEANUP_WAIT",
+      "aliases": [
+        "PAIR-CLEANUP-WAIT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Завершение пары ждёт: причина в строке журнала",
+        "uk": "Завершення пари чекає: причина в рядку журналу",
+        "en": "Ending the pair waits: the reason is in the log line",
+        "de": "Das Beenden des Paars wartet: der Grund steht in der Protokollzeile"
+      },
+      "cause": {
+        "ru": "Auto заканчивает сеанс пары (после «Стоп», после отключения питания или перезапуска) и ещё не вернул маршрут на основной канал. Строка PAIR-CLEANUP-WAIT называет причину ожидания (например SOURCE-NOT-VERIFIED — основной канал ещё не подтверждён), состояние записи переключения и был ли это ваш «Стоп». Строка пишется при каждой смене причины и не чаще раза в 30 секунд, пока причина та же. После вашего «Стоп» при выключенном Auto возврат идёт сразу после короткой проверки основного канала, интернет в сети не блокируется полностью, а прошивка GL сразу получает назад свой автозапуск VPN.",
+        "uk": "Auto завершує сеанс пари (після «Стоп», після вимкнення живлення або перезапуску) і ще не повернув маршрут на основний канал. Рядок PAIR-CLEANUP-WAIT називає причину очікування (наприклад SOURCE-NOT-VERIFIED — основний канал ще не підтверджено), стан запису перемикання і чи був це ваш «Стоп». Рядок пишеться при кожній зміні причини і не частіше разу на 30 секунд, поки причина та сама. Після вашого «Стоп» при вимкненому Auto повернення йде одразу після короткої перевірки основного каналу, інтернет у мережі не блокується повністю, а прошивка GL одразу отримує назад свій автозапуск VPN.",
+        "en": "Auto is ending a pair session (after Stop, after a power cut or a restart) and has not yet returned the route to the primary. The line PAIR-CLEANUP-WAIT names the reason of the wait (for example SOURCE-NOT-VERIFIED - the primary is not confirmed yet), the state of the switch record and whether it was your Stop. It is written on every change of the reason and at most once every 30 seconds while the reason stays. After your Stop with Auto off the return follows right after the short check of the primary, the network is not fully blocked, and the GL firmware gets its VPN autostart back at once.",
+        "de": "Auto beendet eine Paarsitzung (nach Stopp, nach einem Stromausfall oder Neustart) und hat die Route noch nicht auf den Hauptkanal zurückgeführt. Die Zeile PAIR-CLEANUP-WAIT nennt den Grund des Wartens (zum Beispiel SOURCE-NOT-VERIFIED - der Hauptkanal ist noch nicht bestätigt), den Zustand des Wechseleintrags und ob es Ihr Stopp war. Sie wird bei jeder Änderung des Grundes und höchstens alle 30 Sekunden geschrieben, solange der Grund gleich bleibt. Nach Ihrem Stopp bei ausgeschaltetem Auto folgt die Rückkehr direkt nach der kurzen Prüfung des Hauptkanals, das Netz wird nicht vollständig gesperrt, und die GL-Firmware erhält ihren VPN-Autostart sofort zurück."
+      },
+      "action": {
+        "ru": "1. Обычно ничего делать не нужно: возврат закончится сам.\n2. Если строка с той же причиной повторяется больше 10 минут, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Зазвичай нічого робити не потрібно: повернення закінчиться саме.\n2. Якщо рядок з тією самою причиною повторюється понад 10 хвилин, збережіть «Журнал» (Journal) і надішліть його розробнику.",
+        "en": "1. Usually nothing to do: the return ends by itself.\n2. If the line with the same reason repeats for more than 10 minutes, save the Journal and send it to the developer.",
+        "de": "1. Meist müssen Sie nichts tun: Die Rückkehr endet von selbst.\n2. Wiederholt sich die Zeile mit demselben Grund länger als 10 Minuten, speichern Sie das „Protokoll“ (Journal) und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-355",
+      "related": [
+        "VPN-PAIR-354"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-356",
+      "number": "005-001-356",
+      "key": "PAIR_CLEANUP_BOUND",
+      "aliases": [
+        "PAIR-CLEANUP-BOUND"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидание резерва после питания ограничено: основной канал работает",
+        "uk": "Очікування резерву після живлення обмежено: основний канал працює",
+        "en": "The wait for the reserve after a power cut is bounded: the primary works",
+        "de": "Das Warten auf die Reserve nach einem Stromausfall ist begrenzt: der Hauptkanal arbeitet"
+      },
+      "cause": {
+        "ru": "После отключения питания Auto завершал старый сеанс пары и ждал, пока резервный канал (обычно OpenVPN) станет готов. Интернет в сети уже шёл через основной канал (собственный перенос Auto), а ожидание резерва задерживало запуск Auto на несколько минут. Теперь, если основной канал проверен и держит сеть не меньше 90 секунд, а резерв всё ещё не готов, запись переключения закрывается (ROLLED-BACK), сеть остаётся на основном канале, а резерв проверяет новый сеанс Auto. Порядок каналов в GL при этом возвращается к порядку сеанса (резерв первым), но сеть остаётся на собственном переносе Auto через основной канал, пока путь GL не проверен (VPN-PAIR-361).",
+        "uk": "Після вимкнення живлення Auto завершував старий сеанс пари і чекав, поки резервний канал (зазвичай OpenVPN) стане готовим. Інтернет у мережі вже йшов через основний канал (власне перенесення Auto), а очікування резерву затримувало запуск Auto на кілька хвилин. Тепер, якщо основний канал перевірено і він тримає мережу не менше 90 секунд, а резерв усе ще не готовий, запис перемикання закривається (ROLLED-BACK), мережа залишається на основному каналі, а резерв перевіряє новий сеанс Auto. Порядок каналів у GL при цьому повертається до порядку сеансу (резерв першим), але мережа залишається на власному перенесенні Auto через основний канал, поки шлях GL не перевірено (VPN-PAIR-361).",
+        "en": "After a power cut Auto was ending the old pair session and waited for the reserve channel (usually OpenVPN) to become ready. The network already used the primary (Auto's own carry), and the wait for the reserve delayed Auto by several minutes. Now, when the primary is proven and has carried the network for at least 90 seconds while the reserve is still not ready, the switch record is closed (ROLLED-BACK), the network stays on the primary and the new Auto session checks the reserve. The channel order in GL goes back to the session order (the reserve first), but the network stays on Auto's own carry over the primary until GL's path is proven (VPN-PAIR-361).",
+        "de": "Nach einem Stromausfall beendete Auto die alte Paarsitzung und wartete, bis der Reservekanal (meist OpenVPN) bereit war. Das Netz lief bereits über den Hauptkanal (Autos eigene Übernahme), und das Warten auf die Reserve verzögerte Auto um mehrere Minuten. Jetzt wird der Wechseleintrag geschlossen (ROLLED-BACK), wenn der Hauptkanal geprüft ist und das Netz mindestens 90 Sekunden trägt, die Reserve aber noch nicht bereit ist; das Netz bleibt auf dem Hauptkanal, und die neue Auto-Sitzung prüft die Reserve. Die Kanalreihenfolge in GL kehrt dabei zur Sitzungsreihenfolge zurück (Reserve zuerst), aber das Netz bleibt auf Autos eigener Übernahme über den Hauptkanal, bis der GL-Pfad geprüft ist (VPN-PAIR-361)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto запустится сам и проверит резерв.\n2. Если строка повторяется после каждого отключения питания, проверьте резервный сервер на странице «Серверы».",
+        "uk": "1. Нічого робити не потрібно: Auto запуститься сам і перевірить резерв.\n2. Якщо рядок повторюється після кожного вимкнення живлення, перевірте резервний сервер на сторінці «Сервери» (Servers).",
+        "en": "1. Nothing to do: Auto starts by itself and checks the reserve.\n2. If the line repeats after every power cut, check the reserve server on the Servers page.",
+        "de": "1. Nichts zu tun: Auto startet von selbst und prüft die Reserve.\n2. Wiederholt sich die Zeile nach jedem Stromausfall, prüfen Sie den Reserveserver auf der Seite „Server“ (Servers)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-356",
+      "related": [
+        "VPN-PAIR-355",
+        "VPN-PAIR-361"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-357",
+      "number": "005-001-357",
+      "key": "PAIR_STUCK_HELD",
+      "aliases": [
+        "PAIR-STUCK-HELD"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Auto застрял на резервном канале: правила GL не проверены",
+        "uk": "Auto застряг на резервному каналі: правила GL не перевірено",
+        "en": "Auto is stuck on the reserve: GL's rules are not verified",
+        "de": "Auto hängt auf der Reserve fest: die Regeln von GL sind nicht geprüft"
+      },
+      "cause": {
+        "ru": "Auto завершает сеанс на резервном канале (HELD-ON-RESERVE), но возврат на основной канал отклонён: правила маршрутизации GL не прошли проверку (KERNEL-POLICY-UNVERIFIED). Auto отмечает, сколько длится это состояние (не чаще раза в минуту), чтобы через 15 минут разрешить обновление программы. Сеть при этом не переключается.",
+        "uk": "Auto завершує сеанс на резервному каналі (HELD-ON-RESERVE), але повернення на основний канал відхилено: правила маршрутизації GL не пройшли перевірку (KERNEL-POLICY-UNVERIFIED). Auto відмічає, скільки триває цей стан (не частіше разу на хвилину), щоб через 15 хвилин дозволити оновлення програми. Мережа при цьому не перемикається.",
+        "en": "Auto is ending a session on the reserve (HELD-ON-RESERVE), but the return to the primary is refused: GL's routing rules did not pass the check (KERNEL-POLICY-UNVERIFIED). Auto notes how long this lasts (at most once a minute) so that a program upgrade is allowed after 15 minutes. The network is not switched.",
+        "de": "Auto beendet eine Sitzung auf der Reserve (HELD-ON-RESERVE), aber die Rückkehr zum Hauptkanal wird abgelehnt: die Routing-Regeln von GL haben die Prüfung nicht bestanden (KERNEL-POLICY-UNVERIFIED). Auto vermerkt, wie lange das dauert (höchstens einmal pro Minute), damit nach 15 Minuten ein Programm-Update erlaubt ist. Das Netz wird nicht umgeschaltet."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут: Auto повторяет возврат сам.\n2. Если состояние держится больше 15 минут, установите новую версию программы или перезагрузите роутер.\n3. Если строка повторяется, сохраните диагностику и передайте её поддержке.",
+        "uk": "1. Зачекайте кілька хвилин: Auto повторює повернення сам.\n2. Якщо стан триває понад 15 хвилин, встановіть нову версію програми або перезавантажте роутер.\n3. Якщо рядок повторюється, збережіть діагностику і передайте її підтримці.",
+        "en": "1. Wait a few minutes: Auto retries the return by itself.\n2. If the state lasts more than 15 minutes, install the new program version or restart the router.\n3. If the line repeats, save the diagnostics and send them to support.",
+        "de": "1. Warten Sie einige Minuten: Auto wiederholt die Rückkehr selbst.\n2. Dauert der Zustand länger als 15 Minuten, installieren Sie die neue Programmversion oder starten Sie den Router neu.\n3. Wiederholt sich die Zeile, speichern Sie die Diagnose und senden Sie sie an den Support."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-357",
+      "related": [
+        "VPN-INST-181"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-358",
+      "number": "005-001-358",
+      "key": "PAIR_CLEANUP_BOUND_WAIT",
+      "aliases": [
+        "PAIR-CLEANUP-BOUND-WAIT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ожидание резерва после питания ещё не ограничено: названа причина",
+        "uk": "Очікування резерву після живлення ще не обмежено: названо причину",
+        "en": "The wait for the reserve after a power cut is not bounded yet: the reason is named",
+        "de": "Das Warten auf die Reserve nach einem Stromausfall ist noch nicht begrenzt: der Grund wird genannt"
+      },
+      "cause": {
+        "ru": "После отключения питания Auto ждёт резервный канал и через 90 секунд работы основного канала может закрыть запись переключения (VPN-PAIR-356). Эта строка называет, что пока мешает: ROLE — неизвестен текущий порядок каналов; CARRY — сеть держит не собственный перенос Auto на основном канале; NO-SESSION-MARK — нет отметки сеанса этой загрузки; WRITER — не завершена чужая запись правил; SOURCE-NOT-HEALTHY — основной канал не прошёл живую проверку; RESERVE-READY — резерв уже готов (обычный возврат). Строка пишется при смене причины и не чаще раза в минуту. CARRY-ON-TARGET — перенос Auto идёт через резерв, но резерв не прошёл живую проверку (target not healthy).",
+        "uk": "Після вимкнення живлення Auto чекає резервний канал і через 90 секунд роботи основного каналу може закрити запис перемикання (VPN-PAIR-356). Цей рядок називає, що поки заважає: ROLE — невідомий поточний порядок каналів; CARRY — мережу тримає не власне перенесення Auto на основному каналі; NO-SESSION-MARK — немає позначки сеансу цього завантаження; WRITER — не завершено чужий запис правил; SOURCE-NOT-HEALTHY — основний канал не пройшов живу перевірку; RESERVE-READY — резерв уже готовий (звичайне повернення). Рядок пишеться при зміні причини і не частіше разу на хвилину. CARRY-ON-TARGET — перенесення Auto йде через резерв, але резерв не пройшов живу перевірку (target not healthy).",
+        "en": "After a power cut Auto waits for the reserve and, after 90 seconds on the primary, may close the switch record (VPN-PAIR-356). This line names what still holds it back: ROLE - the current channel order is unknown; CARRY - the network is not on Auto's own carry over the primary; NO-SESSION-MARK - no session mark of this boot; WRITER - a foreign rule write is unfinished; SOURCE-NOT-HEALTHY - the primary failed its live check; RESERVE-READY - the reserve is ready already (the usual return). Written when the reason changes, at most once a minute. CARRY-ON-TARGET - Auto's carry runs over the reserve, but the reserve failed its live check (target not healthy).",
+        "de": "Nach einem Stromausfall wartet Auto auf die Reserve und kann nach 90 Sekunden auf dem Hauptkanal den Wechseleintrag schließen (VPN-PAIR-356). Diese Zeile nennt, was das noch verhindert: ROLE - die aktuelle Kanalreihenfolge ist unbekannt; CARRY - das Netz läuft nicht über Autos eigene Übernahme auf dem Hauptkanal; NO-SESSION-MARK - keine Sitzungsmarke dieses Starts; WRITER - ein fremder Regel-Schreibvorgang ist unvollendet; SOURCE-NOT-HEALTHY - der Hauptkanal hat die Live-Prüfung nicht bestanden; RESERVE-READY - die Reserve ist schon bereit (normale Rückkehr). Wird bei einem Wechsel des Grundes geschrieben, höchstens einmal pro Minute. CARRY-ON-TARGET - Autos Übernahme läuft über die Reserve, aber die Reserve hat die Live-Prüfung nicht bestanden (target not healthy)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto продолжает сам.\n2. Если строка с SOURCE-NOT-HEALTHY держится несколько минут, проверьте основной сервер на странице «Серверы».",
+        "uk": "1. Нічого робити не потрібно: Auto продовжує сам.\n2. Якщо рядок із SOURCE-NOT-HEALTHY тримається кілька хвилин, перевірте основний сервер на сторінці «Сервери» (Servers).",
+        "en": "1. Nothing to do: Auto goes on by itself.\n2. If the line with SOURCE-NOT-HEALTHY stays for several minutes, check the primary server on the Servers page.",
+        "de": "1. Nichts zu tun: Auto macht selbst weiter.\n2. Bleibt die Zeile mit SOURCE-NOT-HEALTHY mehrere Minuten, prüfen Sie den Hauptserver auf der Seite „Server“ (Servers)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-358",
+      "related": [
+        "VPN-PAIR-356",
+        "VPN-PAIR-355"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-359",
+      "number": "005-001-359",
+      "key": "PAIR_CLEANUP_BOUND_RETRY",
+      "aliases": [
+        "PAIR-CLEANUP-BOUND-RETRY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Закрытие записи переключения не удалось: повтор через минуту",
+        "uk": "Закриття запису перемикання не вдалося: повтор через хвилину",
+        "en": "Closing the switch record failed: retry in a minute",
+        "de": "Das Schließen des Wechseleintrags ist fehlgeschlagen: neuer Versuch in einer Minute"
+      },
+      "cause": {
+        "ru": "Auto пытался закрыть запись переключения после 90 секунд работы основного канала (VPN-PAIR-356), но перестроение правил GL не удалось (например, GL ещё перезапускает свой брандмауэр). Запись остаётся как была, сеть остаётся на основном канале; следующая попытка не раньше чем через минуту.",
+        "uk": "Auto намагався закрити запис перемикання після 90 секунд роботи основного каналу (VPN-PAIR-356), але перебудова правил GL не вдалася (наприклад, GL ще перезапускає свій брандмауер). Запис залишається як був, мережа залишається на основному каналі; наступна спроба не раніше ніж через хвилину.",
+        "en": "Auto tried to close the switch record after 90 seconds on the primary (VPN-PAIR-356), but the rebuild of GL's rules failed (for example GL is still restarting its firewall). The record stays as it was, the network stays on the primary; the next try comes no sooner than in a minute.",
+        "de": "Auto versuchte, den Wechseleintrag nach 90 Sekunden auf dem Hauptkanal zu schließen (VPN-PAIR-356), aber der Neuaufbau der GL-Regeln schlug fehl (zum Beispiel startet GL seine Firewall noch neu). Der Eintrag bleibt, das Netz bleibt auf dem Hauptkanal; der nächste Versuch frühestens in einer Minute."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto повторит сам.\n2. Если строка повторяется больше 10 минут, перезагрузите роутер.",
+        "uk": "1. Нічого робити не потрібно: Auto повторить сам.\n2. Якщо рядок повторюється понад 10 хвилин, перезавантажте роутер.",
+        "en": "1. Nothing to do: Auto retries by itself.\n2. If the line repeats for more than 10 minutes, restart the router.",
+        "de": "1. Nichts zu tun: Auto versucht es selbst erneut.\n2. Wiederholt sich die Zeile länger als 10 Minuten, starten Sie den Router neu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-359",
+      "related": [
+        "VPN-PAIR-356"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-360",
+      "number": "005-001-360",
+      "key": "PAIR_CLEANUP_BOUND_TARGET",
+      "aliases": [
+        "PAIR-CLEANUP-BOUND-TARGET"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "После питания запись переключения закрыта: сеть уже работает через резерв",
+        "uk": "Після живлення запис перемикання закрито: мережа вже працює через резерв",
+        "en": "After a power cut the switch record was closed: the network already runs over the reserve",
+        "de": "Nach einem Stromausfall wurde der Wechseleintrag geschlossen: das Netz läuft schon über die Reserve"
+      },
+      "cause": {
+        "ru": "После отключения питания собственный перенос Auto держал сеть через резервный канал не меньше 90 секунд, и живая проверка резерва прошла, но GL ещё не считал резерв подключённым. Auto закрыл запись переключения ограниченным способом: порядок каналов остаётся на этом работающем резерве, трафик никуда не переносится, следующий сеанс Auto сам проверит резерв. Без этого Auto ждал бы GL бесконечно (CARRY-ON-TARGET).",
+        "uk": "Після вимкнення живлення власне перенесення Auto тримало мережу через резервний канал щонайменше 90 секунд, і жива перевірка резерву пройшла, але GL ще не вважав резерв підключеним. Auto закрив запис перемикання обмеженим способом: порядок каналів залишається на цьому робочому резерві, трафік нікуди не переноситься, наступний сеанс Auto сам перевірить резерв. Без цього Auto чекав би GL нескінченно (CARRY-ON-TARGET).",
+        "en": "After a power cut Auto's own carry kept the network on the reserve for at least 90 seconds and the reserve passed its live check, but GL did not call the reserve connected yet. Auto closed the switch record the bounded way: the channel order stays on this working reserve, no traffic moves, the next Auto session checks the reserve by itself. Without this Auto would wait for GL without end (CARRY-ON-TARGET).",
+        "de": "Nach einem Stromausfall hielt Autos eigene Übernahme das Netz mindestens 90 Sekunden auf der Reserve, und die Reserve bestand die Live-Prüfung, aber GL meldete die Reserve noch nicht als verbunden. Auto schloss den Wechseleintrag auf begrenzte Weise: die Kanalreihenfolge bleibt auf dieser funktionierenden Reserve, kein Verkehr wird verschoben, die nächste Auto-Sitzung prüft die Reserve selbst. Ohne dies würde Auto endlos auf GL warten (CARRY-ON-TARGET)."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: Auto продолжает сам.\n2. Если после этого резерв надолго остаётся «не подключён» на странице GL, проверьте резервный сервер на странице «Серверы».",
+        "uk": "1. Нічого робити не потрібно: Auto продовжує сам.\n2. Якщо після цього резерв надовго залишається «не підключений» на сторінці GL, перевірте резервний сервер на сторінці «Сервери» (Servers).",
+        "en": "1. Nothing to do: Auto goes on by itself.\n2. If afterwards the reserve stays \"not connected\" on the GL page for long, check the reserve server on the Servers page.",
+        "de": "1. Nichts zu tun: Auto macht selbst weiter.\n2. Bleibt die Reserve danach lange „nicht verbunden“ auf der GL-Seite, prüfen Sie den Reserveserver auf der Seite „Server“ (Servers)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-360",
+      "related": [
+        "VPN-PAIR-356",
+        "VPN-PAIR-358"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-361",
+      "number": "005-001-361",
+      "key": "BOOT_CARRY_BOUND_KEPT",
+      "aliases": [
+        "BOOT-CARRY-BOUND-KEPT"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Собственный перенос Auto сохранён: путь GL через резерв ещё не проверен",
+        "uk": "Власне перенесення Auto збережено: шлях GL через резерв ще не перевірено",
+        "en": "Auto's own carry is kept: GL's path over the reserve is not proven yet",
+        "de": "Autos eigene Übernahme bleibt: der GL-Pfad über die Reserve ist noch nicht geprüft"
+      },
+      "cause": {
+        "ru": "После отключения питания Auto закрыл запись переключения ограниченным способом (VPN-PAIR-356), пока сеть шла через собственный перенос Auto по основному каналу. Порядок каналов в GL при этом стал «резерв первым», а резерв ещё не подключён. Поэтому ваш «Стоп», смена режима загрузки или часовой предел переноса не снимают перенос: сеть осталась бы без интернета. Перенос снимается, только когда первый канал GL проверен для сети. Строка пишется один раз за перенос.",
+        "uk": "Після вимкнення живлення Auto закрив запис перемикання обмеженим способом (VPN-PAIR-356), поки мережа йшла через власне перенесення Auto по основному каналу. Порядок каналів у GL при цьому став «резерв першим», а резерв ще не підключено. Тому ваш «Стоп», зміна режиму завантаження або годинна межа перенесення не знімають перенесення: мережа залишилася б без інтернету. Перенесення знімається, лише коли перший канал GL перевірено для мережі. Рядок пишеться один раз за перенесення.",
+        "en": "After a power cut Auto closed the switch record the bounded way (VPN-PAIR-356) while the network ran on Auto's own carry over the primary. GL's channel order became \"reserve first\", and the reserve is not connected yet. So your Stop, a change of the boot mode or the one-hour carry limit do not remove the carry: the network would be left without internet. The carry goes only when GL's first channel is proven for the network. Written once per carry.",
+        "de": "Nach einem Stromausfall schloss Auto den Wechseleintrag auf begrenzte Weise (VPN-PAIR-356), während das Netz über Autos eigene Übernahme auf dem Hauptkanal lief. Die Kanalreihenfolge in GL wurde dabei „Reserve zuerst“, und die Reserve ist noch nicht verbunden. Daher entfernen Ihr Stopp, eine Änderung des Startmodus oder die Stundengrenze der Übernahme die Übernahme nicht: das Netz wäre ohne Internet. Die Übernahme endet erst, wenn der erste GL-Kanal für das Netz geprüft ist. Wird einmal pro Übernahme geschrieben."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: интернет в сети работает через основной канал.\n2. Если резерв надолго остаётся «не подключён» на странице GL, проверьте резервный сервер на странице «Серверы».",
+        "uk": "1. Нічого робити не потрібно: інтернет у мережі працює через основний канал.\n2. Якщо резерв надовго залишається «не підключений» на сторінці GL, перевірте резервний сервер на сторінці «Сервери» (Servers).",
+        "en": "1. Nothing to do: the network's internet runs over the primary.\n2. If the reserve stays \"not connected\" on the GL page for long, check the reserve server on the Servers page.",
+        "de": "1. Nichts zu tun: das Internet im Netz läuft über den Hauptkanal.\n2. Bleibt die Reserve lange „nicht verbunden“ auf der GL-Seite, prüfen Sie den Reserveserver auf der Seite „Server“ (Servers)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-361",
+      "related": [
+        "VPN-PAIR-356",
+        "VPN-PAIR-360"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-362",
+      "number": "005-001-362",
+      "key": "LANE_PROTOCOLS_DIFFERENT_TARGETS",
+      "aliases": [
+        "LANE-PROTOCOLS-DIFFERENT-TARGETS"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Полоса: у соседних туннелей WireGuard и OpenVPN разные списки целей",
+        "uk": "Смуга: у сусідніх тунелів WireGuard і OpenVPN різні списки цілей",
+        "en": "Lane: neighbouring WireGuard and OpenVPN tunnels have different target lists",
+        "de": "Spur: benachbarte WireGuard- und OpenVPN-Tunnel haben unterschiedliche Ziellisten"
+      },
+      "cause": {
+        "ru": "Жёлтый уровень. Два туннеля (один WireGuard, один OpenVPN) стоят рядом в порядке правил GL и сделаны для одного и того же, но списки целей, которые GL хранит для каждого туннеля отдельно, различаются по содержимому. Auto считает их двумя разными полосами, поэтому между ними нет переключения протокола: при отказе одного туннеля запасного протокола у его адресов нет. Сами адреса не показываются и не записываются.",
+        "uk": "Жовтий рівень. Два тунелі (один WireGuard, один OpenVPN) стоять поруч у порядку правил GL і зроблені для одного й того самого, але списки цілей, які GL зберігає для кожного тунелю окремо, відрізняються за вмістом. Auto вважає їх двома різними смугами, тому між ними немає перемикання протоколу: при відмові одного тунелю запасного протоколу для його адрес немає. Самі адреси не показуються і не записуються.",
+        "en": "Yellow. Two tunnels (one WireGuard, one OpenVPN) stand next to each other in GL's rule order and look meant for the same thing, but the target lists GL keeps separately for each tunnel differ in content. Auto treats them as two different lanes, so there is no protocol switch between them: if one tunnel fails, its addresses have no spare protocol. The addresses themselves are neither shown nor logged.",
+        "de": "Gelb. Zwei Tunnel (einer WireGuard, einer OpenVPN) stehen in der Regelreihenfolge von GL nebeneinander und scheinen für dasselbe gedacht, aber die Zielliste, die GL für jeden Tunnel getrennt führt, unterscheidet sich im Inhalt. Auto behandelt sie als zwei verschiedene Spuren, daher gibt es zwischen ihnen keinen Protokollwechsel: Fällt ein Tunnel aus, haben seine Adressen kein Ersatzprotokoll. Die Adressen selbst werden weder angezeigt noch protokolliert."
+      },
+      "action": {
+        "ru": "1. В панели GL.iNet сделайте списки целей обоих туннелей одинаковыми (один и тот же набор адресов в правилах для WireGuard и OpenVPN).\n2. Нажмите «Проверить снова» в мастере полос: если списки совпали, туннели станут одной полосой.",
+        "uk": "1. У панелі GL.iNet зробіть списки цілей обох тунелів однаковими (один і той самий набір адрес у правилах для WireGuard і OpenVPN).\n2. Натисніть «Перевірити знову» в майстрі смуг: якщо списки збіглися, тунелі стануть однією смугою.",
+        "en": "1. In the GL.iNet panel make the target lists of both tunnels the same (the same set of addresses in the WireGuard and OpenVPN rules).\n2. Press 'Check again' in the lanes wizard: once the lists match, the tunnels become one lane.",
+        "de": "1. Machen Sie im GL.iNet-Panel die Ziellisten beider Tunnel gleich (derselbe Adressensatz in den WireGuard- und OpenVPN-Regeln).\n2. Klicken Sie im Spuren-Assistenten auf „Erneut prüfen“: stimmen die Listen überein, werden die Tunnel zu einer Spur."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-362",
+      "related": [
+        "VPN-PAIR-304",
+        "VPN-PAIR-302",
+        "VPN-PAIR-363"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-363",
+      "number": "005-001-363",
+      "key": "LANE_TARGETS_UNREADABLE",
+      "aliases": [
+        "LANE-TARGETS-UNREADABLE"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Полоса: список целей правила GL не читается",
+        "uk": "Смуга: список цілей правила GL не читається",
+        "en": "Lane: the rule's GL target list cannot be read",
+        "de": "Spur: die GL-Zielliste der Regel ist nicht lesbar"
+      },
+      "cause": {
+        "ru": "Жёлтый уровень. Правило GL берёт цели из своего файла списка для туннеля (/etc/domain_mac_list/dst_net…), а Auto не смог прочитать этот файл или он пуст. Цели сравниваются по именам, и туннели с одним и тем же списком считаются разными полосами; переключение протокола между ними отказывается (PAIR-LANE-NOT-ONE-LANE). Адреса не показываются и не записываются.",
+        "uk": "Жовтий рівень. Правило GL бере цілі зі свого файлу списку для тунелю (/etc/domain_mac_list/dst_net…), а Auto не зміг прочитати цей файл або він порожній. Цілі порівнюються за іменами, і тунелі з одним і тим самим списком вважаються різними смугами; перемикання протоколу між ними відхиляється (PAIR-LANE-NOT-ONE-LANE). Адреси не показуються і не записуються.",
+        "en": "Yellow. The GL rule takes its targets from its own list file for the tunnel (/etc/domain_mac_list/dst_net...), and Auto could not read that file or it is empty. The targets are compared by name, tunnels with the same list count as different lanes, and a protocol switch between them is refused (PAIR-LANE-NOT-ONE-LANE). The addresses are neither shown nor logged.",
+        "de": "Gelb. Die GL-Regel bezieht ihre Ziele aus ihrer eigenen Listendatei für den Tunnel (/etc/domain_mac_list/dst_net…), und Auto konnte diese Datei nicht lesen oder sie ist leer. Die Ziele werden nach Namen verglichen, Tunnel mit derselben Liste gelten als verschiedene Spuren, und ein Protokollwechsel zwischen ihnen wird abgelehnt (PAIR-LANE-NOT-ONE-LANE). Die Adressen werden weder angezeigt noch protokolliert."
+      },
+      "action": {
+        "ru": "1. В панели GL.iNet откройте правило и убедитесь, что список целей не пуст и сохранён.\n2. Нажмите «Проверить снова» в мастере полос.",
+        "uk": "1. У панелі GL.iNet відкрийте правило і переконайтеся, що список цілей не порожній і збережений.\n2. Натисніть «Перевірити знову» в майстрі смуг.",
+        "en": "1. In the GL.iNet panel open the rule and make sure the target list is not empty and is saved.\n2. Press 'Check again' in the lanes wizard.",
+        "de": "1. Öffnen Sie im GL.iNet-Panel die Regel und prüfen Sie, dass die Zielliste nicht leer und gespeichert ist.\n2. Klicken Sie im Spuren-Assistenten auf „Erneut prüfen“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "help": "errors/VPN-PAIR-363",
+      "related": [
+        "VPN-PAIR-304",
+        "VPN-PAIR-302",
+        "VPN-PAIR-362"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "switch",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-364",
+      "number": "005-001-364",
+      "key": "PAIR_OUTSIDE_CHANGE_RELEASED",
+      "aliases": [
+        "PAIR-OUTSIDE-CHANGE-RELEASED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Удержание изменения вне приложения завершено",
+        "uk": "Утримання зміни поза застосунком завершено",
+        "en": "The hold of a change made outside the app has ended",
+        "de": "Das Festhalten einer Änderung außerhalb der App ist beendet"
+      },
+      "cause": {
+        "ru": "Удержание изменения настроек, сделанного вне приложения (VPN-PAIR-147), завершил владелец: кнопкой «Стоп» (изменение не принято, Auto остановлен) или кнопкой «Старт» (новая конфигурация принята, Auto начинает новую сессию после обычных проверок запуска). Это уведомление Telegram об окончании удержания.",
+        "uk": "Утримання зміни налаштувань, зробленої поза застосунком (VPN-PAIR-147), завершив власник: кнопкою «Стоп» (зміну не прийнято, Auto зупинено) або кнопкою «Старт» (нову конфігурацію прийнято, Auto починає нову сесію після звичайних перевірок запуску). Це сповіщення Telegram про закінчення утримання.",
+        "en": "The owner ended the hold of a settings change made outside the app (VPN-PAIR-147): with Stop (the change was not adopted, Auto is stopped) or with Start (the new configuration was accepted, Auto starts a new session after the usual start checks). This is the Telegram notice that the hold has ended.",
+        "de": "Der Eigentümer hat das Festhalten einer außerhalb der App vorgenommenen Einstellungsänderung (VPN-PAIR-147) beendet: mit „Stopp“ (die Änderung wurde nicht übernommen, Auto ist gestoppt) oder mit „Start“ (die neue Konfiguration wurde akzeptiert, Auto beginnt nach den üblichen Startprüfungen eine neue Sitzung). Dies ist die Telegram-Meldung über das Ende des Festhaltens."
+      },
+      "action": {
+        "ru": "1. После «Стоп»: нажмите «Старт», когда нужно снова включить Auto; «Старт» примет текущую конфигурацию.\n2. После «Старт»: ничего делать не нужно.",
+        "uk": "1. Після «Стоп»: натисніть «Старт», коли потрібно знову ввімкнути Auto; «Старт» прийме поточну конфігурацію.\n2. Після «Старт»: нічого робити не потрібно.",
+        "en": "1. After Stop: press Start when you want Auto on again; Start takes the current configuration.\n2. After Start: nothing to do.",
+        "de": "1. Nach „Stopp“: Drücken Sie „Start“, wenn Auto wieder laufen soll; „Start“ übernimmt die aktuelle Konfiguration.\n2. Nach „Start“: Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-364",
+      "related": [
+        "VPN-PAIR-147",
+        "VPN-PAIR-146"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "state",
+        "telegram",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-365",
+      "number": "005-001-365",
+      "key": "DNS_DUAL_SYNC",
+      "aliases": [
+        "DNS-DUAL-SYNC"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Журнал: синхронизация DNS через два туннеля выполнена",
+        "uk": "Журнал: синхронізацію DNS через два тунелі виконано",
+        "en": "Log: the DNS sync for both tunnels was done",
+        "de": "Protokoll: der DNS-Abgleich für beide Tunnel wurde ausgeführt"
+      },
+      "cause": {
+        "ru": "Строка журнала после проверки DNS через два туннеля: включено ли, что изменилось и какой код результата вернула проверка. Если изменений нет, строка просто подтверждает проверку.",
+        "uk": "Рядок журналу після перевірки DNS через два тунелі: чи ввімкнено, що змінилося і який код результату повернула перевірка. Якщо змін немає, рядок лише підтверджує перевірку.",
+        "en": "A log line after the check of DNS through both tunnels: whether it is on, what changed and which result code the check returned. With no change the line only confirms the check.",
+        "de": "Eine Protokollzeile nach der Prüfung von DNS über beide Tunnel: ob es eingeschaltet ist, was sich geändert hat und welchen Ergebniscode die Prüfung lieferte. Ohne Änderung bestätigt die Zeile nur die Prüfung."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если в строке есть код результата, откройте описание этого кода (VPN-PAIR-035, VPN-PAIR-036).",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо в рядку є код результату, відкрийте опис цього коду (VPN-PAIR-035, VPN-PAIR-036).",
+        "en": "1. Nothing to do.\n2. If the line carries a result code, open the description of that code (VPN-PAIR-035, VPN-PAIR-036).",
+        "de": "1. Sie müssen nichts tun.\n2. Enthält die Zeile einen Ergebniscode, öffnen Sie die Beschreibung dieses Codes (VPN-PAIR-035, VPN-PAIR-036)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-365",
+      "related": [
+        "VPN-PAIR-035",
+        "VPN-PAIR-036"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "dns",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-366",
+      "number": "005-001-366",
+      "key": "DNS_MARK_SYNC",
+      "aliases": [
+        "DNS-MARK-SYNC"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Журнал: метка DNS по туннелю записана",
+        "uk": "Журнал: мітку DNS за тунелем записано",
+        "en": "Log: the per-tunnel DNS mark was written",
+        "de": "Protokoll: die DNS-Markierung des Tunnels wurde geschrieben"
+      },
+      "cause": {
+        "ru": "Строка журнала после переключения или проверки: какой туннель сейчас активен для DNS ваших устройств, записана ли метка и какой код результата вернула запись. Служебная строка, она не говорит об ошибке.",
+        "uk": "Рядок журналу після перемикання або перевірки: який тунель зараз активний для DNS ваших пристроїв, чи записано мітку і який код результату повернув запис. Службовий рядок, він не свідчить про помилку.",
+        "en": "A log line after a switch or a check: which tunnel is now active for the DNS of your devices, whether the mark was written and which result code the write returned. A service line; it does not report an error.",
+        "de": "Eine Protokollzeile nach einem Wechsel oder einer Prüfung: welcher Tunnel jetzt für das DNS Ihrer Geräte aktiv ist, ob die Markierung geschrieben wurde und welchen Ergebniscode das Schreiben lieferte. Eine Dienstzeile; sie meldet keinen Fehler."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.\n2. Если в строке есть код результата, откройте описание этого кода (VPN-PAIR-037, VPN-PAIR-038).",
+        "uk": "1. Нічого робити не потрібно.\n2. Якщо в рядку є код результату, відкрийте опис цього коду (VPN-PAIR-037, VPN-PAIR-038).",
+        "en": "1. Nothing to do.\n2. If the line carries a result code, open the description of that code (VPN-PAIR-037, VPN-PAIR-038).",
+        "de": "1. Sie müssen nichts tun.\n2. Enthält die Zeile einen Ergebniscode, öffnen Sie die Beschreibung dieses Codes (VPN-PAIR-037, VPN-PAIR-038)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-366",
+      "related": [
+        "VPN-PAIR-037",
+        "VPN-PAIR-038"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "dns",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-367",
+      "number": "005-001-367",
+      "key": "ROLLBACK_OWNER_RECOVERY",
+      "aliases": [
+        "ROLLBACK-OWNER-RECOVERY"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Возврат после остановки возврата: порядок до переключения восстановлен",
+        "uk": "Повернення після зупинки повернення: порядок до перемикання відновлено",
+        "en": "Recovery after a given-up rollback: the order before the switch is back",
+        "de": "Wiederherstellung nach aufgegebenem Rückgang: die Reihenfolge vor dem Wechsel ist zurück"
+      },
+      "cause": {
+        "ru": "Строка журнала после перезапуска: владелец записи переключения освободил защиту. Либо порядок маршрутов был изменён вне приложения, и Auto отпустил запись (EXTERNAL-POLICY-CHANGE), либо возврат был остановлен ранее (ROLLBACK-GIVEN-UP, VPN-PAIR-189), и порядок до переключения снова записан в настройки. Auto остаётся выключенным.",
+        "uk": "Рядок журналу після перезапуску: власник запису перемикання звільнив захист. Або порядок маршрутів змінено поза застосунком, і Auto відпустив запис (EXTERNAL-POLICY-CHANGE), або повернення було зупинено раніше (ROLLBACK-GIVEN-UP, VPN-PAIR-189), і порядок до перемикання знову записано в налаштування. Auto лишається вимкненим.",
+        "en": "A log line after a restart: the owner of the switch record released the protection. Either the route order was changed outside the app and Auto let the record go (EXTERNAL-POLICY-CHANGE), or the rollback had been given up earlier (ROLLBACK-GIVEN-UP, VPN-PAIR-189) and the order before the switch is written to the settings again. Auto stays off.",
+        "de": "Eine Protokollzeile nach einem Neustart: der Besitzer des Wechseleintrags hat den Schutz freigegeben. Entweder wurde die Routenreihenfolge außerhalb der App geändert und Auto ließ den Eintrag los (EXTERNAL-POLICY-CHANGE), oder der Rückgang war zuvor aufgegeben worden (ROLLBACK-GIVEN-UP, VPN-PAIR-189) und die Reihenfolge vor dem Wechsel steht wieder in den Einstellungen. Auto bleibt aus."
+      },
+      "action": {
+        "ru": "1. Проверьте на странице Auto, что порядок VPN-правил в роутере такой, как нужно.\n2. Когда готовы, нажмите «Старт».",
+        "uk": "1. Перевірте на сторінці Auto, що порядок VPN-правил у роутері такий, як потрібно.\n2. Коли готові, натисніть «Старт».",
+        "en": "1. On the Auto page check that the order of the VPN rules in the router is the one you want.\n2. When ready, press Start.",
+        "de": "1. Prüfen Sie auf der Auto-Seite, ob die Reihenfolge der VPN-Regeln im Router die gewünschte ist.\n2. Drücken Sie „Start“, wenn Sie bereit sind."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-367",
+      "related": [
+        "VPN-PAIR-189",
+        "VPN-PAIR-188"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "rollback",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-368",
+      "number": "005-001-368",
+      "key": "ROLLBACK_OWNER_RECOVERY_FAILED",
+      "aliases": [
+        "ROLLBACK-OWNER-RECOVERY-FAILED"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось освободить защиту записи переключения после перезапуска",
+        "uk": "Не вдалося звільнити захист запису перемикання після перезапуску",
+        "en": "The switch record protection could not be released after a restart",
+        "de": "Der Schutz des Wechseleintrags konnte nach einem Neustart nicht freigegeben werden"
+      },
+      "cause": {
+        "ru": "После перезапуска Auto не смог прочитать запись переключения или освободить свою защиту, а возврат уже был остановлен (ROLLBACK-GIVEN-UP). Защита сети остаётся, Auto выключен; строка журнала называет причину.",
+        "uk": "Після перезапуску Auto не зміг прочитати запис перемикання або звільнити свій захист, а повернення вже було зупинено (ROLLBACK-GIVEN-UP). Захист мережі лишається, Auto вимкнено; рядок журналу називає причину.",
+        "en": "After a restart Auto could not read the switch record or release its own protection, and the rollback had already been given up (ROLLBACK-GIVEN-UP). The network protection stays and Auto is off; the log line names the reason.",
+        "de": "Nach einem Neustart konnte Auto den Wechseleintrag nicht lesen oder seinen Schutz nicht freigeben, und der Rückgang war bereits aufgegeben (ROLLBACK-GIVEN-UP). Der Netzschutz bleibt, Auto ist aus; die Protokollzeile nennt den Grund."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь» → «Нет интернета» (аварийный возврат).\n2. Если код остаётся, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Відкрийте «Довідку» (Help) → «Немає інтернету» (аварійне повернення).\n2. Якщо код лишається, збережіть «Журнал» і надішліть його розробнику.",
+        "en": "1. Open Help, \"I have no internet\" (emergency return).\n2. If the code stays, save the Journal and send it to the developer.",
+        "de": "1. Öffnen Sie „Hilfe“ (Help), „Kein Internet“ (Notfall-Rückkehr).\n2. Bleibt der Code, speichern Sie das „Journal“ und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        },
+        {
+          "to": "developer",
+          "channel": "support-bundle",
+          "data": [
+            "code",
+            "app_version",
+            "os",
+            "log_excerpt_redacted"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-368",
+      "related": [
+        "VPN-PAIR-189",
+        "VPN-PAIR-192"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "rollback",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-369",
+      "number": "005-001-369",
+      "key": "ROLLBACK_GIVE_UP_RETRY",
+      "aliases": [
+        "ROLLBACK-GIVE-UP-RETRY"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Остановленный возврат повторён после перезапуска",
+        "uk": "Зупинене повернення повторено після перезапуску",
+        "en": "A given-up rollback was retried after a restart",
+        "de": "Ein aufgegebener Rückgang wurde nach einem Neustart wiederholt"
+      },
+      "cause": {
+        "ru": "Строка журнала: после перезапуска Auto повторил остановленный возврат (ROLLBACK-GIVEN-UP, VPN-PAIR-189). Либо возврат выполнен, и остановка снята (Auto остаётся выключенным), либо строка называет код, по которому повтор не удался.",
+        "uk": "Рядок журналу: після перезапуску Auto повторив зупинене повернення (ROLLBACK-GIVEN-UP, VPN-PAIR-189). Або повернення виконано і зупинку знято (Auto лишається вимкненим), або рядок називає код, за яким повтор не вдався.",
+        "en": "A log line: after a restart Auto retried the given-up rollback (ROLLBACK-GIVEN-UP, VPN-PAIR-189). Either the rollback was done and the stop ended (Auto stays off), or the line names the code that made the retry fail.",
+        "de": "Eine Protokollzeile: Nach einem Neustart wiederholte Auto den aufgegebenen Rückgang (ROLLBACK-GIVEN-UP, VPN-PAIR-189). Entweder wurde der Rückgang ausgeführt und das Aufgeben beendet (Auto bleibt aus), oder die Zeile nennt den Code, an dem die Wiederholung scheiterte."
+      },
+      "action": {
+        "ru": "1. Если возврат выполнен, ничего делать не нужно: нажмите «Старт», когда нужен Auto.\n2. Если назван код ошибки, откройте его описание.",
+        "uk": "1. Якщо повернення виконано, нічого робити не потрібно: натисніть «Старт», коли потрібен Auto.\n2. Якщо названо код помилки, відкрийте його опис.",
+        "en": "1. If the rollback was done, nothing to do: press Start when you want Auto.\n2. If an error code is named, open its description.",
+        "de": "1. Wurde der Rückgang ausgeführt, müssen Sie nichts tun: Drücken Sie „Start“, wenn Auto laufen soll.\n2. Ist ein Fehlercode genannt, öffnen Sie dessen Beschreibung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-369",
+      "related": [
+        "VPN-PAIR-189",
+        "VPN-PAIR-188"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "rollback",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-370",
+      "number": "005-001-370",
+      "key": "ROLLBACK_BOOT_FAILED",
+      "aliases": [
+        "ROLLBACK-BOOT-FAILED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Возврат после включения питания не удался (n из предела)",
+        "uk": "Повернення після ввімкнення живлення не вдалося (n із межі)",
+        "en": "The return after power-on failed (n of the limit)",
+        "de": "Der Rückgang nach dem Einschalten ist fehlgeschlagen (n vom Limit)"
+      },
+      "cause": {
+        "ru": "Строка журнала: возврат записи переключения после включения питания не удался по названному коду; строка показывает номер неудачи и предел. Пока предел не достигнут, Auto повторяет возврат (VPN-PAIR-188); при достижении предела возврат останавливается (VPN-PAIR-189).",
+        "uk": "Рядок журналу: повернення запису перемикання після ввімкнення живлення не вдалося за названим кодом; рядок показує номер невдачі й межу. Доки межі не досягнуто, Auto повторює повернення (VPN-PAIR-188); при досягненні межі повернення зупиняється (VPN-PAIR-189).",
+        "en": "A log line: the return of the switch record after power-on failed with the named code; the line shows the number of the failure and the limit. Until the limit is reached Auto repeats the return (VPN-PAIR-188); at the limit the return is given up (VPN-PAIR-189).",
+        "de": "Eine Protokollzeile: Der Rückgang des Wechseleintrags nach dem Einschalten ist mit dem genannten Code fehlgeschlagen; die Zeile zeigt die Nummer des Fehlschlags und das Limit. Bis zum Limit wiederholt Auto den Rückgang (VPN-PAIR-188); am Limit wird er aufgegeben (VPN-PAIR-189)."
+      },
+      "action": {
+        "ru": "1. Подождите: Auto повторит возврат сам.\n2. Если строки повторяются долго после включения, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Зачекайте: Auto повторить повернення сам.\n2. Якщо рядки повторюються довго після ввімкнення, збережіть «Журнал» і надішліть його розробнику.",
+        "en": "1. Wait: Auto repeats the return by itself.\n2. If the lines repeat long after power-on, save the Journal and send it to the developer.",
+        "de": "1. Warten Sie: Auto wiederholt den Rückgang selbst.\n2. Wiederholen sich die Zeilen lange nach dem Einschalten, speichern Sie das „Journal“ und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-370",
+      "related": [
+        "VPN-PAIR-188",
+        "VPN-PAIR-189"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "rollback",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-371",
+      "number": "005-001-371",
+      "key": "SERVER_PICK_RESUMED",
+      "aliases": [
+        "SERVER-PICK-RESUMED"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Выбор сервера продолжен после перезапуска",
+        "uk": "Вибір сервера продовжено після перезапуску",
+        "en": "The server choice was resumed after a restart",
+        "de": "Die Serverwahl wurde nach einem Neustart fortgesetzt"
+      },
+      "cause": {
+        "ru": "Строка журнала: Auto перезапустился в середине смены сервера канала. Либо он принял записанный сервер (его выбор можно объяснить), либо записанный выбор не объясним, и дальше решают обычные проверки. В обоих случаях Auto не оставляет канал на неизвестном сервере.",
+        "uk": "Рядок журналу: Auto перезапустився посеред зміни сервера каналу. Або він прийняв записаний сервер (його вибір можна пояснити), або записаний вибір не пояснюється, і далі вирішують звичайні перевірки. В обох випадках Auto не лишає канал на невідомому сервері.",
+        "en": "A log line: Auto restarted in the middle of a server change of a channel. Either it adopted the recorded server (its choice can be explained), or the recorded choice cannot be explained and the usual checks decide. Either way Auto does not leave the channel on an unknown server.",
+        "de": "Eine Protokollzeile: Auto wurde mitten in einem Serverwechsel eines Kanals neu gestartet. Entweder übernahm es den aufgezeichneten Server (seine Wahl lässt sich erklären), oder die aufgezeichnete Wahl lässt sich nicht erklären und die üblichen Prüfungen entscheiden. In beiden Fällen lässt Auto den Kanal nicht auf einem unbekannten Server."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно.",
+        "uk": "1. Нічого робити не потрібно.",
+        "en": "1. Nothing to do.",
+        "de": "1. Sie müssen nichts tun."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-371",
+      "related": [
+        "VPN-PAIR-190"
+      ],
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "server",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-372",
+      "number": "005-001-372",
+      "key": "TAKEOVER_JOURNAL_FAILED",
+      "aliases": [
+        "TAKEOVER-JOURNAL-FAILED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Журнал перехвата не записан",
+        "uk": "Журнал перехоплення не записано",
+        "en": "The takeover journal could not be written",
+        "de": "Das Übernahme-Journal konnte nicht geschrieben werden"
+      },
+      "cause": {
+        "ru": "Первая ошибка процесса при записи журнала перехвата управления каналами: строка называет место и начало текста ошибки. Журнал мог остаться без нескольких записей; сами переключения это не меняет. Строка пишется один раз за процесс.",
+        "uk": "Перша помилка процесу під час запису журналу перехоплення керування каналами: рядок називає місце і початок тексту помилки. Журнал міг лишитися без кількох записів; самі перемикання це не змінює. Рядок пишеться один раз за процес.",
+        "en": "The first error of a process while writing the journal of the takeover of the channels: the line names the place and the start of the error text. The journal may lack a few entries; the switches themselves are not changed. Written once per process.",
+        "de": "Der erste Fehler eines Prozesses beim Schreiben des Journals der Kanalübernahme: die Zeile nennt die Stelle und den Anfang des Fehlertextes. Im Journal können einige Einträge fehlen; die Wechsel selbst bleiben unverändert. Wird einmal pro Prozess geschrieben."
+      },
+      "action": {
+        "ru": "1. Проверьте свободное место на роутере (страница «Состояние»).\n2. Если строка повторяется после перезапуска, сохраните «Журнал» и отправьте его разработчику.",
+        "uk": "1. Перевірте вільне місце на роутері (сторінка «Стан»).\n2. Якщо рядок повторюється після перезапуску, збережіть «Журнал» і надішліть його розробнику.",
+        "en": "1. Check the free space on the router (the Status page).\n2. If the line repeats after a restart, save the Journal and send it to the developer.",
+        "de": "1. Prüfen Sie den freien Speicher des Routers (Seite „Status“).\n2. Wiederholt sich die Zeile nach einem Neustart, speichern Sie das „Journal“ und senden Sie es an den Entwickler."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-372",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "journal",
+        "log",
+        "translation-draft"
+      ]
+    },
+    {
+      "code": "VPN-PAIR-373",
+      "number": "005-001-373",
+      "key": "PAIR_LANE_PAIR_DAMAGED",
+      "aliases": [
+        "PAIR-LANE-PAIR-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Смена сервера полосы повредила туннель пары",
+        "uk": "A lane server change damaged the pair tunnel",
+        "en": "A lane server change damaged the pair tunnel",
+        "de": "A lane server change damaged the pair tunnel"
+      },
+      "cause": {
+        "ru": "После смены сервера полосы правило или интерфейс туннеля пары отличаются от прежних (прошивка GL переписала их). Изменение отменено сразу, полоса приостановлена.",
+        "uk": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused.",
+        "en": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused.",
+        "de": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: туннель пары возвращён как был.\n2. Если повторяется, смените сервер полосы в панели GL → VPN вручную и сообщите разработчику.",
+        "uk": "1. Nothing to do: the pair tunnel was put back as it was.\n2. If it repeats, change the lane server in the GL panel -> VPN by hand and tell the developer.",
+        "en": "1. Nothing to do: the pair tunnel was put back as it was.\n2. If it repeats, change the lane server in the GL panel -> VPN by hand and tell the developer.",
+        "de": "1. Nothing to do: the pair tunnel was put back as it was.\n2. If it repeats, change the lane server in the GL panel -> VPN by hand and tell the developer."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-373",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "lane",
         "translation-draft"
       ]
     }
