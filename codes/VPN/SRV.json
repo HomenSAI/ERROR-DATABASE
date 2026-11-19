@@ -1837,10 +1837,10 @@
         "de": "Dieses VPN wird auf dem Router nicht gefunden"
       },
       "cause": {
-        "ru": "Выбранный профиль VPN не удаётся однозначно сопоставить с текущим туннелем роутера.",
-        "uk": "Вибраний профіль VPN не вдається однозначно зіставити з поточним тунелем роутера.",
-        "en": "The chosen VPN profile cannot be matched clearly to a current tunnel of the router.",
-        "de": "Das gewählte VPN-Profil lässt sich keinem aktuellen Tunnel des Routers eindeutig zuordnen."
+        "ru": "Выбранный профиль VPN не удаётся однозначно сопоставить с текущим туннелем роутера. ★ Для разработчиков: у этой ошибки нет полного исправления в текущей архитектуре. Обновление или повторный вход провайдера в интерфейсе GL переписывает другие WireGuard-туннели того же провайдера (не тот туннель, удалённый интерфейс, правило привязано к чужому туннелю). Auto больше не вызывает это обновление, но действие пользователя в интерфейсе GL всё ещё может его запустить. Как исправить при смене архитектуры: собственный модуль сам хранит конфигурацию туннелей и никогда не вызывает скрипты провайдеров прошивки.",
+        "uk": "Вибраний профіль VPN не вдається однозначно зіставити з поточним тунелем роутера. ★ Для розробників: у цієї помилки немає повного виправлення в поточній архітектурі. Оновлення або повторний вхід провайдера в інтерфейсі GL переписує інші тунелі WireGuard того самого провайдера (не той тунель, видалений інтерфейс, правило прив'язане до чужого тунелю). Auto більше не викликає це оновлення, але дія користувача в інтерфейсі GL усе ще може його запустити. Як виправити при зміні архітектури: власний модуль сам зберігає конфігурацію тунелів і ніколи не викликає скрипти провайдерів прошивки.",
+        "en": "The chosen VPN profile cannot be matched clearly to a current tunnel of the router. ★ For developers: this error has no complete fix in the current architecture. A provider update or re-login in the GL interface rewrites the other WireGuard tunnels of the same provider (wrong tunnel, deleted interface, rule bound to a foreign tunnel). Auto no longer calls that update, but a user action in the GL interface can still trigger it. How to fix it if the architecture changed: the own module keeps the tunnel configuration itself and never calls the provider scripts of the firmware.",
+        "de": "Das gewählte VPN-Profil lässt sich keinem aktuellen Tunnel des Routers eindeutig zuordnen. ★ Für Entwickler: Für diesen Fehler gibt es in der aktuellen Architektur keine vollständige Lösung. Ein Provider-Update oder erneutes Anmelden in der GL-Oberfläche überschreibt die anderen WireGuard-Tunnel desselben Providers (falscher Tunnel, gelöschte Schnittstelle, Regel an einen fremden Tunnel gebunden). Auto ruft dieses Update nicht mehr auf, aber eine Benutzeraktion in der GL-Oberfläche kann es weiterhin auslösen. Lösung bei geänderter Architektur: Das eigene Modul hält die Tunnelkonfiguration selbst und ruft nie Provider-Skripte der Firmware auf."
       },
       "action": {
         "ru": "1. Подождите несколько минут новых проверок.\n2. Если пара каналов не привязана, выберите активные профили в «Настройках» и сохраните пару.",
@@ -1870,7 +1870,8 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch"
+        "switch",
+        "architecture-limit"
       ]
     },
     {
@@ -2149,10 +2150,10 @@
         "de": "Der Router prüft noch die VPN-Einstellungen"
       },
       "cause": {
-        "ru": "Роутер ещё не закончил наблюдение за тем, какой VPN используется. Это не показывает, перебрала ли прошивка все серверы.",
-        "uk": "Роутер ще не завершив спостереження за тим, який VPN використовується. Це не показує, чи перебрала прошивка всі сервери.",
-        "en": "The router has not finished observing which VPN is in use. This does not show whether the firmware has run out of servers to try.",
-        "de": "Der Router beobachtet noch, welches VPN genutzt wird. Das zeigt nicht, ob die Firmware bereits alle Server durchprobiert hat."
+        "ru": "Роутер ещё не закончил наблюдение за тем, какой VPN используется. Это не показывает, перебрала ли прошивка все серверы. ★ Для разработчиков: у этой ошибки нет полного исправления в текущей архитектуре. Туннелями владеет встроенный механизм прошивки GL: он сам перезапускает упавший WireGuard и меняет его сервер прямо во время переключения Auto, и отключить его нельзя без потери его функций. Начиная с Auto VPN -57 переключение завершается, но перебой длиннее. Как исправить при смене архитектуры: один владелец туннелей (собственный VPN-модуль HomenS.AI), переключение — одно атомарное изменение правила маршрута с заранее запущенным резервом, цель — менее 1–2 с.",
+        "uk": "Роутер ще не завершив спостереження за тим, який VPN використовується. Це не показує, чи перебрала прошивка всі сервери. ★ Для розробників: у цієї помилки немає повного виправлення в поточній архітектурі. Тунелями володіє вбудований механізм прошивки GL: він сам перезапускає WireGuard, що впав, і змінює його сервер просто під час перемикання Auto, а вимкнути його не можна без втрати його функцій. Починаючи з Auto VPN -57 перемикання завершується, але збій довший. Як виправити при зміні архітектури: один власник тунелів (власний VPN-модуль HomenS.AI), перемикання — одна атомарна зміна правила маршруту із заздалегідь запущеним резервом, ціль — менше 1–2 с.",
+        "en": "The router has not finished observing which VPN is in use. This does not show whether the firmware has run out of servers to try. ★ For developers: this error has no complete fix in the current architecture. The tunnels are owned by the GL firmware's own watcher: it restarts a failed WireGuard and changes its server in the middle of Auto's switch, and it cannot be switched off without losing its functions. Since Auto VPN -57 the switch completes, but the outage is longer. How to fix it if the architecture changed: a single owner of tunnels (the HomenS.AI own VPN module), the switch being one atomic route-rule change with a pre-started reserve, target under 1-2 s.",
+        "de": "Der Router beobachtet noch, welches VPN genutzt wird. Das zeigt nicht, ob die Firmware bereits alle Server durchprobiert hat. ★ Für Entwickler: Für diesen Fehler gibt es in der aktuellen Architektur keine vollständige Lösung. Die Tunnel gehören dem eigenen Watcher der GL-Firmware: Er startet ein ausgefallenes WireGuard neu und wechselt dessen Server mitten im Umschalten von Auto, und er lässt sich nicht abschalten, ohne seine Funktionen zu verlieren. Seit Auto VPN -57 wird das Umschalten abgeschlossen, aber der Ausfall ist länger. Lösung bei geänderter Architektur: ein einziger Besitzer der Tunnel (das eigene VPN-Modul von HomenS.AI), das Umschalten als eine atomare Änderung der Routenregel mit vorab gestarteter Reserve, Ziel unter 1–2 s."
       },
       "action": {
         "ru": "1. Немного подождите: проверки повторяются сами.",
@@ -2182,7 +2183,8 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch"
+        "switch",
+        "architecture-limit"
       ]
     },
     {
@@ -2201,10 +2203,10 @@
         "de": "Router-Firmware ist beschäftigt"
       },
       "cause": {
-        "ru": "Роутер прямо сейчас применяет собственное изменение VPN, поэтому Auto ждёт и не переключает.",
-        "uk": "Роутер саме зараз застосовує власну зміну VPN, тому Auto чекає й не перемикає.",
-        "en": "The router is applying its own VPN change right now, so Auto waits and makes no switch.",
-        "de": "Der Router übernimmt gerade eine eigene VPN-Änderung, daher wartet Auto und wechselt nicht."
+        "ru": "Роутер прямо сейчас применяет собственное изменение VPN, поэтому Auto ждёт и не переключает. ★ Для разработчиков: у этой ошибки нет полного исправления в текущей архитектуре. Туннелями владеет встроенный механизм прошивки GL: он сам перезапускает упавший WireGuard и меняет его сервер прямо во время переключения Auto, и отключить его нельзя без потери его функций. Начиная с Auto VPN -57 переключение завершается, но перебой длиннее. Как исправить при смене архитектуры: один владелец туннелей (собственный VPN-модуль HomenS.AI), переключение — одно атомарное изменение правила маршрута с заранее запущенным резервом, цель — менее 1–2 с.",
+        "uk": "Роутер саме зараз застосовує власну зміну VPN, тому Auto чекає й не перемикає. ★ Для розробників: у цієї помилки немає повного виправлення в поточній архітектурі. Тунелями володіє вбудований механізм прошивки GL: він сам перезапускає WireGuard, що впав, і змінює його сервер просто під час перемикання Auto, а вимкнути його не можна без втрати його функцій. Починаючи з Auto VPN -57 перемикання завершується, але збій довший. Як виправити при зміні архітектури: один власник тунелів (власний VPN-модуль HomenS.AI), перемикання — одна атомарна зміна правила маршруту із заздалегідь запущеним резервом, ціль — менше 1–2 с.",
+        "en": "The router is applying its own VPN change right now, so Auto waits and makes no switch. ★ For developers: this error has no complete fix in the current architecture. The tunnels are owned by the GL firmware's own watcher: it restarts a failed WireGuard and changes its server in the middle of Auto's switch, and it cannot be switched off without losing its functions. Since Auto VPN -57 the switch completes, but the outage is longer. How to fix it if the architecture changed: a single owner of tunnels (the HomenS.AI own VPN module), the switch being one atomic route-rule change with a pre-started reserve, target under 1-2 s.",
+        "de": "Der Router übernimmt gerade eine eigene VPN-Änderung, daher wartet Auto und wechselt nicht. ★ Für Entwickler: Für diesen Fehler gibt es in der aktuellen Architektur keine vollständige Lösung. Die Tunnel gehören dem eigenen Watcher der GL-Firmware: Er startet ein ausgefallenes WireGuard neu und wechselt dessen Server mitten im Umschalten von Auto, und er lässt sich nicht abschalten, ohne seine Funktionen zu verlieren. Seit Auto VPN -57 wird das Umschalten abgeschlossen, aber der Ausfall ist länger. Lösung bei geänderter Architektur: ein einziger Besitzer der Tunnel (das eigene VPN-Modul von HomenS.AI), das Umschalten als eine atomare Änderung der Routenregel mit vorab gestarteter Reserve, Ziel unter 1–2 s."
       },
       "action": {
         "ru": "1. Подождите минуту.\n2. Попробуйте ещё раз.\n3. Если всё ещё непонятно, найдите этот код в «Помощи».",
@@ -2234,7 +2236,8 @@
       "tags": [
         "auto-vpn",
         "srv",
-        "switch"
+        "switch",
+        "architecture-limit"
       ]
     },
     {
@@ -2305,10 +2308,10 @@
         "de": "WireGuard endpoint is a pool address with one server key"
       },
       "cause": {
-        "ru": "GL записывает у WireGuard-сервера NordVPN ключ одного конкретного сервера (например de1554), но общий адрес города (berlin.de.wg.nordhold.net). Адрес города указывает на случайный сервер города с другим ключом, и сервер молча игнорирует соединение: трафик уходит, ответа нет, GL каждые 8–15 с перебирает серверы.",
-        "uk": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s.",
-        "en": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s.",
-        "de": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s."
+        "ru": "GL записывает у WireGuard-сервера NordVPN ключ одного конкретного сервера (например de1554), но общий адрес города (berlin.de.wg.nordhold.net). Адрес города указывает на случайный сервер города с другим ключом, и сервер молча игнорирует соединение: трафик уходит, ответа нет, GL каждые 8–15 с перебирает серверы. ★ Для разработчиков: у этой ошибки нет полного исправления в текущей архитектуре. Список NordVPN в GL записывает адрес города с ключом конкретного сервера; Auto исправляет это автоматически (по настройке), но GL заново пишет адреса городов при каждом обновлении списка серверов. Как исправить при смене архитектуры: собственный модуль хранит для каждого сервера его собственный адрес вместе с ключом и при импорте сверяет имя, ключ и адрес с базой провайдера.",
+        "uk": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s. ★ For developers: this error has no complete fix in the current architecture. The GL NordVPN list writes a city address together with the key of one specific server; Auto corrects this automatically (a setting), but GL writes city addresses again on every server-list refresh. How to fix it if the architecture changed: the own module stores each server's own address together with its key and checks name, key and address against the provider database at import.",
+        "en": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s. ★ For developers: this error has no complete fix in the current architecture. The GL NordVPN list writes a city address together with the key of one specific server; Auto corrects this automatically (a setting), but GL writes city addresses again on every server-list refresh. How to fix it if the architecture changed: the own module stores each server's own address together with its key and checks name, key and address against the provider database at import.",
+        "de": "GL writes for a NordVPN WireGuard server the key of ONE specific server (for example de1554) but a shared city address (berlin.de.wg.nordhold.net). The city address points to a random server of the city with another key, and that server silently ignores the connection: traffic is sent, nothing comes back, GL cycles servers every 8-15 s. ★ For developers: this error has no complete fix in the current architecture. The GL NordVPN list writes a city address together with the key of one specific server; Auto corrects this automatically (a setting), but GL writes city addresses again on every server-list refresh. How to fix it if the architecture changed: the own module stores each server's own address together with its key and checks name, key and address against the provider database at import."
       },
       "action": {
         "ru": "1. Включите «Автоисправление адресов серверов» в настройках: продукт проверит ключ в базе NordVPN и подставит адрес сервера.\n2. Или вручную: GL → VPN → WireGuard → сервер → «Адрес» = <имя сервера>.nordvpn.com:51820.\n3. После обновления списка серверов NordVPN в GL городские адреса появятся снова; при включённой настройке они исправятся сами.",
@@ -2339,7 +2342,8 @@
         "auto-vpn",
         "server",
         "wireguard",
-        "translation-draft"
+        "translation-draft",
+        "architecture-limit"
       ]
     },
     {

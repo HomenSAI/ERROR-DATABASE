@@ -20319,10 +20319,10 @@
         "de": "A lane server change damaged the pair tunnel"
       },
       "cause": {
-        "ru": "После смены сервера полосы правило или интерфейс туннеля пары отличаются от прежних (прошивка GL переписала их). Изменение отменено сразу, полоса приостановлена.",
-        "uk": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused.",
-        "en": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused.",
-        "de": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused."
+        "ru": "После смены сервера полосы правило или интерфейс туннеля пары отличаются от прежних (прошивка GL переписала их). Изменение отменено сразу, полоса приостановлена. ★ Для разработчиков: у этой ошибки нет полного исправления в текущей архитектуре. Обновление или повторный вход провайдера в интерфейсе GL переписывает другие WireGuard-туннели того же провайдера (не тот туннель, удалённый интерфейс, правило привязано к чужому туннелю). Auto больше не вызывает это обновление, но действие пользователя в интерфейсе GL всё ещё может его запустить. Как исправить при смене архитектуры: собственный модуль сам хранит конфигурацию туннелей и никогда не вызывает скрипты провайдеров прошивки.",
+        "uk": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused. ★ For developers: this error has no complete fix in the current architecture. A provider update or re-login in the GL interface rewrites the other WireGuard tunnels of the same provider (wrong tunnel, deleted interface, rule bound to a foreign tunnel). Auto no longer calls that update, but a user action in the GL interface can still trigger it. How to fix it if the architecture changed: the own module keeps the tunnel configuration itself and never calls the provider scripts of the firmware.",
+        "en": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused. ★ For developers: this error has no complete fix in the current architecture. A provider update or re-login in the GL interface rewrites the other WireGuard tunnels of the same provider (wrong tunnel, deleted interface, rule bound to a foreign tunnel). Auto no longer calls that update, but a user action in the GL interface can still trigger it. How to fix it if the architecture changed: the own module keeps the tunnel configuration itself and never calls the provider scripts of the firmware.",
+        "de": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused. ★ For developers: this error has no complete fix in the current architecture. A provider update or re-login in the GL interface rewrites the other WireGuard tunnels of the same provider (wrong tunnel, deleted interface, rule bound to a foreign tunnel). Auto no longer calls that update, but a user action in the GL interface can still trigger it. How to fix it if the architecture changed: the own module keeps the tunnel configuration itself and never calls the provider scripts of the firmware."
       },
       "action": {
         "ru": "1. Ничего делать не нужно: туннель пары возвращён как был.\n2. Если повторяется, смените сервер полосы в панели GL → VPN вручную и сообщите разработчику.",
@@ -20353,7 +20353,8 @@
         "auto-vpn",
         "pair",
         "lane",
-        "translation-draft"
+        "translation-draft",
+        "architecture-limit"
       ]
     }
   ]

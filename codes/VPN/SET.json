@@ -2566,10 +2566,10 @@
         "de": "VPN-Profil hat sich geändert"
       },
       "cause": {
-        "ru": "Текущий профиль или туннель уже не совпадает с тем, на что опиралось прежнее решение. Старые наблюдения больше не подходят.",
-        "uk": "Поточний профіль або тунель уже не збігається з тим, на що спиралося попереднє рішення. Старі спостереження більше не підходять.",
-        "en": "The current profile or tunnel no longer matches what the earlier decision was based on. The old observations no longer apply.",
-        "de": "Das aktuelle Profil oder der Tunnel passt nicht mehr zu dem, worauf die frühere Entscheidung beruhte. Die alten Beobachtungen gelten nicht mehr."
+        "ru": "Текущий профиль или туннель уже не совпадает с тем, на что опиралось прежнее решение. Старые наблюдения больше не подходят. ★ Для разработчиков: у этой ошибки нет полного исправления в текущей архитектуре. Туннелями владеет встроенный механизм прошивки GL: он сам перезапускает упавший WireGuard и меняет его сервер прямо во время переключения Auto, и отключить его нельзя без потери его функций. Начиная с Auto VPN -57 переключение завершается, но перебой длиннее. Как исправить при смене архитектуры: один владелец туннелей (собственный VPN-модуль HomenS.AI), переключение — одно атомарное изменение правила маршрута с заранее запущенным резервом, цель — менее 1–2 с.",
+        "uk": "Поточний профіль або тунель уже не збігається з тим, на що спиралося попереднє рішення. Старі спостереження більше не підходять. ★ Для розробників: у цієї помилки немає повного виправлення в поточній архітектурі. Тунелями володіє вбудований механізм прошивки GL: він сам перезапускає WireGuard, що впав, і змінює його сервер просто під час перемикання Auto, а вимкнути його не можна без втрати його функцій. Починаючи з Auto VPN -57 перемикання завершується, але збій довший. Як виправити при зміні архітектури: один власник тунелів (власний VPN-модуль HomenS.AI), перемикання — одна атомарна зміна правила маршруту із заздалегідь запущеним резервом, ціль — менше 1–2 с.",
+        "en": "The current profile or tunnel no longer matches what the earlier decision was based on. The old observations no longer apply. ★ For developers: this error has no complete fix in the current architecture. The tunnels are owned by the GL firmware's own watcher: it restarts a failed WireGuard and changes its server in the middle of Auto's switch, and it cannot be switched off without losing its functions. Since Auto VPN -57 the switch completes, but the outage is longer. How to fix it if the architecture changed: a single owner of tunnels (the HomenS.AI own VPN module), the switch being one atomic route-rule change with a pre-started reserve, target under 1-2 s.",
+        "de": "Das aktuelle Profil oder der Tunnel passt nicht mehr zu dem, worauf die frühere Entscheidung beruhte. Die alten Beobachtungen gelten nicht mehr. ★ Für Entwickler: Für diesen Fehler gibt es in der aktuellen Architektur keine vollständige Lösung. Die Tunnel gehören dem eigenen Watcher der GL-Firmware: Er startet ein ausgefallenes WireGuard neu und wechselt dessen Server mitten im Umschalten von Auto, und er lässt sich nicht abschalten, ohne seine Funktionen zu verlieren. Seit Auto VPN -57 wird das Umschalten abgeschlossen, aber der Ausfall ist länger. Lösung bei geänderter Architektur: ein einziger Besitzer der Tunnel (das eigene VPN-Modul von HomenS.AI), das Umschalten als eine atomare Änderung der Routenregel mit vorab gestarteter Reserve, Ziel unter 1–2 s."
       },
       "action": {
         "ru": "1. Подождите несколько минут, пока соберутся свежие наблюдения.\n2. Если Auto не запускается, снова пройдите проверку готовности.",
@@ -2599,7 +2599,8 @@
       "tags": [
         "auto-vpn",
         "set",
-        "switch"
+        "switch",
+        "architecture-limit"
       ]
     },
     {
