@@ -20302,6 +20302,59 @@
         "log",
         "translation-draft"
       ]
+    },
+    {
+      "code": "VPN-PAIR-373",
+      "number": "005-001-373",
+      "key": "PAIR_LANE_PAIR_DAMAGED",
+      "aliases": [
+        "PAIR-LANE-PAIR-DAMAGED"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Смена сервера полосы повредила туннель пары",
+        "uk": "A lane server change damaged the pair tunnel",
+        "en": "A lane server change damaged the pair tunnel",
+        "de": "A lane server change damaged the pair tunnel"
+      },
+      "cause": {
+        "ru": "После смены сервера полосы правило или интерфейс туннеля пары отличаются от прежних (прошивка GL переписала их). Изменение отменено сразу, полоса приостановлена.",
+        "uk": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused.",
+        "en": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused.",
+        "de": "After a lane server change the rule or the interface of the pair tunnel differs from before (the GL firmware rewrote them). The change was undone at once and the lane is paused."
+      },
+      "action": {
+        "ru": "1. Ничего делать не нужно: туннель пары возвращён как был.\n2. Если повторяется, смените сервер полосы в панели GL → VPN вручную и сообщите разработчику.",
+        "uk": "1. Nothing to do: the pair tunnel was put back as it was.\n2. If it repeats, change the lane server in the GL panel -> VPN by hand and tell the developer.",
+        "en": "1. Nothing to do: the pair tunnel was put back as it was.\n2. If it repeats, change the lane server in the GL panel -> VPN by hand and tell the developer.",
+        "de": "1. Nothing to do: the pair tunnel was put back as it was.\n2. If it repeats, change the lane server in the GL panel -> VPN by hand and tell the developer."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "help": "errors/VPN-PAIR-373",
+      "since": "1.7.0",
+      "tags": [
+        "auto-vpn",
+        "pair",
+        "lane",
+        "translation-draft"
+      ]
     }
   ]
 }
