@@ -105,6 +105,170 @@
       "tags": [
         "search"
       ]
+    },
+    {
+      "code": "JP-SRCH-003",
+      "number": "004-004-003",
+      "key": "JP_SRCH_SOURCE_QUOTA",
+      "aliases": [
+        "source.source_quota"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Источник вакансий сейчас не принимает запрос",
+        "uk": "Джерело вакансій зараз не приймає запит",
+        "en": "The job source does not accept a request right now",
+        "de": "Die Stellenquelle nimmt jetzt keine Anfrage an"
+      },
+      "cause": {
+        "ru": "У каждого источника вакансий свои правила: как часто его можно спрашивать. Эти правила программа соблюдает, чтобы источник не закрыл доступ. Повторить можно через {retry_after} с.",
+        "uk": "У кожного джерела вакансій свої правила: як часто його можна питати. Ці правила програма дотримується, щоб джерело не закрило доступ. Повторити можна через {retry_after} с.",
+        "en": "Every job source has its own rules for how often it may be asked. The program follows them so that the source does not close access. You can try again in {retry_after} s.",
+        "de": "Jede Stellenquelle hat eigene Regeln, wie oft man sie fragen darf. Das Programm hält sie ein, damit die Quelle den Zugang nicht sperrt. Sie können es in {retry_after} s erneut versuchen."
+      },
+      "action": {
+        "ru": "1. Подождите указанное время.\n2. Повторите поиск.\n3. Для постоянных поисков пользуйтесь расписанием: оно само следит за паузами.",
+        "uk": "1. Зачекайте вказаний час.\n2. Повторіть пошук.\n3. Для постійних пошуків користуйтеся розкладом: він сам стежить за паузами.",
+        "en": "1. Wait for the time shown.\n2. Run the search again.\n3. For regular searches use the schedule: it keeps the pauses by itself.",
+        "de": "1. Warten Sie die angegebene Zeit.\n2. Starten Sie die Suche erneut.\n3. Nutzen Sie für regelmäßige Suchen den Zeitplan: Er hält die Pausen selbst ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 429,
+      "help": "errors/JP-SRCH-003",
+      "since": "1.9.0",
+      "tags": [
+        "search",
+        "sources"
+      ],
+      "params": {
+        "retry_after": "str"
+      }
+    },
+    {
+      "code": "JP-SRCH-004",
+      "number": "004-004-004",
+      "key": "JP_SRCH_ADZUNA_NO_KEY",
+      "aliases": [
+        "source.adzuna_no_key"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Источник Adzuna выключен",
+        "uk": "Джерело Adzuna вимкнено",
+        "en": "The Adzuna source is switched off",
+        "de": "Die Quelle Adzuna ist ausgeschaltet"
+      },
+      "cause": {
+        "ru": "Adzuna работает только с вашим собственным ключом, а ключа в программе нет.",
+        "uk": "Adzuna працює лише з вашим власним ключем, а ключа в програмі немає.",
+        "en": "Adzuna works only with your own key, and the program has no key.",
+        "de": "Adzuna funktioniert nur mit Ihrem eigenen Schlüssel, und im Programm ist keiner hinterlegt."
+      },
+      "action": {
+        "ru": "1. Получите бесплатный ключ на сайте Adzuna (app_id и app_key).\n2. Введите его в «Настройки › Источники».\n3. Повторите поиск.",
+        "uk": "1. Отримайте безкоштовний ключ на сайті Adzuna (app_id і app_key).\n2. Введіть його в «Налаштування › Джерела».\n3. Повторіть пошук.",
+        "en": "1. Get a free key on the Adzuna website (app_id and app_key).\n2. Enter it in “Settings › Sources”.\n3. Run the search again.",
+        "de": "1. Holen Sie sich auf der Adzuna-Website einen kostenlosen Schlüssel (app_id und app_key).\n2. Tragen Sie ihn unter „Einstellungen › Quellen“ ein.\n3. Starten Sie die Suche erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SRCH-004",
+      "since": "1.9.0",
+      "tags": [
+        "search",
+        "sources",
+        "adzuna"
+      ]
+    },
+    {
+      "code": "JP-SRCH-005",
+      "number": "004-004-005",
+      "key": "JP_SRCH_ADZUNA_KEY_INVALID",
+      "aliases": [
+        "adzuna.adzuna_key"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ Adzuna записан неверно",
+        "uk": "Ключ Adzuna записано неправильно",
+        "en": "The Adzuna key is not valid",
+        "de": "Der Adzuna-Schlüssel ist ungültig"
+      },
+      "cause": {
+        "ru": "Нужны оба значения — app_id и app_key, и они не должны быть слишком длинными. Чтобы удалить ключ, оставьте оба поля пустыми.",
+        "uk": "Потрібні обидва значення — app_id і app_key, і вони не мають бути надто довгими. Щоб видалити ключ, залиште обидва поля порожніми.",
+        "en": "Both values are needed, app_id and app_key, and they must not be too long. To remove the key, leave both fields empty.",
+        "de": "Beide Werte sind nötig, app_id und app_key, und sie dürfen nicht zu lang sein. Zum Entfernen des Schlüssels lassen Sie beide Felder leer."
+      },
+      "action": {
+        "ru": "1. Проверьте оба значения на сайте Adzuna.\n2. Введите их снова.",
+        "uk": "1. Перевірте обидва значення на сайті Adzuna.\n2. Введіть їх знову.",
+        "en": "1. Check both values on the Adzuna website.\n2. Enter them again.",
+        "de": "1. Prüfen Sie beide Werte auf der Adzuna-Website.\n2. Geben Sie sie erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SRCH-005",
+      "since": "1.9.0",
+      "tags": [
+        "search",
+        "sources",
+        "adzuna"
+      ]
     }
   ]
 }
