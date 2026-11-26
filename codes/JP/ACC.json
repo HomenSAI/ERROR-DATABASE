@@ -740,6 +740,533 @@
       "tags": [
         "security"
       ]
+    },
+    {
+      "code": "JP-ACC-015",
+      "number": "004-001-015",
+      "key": "JP_ACC_ACCOUNT_CHANGED",
+      "aliases": [
+        "identity_changed"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Данные учётной записи изменились",
+        "uk": "Дані облікового запису змінилися",
+        "en": "Your account data has changed",
+        "de": "Die Kontodaten haben sich geändert"
+      },
+      "cause": {
+        "ru": "Пока вы работали, данные учётной записи были изменены в другом окне или администратором.",
+        "uk": "Поки ви працювали, дані облікового запису змінили в іншому вікні або адміністратор.",
+        "en": "While you were working, the account data was changed in another window or by an administrator.",
+        "de": "Während Ihrer Arbeit wurden die Kontodaten in einem anderen Fenster oder von einem Administrator geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте данные и повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте дані та повторіть дію.",
+        "en": "1. Reload the page.\n2. Check the data and repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie die Daten und wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-ACC-015",
+      "since": "1.9.0",
+      "tags": [
+        "account"
+      ]
+    },
+    {
+      "code": "JP-ACC-016",
+      "number": "004-001-016",
+      "key": "JP_ACC_BROWSER_ONLY",
+      "aliases": [
+        "session_only"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Это действие — только в браузере",
+        "uk": "Ця дія — лише в браузері",
+        "en": "This action is only available in the browser",
+        "de": "Diese Aktion ist nur im Browser möglich"
+      },
+      "cause": {
+        "ru": "Эта настройка меняется только человеком, вошедшим в программу в браузере. Ключ устройства для неё не подходит.",
+        "uk": "Це налаштування змінює лише людина, яка увійшла в програму в браузері. Ключ пристрою для цього не підходить.",
+        "en": "This setting can only be changed by a person signed in through the browser. A device key cannot be used for it.",
+        "de": "Diese Einstellung kann nur von einer im Browser angemeldeten Person geändert werden. Ein Gerätschlüssel genügt dafür nicht."
+      },
+      "action": {
+        "ru": "1. Откройте программу в браузере и войдите.\n2. Выполните действие там.",
+        "uk": "1. Відкрийте програму в браузері та увійдіть.\n2. Виконайте дію там.",
+        "en": "1. Open the program in the browser and sign in.\n2. Do the action there.",
+        "de": "1. Öffnen Sie das Programm im Browser und melden Sie sich an.\n2. Führen Sie die Aktion dort aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-016",
+      "since": "1.9.0",
+      "tags": [
+        "account"
+      ]
+    },
+    {
+      "code": "JP-ACC-017",
+      "number": "004-001-017",
+      "key": "JP_ACC_KEY_INVALID",
+      "aliases": [
+        "invalid_token"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ доступа не подходит",
+        "uk": "Ключ доступу не підходить",
+        "en": "The access key is not valid",
+        "de": "Der Zugangsschlüssel ist ungültig"
+      },
+      "cause": {
+        "ru": "Ключ устройства неверный, отозван или у него закончился срок действия.",
+        "uk": "Ключ пристрою неправильний, відкликаний або в нього закінчився строк дії.",
+        "en": "The device key is wrong, has been revoked or has expired.",
+        "de": "Der Gerätschlüssel ist falsch, wurde widerrufen oder ist abgelaufen."
+      },
+      "action": {
+        "ru": "1. Откройте настройки доступа устройств.\n2. Создайте новый ключ и используйте его.",
+        "uk": "1. Відкрийте налаштування доступу пристроїв.\n2. Створіть новий ключ і використовуйте його.",
+        "en": "1. Open the device access settings.\n2. Create a new key and use it.",
+        "de": "1. Öffnen Sie die Geräte-Zugangseinstellungen.\n2. Erstellen Sie einen neuen Schlüssel und verwenden Sie ihn."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 401,
+      "help": "errors/JP-ACC-017",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "devices"
+      ]
+    },
+    {
+      "code": "JP-ACC-018",
+      "number": "004-001-018",
+      "key": "JP_ACC_KEY_LIMIT",
+      "aliases": [
+        "device_token_limit"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком много ключей устройств",
+        "uk": "Забагато ключів пристроїв",
+        "en": "Too many device keys",
+        "de": "Zu viele Gerätschlüssel"
+      },
+      "cause": {
+        "ru": "Создано максимально допустимое число ключей устройств.",
+        "uk": "Створено максимально допустиму кількість ключів пристроїв.",
+        "en": "The maximum number of device keys has been created.",
+        "de": "Die höchstzulässige Anzahl an Gerätschlüsseln wurde erstellt."
+      },
+      "action": {
+        "ru": "1. Откройте настройки доступа устройств.\n2. Отзовите ненужные ключи.\n3. Создайте новый ключ.",
+        "uk": "1. Відкрийте налаштування доступу пристроїв.\n2. Відкличте непотрібні ключі.\n3. Створіть новий ключ.",
+        "en": "1. Open the device access settings.\n2. Revoke keys you no longer need.\n3. Create the new key.",
+        "de": "1. Öffnen Sie die Geräte-Zugangseinstellungen.\n2. Widerrufen Sie nicht mehr benötigte Schlüssel.\n3. Erstellen Sie den neuen Schlüssel."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ACC-018",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "devices"
+      ]
+    },
+    {
+      "code": "JP-ACC-019",
+      "number": "004-001-019",
+      "key": "JP_ACC_KEY_SCOPE",
+      "aliases": [
+        "token_scope"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ключу не хватает прав",
+        "uk": "Ключу не вистачає прав",
+        "en": "The key lacks permission",
+        "de": "Dem Schlüssel fehlt die Berechtigung"
+      },
+      "cause": {
+        "ru": "Этот ключ устройства не разрешает такое действие.",
+        "uk": "Цей ключ пристрою не дозволяє таку дію.",
+        "en": "This device key does not allow this action.",
+        "de": "Dieser Gerätschlüssel erlaubt diese Aktion nicht."
+      },
+      "action": {
+        "ru": "1. Создайте ключ с нужными правами.\n2. Повторите действие.",
+        "uk": "1. Створіть ключ з потрібними правами.\n2. Повторіть дію.",
+        "en": "1. Create a key with the required permissions.\n2. Repeat the action.",
+        "de": "1. Erstellen Sie einen Schlüssel mit den nötigen Berechtigungen.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-019",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "devices"
+      ]
+    },
+    {
+      "code": "JP-ACC-020",
+      "number": "004-001-020",
+      "key": "JP_ACC_VERIFY_MAIL_OFF",
+      "aliases": [
+        "verify_mail_off"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо подтверждения отправить нельзя",
+        "uk": "Лист підтвердження надіслати не можна",
+        "en": "The confirmation email cannot be sent",
+        "de": "Die Bestätigungs-E-Mail kann nicht gesendet werden"
+      },
+      "cause": {
+        "ru": "В программе не настроена почта для служебных писем, поэтому письмо подтверждения уйти не может.",
+        "uk": "У програмі не налаштовано пошту для службових листів, тому лист підтвердження піти не може.",
+        "en": "Mail for system messages is not set up in the program, so the confirmation email cannot go out.",
+        "de": "Für Systemnachrichten ist in der Anwendung keine E-Mail eingerichtet, daher kann die Bestätigungs-E-Mail nicht versendet werden."
+      },
+      "action": {
+        "ru": "1. Попросите администратора настроить служебную почту.\n2. Запросите письмо ещё раз.",
+        "uk": "1. Попросіть адміністратора налаштувати службову пошту.\n2. Запросіть лист ще раз.",
+        "en": "1. Ask the administrator to set up the system mail.\n2. Request the email again.",
+        "de": "1. Bitten Sie den Administrator, die Systemmail einzurichten.\n2. Fordern Sie die E-Mail erneut an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ACC-020",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-ACC-021",
+      "number": "004-001-021",
+      "key": "JP_ACC_FORBIDDEN",
+      "aliases": [
+        "admin_only"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Недостаточно прав",
+        "uk": "Недостатньо прав",
+        "en": "Not enough permissions",
+        "de": "Nicht genügend Berechtigungen"
+      },
+      "cause": {
+        "ru": "Это действие доступно только администратору или владельцу данных.",
+        "uk": "Ця дія доступна лише адміністратору або власнику даних.",
+        "en": "This action is only available to an administrator or the owner of the data.",
+        "de": "Diese Aktion steht nur einem Administrator oder dem Dateneigentümer zur Verfügung."
+      },
+      "action": {
+        "ru": "1. Войдите под учётной записью администратора.\n2. Или попросите администратора выполнить действие.",
+        "uk": "1. Увійдіть під обліковим записом адміністратора.\n2. Або попросіть адміністратора виконати дію.",
+        "en": "1. Sign in with an administrator account.\n2. Or ask an administrator to do it.",
+        "de": "1. Melden Sie sich mit einem Administratorkonto an.\n2. Oder bitten Sie einen Administrator, die Aktion auszuführen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-021",
+      "since": "1.9.0",
+      "tags": [
+        "account"
+      ]
+    },
+    {
+      "code": "JP-ACC-022",
+      "number": "004-001-022",
+      "key": "JP_ACC_AGE_TOO_YOUNG",
+      "aliases": [
+        "legal_age_too_young"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Поиск работы для этого возраста вести нельзя",
+        "uk": "Пошук роботи для цього віку вести не можна",
+        "en": "A job search cannot be run for this age",
+        "de": "Für dieses Alter kann keine Jobsuche geführt werden"
+      },
+      "cause": {
+        "ru": "Кандидату меньше 16 лет, поэтому программа не может вести его поиск работы.",
+        "uk": "Кандидату менше 16 років, тому програма не може вести його пошук роботи.",
+        "en": "The candidate is younger than 16, so the program cannot run their job search.",
+        "de": "Die Person ist jünger als 16 Jahre, daher kann das Programm ihre Jobsuche nicht führen."
+      },
+      "action": {
+        "ru": "1. Проверьте дату рождения в профиле.\n2. Если она введена неверно, исправьте её.",
+        "uk": "1. Перевірте дату народження в профілі.\n2. Якщо її введено неправильно, виправте.",
+        "en": "1. Check the date of birth in the profile.\n2. If it was entered wrongly, correct it.",
+        "de": "1. Prüfen Sie das Geburtsdatum im Profil.\n2. Wurde es falsch eingegeben, korrigieren Sie es."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-022",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "legal"
+      ]
+    },
+    {
+      "code": "JP-ACC-023",
+      "number": "004-001-023",
+      "key": "JP_ACC_PARENTAL_CONSENT",
+      "aliases": [
+        "legal_parental_consent_required"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно согласие родителей",
+        "uk": "Потрібна згода батьків",
+        "en": "Parental consent is needed",
+        "de": "Zustimmung der Eltern erforderlich"
+      },
+      "cause": {
+        "ru": "Кандидату 16–17 лет: для поиска работы нужно согласие родителей или законных представителей.",
+        "uk": "Кандидату 16–17 років: для пошуку роботи потрібна згода батьків або законних представників.",
+        "en": "The candidate is 16–17 years old: a job search needs the consent of parents or legal guardians.",
+        "de": "Die Person ist 16–17 Jahre alt: Für die Jobsuche ist die Zustimmung der Eltern oder gesetzlichen Vertreter nötig."
+      },
+      "action": {
+        "ru": "1. Получите согласие родителей.\n2. Отметьте его в профиле.",
+        "uk": "1. Отримайте згоду батьків.\n2. Позначте її в профілі.",
+        "en": "1. Obtain the parents’ consent.\n2. Record it in the profile.",
+        "de": "1. Holen Sie die Zustimmung der Eltern ein.\n2. Vermerken Sie sie im Profil."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-023",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "legal"
+      ]
+    },
+    {
+      "code": "JP-ACC-024",
+      "number": "004-001-024",
+      "key": "JP_ACC_RESET_BY_ADMIN",
+      "aliases": [
+        "reset_by_admin"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Пароль сбрасывает администратор",
+        "uk": "Пароль скидає адміністратор",
+        "en": "The administrator resets the password",
+        "de": "Das Passwort setzt der Administrator zurück"
+      },
+      "cause": {
+        "ru": "Почта для служебных писем не настроена, поэтому письмо для сброса пароля отправить нельзя.",
+        "uk": "Пошту для службових листів не налаштовано, тому лист для скидання пароля надіслати не можна.",
+        "en": "Mail for system messages is not set up, so the password reset email cannot be sent.",
+        "de": "Die Systemmail ist nicht eingerichtet, daher kann keine E-Mail zum Zurücksetzen des Passworts gesendet werden."
+      },
+      "action": {
+        "ru": "1. Попросите администратора сбросить пароль.\n2. Войдите с новым паролем.",
+        "uk": "1. Попросіть адміністратора скинути пароль.\n2. Увійдіть з новим паролем.",
+        "en": "1. Ask the administrator to reset your password.\n2. Sign in with the new password.",
+        "de": "1. Bitten Sie den Administrator, Ihr Passwort zurückzusetzen.\n2. Melden Sie sich mit dem neuen Passwort an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ACC-024",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "mail"
+      ]
     }
   ]
 }

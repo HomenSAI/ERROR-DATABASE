@@ -315,6 +315,384 @@
       "tags": [
         "ai"
       ]
+    },
+    {
+      "code": "JP-AI-007",
+      "number": "004-003-007",
+      "key": "JP_AI_MONTH_BUDGET_REACHED",
+      "aliases": [
+        "ai_daily_cap.ai_month_budget"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Месячный бюджет платного ИИ достигнут",
+        "uk": "Місячний бюджет платного ШІ досягнуто",
+        "en": "The monthly budget for paid AI is reached",
+        "de": "Das Monatsbudget für kostenpflichtige KI ist erreicht"
+      },
+      "cause": {
+        "ru": "Расход на ИИ за этот месяц дошёл до установленного вами предела, поэтому автоматические запросы к ИИ остановлены.",
+        "uk": "Витрати на ШІ за цей місяць дійшли до встановленого вами ліміту, тому автоматичні запити до ШІ зупинено.",
+        "en": "AI spending this month has reached the limit you set, so automatic AI requests are stopped.",
+        "de": "Die KI-Ausgaben dieses Monats haben Ihr festgelegtes Limit erreicht, daher sind automatische KI-Anfragen gestoppt."
+      },
+      "action": {
+        "ru": "1. Откройте настройки бюджета ИИ.\n2. Поднимите месячный предел или дождитесь следующего месяца.",
+        "uk": "1. Відкрийте налаштування бюджету ШІ.\n2. Підніміть місячний ліміт або дочекайтеся наступного місяця.",
+        "en": "1. Open the AI budget settings.\n2. Raise the monthly limit or wait for next month.",
+        "de": "1. Öffnen Sie die KI-Budgeteinstellungen.\n2. Erhöhen Sie das Monatslimit oder warten Sie auf den nächsten Monat."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-AI-007",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "budget"
+      ]
+    },
+    {
+      "code": "JP-AI-008",
+      "number": "004-003-008",
+      "key": "JP_AI_AUTO_STOPPED",
+      "aliases": [
+        "ai_daily_cap.ai_auto_stopped"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Автоматический ИИ остановлен после проверки цены",
+        "uk": "Автоматичний ШІ зупинено після перевірки ціни",
+        "en": "Automatic AI stopped after a price check",
+        "de": "Automatische KI nach Preisprüfung gestoppt"
+      },
+      "cause": {
+        "ru": "Программа остановила платные запросы к ИИ без вашего участия, потому что фактическая цена не сошлась с ожидаемой.",
+        "uk": "Програма зупинила платні запити до ШІ без вашої участі, бо фактична ціна не збіглася з очікуваною.",
+        "en": "The program stopped paid AI requests that run without you, because the actual price did not match the expected one.",
+        "de": "Das Programm hat kostenpflichtige KI-Anfragen ohne Ihr Zutun gestoppt, weil der tatsächliche Preis nicht zum erwarteten passte."
+      },
+      "action": {
+        "ru": "1. Проверьте расход в настройках бюджета ИИ.\n2. Нажмите «Продолжить», если всё в порядке.",
+        "uk": "1. Перевірте витрати в налаштуваннях бюджету ШІ.\n2. Натисніть «Продовжити», якщо все гаразд.",
+        "en": "1. Check the spending in the AI budget settings.\n2. Press “Continue” if everything is fine.",
+        "de": "1. Prüfen Sie die Ausgaben in den KI-Budgeteinstellungen.\n2. Klicken Sie auf „Fortsetzen“, wenn alles in Ordnung ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-AI-008",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "budget"
+      ]
+    },
+    {
+      "code": "JP-AI-009",
+      "number": "004-003-009",
+      "key": "JP_AI_COST_UNKNOWN",
+      "aliases": [
+        "ai_daily_cap.cost_bound_unavailable",
+        "ai_daily_cap.cost_unknown"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Цена запроса к ИИ неизвестна",
+        "uk": "Ціна запиту до ШІ невідома",
+        "en": "The price of the AI request is unknown",
+        "de": "Der Preis der KI-Anfrage ist unbekannt"
+      },
+      "cause": {
+        "ru": "Для выбранной модели нельзя заранее узнать верхнюю цену запроса или цена недавнего запроса неизвестна, поэтому автоматический запуск закрыт.",
+        "uk": "Для вибраної моделі не можна заздалегідь дізнатися верхню ціну запиту або ціна нещодавнього запиту невідома, тому автоматичний запуск закрито.",
+        "en": "The upper price of a request cannot be known in advance for the chosen model, or the price of a recent request is unknown, so automatic runs are closed.",
+        "de": "Für das gewählte Modell lässt sich der Höchstpreis einer Anfrage nicht vorab ermitteln oder der Preis einer letzten Anfrage ist unbekannt, daher sind automatische Läufe gesperrt."
+      },
+      "action": {
+        "ru": "1. Выберите другую модель с известной ценой.\n2. Или запустите действие вручную.",
+        "uk": "1. Виберіть іншу модель з відомою ціною.\n2. Або запустіть дію вручну.",
+        "en": "1. Choose another model with a known price.\n2. Or run the action by hand.",
+        "de": "1. Wählen Sie ein anderes Modell mit bekanntem Preis.\n2. Oder führen Sie die Aktion manuell aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-AI-009",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "budget"
+      ]
+    },
+    {
+      "code": "JP-AI-010",
+      "number": "004-003-010",
+      "key": "JP_AI_CONSENT_TEXT_REQUIRED",
+      "aliases": [
+        "binding.ai_consent_text_required"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно согласие на текущий текст",
+        "uk": "Потрібна згода на поточний текст",
+        "en": "Consent to the current text is required",
+        "de": "Zustimmung zum aktuellen Text erforderlich"
+      },
+      "cause": {
+        "ru": "Согласие на ИИ даётся на конкретный текст. Его нужно подтвердить именно для текущей редакции.",
+        "uk": "Згода на ШІ дається на конкретний текст. Її потрібно підтвердити саме для поточної редакції.",
+        "en": "Consent to AI is given to a specific text. It must be confirmed for the current version.",
+        "de": "Die Zustimmung zur KI bezieht sich auf einen bestimmten Text. Sie muss für die aktuelle Fassung bestätigt werden."
+      },
+      "action": {
+        "ru": "1. Откройте раздел «Настройки › ИИ».\n2. Прочтите текст и дайте согласие.",
+        "uk": "1. Відкрийте розділ «Налаштування › ШІ».\n2. Прочитайте текст і надайте згоду.",
+        "en": "1. Open “Settings › AI”.\n2. Read the text and give your consent.",
+        "de": "1. Öffnen Sie „Einstellungen › KI“.\n2. Lesen Sie den Text und stimmen Sie zu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-AI-010",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "consent"
+      ]
+    },
+    {
+      "code": "JP-AI-011",
+      "number": "004-003-011",
+      "key": "JP_AI_REVIEWER_SAME_MODEL",
+      "aliases": [
+        "review_model.reviewer_same_as_writer"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверяющая модель совпадает с пишущей",
+        "uk": "Модель-рецензент збігається з тією, що пише",
+        "en": "The reviewing model is the same as the writing one",
+        "de": "Prüfmodell ist dasselbe wie das schreibende"
+      },
+      "cause": {
+        "ru": "Вторая проверка полезна, только если её делает другая модель, а не та, что писала документы.",
+        "uk": "Друга перевірка корисна, лише якщо її робить інша модель, а не та, що писала документи.",
+        "en": "A second check only helps if a different model does it, not the one that wrote the documents.",
+        "de": "Eine zweite Prüfung hilft nur, wenn sie von einem anderen Modell gemacht wird als dem, das die Dokumente schrieb."
+      },
+      "action": {
+        "ru": "1. Откройте настройки проверок ИИ.\n2. Выберите для проверки другую модель.",
+        "uk": "1. Відкрийте налаштування перевірок ШІ.\n2. Виберіть для перевірки іншу модель.",
+        "en": "1. Open the AI check settings.\n2. Choose a different model for the check.",
+        "de": "1. Öffnen Sie die KI-Prüfeinstellungen.\n2. Wählen Sie ein anderes Modell für die Prüfung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-AI-011",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "review"
+      ]
+    },
+    {
+      "code": "JP-AI-012",
+      "number": "004-003-012",
+      "key": "JP_AI_REVIEW_UNAVAILABLE",
+      "aliases": [
+        "reviewer_not_configured",
+        "review_policy_not_configured",
+        "review_attempts_exhausted",
+        "review_budget_exhausted",
+        "review_unknown",
+        "ai_unknown"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Вторая проверка комплекта сейчас невозможна",
+        "uk": "Друга перевірка комплекту зараз неможлива",
+        "en": "The second check of the set is not possible now",
+        "de": "Die zweite Prüfung des Pakets ist jetzt nicht möglich"
+      },
+      "cause": {
+        "ru": "Проверяющая модель не подключена, у проверки закончились попытки или бюджет, либо исход прежнего запроса к ИИ неизвестен. Повторять запрос сама программа не станет.",
+        "uk": "Модель-рецензент не підключена, у перевірки закінчилися спроби або бюджет, або результат попереднього запиту до ШІ невідомий. Повторювати запит сама програма не буде.",
+        "en": "The reviewing model is not connected, the check ran out of attempts or budget, or the outcome of an earlier AI request is unknown. The program will not repeat the request on its own.",
+        "de": "Das Prüfmodell ist nicht verbunden, die Prüfung hat Versuche oder Budget aufgebraucht, oder der Ausgang einer früheren KI-Anfrage ist unbekannt. Das Programm wiederholt die Anfrage nicht von selbst."
+      },
+      "action": {
+        "ru": "1. Проверьте настройки проверок ИИ и бюджет.\n2. Решите, нужно ли повторить проверку, и запустите её сами.",
+        "uk": "1. Перевірте налаштування перевірок ШІ та бюджет.\n2. Вирішіть, чи потрібно повторити перевірку, і запустіть її самі.",
+        "en": "1. Check the AI check settings and the budget.\n2. Decide whether to repeat the check and start it yourself.",
+        "de": "1. Prüfen Sie die KI-Prüfeinstellungen und das Budget.\n2. Entscheiden Sie, ob die Prüfung wiederholt werden soll, und starten Sie sie selbst."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-AI-012",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "review"
+      ]
+    },
+    {
+      "code": "JP-AI-013",
+      "number": "004-003-013",
+      "key": "JP_AI_CONNECTION_BUSY",
+      "aliases": [
+        "refresh_busy",
+        "connection_changed"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Подключение к ИИ обновляется",
+        "uk": "Підключення до ШІ оновлюється",
+        "en": "The AI connection is being refreshed",
+        "de": "Die KI-Verbindung wird aktualisiert"
+      },
+      "cause": {
+        "ru": "Подключение к ИИ в этот момент обновляется или изменилось, поэтому запрос не выполнен.",
+        "uk": "Підключення до ШІ в цей момент оновлюється або змінилося, тому запит не виконано.",
+        "en": "The AI connection is being refreshed or has just changed, so the request was not carried out.",
+        "de": "Die KI-Verbindung wird gerade aktualisiert oder hat sich geändert, daher wurde die Anfrage nicht ausgeführt."
+      },
+      "action": {
+        "ru": "1. Подождите несколько секунд.\n2. Повторите действие.",
+        "uk": "1. Зачекайте кілька секунд.\n2. Повторіть дію.",
+        "en": "1. Wait a few seconds.\n2. Repeat the action.",
+        "de": "1. Warten Sie einige Sekunden.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-AI-013",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "connection"
+      ]
     }
   ]
 }

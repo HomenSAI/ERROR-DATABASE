@@ -439,6 +439,429 @@
       "tags": [
         "archive"
       ]
+    },
+    {
+      "code": "JP-ARCH-009",
+      "number": "004-008-009",
+      "key": "JP_ARCH_ACK_REQUIRED",
+      "aliases": [
+        "acknowledge.archive_encryption_ack"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно подтвердить, что вы понимаете риск",
+        "uk": "Потрібно підтвердити, що ви розумієте ризик",
+        "en": "You must confirm that you understand the risk",
+        "de": "Sie müssen bestätigen, dass Sie das Risiko verstehen"
+      },
+      "cause": {
+        "ru": "Без пароля и ключа восстановления зашифрованный архив не сможет открыть никто, даже разработчики.",
+        "uk": "Без пароля та ключа відновлення зашифрований архів не зможе відкрити ніхто, навіть розробники.",
+        "en": "Without the password and the recovery key nobody can open an encrypted archive, not even the developers.",
+        "de": "Ohne Passwort und Wiederherstellungsschlüssel kann niemand ein verschlüsseltes Archiv öffnen, auch nicht die Entwickler."
+      },
+      "action": {
+        "ru": "1. Сохраните пароль и ключ восстановления в надёжном месте.\n2. Поставьте отметку подтверждения и повторите.",
+        "uk": "1. Збережіть пароль і ключ відновлення в надійному місці.\n2. Поставте позначку підтвердження та повторіть.",
+        "en": "1. Keep the password and the recovery key in a safe place.\n2. Tick the confirmation box and repeat.",
+        "de": "1. Bewahren Sie Passwort und Wiederherstellungsschlüssel an einem sicheren Ort auf.\n2. Setzen Sie das Bestätigungshäkchen und wiederholen Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ARCH-009",
+      "since": "1.9.0",
+      "tags": [
+        "archive",
+        "encryption"
+      ]
+    },
+    {
+      "code": "JP-ARCH-010",
+      "number": "004-008-010",
+      "key": "JP_ARCH_ENCRYPTION_ALREADY_ON",
+      "aliases": [
+        "archive_encryption_already_enabled"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Шифрование архива уже включено",
+        "uk": "Шифрування архіву вже ввімкнено",
+        "en": "Archive encryption is already on",
+        "de": "Die Archivverschlüsselung ist bereits eingeschaltet"
+      },
+      "cause": {
+        "ru": "Повторно включать шифрование не нужно.",
+        "uk": "Повторно вмикати шифрування не потрібно.",
+        "en": "There is no need to turn encryption on again.",
+        "de": "Die Verschlüsselung muss nicht erneut eingeschaltet werden."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Продолжайте работу.",
+        "uk": "1. Оновіть сторінку.\n2. Продовжуйте роботу.",
+        "en": "1. Reload the page.\n2. Carry on.",
+        "de": "1. Laden Sie die Seite neu.\n2. Arbeiten Sie weiter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ARCH-010",
+      "since": "1.9.0",
+      "tags": [
+        "archive",
+        "encryption"
+      ]
+    },
+    {
+      "code": "JP-ARCH-011",
+      "number": "004-008-011",
+      "key": "JP_ARCH_ENCRYPTION_OFF",
+      "aliases": [
+        "archive_encryption_disabled"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Шифрование архива не включено",
+        "uk": "Шифрування архіву не ввімкнено",
+        "en": "Archive encryption is not on",
+        "de": "Die Archivverschlüsselung ist nicht eingeschaltet"
+      },
+      "cause": {
+        "ru": "Это действие нужно только при включённом шифровании архива.",
+        "uk": "Ця дія потрібна лише за ввімкненого шифрування архіву.",
+        "en": "This action is only needed when archive encryption is on.",
+        "de": "Diese Aktion ist nur bei eingeschalteter Archivverschlüsselung nötig."
+      },
+      "action": {
+        "ru": "1. Включите шифрование архива в настройках.\n2. Повторите действие.",
+        "uk": "1. Увімкніть шифрування архіву в налаштуваннях.\n2. Повторіть дію.",
+        "en": "1. Turn on archive encryption in the settings.\n2. Repeat the action.",
+        "de": "1. Schalten Sie die Archivverschlüsselung in den Einstellungen ein.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ARCH-011",
+      "since": "1.9.0",
+      "tags": [
+        "archive",
+        "encryption"
+      ]
+    },
+    {
+      "code": "JP-ARCH-012",
+      "number": "004-008-012",
+      "key": "JP_ARCH_PASSWORD_NEEDED",
+      "aliases": [
+        "password_protected.archive_encryption_requires_password"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Архив без пароля не создаётся",
+        "uk": "Архів без пароля не створюється",
+        "en": "An archive without a password is not created",
+        "de": "Ein Archiv ohne Passwort wird nicht erstellt"
+      },
+      "cause": {
+        "ru": "Шифрование архива включено, поэтому полный архив делается только с паролем.",
+        "uk": "Шифрування архіву ввімкнено, тому повний архів робиться лише з паролем.",
+        "en": "Archive encryption is on, so a full archive is only made with a password.",
+        "de": "Die Archivverschlüsselung ist eingeschaltet, daher wird ein vollständiges Archiv nur mit Passwort erstellt."
+      },
+      "action": {
+        "ru": "1. Введите пароль архива.\n2. Создайте архив снова.",
+        "uk": "1. Введіть пароль архіву.\n2. Створіть архів знову.",
+        "en": "1. Enter the archive password.\n2. Create the archive again.",
+        "de": "1. Geben Sie das Archivpasswort ein.\n2. Erstellen Sie das Archiv erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ARCH-012",
+      "since": "1.9.0",
+      "tags": [
+        "archive",
+        "encryption"
+      ]
+    },
+    {
+      "code": "JP-ARCH-013",
+      "number": "004-008-013",
+      "key": "JP_ARCH_INSTALL_KEY_MISSING",
+      "aliases": [
+        "archive_master_key_missing"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Ключ установки не настроен",
+        "uk": "Ключ установки не налаштовано",
+        "en": "The installation key is not set up",
+        "de": "Der Installationsschlüssel ist nicht eingerichtet"
+      },
+      "cause": {
+        "ru": "Без ключа установки шифрование архива недоступно.",
+        "uk": "Без ключа установки шифрування архіву недоступне.",
+        "en": "Archive encryption is not available without the installation key.",
+        "de": "Ohne Installationsschlüssel ist die Archivverschlüsselung nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. Попросите администратора проверить настройку ключа установки.\n2. Повторите действие.",
+        "uk": "1. Попросіть адміністратора перевірити налаштування ключа установки.\n2. Повторіть дію.",
+        "en": "1. Ask the administrator to check the installation key setup.\n2. Repeat the action.",
+        "de": "1. Bitten Sie den Administrator, die Einrichtung des Installationsschlüssels zu prüfen.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ARCH-013",
+      "since": "1.9.0",
+      "tags": [
+        "archive",
+        "encryption"
+      ]
+    },
+    {
+      "code": "JP-ARCH-014",
+      "number": "004-008-014",
+      "key": "JP_ARCH_RECOVERY_KEY_OLD",
+      "aliases": [
+        "archive_recovery_outdated"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Этот ключ восстановления уже заменён",
+        "uk": "Цей ключ відновлення вже замінено",
+        "en": "This recovery key has already been replaced",
+        "de": "Dieser Wiederherstellungsschlüssel wurde bereits ersetzt"
+      },
+      "cause": {
+        "ru": "Был создан более новый ключ восстановления, поэтому прежний больше не годится.",
+        "uk": "Було створено новіший ключ відновлення, тому попередній більше не годиться.",
+        "en": "A newer recovery key has been created, so the previous one is no longer valid.",
+        "de": "Es wurde ein neuerer Wiederherstellungsschlüssel erstellt, daher gilt der bisherige nicht mehr."
+      },
+      "action": {
+        "ru": "1. Используйте самый новый ключ восстановления.\n2. Если его нет, создайте новый в настройках архива.",
+        "uk": "1. Використайте найновіший ключ відновлення.\n2. Якщо його немає, створіть новий у налаштуваннях архіву.",
+        "en": "1. Use the newest recovery key.\n2. If you do not have it, create a new one in the archive settings.",
+        "de": "1. Verwenden Sie den neuesten Wiederherstellungsschlüssel.\n2. Haben Sie ihn nicht, erstellen Sie einen neuen in den Archiveinstellungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ARCH-014",
+      "since": "1.9.0",
+      "tags": [
+        "archive",
+        "encryption"
+      ]
+    },
+    {
+      "code": "JP-ARCH-015",
+      "number": "004-008-015",
+      "key": "JP_ARCH_SNAPSHOT_EXISTS",
+      "aliases": [
+        "archive_snapshot_collision"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Копия с таким временем уже есть",
+        "uk": "Копія з таким часом уже є",
+        "en": "A copy with this time already exists",
+        "de": "Eine Kopie mit dieser Zeit existiert bereits"
+      },
+      "cause": {
+        "ru": "Копия на это время уже создана. Предыдущая подтверждённая копия сохранена.",
+        "uk": "Копію на цей час уже створено. Попередню підтверджену копію збережено.",
+        "en": "A copy for this time has already been made. The previous confirmed copy is kept.",
+        "de": "Für diese Zeit wurde bereits eine Kopie erstellt. Die vorherige bestätigte Kopie bleibt erhalten."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Создайте копию снова.",
+        "uk": "1. Зачекайте хвилину.\n2. Створіть копію знову.",
+        "en": "1. Wait a minute.\n2. Make the copy again.",
+        "de": "1. Warten Sie eine Minute.\n2. Erstellen Sie die Kopie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-ARCH-015",
+      "since": "1.9.0",
+      "tags": [
+        "archive"
+      ]
+    },
+    {
+      "code": "JP-ARCH-016",
+      "number": "004-008-016",
+      "key": "JP_ARCH_ERASE_MODE_CHANGED",
+      "aliases": [
+        "erase_mode_changed"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Режим стирания изменился",
+        "uk": "Режим стирання змінився",
+        "en": "The erase mode has changed",
+        "de": "Der Löschmodus hat sich geändert"
+      },
+      "cause": {
+        "ru": "Пока вы подтверждали стирание, режим стирания изменили, поэтому подтверждение больше не действует.",
+        "uk": "Поки ви підтверджували стирання, режим стирання змінили, тому підтвердження більше не діє.",
+        "en": "While you were confirming the erasure, the erase mode was changed, so the confirmation is no longer valid.",
+        "de": "Während Sie das Löschen bestätigten, wurde der Löschmodus geändert, daher gilt die Bestätigung nicht mehr."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Подтвердите стирание заново.",
+        "uk": "1. Оновіть сторінку.\n2. Підтвердьте стирання заново.",
+        "en": "1. Reload the page.\n2. Confirm the erasure again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Bestätigen Sie das Löschen erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-ARCH-016",
+      "since": "1.9.0",
+      "tags": [
+        "archive",
+        "erase"
+      ]
     }
   ]
 }

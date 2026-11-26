@@ -314,6 +314,167 @@
       "tags": [
         "mail"
       ]
+    },
+    {
+      "code": "JP-MAIL-007",
+      "number": "004-002-007",
+      "key": "JP_MAIL_CLASSIFICATION_PENDING",
+      "aliases": [
+        "inbound_classification_pending"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо ещё разбирается",
+        "uk": "Лист ще розбирається",
+        "en": "The message is still being sorted",
+        "de": "Die Nachricht wird noch sortiert"
+      },
+      "cause": {
+        "ru": "Программа ещё определяет, к чему относится это письмо, или не уверена, чем закончился разбор.",
+        "uk": "Програма ще визначає, до чого належить цей лист, або не впевнена, чим закінчився розбір.",
+        "en": "The program is still working out what this message belongs to, or is not sure how the sorting ended.",
+        "de": "Das Programm klärt noch, wozu diese Nachricht gehört, oder ist unsicher, wie die Sortierung endete."
+      },
+      "action": {
+        "ru": "1. Подождите минуту и обновите страницу.\n2. Если не помогло, выберите разбор по правилам без ИИ.",
+        "uk": "1. Зачекайте хвилину й оновіть сторінку.\n2. Якщо не допомогло, виберіть розбір за правилами без ШІ.",
+        "en": "1. Wait a minute and reload the page.\n2. If that does not help, choose sorting by rules without AI.",
+        "de": "1. Warten Sie eine Minute und laden Sie die Seite neu.\n2. Hilft das nicht, wählen Sie die Sortierung nach Regeln ohne KI."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-007",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "inbox"
+      ]
+    },
+    {
+      "code": "JP-MAIL-008",
+      "number": "004-002-008",
+      "key": "JP_MAIL_ALREADY_SORTED",
+      "aliases": [
+        "classification_applied",
+        "stale_inbound_classification"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо уже разобрано",
+        "uk": "Лист уже розібрано",
+        "en": "The message has already been sorted",
+        "de": "Die Nachricht wurde bereits sortiert"
+      },
+      "cause": {
+        "ru": "Это письмо уже импортировано или разобрано другим действием.",
+        "uk": "Цей лист уже імпортовано або розібрано іншою дією.",
+        "en": "This message has already been imported or sorted by another action.",
+        "de": "Diese Nachricht wurde bereits importiert oder durch eine andere Aktion sortiert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте результат в списке писем.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте результат у списку листів.",
+        "en": "1. Reload the page.\n2. Check the result in the message list.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie das Ergebnis in der Nachrichtenliste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-MAIL-008",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "inbox"
+      ]
+    },
+    {
+      "code": "JP-MAIL-009",
+      "number": "004-002-009",
+      "key": "JP_MAIL_CHANGED",
+      "aliases": [
+        "inbound_source_changed",
+        "inbox_scope_changed"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо или настройки почты изменились",
+        "uk": "Лист або налаштування пошти змінилися",
+        "en": "The message or the mail settings have changed",
+        "de": "Die Nachricht oder die Mail-Einstellungen haben sich geändert"
+      },
+      "cause": {
+        "ru": "Пока шла проверка, письмо или настройки почтового ящика изменились, поэтому результат применять нельзя.",
+        "uk": "Поки йшла перевірка, лист або налаштування поштової скриньки змінилися, тому результат застосовувати не можна.",
+        "en": "While the check was running, the message or the mailbox settings changed, so the result cannot be applied.",
+        "de": "Während der Prüfung haben sich die Nachricht oder die Postfach-Einstellungen geändert, daher kann das Ergebnis nicht übernommen werden."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Запустите проверку почты ещё раз.",
+        "uk": "1. Оновіть сторінку.\n2. Запустіть перевірку пошти ще раз.",
+        "en": "1. Reload the page.\n2. Run the mail check again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Starten Sie die Postprüfung erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-MAIL-009",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "inbox"
+      ]
     }
   ]
 }

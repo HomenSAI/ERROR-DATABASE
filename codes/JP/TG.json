@@ -56,6 +56,58 @@
       "tags": [
         "telegram"
       ]
+    },
+    {
+      "code": "JP-TG-002",
+      "number": "004-010-002",
+      "key": "JP_TG_CHAT_ID_DIGITS",
+      "aliases": [
+        "chat_id.numeric_only"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Номер чата — только число",
+        "uk": "Номер чату — лише число",
+        "en": "The chat number must be a number",
+        "de": "Die Chat-Nummer muss eine Zahl sein"
+      },
+      "cause": {
+        "ru": "Номер чата Telegram состоит из цифр (у группы впереди минус). Имя канала сюда не подходит.",
+        "uk": "Номер чату Telegram складається з цифр (у групи попереду мінус). Назва каналу сюди не підходить.",
+        "en": "A Telegram chat number consists of digits (a group has a minus in front). A channel name does not fit here.",
+        "de": "Eine Telegram-Chat-Nummer besteht aus Ziffern (bei einer Gruppe mit vorangestelltem Minus). Ein Kanalname passt hier nicht."
+      },
+      "action": {
+        "ru": "1. Введите только цифры номера чата.\n2. Сохраните настройку.",
+        "uk": "1. Введіть лише цифри номера чату.\n2. Збережіть налаштування.",
+        "en": "1. Enter only the digits of the chat number.\n2. Save the setting.",
+        "de": "1. Geben Sie nur die Ziffern der Chat-Nummer ein.\n2. Speichern Sie die Einstellung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-TG-002",
+      "since": "1.9.0",
+      "tags": [
+        "telegram"
+      ]
     }
   ]
 }

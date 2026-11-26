@@ -1,0 +1,437 @@
+{
+  "namespace": "JP",
+  "area": "REST",
+  "codes": [
+    {
+      "code": "JP-REST-001",
+      "number": "004-013-001",
+      "key": "JP_REST_CONFIRM_REQUIRED",
+      "aliases": [
+        "restore_confirmation_required"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно подтвердить восстановление",
+        "uk": "Потрібно підтвердити відновлення",
+        "en": "The restore must be confirmed",
+        "de": "Die Wiederherstellung muss bestätigt werden"
+      },
+      "cause": {
+        "ru": "Установка восстановлена из архива. Администратор должен проверить данные и подтвердить, что работу можно продолжать.",
+        "uk": "Установку відновлено з архіву. Адміністратор має перевірити дані та підтвердити, що роботу можна продовжувати.",
+        "en": "The installation was restored from an archive. An administrator must check the data and confirm that work may continue.",
+        "de": "Die Installation wurde aus einem Archiv wiederhergestellt. Ein Administrator muss die Daten prüfen und bestätigen, dass die Arbeit fortgesetzt werden kann."
+      },
+      "action": {
+        "ru": "1. Войдите как администратор.\n2. Проверьте данные и подтвердите восстановление.",
+        "uk": "1. Увійдіть як адміністратор.\n2. Перевірте дані та підтвердьте відновлення.",
+        "en": "1. Sign in as an administrator.\n2. Check the data and confirm the restore.",
+        "de": "1. Melden Sie sich als Administrator an.\n2. Prüfen Sie die Daten und bestätigen Sie die Wiederherstellung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-REST-001",
+      "since": "1.9.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "JP-REST-002",
+      "number": "004-013-002",
+      "key": "JP_REST_AUTOMATION_HOLD",
+      "aliases": [
+        "restore_automation_confirmation_required"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Фоновые действия ещё не разрешены",
+        "uk": "Фонові дії ще не дозволено",
+        "en": "Background actions are not allowed yet",
+        "de": "Hintergrundaktionen sind noch nicht erlaubt"
+      },
+      "cause": {
+        "ru": "После восстановления фоновые действия остановлены, пока вы не подтвердите, что исходная установка больше не работает.",
+        "uk": "Після відновлення фонові дії зупинено, доки ви не підтвердите, що початкова установка більше не працює.",
+        "en": "After a restore, background actions stay stopped until you confirm that the original installation is no longer running.",
+        "de": "Nach einer Wiederherstellung bleiben Hintergrundaktionen gestoppt, bis Sie bestätigen, dass die ursprüngliche Installation nicht mehr läuft."
+      },
+      "action": {
+        "ru": "1. Убедитесь, что исходная установка выключена.\n2. Подтвердите разрешение фоновых действий в настройках.",
+        "uk": "1. Переконайтеся, що початкову установку вимкнено.\n2. Підтвердьте дозвіл фонових дій у налаштуваннях.",
+        "en": "1. Make sure the original installation is switched off.\n2. Confirm background actions in the settings.",
+        "de": "1. Stellen Sie sicher, dass die ursprüngliche Installation ausgeschaltet ist.\n2. Bestätigen Sie die Hintergrundaktionen in den Einstellungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-REST-002",
+      "since": "1.9.0",
+      "tags": [
+        "restore",
+        "automation"
+      ]
+    },
+    {
+      "code": "JP-REST-003",
+      "number": "004-013-003",
+      "key": "JP_REST_REFUSED",
+      "aliases": [
+        "database_restore_refused"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Восстановление остановлено",
+        "uk": "Відновлення зупинено",
+        "en": "The restore was stopped",
+        "de": "Die Wiederherstellung wurde gestoppt"
+      },
+      "cause": {
+        "ru": "Копия не прошла проверку, поэтому восстановление остановлено. Текущие данные и журнал сохранены.",
+        "uk": "Копія не пройшла перевірку, тому відновлення зупинено. Поточні дані та журнал збережено.",
+        "en": "The copy did not pass the check, so the restore was stopped. The current data and the log are kept.",
+        "de": "Die Kopie hat die Prüfung nicht bestanden, daher wurde die Wiederherstellung gestoppt. Die aktuellen Daten und das Protokoll bleiben erhalten."
+      },
+      "action": {
+        "ru": "1. Выберите другую копию.\n2. Повторите восстановление.",
+        "uk": "1. Виберіть іншу копію.\n2. Повторіть відновлення.",
+        "en": "1. Choose another copy.\n2. Repeat the restore.",
+        "de": "1. Wählen Sie eine andere Kopie.\n2. Wiederholen Sie die Wiederherstellung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-REST-003",
+      "since": "1.9.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "JP-REST-004",
+      "number": "004-013-004",
+      "key": "JP_REST_IN_USE",
+      "aliases": [
+        "runtime_in_use",
+        "runtime_lease_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Установка сейчас используется",
+        "uk": "Установка зараз використовується",
+        "en": "The installation is in use",
+        "de": "Die Installation wird gerade verwendet"
+      },
+      "cause": {
+        "ru": "Для восстановления нужен безопасный доступ ко всем данным, а установку сейчас использует другой процесс.",
+        "uk": "Для відновлення потрібен безпечний доступ до всіх даних, а установку зараз використовує інший процес.",
+        "en": "A restore needs safe access to all the data, but another process is using the installation.",
+        "de": "Für die Wiederherstellung wird sicherer Zugriff auf alle Daten benötigt, doch ein anderer Prozess nutzt die Installation."
+      },
+      "action": {
+        "ru": "1. Остановите программу полностью.\n2. Запустите восстановление ещё раз.",
+        "uk": "1. Зупиніть програму повністю.\n2. Запустіть відновлення ще раз.",
+        "en": "1. Stop the program completely.\n2. Start the restore again.",
+        "de": "1. Beenden Sie das Programm vollständig.\n2. Starten Sie die Wiederherstellung erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-REST-004",
+      "since": "1.9.0",
+      "tags": [
+        "restore"
+      ]
+    },
+    {
+      "code": "JP-REST-005",
+      "number": "004-013-005",
+      "key": "JP_REST_SNAPSHOT_UNCERTAIN",
+      "aliases": [
+        "db_snapshot_pointer_invalid",
+        "db_snapshot_pointer_mismatch",
+        "db_snapshot_pointer_missing",
+        "db_snapshot_selection_uncertain",
+        "db_snapshot_state_unavailable",
+        "db_snapshot_validation_unavailable"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Выбранная копия базы не подтверждена",
+        "uk": "Вибрану копію бази не підтверджено",
+        "en": "The chosen database copy is not confirmed",
+        "de": "Die gewählte Datenbankkopie ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Копия базы отсутствует, повреждена или не совпадает с сохранённым выбором. Прежние данные сохранены.",
+        "uk": "Копія бази відсутня, пошкоджена або не збігається зі збереженим вибором. Попередні дані збережено.",
+        "en": "The database copy is missing, damaged or does not match the saved choice. The previous data is kept.",
+        "de": "Die Datenbankkopie fehlt, ist beschädigt oder stimmt nicht mit der gespeicherten Auswahl überein. Die bisherigen Daten bleiben erhalten."
+      },
+      "action": {
+        "ru": "1. Создайте новую копию базы.\n2. Если ошибка повторяется, выберите более раннюю копию.",
+        "uk": "1. Створіть нову копію бази.\n2. Якщо помилка повторюється, виберіть ранішу копію.",
+        "en": "1. Make a new database copy.\n2. If the error repeats, choose an earlier copy.",
+        "de": "1. Erstellen Sie eine neue Datenbankkopie.\n2. Wiederholt sich der Fehler, wählen Sie eine frühere Kopie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-REST-005",
+      "since": "1.9.0",
+      "tags": [
+        "restore",
+        "archive"
+      ]
+    },
+    {
+      "code": "JP-REST-006",
+      "number": "004-013-006",
+      "key": "JP_REST_ITEM_NEEDS_REVIEW",
+      "aliases": [
+        "restored_requires_review",
+        "restored_item_missing"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Восстановленное письмо нужно проверить",
+        "uk": "Відновлений лист потрібно перевірити",
+        "en": "The restored message needs checking",
+        "de": "Die wiederhergestellte Nachricht muss geprüft werden"
+      },
+      "cause": {
+        "ru": "Для письма после восстановления не удалось надёжно определить владельца или исходное письмо удалено.",
+        "uk": "Для листа після відновлення не вдалося надійно визначити власника або початковий лист видалено.",
+        "en": "After the restore, the owner of the message could not be determined reliably, or the original message was removed.",
+        "de": "Nach der Wiederherstellung konnte der Besitzer der Nachricht nicht zuverlässig bestimmt werden, oder die ursprüngliche Nachricht wurde entfernt."
+      },
+      "action": {
+        "ru": "1. Откройте письмо и проверьте его.\n2. Отметьте результат вручную.",
+        "uk": "1. Відкрийте лист і перевірте його.\n2. Позначте результат вручну.",
+        "en": "1. Open the message and check it.\n2. Mark the result by hand.",
+        "de": "1. Öffnen Sie die Nachricht und prüfen Sie sie.\n2. Vermerken Sie das Ergebnis manuell."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-REST-006",
+      "since": "1.9.0",
+      "tags": [
+        "restore",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-REST-007",
+      "number": "004-013-007",
+      "key": "JP_REST_DRAFT_LOCKED",
+      "aliases": [
+        "vault_locked",
+        "vault_key_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сохранённые в браузере черновики закрыты",
+        "uk": "Збережені в браузері чернетки закрито",
+        "en": "Drafts saved in the browser are locked",
+        "de": "Im Browser gespeicherte Entwürfe sind gesperrt"
+      },
+      "cause": {
+        "ru": "Ключ защиты черновиков истёк, отозван или недоступен, поэтому восстановить черновики нельзя.",
+        "uk": "Ключ захисту чернеток закінчився, відкликаний або недоступний, тому відновити чернетки не можна.",
+        "en": "The key protecting the drafts has expired, been revoked or is unavailable, so the drafts cannot be restored.",
+        "de": "Der Schlüssel zum Schutz der Entwürfe ist abgelaufen, widerrufen oder nicht verfügbar, daher können die Entwürfe nicht wiederhergestellt werden."
+      },
+      "action": {
+        "ru": "1. Войдите в программу заново.\n2. Если не помогло, обратитесь к администратору.",
+        "uk": "1. Увійдіть у програму заново.\n2. Якщо не допомогло, зверніться до адміністратора.",
+        "en": "1. Sign in to the program again.\n2. If that does not help, contact the administrator.",
+        "de": "1. Melden Sie sich erneut im Programm an.\n2. Hilft das nicht, wenden Sie sich an den Administrator."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-REST-007",
+      "since": "1.9.0",
+      "tags": [
+        "restore",
+        "drafts"
+      ]
+    },
+    {
+      "code": "JP-REST-008",
+      "number": "004-013-008",
+      "key": "JP_REST_DRAFT_WAITING",
+      "aliases": [
+        "vault_checkpoint_required",
+        "vault_restore_confirmation_required",
+        "vault_exclusions_unavailable"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Восстановление черновиков пока недоступно",
+        "uk": "Відновлення чернеток поки недоступне",
+        "en": "Restoring drafts is not available yet",
+        "de": "Das Wiederherstellen von Entwürfen ist noch nicht möglich"
+      },
+      "cause": {
+        "ru": "Черновики можно вернуть только после проверки сохранённой контрольной точки и подтверждения восстановления.",
+        "uk": "Чернетки можна повернути лише після перевірки збереженої контрольної точки та підтвердження відновлення.",
+        "en": "Drafts can be restored only after the saved checkpoint is verified and the restore is confirmed.",
+        "de": "Entwürfe können erst nach Prüfung des gespeicherten Kontrollpunkts und Bestätigung der Wiederherstellung zurückgeholt werden."
+      },
+      "action": {
+        "ru": "1. Дождитесь, пока администратор подтвердит восстановление.\n2. Повторите попытку позже.",
+        "uk": "1. Дочекайтеся, поки адміністратор підтвердить відновлення.\n2. Повторіть спробу пізніше.",
+        "en": "1. Wait until the administrator confirms the restore.\n2. Try again later.",
+        "de": "1. Warten Sie, bis der Administrator die Wiederherstellung bestätigt.\n2. Versuchen Sie es später erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-REST-008",
+      "since": "1.9.0",
+      "tags": [
+        "restore",
+        "drafts"
+      ]
+    }
+  ]
+}

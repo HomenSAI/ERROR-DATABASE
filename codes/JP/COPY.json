@@ -1,0 +1,486 @@
+{
+  "namespace": "JP",
+  "area": "COPY",
+  "codes": [
+    {
+      "code": "JP-COPY-001",
+      "number": "004-011-001",
+      "key": "JP_COPY_NO_ADDRESS",
+      "aliases": [
+        "address.no_address"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Вторая почта не указана",
+        "uk": "Другу пошту не вказано",
+        "en": "No second mailbox is set",
+        "de": "Keine zweite Mailadresse angegeben"
+      },
+      "cause": {
+        "ru": "Копии писем приходят на вторую почту, но её адрес ещё не введён.",
+        "uk": "Копії листів надходять на другу пошту, але її адресу ще не введено.",
+        "en": "Copies of messages go to a second mailbox, but its address has not been entered yet.",
+        "de": "Kopien der Nachrichten gehen an eine zweite Mailadresse, aber diese wurde noch nicht eingegeben."
+      },
+      "action": {
+        "ru": "1. Откройте настройки копий.\n2. Укажите адрес второй почты.",
+        "uk": "1. Відкрийте налаштування копій.\n2. Вкажіть адресу другої пошти.",
+        "en": "1. Open the copy settings.\n2. Enter the address of the second mailbox.",
+        "de": "1. Öffnen Sie die Kopie-Einstellungen.\n2. Geben Sie die Adresse der zweiten Mailbox ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-COPY-001",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-COPY-002",
+      "number": "004-011-002",
+      "key": "JP_COPY_BAD_ADDRESS",
+      "aliases": [
+        "address.bad_address"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес второй почты неверный",
+        "uk": "Адреса другої пошти неправильна",
+        "en": "The second mailbox address is not valid",
+        "de": "Die Adresse der zweiten Mailbox ist ungültig"
+      },
+      "cause": {
+        "ru": "Введённый адрес не похож на адрес электронной почты.",
+        "uk": "Введена адреса не схожа на адресу електронної пошти.",
+        "en": "The address you entered does not look like an email address.",
+        "de": "Die eingegebene Adresse sieht nicht wie eine E-Mail-Adresse aus."
+      },
+      "action": {
+        "ru": "1. Проверьте адрес на опечатки.\n2. Введите его заново.",
+        "uk": "1. Перевірте адресу на описки.\n2. Введіть її заново.",
+        "en": "1. Check the address for typos.\n2. Enter it again.",
+        "de": "1. Prüfen Sie die Adresse auf Tippfehler.\n2. Geben Sie sie erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-COPY-002",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-COPY-003",
+      "number": "004-011-003",
+      "key": "JP_COPY_UNCONFIRMED",
+      "aliases": [
+        "address.unconfirmed"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Вторая почта не подтверждена",
+        "uk": "Другу пошту не підтверджено",
+        "en": "The second mailbox is not confirmed",
+        "de": "Die zweite Mailbox ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Копии идут только на подтверждённый адрес, а этот адрес ещё не подтверждён кодом.",
+        "uk": "Копії йдуть лише на підтверджену адресу, а ця адреса ще не підтверджена кодом.",
+        "en": "Copies only go to a confirmed address, and this address has not yet been confirmed with a code.",
+        "de": "Kopien gehen nur an eine bestätigte Adresse, und diese wurde noch nicht per Code bestätigt."
+      },
+      "action": {
+        "ru": "1. Запросите код подтверждения.\n2. Введите код из письма.",
+        "uk": "1. Запросіть код підтвердження.\n2. Введіть код із листа.",
+        "en": "1. Request a confirmation code.\n2. Enter the code from the email.",
+        "de": "1. Fordern Sie einen Bestätigungscode an.\n2. Geben Sie den Code aus der E-Mail ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-COPY-003",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-COPY-004",
+      "number": "004-011-004",
+      "key": "JP_COPY_CODE_TOO_SOON",
+      "aliases": [
+        "code.too_soon"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Новый код пока запросить нельзя",
+        "uk": "Новий код поки запросити не можна",
+        "en": "A new code cannot be requested yet",
+        "de": "Ein neuer Code kann noch nicht angefordert werden"
+      },
+      "cause": {
+        "ru": "Код только что отправлен. Новый можно запросить не раньше чем через минуту.",
+        "uk": "Код щойно надіслано. Новий можна запросити не раніше ніж за хвилину.",
+        "en": "A code has just been sent. A new one can be requested no sooner than after a minute.",
+        "de": "Ein Code wurde gerade gesendet. Ein neuer kann frühestens nach einer Minute angefordert werden."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Проверьте почту, включая папку «Спам».",
+        "uk": "1. Зачекайте хвилину.\n2. Перевірте пошту, зокрема папку «Спам».",
+        "en": "1. Wait a minute.\n2. Check your mail, including the spam folder.",
+        "de": "1. Warten Sie eine Minute.\n2. Prüfen Sie Ihre Mails, auch den Spam-Ordner."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-COPY-004",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-COPY-005",
+      "number": "004-011-005",
+      "key": "JP_COPY_CODE_DAY_LIMIT",
+      "aliases": [
+        "code.daily_limit"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Сегодня больше кодов не отправить",
+        "uk": "Сьогодні більше кодів не надіслати",
+        "en": "No more codes can be sent today",
+        "de": "Heute können keine weiteren Codes gesendet werden"
+      },
+      "cause": {
+        "ru": "За сутки можно отправить ограниченное число писем с кодом, чтобы никого не засыпать письмами с вашей почты.",
+        "uk": "За добу можна надіслати обмежену кількість листів із кодом, щоб нікого не засипати листами з вашої пошти.",
+        "en": "Only a limited number of code emails can be sent per day, so that nobody is flooded with messages from your mailbox.",
+        "de": "Pro Tag kann nur eine begrenzte Zahl von Code-Mails gesendet werden, damit niemand mit Nachrichten aus Ihrem Postfach überschwemmt wird."
+      },
+      "action": {
+        "ru": "1. Попробуйте завтра.\n2. Проверьте, что адрес введён верно.",
+        "uk": "1. Спробуйте завтра.\n2. Перевірте, що адресу введено правильно.",
+        "en": "1. Try again tomorrow.\n2. Check that the address is entered correctly.",
+        "de": "1. Versuchen Sie es morgen erneut.\n2. Prüfen Sie, ob die Adresse richtig eingegeben ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-COPY-005",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-COPY-006",
+      "number": "004-011-006",
+      "key": "JP_COPY_NO_CODE",
+      "aliases": [
+        "code.no_code"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Код ещё не запрошен",
+        "uk": "Код ще не запрошено",
+        "en": "No code has been requested yet",
+        "de": "Es wurde noch kein Code angefordert"
+      },
+      "cause": {
+        "ru": "Чтобы подтвердить адрес, сначала нужно запросить код, а потом ввести его.",
+        "uk": "Щоб підтвердити адресу, спершу потрібно запросити код, а потім ввести його.",
+        "en": "To confirm the address you first need to request a code and then enter it.",
+        "de": "Um die Adresse zu bestätigen, müssen Sie zuerst einen Code anfordern und ihn dann eingeben."
+      },
+      "action": {
+        "ru": "1. Нажмите «Запросить код».\n2. Введите код из письма.",
+        "uk": "1. Натисніть «Запросити код».\n2. Введіть код із листа.",
+        "en": "1. Press “Request code”.\n2. Enter the code from the email.",
+        "de": "1. Klicken Sie auf „Code anfordern“.\n2. Geben Sie den Code aus der E-Mail ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-COPY-006",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-COPY-007",
+      "number": "004-011-007",
+      "key": "JP_COPY_CODE_EXPIRED",
+      "aliases": [
+        "code.expired"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Срок действия кода истёк",
+        "uk": "Строк дії коду минув",
+        "en": "The code has expired",
+        "de": "Der Code ist abgelaufen"
+      },
+      "cause": {
+        "ru": "Код действует недолго, и это время уже прошло.",
+        "uk": "Код діє недовго, і цей час уже минув.",
+        "en": "The code is valid for a short time only, and that time has passed.",
+        "de": "Der Code ist nur kurz gültig, und diese Zeit ist vorbei."
+      },
+      "action": {
+        "ru": "1. Запросите новый код.\n2. Введите его сразу после получения.",
+        "uk": "1. Запросіть новий код.\n2. Введіть його одразу після отримання.",
+        "en": "1. Request a new code.\n2. Enter it right after you receive it.",
+        "de": "1. Fordern Sie einen neuen Code an.\n2. Geben Sie ihn gleich nach Erhalt ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-COPY-007",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-COPY-008",
+      "number": "004-011-008",
+      "key": "JP_COPY_CODE_WRONG",
+      "aliases": [
+        "code.wrong"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Код неверный",
+        "uk": "Код неправильний",
+        "en": "The code is wrong",
+        "de": "Der Code ist falsch"
+      },
+      "cause": {
+        "ru": "Введённый код не совпадает с отправленным. Осталось попыток: {attempts_left}.",
+        "uk": "Введений код не збігається з надісланим. Залишилося спроб: {attempts_left}.",
+        "en": "The code you entered does not match the one sent. Attempts left: {attempts_left}.",
+        "de": "Der eingegebene Code stimmt nicht mit dem gesendeten überein. Verbleibende Versuche: {attempts_left}."
+      },
+      "action": {
+        "ru": "1. Проверьте код в письме.\n2. Введите его ещё раз.",
+        "uk": "1. Перевірте код у листі.\n2. Введіть його ще раз.",
+        "en": "1. Check the code in the email.\n2. Enter it again.",
+        "de": "1. Prüfen Sie den Code in der E-Mail.\n2. Geben Sie ihn erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-COPY-008",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ],
+      "params": {
+        "attempts_left": "str"
+      }
+    },
+    {
+      "code": "JP-COPY-009",
+      "number": "004-011-009",
+      "key": "JP_COPY_CODE_ATTEMPTS",
+      "aliases": [
+        "code.attempts"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Попытки ввода кода кончились",
+        "uk": "Спроби введення коду скінчилися",
+        "en": "No code attempts are left",
+        "de": "Keine Versuche zur Codeeingabe mehr"
+      },
+      "cause": {
+        "ru": "Код введён неверно слишком много раз, поэтому он больше не действует.",
+        "uk": "Код введено неправильно забагато разів, тому він більше не діє.",
+        "en": "The code was entered wrongly too many times, so it is no longer valid.",
+        "de": "Der Code wurde zu oft falsch eingegeben und ist daher nicht mehr gültig."
+      },
+      "action": {
+        "ru": "1. Запросите новый код.\n2. Введите его внимательно.",
+        "uk": "1. Запросіть новий код.\n2. Введіть його уважно.",
+        "en": "1. Request a new code.\n2. Enter it carefully.",
+        "de": "1. Fordern Sie einen neuen Code an.\n2. Geben Sie ihn sorgfältig ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-COPY-009",
+      "since": "1.9.0",
+      "tags": [
+        "copy",
+        "mail"
+      ]
+    }
+  ]
+}
