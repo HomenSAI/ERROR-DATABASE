@@ -475,6 +475,271 @@
         "mail",
         "inbox"
       ]
+    },
+    {
+      "code": "JP-MAIL-010",
+      "number": "004-002-010",
+      "key": "JP_MAIL_SERVER_UNREACHABLE",
+      "aliases": [
+        "mail_unreachable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нет связи с почтовым сервером",
+        "uk": "Немає зв’язку з поштовим сервером",
+        "en": "No connection to the mail server",
+        "de": "Keine Verbindung zum Mailserver"
+      },
+      "cause": {
+        "ru": "Программа не смогла связаться с почтовым сервером. Причина может быть в названии сервера, номере порта, способе защиты соединения, в защитном сертификате сервера или в том, что сервер слишком долго не отвечал.",
+        "uk": "Програма не змогла зв’язатися з поштовим сервером. Причина може бути в назві сервера, номері порту, способі захисту з’єднання, захисному сертифікаті сервера або в тому, що сервер надто довго не відповідав.",
+        "en": "The program could not reach the mail server. The cause may be the server name, the port number, the connection protection mode, the server’s security certificate, or the server taking too long to answer.",
+        "de": "Das Programm konnte den Mailserver nicht erreichen. Ursache können Servername, Portnummer, Art der Verbindungssicherung, das Sicherheitszertifikat des Servers oder eine zu lange Wartezeit sein."
+      },
+      "action": {
+        "ru": "1. Проверьте название сервера и порт в настройках почты.\n2. Выберите способ защиты соединения, который указал ваш почтовый провайдер.\n3. Проверьте подключение к интернету и повторите проверку.",
+        "uk": "1. Перевірте назву сервера й порт у налаштуваннях пошти.\n2. Виберіть спосіб захисту з’єднання, який вказав ваш поштовий провайдер.\n3. Перевірте підключення до інтернету й повторіть перевірку.",
+        "en": "1. Check the server name and port in the mail settings.\n2. Choose the connection protection mode your mail provider specifies.\n3. Check your internet connection and run the check again.",
+        "de": "1. Prüfen Sie Servername und Port in den Mail-Einstellungen.\n2. Wählen Sie die Art der Verbindungssicherung, die Ihr Mail-Anbieter angibt.\n3. Prüfen Sie Ihre Internetverbindung und wiederholen Sie die Prüfung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-010",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-011",
+      "number": "004-002-011",
+      "key": "JP_MAIL_LOGIN_REJECTED",
+      "aliases": [
+        "mail_login_rejected"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Почтовый сервер не принял логин или пароль",
+        "uk": "Поштовий сервер не прийняв логін або пароль",
+        "en": "The mail server did not accept the login or password",
+        "de": "Der Mailserver hat Benutzername oder Passwort nicht akzeptiert"
+      },
+      "cause": {
+        "ru": "Сервер ответил, что имя или пароль не подходят. У многих провайдеров для программ нужен отдельный пароль приложения, а не обычный пароль от почты.",
+        "uk": "Сервер відповів, що ім’я або пароль не підходять. У багатьох провайдерів для програм потрібен окремий пароль застосунку, а не звичайний пароль від пошти.",
+        "en": "The server replied that the name or password does not fit. Many providers require a separate app password for programs, not the usual mailbox password.",
+        "de": "Der Server meldete, dass Name oder Passwort nicht passen. Viele Anbieter verlangen für Programme ein eigenes App-Passwort statt des üblichen Postfach-Passworts."
+      },
+      "action": {
+        "ru": "1. Проверьте имя пользователя и пароль в настройках почты.\n2. Если у провайдера есть пароли приложений, создайте такой пароль и введите его.\n3. Повторите проверку.",
+        "uk": "1. Перевірте ім’я користувача та пароль у налаштуваннях пошти.\n2. Якщо в провайдера є паролі застосунків, створіть такий пароль і введіть його.\n3. Повторіть перевірку.",
+        "en": "1. Check the user name and password in the mail settings.\n2. If your provider offers app passwords, create one and enter it.\n3. Run the check again.",
+        "de": "1. Prüfen Sie Benutzername und Passwort in den Mail-Einstellungen.\n2. Bietet Ihr Anbieter App-Passwörter, erstellen Sie eines und geben Sie es ein.\n3. Wiederholen Sie die Prüfung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-011",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-012",
+      "number": "004-002-012",
+      "key": "JP_MAIL_INSECURE_REMOTE",
+      "aliases": [
+        "mail_insecure"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Без шифрования почта допускается только в своей сети",
+        "uk": "Без шифрування пошта допускається лише у своїй мережі",
+        "en": "Mail without encryption is only allowed in your own network",
+        "de": "Mail ohne Verschlüsselung ist nur im eigenen Netz erlaubt"
+      },
+      "cause": {
+        "ru": "Без защиты соединения пароль передавался бы открытым текстом, поэтому для внешнего сервера программа такой способ не разрешает.",
+        "uk": "Без захисту з’єднання пароль передавався б відкритим текстом, тому для зовнішнього сервера програма такий спосіб не дозволяє.",
+        "en": "Without protecting the connection the password would travel as plain text, so the program does not allow this for an outside server.",
+        "de": "Ohne Verbindungssicherung würde das Passwort im Klartext übertragen, daher erlaubt das Programm dies für einen externen Server nicht."
+      },
+      "action": {
+        "ru": "1. Откройте настройки почты.\n2. Выберите защиту соединения SSL или STARTTLS.\n3. Повторите проверку.",
+        "uk": "1. Відкрийте налаштування пошти.\n2. Виберіть захист з’єднання SSL або STARTTLS.\n3. Повторіть перевірку.",
+        "en": "1. Open the mail settings.\n2. Choose SSL or STARTTLS as the connection protection.\n3. Run the check again.",
+        "de": "1. Öffnen Sie die Mail-Einstellungen.\n2. Wählen Sie SSL oder STARTTLS als Verbindungssicherung.\n3. Wiederholen Sie die Prüfung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-012",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-013",
+      "number": "004-002-013",
+      "key": "JP_MAIL_FOLDER_MISSING",
+      "aliases": [
+        "mail_folder_missing"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужной папки в почтовом ящике нет",
+        "uk": "Потрібної папки в поштовій скриньці немає",
+        "en": "The needed folder is not in the mailbox",
+        "de": "Der benötigte Ordner fehlt im Postfach"
+      },
+      "cause": {
+        "ru": "Папка, указанная в настройках (входящие или отправленные), не найдена или недоступна в ящике.",
+        "uk": "Папку, указану в налаштуваннях (вхідні або надіслані), не знайдено або вона недоступна в скриньці.",
+        "en": "The folder given in the settings (inbox or sent) was not found or is not available in the mailbox.",
+        "de": "Der in den Einstellungen angegebene Ordner (Posteingang oder Gesendet) wurde im Postfach nicht gefunden oder ist nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. Откройте настройки почты.\n2. Укажите папку, которая есть в вашем ящике.\n3. Повторите проверку.",
+        "uk": "1. Відкрийте налаштування пошти.\n2. Вкажіть папку, яка є у вашій скриньці.\n3. Повторіть перевірку.",
+        "en": "1. Open the mail settings.\n2. Enter a folder that exists in your mailbox.\n3. Run the check again.",
+        "de": "1. Öffnen Sie die Mail-Einstellungen.\n2. Geben Sie einen Ordner an, der in Ihrem Postfach vorhanden ist.\n3. Wiederholen Sie die Prüfung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-013",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-014",
+      "number": "004-002-014",
+      "key": "JP_MAIL_MESSAGE_REFUSED",
+      "aliases": [
+        "mail_rejected"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Почтовый сервер отклонил письмо",
+        "uk": "Поштовий сервер відхилив лист",
+        "en": "The mail server refused the message",
+        "de": "Der Mailserver hat die Nachricht abgelehnt"
+      },
+      "cause": {
+        "ru": "Сервер явно ответил, что не принимает это письмо, поэтому оно не отправлено.",
+        "uk": "Сервер прямо відповів, що не приймає цей лист, тому його не надіслано.",
+        "en": "The server stated clearly that it does not accept this message, so it was not sent.",
+        "de": "Der Server hat ausdrücklich gemeldet, dass er diese Nachricht nicht annimmt, daher wurde sie nicht gesendet."
+      },
+      "action": {
+        "ru": "1. Проверьте адрес получателя и размер вложений.\n2. Проверьте настройки почты и отправьте письмо снова.",
+        "uk": "1. Перевірте адресу отримувача та розмір вкладень.\n2. Перевірте налаштування пошти й надішліть лист знову.",
+        "en": "1. Check the recipient address and the size of the attachments.\n2. Check the mail settings and send the message again.",
+        "de": "1. Prüfen Sie die Empfängeradresse und die Größe der Anhänge.\n2. Prüfen Sie die Mail-Einstellungen und senden Sie die Nachricht erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-014",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "send"
+      ]
     }
   ]
 }
