@@ -1,0 +1,864 @@
+{
+  "namespace": "JP",
+  "area": "SEND",
+  "codes": [
+    {
+      "code": "JP-SEND-001",
+      "number": "004-006-001",
+      "key": "JP_DO_NOT_CONTACT",
+      "aliases": [
+        "do_not_contact"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Получатель в списке «не писать сюда»",
+        "uk": "Одержувач у списку «не писати сюди»",
+        "en": "The recipient is on the “do not contact” list",
+        "de": "Der Empfänger steht auf der Liste „nicht anschreiben“"
+      },
+      "cause": {
+        "ru": "Вы внесли {value} в список «не писать сюда», поэтому письмо не отправлено.",
+        "uk": "Ви внесли {value} до списку «не писати сюди», тому лист не надіслано.",
+        "en": "You added {value} to the “do not contact” list, so the message was not sent.",
+        "de": "Sie haben {value} auf die Liste „nicht anschreiben“ gesetzt, daher wurde die Nachricht nicht gesendet."
+      },
+      "action": {
+        "ru": "1. Хотите всё же написать — откройте «Настройки › Правила».\n2. Уберите запись из списка и отправьте снова.",
+        "uk": "1. Хочете все ж написати — відкрийте «Налаштування › Правила».\n2. Приберіть запис зі списку й надішліть знову.",
+        "en": "1. Still want to write? Open “Settings › Rules”.\n2. Remove the entry from the list and send again.",
+        "de": "1. Trotzdem schreiben? Öffnen Sie „Einstellungen › Regeln“.\n2. Entfernen Sie den Eintrag und senden Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "value": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-001",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-002",
+      "number": "004-006-002",
+      "key": "JP_PORTAL_APPLICATION",
+      "aliases": [
+        "portal"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Отклик — через портал",
+        "uk": "Відгук — через портал",
+        "en": "This application goes through a portal",
+        "de": "Diese Bewerbung läuft über ein Portal"
+      },
+      "cause": {
+        "ru": "Для этой заявки почта отключена: работодатель принимает отклики на своём сайте.",
+        "uk": "Для цієї заявки пошту вимкнено: роботодавець приймає відгуки на своєму сайті.",
+        "en": "E-mail is turned off for this application: the employer accepts applications on its website.",
+        "de": "Für diese Bewerbung ist E-Mail abgeschaltet: Der Arbeitgeber nimmt Bewerbungen auf seiner Website an."
+      },
+      "action": {
+        "ru": "1. Отправьте отклик сами на сайте работодателя.\n2. Нажмите «Отправлено вручную».",
+        "uk": "1. Надішліть відгук самі на сайті роботодавця.\n2. Натисніть «Надіслано вручну».",
+        "en": "1. Apply yourself on the employer’s website.\n2. Click “Sent manually”.",
+        "de": "1. Bewerben Sie sich selbst auf der Website des Arbeitgebers.\n2. Klicken Sie auf „Manuell gesendet“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-002",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "portal"
+      ]
+    },
+    {
+      "code": "JP-SEND-003",
+      "number": "004-006-003",
+      "key": "JP_SEND_OUTCOME_UNCERTAIN",
+      "aliases": [
+        "send_uncertain"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Неизвестно, ушло ли письмо",
+        "uk": "Невідомо, чи пішов лист",
+        "en": "It is unknown whether the message was sent",
+        "de": "Unklar, ob die Nachricht gesendet wurde"
+      },
+      "cause": {
+        "ru": "Связь с почтовым сервером оборвалась во время отправки. Программа не отправляет письмо повторно сама, чтобы не послать его дважды.",
+        "uk": "Зв’язок із поштовим сервером обірвався під час надсилання. Програма не надсилає лист повторно сама, щоб не надіслати його двічі.",
+        "en": "The connection to the mail server broke during sending. The program does not resend on its own, so that the message is not sent twice.",
+        "de": "Die Verbindung zum Mailserver brach beim Senden ab. Das Programm sendet nicht selbst erneut, damit die Nachricht nicht doppelt ankommt."
+      },
+      "action": {
+        "ru": "1. Проверьте папку «Отправленные» в своей почте.\n2. Письмо там есть — отметьте его отправленным.\n3. Нет — отправьте ещё раз.",
+        "uk": "1. Перевірте папку «Надіслані» у своїй пошті.\n2. Лист там є — позначте його надісланим.\n3. Немає — надішліть ще раз.",
+        "en": "1. Check the “Sent” folder in your mailbox.\n2. The message is there? Mark it as sent.\n3. It is not? Send it again.",
+        "de": "1. Prüfen Sie den Ordner „Gesendet“ in Ihrem Postfach.\n2. Die Nachricht ist dort? Markieren Sie sie als gesendet.\n3. Nicht dort? Senden Sie sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SEND-003",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-004",
+      "number": "004-006-004",
+      "key": "JP_SEND_STOPPED",
+      "aliases": [
+        "send_stopped"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Отправка остановлена",
+        "uk": "Надсилання зупинено",
+        "en": "Sending was stopped",
+        "de": "Senden wurde angehalten"
+      },
+      "cause": {
+        "ru": "Включён аварийный останов или проверки перед отправкой не пройдены; письмо не ушло.",
+        "uk": "Увімкнено аварійну зупинку або перевірки перед надсиланням не пройдено; лист не пішов.",
+        "en": "The emergency stop is on or the checks before sending failed; the message was not sent.",
+        "de": "Der Not-Halt ist an oder die Prüfungen vor dem Senden sind nicht bestanden; die Nachricht wurde nicht gesendet."
+      },
+      "action": {
+        "ru": "1. Проверьте красную кнопку аварийного останова в шапке.\n2. Откройте заявку и посмотрите причину.\n3. Исправьте и отправьте снова.",
+        "uk": "1. Перевірте червону кнопку аварійної зупинки в шапці.\n2. Відкрийте заявку й подивіться причину.\n3. Виправте й надішліть знову.",
+        "en": "1. Check the red emergency stop button in the header.\n2. Open the application and see the reason.\n3. Fix it and send again.",
+        "de": "1. Prüfen Sie die rote Not-Halt-Taste in der Kopfzeile.\n2. Öffnen Sie die Bewerbung und sehen Sie den Grund.\n3. Beheben Sie ihn und senden Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SEND-004",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-005",
+      "number": "004-006-005",
+      "key": "JP_FREE_MAIL_DOMAIN",
+      "aliases": [
+        "free_mail"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Это общая почтовая служба",
+        "uk": "Це загальна поштова служба",
+        "en": "This is a public e-mail service",
+        "de": "Das ist ein öffentlicher E-Mail-Dienst"
+      },
+      "cause": {
+        "ru": "Запретить можно компанию, а не всю почтовую службу вроде общих бесплатных ящиков.",
+        "uk": "Заборонити можна компанію, а не всю поштову службу на кшталт загальних безкоштовних скриньок.",
+        "en": "You can block a company, not a whole public free mail service.",
+        "de": "Sperren lässt sich ein Unternehmen, nicht ein ganzer öffentlicher Gratis-Maildienst."
+      },
+      "action": {
+        "ru": "1. Впишите адрес целиком (с именем до знака @).",
+        "uk": "1. Впишіть адресу повністю (з іменем до знака @).",
+        "en": "1. Enter the full address (with the name before the @ sign).",
+        "de": "1. Geben Sie die vollständige Adresse ein (mit dem Namen vor dem @-Zeichen)."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-005",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "rules"
+      ]
+    },
+    {
+      "code": "JP-SEND-006",
+      "number": "004-006-006",
+      "key": "JP_APPLICATION_NOT_REOPENABLE",
+      "aliases": [
+        "not_reopenable"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Заявку нельзя вернуть в работу",
+        "uk": "Заявку не можна повернути в роботу",
+        "en": "The application cannot be reopened",
+        "de": "Die Bewerbung kann nicht wieder aufgenommen werden"
+      },
+      "cause": {
+        "ru": "Вернуть в работу можно только отозванную заявку, которая ещё не отправлялась.",
+        "uk": "Повернути в роботу можна лише відкликану заявку, яку ще не надсилали.",
+        "en": "Only a withdrawn application that has not been sent can be reopened.",
+        "de": "Nur eine zurückgezogene, noch nicht gesendete Bewerbung kann wieder aufgenommen werden."
+      },
+      "action": {
+        "ru": "1. Для этой вакансии создайте новую заявку, если нужно.",
+        "uk": "1. Для цієї вакансії створіть нову заявку, якщо потрібно.",
+        "en": "1. Create a new application for this vacancy if needed.",
+        "de": "1. Legen Sie bei Bedarf eine neue Bewerbung für diese Stelle an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SEND-006",
+      "since": "1.9.0",
+      "tags": [
+        "applications"
+      ]
+    },
+    {
+      "code": "JP-SEND-007",
+      "number": "004-006-007",
+      "key": "JP_SEND_TIME_PAST",
+      "aliases": [
+        "scheduled_send_at.past"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Это время уже прошло",
+        "uk": "Цей час уже минув",
+        "en": "That time has already passed",
+        "de": "Dieser Zeitpunkt liegt bereits in der Vergangenheit"
+      },
+      "cause": {
+        "ru": "Отправку нельзя запланировать на прошедшее время.",
+        "uk": "Надсилання не можна запланувати на минулий час.",
+        "en": "Sending cannot be scheduled for a time in the past.",
+        "de": "Das Senden kann nicht für einen vergangenen Zeitpunkt geplant werden."
+      },
+      "action": {
+        "ru": "1. Выберите время в будущем.\n2. Сохраните расписание ещё раз.",
+        "uk": "1. Виберіть час у майбутньому.\n2. Збережіть розклад ще раз.",
+        "en": "1. Choose a time in the future.\n2. Save the schedule again.",
+        "de": "1. Wählen Sie einen Zeitpunkt in der Zukunft.\n2. Speichern Sie den Zeitplan erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-007",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "schedule"
+      ]
+    },
+    {
+      "code": "JP-SEND-008",
+      "number": "004-006-008",
+      "key": "JP_SEND_TIME_TOO_FAR",
+      "aliases": [
+        "scheduled_send_at.far"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Дата слишком далеко",
+        "uk": "Дата надто далеко",
+        "en": "The date is too far away",
+        "de": "Das Datum liegt zu weit in der Zukunft"
+      },
+      "cause": {
+        "ru": "Отправку можно запланировать не дальше чем на год вперёд.",
+        "uk": "Надсилання можна запланувати не далі ніж на рік уперед.",
+        "en": "Sending can be scheduled at most one year ahead.",
+        "de": "Das Senden kann höchstens ein Jahr im Voraus geplant werden."
+      },
+      "action": {
+        "ru": "1. Выберите более близкую дату.\n2. Сохраните расписание ещё раз.",
+        "uk": "1. Виберіть ближчу дату.\n2. Збережіть розклад ще раз.",
+        "en": "1. Choose a closer date.\n2. Save the schedule again.",
+        "de": "1. Wählen Sie ein näheres Datum.\n2. Speichern Sie den Zeitplan erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-008",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "schedule"
+      ]
+    },
+    {
+      "code": "JP-SEND-009",
+      "number": "004-006-009",
+      "key": "JP_SEND_DAY_LIMIT",
+      "aliases": [
+        "scheduled_send_at.day"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "На это время уже набран дневной предел",
+        "uk": "На цей час уже набрано денну межу",
+        "en": "The daily limit is already filled for that time",
+        "de": "Das Tageslimit für diesen Zeitpunkt ist schon erreicht"
+      },
+      "cause": {
+        "ru": "За сутки вокруг выбранного времени уже запланировано или отправлено столько писем, сколько разрешает ваш дневной предел ({limit}).",
+        "uk": "За добу навколо вибраного часу вже заплановано або надіслано стільки листів, скільки дозволяє ваша денна межа ({limit}).",
+        "en": "Around the chosen time, as many messages are already scheduled or sent as your daily limit ({limit}) allows.",
+        "de": "Rund um den gewählten Zeitpunkt sind bereits so viele Nachrichten geplant oder gesendet, wie Ihr Tageslimit ({limit}) erlaubt."
+      },
+      "action": {
+        "ru": "1. Выберите другое время.\n2. Или поднимите дневной предел в настройках.",
+        "uk": "1. Виберіть інший час.\n2. Або підніміть денну межу в налаштуваннях.",
+        "en": "1. Choose another time.\n2. Or raise the daily limit in the settings.",
+        "de": "1. Wählen Sie einen anderen Zeitpunkt.\n2. Oder erhöhen Sie das Tageslimit in den Einstellungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-009",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "schedule",
+        "limits"
+      ],
+      "params": {
+        "limit": "str"
+      }
+    },
+    {
+      "code": "JP-SEND-010",
+      "number": "004-006-010",
+      "key": "JP_SEND_MONTH_LIMIT",
+      "aliases": [
+        "scheduled_send_at.month"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Месячный предел писем достигнут",
+        "uk": "Місячну межу листів досягнуто",
+        "en": "The monthly limit of messages is reached",
+        "de": "Das Monatslimit für Nachrichten ist erreicht"
+      },
+      "cause": {
+        "ru": "В выбранном месяце уже запланировано или отправлено столько писем, сколько разрешает месячный предел ({limit}).",
+        "uk": "У вибраному місяці вже заплановано або надіслано стільки листів, скільки дозволяє місячна межа ({limit}).",
+        "en": "In the chosen month, as many messages are already scheduled or sent as the monthly limit ({limit}) allows.",
+        "de": "Im gewählten Monat sind bereits so viele Nachrichten geplant oder gesendet, wie das Monatslimit ({limit}) erlaubt."
+      },
+      "action": {
+        "ru": "1. Выберите дату в следующем месяце.\n2. Или поднимите месячный предел в настройках.",
+        "uk": "1. Виберіть дату наступного місяця.\n2. Або підніміть місячну межу в налаштуваннях.",
+        "en": "1. Choose a date in the next month.\n2. Or raise the monthly limit in the settings.",
+        "de": "1. Wählen Sie ein Datum im nächsten Monat.\n2. Oder erhöhen Sie das Monatslimit in den Einstellungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-010",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "schedule",
+        "limits"
+      ],
+      "params": {
+        "limit": "str"
+      }
+    },
+    {
+      "code": "JP-SEND-011",
+      "number": "004-006-011",
+      "key": "JP_SEND_COMPANY_LIMIT",
+      "aliases": [
+        "per_company_limit.per_company_limit"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В эту фирму уже написано достаточно раз",
+        "uk": "До цієї фірми вже написано достатньо разів",
+        "en": "Enough messages have already gone to this company",
+        "de": "An diese Firma wurde schon genug geschrieben"
+      },
+      "cause": {
+        "ru": "За последние {days} дн. в эту фирму уже ушло {sent} заявок, а ваш предел — {limit}. Письмо не отправлено.",
+        "uk": "За останні {days} дн. до цієї фірми вже пішло {sent} заявок, а ваша межа — {limit}. Лист не надіслано.",
+        "en": "In the last {days} days {sent} applications have already gone to this company, and your limit is {limit}. The message was not sent.",
+        "de": "In den letzten {days} Tagen gingen bereits {sent} Bewerbungen an diese Firma, Ihr Limit ist {limit}. Die Nachricht wurde nicht gesendet."
+      },
+      "action": {
+        "ru": "1. Подождите, пока пройдёт этот срок.\n2. Или измените предел для одной фирмы в настройках.",
+        "uk": "1. Зачекайте, поки мине цей строк.\n2. Або змініть межу для однієї фірми в налаштуваннях.",
+        "en": "1. Wait until this period has passed.\n2. Or change the per-company limit in the settings.",
+        "de": "1. Warten Sie, bis diese Frist vorbei ist.\n2. Oder ändern Sie das Limit je Firma in den Einstellungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-011",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "limits"
+      ],
+      "params": {
+        "days": "str",
+        "sent": "str",
+        "limit": "str"
+      }
+    },
+    {
+      "code": "JP-SEND-012",
+      "number": "004-006-012",
+      "key": "JP_SEND_IN_PROGRESS",
+      "aliases": [
+        "sending"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо ещё отправляется",
+        "uk": "Лист ще надсилається",
+        "en": "The message is still being sent",
+        "de": "Die Nachricht wird noch gesendet"
+      },
+      "cause": {
+        "ru": "Отправка этого письма началась недавно и ещё не закончилась. Повторять её сейчас нельзя: письмо могло бы уйти дважды.",
+        "uk": "Надсилання цього листа почалося нещодавно й ще не закінчилося. Повторювати його зараз не можна: лист міг би піти двічі.",
+        "en": "Sending of this message started recently and has not finished. It cannot be repeated now: the message could go out twice.",
+        "de": "Das Senden dieser Nachricht hat vor Kurzem begonnen und ist noch nicht beendet. Ein erneutes Senden ist jetzt nicht möglich, die Nachricht könnte doppelt ankommen."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Обновите страницу и посмотрите, что с письмом.",
+        "uk": "1. Зачекайте хвилину.\n2. Оновіть сторінку та подивіться, що з листом.",
+        "en": "1. Wait a minute.\n2. Reload the page and see what happened to the message.",
+        "de": "1. Warten Sie eine Minute.\n2. Laden Sie die Seite neu und sehen Sie nach, was mit der Nachricht ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-SEND-012",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-013",
+      "number": "004-006-013",
+      "key": "JP_SEND_NOT_ACCEPTED",
+      "aliases": [
+        "send_not_accepted"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Почтовый сервер не принял письмо",
+        "uk": "Поштовий сервер не прийняв лист",
+        "en": "The mail server did not accept the message",
+        "de": "Der Mailserver hat die Nachricht nicht angenommen"
+      },
+      "cause": {
+        "ru": "Сервер ответил, что не принял это письмо. Можно разрешить ещё одну попытку отправки.",
+        "uk": "Сервер відповів, що не прийняв цей лист. Можна дозволити ще одну спробу надсилання.",
+        "en": "The server replied that it did not accept this message. One more sending attempt can be allowed.",
+        "de": "Der Server meldete, dass er diese Nachricht nicht angenommen hat. Ein weiterer Sendeversuch kann erlaubt werden."
+      },
+      "action": {
+        "ru": "1. Проверьте настройки почты.\n2. Разрешите одну повторную попытку отправки.",
+        "uk": "1. Перевірте налаштування пошти.\n2. Дозвольте одну повторну спробу надсилання.",
+        "en": "1. Check the mail settings.\n2. Allow one more sending attempt.",
+        "de": "1. Prüfen Sie die Mail-Einstellungen.\n2. Erlauben Sie einen weiteren Sendeversuch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SEND-013",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-014",
+      "number": "004-006-014",
+      "key": "JP_SEND_ALREADY_RESOLVED",
+      "aliases": [
+        "send_resolved",
+        "send_already_recorded"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Исход отправки уже известен",
+        "uk": "Результат надсилання вже відомий",
+        "en": "The outcome of this sending is already known",
+        "de": "Der Ausgang dieses Sendens steht bereits fest"
+      },
+      "cause": {
+        "ru": "Для этого письма уже отмечено, ушло оно или нет, поэтому отметить это ещё раз нельзя.",
+        "uk": "Для цього листа вже позначено, пішов він чи ні, тому позначити це ще раз не можна.",
+        "en": "It has already been recorded whether this message went out, so this cannot be recorded again.",
+        "de": "Für diese Nachricht ist bereits vermerkt, ob sie gesendet wurde, daher kann das nicht noch einmal vermerkt werden."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте состояние письма.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте стан листа.",
+        "en": "1. Reload the page.\n2. Check the state of the message.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie den Zustand der Nachricht."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SEND-014",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-015",
+      "number": "004-006-015",
+      "key": "JP_SEND_RETRY_CLOSED",
+      "aliases": [
+        "send_abandoned",
+        "send_retry_exhausted"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Повторная отправка закрыта",
+        "uk": "Повторне надсилання закрито",
+        "en": "Sending again is closed",
+        "de": "Erneutes Senden ist gesperrt"
+      },
+      "cause": {
+        "ru": "Это письмо уже отправляли, и повтор либо отключён вами, либо уже использован. Так программа защищает от двойной отправки.",
+        "uk": "Цей лист уже надсилали, і повтор або вимкнений вами, або вже використаний. Так програма захищає від подвійного надсилання.",
+        "en": "This message was already sent once, and a repeat has either been switched off by you or already used. This is how the program prevents double sending.",
+        "de": "Diese Nachricht wurde schon gesendet, und ein erneutes Senden wurde entweder von Ihnen abgeschaltet oder bereits genutzt. So schützt das Programm vor doppeltem Senden."
+      },
+      "action": {
+        "ru": "1. Проверьте папку «Отправленные» в своей почте.\n2. Если письма там нет, составьте и отправьте новое.",
+        "uk": "1. Перевірте папку «Надіслані» у своїй пошті.\n2. Якщо листа там немає, складіть і надішліть новий.",
+        "en": "1. Check the “Sent” folder in your mailbox.\n2. If the message is not there, write and send a new one.",
+        "de": "1. Prüfen Sie den Ordner „Gesendet“ in Ihrem Postfach.\n2. Ist die Nachricht dort nicht, verfassen und senden Sie eine neue."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SEND-015",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-016",
+      "number": "004-006-016",
+      "key": "JP_SEND_STALE",
+      "aliases": [
+        "stale"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Данные изменились, обновите страницу",
+        "uk": "Дані змінилися, оновіть сторінку",
+        "en": "The data has changed, reload the page",
+        "de": "Die Daten haben sich geändert, laden Sie die Seite neu"
+      },
+      "cause": {
+        "ru": "Пока вы смотрели страницу, письмо, настройки или состояние установки изменились, и ваше действие относилось к старым данным.",
+        "uk": "Поки ви дивилися сторінку, лист, налаштування або стан установки змінилися, і ваша дія стосувалася старих даних.",
+        "en": "While you were looking at the page, the message, the settings or the state of the installation changed, and your action referred to old data.",
+        "de": "Während Sie die Seite ansahen, haben sich Nachricht, Einstellungen oder Zustand der Installation geändert; Ihre Aktion bezog sich auf alte Daten."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте данные и повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте дані та повторіть дію.",
+        "en": "1. Reload the page.\n2. Check the data and repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie die Daten und wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-SEND-016",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "restore"
+      ]
+    }
+  ]
+}

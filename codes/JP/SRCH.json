@@ -1,0 +1,110 @@
+{
+  "namespace": "JP",
+  "area": "SRCH",
+  "codes": [
+    {
+      "code": "JP-SRCH-001",
+      "number": "004-004-001",
+      "key": "JP_VACANCY_HIDDEN",
+      "aliases": [
+        "hidden"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Вакансия скрыта фильтром",
+        "uk": "Вакансію приховано фільтром",
+        "en": "The vacancy is hidden by a filter",
+        "de": "Die Stelle ist durch einen Filter ausgeblendet"
+      },
+      "cause": {
+        "ru": "Скрытые вакансии не оцениваются.",
+        "uk": "Приховані вакансії не оцінюються.",
+        "en": "Hidden vacancies are not rated.",
+        "de": "Ausgeblendete Stellen werden nicht bewertet."
+      },
+      "action": {
+        "ru": "1. Откройте «Направления».\n2. Измените фильтры, чтобы вакансия снова была видна.",
+        "uk": "1. Відкрийте «Напрямки».\n2. Змініть фільтри, щоб вакансію знову було видно.",
+        "en": "1. Open “Directions”.\n2. Change the filters so the vacancy is visible again.",
+        "de": "1. Öffnen Sie „Richtungen“.\n2. Ändern Sie die Filter, damit die Stelle wieder sichtbar ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SRCH-001",
+      "since": "1.9.0",
+      "tags": [
+        "search"
+      ]
+    },
+    {
+      "code": "JP-SRCH-002",
+      "number": "004-004-002",
+      "key": "JP_VACANCY_WITHOUT_TEXT",
+      "aliases": [
+        "no_text"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "У вакансии нет текста",
+        "uk": "У вакансії немає тексту",
+        "en": "The vacancy has no text",
+        "de": "Die Stelle hat keinen Text"
+      },
+      "cause": {
+        "ru": "Источник не отдал текст объявления, поэтому вакансию не с чем сравнить.",
+        "uk": "Джерело не віддало текст оголошення, тому вакансію нема з чим порівняти.",
+        "en": "The source did not provide the ad text, so there is nothing to compare.",
+        "de": "Die Quelle hat den Anzeigentext nicht geliefert, daher gibt es nichts zu vergleichen."
+      },
+      "action": {
+        "ru": "1. Откройте объявление.\n2. Скопируйте его текст и вставьте в карточку вакансии.",
+        "uk": "1. Відкрийте оголошення.\n2. Скопіюйте його текст і вставте в картку вакансії.",
+        "en": "1. Open the ad.\n2. Copy its text and paste it into the vacancy card.",
+        "de": "1. Öffnen Sie die Anzeige.\n2. Kopieren Sie den Text und fügen Sie ihn in die Stellenkarte ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SRCH-002",
+      "since": "1.9.0",
+      "tags": [
+        "search"
+      ]
+    }
+  ]
+}

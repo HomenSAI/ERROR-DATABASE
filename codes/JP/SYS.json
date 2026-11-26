@@ -1,0 +1,474 @@
+{
+  "namespace": "JP",
+  "area": "SYS",
+  "codes": [
+    {
+      "code": "JP-SYS-001",
+      "number": "004-014-001",
+      "key": "JP_SYS_SECRET_KEY_MISSING",
+      "aliases": [
+        "secret_key_missing"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Секрет недоступен: нет ключа установки",
+        "uk": "Секрет недоступний: немає ключа установки",
+        "en": "A secret is unavailable: the installation key is missing",
+        "de": "Ein Geheimnis ist nicht verfügbar: der Installationsschlüssel fehlt"
+      },
+      "cause": {
+        "ru": "Сохранённый секрет, например пароль почты или ключ ИИ, зашифрован ключом установки, которого сейчас нет.",
+        "uk": "Збережений секрет, наприклад пароль пошти або ключ ШІ, зашифрований ключем установки, якого зараз немає.",
+        "en": "A stored secret, such as a mail password or an AI key, is encrypted with an installation key that is not available now.",
+        "de": "Ein gespeichertes Geheimnis, etwa ein Mail-Passwort oder KI-Schlüssel, ist mit einem Installationsschlüssel verschlüsselt, der jetzt fehlt."
+      },
+      "action": {
+        "ru": "1. Верните файл ключа установки на место.\n2. Если его нет, введите секрет заново в настройках.",
+        "uk": "1. Поверніть файл ключа установки на місце.\n2. Якщо його немає, введіть секрет заново в налаштуваннях.",
+        "en": "1. Put the installation key file back.\n2. If it is gone, enter the secret again in the settings.",
+        "de": "1. Legen Sie die Datei mit dem Installationsschlüssel zurück.\n2. Ist sie weg, geben Sie das Geheimnis in den Einstellungen neu ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-SYS-001",
+      "since": "1.9.0",
+      "tags": [
+        "secrets"
+      ]
+    },
+    {
+      "code": "JP-SYS-002",
+      "number": "004-014-002",
+      "key": "JP_SYS_SECRET_DAMAGED",
+      "aliases": [
+        "secret_damaged"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Секрет не открывается",
+        "uk": "Секрет не відкривається",
+        "en": "A secret cannot be opened",
+        "de": "Ein Geheimnis lässt sich nicht öffnen"
+      },
+      "cause": {
+        "ru": "Запись с сохранённым секретом повреждена или подменена.",
+        "uk": "Запис зі збереженим секретом пошкоджено або підмінено.",
+        "en": "The record holding the stored secret is damaged or has been tampered with.",
+        "de": "Der Eintrag mit dem gespeicherten Geheimnis ist beschädigt oder wurde verändert."
+      },
+      "action": {
+        "ru": "1. Введите секрет заново в настройках.\n2. Если ошибка повторяется, восстановите данные из копии.",
+        "uk": "1. Введіть секрет заново в налаштуваннях.\n2. Якщо помилка повторюється, відновіть дані з копії.",
+        "en": "1. Enter the secret again in the settings.\n2. If the error repeats, restore the data from a backup.",
+        "de": "1. Geben Sie das Geheimnis in den Einstellungen neu ein.\n2. Wiederholt sich der Fehler, stellen Sie die Daten aus einer Sicherung wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-SYS-002",
+      "since": "1.9.0",
+      "tags": [
+        "secrets"
+      ]
+    },
+    {
+      "code": "JP-SYS-003",
+      "number": "004-014-003",
+      "key": "JP_SYS_BACKUP_FAILED",
+      "aliases": [
+        "backup_failed"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Резервная копия не создана",
+        "uk": "Резервну копію не створено",
+        "en": "The backup was not created",
+        "de": "Die Sicherung wurde nicht erstellt"
+      },
+      "cause": {
+        "ru": "Папка для копий недоступна для записи.",
+        "uk": "Папка для копій недоступна для запису.",
+        "en": "The folder for backups cannot be written to.",
+        "de": "In den Ordner für Sicherungen kann nicht geschrieben werden."
+      },
+      "action": {
+        "ru": "1. Проверьте, что на диске есть место.\n2. Проверьте, что папка копий не закрыта для записи.\n3. Повторите.",
+        "uk": "1. Перевірте, що на диску є місце.\n2. Перевірте, що папку копій не закрито для запису.\n3. Повторіть.",
+        "en": "1. Check that the disk has free space.\n2. Check that the backup folder is not write-protected.\n3. Try again.",
+        "de": "1. Prüfen Sie, ob auf der Festplatte Platz ist.\n2. Prüfen Sie, ob der Sicherungsordner nicht schreibgeschützt ist.\n3. Versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-SYS-003",
+      "since": "1.9.0",
+      "tags": [
+        "backup"
+      ]
+    },
+    {
+      "code": "JP-SYS-004",
+      "number": "004-014-004",
+      "key": "JP_SYS_HTTPS_NOT_READY",
+      "aliases": [
+        "tls_not_ready"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "HTTPS ещё не включён",
+        "uk": "HTTPS ще не ввімкнено",
+        "en": "HTTPS is not switched on yet",
+        "de": "HTTPS ist noch nicht eingeschaltet"
+      },
+      "cause": {
+        "ru": "Для защищённого соединения у установки ещё нет собственного удостоверяющего центра.",
+        "uk": "Для захищеного з’єднання в установки ще немає власного центру сертифікації.",
+        "en": "For a secure connection, the installation does not yet have its own certificate authority.",
+        "de": "Für eine gesicherte Verbindung hat die Installation noch keine eigene Zertifizierungsstelle."
+      },
+      "action": {
+        "ru": "1. Откройте настройки защищённого соединения.\n2. Создайте удостоверяющий центр.",
+        "uk": "1. Відкрийте налаштування захищеного з’єднання.\n2. Створіть центр сертифікації.",
+        "en": "1. Open the secure connection settings.\n2. Create the certificate authority.",
+        "de": "1. Öffnen Sie die Einstellungen der gesicherten Verbindung.\n2. Erstellen Sie die Zertifizierungsstelle."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SYS-004",
+      "since": "1.9.0",
+      "tags": [
+        "https"
+      ]
+    },
+    {
+      "code": "JP-SYS-005",
+      "number": "004-014-005",
+      "key": "JP_SYS_HTTPS_KEY_MISMATCH",
+      "aliases": [
+        "tls_key_mismatch"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Ключи HTTPS зашифрованы другим ключом установки",
+        "uk": "Ключі HTTPS зашифровано іншим ключем установки",
+        "en": "The HTTPS keys are encrypted with a different installation key",
+        "de": "Die HTTPS-Schlüssel sind mit einem anderen Installationsschlüssel verschlüsselt"
+      },
+      "cause": {
+        "ru": "Данные защищённого соединения были сохранены под другим ключом установки.",
+        "uk": "Дані захищеного з’єднання було збережено під іншим ключем установки.",
+        "en": "The secure-connection data was saved under a different installation key.",
+        "de": "Die Daten der gesicherten Verbindung wurden unter einem anderen Installationsschlüssel gespeichert."
+      },
+      "action": {
+        "ru": "1. Верните прежний ключ установки.\n2. Или создайте новый удостоверяющий центр.",
+        "uk": "1. Поверніть попередній ключ установки.\n2. Або створіть новий центр сертифікації.",
+        "en": "1. Put the previous installation key back.\n2. Or create a new certificate authority.",
+        "de": "1. Legen Sie den bisherigen Installationsschlüssel zurück.\n2. Oder erstellen Sie eine neue Zertifizierungsstelle."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SYS-005",
+      "since": "1.9.0",
+      "tags": [
+        "https"
+      ]
+    },
+    {
+      "code": "JP-SYS-006",
+      "number": "004-014-006",
+      "key": "JP_SYS_HTTPS_CONFIRM",
+      "aliases": [
+        "tls_confirm_required"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно двойное подтверждение",
+        "uk": "Потрібне подвійне підтвердження",
+        "en": "Double confirmation is needed",
+        "de": "Doppelte Bestätigung erforderlich"
+      },
+      "cause": {
+        "ru": "Новый удостоверяющий центр заменит прежний, поэтому нужно подтвердить действие словом и галочкой.",
+        "uk": "Новий центр сертифікації замінить попередній, тому потрібно підтвердити дію словом і позначкою.",
+        "en": "A new certificate authority replaces the old one, so the action must be confirmed with a word and a tick.",
+        "de": "Eine neue Zertifizierungsstelle ersetzt die alte, daher muss die Aktion mit einem Wort und einem Häkchen bestätigt werden."
+      },
+      "action": {
+        "ru": "1. Введите слово подтверждения.\n2. Поставьте галочку и повторите.",
+        "uk": "1. Введіть слово підтвердження.\n2. Поставте позначку та повторіть.",
+        "en": "1. Enter the confirmation word.\n2. Tick the box and repeat.",
+        "de": "1. Geben Sie das Bestätigungswort ein.\n2. Setzen Sie das Häkchen und wiederholen Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-006",
+      "since": "1.9.0",
+      "tags": [
+        "https"
+      ]
+    },
+    {
+      "code": "JP-SYS-007",
+      "number": "004-014-007",
+      "key": "JP_SYS_TRASH_PROTECTED",
+      "aliases": [
+        "trash_protected"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Эту запись удалить нельзя",
+        "uk": "Цей запис видалити не можна",
+        "en": "This entry cannot be deleted",
+        "de": "Dieser Eintrag kann nicht gelöscht werden"
+      },
+      "cause": {
+        "ru": "Запись остаётся как след действия и защищена от удаления.",
+        "uk": "Запис залишається як слід дії й захищений від видалення.",
+        "en": "The entry stays as a record of an action and is protected from deletion.",
+        "de": "Der Eintrag bleibt als Spur einer Aktion erhalten und ist vor dem Löschen geschützt."
+      },
+      "action": {
+        "ru": "1. Оставьте запись как есть.",
+        "uk": "1. Залиште запис як є.",
+        "en": "1. Leave the entry as it is.",
+        "de": "1. Lassen Sie den Eintrag unverändert."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SYS-007",
+      "since": "1.9.0",
+      "tags": [
+        "trash"
+      ]
+    },
+    {
+      "code": "JP-SYS-008",
+      "number": "004-014-008",
+      "key": "JP_SYS_TRASH_UNAVAILABLE",
+      "aliases": [
+        "trash_unavailable"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Запись из корзины сейчас не вернуть",
+        "uk": "Запис із кошика зараз не повернути",
+        "en": "The entry cannot be restored from the trash now",
+        "de": "Der Eintrag kann jetzt nicht aus dem Papierkorb zurückgeholt werden"
+      },
+      "cause": {
+        "ru": "Раздел, к которому относится запись, сейчас недоступен.",
+        "uk": "Розділ, до якого належить запис, зараз недоступний.",
+        "en": "The section the entry belongs to is not available right now.",
+        "de": "Der Bereich, zu dem der Eintrag gehört, ist gerade nicht verfügbar."
+      },
+      "action": {
+        "ru": "1. Подождите немного.\n2. Повторите действие.",
+        "uk": "1. Зачекайте трохи.\n2. Повторіть дію.",
+        "en": "1. Wait a little.\n2. Repeat the action.",
+        "de": "1. Warten Sie einen Moment.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-SYS-008",
+      "since": "1.9.0",
+      "tags": [
+        "trash"
+      ]
+    },
+    {
+      "code": "JP-SYS-009",
+      "number": "004-014-009",
+      "key": "JP_SYS_UNSAFE_SQLITE",
+      "aliases": [
+        "unsafe_sqlite"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Установку нужно обновить",
+        "uk": "Установку потрібно оновити",
+        "en": "The installation needs updating",
+        "de": "Die Installation muss aktualisiert werden"
+      },
+      "cause": {
+        "ru": "Используемый компонент хранения данных не защищён от повреждения базы, поэтому работа остановлена.",
+        "uk": "Використовуваний компонент зберігання даних не захищений від пошкодження бази, тому роботу зупинено.",
+        "en": "The data storage component in use is not protected against database damage, so work has been stopped.",
+        "de": "Die verwendete Datenspeicher-Komponente ist nicht gegen Beschädigung der Datenbank geschützt, daher wurde die Arbeit gestoppt."
+      },
+      "action": {
+        "ru": "1. Обновите установку программы.\n2. Запустите её снова.",
+        "uk": "1. Оновіть установку програми.\n2. Запустіть її знову.",
+        "en": "1. Update the program installation.\n2. Start it again.",
+        "de": "1. Aktualisieren Sie die Programminstallation.\n2. Starten Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-SYS-009",
+      "since": "1.9.0",
+      "tags": [
+        "install"
+      ]
+    }
+  ]
+}

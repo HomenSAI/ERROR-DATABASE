@@ -1,0 +1,113 @@
+{
+  "namespace": "JP",
+  "area": "TG",
+  "codes": [
+    {
+      "code": "JP-TG-001",
+      "number": "004-010-001",
+      "key": "JP_TELEGRAM_LINK_CODE",
+      "aliases": [
+        "link_code"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Бот ещё не получил код привязки",
+        "uk": "Бот ще не отримав код прив’язки",
+        "en": "The bot has not received the link code yet",
+        "de": "Der Bot hat den Verknüpfungscode noch nicht erhalten"
+      },
+      "cause": {
+        "ru": "Чтобы узнать ваш chat id, программе нужно ваше сообщение боту с кодом.",
+        "uk": "Щоб дізнатися ваш chat id, програмі потрібне ваше повідомлення боту з кодом.",
+        "en": "To find your chat id, the program needs your message to the bot with the code.",
+        "de": "Um Ihre Chat-ID zu finden, braucht das Programm Ihre Nachricht mit dem Code an den Bot."
+      },
+      "action": {
+        "ru": "1. Отправьте своему боту в Telegram сообщение /start {code}.\n2. Нажмите «Найти chat id» ещё раз.",
+        "uk": "1. Надішліть своєму боту в Telegram повідомлення /start {code}.\n2. Натисніть «Знайти chat id» ще раз.",
+        "en": "1. Send your bot in Telegram the message /start {code}.\n2. Click “Find chat id” again.",
+        "de": "1. Senden Sie Ihrem Bot in Telegram die Nachricht /start {code}.\n2. Klicken Sie erneut auf „Chat-ID finden“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "code": "str"
+      },
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-TG-001",
+      "since": "1.9.0",
+      "tags": [
+        "telegram"
+      ]
+    },
+    {
+      "code": "JP-TG-002",
+      "number": "004-010-002",
+      "key": "JP_TG_CHAT_ID_DIGITS",
+      "aliases": [
+        "chat_id.numeric_only"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Номер чата — только число",
+        "uk": "Номер чату — лише число",
+        "en": "The chat number must be a number",
+        "de": "Die Chat-Nummer muss eine Zahl sein"
+      },
+      "cause": {
+        "ru": "Номер чата Telegram состоит из цифр (у группы впереди минус). Имя канала сюда не подходит.",
+        "uk": "Номер чату Telegram складається з цифр (у групи попереду мінус). Назва каналу сюди не підходить.",
+        "en": "A Telegram chat number consists of digits (a group has a minus in front). A channel name does not fit here.",
+        "de": "Eine Telegram-Chat-Nummer besteht aus Ziffern (bei einer Gruppe mit vorangestelltem Minus). Ein Kanalname passt hier nicht."
+      },
+      "action": {
+        "ru": "1. Введите только цифры номера чата.\n2. Сохраните настройку.",
+        "uk": "1. Введіть лише цифри номера чату.\n2. Збережіть налаштування.",
+        "en": "1. Enter only the digits of the chat number.\n2. Save the setting.",
+        "de": "1. Geben Sie nur die Ziffern der Chat-Nummer ein.\n2. Speichern Sie die Einstellung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-TG-002",
+      "since": "1.9.0",
+      "tags": [
+        "telegram"
+      ]
+    }
+  ]
+}

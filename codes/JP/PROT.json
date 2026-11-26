@@ -1,0 +1,370 @@
+{
+  "namespace": "JP",
+  "area": "PROT",
+  "codes": [
+    {
+      "code": "JP-PROT-001",
+      "number": "004-012-001",
+      "key": "JP_PROT_NEEDS_TEXT",
+      "aliases": [
+        "value.text"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно что-то ввести",
+        "uk": "Потрібно щось ввести",
+        "en": "Something must be entered",
+        "de": "Es muss etwas eingegeben werden"
+      },
+      "cause": {
+        "ru": "Поле для списка «не писать сюда» пустое.",
+        "uk": "Поле для списку «не писати сюди» порожнє.",
+        "en": "The field for the “do not write here” list is empty.",
+        "de": "Das Feld für die Liste „Hier nicht schreiben“ ist leer."
+      },
+      "action": {
+        "ru": "1. Введите адрес или домен.\n2. Нажмите «Добавить».",
+        "uk": "1. Введіть адресу або домен.\n2. Натисніть «Додати».",
+        "en": "1. Enter an address or a domain.\n2. Press “Add”.",
+        "de": "1. Geben Sie eine Adresse oder Domain ein.\n2. Klicken Sie auf „Hinzufügen“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PROT-001",
+      "since": "1.9.0",
+      "tags": [
+        "send-protection"
+      ]
+    },
+    {
+      "code": "JP-PROT-002",
+      "number": "004-012-002",
+      "key": "JP_PROT_BAD_EMAIL",
+      "aliases": [
+        "value.email"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Адрес записан неверно",
+        "uk": "Адресу записано неправильно",
+        "en": "The address is not valid",
+        "de": "Die Adresse ist ungültig"
+      },
+      "cause": {
+        "ru": "Это не похоже на адрес электронной почты. Нужен вид, например, hr@example.de.",
+        "uk": "Це не схоже на адресу електронної пошти. Потрібен вигляд, наприклад, hr@example.de.",
+        "en": "This does not look like an email address. It should look like hr@example.de.",
+        "de": "Das sieht nicht nach einer E-Mail-Adresse aus. Erwartet wird z. B. hr@example.de."
+      },
+      "action": {
+        "ru": "1. Проверьте адрес.\n2. Введите его снова.",
+        "uk": "1. Перевірте адресу.\n2. Введіть її знову.",
+        "en": "1. Check the address.\n2. Enter it again.",
+        "de": "1. Prüfen Sie die Adresse.\n2. Geben Sie sie erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PROT-002",
+      "since": "1.9.0",
+      "tags": [
+        "send-protection"
+      ]
+    },
+    {
+      "code": "JP-PROT-003",
+      "number": "004-012-003",
+      "key": "JP_PROT_BAD_DOMAIN",
+      "aliases": [
+        "value.domain"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Домен записан неверно",
+        "uk": "Домен записано неправильно",
+        "en": "The domain is not valid",
+        "de": "Die Domain ist ungültig"
+      },
+      "cause": {
+        "ru": "Это не похоже на домен. Нужен вид, например, example.de, без слов и пробелов.",
+        "uk": "Це не схоже на домен. Потрібен вигляд, наприклад, example.de, без слів і пробілів.",
+        "en": "This does not look like a domain. It should look like example.de, without words or spaces.",
+        "de": "Das sieht nicht nach einer Domain aus. Erwartet wird z. B. example.de, ohne Wörter und Leerzeichen."
+      },
+      "action": {
+        "ru": "1. Проверьте запись.\n2. Введите домен снова.",
+        "uk": "1. Перевірте запис.\n2. Введіть домен знову.",
+        "en": "1. Check the entry.\n2. Enter the domain again.",
+        "de": "1. Prüfen Sie den Eintrag.\n2. Geben Sie die Domain erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PROT-003",
+      "since": "1.9.0",
+      "tags": [
+        "send-protection"
+      ]
+    },
+    {
+      "code": "JP-PROT-004",
+      "number": "004-012-004",
+      "key": "JP_PROT_BAD_LENGTH",
+      "aliases": [
+        "value.length"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком короткая или длинная запись",
+        "uk": "Надто короткий або довгий запис",
+        "en": "The entry is too short or too long",
+        "de": "Der Eintrag ist zu kurz oder zu lang"
+      },
+      "cause": {
+        "ru": "Слово-исключение должно быть не короче двух знаков и не длиннее допустимого предела.",
+        "uk": "Слово-виняток має бути не коротшим за два знаки й не довшим за припустиму межу.",
+        "en": "An exception word must be at least two characters and no longer than the allowed limit.",
+        "de": "Ein Ausnahmewort muss mindestens zwei Zeichen lang sein und darf die zulässige Länge nicht überschreiten."
+      },
+      "action": {
+        "ru": "1. Сократите или дополните запись.\n2. Сохраните снова.",
+        "uk": "1. Скоротіть або доповніть запис.\n2. Збережіть знову.",
+        "en": "1. Shorten or extend the entry.\n2. Save again.",
+        "de": "1. Kürzen oder ergänzen Sie den Eintrag.\n2. Speichern Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PROT-004",
+      "since": "1.9.0",
+      "tags": [
+        "send-protection"
+      ]
+    },
+    {
+      "code": "JP-PROT-005",
+      "number": "004-012-005",
+      "key": "JP_PROT_REASON_TOO_LONG",
+      "aliases": [
+        "below_threshold_reason.too_long"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Причина слишком длинная",
+        "uk": "Причина надто довга",
+        "en": "The reason is too long",
+        "de": "Die Begründung ist zu lang"
+      },
+      "cause": {
+        "ru": "Причина, по которой вы отправляете письмо при низкой оценке, ограничена по длине.",
+        "uk": "Причина, з якої ви надсилаєте лист за низької оцінки, обмежена за довжиною.",
+        "en": "The reason for sending despite a low score has a length limit.",
+        "de": "Die Begründung für das Senden trotz niedriger Bewertung ist in der Länge begrenzt."
+      },
+      "action": {
+        "ru": "1. Сократите причину.\n2. Отправьте снова.",
+        "uk": "1. Скоротіть причину.\n2. Надішліть знову.",
+        "en": "1. Shorten the reason.\n2. Send again.",
+        "de": "1. Kürzen Sie die Begründung.\n2. Senden Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PROT-005",
+      "since": "1.9.0",
+      "tags": [
+        "send-protection"
+      ]
+    },
+    {
+      "code": "JP-PROT-006",
+      "number": "004-012-006",
+      "key": "JP_PROT_NOT_IN_LIST",
+      "aliases": [
+        "value.not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такой записи в списке нет",
+        "uk": "Такого запису в списку немає",
+        "en": "There is no such entry in the list",
+        "de": "Diesen Eintrag gibt es in der Liste nicht"
+      },
+      "cause": {
+        "ru": "Запись уже удалена или её никогда не было в списке «не писать сюда».",
+        "uk": "Запис уже видалено або його ніколи не було в списку «не писати сюди».",
+        "en": "The entry has already been removed or was never in the “do not write here” list.",
+        "de": "Der Eintrag wurde schon entfernt oder war nie in der Liste „Hier nicht schreiben“."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте список.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте список.",
+        "en": "1. Reload the page.\n2. Check the list.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie die Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-PROT-006",
+      "since": "1.9.0",
+      "tags": [
+        "send-protection"
+      ]
+    },
+    {
+      "code": "JP-PROT-007",
+      "number": "004-012-007",
+      "key": "JP_PROT_ALREADY_CLOSED",
+      "aliases": [
+        "status.not_unsent"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Заявка уже отправлена или закрыта",
+        "uk": "Заявку вже надіслано або закрито",
+        "en": "The application is already sent or closed",
+        "de": "Die Bewerbung ist bereits gesendet oder geschlossen"
+      },
+      "cause": {
+        "ru": "Эта защита действует только на ещё не отправленные заявки.",
+        "uk": "Цей захист діє лише на ще не надіслані заявки.",
+        "en": "This protection only applies to applications that have not been sent yet.",
+        "de": "Dieser Schutz gilt nur für noch nicht gesendete Bewerbungen."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте состояние заявки.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте стан заявки.",
+        "en": "1. Reload the page.\n2. Check the state of the application.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie den Zustand der Bewerbung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PROT-007",
+      "since": "1.9.0",
+      "tags": [
+        "send-protection"
+      ]
+    }
+  ]
+}

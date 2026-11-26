@@ -1,0 +1,813 @@
+{
+  "namespace": "JP",
+  "area": "FILE",
+  "codes": [
+    {
+      "code": "JP-FILE-001",
+      "number": "004-007-001",
+      "key": "JP_FILE_TYPE_NOT_SUPPORTED",
+      "aliases": [
+        "file.type"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Такой файл загрузить нельзя",
+        "uk": "Такий файл завантажити не можна",
+        "en": "This file type cannot be uploaded",
+        "de": "Dieser Dateityp kann nicht hochgeladen werden"
+      },
+      "cause": {
+        "ru": "Подходят PDF, Word (.docx), PNG и JPEG; вид файла определяется по его содержимому.",
+        "uk": "Підходять PDF, Word (.docx), PNG і JPEG; вид файлу визначається за його вмістом.",
+        "en": "PDF, Word (.docx), PNG and JPEG are accepted; the type is detected from the file’s content.",
+        "de": "Erlaubt sind PDF, Word (.docx), PNG und JPEG; der Typ wird am Inhalt erkannt."
+      },
+      "action": {
+        "ru": "1. Сохраните документ в одном из этих видов.\n2. Загрузите его снова.",
+        "uk": "1. Збережіть документ в одному з цих видів.\n2. Завантажте його знову.",
+        "en": "1. Save the document in one of these types.\n2. Upload it again.",
+        "de": "1. Speichern Sie das Dokument in einem dieser Typen.\n2. Laden Sie es erneut hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-001",
+      "since": "1.9.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "JP-FILE-002",
+      "number": "004-007-002",
+      "key": "JP_FILES_TOTAL_LIMIT",
+      "aliases": [
+        "file.total"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Места для файлов не осталось",
+        "uk": "Місця для файлів не залишилося",
+        "en": "No room left for files",
+        "de": "Kein Platz mehr für Dateien"
+      },
+      "cause": {
+        "ru": "Все ваши файлы вместе заняли допустимый объём.",
+        "uk": "Усі ваші файли разом зайняли допустимий обсяг.",
+        "en": "All your files together have reached the allowed size.",
+        "de": "Alle Ihre Dateien zusammen haben die erlaubte Größe erreicht."
+      },
+      "action": {
+        "ru": "1. Откройте «Мои документы».\n2. Удалите ненужные файлы.\n3. Загрузите файл снова.",
+        "uk": "1. Відкрийте «Мої документи».\n2. Видаліть непотрібні файли.\n3. Завантажте файл знову.",
+        "en": "1. Open “My documents”.\n2. Delete files you no longer need.\n3. Upload the file again.",
+        "de": "1. Öffnen Sie „Meine Dokumente“.\n2. Löschen Sie nicht mehr benötigte Dateien.\n3. Laden Sie die Datei erneut hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-002",
+      "since": "1.9.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "JP-FILE-003",
+      "number": "004-007-003",
+      "key": "JP_FILES_COUNT_LIMIT",
+      "aliases": [
+        "file.count"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком много файлов",
+        "uk": "Забагато файлів",
+        "en": "Too many files",
+        "de": "Zu viele Dateien"
+      },
+      "cause": {
+        "ru": "Можно хранить не больше {limit} файлов этого вида.",
+        "uk": "Можна зберігати не більше {limit} файлів цього виду.",
+        "en": "You can keep at most {limit} files of this kind.",
+        "de": "Sie können höchstens {limit} Dateien dieser Art speichern."
+      },
+      "action": {
+        "ru": "1. Удалите ненужные файлы.\n2. Загрузите новый.",
+        "uk": "1. Видаліть непотрібні файли.\n2. Завантажте новий.",
+        "en": "1. Delete files you no longer need.\n2. Upload the new one.",
+        "de": "1. Löschen Sie nicht mehr benötigte Dateien.\n2. Laden Sie die neue hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "limit": "int"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-003",
+      "since": "1.9.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "JP-FILE-004",
+      "number": "004-007-004",
+      "key": "JP_ATTACHMENT_TOO_BIG",
+      "aliases": [
+        "file_ids.file_size"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл слишком большой для письма",
+        "uk": "Файл завеликий для листа",
+        "en": "The file is too big for an e-mail",
+        "de": "Die Datei ist zu groß für eine E-Mail"
+      },
+      "cause": {
+        "ru": "Файл «{name}» больше {mb} МБ — к письму его не приложить.",
+        "uk": "Файл «{name}» більший за {mb} МБ — до листа його не додати.",
+        "en": "The file “{name}” is larger than {mb} MB and cannot be attached.",
+        "de": "Die Datei „{name}“ ist größer als {mb} MB und kann nicht angehängt werden."
+      },
+      "action": {
+        "ru": "1. Снимите с файла отметку.\n2. Или загрузите уменьшенную копию.",
+        "uk": "1. Зніміть із файлу позначку.\n2. Або завантажте зменшену копію.",
+        "en": "1. Untick the file.\n2. Or upload a smaller copy.",
+        "de": "1. Entfernen Sie das Häkchen bei der Datei.\n2. Oder laden Sie eine kleinere Kopie hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "name": "str",
+        "mb": "int"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-004",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "send"
+      ]
+    },
+    {
+      "code": "JP-FILE-005",
+      "number": "004-007-005",
+      "key": "JP_ATTACHMENTS_TOTAL_TOO_BIG",
+      "aliases": [
+        "file_ids.size"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Вложения вместе слишком большие",
+        "uk": "Вкладення разом завеликі",
+        "en": "The attachments together are too big",
+        "de": "Die Anhänge sind zusammen zu groß"
+      },
+      "cause": {
+        "ru": "Вложения одного письма вместе — не больше {mb} МБ.",
+        "uk": "Вкладення одного листа разом — не більше {mb} МБ.",
+        "en": "The attachments of one e-mail may total at most {mb} MB.",
+        "de": "Die Anhänge einer E-Mail dürfen zusammen höchstens {mb} MB groß sein."
+      },
+      "action": {
+        "ru": "1. Снимите отметку с части файлов.\n2. Сами файлы остаются в «Моих документах».",
+        "uk": "1. Зніміть позначку з частини файлів.\n2. Самі файли залишаються в «Моїх документах».",
+        "en": "1. Untick some of the files.\n2. The files themselves stay in “My documents”.",
+        "de": "1. Entfernen Sie bei einigen Dateien das Häkchen.\n2. Die Dateien selbst bleiben in „Meine Dokumente“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "mb": "int"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-005",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "send"
+      ]
+    },
+    {
+      "code": "JP-FILE-006",
+      "number": "004-007-006",
+      "key": "JP_WORD_FILE_UNREADABLE",
+      "aliases": [
+        "file.docx"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Word-файл не прочитать",
+        "uk": "Word-файл не прочитати",
+        "en": "The Word file cannot be read",
+        "de": "Die Word-Datei lässt sich nicht lesen"
+      },
+      "cause": {
+        "ru": "Файл повреждён, слишком большой или сложный либо это не .docx.",
+        "uk": "Файл пошкоджений, завеликий чи складний або це не .docx.",
+        "en": "The file is damaged, too big or too complex, or it is not a .docx file.",
+        "de": "Die Datei ist beschädigt, zu groß oder zu komplex, oder es ist keine .docx-Datei."
+      },
+      "action": {
+        "ru": "1. Откройте файл в Word.\n2. Сохраните его заново как .docx.\n3. Загрузите снова.",
+        "uk": "1. Відкрийте файл у Word.\n2. Збережіть його заново як .docx.\n3. Завантажте знову.",
+        "en": "1. Open the file in Word.\n2. Save it again as .docx.\n3. Upload it again.",
+        "de": "1. Öffnen Sie die Datei in Word.\n2. Speichern Sie sie erneut als .docx.\n3. Laden Sie sie erneut hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-006",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "templates"
+      ]
+    },
+    {
+      "code": "JP-FILE-007",
+      "number": "004-007-007",
+      "key": "JP_FILE_EMPTY",
+      "aliases": [
+        "file.empty"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Файл пустой",
+        "uk": "Файл порожній",
+        "en": "The file is empty",
+        "de": "Die Datei ist leer"
+      },
+      "cause": {
+        "ru": "В выбранном файле нет ни одного байта данных.",
+        "uk": "У вибраному файлі немає жодного байта даних.",
+        "en": "The chosen file contains no data.",
+        "de": "Die gewählte Datei enthält keine Daten."
+      },
+      "action": {
+        "ru": "1. Проверьте, тот ли файл выбран.\n2. Загрузите правильный файл.",
+        "uk": "1. Перевірте, чи той файл вибрано.\n2. Завантажте правильний файл.",
+        "en": "1. Check that you picked the right file.\n2. Upload the correct file.",
+        "de": "1. Prüfen Sie, ob die richtige Datei gewählt wurde.\n2. Laden Sie die richtige Datei hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-007",
+      "since": "1.9.0",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "code": "JP-FILE-008",
+      "number": "004-007-008",
+      "key": "JP_FILE_PDF_ACTIVE",
+      "aliases": [
+        "file.active"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "PDF с активным содержимым не принимается",
+        "uk": "PDF з активним вмістом не приймається",
+        "en": "A PDF with active content is not accepted",
+        "de": "PDF mit aktiven Inhalten wird nicht angenommen"
+      },
+      "cause": {
+        "ru": "В PDF есть скрипт, действие при открытии или вложенный файл. Такие файлы небезопасны для отправки работодателю.",
+        "uk": "У PDF є скрипт, дія під час відкриття або вкладений файл. Такі файли небезпечні для надсилання роботодавцю.",
+        "en": "The PDF contains a script, an action on opening or an embedded file. Such files are not safe to send to an employer.",
+        "de": "Das PDF enthält ein Skript, eine Aktion beim Öffnen oder eine eingebettete Datei. Solche Dateien sind für den Versand an Arbeitgeber nicht sicher."
+      },
+      "action": {
+        "ru": "1. Откройте документ и сохраните его заново через «Печать в PDF».\n2. Загрузите новый файл.",
+        "uk": "1. Відкрийте документ і збережіть його заново через «Друк у PDF».\n2. Завантажте новий файл.",
+        "en": "1. Open the document and save it again with “Print to PDF”.\n2. Upload the new file.",
+        "de": "1. Öffnen Sie das Dokument und speichern Sie es über „Als PDF drucken“ neu.\n2. Laden Sie die neue Datei hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-008",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "pdf"
+      ]
+    },
+    {
+      "code": "JP-FILE-009",
+      "number": "004-007-009",
+      "key": "JP_FILE_PDF_COMPLEX",
+      "aliases": [
+        "file.complex"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "PDF слишком сложный для проверки",
+        "uk": "PDF надто складний для перевірки",
+        "en": "The PDF is too complex to check",
+        "de": "Das PDF ist zu komplex für die Prüfung"
+      },
+      "cause": {
+        "ru": "Программа не смогла безопасно проверить такой сложный файл.",
+        "uk": "Програма не змогла безпечно перевірити такий складний файл.",
+        "en": "The program could not safely check such a complex file.",
+        "de": "Das Programm konnte eine so komplexe Datei nicht sicher prüfen."
+      },
+      "action": {
+        "ru": "1. Откройте документ и сохраните его заново через «Печать в PDF».\n2. Загрузите новый файл.",
+        "uk": "1. Відкрийте документ і збережіть його заново через «Друк у PDF».\n2. Завантажте новий файл.",
+        "en": "1. Open the document and save it again with “Print to PDF”.\n2. Upload the new file.",
+        "de": "1. Öffnen Sie das Dokument und speichern Sie es über „Als PDF drucken“ neu.\n2. Laden Sie die neue Datei hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-009",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "pdf"
+      ]
+    },
+    {
+      "code": "JP-FILE-010",
+      "number": "004-007-010",
+      "key": "JP_FILE_PDF_NO_TEXT",
+      "aliases": [
+        "file.pdf_no_text"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В этом PDF нет текста",
+        "uk": "У цьому PDF немає тексту",
+        "en": "This PDF contains no text",
+        "de": "Dieses PDF enthält keinen Text"
+      },
+      "cause": {
+        "ru": "Файл — скан или картинка, поэтому программа не может прочитать из него текст.",
+        "uk": "Файл — скан або картинка, тому програма не може прочитати з нього текст.",
+        "en": "The file is a scan or a picture, so the program cannot read text from it.",
+        "de": "Die Datei ist ein Scan oder ein Bild, daher kann das Programm keinen Text daraus lesen."
+      },
+      "action": {
+        "ru": "1. Возьмите версию документа в Word (.docx) или PDF с текстом.\n2. Загрузите её.",
+        "uk": "1. Візьміть версію документа у Word (.docx) або PDF з текстом.\n2. Завантажте її.",
+        "en": "1. Use a Word (.docx) version of the document, or a PDF with text.\n2. Upload it.",
+        "de": "1. Verwenden Sie eine Word-Fassung (.docx) des Dokuments oder ein PDF mit Text.\n2. Laden Sie sie hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-010",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "pdf",
+        "templates"
+      ]
+    },
+    {
+      "code": "JP-FILE-011",
+      "number": "004-007-011",
+      "key": "JP_FILE_KIND_NOT_ATTACHABLE",
+      "aliases": [
+        "file_ids.kind"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Этот файл нельзя приложить к заявке",
+        "uk": "Цей файл не можна додати до заявки",
+        "en": "This file cannot be attached to the application",
+        "de": "Diese Datei kann der Bewerbung nicht beigefügt werden"
+      },
+      "cause": {
+        "ru": "К заявке прикладываются дипломы, сертификаты и другие документы, а не резюме или письмо.",
+        "uk": "До заявки додаються дипломи, сертифікати та інші документи, а не резюме чи лист.",
+        "en": "Diplomas, certificates and other documents are attached to an application, not the CV or the letter.",
+        "de": "Einer Bewerbung werden Zeugnisse, Zertifikate und andere Dokumente beigefügt, nicht Lebenslauf oder Anschreiben."
+      },
+      "action": {
+        "ru": "1. Уберите этот файл из вложений.\n2. Выберите диплом, сертификат или другой документ.",
+        "uk": "1. Приберіть цей файл із вкладень.\n2. Виберіть диплом, сертифікат або інший документ.",
+        "en": "1. Remove this file from the attachments.\n2. Pick a diploma, certificate or other document.",
+        "de": "1. Entfernen Sie diese Datei aus den Anhängen.\n2. Wählen Sie ein Zeugnis, Zertifikat oder anderes Dokument."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-011",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "attachments"
+      ]
+    },
+    {
+      "code": "JP-FILE-012",
+      "number": "004-007-012",
+      "key": "JP_FILE_TEMPLATE_WORD_ONLY",
+      "aliases": [
+        "file.type_for_kind"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Новая версия шаблона — только Word",
+        "uk": "Нова версія шаблону — лише Word",
+        "en": "A new template version must be a Word file",
+        "de": "Eine neue Vorlagenversion muss eine Word-Datei sein"
+      },
+      "cause": {
+        "ru": "Шаблоны писем и резюме обновляются только файлом Word (.docx).",
+        "uk": "Шаблони листів і резюме оновлюються лише файлом Word (.docx).",
+        "en": "Letter and CV templates are updated only with a Word file (.docx).",
+        "de": "Vorlagen für Anschreiben und Lebenslauf werden nur mit einer Word-Datei (.docx) aktualisiert."
+      },
+      "action": {
+        "ru": "1. Сохраните шаблон как Word (.docx).\n2. Загрузите его снова.",
+        "uk": "1. Збережіть шаблон як Word (.docx).\n2. Завантажте його знову.",
+        "en": "1. Save the template as Word (.docx).\n2. Upload it again.",
+        "de": "1. Speichern Sie die Vorlage als Word (.docx).\n2. Laden Sie sie erneut hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-012",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "templates"
+      ]
+    },
+    {
+      "code": "JP-FILE-013",
+      "number": "004-007-013",
+      "key": "JP_FILE_WORD_UNREADABLE",
+      "aliases": [
+        "word_import_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Word-файл не удалось импортировать",
+        "uk": "Word-файл не вдалося імпортувати",
+        "en": "The Word file could not be imported",
+        "de": "Die Word-Datei konnte nicht importiert werden"
+      },
+      "cause": {
+        "ru": "Файл повреждён или слишком сложный для импорта.",
+        "uk": "Файл пошкоджений або надто складний для імпорту.",
+        "en": "The file is damaged or too complex to import.",
+        "de": "Die Datei ist beschädigt oder zu komplex für den Import."
+      },
+      "action": {
+        "ru": "1. Откройте файл в Word и сохраните его заново как .docx.\n2. Загрузите новый файл.",
+        "uk": "1. Відкрийте файл у Word і збережіть його заново як .docx.\n2. Завантажте новий файл.",
+        "en": "1. Open the file in Word and save it again as .docx.\n2. Upload the new file.",
+        "de": "1. Öffnen Sie die Datei in Word und speichern Sie sie erneut als .docx.\n2. Laden Sie die neue Datei hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-013",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "word"
+      ]
+    },
+    {
+      "code": "JP-FILE-014",
+      "number": "004-007-014",
+      "key": "JP_FILE_TEMPLATE_TOO_BIG",
+      "aliases": [
+        "template.size"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Документ Word слишком большой",
+        "uk": "Документ Word завеликий",
+        "en": "The Word document is too large",
+        "de": "Das Word-Dokument ist zu groß"
+      },
+      "cause": {
+        "ru": "Шаблон превышает допустимый размер, обычно из-за больших картинок.",
+        "uk": "Шаблон перевищує допустимий розмір, зазвичай через великі картинки.",
+        "en": "The template exceeds the allowed size, usually because of large pictures.",
+        "de": "Die Vorlage überschreitet die zulässige Größe, meist wegen großer Bilder."
+      },
+      "action": {
+        "ru": "1. Уменьшите картинки в шаблоне.\n2. Загрузите его снова.",
+        "uk": "1. Зменште картинки в шаблоні.\n2. Завантажте його знову.",
+        "en": "1. Make the pictures in the template smaller.\n2. Upload it again.",
+        "de": "1. Verkleinern Sie die Bilder in der Vorlage.\n2. Laden Sie sie erneut hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-FILE-014",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "templates",
+        "word"
+      ]
+    },
+    {
+      "code": "JP-FILE-015",
+      "number": "004-007-015",
+      "key": "JP_FILE_COPY_UNAVAILABLE",
+      "aliases": [
+        "mime_unavailable",
+        "mime_integrity",
+        "document_original_unavailable",
+        "document_original_integrity",
+        "document_original_restore_failed"
+      ],
+      "level": "alarm",
+      "audience": "user",
+      "title": {
+        "ru": "Сохранённая копия письма или документа недоступна",
+        "uk": "Збережена копія листа або документа недоступна",
+        "en": "The stored copy of the message or document is unavailable",
+        "de": "Die gespeicherte Kopie der Nachricht oder des Dokuments ist nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Копия письма или оригинал документа не сохранены либо повреждены. Действие отменено, чтобы ничего не потерять.",
+        "uk": "Копію листа або оригінал документа не збережено чи пошкоджено. Дію скасовано, щоб нічого не втратити.",
+        "en": "The copy of the message or the original of the document is not saved or is damaged. The action was cancelled so that nothing is lost.",
+        "de": "Die Kopie der Nachricht oder das Original des Dokuments ist nicht gespeichert oder beschädigt. Die Aktion wurde abgebrochen, damit nichts verloren geht."
+      },
+      "action": {
+        "ru": "1. Проверьте, что на диске есть место и папка данных доступна.\n2. Повторите действие.\n3. Если не помогло, восстановите данные из последней копии.",
+        "uk": "1. Перевірте, що на диску є місце і папка даних доступна.\n2. Повторіть дію.\n3. Якщо не допомогло, відновіть дані з останньої копії.",
+        "en": "1. Check that the disk has free space and the data folder is reachable.\n2. Repeat the action.\n3. If that does not help, restore the data from the latest backup.",
+        "de": "1. Prüfen Sie, ob auf der Festplatte Platz ist und der Datenordner erreichbar ist.\n2. Wiederholen Sie die Aktion.\n3. Hilft das nicht, stellen Sie die Daten aus der letzten Sicherung wieder her."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-FILE-015",
+      "since": "1.9.0",
+      "tags": [
+        "files",
+        "storage"
+      ]
+    }
+  ]
+}

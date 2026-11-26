@@ -1,0 +1,379 @@
+{
+  "namespace": "JP",
+  "area": "AUTO",
+  "codes": [
+    {
+      "code": "JP-AUTO-001",
+      "number": "004-009-001",
+      "key": "JP_RUN_NOW_RUNNING",
+      "aliases": [
+        "run_now_running"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проход уже идёт",
+        "uk": "Прохід уже триває",
+        "en": "A run is already in progress",
+        "de": "Ein Durchlauf läuft bereits"
+      },
+      "cause": {
+        "ru": "«Запустить сейчас» уже выполняется.",
+        "uk": "«Запустити зараз» уже виконується.",
+        "en": "“Run now” is already running.",
+        "de": "„Jetzt starten“ läuft bereits."
+      },
+      "action": {
+        "ru": "1. Дождитесь конца прохода.\n2. Итог появится в журнале автоматики.",
+        "uk": "1. Дочекайтеся кінця проходу.\n2. Підсумок з’явиться в журналі автоматики.",
+        "en": "1. Wait until the run is finished.\n2. The result appears in the automation log.",
+        "de": "1. Warten Sie, bis der Durchlauf fertig ist.\n2. Das Ergebnis erscheint im Automatisierungsprotokoll."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-AUTO-001",
+      "since": "1.9.0",
+      "tags": [
+        "automation"
+      ]
+    },
+    {
+      "code": "JP-AUTO-002",
+      "number": "004-009-002",
+      "key": "JP_JOB_ALREADY_QUEUED",
+      "aliases": [
+        "duplicate"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такое задание уже в очереди",
+        "uk": "Таке завдання вже в черзі",
+        "en": "The same task is already queued",
+        "de": "Dieselbe Aufgabe steht bereits an"
+      },
+      "cause": {
+        "ru": "Такое же задание уже стоит в очереди или выполняется.",
+        "uk": "Таке саме завдання вже стоїть у черзі або виконується.",
+        "en": "The same task is already queued or running.",
+        "de": "Dieselbe Aufgabe steht bereits an oder läuft."
+      },
+      "action": {
+        "ru": "1. Дождитесь его конца.",
+        "uk": "1. Дочекайтеся його кінця.",
+        "en": "1. Wait until it is finished.",
+        "de": "1. Warten Sie, bis sie fertig ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-AUTO-002",
+      "since": "1.9.0",
+      "tags": [
+        "automation",
+        "jobs"
+      ]
+    },
+    {
+      "code": "JP-AUTO-003",
+      "number": "004-009-003",
+      "key": "JP_AUTO_ENABLE_TOO_OFTEN",
+      "aliases": [
+        "enable_rate"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Автопилот включают слишком часто",
+        "uk": "Автопілот вмикають надто часто",
+        "en": "Autopilot is being turned on too often",
+        "de": "Der Autopilot wird zu oft eingeschaltet"
+      },
+      "cause": {
+        "ru": "Попыток включить автопилот за последнюю минуту слишком много.",
+        "uk": "Спроб увімкнути автопілот за останню хвилину забагато.",
+        "en": "There were too many attempts to turn on the autopilot in the last minute.",
+        "de": "Es gab in der letzten Minute zu viele Versuche, den Autopiloten einzuschalten."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Включите автопилот ещё раз.",
+        "uk": "1. Зачекайте хвилину.\n2. Увімкніть автопілот ще раз.",
+        "en": "1. Wait a minute.\n2. Turn on the autopilot again.",
+        "de": "1. Warten Sie eine Minute.\n2. Schalten Sie den Autopiloten erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 429,
+      "help": "errors/JP-AUTO-003",
+      "since": "1.9.0",
+      "tags": [
+        "autopilot"
+      ]
+    },
+    {
+      "code": "JP-AUTO-004",
+      "number": "004-009-004",
+      "key": "JP_AUTO_RESTART_RANGE",
+      "aliases": [
+        "cancel_window_restart_hours.range"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Окно отмены после остановки вне допустимых пределов",
+        "uk": "Вікно скасування після зупинки поза допустимими межами",
+        "en": "The cancel window after a stop is outside the allowed range",
+        "de": "Das Abbruchfenster nach einem Stopp liegt außerhalb des zulässigen Bereichs"
+      },
+      "cause": {
+        "ru": "Новое окно отмены после остановки отправки задаётся числом часов от {min} (не перезапускать) до {max}.",
+        "uk": "Нове вікно скасування після зупинки надсилання задається числом годин від {min} (не перезапускати) до {max}.",
+        "en": "The new cancel window after sending stops is a number of hours from {min} (do not restart) to {max}.",
+        "de": "Das neue Abbruchfenster nach einem Sendestopp ist eine Stundenzahl von {min} (nicht neu starten) bis {max}."
+      },
+      "action": {
+        "ru": "1. Введите число в указанных пределах.\n2. Сохраните настройку.",
+        "uk": "1. Введіть число в указаних межах.\n2. Збережіть налаштування.",
+        "en": "1. Enter a number within these limits.\n2. Save the setting.",
+        "de": "1. Geben Sie eine Zahl in diesen Grenzen ein.\n2. Speichern Sie die Einstellung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-AUTO-004",
+      "since": "1.9.0",
+      "tags": [
+        "autopilot",
+        "settings"
+      ],
+      "params": {
+        "min": "str",
+        "max": "str"
+      }
+    },
+    {
+      "code": "JP-AUTO-005",
+      "number": "004-009-005",
+      "key": "JP_AUTO_WAITS_FOR_HUMAN",
+      "aliases": [
+        "application_parked"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Заявка ждёт вашего решения",
+        "uk": "Заявка чекає на ваше рішення",
+        "en": "The application is waiting for your decision",
+        "de": "Die Bewerbung wartet auf Ihre Entscheidung"
+      },
+      "cause": {
+        "ru": "Автоматика не трогает эту заявку, пока вы сами не решите, что с ней делать.",
+        "uk": "Автоматика не чіпає цю заявку, доки ви самі не вирішите, що з нею робити.",
+        "en": "Automation leaves this application alone until you decide what to do with it.",
+        "de": "Die Automatik lässt diese Bewerbung unberührt, bis Sie selbst entscheiden, was damit geschehen soll."
+      },
+      "action": {
+        "ru": "1. Откройте заявку.\n2. Решите, что с ней делать.",
+        "uk": "1. Відкрийте заявку.\n2. Вирішіть, що з нею робити.",
+        "en": "1. Open the application.\n2. Decide what to do with it.",
+        "de": "1. Öffnen Sie die Bewerbung.\n2. Entscheiden Sie, was damit geschehen soll."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-AUTO-005",
+      "since": "1.9.0",
+      "tags": [
+        "autopilot",
+        "automation"
+      ]
+    },
+    {
+      "code": "JP-AUTO-006",
+      "number": "004-009-006",
+      "key": "JP_AUTO_PAUSED",
+      "aliases": [
+        "auto_paused.paused"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Автоматика на паузе",
+        "uk": "Автоматика на паузі",
+        "en": "Automation is paused",
+        "de": "Die Automatik ist pausiert"
+      },
+      "cause": {
+        "ru": "Автоматические действия сейчас остановлены, поэтому этот шаг не выполнен.",
+        "uk": "Автоматичні дії зараз зупинено, тому цей крок не виконано.",
+        "en": "Automatic actions are stopped at the moment, so this step was not carried out.",
+        "de": "Automatische Aktionen sind gerade gestoppt, daher wurde dieser Schritt nicht ausgeführt."
+      },
+      "action": {
+        "ru": "1. Откройте настройки автоматики.\n2. Снимите паузу, если это нужно.",
+        "uk": "1. Відкрийте налаштування автоматики.\n2. Зніміть паузу, якщо це потрібно.",
+        "en": "1. Open the automation settings.\n2. Remove the pause if needed.",
+        "de": "1. Öffnen Sie die Automatik-Einstellungen.\n2. Heben Sie die Pause bei Bedarf auf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-AUTO-006",
+      "since": "1.9.0",
+      "tags": [
+        "automation"
+      ]
+    },
+    {
+      "code": "JP-AUTO-007",
+      "number": "004-009-007",
+      "key": "JP_AUTO_TASK_OWN_ACTION",
+      "aliases": [
+        "closes_with",
+        "management_blocker_requires_source"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Эта задача закрывается только своим действием",
+        "uk": "Це завдання закривається лише своєю дією",
+        "en": "This task closes only through its own action",
+        "de": "Diese Aufgabe wird nur durch ihre eigene Aktion geschlossen"
+      },
+      "cause": {
+        "ru": "Задача держится на действующем ограничении или событии. Её нельзя закрыть вручную, пока причина не устранена.",
+        "uk": "Завдання тримається на чинному обмеженні або події. Його не можна закрити вручну, доки причину не усунуто.",
+        "en": "The task depends on an active restriction or event. It cannot be closed by hand until the cause is removed.",
+        "de": "Die Aufgabe hängt an einer aktiven Einschränkung oder einem Ereignis. Sie kann nicht von Hand geschlossen werden, solange die Ursache nicht beseitigt ist."
+      },
+      "action": {
+        "ru": "1. Откройте задачу и посмотрите, что её держит.\n2. Выполните предложенное действие.",
+        "uk": "1. Відкрийте завдання та подивіться, що його тримає.\n2. Виконайте запропоновану дію.",
+        "en": "1. Open the task and see what is holding it.\n2. Carry out the suggested action.",
+        "de": "1. Öffnen Sie die Aufgabe und sehen Sie nach, was sie festhält.\n2. Führen Sie die vorgeschlagene Aktion aus."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-AUTO-007",
+      "since": "1.9.0",
+      "tags": [
+        "management",
+        "tasks"
+      ]
+    }
+  ]
+}

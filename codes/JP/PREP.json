@@ -1,0 +1,548 @@
+{
+  "namespace": "JP",
+  "area": "PREP",
+  "codes": [
+    {
+      "code": "JP-PREP-001",
+      "number": "004-005-001",
+      "key": "JP_UNFILLED_MARK_LETTER",
+      "aliases": [
+        "body.unfilled_mark"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В письме осталась метка для подстановки",
+        "uk": "У листі залишилася мітка для підстановки",
+        "en": "A placeholder is left in the letter",
+        "de": "Im Anschreiben ist ein Platzhalter übrig"
+      },
+      "cause": {
+        "ru": "В тексте осталась метка {marks}, которую программа не заполнила.",
+        "uk": "У тексті залишилася мітка {marks}, яку програма не заповнила.",
+        "en": "The text still contains the placeholder {marks}, which the program did not fill in.",
+        "de": "Der Text enthält noch den Platzhalter {marks}, den das Programm nicht ausgefüllt hat."
+      },
+      "action": {
+        "ru": "1. Замените метку нужным словом (например, своим именем).\n2. Проверьте текст и утвердите снова.",
+        "uk": "1. Замініть мітку потрібним словом (наприклад, своїм ім’ям).\n2. Перевірте текст і затвердьте знову.",
+        "en": "1. Replace the placeholder with the right word (for example, your name).\n2. Check the text and approve again.",
+        "de": "1. Ersetzen Sie den Platzhalter durch das richtige Wort (z. B. Ihren Namen).\n2. Prüfen Sie den Text und geben Sie ihn erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "marks": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-001",
+      "since": "1.9.0",
+      "tags": [
+        "documents"
+      ]
+    },
+    {
+      "code": "JP-PREP-002",
+      "number": "004-005-002",
+      "key": "JP_UNFILLED_MARK_CV",
+      "aliases": [
+        "cv.unfilled_mark"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В резюме осталась метка для подстановки",
+        "uk": "У резюме залишилася мітка для підстановки",
+        "en": "A placeholder is left in the CV",
+        "de": "Im Lebenslauf ist ein Platzhalter übrig"
+      },
+      "cause": {
+        "ru": "В тексте осталась метка {marks}, которую программа не заполнила.",
+        "uk": "У тексті залишилася мітка {marks}, яку програма не заповнила.",
+        "en": "The text still contains the placeholder {marks}, which the program did not fill in.",
+        "de": "Der Text enthält noch den Platzhalter {marks}, den das Programm nicht ausgefüllt hat."
+      },
+      "action": {
+        "ru": "1. Замените метку нужным словом (например, своим именем).\n2. Проверьте текст и утвердите снова.",
+        "uk": "1. Замініть мітку потрібним словом (наприклад, своїм ім’ям).\n2. Перевірте текст і затвердьте знову.",
+        "en": "1. Replace the placeholder with the right word (for example, your name).\n2. Check the text and approve again.",
+        "de": "1. Ersetzen Sie den Platzhalter durch das richtige Wort (z. B. Ihren Namen).\n2. Prüfen Sie den Text und geben Sie ihn erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "marks": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-002",
+      "since": "1.9.0",
+      "tags": [
+        "documents"
+      ]
+    },
+    {
+      "code": "JP-PREP-003",
+      "number": "004-005-003",
+      "key": "JP_PDF_CHARS_LETTER",
+      "aliases": [
+        "letter.pdf_chars"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В PDF письма нет некоторых знаков",
+        "uk": "У PDF листа немає деяких знаків",
+        "en": "Some characters cannot go into the letter PDF",
+        "de": "Einige Zeichen passen nicht in das PDF (Anschreiben)"
+      },
+      "cause": {
+        "ru": "В обычном PDF нет этих знаков: {chars}.",
+        "uk": "У звичайному PDF немає цих знаків: {chars}.",
+        "en": "A standard PDF does not have these characters: {chars}.",
+        "de": "Ein normales PDF enthält diese Zeichen nicht: {chars}."
+      },
+      "action": {
+        "ru": "1. Замените эти знаки в тексте или в имени и контактах профиля (например, латиницей).\n2. Утвердите снова.",
+        "uk": "1. Замініть ці знаки в тексті або в імені та контактах профілю (наприклад, латиницею).\n2. Затвердьте знову.",
+        "en": "1. Replace these characters in the text or in the profile name and contacts (for example, with Latin letters).\n2. Approve again.",
+        "de": "1. Ersetzen Sie diese Zeichen im Text oder in Name und Kontaktdaten des Profils (z. B. durch lateinische Buchstaben).\n2. Geben Sie erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "chars": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-003",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "pdf"
+      ]
+    },
+    {
+      "code": "JP-PREP-004",
+      "number": "004-005-004",
+      "key": "JP_PDF_CHARS_CV",
+      "aliases": [
+        "cv.pdf_chars"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В PDF резюме нет некоторых знаков",
+        "uk": "У PDF резюме немає деяких знаків",
+        "en": "Some characters cannot go into the CV PDF",
+        "de": "Einige Zeichen passen nicht in das PDF (Lebenslauf)"
+      },
+      "cause": {
+        "ru": "В обычном PDF нет этих знаков: {chars}.",
+        "uk": "У звичайному PDF немає цих знаків: {chars}.",
+        "en": "A standard PDF does not have these characters: {chars}.",
+        "de": "Ein normales PDF enthält diese Zeichen nicht: {chars}."
+      },
+      "action": {
+        "ru": "1. Замените эти знаки в тексте или в имени и контактах профиля (например, латиницей).\n2. Утвердите снова.",
+        "uk": "1. Замініть ці знаки в тексті або в імені та контактах профілю (наприклад, латиницею).\n2. Затвердьте знову.",
+        "en": "1. Replace these characters in the text or in the profile name and contacts (for example, with Latin letters).\n2. Approve again.",
+        "de": "1. Ersetzen Sie diese Zeichen im Text oder in Name und Kontaktdaten des Profils (z. B. durch lateinische Buchstaben).\n2. Geben Sie erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "chars": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-004",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "pdf"
+      ]
+    },
+    {
+      "code": "JP-PREP-005",
+      "number": "004-005-005",
+      "key": "JP_TEMPLATE_NOT_APPROVED",
+      "aliases": [
+        "status.not_approved"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Шаблон ещё не утверждён",
+        "uk": "Шаблон ще не затверджено",
+        "en": "The template is not approved yet",
+        "de": "Die Vorlage ist noch nicht freigegeben"
+      },
+      "cause": {
+        "ru": "Основным можно сделать только утверждённый шаблон.",
+        "uk": "Основним можна зробити лише затверджений шаблон.",
+        "en": "Only an approved template can be made the main one.",
+        "de": "Nur eine freigegebene Vorlage kann zur Hauptvorlage werden."
+      },
+      "action": {
+        "ru": "1. Откройте шаблон и проверьте метки.\n2. Нажмите «Утвердить».\n3. Затем сделайте его основным.",
+        "uk": "1. Відкрийте шаблон і перевірте мітки.\n2. Натисніть «Затвердити».\n3. Потім зробіть його основним.",
+        "en": "1. Open the template and check the placeholders.\n2. Click “Approve”.\n3. Then make it the main one.",
+        "de": "1. Öffnen Sie die Vorlage und prüfen Sie die Platzhalter.\n2. Klicken Sie auf „Freigeben“.\n3. Machen Sie sie dann zur Hauptvorlage."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-005",
+      "since": "1.9.0",
+      "tags": [
+        "templates"
+      ]
+    },
+    {
+      "code": "JP-PREP-006",
+      "number": "004-005-006",
+      "key": "JP_PREP_FACTS_MISMATCH",
+      "aliases": [
+        "facts_mismatch"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Текст не сходится с профилем",
+        "uk": "Текст не збігається з профілем",
+        "en": "The text does not match the profile",
+        "de": "Der Text stimmt nicht mit dem Profil überein"
+      },
+      "cause": {
+        "ru": "В тексте есть данные, которых нет в вашем профиле или которые отличаются от него. PDF не создан.",
+        "uk": "У тексті є дані, яких немає у вашому профілі або які відрізняються від нього. PDF не створено.",
+        "en": "The text contains details that are not in your profile or differ from it. The PDF was not created.",
+        "de": "Der Text enthält Angaben, die nicht in Ihrem Profil stehen oder davon abweichen. Das PDF wurde nicht erstellt."
+      },
+      "action": {
+        "ru": "1. Исправьте отмеченные места.\n2. Утвердите текст снова.",
+        "uk": "1. Виправте позначені місця.\n2. Затвердьте текст знову.",
+        "en": "1. Fix the marked places.\n2. Approve the text again.",
+        "de": "1. Korrigieren Sie die markierten Stellen.\n2. Genehmigen Sie den Text erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-006",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "facts"
+      ]
+    },
+    {
+      "code": "JP-PREP-007",
+      "number": "004-005-007",
+      "key": "JP_PREP_WORD_NOT_READY",
+      "aliases": [
+        "word_candidate_not_ready",
+        "word_preview_not_ready"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Word-комплект ещё не готов",
+        "uk": "Word-комплект ще не готовий",
+        "en": "The Word set is not ready yet",
+        "de": "Das Word-Paket ist noch nicht bereit"
+      },
+      "cause": {
+        "ru": "Импортированный Word-комплект ещё обрабатывается, поэтому PDF из него сделать нельзя.",
+        "uk": "Імпортований Word-комплект ще обробляється, тому PDF з нього зробити не можна.",
+        "en": "The imported Word set is still being processed, so a PDF cannot be made from it yet.",
+        "de": "Das importierte Word-Paket wird noch verarbeitet, daher kann daraus noch kein PDF erstellt werden."
+      },
+      "action": {
+        "ru": "1. Подождите немного.\n2. Подготовьте PDF из сохранённого Word ещё раз.",
+        "uk": "1. Зачекайте трохи.\n2. Підготуйте PDF із збереженого Word ще раз.",
+        "en": "1. Wait a little.\n2. Prepare the PDF from the saved Word file again.",
+        "de": "1. Warten Sie einen Moment.\n2. Erstellen Sie das PDF aus der gespeicherten Word-Datei erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-PREP-007",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "word"
+      ]
+    },
+    {
+      "code": "JP-PREP-008",
+      "number": "004-005-008",
+      "key": "JP_PREP_WORD_CHANGED",
+      "aliases": [
+        "word_candidate_stale",
+        "stale_preparation"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Подготовка устарела",
+        "uk": "Підготовка застаріла",
+        "en": "The preparation is out of date",
+        "de": "Die Vorbereitung ist veraltet"
+      },
+      "cause": {
+        "ru": "Пока шла подготовка, файл Word или данные заявки изменились.",
+        "uk": "Поки йшла підготовка, файл Word або дані заявки змінилися.",
+        "en": "While the preparation was running, the Word file or the application data changed.",
+        "de": "Während der Vorbereitung haben sich die Word-Datei oder die Bewerbungsdaten geändert."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Импортируйте актуальный файл или выберите редактор текста.",
+        "uk": "1. Оновіть сторінку.\n2. Імпортуйте актуальний файл або виберіть редактор тексту.",
+        "en": "1. Reload the page.\n2. Import the current file or choose the text editor.",
+        "de": "1. Laden Sie die Seite neu.\n2. Importieren Sie die aktuelle Datei oder wählen Sie den Texteditor."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-PREP-008",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "word"
+      ]
+    },
+    {
+      "code": "JP-PREP-009",
+      "number": "004-005-009",
+      "key": "JP_PREP_WORD_UNSAFE",
+      "aliases": [
+        "word_candidate_unsafe"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Word-файл нельзя безопасно преобразовать",
+        "uk": "Word-файл не можна безпечно перетворити",
+        "en": "The Word file cannot be converted safely",
+        "de": "Die Word-Datei kann nicht sicher umgewandelt werden"
+      },
+      "cause": {
+        "ru": "Оригинал Word сохранён, но программа не может безопасно превратить его в PDF.",
+        "uk": "Оригінал Word збережено, але програма не може безпечно перетворити його на PDF.",
+        "en": "The Word original is saved, but the program cannot safely turn it into a PDF.",
+        "de": "Das Word-Original ist gespeichert, aber das Programm kann es nicht sicher in ein PDF umwandeln."
+      },
+      "action": {
+        "ru": "1. Откройте файл в Word и сохраните его заново.\n2. Или отправьте документ в виде готового PDF.",
+        "uk": "1. Відкрийте файл у Word і збережіть його заново.\n2. Або надішліть документ як готовий PDF.",
+        "en": "1. Open the file in Word and save it again.\n2. Or send the document as a ready PDF.",
+        "de": "1. Öffnen Sie die Datei in Word und speichern Sie sie neu.\n2. Oder senden Sie das Dokument als fertiges PDF."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-009",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "word"
+      ]
+    },
+    {
+      "code": "JP-PREP-010",
+      "number": "004-005-010",
+      "key": "JP_PREP_WORD_REVIEW_NEEDED",
+      "aliases": [
+        "word_package_review_required"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Для Word нужна проверка готового комплекта",
+        "uk": "Для Word потрібна перевірка готового комплекту",
+        "en": "A Word set needs the finished set to be checked",
+        "de": "Für Word muss das fertige Paket geprüft werden"
+      },
+      "cause": {
+        "ru": "Текстовая проверка не видит содержимое импортированного Word-файла, поэтому нужна проверка готового комплекта.",
+        "uk": "Текстова перевірка не бачить вміст імпортованого Word-файлу, тому потрібна перевірка готового комплекту.",
+        "en": "The text check does not see the content of an imported Word file, so the finished set must be checked.",
+        "de": "Die Textprüfung sieht den Inhalt einer importierten Word-Datei nicht, daher muss das fertige Paket geprüft werden."
+      },
+      "action": {
+        "ru": "1. Запустите проверку готового комплекта.\n2. Дождитесь результата.",
+        "uk": "1. Запустіть перевірку готового комплекту.\n2. Дочекайтеся результату.",
+        "en": "1. Start the check of the finished set.\n2. Wait for the result.",
+        "de": "1. Starten Sie die Prüfung des fertigen Pakets.\n2. Warten Sie auf das Ergebnis."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-010",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "word",
+        "ai"
+      ]
+    }
+  ]
+}
