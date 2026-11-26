@@ -1374,6 +1374,164 @@
         "legal",
         "files"
       ]
+    },
+    {
+      "code": "JP-ACC-027",
+      "number": "004-001-027",
+      "key": "JP_INVALID_SKIN",
+      "aliases": [
+        "invalid_skin"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Оформление не прошло проверку",
+        "uk": "Оформлення не пройшло перевірку",
+        "en": "The look did not pass the check",
+        "de": "Das Erscheinungsbild hat die Prüfung nicht bestanden"
+      },
+      "cause": {
+        "ru": "Выбранное оформление не соответствует требованиям читаемости.",
+        "uk": "Вибране оформлення не відповідає вимогам читабельності.",
+        "en": "The chosen look does not meet the readability requirements.",
+        "de": "Das gewählte Erscheinungsbild erfüllt die Anforderungen an die Lesbarkeit nicht."
+      },
+      "action": {
+        "ru": "1. Выберите другое оформление в «Настройки › Внешний вид».\n2. Если вы загружали своё, проверьте цвета и контраст.",
+        "uk": "1. Виберіть інше оформлення в «Налаштування › Зовнішній вигляд».\n2. Якщо ви завантажували своє, перевірте кольори й контраст.",
+        "en": "1. Choose another look in “Settings › Appearance”.\n2. If you uploaded your own, check its colors and contrast.",
+        "de": "1. Wählen Sie unter „Einstellungen › Erscheinungsbild“ ein anderes.\n2. Haben Sie ein eigenes hochgeladen, prüfen Sie Farben und Kontrast."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ACC-027",
+      "since": "1.9.0",
+      "tags": [
+        "settings",
+        "appearance"
+      ]
+    },
+    {
+      "code": "JP-ACC-028",
+      "number": "004-001-028",
+      "key": "JP_UNKNOWN_SKIN",
+      "aliases": [
+        "unknown_skin"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такого оформления нет",
+        "uk": "Такого оформлення немає",
+        "en": "There is no such look",
+        "de": "Dieses Erscheinungsbild gibt es nicht"
+      },
+      "cause": {
+        "ru": "Выбранное оформление программе неизвестно: возможно, его удалили.",
+        "uk": "Вибране оформлення програмі невідоме: можливо, його видалили.",
+        "en": "The program does not know the chosen look: it may have been removed.",
+        "de": "Das Programm kennt das gewählte Erscheinungsbild nicht: Es wurde möglicherweise entfernt."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки › Внешний вид».\n2. Выберите оформление из списка.",
+        "uk": "1. Відкрийте «Налаштування › Зовнішній вигляд».\n2. Виберіть оформлення зі списку.",
+        "en": "1. Open “Settings › Appearance”.\n2. Choose a look from the list.",
+        "de": "1. Öffnen Sie „Einstellungen › Erscheinungsbild“.\n2. Wählen Sie ein Erscheinungsbild aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ACC-028",
+      "since": "1.9.0",
+      "tags": [
+        "settings",
+        "appearance"
+      ]
+    },
+    {
+      "code": "JP-ACC-029",
+      "number": "004-001-029",
+      "key": "JP_HOME_NETWORK_ONLY",
+      "aliases": [
+        "via_vpn"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Программа открывается только из домашней сети",
+        "uk": "Програма відкривається лише з домашньої мережі",
+        "en": "The program opens only from the home network",
+        "de": "Das Programm öffnet sich nur aus dem Heimnetz"
+      },
+      "cause": {
+        "ru": "Запрос пришёл не из домашней сети, поэтому программа его не приняла.",
+        "uk": "Запит прийшов не з домашньої мережі, тому програма його не прийняла.",
+        "en": "The request did not come from the home network, so the program did not accept it.",
+        "de": "Die Anfrage kam nicht aus dem Heimnetz, daher hat das Programm sie nicht angenommen."
+      },
+      "action": {
+        "ru": "1. Откройте программу на компьютере, где она установлена, или из вашей домашней сети.\n2. Если доступ нужен из другой сети, администратор может изменить разрешённые сети в настройках установки.",
+        "uk": "1. Відкрийте програму на комп’ютері, де її встановлено, або з вашої домашньої мережі.\n2. Якщо доступ потрібен з іншої мережі, адміністратор може змінити дозволені мережі в налаштуваннях установки.",
+        "en": "1. Open the program on the computer where it is installed, or from your home network.\n2. If access is needed from another network, an administrator can change the allowed networks in the installation settings.",
+        "de": "1. Öffnen Sie das Programm auf dem Computer, auf dem es installiert ist, oder aus Ihrem Heimnetz.\n2. Wird der Zugriff aus einem anderen Netz gebraucht, kann ein Administrator die erlaubten Netze in den Installationseinstellungen ändern."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-029",
+      "since": "1.9.0",
+      "tags": [
+        "access"
+      ]
     }
   ]
 }

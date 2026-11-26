@@ -1,0 +1,319 @@
+{
+  "namespace": "JP",
+  "area": "PROB",
+  "codes": [
+    {
+      "code": "JP-PROB-001",
+      "number": "004-015-001",
+      "key": "JP_PROBLEM_NOT_FOUND",
+      "aliases": [
+        "problem_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проблема не найдена",
+        "uk": "Проблему не знайдено",
+        "en": "The problem was not found",
+        "de": "Das Problem wurde nicht gefunden"
+      },
+      "cause": {
+        "ru": "Такой записи в центре проблем нет: она могла уже исчезнуть.",
+        "uk": "Такого запису в центрі проблем немає: він міг уже зникнути.",
+        "en": "There is no such entry in the problem center: it may have disappeared already.",
+        "de": "Diesen Eintrag gibt es im Problemcenter nicht: Er ist möglicherweise schon verschwunden."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Найдите проблему в списке заново.",
+        "uk": "1. Оновіть сторінку.\n2. Знайдіть проблему в списку знову.",
+        "en": "1. Refresh the page.\n2. Find the problem in the list again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Suchen Sie das Problem erneut in der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-PROB-001",
+      "since": "1.9.0",
+      "tags": [
+        "problems"
+      ]
+    },
+    {
+      "code": "JP-PROB-002",
+      "number": "004-015-002",
+      "key": "JP_PROBLEM_STATE",
+      "aliases": [
+        "problem_state"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Действие недоступно для этой проблемы",
+        "uk": "Дія недоступна для цієї проблеми",
+        "en": "The action is not available for this problem",
+        "de": "Die Aktion ist für dieses Problem nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Проблема сейчас в другом состоянии: например, уже решена или заглушена.",
+        "uk": "Проблема зараз в іншому стані: наприклад, уже вирішена або заглушена.",
+        "en": "The problem is in a different state now: for example, already solved or muted.",
+        "de": "Das Problem hat jetzt einen anderen Zustand: Es ist zum Beispiel schon gelöst oder stummgeschaltet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Посмотрите состояние проблемы и повторите действие, если оно нужно.",
+        "uk": "1. Оновіть сторінку.\n2. Подивіться стан проблеми й повторіть дію, якщо вона потрібна.",
+        "en": "1. Refresh the page.\n2. Look at the state of the problem and repeat the action if it is needed.",
+        "de": "1. Laden Sie die Seite neu.\n2. Sehen Sie sich den Zustand des Problems an und wiederholen Sie die Aktion, falls nötig."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-PROB-002",
+      "since": "1.9.0",
+      "tags": [
+        "problems"
+      ]
+    },
+    {
+      "code": "JP-PROB-003",
+      "number": "004-015-003",
+      "key": "JP_PROBLEM_STILL_PRESENT",
+      "aliases": [
+        "problem_still_present"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка всё ещё находит проблему",
+        "uk": "Перевірка досі знаходить проблему",
+        "en": "The check still finds the problem",
+        "de": "Die Prüfung findet das Problem weiterhin"
+      },
+      "cause": {
+        "ru": "Программа проверила ещё раз, и проблема не исчезла.",
+        "uk": "Програма перевірила ще раз, і проблема не зникла.",
+        "en": "The program checked again and the problem has not gone away.",
+        "de": "Das Programm hat erneut geprüft, und das Problem ist nicht verschwunden."
+      },
+      "action": {
+        "ru": "1. Выполните шаги из описания проблемы.\n2. Нажмите «Проверить снова».\n3. Если решить пока нельзя, заглушите проблему на срок с комментарием.",
+        "uk": "1. Виконайте кроки з опису проблеми.\n2. Натисніть «Перевірити знову».\n3. Якщо вирішити поки не можна, заглушіть проблему на термін із коментарем.",
+        "en": "1. Follow the steps in the description of the problem.\n2. Press “Check again”.\n3. If it cannot be solved yet, mute the problem for a period with a comment.",
+        "de": "1. Folgen Sie den Schritten in der Beschreibung des Problems.\n2. Klicken Sie auf „Erneut prüfen“.\n3. Lässt es sich noch nicht lösen, schalten Sie das Problem für einen Zeitraum mit einem Kommentar stumm."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-PROB-003",
+      "since": "1.9.0",
+      "tags": [
+        "problems"
+      ]
+    },
+    {
+      "code": "JP-PROB-004",
+      "number": "004-015-004",
+      "key": "JP_MUTE_INVALID",
+      "aliases": [
+        "mute_invalid"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Заглушка не принята",
+        "uk": "Заглушку не прийнято",
+        "en": "The mute was not accepted",
+        "de": "Die Stummschaltung wurde nicht angenommen"
+      },
+      "cause": {
+        "ru": "Заглушить проблему можно не больше чем на 90 дней и только с комментарием.",
+        "uk": "Заглушити проблему можна не більше ніж на 90 днів і лише з коментарем.",
+        "en": "A problem can be muted for at most 90 days and only with a comment.",
+        "de": "Ein Problem lässt sich höchstens 90 Tage lang und nur mit einem Kommentar stummschalten."
+      },
+      "action": {
+        "ru": "1. Выберите срок не больше 90 дней.\n2. Напишите комментарий: почему заглушаете.\n3. Сохраните.",
+        "uk": "1. Виберіть термін не більше 90 днів.\n2. Напишіть коментар: чому заглушаєте.\n3. Збережіть.",
+        "en": "1. Choose a period of at most 90 days.\n2. Write a comment on why you are muting it.\n3. Save.",
+        "de": "1. Wählen Sie einen Zeitraum von höchstens 90 Tagen.\n2. Schreiben Sie einen Kommentar, warum Sie es stummschalten.\n3. Speichern Sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PROB-004",
+      "since": "1.9.0",
+      "tags": [
+        "problems"
+      ]
+    },
+    {
+      "code": "JP-PROB-005",
+      "number": "004-015-005",
+      "key": "JP_NOTE_NOT_FOUND",
+      "aliases": [
+        "note_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Заметка не найдена",
+        "uk": "Нотатку не знайдено",
+        "en": "The note was not found",
+        "de": "Die Notiz wurde nicht gefunden"
+      },
+      "cause": {
+        "ru": "Такой заметки нет: её могли удалить.",
+        "uk": "Такої нотатки немає: її могли видалити.",
+        "en": "There is no such note: it may have been deleted.",
+        "de": "Diese Notiz gibt es nicht: Sie wurde möglicherweise gelöscht."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Добавьте заметку заново, если она нужна.",
+        "uk": "1. Оновіть сторінку.\n2. Додайте нотатку знову, якщо вона потрібна.",
+        "en": "1. Refresh the page.\n2. Add the note again if you need it.",
+        "de": "1. Laden Sie die Seite neu.\n2. Fügen Sie die Notiz erneut hinzu, falls Sie sie brauchen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-PROB-005",
+      "since": "1.9.0",
+      "tags": [
+        "problems"
+      ]
+    },
+    {
+      "code": "JP-PROB-006",
+      "number": "004-015-006",
+      "key": "JP_ERROR_CODE_UNKNOWN",
+      "aliases": [
+        "unknown_error_code"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такого кода ошибки нет",
+        "uk": "Такого коду помилки немає",
+        "en": "There is no such error code",
+        "de": "Diesen Fehlercode gibt es nicht"
+      },
+      "cause": {
+        "ru": "Справка не знает этого кода ошибки: возможно, он набран с опечаткой.",
+        "uk": "Довідка не знає цього коду помилки: можливо, його набрано з помилкою.",
+        "en": "Help does not know this error code: it may have been typed with a mistake.",
+        "de": "Die Hilfe kennt diesen Fehlercode nicht: Er wurde möglicherweise falsch eingegeben."
+      },
+      "action": {
+        "ru": "1. Откройте «Помощь › Коды ошибок» и найдите код в списке.\n2. Проверьте, что код скопирован без лишних знаков.",
+        "uk": "1. Відкрийте «Допомога › Коди помилок» і знайдіть код у списку.\n2. Перевірте, що код скопійовано без зайвих знаків.",
+        "en": "1. Open “Help › Error codes” and find the code in the list.\n2. Check that the code was copied without extra characters.",
+        "de": "1. Öffnen Sie „Hilfe › Fehlercodes“ und suchen Sie den Code in der Liste.\n2. Prüfen Sie, dass der Code ohne überflüssige Zeichen kopiert wurde."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-PROB-006",
+      "since": "1.9.0",
+      "tags": [
+        "problems",
+        "help"
+      ]
+    }
+  ]
+}

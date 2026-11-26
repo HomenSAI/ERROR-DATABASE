@@ -859,6 +859,435 @@
         "send",
         "restore"
       ]
+    },
+    {
+      "code": "JP-SEND-017",
+      "number": "004-006-017",
+      "key": "JP_SMTP_NOT_CONFIGURED",
+      "aliases": [
+        "smtp_not_configured"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Почта для отправки не настроена",
+        "uk": "Пошту для надсилання не налаштовано",
+        "en": "Mail for sending is not set up",
+        "de": "Die Post für den Versand ist nicht eingerichtet"
+      },
+      "cause": {
+        "ru": "Не заполнены сервер исходящей почты и адрес отправителя.",
+        "uk": "Не заповнені сервер вихідної пошти й адреса відправника.",
+        "en": "The outgoing-mail server and the sender address are not filled in.",
+        "de": "Server für ausgehende Post und Absenderadresse sind nicht ausgefüllt."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки › Почта».\n2. Заполните сервер и адрес отправителя или подключите Gmail.\n3. Нажмите «Проверить отправку».",
+        "uk": "1. Відкрийте «Налаштування › Пошта».\n2. Заповніть сервер і адресу відправника або підключіть Gmail.\n3. Натисніть «Перевірити надсилання».",
+        "en": "1. Open “Settings › Mail”.\n2. Fill in the server and the sender address, or connect Gmail.\n3. Press “Check sending”.",
+        "de": "1. Öffnen Sie „Einstellungen › E-Mail“.\n2. Tragen Sie Server und Absenderadresse ein oder verbinden Sie Gmail.\n3. Klicken Sie auf „Versand prüfen“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-017",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-SEND-018",
+      "number": "004-006-018",
+      "key": "JP_APP_DAY_LIMIT",
+      "aliases": [
+        "app_day_limit"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Дневной предел заявок достигнут",
+        "uk": "Денний ліміт заявок досягнуто",
+        "en": "The daily limit of applications is reached",
+        "de": "Das Tageslimit für Bewerbungen ist erreicht"
+      },
+      "cause": {
+        "ru": "За сутки уже отправлено {limit} заявок — это предел, который вы задали.",
+        "uk": "За добу вже надіслано {limit} заявок — це ліміт, який ви задали.",
+        "en": "{limit} applications have already been sent today — this is the limit you set.",
+        "de": "Heute wurden bereits {limit} Bewerbungen gesendet – das ist das von Ihnen festgelegte Limit."
+      },
+      "action": {
+        "ru": "1. Подождите до завтра.\n2. Или увеличьте предел в «Настройки › Правила».",
+        "uk": "1. Зачекайте до завтра.\n2. Або збільште ліміт у «Налаштування › Правила».",
+        "en": "1. Wait until tomorrow.\n2. Or raise the limit in “Settings › Rules”.",
+        "de": "1. Warten Sie bis morgen.\n2. Oder erhöhen Sie das Limit unter „Einstellungen › Regeln“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "limit": "int"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-018",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "limit"
+      ]
+    },
+    {
+      "code": "JP-SEND-019",
+      "number": "004-006-019",
+      "key": "JP_APP_MONTH_LIMIT",
+      "aliases": [
+        "app_month_limit"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Месячный предел заявок достигнут",
+        "uk": "Місячний ліміт заявок досягнуто",
+        "en": "The monthly limit of applications is reached",
+        "de": "Das Monatslimit für Bewerbungen ist erreicht"
+      },
+      "cause": {
+        "ru": "В этом месяце уже отправлено {limit} заявок — это предел, который вы задали.",
+        "uk": "Цього місяця вже надіслано {limit} заявок — це ліміт, який ви задали.",
+        "en": "{limit} applications have already been sent this month — this is the limit you set.",
+        "de": "In diesem Monat wurden bereits {limit} Bewerbungen gesendet – das ist das von Ihnen festgelegte Limit."
+      },
+      "action": {
+        "ru": "1. Подождите до следующего месяца.\n2. Или увеличьте предел в «Настройки › Правила».",
+        "uk": "1. Зачекайте до наступного місяця.\n2. Або збільште ліміт у «Налаштування › Правила».",
+        "en": "1. Wait until next month.\n2. Or raise the limit in “Settings › Rules”.",
+        "de": "1. Warten Sie bis zum nächsten Monat.\n2. Oder erhöhen Sie das Limit unter „Einstellungen › Regeln“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "limit": "int"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-019",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "limit"
+      ]
+    },
+    {
+      "code": "JP-SEND-020",
+      "number": "004-006-020",
+      "key": "JP_LETTER_NOT_APPROVED",
+      "aliases": [
+        "letter_not_approved"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо ещё не утверждено",
+        "uk": "Лист ще не затверджено",
+        "en": "The letter is not approved yet",
+        "de": "Das Anschreiben ist noch nicht freigegeben"
+      },
+      "cause": {
+        "ru": "Отправить можно только утверждённое письмо вместе с резюме, если оно есть.",
+        "uk": "Надіслати можна лише затверджений лист разом із резюме, якщо воно є.",
+        "en": "Only an approved letter can be sent, together with the CV if there is one.",
+        "de": "Gesendet werden kann nur ein freigegebenes Anschreiben, zusammen mit dem Lebenslauf, falls vorhanden."
+      },
+      "action": {
+        "ru": "1. Откройте заявку.\n2. Прочитайте письмо и резюме, отметьте «Я проверил(а) текст» и нажмите «Утверждаю».\n3. Затем отправьте письмо.",
+        "uk": "1. Відкрийте заявку.\n2. Прочитайте лист і резюме, поставте позначку «Я перевірив(ла) текст» і натисніть «Затверджую».\n3. Потім надішліть лист.",
+        "en": "1. Open the application.\n2. Read the letter and the CV, tick “I have checked the text” and press “Approve”.\n3. Then send the letter.",
+        "de": "1. Öffnen Sie die Bewerbung.\n2. Lesen Sie Anschreiben und Lebenslauf, setzen Sie das Häkchen „Ich habe den Text geprüft“ und klicken Sie auf „Freigeben“.\n3. Senden Sie das Anschreiben anschließend."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-020",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "approval"
+      ]
+    },
+    {
+      "code": "JP-SEND-021",
+      "number": "004-006-021",
+      "key": "JP_NO_RECIPIENT",
+      "aliases": [
+        "no_recipient"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Не указан адрес получателя",
+        "uk": "Не вказано адресу отримувача",
+        "en": "No recipient address",
+        "de": "Keine Empfängeradresse angegeben"
+      },
+      "cause": {
+        "ru": "У заявки нет адреса, на который отправлять письмо.",
+        "uk": "У заявки немає адреси, на яку надсилати лист.",
+        "en": "The application has no address to send the letter to.",
+        "de": "Die Bewerbung hat keine Adresse, an die das Anschreiben gesendet werden kann."
+      },
+      "action": {
+        "ru": "1. Откройте заявку.\n2. Впишите адрес получателя.\n3. Сохраните и отправьте снова.",
+        "uk": "1. Відкрийте заявку.\n2. Впишіть адресу отримувача.\n3. Збережіть і надішліть знову.",
+        "en": "1. Open the application.\n2. Enter the recipient address.\n3. Save and send again.",
+        "de": "1. Öffnen Sie die Bewerbung.\n2. Tragen Sie die Empfängeradresse ein.\n3. Speichern Sie und senden Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-021",
+      "since": "1.9.0",
+      "tags": [
+        "send"
+      ]
+    },
+    {
+      "code": "JP-SEND-022",
+      "number": "004-006-022",
+      "key": "JP_LETTER_TEXT_MISSING",
+      "aliases": [
+        "letter_text_missing"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "В письме нет темы или текста",
+        "uk": "У листі немає теми або тексту",
+        "en": "The letter has no subject or text",
+        "de": "Das Anschreiben hat keinen Betreff oder Text"
+      },
+      "cause": {
+        "ru": "Без темы и текста письмо отправить или утвердить нельзя.",
+        "uk": "Без теми й тексту лист не можна надіслати чи затвердити.",
+        "en": "A letter without a subject and text cannot be sent or approved.",
+        "de": "Ohne Betreff und Text kann das Anschreiben weder gesendet noch freigegeben werden."
+      },
+      "action": {
+        "ru": "1. Откройте заявку.\n2. Заполните тему и текст — самому или кнопкой, которая составляет письмо.\n3. Сохраните и повторите.",
+        "uk": "1. Відкрийте заявку.\n2. Заповніть тему й текст — самі або кнопкою, що складає лист.\n3. Збережіть і повторіть.",
+        "en": "1. Open the application.\n2. Fill in the subject and text — yourself or with the button that drafts the letter.\n3. Save and try again.",
+        "de": "1. Öffnen Sie die Bewerbung.\n2. Füllen Sie Betreff und Text aus – selbst oder mit der Schaltfläche, die das Anschreiben verfasst.\n3. Speichern Sie und versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-022",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "approval"
+      ]
+    },
+    {
+      "code": "JP-SEND-023",
+      "number": "004-006-023",
+      "key": "JP_BOUNCED_WITHDRAW_ONLY",
+      "aliases": [
+        "bounced_withdraw_only"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пока письмо не доставлено, заявку можно только отозвать",
+        "uk": "Поки лист не доставлено, заявку можна лише відкликати",
+        "en": "Until the letter is delivered, the application can only be withdrawn",
+        "de": "Solange das Anschreiben nicht zugestellt ist, kann die Bewerbung nur zurückgezogen werden"
+      },
+      "cause": {
+        "ru": "Письмо вернулось как недоставленное. Пока оно не доставлено, статус заявки менять нельзя.",
+        "uk": "Лист повернувся як недоставлений. Поки його не доставлено, змінювати статус заявки не можна.",
+        "en": "The letter came back as undelivered. Until it is delivered, the application status cannot be changed.",
+        "de": "Das Anschreiben kam als unzustellbar zurück. Solange es nicht zugestellt ist, lässt sich der Status der Bewerbung nicht ändern."
+      },
+      "action": {
+        "ru": "1. Исправьте адрес получателя в заявке и отправьте письмо снова.\n2. Или отзовите заявку.",
+        "uk": "1. Виправте адресу отримувача в заявці й надішліть лист знову.\n2. Або відкличте заявку.",
+        "en": "1. Correct the recipient address in the application and send the letter again.\n2. Or withdraw the application.",
+        "de": "1. Korrigieren Sie die Empfängeradresse in der Bewerbung und senden Sie das Anschreiben erneut.\n2. Oder ziehen Sie die Bewerbung zurück."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-023",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-SEND-024",
+      "number": "004-006-024",
+      "key": "JP_REPLY_NOT_APPROVED",
+      "aliases": [
+        "reply_not_approved"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ответ ещё не одобрен",
+        "uk": "Відповідь ще не схвалено",
+        "en": "The reply is not approved yet",
+        "de": "Die Antwort ist noch nicht genehmigt"
+      },
+      "cause": {
+        "ru": "Отправить можно только одобренный ответ работодателю.",
+        "uk": "Надіслати можна лише схвалену відповідь роботодавцю.",
+        "en": "Only an approved reply to the employer can be sent.",
+        "de": "Gesendet werden kann nur eine genehmigte Antwort an den Arbeitgeber."
+      },
+      "action": {
+        "ru": "1. Откройте письмо и проверьте текст ответа.\n2. Нажмите «Одобрить».\n3. Затем отправьте ответ.",
+        "uk": "1. Відкрийте лист і перевірте текст відповіді.\n2. Натисніть «Схвалити».\n3. Потім надішліть відповідь.",
+        "en": "1. Open the message and check the text of the reply.\n2. Press “Approve”.\n3. Then send the reply.",
+        "de": "1. Öffnen Sie die Nachricht und prüfen Sie den Text der Antwort.\n2. Klicken Sie auf „Genehmigen“.\n3. Senden Sie die Antwort anschließend."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SEND-024",
+      "since": "1.9.0",
+      "tags": [
+        "send",
+        "mail"
+      ]
     }
   ]
 }

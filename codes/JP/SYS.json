@@ -833,6 +833,370 @@
       "tags": [
         "requests"
       ]
+    },
+    {
+      "code": "JP-SYS-017",
+      "number": "004-014-017",
+      "key": "JP_TRASH_ITEM_NOT_FOUND",
+      "aliases": [
+        "trash_item_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "В корзине нет такой записи",
+        "uk": "У кошику немає такого запису",
+        "en": "There is no such item in the trash",
+        "de": "Dieser Eintrag ist nicht im Papierkorb"
+      },
+      "cause": {
+        "ru": "Запись уже восстановлена, удалена или срок её хранения прошёл.",
+        "uk": "Запис уже відновлено, видалено або термін його зберігання минув.",
+        "en": "The item has already been restored or deleted, or its retention period is over.",
+        "de": "Der Eintrag wurde bereits wiederhergestellt oder gelöscht, oder seine Aufbewahrungsfrist ist abgelaufen."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Посмотрите корзину ещё раз.",
+        "uk": "1. Оновіть сторінку.\n2. Подивіться кошик ще раз.",
+        "en": "1. Refresh the page.\n2. Look at the trash again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Sehen Sie noch einmal im Papierkorb nach."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-SYS-017",
+      "since": "1.9.0",
+      "tags": [
+        "trash"
+      ]
+    },
+    {
+      "code": "JP-SYS-018",
+      "number": "004-014-018",
+      "key": "JP_LOCALE_PACK_INVALID",
+      "aliases": [
+        "locale_pack_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Пакет языка не прошёл проверку",
+        "uk": "Пакет мови не пройшов перевірку",
+        "en": "The language pack did not pass the check",
+        "de": "Das Sprachpaket hat die Prüfung nicht bestanden"
+      },
+      "cause": {
+        "ru": "В файле языка не хватает переводов или в нём ошибки в подстановках.",
+        "uk": "У файлі мови бракує перекладів або в ньому помилки в підстановках.",
+        "en": "The language file is missing translations or has errors in its placeholders.",
+        "de": "In der Sprachdatei fehlen Übersetzungen oder die Platzhalter sind fehlerhaft."
+      },
+      "action": {
+        "ru": "1. Скачайте образец пакета для этого языка.\n2. Исправьте файл и загрузите его снова.",
+        "uk": "1. Завантажте зразок пакета для цієї мови.\n2. Виправте файл і завантажте його знову.",
+        "en": "1. Download the sample pack for this language.\n2. Correct the file and upload it again.",
+        "de": "1. Laden Sie das Beispielpaket für diese Sprache herunter.\n2. Korrigieren Sie die Datei und laden Sie sie erneut hoch."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-018",
+      "since": "1.9.0",
+      "tags": [
+        "languages"
+      ]
+    },
+    {
+      "code": "JP-SYS-019",
+      "number": "004-014-019",
+      "key": "JP_LOCALE_PACK_LOCKED",
+      "aliases": [
+        "locale_pack_locked"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Русский пакет заменить нельзя",
+        "uk": "Російський пакет замінити не можна",
+        "en": "The Russian pack cannot be replaced",
+        "de": "Das russische Paket lässt sich nicht ersetzen"
+      },
+      "cause": {
+        "ru": "Русский язык — основа программы, его не заменяют загрузкой файла.",
+        "uk": "Російська мова — основа програми, її не замінюють завантаженням файлу.",
+        "en": "Russian is the base language of the program and is not replaced by uploading a file.",
+        "de": "Russisch ist die Basissprache des Programms und wird nicht durch das Hochladen einer Datei ersetzt."
+      },
+      "action": {
+        "ru": "1. Для другого языка загрузите его пакет.\n2. Русские тексты меняются только обновлением программы.",
+        "uk": "1. Для іншої мови завантажте її пакет.\n2. Російські тексти змінюються лише оновленням програми.",
+        "en": "1. To add another language, upload its pack.\n2. Russian texts change only with a program update.",
+        "de": "1. Laden Sie für eine andere Sprache deren Paket hoch.\n2. Die russischen Texte ändern sich nur mit einem Programm-Update."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SYS-019",
+      "since": "1.9.0",
+      "tags": [
+        "languages"
+      ]
+    },
+    {
+      "code": "JP-SYS-020",
+      "number": "004-014-020",
+      "key": "JP_LOCALE_UNAVAILABLE",
+      "aliases": [
+        "locale_unavailable"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Этот язык пока недоступен",
+        "uk": "Ця мова поки недоступна",
+        "en": "This language is not available yet",
+        "de": "Diese Sprache ist noch nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Для выбранного языка ещё нет полного перевода.",
+        "uk": "Для вибраної мови ще немає повного перекладу.",
+        "en": "The chosen language does not have a complete translation yet.",
+        "de": "Für die gewählte Sprache gibt es noch keine vollständige Übersetzung."
+      },
+      "action": {
+        "ru": "1. Выберите другой язык в «Настройки › Учётная запись».\n2. Администратор может загрузить пакет этого языка в «Дополнительно › Языки».",
+        "uk": "1. Виберіть іншу мову в «Налаштування › Обліковий запис».\n2. Адміністратор може завантажити пакет цієї мови в «Додатково › Мови».",
+        "en": "1. Choose another language in “Settings › Account”.\n2. An administrator can upload the pack for this language in “Additional › Languages”.",
+        "de": "1. Wählen Sie unter „Einstellungen › Konto“ eine andere Sprache.\n2. Ein Administrator kann das Paket dieser Sprache unter „Zusätzlich › Sprachen“ hochladen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-020",
+      "since": "1.9.0",
+      "tags": [
+        "languages"
+      ]
+    },
+    {
+      "code": "JP-SYS-021",
+      "number": "004-014-021",
+      "key": "JP_UNKNOWN_OPTION",
+      "aliases": [
+        "unknown_option"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такого параметра установки нет",
+        "uk": "Такого параметра установки немає",
+        "en": "There is no such installation setting",
+        "de": "Diese Installationseinstellung gibt es nicht"
+      },
+      "cause": {
+        "ru": "Параметр, который вы меняете, программа не знает.",
+        "uk": "Параметр, який ви змінюєте, програма не знає.",
+        "en": "The program does not know the setting you are changing.",
+        "de": "Das Programm kennt die Einstellung nicht, die Sie ändern."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Выберите параметр из списка.",
+        "uk": "1. Оновіть сторінку.\n2. Виберіть параметр зі списку.",
+        "en": "1. Refresh the page.\n2. Choose a setting from the list.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wählen Sie eine Einstellung aus der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-SYS-021",
+      "since": "1.9.0",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "code": "JP-SYS-022",
+      "number": "004-014-022",
+      "key": "JP_PAYLOAD_TOO_LARGE",
+      "aliases": [
+        "payload_too_large"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком большой запрос",
+        "uk": "Надто великий запит",
+        "en": "The request is too large",
+        "de": "Die Anfrage ist zu groß"
+      },
+      "cause": {
+        "ru": "Вы отправили слишком много данных за один раз.",
+        "uk": "Ви надіслали забагато даних за один раз.",
+        "en": "You sent too much data at once.",
+        "de": "Sie haben zu viele Daten auf einmal gesendet."
+      },
+      "action": {
+        "ru": "1. Уменьшите размер: загрузите файл поменьше или отправьте текст по частям.\n2. Повторите действие.",
+        "uk": "1. Зменште розмір: завантажте менший файл або надішліть текст частинами.\n2. Повторіть дію.",
+        "en": "1. Make it smaller: upload a smaller file or send the text in parts.\n2. Try again.",
+        "de": "1. Verkleinern Sie sie: Laden Sie eine kleinere Datei hoch oder senden Sie den Text in Teilen.\n2. Versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 413,
+      "help": "errors/JP-SYS-022",
+      "since": "1.9.0",
+      "tags": [
+        "request"
+      ]
+    },
+    {
+      "code": "JP-SYS-023",
+      "number": "004-014-023",
+      "key": "JP_INVALID_CURSOR",
+      "aliases": [
+        "invalid_cursor"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Список обновился, откройте его заново",
+        "uk": "Список оновився, відкрийте його заново",
+        "en": "The list has changed, open it again",
+        "de": "Die Liste hat sich geändert, öffnen Sie sie neu"
+      },
+      "cause": {
+        "ru": "Ссылка на следующую страницу списка устарела.",
+        "uk": "Посилання на наступну сторінку списку застаріло.",
+        "en": "The link to the next page of the list is out of date.",
+        "de": "Der Link zur nächsten Seite der Liste ist veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Откройте список с начала.",
+        "uk": "1. Оновіть сторінку.\n2. Відкрийте список із початку.",
+        "en": "1. Refresh the page.\n2. Open the list from the start.",
+        "de": "1. Laden Sie die Seite neu.\n2. Öffnen Sie die Liste von Anfang an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-023",
+      "since": "1.9.0",
+      "tags": [
+        "request"
+      ]
     }
   ]
 }

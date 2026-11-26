@@ -105,6 +105,162 @@
       "tags": [
         "search"
       ]
+    },
+    {
+      "code": "JP-SRCH-003",
+      "number": "004-004-003",
+      "key": "JP_VACANCY_PAGE_UNAVAILABLE",
+      "aliases": [
+        "vacancy_page_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Страница вакансии не открылась",
+        "uk": "Сторінка вакансії не відкрилась",
+        "en": "The vacancy page did not open",
+        "de": "Die Stellenseite ließ sich nicht öffnen"
+      },
+      "cause": {
+        "ru": "Сайт вакансии не ответил, перенаправил слишком много раз или вернул слишком большую страницу.",
+        "uk": "Сайт вакансії не відповів, переспрямував забагато разів або повернув надто велику сторінку.",
+        "en": "The vacancy site did not answer, redirected too many times or returned a page that is too large.",
+        "de": "Die Seite der Stelle hat nicht geantwortet, zu oft weitergeleitet oder eine zu große Seite geliefert."
+      },
+      "action": {
+        "ru": "1. Проверьте адрес страницы.\n2. Если сайт не открывается, вставьте текст объявления вместо адреса.",
+        "uk": "1. Перевірте адресу сторінки.\n2. Якщо сайт не відкривається, вставте текст оголошення замість адреси.",
+        "en": "1. Check the page address.\n2. If the site does not open, paste the text of the job ad instead of the address.",
+        "de": "1. Prüfen Sie die Adresse der Seite.\n2. Lässt sich die Seite nicht öffnen, fügen Sie statt der Adresse den Text der Anzeige ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-SRCH-003",
+      "since": "1.9.0",
+      "tags": [
+        "search"
+      ]
+    },
+    {
+      "code": "JP-SRCH-004",
+      "number": "004-004-004",
+      "key": "JP_SEARCH_SOURCE_UNAVAILABLE",
+      "aliases": [
+        "search_source_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Источник вакансий не отвечает",
+        "uk": "Джерело вакансій не відповідає",
+        "en": "The job source does not respond",
+        "de": "Die Stellenquelle antwortet nicht"
+      },
+      "cause": {
+        "ru": "Сайт, где программа ищет вакансии, сейчас не отвечает или прислал непонятный ответ.",
+        "uk": "Сайт, де програма шукає вакансії, зараз не відповідає або надіслав незрозумілу відповідь.",
+        "en": "The site where the program searches for jobs does not answer right now or sent an answer that could not be understood.",
+        "de": "Die Seite, auf der das Programm nach Stellen sucht, antwortet gerade nicht oder hat eine unverständliche Antwort geschickt."
+      },
+      "action": {
+        "ru": "1. Повторите поиск позже.\n2. Остальные источники продолжают работать.",
+        "uk": "1. Повторіть пошук пізніше.\n2. Решта джерел продовжують працювати.",
+        "en": "1. Repeat the search later.\n2. The other sources keep working.",
+        "de": "1. Wiederholen Sie die Suche später.\n2. Die übrigen Quellen arbeiten weiter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-SRCH-004",
+      "since": "1.9.0",
+      "tags": [
+        "search"
+      ]
+    },
+    {
+      "code": "JP-SRCH-005",
+      "number": "004-004-005",
+      "key": "JP_VACANCY_SOURCE_EMPTY",
+      "aliases": [
+        "vacancy_source_empty"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нет адреса страницы или текста объявления",
+        "uk": "Немає адреси сторінки чи тексту оголошення",
+        "en": "No page address or ad text",
+        "de": "Keine Seitenadresse und kein Anzeigentext"
+      },
+      "cause": {
+        "ru": "Чтобы добавить вакансию, нужен адрес страницы объявления или его текст.",
+        "uk": "Щоб додати вакансію, потрібна адреса сторінки оголошення або його текст.",
+        "en": "To add a vacancy, the address of the ad page or its text is needed.",
+        "de": "Zum Hinzufügen einer Stelle werden die Adresse der Anzeigenseite oder ihr Text benötigt."
+      },
+      "action": {
+        "ru": "1. Вставьте адрес страницы или текст объявления.\n2. Нажмите кнопку добавления ещё раз.",
+        "uk": "1. Вставте адресу сторінки або текст оголошення.\n2. Натисніть кнопку додавання ще раз.",
+        "en": "1. Paste the page address or the text of the ad.\n2. Press the add button again.",
+        "de": "1. Fügen Sie die Seitenadresse oder den Text der Anzeige ein.\n2. Klicken Sie erneut auf Hinzufügen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SRCH-005",
+      "since": "1.9.0",
+      "tags": [
+        "search"
+      ]
     }
   ]
 }
