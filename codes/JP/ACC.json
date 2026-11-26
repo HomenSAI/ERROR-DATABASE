@@ -1,0 +1,745 @@
+{
+  "namespace": "JP",
+  "area": "ACC",
+  "codes": [
+    {
+      "code": "JP-ACC-001",
+      "number": "004-001-001",
+      "key": "JP_INVALID_CREDENTIALS",
+      "aliases": [
+        "invalid_credentials"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Неверный адрес почты или пароль",
+        "uk": "Неправильна адреса пошти або пароль",
+        "en": "Wrong e-mail address or password",
+        "de": "E-Mail-Adresse oder Passwort falsch"
+      },
+      "cause": {
+        "ru": "Такой пары адреса и пароля нет в программе.",
+        "uk": "Такої пари адреси й пароля в програмі немає.",
+        "en": "The program has no account with this address and password.",
+        "de": "Das Programm kennt diese Kombination aus Adresse und Passwort nicht."
+      },
+      "action": {
+        "ru": "1. Проверьте адрес и раскладку клавиатуры.\n2. Введите пароль ещё раз.\n3. Не помните пароль — нажмите «Забыли пароль?».",
+        "uk": "1. Перевірте адресу й розкладку клавіатури.\n2. Введіть пароль ще раз.\n3. Не пам’ятаєте пароль — натисніть «Забули пароль?».",
+        "en": "1. Check the address and the keyboard layout.\n2. Enter the password again.\n3. Forgot it? Click “Forgot password?”.",
+        "de": "1. Prüfen Sie die Adresse und das Tastaturlayout.\n2. Geben Sie das Passwort erneut ein.\n3. Vergessen? Klicken Sie auf „Passwort vergessen?“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 401,
+      "help": "errors/JP-ACC-001",
+      "since": "1.9.0",
+      "tags": [
+        "login"
+      ]
+    },
+    {
+      "code": "JP-ACC-002",
+      "number": "004-001-002",
+      "key": "JP_LOGIN_RATE_LIMITED",
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Слишком много попыток",
+        "uk": "Забагато спроб",
+        "en": "Too many attempts",
+        "de": "Zu viele Versuche"
+      },
+      "cause": {
+        "ru": "Действие выполнялось слишком часто за короткое время; программа ненадолго его приостановила, чтобы защитить учётную запись.",
+        "uk": "Дію виконували надто часто за короткий час; програма ненадовго її призупинила, щоб захистити обліковий запис.",
+        "en": "The action was repeated too often in a short time; the program paused it briefly to protect the account.",
+        "de": "Die Aktion wurde in kurzer Zeit zu oft wiederholt; das Programm hat sie kurz angehalten, um das Konto zu schützen."
+      },
+      "action": {
+        "ru": "1. Подождите несколько минут.\n2. Повторите действие.",
+        "uk": "1. Зачекайте кілька хвилин.\n2. Повторіть дію.",
+        "en": "1. Wait a few minutes.\n2. Try again.",
+        "de": "1. Warten Sie einige Minuten.\n2. Versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 429,
+      "help": "errors/JP-ACC-002",
+      "since": "1.9.0",
+      "tags": [
+        "login"
+      ]
+    },
+    {
+      "code": "JP-ACC-003",
+      "number": "004-001-003",
+      "key": "JP_EMAIL_TAKEN",
+      "aliases": [
+        "email_taken"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Этот адрес почты уже зарегистрирован",
+        "uk": "Цю адресу пошти вже зареєстровано",
+        "en": "This e-mail address is already registered",
+        "de": "Diese E-Mail-Adresse ist bereits registriert"
+      },
+      "cause": {
+        "ru": "Учётная запись с таким адресом уже есть.",
+        "uk": "Обліковий запис із такою адресою вже є.",
+        "en": "An account with this address already exists.",
+        "de": "Ein Konto mit dieser Adresse gibt es bereits."
+      },
+      "action": {
+        "ru": "1. Войдите с этим адресом.\n2. Не помните пароль — нажмите «Забыли пароль?».",
+        "uk": "1. Увійдіть із цією адресою.\n2. Не пам’ятаєте пароль — натисніть «Забули пароль?».",
+        "en": "1. Sign in with this address.\n2. Forgot the password? Click “Forgot password?”.",
+        "de": "1. Melden Sie sich mit dieser Adresse an.\n2. Passwort vergessen? Klicken Sie auf „Passwort vergessen?“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ACC-003",
+      "since": "1.9.0",
+      "tags": [
+        "login",
+        "register"
+      ]
+    },
+    {
+      "code": "JP-ACC-004",
+      "number": "004-001-004",
+      "key": "JP_REGISTRATION_CLOSED",
+      "aliases": [
+        "registration_closed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Регистрация закрыта",
+        "uk": "Реєстрацію закрито",
+        "en": "Registration is closed",
+        "de": "Registrierung geschlossen"
+      },
+      "cause": {
+        "ru": "Администратор отключил самостоятельную регистрацию.",
+        "uk": "Адміністратор вимкнув самостійну реєстрацію.",
+        "en": "The administrator has turned off self-registration.",
+        "de": "Der Administrator hat die Selbstregistrierung abgeschaltet."
+      },
+      "action": {
+        "ru": "1. Попросите администратора создать вам учётную запись.",
+        "uk": "1. Попросіть адміністратора створити вам обліковий запис.",
+        "en": "1. Ask the administrator to create an account for you.",
+        "de": "1. Bitten Sie den Administrator, ein Konto für Sie anzulegen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-004",
+      "since": "1.9.0",
+      "tags": [
+        "register"
+      ]
+    },
+    {
+      "code": "JP-ACC-005",
+      "number": "004-001-005",
+      "key": "JP_SIGN_IN_REQUIRED",
+      "aliases": [
+        "unauthorized"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно войти снова",
+        "uk": "Потрібно увійти знову",
+        "en": "Please sign in again",
+        "de": "Bitte erneut anmelden"
+      },
+      "cause": {
+        "ru": "Сеанс закончился или вы вышли в другом окне.",
+        "uk": "Сеанс завершився або ви вийшли в іншому вікні.",
+        "en": "The session has ended, or you signed out in another window.",
+        "de": "Die Sitzung ist abgelaufen oder Sie haben sich in einem anderen Fenster abgemeldet."
+      },
+      "action": {
+        "ru": "1. Войдите снова.\n2. Повторите действие.",
+        "uk": "1. Увійдіть знову.\n2. Повторіть дію.",
+        "en": "1. Sign in again.\n2. Repeat the action.",
+        "de": "1. Melden Sie sich erneut an.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 401,
+      "help": "errors/JP-ACC-005",
+      "since": "1.9.0",
+      "tags": [
+        "login",
+        "session"
+      ]
+    },
+    {
+      "code": "JP-ACC-006",
+      "number": "004-001-006",
+      "key": "JP_PAGE_KEY_OUTDATED",
+      "aliases": [
+        "csrf_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Страница устарела",
+        "uk": "Сторінка застаріла",
+        "en": "The page is out of date",
+        "de": "Die Seite ist veraltet"
+      },
+      "cause": {
+        "ru": "Страница открыта слишком давно или в другом окне, и её защитный ключ устарел.",
+        "uk": "Сторінку відкрито надто давно або в іншому вікні, і її захисний ключ застарів.",
+        "en": "The page has been open too long or in another window, and its protection key is out of date.",
+        "de": "Die Seite ist zu lange oder in einem anderen Fenster geöffnet, und ihr Schutzschlüssel ist veraltet."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 403,
+      "help": "errors/JP-ACC-006",
+      "since": "1.9.0",
+      "tags": [
+        "session"
+      ]
+    },
+    {
+      "code": "JP-ACC-007",
+      "number": "004-001-007",
+      "key": "JP_PASSWORD_CONFIRMATION_REQUIRED",
+      "aliases": [
+        "fresh_auth_required"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Подтвердите пароль",
+        "uk": "Підтвердьте пароль",
+        "en": "Confirm your password",
+        "de": "Passwort bestätigen"
+      },
+      "cause": {
+        "ru": "Это важное действие: программа просит ещё раз ввести пароль.",
+        "uk": "Це важлива дія: програма просить ще раз ввести пароль.",
+        "en": "This is an important action: the program asks for your password once more.",
+        "de": "Das ist eine wichtige Aktion: Das Programm bittet Sie, das Passwort noch einmal einzugeben."
+      },
+      "action": {
+        "ru": "1. Введите пароль в появившемся окне.\n2. Повторите действие.",
+        "uk": "1. Введіть пароль у вікні, що з’явилося.\n2. Повторіть дію.",
+        "en": "1. Enter your password in the window that opens.\n2. Repeat the action.",
+        "de": "1. Geben Sie das Passwort im geöffneten Fenster ein.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 403,
+      "help": "errors/JP-ACC-007",
+      "since": "1.9.0",
+      "tags": [
+        "session",
+        "password"
+      ]
+    },
+    {
+      "code": "JP-ACC-008",
+      "number": "004-001-008",
+      "key": "JP_TERMS_ACCEPTANCE_REQUIRED",
+      "aliases": [
+        "legal_acceptance_required"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно принять условия",
+        "uk": "Потрібно прийняти умови",
+        "en": "Accept the terms",
+        "de": "Bedingungen akzeptieren"
+      },
+      "cause": {
+        "ru": "Учётная запись создаётся только после принятия условий использования и уведомления о данных.",
+        "uk": "Обліковий запис створюється лише після прийняття умов використання та повідомлення про дані.",
+        "en": "An account is created only after the terms of use and the privacy notice are accepted.",
+        "de": "Ein Konto wird erst angelegt, wenn die Nutzungsbedingungen und der Datenschutzhinweis akzeptiert sind."
+      },
+      "action": {
+        "ru": "1. Прочитайте условия и уведомление о данных.\n2. Поставьте обе отметки.\n3. Нажмите «Создать учётную запись» ещё раз.",
+        "uk": "1. Прочитайте умови та повідомлення про дані.\n2. Поставте обидві позначки.\n3. Натисніть «Створити обліковий запис» ще раз.",
+        "en": "1. Read the terms and the privacy notice.\n2. Tick both boxes.\n3. Click “Create account” again.",
+        "de": "1. Lesen Sie die Bedingungen und den Datenschutzhinweis.\n2. Setzen Sie beide Häkchen.\n3. Klicken Sie erneut auf „Konto anlegen“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ACC-008",
+      "since": "1.9.0",
+      "tags": [
+        "register",
+        "terms"
+      ]
+    },
+    {
+      "code": "JP-ACC-009",
+      "number": "004-001-009",
+      "key": "JP_TERMS_CHANGED",
+      "aliases": [
+        "legal_reaccept_required"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Условия изменились",
+        "uk": "Умови змінилися",
+        "en": "The terms have changed",
+        "de": "Die Bedingungen haben sich geändert"
+      },
+      "cause": {
+        "ru": "Вышла новая редакция условий или уведомления о данных; пока она не принята, кабинет работает только для чтения.",
+        "uk": "Вийшла нова редакція умов або повідомлення про дані; доки її не прийнято, кабінет працює лише для читання.",
+        "en": "A new version of the terms or the privacy notice was published; until it is accepted, the workspace is read-only.",
+        "de": "Eine neue Fassung der Bedingungen oder des Datenschutzhinweises ist erschienen; bis sie akzeptiert ist, ist der Bereich schreibgeschützt."
+      },
+      "action": {
+        "ru": "1. Откройте новую редакцию.\n2. Прочитайте и примите её.",
+        "uk": "1. Відкрийте нову редакцію.\n2. Прочитайте й прийміть її.",
+        "en": "1. Open the new version.\n2. Read and accept it.",
+        "de": "1. Öffnen Sie die neue Fassung.\n2. Lesen und akzeptieren Sie sie."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-009",
+      "since": "1.9.0",
+      "tags": [
+        "terms"
+      ]
+    },
+    {
+      "code": "JP-ACC-010",
+      "number": "004-001-010",
+      "key": "JP_RESET_LINK_INVALID",
+      "aliases": [
+        "reset_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ссылка для сброса пароля не действует",
+        "uk": "Посилання для скидання пароля не діє",
+        "en": "The password reset link is not valid",
+        "de": "Der Link zum Zurücksetzen des Passworts ist ungültig"
+      },
+      "cause": {
+        "ru": "Ссылка уже использована, истекла или заменена новой.",
+        "uk": "Посилання вже використано, воно застаріло або його замінено новим.",
+        "en": "The link was already used, has expired or was replaced by a new one.",
+        "de": "Der Link wurde bereits verwendet, ist abgelaufen oder wurde durch einen neuen ersetzt."
+      },
+      "action": {
+        "ru": "1. Запросите новую ссылку кнопкой «Забыли пароль?».\n2. Откройте её сразу же.",
+        "uk": "1. Запросіть нове посилання кнопкою «Забули пароль?».\n2. Відкрийте його одразу.",
+        "en": "1. Request a new link with “Forgot password?”.\n2. Open it right away.",
+        "de": "1. Fordern Sie über „Passwort vergessen?“ einen neuen Link an.\n2. Öffnen Sie ihn sofort."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 400,
+      "help": "errors/JP-ACC-010",
+      "since": "1.9.0",
+      "tags": [
+        "password"
+      ]
+    },
+    {
+      "code": "JP-ACC-011",
+      "number": "004-001-011",
+      "key": "JP_VERIFY_LINK_INVALID",
+      "aliases": [
+        "verify_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ссылка или код подтверждения не подходят",
+        "uk": "Посилання або код підтвердження не підходять",
+        "en": "The confirmation link or code does not work",
+        "de": "Bestätigungslink oder -code passt nicht"
+      },
+      "cause": {
+        "ru": "Ссылка или код уже использованы, истекли, заменены новым письмом или код набран с ошибкой несколько раз.",
+        "uk": "Посилання або код уже використано, вони застаріли, замінені новим листом або код кілька разів набрано з помилкою.",
+        "en": "The link or code was already used, has expired, was replaced by a newer e-mail, or the code was typed wrongly several times.",
+        "de": "Link oder Code wurden bereits verwendet, sind abgelaufen, wurden durch eine neuere E-Mail ersetzt oder der Code wurde mehrmals falsch eingegeben."
+      },
+      "action": {
+        "ru": "1. Нажмите «Отправить письмо ещё раз».\n2. Откройте новое письмо и подтвердите адрес.",
+        "uk": "1. Натисніть «Надіслати лист ще раз».\n2. Відкрийте новий лист і підтвердьте адресу.",
+        "en": "1. Click “Send the e-mail again”.\n2. Open the new e-mail and confirm the address.",
+        "de": "1. Klicken Sie auf „E-Mail erneut senden“.\n2. Öffnen Sie die neue E-Mail und bestätigen Sie die Adresse."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 400,
+      "help": "errors/JP-ACC-011",
+      "since": "1.9.0",
+      "tags": [
+        "email"
+      ]
+    },
+    {
+      "code": "JP-ACC-012",
+      "number": "004-001-012",
+      "key": "JP_LAST_ADMIN",
+      "aliases": [
+        "last_admin"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Вы — единственный администратор",
+        "uk": "Ви — єдиний адміністратор",
+        "en": "You are the only administrator",
+        "de": "Sie sind der einzige Administrator"
+      },
+      "cause": {
+        "ru": "Без администратора остальные люди в программе останутся без архива, пользователей и настроек установки.",
+        "uk": "Без адміністратора інші люди в програмі залишаться без архіву, користувачів і налаштувань встановлення.",
+        "en": "Without an administrator, the other people in the program lose access to the archive, users and installation settings.",
+        "de": "Ohne Administrator verlieren die anderen Personen im Programm den Zugang zu Archiv, Benutzern und Installationseinstellungen."
+      },
+      "action": {
+        "ru": "1. Откройте «Система › Пользователи и роли».\n2. Назначьте администратором другого человека.\n3. Затем удалите свою учётную запись.",
+        "uk": "1. Відкрийте «Система › Користувачі та ролі».\n2. Призначте адміністратором іншу людину.\n3. Потім видаліть свій обліковий запис.",
+        "en": "1. Open “System › Users and roles”.\n2. Make another person an administrator.\n3. Then delete your account.",
+        "de": "1. Öffnen Sie „System › Benutzer und Rollen“.\n2. Machen Sie eine andere Person zum Administrator.\n3. Löschen Sie dann Ihr Konto."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ACC-012",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "admin"
+      ]
+    },
+    {
+      "code": "JP-ACC-013",
+      "number": "004-001-013",
+      "key": "JP_LAST_ADMIN_ALONE",
+      "aliases": [
+        "last_admin_alone"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Администратора не останется",
+        "uk": "Адміністратора не залишиться",
+        "en": "No administrator will be left",
+        "de": "Es bleibt kein Administrator"
+      },
+      "cause": {
+        "ru": "Вы один в программе: после удаления архив и настройки установки станут недоступны.",
+        "uk": "Ви один у програмі: після видалення архів і налаштування встановлення стануть недоступні.",
+        "en": "You are the only person in the program: after deletion the archive and installation settings become unavailable.",
+        "de": "Sie sind die einzige Person im Programm: Nach dem Löschen sind Archiv und Installationseinstellungen nicht erreichbar."
+      },
+      "action": {
+        "ru": "1. Если вы уверены, поставьте отметку «Я понимаю: администратора не останется».\n2. Удалите учётную запись ещё раз.",
+        "uk": "1. Якщо ви впевнені, поставте позначку «Я розумію: адміністратора не залишиться».\n2. Видаліть обліковий запис ще раз.",
+        "en": "1. If you are sure, tick “I understand: no administrator will be left”.\n2. Delete the account again.",
+        "de": "1. Wenn Sie sicher sind, setzen Sie das Häkchen „Ich verstehe: Es bleibt kein Administrator“.\n2. Löschen Sie das Konto erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-ACC-013",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "admin"
+      ]
+    },
+    {
+      "code": "JP-ACC-014",
+      "number": "004-001-014",
+      "key": "JP_FOREIGN_ADDRESS_REJECTED",
+      "aliases": [
+        "forbidden_origin"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Этот адрес не настроен для программы",
+        "uk": "Ця адреса не налаштована для програми",
+        "en": "This address is not set up for the program",
+        "de": "Diese Adresse ist für das Programm nicht eingerichtet"
+      },
+      "cause": {
+        "ru": "Программу открыли по имени или адресу, которого нет в её настройках, или запрос пришёл с другого сайта.",
+        "uk": "Програму відкрили за ім’ям або адресою, якої немає в її налаштуваннях, або запит прийшов з іншого сайту.",
+        "en": "The program was opened under a name or address that is not in its settings, or the request came from another site.",
+        "de": "Das Programm wurde unter einem Namen oder einer Adresse geöffnet, die nicht in seinen Einstellungen steht, oder die Anfrage kam von einer anderen Seite."
+      },
+      "action": {
+        "ru": "1. Откройте программу по адресу этого компьютера (ярлык установки).\n2. Нужен другой адрес — попросите администратора добавить его.",
+        "uk": "1. Відкрийте програму за адресою цього комп’ютера (ярлик встановлення).\n2. Потрібна інша адреса — попросіть адміністратора додати її.",
+        "en": "1. Open the program at this computer’s address (installation shortcut).\n2. Need another address? Ask the administrator to add it.",
+        "de": "1. Öffnen Sie das Programm über die Adresse dieses Computers (Verknüpfung der Installation).\n2. Andere Adresse nötig? Bitten Sie den Administrator, sie hinzuzufügen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "admin",
+          "when": "нет прав или не помогло"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-ACC-014",
+      "since": "1.9.0",
+      "tags": [
+        "security"
+      ]
+    }
+  ]
+}

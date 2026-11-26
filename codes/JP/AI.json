@@ -1,0 +1,320 @@
+{
+  "namespace": "JP",
+  "area": "AI",
+  "codes": [
+    {
+      "code": "JP-AI-001",
+      "number": "004-003-001",
+      "key": "JP_AI_BALANCE_EMPTY",
+      "aliases": [
+        "ai_balance"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "На счёте ИИ нет средств",
+        "uk": "На рахунку ШІ немає коштів",
+        "en": "The AI account has no funds",
+        "de": "Das KI-Konto hat kein Guthaben"
+      },
+      "cause": {
+        "ru": "Счёт сервиса ИИ пуст, поэтому запрос к ИИ не выполнен.",
+        "uk": "Рахунок сервісу ШІ порожній, тому запит до ШІ не виконано.",
+        "en": "The AI service account is empty, so the AI request was not made.",
+        "de": "Das Konto des KI-Dienstes ist leer, daher wurde die KI-Anfrage nicht ausgeführt."
+      },
+      "action": {
+        "ru": "1. Пополните счёт сервиса ИИ.\n2. Повторите действие.",
+        "uk": "1. Поповніть рахунок сервісу ШІ.\n2. Повторіть дію.",
+        "en": "1. Top up the AI service account.\n2. Repeat the action.",
+        "de": "1. Laden Sie das Konto des KI-Dienstes auf.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-AI-001",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "money"
+      ]
+    },
+    {
+      "code": "JP-AI-002",
+      "number": "004-003-002",
+      "key": "JP_AI_CONSENT_REQUIRED",
+      "aliases": [
+        "ai_consent_required"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нужно согласие на обработку данных ИИ",
+        "uk": "Потрібна згода на обробку даних ШІ",
+        "en": "Consent to AI processing is required",
+        "de": "Einwilligung zur KI-Verarbeitung nötig"
+      },
+      "cause": {
+        "ru": "Без вашего согласия программа не передаёт данные внешнему ИИ и работает без него.",
+        "uk": "Без вашої згоди програма не передає дані зовнішньому ШІ й працює без нього.",
+        "en": "Without your consent the program does not send data to an external AI and works without it.",
+        "de": "Ohne Ihre Einwilligung gibt das Programm keine Daten an eine externe KI weiter und arbeitet ohne sie."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки › ИИ».\n2. Прочитайте текст и дайте согласие — или продолжайте без ИИ.",
+        "uk": "1. Відкрийте «Налаштування › ШІ».\n2. Прочитайте текст і дайте згоду — або продовжуйте без ШІ.",
+        "en": "1. Open “Settings › AI”.\n2. Read the text and give consent — or continue without AI.",
+        "de": "1. Öffnen Sie „Einstellungen › KI“.\n2. Lesen Sie den Text und willigen Sie ein – oder arbeiten Sie ohne KI weiter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 403,
+      "help": "errors/JP-AI-002",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "consent"
+      ]
+    },
+    {
+      "code": "JP-AI-003",
+      "number": "004-003-003",
+      "key": "JP_AI_CONSENT_TEXT_CHANGED",
+      "aliases": [
+        "ai_consent_text_changed"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Текст согласия на ИИ изменился",
+        "uk": "Текст згоди на ШІ змінився",
+        "en": "The AI consent text has changed",
+        "de": "Der Text der KI-Einwilligung hat sich geändert"
+      },
+      "cause": {
+        "ru": "Согласие действует только для того текста, который вы прочитали; вышла новая редакция.",
+        "uk": "Згода діє лише для того тексту, який ви прочитали; вийшла нова редакція.",
+        "en": "Consent applies only to the text you read; a new version was published.",
+        "de": "Die Einwilligung gilt nur für den gelesenen Text; eine neue Fassung ist erschienen."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки › ИИ».\n2. Прочитайте новую редакцию и дайте согласие ещё раз.",
+        "uk": "1. Відкрийте «Налаштування › ШІ».\n2. Прочитайте нову редакцію й дайте згоду ще раз.",
+        "en": "1. Open “Settings › AI”.\n2. Read the new version and give consent again.",
+        "de": "1. Öffnen Sie „Einstellungen › KI“.\n2. Lesen Sie die neue Fassung und willigen Sie erneut ein."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-AI-003",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "consent"
+      ]
+    },
+    {
+      "code": "JP-AI-004",
+      "number": "004-003-004",
+      "key": "JP_AI_DAILY_BUDGET_EXHAUSTED",
+      "aliases": [
+        "ai_budget_exhausted"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Дневной бюджет ИИ исчерпан",
+        "uk": "Денний бюджет ШІ вичерпано",
+        "en": "The daily AI budget is used up",
+        "de": "Das tägliche KI-Budget ist aufgebraucht"
+      },
+      "cause": {
+        "ru": "Расходы на ИИ за сегодня дошли до предела, который вы задали.",
+        "uk": "Витрати на ШІ за сьогодні сягнули межі, яку ви задали.",
+        "en": "Today’s AI spending has reached the limit you set.",
+        "de": "Die heutigen KI-Ausgaben haben das von Ihnen festgelegte Limit erreicht."
+      },
+      "action": {
+        "ru": "1. Подождите до завтра.\n2. Или поднимите дневной предел в «Настройки › ИИ».",
+        "uk": "1. Зачекайте до завтра.\n2. Або підніміть денну межу в «Налаштування › ШІ».",
+        "en": "1. Wait until tomorrow.\n2. Or raise the daily limit in “Settings › AI”.",
+        "de": "1. Warten Sie bis morgen.\n2. Oder erhöhen Sie das Tageslimit unter „Einstellungen › KI“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-AI-004",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "money"
+      ]
+    },
+    {
+      "code": "JP-AI-005",
+      "number": "004-003-005",
+      "key": "JP_AI_MONTH_BUDGET_EXHAUSTED",
+      "aliases": [
+        "ai_month_budget_exhausted"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Месячный бюджет ИИ исчерпан",
+        "uk": "Місячний бюджет ШІ вичерпано",
+        "en": "The monthly AI budget is used up",
+        "de": "Das monatliche KI-Budget ist aufgebraucht"
+      },
+      "cause": {
+        "ru": "Расходы на ИИ за месяц дошли до предела.",
+        "uk": "Витрати на ШІ за місяць сягнули межі.",
+        "en": "This month’s AI spending has reached the limit.",
+        "de": "Die KI-Ausgaben dieses Monats haben das Limit erreicht."
+      },
+      "action": {
+        "ru": "1. Подождите до следующего месяца.\n2. Или поднимите предел в «Настройки › ИИ».",
+        "uk": "1. Зачекайте до наступного місяця.\n2. Або підніміть межу в «Налаштування › ШІ».",
+        "en": "1. Wait until next month.\n2. Or raise the limit in “Settings › AI”.",
+        "de": "1. Warten Sie bis zum nächsten Monat.\n2. Oder erhöhen Sie das Limit unter „Einstellungen › KI“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-AI-005",
+      "since": "1.9.0",
+      "tags": [
+        "ai",
+        "money"
+      ]
+    },
+    {
+      "code": "JP-AI-006",
+      "number": "004-003-006",
+      "key": "JP_AI_SERVICE_ASKS_TO_WAIT",
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "ИИ просит подождать",
+        "uk": "ШІ просить зачекати",
+        "en": "The AI service asks to wait",
+        "de": "Der KI-Dienst bittet zu warten"
+      },
+      "cause": {
+        "ru": "Сервис ИИ получил слишком много запросов за короткое время.",
+        "uk": "Сервіс ШІ отримав забагато запитів за короткий час.",
+        "en": "The AI service received too many requests in a short time.",
+        "de": "Der KI-Dienst hat in kurzer Zeit zu viele Anfragen erhalten."
+      },
+      "action": {
+        "ru": "1. Подождите минуту.\n2. Повторите действие.",
+        "uk": "1. Зачекайте хвилину.\n2. Повторіть дію.",
+        "en": "1. Wait a minute.\n2. Repeat the action.",
+        "de": "1. Warten Sie eine Minute.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 429,
+      "help": "errors/JP-AI-006",
+      "since": "1.9.0",
+      "tags": [
+        "ai"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "namespace": "JP",
+  "area": "TG",
+  "codes": [
+    {
+      "code": "JP-TG-001",
+      "number": "004-010-001",
+      "key": "JP_TELEGRAM_LINK_CODE",
+      "aliases": [
+        "link_code"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Бот ещё не получил код привязки",
+        "uk": "Бот ще не отримав код прив’язки",
+        "en": "The bot has not received the link code yet",
+        "de": "Der Bot hat den Verknüpfungscode noch nicht erhalten"
+      },
+      "cause": {
+        "ru": "Чтобы узнать ваш chat id, программе нужно ваше сообщение боту с кодом.",
+        "uk": "Щоб дізнатися ваш chat id, програмі потрібне ваше повідомлення боту з кодом.",
+        "en": "To find your chat id, the program needs your message to the bot with the code.",
+        "de": "Um Ihre Chat-ID zu finden, braucht das Programm Ihre Nachricht mit dem Code an den Bot."
+      },
+      "action": {
+        "ru": "1. Отправьте своему боту в Telegram сообщение /start {code}.\n2. Нажмите «Найти chat id» ещё раз.",
+        "uk": "1. Надішліть своєму боту в Telegram повідомлення /start {code}.\n2. Натисніть «Знайти chat id» ще раз.",
+        "en": "1. Send your bot in Telegram the message /start {code}.\n2. Click “Find chat id” again.",
+        "de": "1. Senden Sie Ihrem Bot in Telegram die Nachricht /start {code}.\n2. Klicken Sie erneut auf „Chat-ID finden“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "code": "str"
+      },
+      "retryable": true,
+      "http_status": 422,
+      "help": "errors/JP-TG-001",
+      "since": "1.9.0",
+      "tags": [
+        "telegram"
+      ]
+    }
+  ]
+}

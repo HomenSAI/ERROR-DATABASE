@@ -1,0 +1,280 @@
+{
+  "namespace": "JP",
+  "area": "PREP",
+  "codes": [
+    {
+      "code": "JP-PREP-001",
+      "number": "004-005-001",
+      "key": "JP_UNFILLED_MARK_LETTER",
+      "aliases": [
+        "body.unfilled_mark"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В письме осталась метка для подстановки",
+        "uk": "У листі залишилася мітка для підстановки",
+        "en": "A placeholder is left in the letter",
+        "de": "Im Anschreiben ist ein Platzhalter übrig"
+      },
+      "cause": {
+        "ru": "В тексте осталась метка {marks}, которую программа не заполнила.",
+        "uk": "У тексті залишилася мітка {marks}, яку програма не заповнила.",
+        "en": "The text still contains the placeholder {marks}, which the program did not fill in.",
+        "de": "Der Text enthält noch den Platzhalter {marks}, den das Programm nicht ausgefüllt hat."
+      },
+      "action": {
+        "ru": "1. Замените метку нужным словом (например, своим именем).\n2. Проверьте текст и утвердите снова.",
+        "uk": "1. Замініть мітку потрібним словом (наприклад, своїм ім’ям).\n2. Перевірте текст і затвердьте знову.",
+        "en": "1. Replace the placeholder with the right word (for example, your name).\n2. Check the text and approve again.",
+        "de": "1. Ersetzen Sie den Platzhalter durch das richtige Wort (z. B. Ihren Namen).\n2. Prüfen Sie den Text und geben Sie ihn erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "marks": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-001",
+      "since": "1.9.0",
+      "tags": [
+        "documents"
+      ]
+    },
+    {
+      "code": "JP-PREP-002",
+      "number": "004-005-002",
+      "key": "JP_UNFILLED_MARK_CV",
+      "aliases": [
+        "cv.unfilled_mark"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В резюме осталась метка для подстановки",
+        "uk": "У резюме залишилася мітка для підстановки",
+        "en": "A placeholder is left in the CV",
+        "de": "Im Lebenslauf ist ein Platzhalter übrig"
+      },
+      "cause": {
+        "ru": "В тексте осталась метка {marks}, которую программа не заполнила.",
+        "uk": "У тексті залишилася мітка {marks}, яку програма не заповнила.",
+        "en": "The text still contains the placeholder {marks}, which the program did not fill in.",
+        "de": "Der Text enthält noch den Platzhalter {marks}, den das Programm nicht ausgefüllt hat."
+      },
+      "action": {
+        "ru": "1. Замените метку нужным словом (например, своим именем).\n2. Проверьте текст и утвердите снова.",
+        "uk": "1. Замініть мітку потрібним словом (наприклад, своїм ім’ям).\n2. Перевірте текст і затвердьте знову.",
+        "en": "1. Replace the placeholder with the right word (for example, your name).\n2. Check the text and approve again.",
+        "de": "1. Ersetzen Sie den Platzhalter durch das richtige Wort (z. B. Ihren Namen).\n2. Prüfen Sie den Text und geben Sie ihn erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "marks": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-002",
+      "since": "1.9.0",
+      "tags": [
+        "documents"
+      ]
+    },
+    {
+      "code": "JP-PREP-003",
+      "number": "004-005-003",
+      "key": "JP_PDF_CHARS_LETTER",
+      "aliases": [
+        "letter.pdf_chars"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В PDF письма нет некоторых знаков",
+        "uk": "У PDF листа немає деяких знаків",
+        "en": "Some characters cannot go into the letter PDF",
+        "de": "Einige Zeichen passen nicht in das PDF (Anschreiben)"
+      },
+      "cause": {
+        "ru": "В обычном PDF нет этих знаков: {chars}.",
+        "uk": "У звичайному PDF немає цих знаків: {chars}.",
+        "en": "A standard PDF does not have these characters: {chars}.",
+        "de": "Ein normales PDF enthält diese Zeichen nicht: {chars}."
+      },
+      "action": {
+        "ru": "1. Замените эти знаки в тексте или в имени и контактах профиля (например, латиницей).\n2. Утвердите снова.",
+        "uk": "1. Замініть ці знаки в тексті або в імені та контактах профілю (наприклад, латиницею).\n2. Затвердьте знову.",
+        "en": "1. Replace these characters in the text or in the profile name and contacts (for example, with Latin letters).\n2. Approve again.",
+        "de": "1. Ersetzen Sie diese Zeichen im Text oder in Name und Kontaktdaten des Profils (z. B. durch lateinische Buchstaben).\n2. Geben Sie erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "chars": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-003",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "pdf"
+      ]
+    },
+    {
+      "code": "JP-PREP-004",
+      "number": "004-005-004",
+      "key": "JP_PDF_CHARS_CV",
+      "aliases": [
+        "cv.pdf_chars"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "В PDF резюме нет некоторых знаков",
+        "uk": "У PDF резюме немає деяких знаків",
+        "en": "Some characters cannot go into the CV PDF",
+        "de": "Einige Zeichen passen nicht in das PDF (Lebenslauf)"
+      },
+      "cause": {
+        "ru": "В обычном PDF нет этих знаков: {chars}.",
+        "uk": "У звичайному PDF немає цих знаків: {chars}.",
+        "en": "A standard PDF does not have these characters: {chars}.",
+        "de": "Ein normales PDF enthält diese Zeichen nicht: {chars}."
+      },
+      "action": {
+        "ru": "1. Замените эти знаки в тексте или в имени и контактах профиля (например, латиницей).\n2. Утвердите снова.",
+        "uk": "1. Замініть ці знаки в тексті або в імені та контактах профілю (наприклад, латиницею).\n2. Затвердьте знову.",
+        "en": "1. Replace these characters in the text or in the profile name and contacts (for example, with Latin letters).\n2. Approve again.",
+        "de": "1. Ersetzen Sie diese Zeichen im Text oder in Name und Kontaktdaten des Profils (z. B. durch lateinische Buchstaben).\n2. Geben Sie erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "params": {
+        "chars": "str"
+      },
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-004",
+      "since": "1.9.0",
+      "tags": [
+        "documents",
+        "pdf"
+      ]
+    },
+    {
+      "code": "JP-PREP-005",
+      "number": "004-005-005",
+      "key": "JP_TEMPLATE_NOT_APPROVED",
+      "aliases": [
+        "status.not_approved"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Шаблон ещё не утверждён",
+        "uk": "Шаблон ще не затверджено",
+        "en": "The template is not approved yet",
+        "de": "Die Vorlage ist noch nicht freigegeben"
+      },
+      "cause": {
+        "ru": "Основным можно сделать только утверждённый шаблон.",
+        "uk": "Основним можна зробити лише затверджений шаблон.",
+        "en": "Only an approved template can be made the main one.",
+        "de": "Nur eine freigegebene Vorlage kann zur Hauptvorlage werden."
+      },
+      "action": {
+        "ru": "1. Откройте шаблон и проверьте метки.\n2. Нажмите «Утвердить».\n3. Затем сделайте его основным.",
+        "uk": "1. Відкрийте шаблон і перевірте мітки.\n2. Натисніть «Затвердити».\n3. Потім зробіть його основним.",
+        "en": "1. Open the template and check the placeholders.\n2. Click “Approve”.\n3. Then make it the main one.",
+        "de": "1. Öffnen Sie die Vorlage und prüfen Sie die Platzhalter.\n2. Klicken Sie auf „Freigeben“.\n3. Machen Sie sie dann zur Hauptvorlage."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-005",
+      "since": "1.9.0",
+      "tags": [
+        "templates"
+      ]
+    }
+  ]
+}

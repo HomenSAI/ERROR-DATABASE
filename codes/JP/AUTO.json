@@ -1,0 +1,111 @@
+{
+  "namespace": "JP",
+  "area": "AUTO",
+  "codes": [
+    {
+      "code": "JP-AUTO-001",
+      "number": "004-009-001",
+      "key": "JP_RUN_NOW_RUNNING",
+      "aliases": [
+        "run_now_running"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проход уже идёт",
+        "uk": "Прохід уже триває",
+        "en": "A run is already in progress",
+        "de": "Ein Durchlauf läuft bereits"
+      },
+      "cause": {
+        "ru": "«Запустить сейчас» уже выполняется.",
+        "uk": "«Запустити зараз» уже виконується.",
+        "en": "“Run now” is already running.",
+        "de": "„Jetzt starten“ läuft bereits."
+      },
+      "action": {
+        "ru": "1. Дождитесь конца прохода.\n2. Итог появится в журнале автоматики.",
+        "uk": "1. Дочекайтеся кінця проходу.\n2. Підсумок з’явиться в журналі автоматики.",
+        "en": "1. Wait until the run is finished.\n2. The result appears in the automation log.",
+        "de": "1. Warten Sie, bis der Durchlauf fertig ist.\n2. Das Ergebnis erscheint im Automatisierungsprotokoll."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-AUTO-001",
+      "since": "1.9.0",
+      "tags": [
+        "automation"
+      ]
+    },
+    {
+      "code": "JP-AUTO-002",
+      "number": "004-009-002",
+      "key": "JP_JOB_ALREADY_QUEUED",
+      "aliases": [
+        "duplicate"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Такое задание уже в очереди",
+        "uk": "Таке завдання вже в черзі",
+        "en": "The same task is already queued",
+        "de": "Dieselbe Aufgabe steht bereits an"
+      },
+      "cause": {
+        "ru": "Такое же задание уже стоит в очереди или выполняется.",
+        "uk": "Таке саме завдання вже стоїть у черзі або виконується.",
+        "en": "The same task is already queued or running.",
+        "de": "Dieselbe Aufgabe steht bereits an oder läuft."
+      },
+      "action": {
+        "ru": "1. Дождитесь его конца.",
+        "uk": "1. Дочекайтеся його кінця.",
+        "en": "1. Wait until it is finished.",
+        "de": "1. Warten Sie, bis sie fertig ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-AUTO-002",
+      "since": "1.9.0",
+      "tags": [
+        "automation",
+        "jobs"
+      ]
+    }
+  ]
+}

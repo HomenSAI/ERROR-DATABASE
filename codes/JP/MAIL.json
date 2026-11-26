@@ -1,0 +1,319 @@
+{
+  "namespace": "JP",
+  "area": "MAIL",
+  "codes": [
+    {
+      "code": "JP-MAIL-001",
+      "number": "004-002-001",
+      "key": "JP_MESSAGE_ALREADY_LINKED",
+      "aliases": [
+        "already_linked"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо уже привязано к заявке",
+        "uk": "Лист уже прив’язано до заявки",
+        "en": "The message is already linked to an application",
+        "de": "Die Nachricht ist bereits einer Bewerbung zugeordnet"
+      },
+      "cause": {
+        "ru": "Это письмо уже относится к одной из ваших заявок.",
+        "uk": "Цей лист уже належить до однієї з ваших заявок.",
+        "en": "This message already belongs to one of your applications.",
+        "de": "Diese Nachricht gehört bereits zu einer Ihrer Bewerbungen."
+      },
+      "action": {
+        "ru": "1. Откройте заявку, к которой привязано письмо.\n2. Ошиблись — отвяжите письмо там и привяжите заново.",
+        "uk": "1. Відкрийте заявку, до якої прив’язано лист.\n2. Помилилися — відв’яжіть лист там і прив’яжіть знову.",
+        "en": "1. Open the application the message is linked to.\n2. Wrong one? Unlink it there and link it again.",
+        "de": "1. Öffnen Sie die Bewerbung, der die Nachricht zugeordnet ist.\n2. Falsch? Lösen Sie die Zuordnung dort und ordnen Sie neu zu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-MAIL-001",
+      "since": "1.9.0",
+      "tags": [
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-MAIL-002",
+      "number": "004-002-002",
+      "key": "JP_LINK_NEEDS_SENT_APPLICATION",
+      "aliases": [
+        "not_sent"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Привязать можно только к отправленной заявке",
+        "uk": "Прив’язати можна лише до надісланої заявки",
+        "en": "Only a sent application can be linked",
+        "de": "Nur eine gesendete Bewerbung kann zugeordnet werden"
+      },
+      "cause": {
+        "ru": "Ответ работодателя может относиться только к заявке, которая уже отправлена.",
+        "uk": "Відповідь роботодавця може стосуватися лише заявки, яку вже надіслано.",
+        "en": "An employer’s reply can only belong to an application that has already been sent.",
+        "de": "Eine Antwort des Arbeitgebers kann nur zu einer bereits gesendeten Bewerbung gehören."
+      },
+      "action": {
+        "ru": "1. Выберите отправленную заявку.\n2. Заявку отправляли вручную — отметьте её «Отправлено вручную» и привяжите письмо.",
+        "uk": "1. Виберіть надіслану заявку.\n2. Заявку надсилали вручну — позначте її «Надіслано вручну» і прив’яжіть лист.",
+        "en": "1. Choose a sent application.\n2. Sent it yourself? Mark it “Sent manually” and link the message.",
+        "de": "1. Wählen Sie eine gesendete Bewerbung.\n2. Selbst gesendet? Markieren Sie sie als „Manuell gesendet“ und ordnen Sie die Nachricht zu."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-MAIL-002",
+      "since": "1.9.0",
+      "tags": [
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-MAIL-003",
+      "number": "004-002-003",
+      "key": "JP_REPLY_ALREADY_SENT",
+      "aliases": [
+        "reply_sent"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Ответ уже отправлен",
+        "uk": "Відповідь уже надіслано",
+        "en": "The reply has already been sent",
+        "de": "Die Antwort wurde bereits gesendet"
+      },
+      "cause": {
+        "ru": "Этот ответ отправлен раньше — возможно, в другом окне.",
+        "uk": "Цю відповідь надіслано раніше — можливо, в іншому вікні.",
+        "en": "This reply was sent earlier — perhaps in another window.",
+        "de": "Diese Antwort wurde schon früher gesendet – vielleicht in einem anderen Fenster."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте ответ в переписке заявки.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте відповідь у листуванні заявки.",
+        "en": "1. Reload the page.\n2. Check the reply in the application’s conversation.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie die Antwort im Verlauf der Bewerbung."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-MAIL-003",
+      "since": "1.9.0",
+      "tags": [
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-MAIL-004",
+      "number": "004-002-004",
+      "key": "JP_MESSAGE_IN_TRASH",
+      "aliases": [
+        "in_trash"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо в корзине",
+        "uk": "Лист у кошику",
+        "en": "The message is in the trash",
+        "de": "Die Nachricht ist im Papierkorb"
+      },
+      "cause": {
+        "ru": "Письмо из корзины не отправляется.",
+        "uk": "Лист із кошика не надсилається.",
+        "en": "A message in the trash is not sent.",
+        "de": "Eine Nachricht im Papierkorb wird nicht gesendet."
+      },
+      "action": {
+        "ru": "1. Откройте корзину.\n2. Верните письмо.\n3. Отправьте его ещё раз.",
+        "uk": "1. Відкрийте кошик.\n2. Поверніть лист.\n3. Надішліть його ще раз.",
+        "en": "1. Open the trash.\n2. Restore the message.\n3. Send it again.",
+        "de": "1. Öffnen Sie den Papierkorb.\n2. Stellen Sie die Nachricht wieder her.\n3. Senden Sie sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-MAIL-004",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "trash"
+      ]
+    },
+    {
+      "code": "JP-MAIL-005",
+      "number": "004-002-005",
+      "key": "JP_INBOX_CHECK_UNCONFIRMED",
+      "aliases": [
+        "inbox_job_uncertain"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Исход прежней проверки почты не подтверждён",
+        "uk": "Результат попередньої перевірки пошти не підтверджено",
+        "en": "The result of the previous mail check is not confirmed",
+        "de": "Das Ergebnis der vorigen E-Mail-Prüfung ist nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Прежняя проверка почты прервалась, и программа не знает, дошла ли она до конца.",
+        "uk": "Попередня перевірка пошти перервалася, і програма не знає, чи дійшла вона до кінця.",
+        "en": "The previous mail check was interrupted, and the program does not know whether it finished.",
+        "de": "Die vorige E-Mail-Prüfung wurde unterbrochen, und das Programm weiß nicht, ob sie fertig wurde."
+      },
+      "action": {
+        "ru": "1. Откройте «Почта» и посмотрите итог прежней проверки.\n2. Решите, повторить ли её.",
+        "uk": "1. Відкрийте «Пошта» і подивіться результат попередньої перевірки.\n2. Вирішіть, чи повторити її.",
+        "en": "1. Open “Mail” and look at the result of the previous check.\n2. Decide whether to repeat it.",
+        "de": "1. Öffnen Sie „E-Mail“ und sehen Sie sich das Ergebnis der vorigen Prüfung an.\n2. Entscheiden Sie, ob Sie sie wiederholen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-MAIL-005",
+      "since": "1.9.0",
+      "tags": [
+        "mail"
+      ]
+    },
+    {
+      "code": "JP-MAIL-006",
+      "number": "004-002-006",
+      "key": "JP_INBOX_CHECK_BUSY",
+      "aliases": [
+        "inbox_job_busy"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Проверка почты уже идёт",
+        "uk": "Перевірка пошти вже триває",
+        "en": "A mail check is already running",
+        "de": "Eine E-Mail-Prüfung läuft bereits"
+      },
+      "cause": {
+        "ru": "Почта уже проверяется — второй раз одновременно это не нужно.",
+        "uk": "Пошта вже перевіряється — вдруге одночасно це не потрібно.",
+        "en": "Mail is already being checked — a second check at the same time is not needed.",
+        "de": "Die E-Mails werden bereits geprüft – eine zweite gleichzeitige Prüfung ist nicht nötig."
+      },
+      "action": {
+        "ru": "1. Дождитесь конца проверки.\n2. Повторите, если нужно.",
+        "uk": "1. Дочекайтеся кінця перевірки.\n2. Повторіть, якщо потрібно.",
+        "en": "1. Wait until the check is finished.\n2. Repeat it if needed.",
+        "de": "1. Warten Sie, bis die Prüfung fertig ist.\n2. Wiederholen Sie sie bei Bedarf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-MAIL-006",
+      "since": "1.9.0",
+      "tags": [
+        "mail"
+      ]
+    }
+  ]
+}
