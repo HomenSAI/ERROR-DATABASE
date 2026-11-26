@@ -693,6 +693,58 @@
         "ai",
         "connection"
       ]
+    },
+    {
+      "code": "JP-AI-014",
+      "number": "004-003-014",
+      "key": "JP_AI_SERVICE_UNAVAILABLE",
+      "aliases": [
+        "ai_service_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Сервис ИИ не отвечает",
+        "uk": "Сервіс ШІ не відповідає",
+        "en": "The AI service does not respond",
+        "de": "Der KI-Dienst antwortet nicht"
+      },
+      "cause": {
+        "ru": "Сервис ИИ не ответил или прислал непонятный ответ. Оплата за такой запрос не списывается.",
+        "uk": "Сервіс ШІ не відповів або надіслав незрозумілу відповідь. Оплата за такий запит не списується.",
+        "en": "The AI service did not answer or sent an answer that could not be understood. Such a request is not charged.",
+        "de": "Der KI-Dienst hat nicht geantwortet oder eine unverständliche Antwort geschickt. Eine solche Anfrage wird nicht berechnet."
+      },
+      "action": {
+        "ru": "1. Подождите минуту и повторите.\n2. Проверьте ключ и баланс в «Настройки › ИИ».",
+        "uk": "1. Зачекайте хвилину й повторіть.\n2. Перевірте ключ і баланс у «Налаштування › ШІ».",
+        "en": "1. Wait a minute and try again.\n2. Check the key and balance in “Settings › AI”.",
+        "de": "1. Warten Sie eine Minute und versuchen Sie es erneut.\n2. Prüfen Sie Schlüssel und Guthaben unter „Einstellungen › KI“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-AI-014",
+      "since": "1.9.0",
+      "tags": [
+        "ai"
+      ]
     }
   ]
 }

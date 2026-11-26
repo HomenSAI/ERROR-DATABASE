@@ -740,6 +740,642 @@
         "mail",
         "send"
       ]
+    },
+    {
+      "code": "JP-MAIL-015",
+      "number": "004-002-015",
+      "key": "JP_MAIL_SEND_UNCONFIRMED",
+      "aliases": [
+        "mail_send_unconfirmed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Почта не подтвердила отправку",
+        "uk": "Пошта не підтвердила надсилання",
+        "en": "The mail server did not confirm sending",
+        "de": "Der Mailserver hat den Versand nicht bestätigt"
+      },
+      "cause": {
+        "ru": "Почтовый сервер не подтвердил, что принял письмо. Неизвестно, ушло оно или нет.",
+        "uk": "Поштовий сервер не підтвердив, що прийняв лист. Невідомо, чи пішов він.",
+        "en": "The mail server did not confirm that it accepted the message. It is not known whether the message went out.",
+        "de": "Der Mailserver hat nicht bestätigt, dass er die Nachricht angenommen hat. Es ist unklar, ob sie gesendet wurde."
+      },
+      "action": {
+        "ru": "1. Не отправляйте письмо снова сразу.\n2. Откройте «Отправленные» в своей почте и проверьте, есть ли там это письмо.\n3. Если письма нет — отправьте его ещё раз.",
+        "uk": "1. Не надсилайте лист знову відразу.\n2. Відкрийте «Надіслані» у своїй пошті й перевірте, чи є там цей лист.\n3. Якщо листа немає — надішліть його ще раз.",
+        "en": "1. Do not send the message again right away.\n2. Open “Sent” in your mailbox and check whether the message is there.\n3. If it is not there, send it again.",
+        "de": "1. Senden Sie die Nachricht nicht sofort erneut.\n2. Öffnen Sie in Ihrem Postfach „Gesendet“ und prüfen Sie, ob die Nachricht dort liegt.\n3. Fehlt sie dort, senden Sie sie noch einmal."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-015",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "send"
+      ]
+    },
+    {
+      "code": "JP-MAIL-016",
+      "number": "004-002-016",
+      "key": "JP_MAIL_FOLDER_NAME_INVALID",
+      "aliases": [
+        "mail_folder_name_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Имя папки почты не подходит",
+        "uk": "Назва поштової теки не підходить",
+        "en": "The mail folder name does not fit",
+        "de": "Der Name des Mailordners passt nicht"
+      },
+      "cause": {
+        "ru": "В названии папки есть знаки, которые почтовый сервер не принимает.",
+        "uk": "У назві теки є знаки, яких поштовий сервер не приймає.",
+        "en": "The folder name contains characters that the mail server does not accept.",
+        "de": "Der Ordnername enthält Zeichen, die der Mailserver nicht annimmt."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки › Почта».\n2. Впишите название папки так, как оно показано в вашей почте.\n3. Сохраните и повторите действие.",
+        "uk": "1. Відкрийте «Налаштування › Пошта».\n2. Впишіть назву теки так, як вона показана у вашій пошті.\n3. Збережіть і повторіть дію.",
+        "en": "1. Open “Settings › Mail”.\n2. Enter the folder name exactly as it is shown in your mailbox.\n3. Save and try again.",
+        "de": "1. Öffnen Sie „Einstellungen › E-Mail“.\n2. Tragen Sie den Ordnernamen so ein, wie er in Ihrem Postfach angezeigt wird.\n3. Speichern Sie und versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-016",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-017",
+      "number": "004-002-017",
+      "key": "JP_MAIL_FOLDERS_UNAVAILABLE",
+      "aliases": [
+        "mail_folders_unavailable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Список папок почты не получен",
+        "uk": "Список поштових тек не отримано",
+        "en": "The list of mail folders was not received",
+        "de": "Die Ordnerliste des Postfachs wurde nicht geliefert"
+      },
+      "cause": {
+        "ru": "Почтовый сервер не отдал список папок, поэтому программа не нашла папку «Отправленные».",
+        "uk": "Поштовий сервер не віддав список тек, тому програма не знайшла теку «Надіслані».",
+        "en": "The mail server did not return its list of folders, so the program could not find the “Sent” folder.",
+        "de": "Der Mailserver hat seine Ordnerliste nicht geliefert, daher fand das Programm den Ordner „Gesendet“ nicht."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки › Почта» и впишите название папки отправленных писем вручную.\n2. Проверьте входящую почту кнопкой проверки.\n3. Повторите действие.",
+        "uk": "1. Відкрийте «Налаштування › Пошта» і впишіть назву теки надісланих листів вручну.\n2. Перевірте вхідну пошту кнопкою перевірки.\n3. Повторіть дію.",
+        "en": "1. Open “Settings › Mail” and enter the name of the sent-mail folder by hand.\n2. Check the incoming mail with the check button.\n3. Try again.",
+        "de": "1. Öffnen Sie „Einstellungen › E-Mail“ und tragen Sie den Namen des Ordners für gesendete Nachrichten von Hand ein.\n2. Prüfen Sie den Posteingang mit der Prüftaste.\n3. Versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-017",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-018",
+      "number": "004-002-018",
+      "key": "JP_MAIL_SENT_CHECK_FAILED",
+      "aliases": [
+        "mail_sent_check_failed"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Не удалось проверить папку «Отправленные»",
+        "uk": "Не вдалося перевірити теку «Надіслані»",
+        "en": "The “Sent” folder could not be checked",
+        "de": "Der Ordner „Gesendet“ konnte nicht geprüft werden"
+      },
+      "cause": {
+        "ru": "Программа не смогла убедиться, что копия письма лежит в «Отправленных»: сервер ответил не полностью.",
+        "uk": "Програма не змогла переконатися, що копія листа лежить у «Надісланих»: сервер відповів не повністю.",
+        "en": "The program could not confirm that a copy of the message is in “Sent”: the server gave an incomplete answer.",
+        "de": "Das Programm konnte nicht bestätigen, dass eine Kopie der Nachricht in „Gesendet“ liegt: Der Server antwortete unvollständig."
+      },
+      "action": {
+        "ru": "1. Откройте папку «Отправленные» в своей почте и проверьте, есть ли там письмо.\n2. Повторите проверку позже.",
+        "uk": "1. Відкрийте теку «Надіслані» у своїй пошті й перевірте, чи є там лист.\n2. Повторіть перевірку пізніше.",
+        "en": "1. Open the “Sent” folder in your mailbox and check whether the message is there.\n2. Repeat the check later.",
+        "de": "1. Öffnen Sie in Ihrem Postfach den Ordner „Gesendet“ und prüfen Sie, ob die Nachricht dort liegt.\n2. Wiederholen Sie die Prüfung später."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-018",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "send"
+      ]
+    },
+    {
+      "code": "JP-MAIL-019",
+      "number": "004-002-019",
+      "key": "JP_MAIL_SENT_COPY_REJECTED",
+      "aliases": [
+        "mail_sent_copy_rejected"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ящик не принял копию в «Отправленные»",
+        "uk": "Скриня не прийняла копію в «Надіслані»",
+        "en": "The mailbox did not accept the copy in “Sent”",
+        "de": "Das Postfach hat die Kopie in „Gesendet“ nicht angenommen"
+      },
+      "cause": {
+        "ru": "Письмо ушло адресату, но почтовый ящик отклонил запись его копии в «Отправленные».",
+        "uk": "Лист пішов адресатові, але поштова скриня відхилила запис його копії в «Надіслані».",
+        "en": "The message reached the recipient, but the mailbox refused to store its copy in “Sent”.",
+        "de": "Die Nachricht ist beim Empfänger angekommen, aber das Postfach hat das Ablegen der Kopie in „Gesendet“ abgelehnt."
+      },
+      "action": {
+        "ru": "1. Проверьте в «Настройки › Почта», что папка отправленных указана верно.\n2. Проверьте, что в ящике есть свободное место.\n3. Письмо повторно отправлять не нужно.",
+        "uk": "1. Перевірте в «Налаштування › Пошта», що теку надісланих указано вірно.\n2. Перевірте, що у скрині є вільне місце.\n3. Лист повторно надсилати не потрібно.",
+        "en": "1. Check in “Settings › Mail” that the sent-mail folder is correct.\n2. Check that the mailbox has free space.\n3. There is no need to send the message again.",
+        "de": "1. Prüfen Sie unter „Einstellungen › E-Mail“, ob der Ordner für gesendete Nachrichten stimmt.\n2. Prüfen Sie, ob das Postfach freien Platz hat.\n3. Die Nachricht muss nicht erneut gesendet werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-019",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "send"
+      ]
+    },
+    {
+      "code": "JP-MAIL-020",
+      "number": "004-002-020",
+      "key": "JP_MAIL_SENT_COPY_UNKNOWN",
+      "aliases": [
+        "mail_sent_copy_unknown"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Неизвестно, записалась ли копия в «Отправленные»",
+        "uk": "Невідомо, чи записалась копія в «Надіслані»",
+        "en": "It is not known whether the copy was stored in “Sent”",
+        "de": "Unklar, ob die Kopie in „Gesendet“ gespeichert wurde"
+      },
+      "cause": {
+        "ru": "Письмо ушло адресату, но почтовый сервер не подтвердил запись его копии в «Отправленные».",
+        "uk": "Лист пішов адресатові, але поштовий сервер не підтвердив запис його копії в «Надіслані».",
+        "en": "The message reached the recipient, but the mail server did not confirm that a copy was stored in “Sent”.",
+        "de": "Die Nachricht ist beim Empfänger angekommen, aber der Mailserver hat das Speichern einer Kopie in „Gesendet“ nicht bestätigt."
+      },
+      "action": {
+        "ru": "1. Откройте «Отправленные» в своей почте.\n2. Если копии там нет, ничего страшного: письмо адресату уже ушло, отправлять его повторно не нужно.",
+        "uk": "1. Відкрийте «Надіслані» у своїй пошті.\n2. Якщо копії там немає, нічого страшного: лист адресатові вже пішов, надсилати його повторно не потрібно.",
+        "en": "1. Open “Sent” in your mailbox.\n2. If the copy is not there, that is fine: the message has already gone to the recipient and should not be sent again.",
+        "de": "1. Öffnen Sie in Ihrem Postfach „Gesendet“.\n2. Fehlt die Kopie dort, ist das nicht schlimm: Die Nachricht ist beim Empfänger und soll nicht erneut gesendet werden."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-020",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "send"
+      ]
+    },
+    {
+      "code": "JP-MAIL-021",
+      "number": "004-002-021",
+      "key": "JP_MAIL_MESSAGE_INVALID",
+      "aliases": [
+        "mail_message_invalid"
+      ],
+      "level": "error",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо собрано с ошибкой",
+        "uk": "Лист зібрано з помилкою",
+        "en": "The message was assembled incorrectly",
+        "de": "Die Nachricht wurde fehlerhaft zusammengesetzt"
+      },
+      "cause": {
+        "ru": "Программа не смогла правильно оформить письмо для записи в «Отправленные»: нарушен внутренний формат письма.",
+        "uk": "Програма не змогла правильно оформити лист для запису в «Надіслані»: порушено внутрішній формат листа.",
+        "en": "The program could not format the message correctly for storing in “Sent”: its internal format is broken.",
+        "de": "Das Programm konnte die Nachricht nicht richtig für „Gesendet“ aufbereiten: Das interne Format ist beschädigt."
+      },
+      "action": {
+        "ru": "1. Повторите действие.\n2. Если ошибка повторяется, откройте «Помощь › Проблемы», сохраните сведения и передайте их разработчику.",
+        "uk": "1. Повторіть дію.\n2. Якщо помилка повторюється, відкрийте «Допомога › Проблеми», збережіть відомості й передайте їх розробнику.",
+        "en": "1. Try again.\n2. If the error repeats, open “Help › Problems”, save the details and pass them to the developer.",
+        "de": "1. Versuchen Sie es erneut.\n2. Wiederholt sich der Fehler, öffnen Sie „Hilfe › Probleme“, speichern Sie die Angaben und geben Sie sie an den Entwickler weiter."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-021",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "send"
+      ]
+    },
+    {
+      "code": "JP-MAIL-022",
+      "number": "004-002-022",
+      "key": "JP_MAIL_NO_STABLE_UID",
+      "aliases": [
+        "mail_no_stable_uid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Ящик не подходит для автоматической проверки",
+        "uk": "Скриня не підходить для автоматичної перевірки",
+        "en": "The mailbox is not suitable for automatic checking",
+        "de": "Das Postfach eignet sich nicht für die automatische Prüfung"
+      },
+      "cause": {
+        "ru": "Почтовый сервер не хранит постоянные номера писем, поэтому автоматически следить за новыми письмами нельзя.",
+        "uk": "Поштовий сервер не зберігає постійних номерів листів, тому автоматично стежити за новими листами не можна.",
+        "en": "The mail server does not keep permanent message numbers, so new messages cannot be followed automatically.",
+        "de": "Der Mailserver führt keine dauerhaften Nachrichtennummern, daher lassen sich neue Nachrichten nicht automatisch verfolgen."
+      },
+      "action": {
+        "ru": "1. Выберите другой ящик или другую папку в «Настройки › Почта».\n2. Либо проверяйте почту вручную.",
+        "uk": "1. Виберіть іншу скриню або іншу теку в «Налаштування › Пошта».\n2. Або перевіряйте пошту вручну.",
+        "en": "1. Choose another mailbox or folder in “Settings › Mail”.\n2. Or check your mail by hand.",
+        "de": "1. Wählen Sie unter „Einstellungen › E-Mail“ ein anderes Postfach oder einen anderen Ordner.\n2. Oder prüfen Sie Ihre Post von Hand."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-022",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-023",
+      "number": "004-002-023",
+      "key": "JP_MAIL_NEW_LIST_MISSING",
+      "aliases": [
+        "mail_new_list_missing"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Почта не вернула список новых писем",
+        "uk": "Пошта не повернула список нових листів",
+        "en": "The mail server returned no list of new messages",
+        "de": "Der Mailserver hat keine Liste neuer Nachrichten geliefert"
+      },
+      "cause": {
+        "ru": "Сервер не прислал список новых писем. Письма не потеряны, программа проверит ящик заново.",
+        "uk": "Сервер не надіслав список нових листів. Листи не втрачено, програма перевірить скриню знову.",
+        "en": "The server did not send the list of new messages. Nothing is lost; the program will check the mailbox again.",
+        "de": "Der Server hat die Liste neuer Nachrichten nicht gesendet. Es geht nichts verloren; das Programm prüft das Postfach erneut."
+      },
+      "action": {
+        "ru": "1. Нажмите «Проверить почту» ещё раз.\n2. Если не помогло — проверьте соединение в «Настройки › Почта».",
+        "uk": "1. Натисніть «Перевірити пошту» ще раз.\n2. Якщо не допомогло — перевірте з’єднання в «Налаштування › Пошта».",
+        "en": "1. Press “Check mail” again.\n2. If that does not help, check the connection in “Settings › Mail”.",
+        "de": "1. Klicken Sie noch einmal auf „E-Mails prüfen“.\n2. Hilft das nicht, prüfen Sie die Verbindung unter „Einstellungen › E-Mail“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-023",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "inbox"
+      ]
+    },
+    {
+      "code": "JP-MAIL-024",
+      "number": "004-002-024",
+      "key": "JP_MAIL_MESSAGE_UNREADABLE",
+      "aliases": [
+        "mail_message_unreadable"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо не удалось прочитать полностью",
+        "uk": "Лист не вдалося прочитати повністю",
+        "en": "The message could not be read completely",
+        "de": "Die Nachricht konnte nicht vollständig gelesen werden"
+      },
+      "cause": {
+        "ru": "Сервер отдал письмо не целиком или с ошибкой. Позиция проверки не сдвинута: письмо будет прочитано при следующей проверке.",
+        "uk": "Сервер віддав лист не цілком або з помилкою. Позицію перевірки не зсунуто: лист буде прочитано під час наступної перевірки.",
+        "en": "The server returned the message incomplete or with an error. The check position was not moved; the message will be read at the next check.",
+        "de": "Der Server hat die Nachricht unvollständig oder fehlerhaft geliefert. Die Prüfposition wurde nicht verschoben; die Nachricht wird bei der nächsten Prüfung gelesen."
+      },
+      "action": {
+        "ru": "1. Нажмите «Проверить почту» ещё раз.\n2. Если письмо снова не читается, откройте его в своей почте и сохраните нужный текст вручную.",
+        "uk": "1. Натисніть «Перевірити пошту» ще раз.\n2. Якщо лист знову не читається, відкрийте його у своїй пошті й збережіть потрібний текст вручну.",
+        "en": "1. Press “Check mail” again.\n2. If the message still cannot be read, open it in your mailbox and save the text you need by hand.",
+        "de": "1. Klicken Sie noch einmal auf „E-Mails prüfen“.\n2. Lässt sich die Nachricht weiter nicht lesen, öffnen Sie sie in Ihrem Postfach und speichern Sie den benötigten Text von Hand."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-024",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "inbox"
+      ]
+    },
+    {
+      "code": "JP-MAIL-025",
+      "number": "004-002-025",
+      "key": "JP_MAIL_PROTOCOL_ERROR",
+      "aliases": [
+        "mail_protocol_error"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Почтовый сервер ответил с ошибкой",
+        "uk": "Поштовий сервер відповів помилкою",
+        "en": "The mail server answered with an error",
+        "de": "Der Mailserver antwortete mit einem Fehler"
+      },
+      "cause": {
+        "ru": "Сервер входящей почты вернул ошибку, которую программа не смогла разобрать.",
+        "uk": "Сервер вхідної пошти повернув помилку, яку програма не змогла розібрати.",
+        "en": "The incoming-mail server returned an error that the program could not interpret.",
+        "de": "Der Server für eingehende Post lieferte einen Fehler, den das Programm nicht deuten konnte."
+      },
+      "action": {
+        "ru": "1. Проверьте сервер, порт и защиту соединения в «Настройки › Почта».\n2. Повторите проверку.\n3. Если не помогло, зайдите в почту через браузер: возможно, нужен пароль приложения.",
+        "uk": "1. Перевірте сервер, порт і захист з’єднання в «Налаштування › Пошта».\n2. Повторіть перевірку.\n3. Якщо не допомогло, зайдіть у пошту через браузер: можливо, потрібен пароль застосунку.",
+        "en": "1. Check the server, port and connection security in “Settings › Mail”.\n2. Repeat the check.\n3. If that does not help, sign in to your mail in a browser: an app password may be needed.",
+        "de": "1. Prüfen Sie Server, Port und Verbindungssicherheit unter „Einstellungen › E-Mail“.\n2. Wiederholen Sie die Prüfung.\n3. Hilft das nicht, melden Sie sich im Browser bei Ihrer Post an: Möglicherweise wird ein App-Passwort benötigt."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 503,
+      "help": "errors/JP-MAIL-025",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
+    },
+    {
+      "code": "JP-MAIL-026",
+      "number": "004-002-026",
+      "key": "JP_MAIL_IMAP_NOT_CONFIGURED",
+      "aliases": [
+        "imap_not_configured"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Входящая почта не настроена",
+        "uk": "Вхідну пошту не налаштовано",
+        "en": "Incoming mail is not set up",
+        "de": "Eingehende Post ist nicht eingerichtet"
+      },
+      "cause": {
+        "ru": "Не заполнены сервер и логин входящей почты.",
+        "uk": "Не заповнені сервер і логін вхідної пошти.",
+        "en": "The incoming-mail server and login are not filled in.",
+        "de": "Server und Login für eingehende Post sind nicht ausgefüllt."
+      },
+      "action": {
+        "ru": "1. Откройте «Настройки › Почта».\n2. Заполните сервер и логин входящей почты.\n3. Нажмите «Проверить входящую почту».",
+        "uk": "1. Відкрийте «Налаштування › Пошта».\n2. Заповніть сервер і логін вхідної пошти.\n3. Натисніть «Перевірити вхідну пошту».",
+        "en": "1. Open “Settings › Mail”.\n2. Fill in the incoming-mail server and login.\n3. Press “Check incoming mail”.",
+        "de": "1. Öffnen Sie „Einstellungen › E-Mail“.\n2. Tragen Sie Server und Login für eingehende Post ein.\n3. Klicken Sie auf „Eingehende Post prüfen“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-MAIL-026",
+      "since": "1.9.0",
+      "tags": [
+        "mail",
+        "settings"
+      ]
     }
   ]
 }

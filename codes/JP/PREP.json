@@ -543,6 +543,270 @@
         "word",
         "ai"
       ]
+    },
+    {
+      "code": "JP-PREP-011",
+      "number": "004-005-011",
+      "key": "JP_CV_NOT_MADE",
+      "aliases": [
+        "cv_not_made"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Резюме ещё не составлено",
+        "uk": "Резюме ще не складено",
+        "en": "The CV has not been made yet",
+        "de": "Der Lebenslauf ist noch nicht erstellt"
+      },
+      "cause": {
+        "ru": "Утвердить или отправить резюме нельзя, пока его нет.",
+        "uk": "Затвердити чи надіслати резюме не можна, поки його немає.",
+        "en": "A CV cannot be approved or sent until it exists.",
+        "de": "Ein Lebenslauf kann nicht freigegeben oder gesendet werden, solange es ihn nicht gibt."
+      },
+      "action": {
+        "ru": "1. Откройте заявку.\n2. Нажмите «Составить резюме» или впишите текст сами.\n3. Сохраните и повторите.",
+        "uk": "1. Відкрийте заявку.\n2. Натисніть «Скласти резюме» або впишіть текст самі.\n3. Збережіть і повторіть.",
+        "en": "1. Open the application.\n2. Press “Make CV” or write the text yourself.\n3. Save and try again.",
+        "de": "1. Öffnen Sie die Bewerbung.\n2. Klicken Sie auf „Lebenslauf erstellen“ oder schreiben Sie den Text selbst.\n3. Speichern Sie und versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-011",
+      "since": "1.9.0",
+      "tags": [
+        "prep"
+      ]
+    },
+    {
+      "code": "JP-PREP-012",
+      "number": "004-005-012",
+      "key": "JP_APPLICATION_NOT_DRAFT",
+      "aliases": [
+        "not_draft"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Утвердить можно только черновик",
+        "uk": "Затвердити можна лише чернетку",
+        "en": "Only a draft can be approved",
+        "de": "Freigeben lässt sich nur ein Entwurf"
+      },
+      "cause": {
+        "ru": "Эта заявка уже отправлена или закрыта, её текст утвердить нельзя.",
+        "uk": "Цю заявку вже надіслано або закрито, її текст затвердити не можна.",
+        "en": "This application has already been sent or closed, so its text cannot be approved.",
+        "de": "Diese Bewerbung wurde bereits gesendet oder geschlossen, ihr Text kann nicht freigegeben werden."
+      },
+      "action": {
+        "ru": "1. Для нового письма создайте новую заявку.\n2. Если на странице заявки есть кнопка «Вернуть в работу», нажмите её.",
+        "uk": "1. Для нового листа створіть нову заявку.\n2. Якщо на сторінці заявки є кнопка «Повернути в роботу», натисніть її.",
+        "en": "1. For a new letter, create a new application.\n2. If the application page has a “Return to work” button, press it.",
+        "de": "1. Legen Sie für ein neues Anschreiben eine neue Bewerbung an.\n2. Gibt es auf der Seite der Bewerbung die Schaltfläche „Wieder in Arbeit nehmen“, klicken Sie darauf."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-012",
+      "since": "1.9.0",
+      "tags": [
+        "prep",
+        "approval"
+      ]
+    },
+    {
+      "code": "JP-PREP-013",
+      "number": "004-005-013",
+      "key": "JP_TEXT_NOT_CHECKED",
+      "aliases": [
+        "not_checked"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Нужна отметка «Я проверил(а) текст»",
+        "uk": "Потрібна позначка «Я перевірив(ла) текст»",
+        "en": "The “I have checked the text” box is required",
+        "de": "Das Häkchen „Ich habe den Text geprüft“ fehlt"
+      },
+      "cause": {
+        "ru": "Утвердить текст можно только после того, как вы отметили, что прочитали его.",
+        "uk": "Затвердити текст можна лише після того, як ви позначили, що прочитали його.",
+        "en": "The text can only be approved after you confirm that you have read it.",
+        "de": "Der Text kann erst freigegeben werden, nachdem Sie bestätigt haben, dass Sie ihn gelesen haben."
+      },
+      "action": {
+        "ru": "1. Прочитайте текст.\n2. Поставьте отметку «Я проверил(а) текст».\n3. Нажмите «Утверждаю».",
+        "uk": "1. Прочитайте текст.\n2. Поставте позначку «Я перевірив(ла) текст».\n3. Натисніть «Затверджую».",
+        "en": "1. Read the text.\n2. Tick “I have checked the text”.\n3. Press “Approve”.",
+        "de": "1. Lesen Sie den Text.\n2. Setzen Sie das Häkchen „Ich habe den Text geprüft“.\n3. Klicken Sie auf „Freigeben“."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-013",
+      "since": "1.9.0",
+      "tags": [
+        "prep",
+        "approval"
+      ]
+    },
+    {
+      "code": "JP-PREP-014",
+      "number": "004-005-014",
+      "key": "JP_PROFILE_INCOMPLETE",
+      "aliases": [
+        "profile_incomplete"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Профиль почти пуст",
+        "uk": "Профіль майже порожній",
+        "en": "The profile is almost empty",
+        "de": "Das Profil ist fast leer"
+      },
+      "cause": {
+        "ru": "Чтобы составить письмо, программе нужны имя и хотя бы краткое описание, опыт или навыки.",
+        "uk": "Щоб скласти лист, програмі потрібні ім’я та хоча б короткий опис, досвід або навички.",
+        "en": "To write a letter, the program needs your name and at least a short summary, experience or skills.",
+        "de": "Für ein Anschreiben braucht das Programm Ihren Namen und mindestens eine Kurzbeschreibung, Berufserfahrung oder Kenntnisse."
+      },
+      "action": {
+        "ru": "1. Откройте «Профиль».\n2. Заполните имя и описание, опыт или навыки.\n3. Сохраните и повторите.",
+        "uk": "1. Відкрийте «Профіль».\n2. Заповніть ім’я та опис, досвід або навички.\n3. Збережіть і повторіть.",
+        "en": "1. Open “Profile”.\n2. Fill in your name and a summary, experience or skills.\n3. Save and try again.",
+        "de": "1. Öffnen Sie „Profil“.\n2. Tragen Sie Namen und Beschreibung, Berufserfahrung oder Kenntnisse ein.\n3. Speichern Sie und versuchen Sie es erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-014",
+      "since": "1.9.0",
+      "tags": [
+        "prep",
+        "profile"
+      ]
+    },
+    {
+      "code": "JP-PREP-015",
+      "number": "004-005-015",
+      "key": "JP_ALREADY_APPROVED",
+      "aliases": [
+        "already_approved"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Письмо уже одобрено или отправлено",
+        "uk": "Лист уже схвалено або надіслано",
+        "en": "The letter is already approved or sent",
+        "de": "Das Anschreiben ist bereits freigegeben oder gesendet"
+      },
+      "cause": {
+        "ru": "Новый черновик поверх одобренного текста программа не создаёт, чтобы не потерять утверждение.",
+        "uk": "Нову чернетку поверх схваленого тексту програма не створює, щоб не втратити затвердження.",
+        "en": "The program does not create a new draft over an approved text, so that the approval is not lost.",
+        "de": "Das Programm legt über einem freigegebenen Text keinen neuen Entwurf an, damit die Freigabe nicht verloren geht."
+      },
+      "action": {
+        "ru": "1. Чтобы изменить письмо, поправьте текст на странице заявки: одобрение снимется.\n2. Затем утвердите текст заново.",
+        "uk": "1. Щоб змінити лист, виправте текст на сторінці заявки: схвалення знімається.\n2. Потім затвердіть текст знову.",
+        "en": "1. To change the letter, edit the text on the application page: the approval is removed.\n2. Then approve the text again.",
+        "de": "1. Um das Anschreiben zu ändern, bearbeiten Sie den Text auf der Seite der Bewerbung: Die Freigabe wird aufgehoben.\n2. Geben Sie den Text anschließend erneut frei."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-PREP-015",
+      "since": "1.9.0",
+      "tags": [
+        "prep",
+        "approval"
+      ]
     }
   ]
 }

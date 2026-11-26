@@ -374,6 +374,216 @@
         "management",
         "tasks"
       ]
+    },
+    {
+      "code": "JP-AUTO-008",
+      "number": "004-009-008",
+      "key": "JP_JOB_NOT_FOUND",
+      "aliases": [
+        "job_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Задание не найдено",
+        "uk": "Завдання не знайдено",
+        "en": "The job was not found",
+        "de": "Die Aufgabe wurde nicht gefunden"
+      },
+      "cause": {
+        "ru": "Такого задания нет: возможно, оно уже выполнено и убрано из списка.",
+        "uk": "Такого завдання немає: можливо, його вже виконано й прибрано зі списку.",
+        "en": "There is no such job: it may have finished and been removed from the list.",
+        "de": "Diese Aufgabe gibt es nicht: Möglicherweise ist sie bereits erledigt und aus der Liste entfernt."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Найдите задание в списке заново.",
+        "uk": "1. Оновіть сторінку.\n2. Знайдіть завдання в списку знову.",
+        "en": "1. Refresh the page.\n2. Find the job in the list again.",
+        "de": "1. Laden Sie die Seite neu.\n2. Suchen Sie die Aufgabe erneut in der Liste."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-AUTO-008",
+      "since": "1.9.0",
+      "tags": [
+        "jobs"
+      ]
+    },
+    {
+      "code": "JP-AUTO-009",
+      "number": "004-009-009",
+      "key": "JP_JOB_STATE",
+      "aliases": [
+        "job_state"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Действие недоступно для этого задания",
+        "uk": "Дія недоступна для цього завдання",
+        "en": "The action is not available for this job",
+        "de": "Die Aktion ist für diese Aufgabe nicht verfügbar"
+      },
+      "cause": {
+        "ru": "Задание сейчас в другом состоянии: например, оно уже выполнено, идёт или отменено.",
+        "uk": "Завдання зараз в іншому стані: наприклад, його вже виконано, воно триває або скасоване.",
+        "en": "The job is in a different state now: for example, it is already finished, running or cancelled.",
+        "de": "Die Aufgabe hat jetzt einen anderen Zustand: Sie ist zum Beispiel schon erledigt, läuft oder wurde abgebrochen."
+      },
+      "action": {
+        "ru": "1. Обновите страницу и посмотрите состояние задания.\n2. Повторите действие, если оно ещё нужно.",
+        "uk": "1. Оновіть сторінку й подивіться стан завдання.\n2. Повторіть дію, якщо вона ще потрібна.",
+        "en": "1. Refresh the page and look at the job state.\n2. Repeat the action if it is still needed.",
+        "de": "1. Laden Sie die Seite neu und sehen Sie sich den Zustand der Aufgabe an.\n2. Wiederholen Sie die Aktion, falls sie noch nötig ist."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-AUTO-009",
+      "since": "1.9.0",
+      "tags": [
+        "jobs"
+      ]
+    },
+    {
+      "code": "JP-AUTO-010",
+      "number": "004-009-010",
+      "key": "JP_SCHEDULE_NOT_FOUND",
+      "aliases": [
+        "schedule_not_found"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Расписание не найдено",
+        "uk": "Розклад не знайдено",
+        "en": "The schedule was not found",
+        "de": "Der Zeitplan wurde nicht gefunden"
+      },
+      "cause": {
+        "ru": "Такого расписания нет: его могли удалить.",
+        "uk": "Такого розкладу немає: його могли видалити.",
+        "en": "There is no such schedule: it may have been deleted.",
+        "de": "Diesen Zeitplan gibt es nicht: Er wurde möglicherweise gelöscht."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Создайте расписание заново, если оно нужно.",
+        "uk": "1. Оновіть сторінку.\n2. Створіть розклад знову, якщо він потрібен.",
+        "en": "1. Refresh the page.\n2. Create the schedule again if you need it.",
+        "de": "1. Laden Sie die Seite neu.\n2. Legen Sie den Zeitplan neu an, falls Sie ihn brauchen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 404,
+      "help": "errors/JP-AUTO-010",
+      "since": "1.9.0",
+      "tags": [
+        "jobs",
+        "schedule"
+      ]
+    },
+    {
+      "code": "JP-AUTO-011",
+      "number": "004-009-011",
+      "key": "JP_SCHEDULE_RULE_INVALID",
+      "aliases": [
+        "schedule_rule_invalid"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Правило расписания не разобрано",
+        "uk": "Правило розкладу не розібрано",
+        "en": "The schedule rule could not be read",
+        "de": "Die Zeitplanregel konnte nicht gelesen werden"
+      },
+      "cause": {
+        "ru": "В правиле расписания неверно указаны дни или время.",
+        "uk": "У правилі розкладу неправильно вказані дні або час.",
+        "en": "The days or the time in the schedule rule are not valid.",
+        "de": "Die Tage oder die Uhrzeit in der Zeitplanregel sind ungültig."
+      },
+      "action": {
+        "ru": "1. Проверьте дни недели и время: часы от 0 до 23, минуты от 0 до 59.\n2. Сохраните расписание снова.",
+        "uk": "1. Перевірте дні тижня й час: години від 0 до 23, хвилини від 0 до 59.\n2. Збережіть розклад знову.",
+        "en": "1. Check the weekdays and the time: hours 0 to 23, minutes 0 to 59.\n2. Save the schedule again.",
+        "de": "1. Prüfen Sie die Wochentage und die Uhrzeit: Stunden 0 bis 23, Minuten 0 bis 59.\n2. Speichern Sie den Zeitplan erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-AUTO-011",
+      "since": "1.9.0",
+      "tags": [
+        "jobs",
+        "schedule"
+      ]
     }
   ]
 }
