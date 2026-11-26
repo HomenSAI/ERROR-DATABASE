@@ -1267,6 +1267,113 @@
         "account",
         "mail"
       ]
+    },
+    {
+      "code": "JP-ACC-025",
+      "number": "004-001-025",
+      "key": "JP_ACC_BIRTH_DATE_INVALID",
+      "aliases": [
+        "birth_date.birth_date"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Дата рождения записана неверно",
+        "uk": "Дату народження записано неправильно",
+        "en": "The date of birth is not valid",
+        "de": "Das Geburtsdatum ist ungültig"
+      },
+      "cause": {
+        "ru": "Дата рождения должна быть настоящей датой в виде ГГГГ-ММ-ДД, например 1990-04-23.",
+        "uk": "Дата народження має бути справжньою датою у вигляді РРРР-ММ-ДД, наприклад 1990-04-23.",
+        "en": "The date of birth must be a real date written as YYYY-MM-DD, for example 1990-04-23.",
+        "de": "Das Geburtsdatum muss ein echtes Datum in der Form JJJJ-MM-TT sein, zum Beispiel 1990-04-23."
+      },
+      "action": {
+        "ru": "1. Проверьте дату.\n2. Введите её в виде ГГГГ-ММ-ДД или выберите в календаре.",
+        "uk": "1. Перевірте дату.\n2. Введіть її у вигляді РРРР-ММ-ДД або виберіть у календарі.",
+        "en": "1. Check the date.\n2. Enter it as YYYY-MM-DD or pick it in the calendar.",
+        "de": "1. Prüfen Sie das Datum.\n2. Geben Sie es als JJJJ-MM-TT ein oder wählen Sie es im Kalender."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ACC-025",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "legal"
+      ]
+    },
+    {
+      "code": "JP-ACC-026",
+      "number": "004-001-026",
+      "key": "JP_ACC_CONSENT_FILE_MISSING",
+      "aliases": [
+        "parental_consent_file_id.consent_file"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Файл согласия родителей не найден",
+        "uk": "Файл згоди батьків не знайдено",
+        "en": "The parental consent file was not found",
+        "de": "Die Datei mit der Einwilligung der Eltern wurde nicht gefunden"
+      },
+      "cause": {
+        "ru": "Выбранного файла с подписанным согласием нет среди ваших файлов: его могли удалить или выбрать неверно.",
+        "uk": "Вибраного файлу з підписаною згодою немає серед ваших файлів: його могли видалити або вибрати неправильно.",
+        "en": "The chosen file with the signed consent is not among your files: it may have been deleted or picked by mistake.",
+        "de": "Die gewählte Datei mit der unterschriebenen Einwilligung ist nicht unter Ihren Dateien: Sie wurde vielleicht gelöscht oder versehentlich gewählt."
+      },
+      "action": {
+        "ru": "1. Загрузите подписанное согласие в «Мои документы».\n2. Выберите этот файл в профиле и сохраните снова.",
+        "uk": "1. Завантажте підписану згоду в «Мої документи».\n2. Виберіть цей файл у профілі та збережіть знову.",
+        "en": "1. Upload the signed consent in “My documents”.\n2. Choose that file in the profile and save again.",
+        "de": "1. Laden Sie die unterschriebene Einwilligung unter „Meine Dokumente“ hoch.\n2. Wählen Sie die Datei im Profil und speichern Sie erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-ACC-026",
+      "since": "1.9.0",
+      "tags": [
+        "account",
+        "legal",
+        "files"
+      ]
     }
   ]
 }

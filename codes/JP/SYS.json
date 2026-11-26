@@ -469,6 +469,370 @@
       "tags": [
         "install"
       ]
+    },
+    {
+      "code": "JP-SYS-010",
+      "number": "004-014-010",
+      "key": "JP_SYS_LICENSE_INVALID",
+      "aliases": [
+        "license_invalid"
+      ],
+      "level": "warn",
+      "audience": "user",
+      "title": {
+        "ru": "Лицензия не принята",
+        "uk": "Ліцензію не прийнято",
+        "en": "The license was not accepted",
+        "de": "Die Lizenz wurde nicht akzeptiert"
+      },
+      "cause": {
+        "ru": "Файл лицензии повреждён или подписан не тем, кому программа доверяет. Программа продолжает работать в обычном объёме.",
+        "uk": "Файл ліцензії пошкоджений або підписаний не тим, кому програма довіряє. Програма продовжує працювати у звичайному обсязі.",
+        "en": "The license file is damaged or was signed by someone the program does not trust. The program keeps working in its basic scope.",
+        "de": "Die Lizenzdatei ist beschädigt oder wurde von jemandem signiert, dem das Programm nicht vertraut. Das Programm arbeitet im Grundumfang weiter."
+      },
+      "action": {
+        "ru": "1. Проверьте, что файл целый и скопирован полностью.\n2. Получите новый файл лицензии у того, кто его выдал.",
+        "uk": "1. Перевірте, що файл цілий і скопійований повністю.\n2. Отримайте новий файл ліцензії в того, хто його видав.",
+        "en": "1. Check that the file is whole and copied completely.\n2. Get a new license file from whoever issued it.",
+        "de": "1. Prüfen Sie, ob die Datei vollständig kopiert wurde.\n2. Fordern Sie bei der ausstellenden Stelle eine neue Lizenzdatei an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-010",
+      "since": "1.9.0",
+      "tags": [
+        "license"
+      ]
+    },
+    {
+      "code": "JP-SYS-011",
+      "number": "004-014-011",
+      "key": "JP_SYS_LICENSE_EXPIRED",
+      "aliases": [
+        "license_expired"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Срок лицензии истёк",
+        "uk": "Строк ліцензії минув",
+        "en": "The license has expired",
+        "de": "Die Lizenz ist abgelaufen"
+      },
+      "cause": {
+        "ru": "Срок действия лицензии закончился, поэтому дополнительные возможности выключены. Программа продолжает работать в обычном объёме.",
+        "uk": "Строк дії ліцензії закінчився, тому додаткові можливості вимкнено. Програма продовжує працювати у звичайному обсязі.",
+        "en": "The license period has ended, so the extra features are switched off. The program keeps working in its basic scope.",
+        "de": "Die Laufzeit der Lizenz ist abgelaufen, daher sind die Zusatzfunktionen aus. Das Programm arbeitet im Grundumfang weiter."
+      },
+      "action": {
+        "ru": "1. Получите продлённый файл лицензии.\n2. Установите его в настройках.",
+        "uk": "1. Отримайте подовжений файл ліцензії.\n2. Встановіть його в налаштуваннях.",
+        "en": "1. Get a renewed license file.\n2. Install it in the settings.",
+        "de": "1. Holen Sie eine verlängerte Lizenzdatei ein.\n2. Installieren Sie sie in den Einstellungen."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-011",
+      "since": "1.9.0",
+      "tags": [
+        "license"
+      ]
+    },
+    {
+      "code": "JP-SYS-012",
+      "number": "004-014-012",
+      "key": "JP_SYS_LICENSE_NO_KEY",
+      "aliases": [
+        "license_no_key"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "В этой программе нет ключа проверки лицензий",
+        "uk": "У цій програмі немає ключа перевірки ліцензій",
+        "en": "This program has no license check key",
+        "de": "Dieses Programm hat keinen Schlüssel zur Lizenzprüfung"
+      },
+      "cause": {
+        "ru": "Эта сборка программы не умеет проверять лицензии, поэтому принять файл лицензии нельзя. Основные возможности это не затрагивает.",
+        "uk": "Ця збірка програми не вміє перевіряти ліцензії, тому прийняти файл ліцензії не можна. Основні можливості це не зачіпає.",
+        "en": "This build of the program cannot check licenses, so a license file cannot be accepted. The main features are not affected.",
+        "de": "Dieser Programmstand kann Lizenzen nicht prüfen, daher kann keine Lizenzdatei angenommen werden. Die Hauptfunktionen sind nicht betroffen."
+      },
+      "action": {
+        "ru": "1. Обновите программу до версии с проверкой лицензий.\n2. Установите лицензию снова.",
+        "uk": "1. Оновіть програму до версії з перевіркою ліцензій.\n2. Встановіть ліцензію знову.",
+        "en": "1. Update the program to a version that checks licenses.\n2. Install the license again.",
+        "de": "1. Aktualisieren Sie das Programm auf eine Version mit Lizenzprüfung.\n2. Installieren Sie die Lizenz erneut."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-012",
+      "since": "1.9.0",
+      "tags": [
+        "license"
+      ]
+    },
+    {
+      "code": "JP-SYS-013",
+      "number": "004-014-013",
+      "key": "JP_SYS_REQUEST_NUMBER_INVALID",
+      "aliases": [
+        "client_event_id.client_event_id"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Номер запроса записан неверно",
+        "uk": "Номер запиту записано неправильно",
+        "en": "The request number is not valid",
+        "de": "Die Anfragenummer ist ungültig"
+      },
+      "cause": {
+        "ru": "Номер запроса должен состоять из 8–64 знаков: латинские буквы, цифры, дефис и подчёркивание.",
+        "uk": "Номер запиту має складатися з 8–64 знаків: латинські літери, цифри, дефіс і підкреслення.",
+        "en": "A request number must be 8–64 characters: Latin letters, digits, hyphen and underscore.",
+        "de": "Eine Anfragenummer besteht aus 8–64 Zeichen: lateinische Buchstaben, Ziffern, Bindestrich und Unterstrich."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-013",
+      "since": "1.9.0",
+      "tags": [
+        "requests"
+      ]
+    },
+    {
+      "code": "JP-SYS-014",
+      "number": "004-014-014",
+      "key": "JP_SYS_REQUEST_NUMBER_REUSED",
+      "aliases": [
+        "client_event_id.client_event_reused"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Номер запроса уже использован для другого действия",
+        "uk": "Номер запиту вже використано для іншої дії",
+        "en": "The request number was already used for another action",
+        "de": "Die Anfragenummer wurde schon für eine andere Aktion verwendet"
+      },
+      "cause": {
+        "ru": "Тот же номер запроса пришёл с другим действием. Программа не выполняет его, чтобы не перепутать запросы.",
+        "uk": "Той самий номер запиту прийшов з іншою дією. Програма не виконує його, щоб не переплутати запити.",
+        "en": "The same request number arrived with a different action. The program does not carry it out, so that requests are not mixed up.",
+        "de": "Dieselbe Anfragenummer kam mit einer anderen Aktion. Das Programm führt sie nicht aus, damit Anfragen nicht verwechselt werden."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Повторите действие.",
+        "uk": "1. Оновіть сторінку.\n2. Повторіть дію.",
+        "en": "1. Reload the page.\n2. Repeat the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Wiederholen Sie die Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 422,
+      "help": "errors/JP-SYS-014",
+      "since": "1.9.0",
+      "tags": [
+        "requests"
+      ]
+    },
+    {
+      "code": "JP-SYS-015",
+      "number": "004-014-015",
+      "key": "JP_SYS_REQUEST_RUNNING",
+      "aliases": [
+        "client_event_pending"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Этот запрос уже выполняется",
+        "uk": "Цей запит уже виконується",
+        "en": "This request is already running",
+        "de": "Diese Anfrage läuft bereits"
+      },
+      "cause": {
+        "ru": "Тот же запрос уже принят и ещё выполняется. Второй раз он не запускается, чтобы действие не сделалось дважды.",
+        "uk": "Той самий запит уже прийнято й він ще виконується. Вдруге він не запускається, щоб дію не було виконано двічі.",
+        "en": "The same request was already accepted and is still running. It is not started again, so that the action is not done twice.",
+        "de": "Dieselbe Anfrage wurde bereits angenommen und läuft noch. Sie wird nicht erneut gestartet, damit die Aktion nicht doppelt ausgeführt wird."
+      },
+      "action": {
+        "ru": "1. Подождите несколько секунд.\n2. Обновите страницу и посмотрите результат.",
+        "uk": "1. Зачекайте кілька секунд.\n2. Оновіть сторінку та подивіться результат.",
+        "en": "1. Wait a few seconds.\n2. Reload the page and look at the result.",
+        "de": "1. Warten Sie einige Sekunden.\n2. Laden Sie die Seite neu und sehen Sie sich das Ergebnis an."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": true,
+      "http_status": 409,
+      "help": "errors/JP-SYS-015",
+      "since": "1.9.0",
+      "tags": [
+        "requests"
+      ]
+    },
+    {
+      "code": "JP-SYS-016",
+      "number": "004-014-016",
+      "key": "JP_SYS_REQUEST_DONE",
+      "aliases": [
+        "client_event_done"
+      ],
+      "level": "info",
+      "audience": "user",
+      "title": {
+        "ru": "Это действие уже выполнено",
+        "uk": "Цю дію вже виконано",
+        "en": "This action has already been done",
+        "de": "Diese Aktion wurde bereits ausgeführt"
+      },
+      "cause": {
+        "ru": "Такой запрос уже выполнялся, а его ответ не сохранился, поэтому повторять действие не нужно.",
+        "uk": "Такий запит уже виконувався, а його відповідь не збереглася, тому повторювати дію не потрібно.",
+        "en": "This request was already carried out and its answer was not kept, so there is no need to repeat the action.",
+        "de": "Diese Anfrage wurde bereits ausgeführt, ihre Antwort wurde nicht gespeichert, daher muss die Aktion nicht wiederholt werden."
+      },
+      "action": {
+        "ru": "1. Обновите страницу.\n2. Проверьте результат действия.",
+        "uk": "1. Оновіть сторінку.\n2. Перевірте результат дії.",
+        "en": "1. Reload the page.\n2. Check the result of the action.",
+        "de": "1. Laden Sie die Seite neu.\n2. Prüfen Sie das Ergebnis der Aktion."
+      },
+      "escalation": [
+        {
+          "to": "self",
+          "when": "всегда первым"
+        },
+        {
+          "to": "ai",
+          "assistant": "any",
+          "prompt": "analyze-error/v1",
+          "data": [
+            "code",
+            "params",
+            "app_version",
+            "os"
+          ]
+        }
+      ],
+      "retryable": false,
+      "http_status": 409,
+      "help": "errors/JP-SYS-016",
+      "since": "1.9.0",
+      "tags": [
+        "requests"
+      ]
     }
   ]
 }
